@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ENN on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/tags/enn/</link>
+    <description>Recent content in ENN on Xu Zhang&#39;s Blog</description>
+    <image>
+      <title>Xu Zhang&#39;s Blog</title>
+      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.121.2</generator>
+    <language>en</language>
+    <atom:link href="https://xuzhang0112.github.io/tags/enn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Evidential Deep Learning</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/enn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/enn/</guid>
+      <description>B分布和Dirichlet分布 B分布：0-1之间的含参连续分布，概率的概率分布服从B分布。
+如何通俗理解 beta 分布？
+狄利克雷分布（Dirichlet distribution）:B分布在K≥3时的一种推广，K维离散随机变量的概率分布服从Dirichlet分布。
+深度置信网络（ENN） Dr. Dragon 详细数学推导版
+以下为Stupid ZX 无数学民科版
+故事会版 对于一个K分类问题，一般的机器学习建模的是类别的K维分布，模型输出的类别概率不能等同于置信度，因为即使遇到K类以外的样本，仍然满足概率和为1，。
+为了建模不确定性，我们可以把模型的输出也看成服从某种分布，每一个采样值是K分类的概率分布和该判决的置信度。我们不再让神经网络建模K分类的概率，而是建模K分类的概率分布服从的分布，之后采样即可得到置信度和模型的K分类输出。
+优化过程本质上和常规的分类问题是类似的，通过似然值/交叉熵/均方误差，拉进K分类预测值和实际的标签值。虽然从狄利克雷分布中采样K分类的概率预测是不可导的，但是狄利克雷分布的参数到数学期望的映射是可导的，我们可以推导出对分布参数的损失函数，从而优化整个网络。
+省略数学推导过程，我们看一下采用似然值作为K分类损失函数时，网络输出的狄利克雷分布参数的损失函数，
+$$ \Sigma^k_{i=1}y_{i}（logS-log\alpha_{i}） $$ 物理意义是很明确的，最小化各个类别置信度之和S，最大化正确类别的置信度α。
+一句话蒸馏版 模型结构：端到端K分类预测 -&amp;gt; 先获得证据，再通过分布采样获得K分类预测
+优化方法：
+类别标签产生的监督信号，通过公式推导，优化网络的证据预测值 正则项约束：要求错误类别的证据为0 </description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/</link>
+    <description>Recent content on Xu Zhang&#39;s Blog</description>
+    <image>
+      <title>Xu Zhang&#39;s Blog</title>
+      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.121.2</generator>
+    <language>en</language>
+    <atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Novel ICD Coding Framework Based on Associated and Hierarchical Code Description Distillation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv24/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv24/</guid>
+      <description>原文链接
+ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
+每个医学报告对应若干ICD code，通过先验知识ICD Tree，可以获得若干相邻的（易混淆的）ICD code。
+监督信号来自两方面：
+文本描述和正确的标签描述都应该能被分类器正确地分类出icd code；
+文本描述应该和标签描述尽可能接近，和易混淆的标签描述尽可能远离；
+对于不同的Backbone，该方法在MIMIC III上可以产生0-3个点的提升。</description>
+    </item>
+    <item>
+      <title>Automatic ICD Coding Exploiting Discourse Structure and Reconciled Code Embeddings</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/coling2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/coling2022/</guid>
+      <description>key idea Backbone：biLSTM Discourse Structure: 给不同的篇章加embedding，来帮助模型学习篇章结构 加了embedding容易过拟合，所以加了个0.5的dropout Reconciled Code Embedding: 为了解决ICD Code和病历文本交互时的异质性 从ICD Code和病历文本中学习向量各个维度的缩放比例、归纳偏置 同时，增加罕见病的注意力学习权重，以缓解类别不平衡 行云流水的魔改多尺度attention，配合了一些公式 可视化注意力得分高的区域，来展示模型的感兴趣部分 计算量随类别数增加（N^2），因此无法处理超大类别 attention Word embedding (with code attention)
+Sentence level (code attention同上)
+Document embedding
+Reconciled Code Embedding: 为了解决ICD Code和病历文本交互时的异质性 从ICD Code和病历文本中学习向量各个维度的缩放比例、归纳偏置
+同时，增加罕见病的注意力学习权重，以缓解类别不平衡
+可视化了各个类别的注意力二番薯，$$\tau$$是正则化的缩放比例
+details Adam学习率1e-5, Batch Size12, 正则化系数1e-4
+消融实验
+把测试集的标签按照样本频次划分成了head set(1446，f&amp;gt;50), body set(1779, 5&amp;lt;f&amp;lt;50), tail set(860, &amp;lt;5)
+对比实验
+可视化 注意力得分高的区域，来展示模型的感兴趣部分，并证明模块的有效性</description>
+    </item>
+    <item>
+      <title>Basic Nerual Networks</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/basic_nn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/basic_nn/</guid>
+      <description>Keyword 一图胜前言
+CNN UNet Series R-CNN Series Fast R-CNN Faster R-CNN 使用Backbone（通常是ResNet）提取特征，得到Feature Map 使用RPN得到若干Bounding Box，分类anchor的有无，回归位置和大小 使用ROI进一步对抑制过的Bounding Box进行细化，进一步回归得到准确的位置和大小，分类得到类别，并抑制 Mask R-CNN [ICCV 2017 Best Paper] YOLO Series YOLO V1 YOLO V3 RNN 感觉已经G了，不想写了，随便写点吧
+t时刻的输出与t时刻的输入和t-1时刻的隐状态有关
+Mamba 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba
+LSTM 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。
+Transformer 注意力机制
+自注意力：计算encoder/decoder中每个向量与其他向量的相关性，用加权和取代原来的向量
+交叉注意力：计算decoder中每个向量与encoder输出向量的相关性，用加权和取代decoder中的原向量
+多头：多个注意力的结果拼接起来，再通过线性变换降低维度至输入的维度
+高度并行化
+Encoder完全并行
+Decoder高度并行，t时刻不依赖于t-1时刻的隐状态ht-1，仅依赖前t-1个输出
+在训练阶段可以通过teacher forcing实现并行训练
+BERT 结构：Transformer的encoder
+预训练：完形填空
+VIT 将图片拆成patch，视为词向量，送入Tansformer的encoder
+需要预训练，是否优于ResNet取决于预训练数据集的大小
+GPT 模型结构：Transformer decoder堆叠
+学习方式：Pretraining-Finetuning
+大规模无标签数据进行无监督训练，代理任务采用下词预测
+在特定任务上进行有监督的模型微调
+GPT-2 学习方式：Pretraining+Zero-Shot 模型参数更大，数据集更大、质量更高，在9个任务上超过有监督SOTA 在摘要、翻译、问答等任务上不如无监督模型 GPT-3 学习方式：Pretraining+Few-Shot 超过了有监督BERT，尚未超过有监督SOTA GPT3.5：InsturctGPT 大规模语言模型（LLM）的Alignment应当遵循3H原则（Helpful,Honest,Harmless） 学习方式：GPT3+SFT+RM+PPO Prompt数据库构建 来源：Labeler+Customer Prompt分类：直接指定任务/通过样例指定 比较数据打分 Instruction FineTuning(IFT) 任务泛化能力 RLHF：符合人类偏好的奖励函数 社会化的过程 学习文字接龙 GNN 本质：MLP+聚合</description>
+    </item>
+    <item>
+      <title>CLI Cheatsheet</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/cheat_sheet/cli/</guid>
+      <description>基本命令 命令=可执行文件/别名+文件路径
+用&amp;quot;&amp;amp;&amp;amp;&amp;ldquo;连接：多条命令依次执行，报错则终止
+用“||”连接：多条命令依次执行，成功则终止
+文件路径 绝对路径 /data/xuzhang/&amp;hellip; 相对路径 用户根目录下~/...当前目录下./上一级目录下../上上一级目录下../../ 相对路径是相对于当前工作路径！！！可执行文件的调用export设置环境变量PATHalias设置别名在当前文件夹下使用./ 文件管理 浏览 ls dir查看dir内的文件（省略则为当前文件夹） 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 重命名文件/文件夹mv file1 file2 重命名file1为file2mv dir1 dir2重命名dir1为dir2（dir2不存在）移动文件/文件夹到目标文件夹内部（必须目标文件夹存在）mv file1 dir2移动file1/dire1到dir2（dir2存在）mv dir1 dir2移动dir1到dir2（dir2存在）移动多个文件mv file1 file2 dir2移动file1和file2到dir2 关键看目标文件夹是否存在 拷贝 cp file1 file2``cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 命令 压缩 解压 zip &amp;amp; unzip gzip &amp;amp; gunzip gunzip -r dir 解压文件夹下所有.gz文件 文件删改 查看 cat file1``cat file1 file2 本义是“concatenate and print files”，连接和查看多个文件内容，实际多用于查看单个文件内容 head -n 10 输出文本文件的前10行 tail -n 10 wc file.</description>
+    </item>
+    <item>
+      <title>Compositional Generalization for Multi-Label Text Classification: A Data-Augmentation Approach</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/5/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Contrastive Learning &amp; Meta Learning</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/learning/</guid>
+      <description>对比学习 InstDisc：提出了个体判别的代理任务，核心思想是每张图片都是一个类 batch_size=256, 256个正样本，4096个负样本 Backbone是ResNet50，2048降维到128 200个epoch,温度0.07，学习率1e-2
+数据结构：memory bank
+InvaSpread：端到端，SimCLR前身 端到端，正负样本来自同一个mini batch，正样本是任一图片及其变换，负样本是其他图片及其变换
+因为字典不够大（batchsize只有256），数据增广不够，没有加MLP，因此效果不好
+MoCo：提出了“字典查找”的概念，认为对比学习本质上是在构建一个大字典 用队列取代memory bank
+使用动量编码来解决大字典内key的不一致，由于key的编码器更新缓慢，因此可以认为一致
+损失函数：infoNCE
+普适性强，Q和K的编码器可以不同，输入可以是任意模态
+simCLR：成功实现了端到端的对比学习 只有一个编码器
+更多的数据增强：对比学习非常依赖数据增强 对比学习时增加了一个MLP层（迁移到下游任务时去除） 更大的batchsize：从而实现端到端训练 MoCov2 MoCo+数据增强+MLP+cos schedule
+batch=256时，效果远优于sim CLR
+simCLRv2 模型更大
+MLP：fn-ReLu-fn
+动量编码器
+Meta Learning 参考：Meta-Learning in Neural Networks*: A Survey（2020）*
+Meta-learning经常被理解为learn to learn，可以分为两个阶段：内循环和外循环。
+内循环阶段，模型利用训练样本拟合某个特定任务；在外循环阶段，对外循环的某个目标函数进行优化。
+内循环和外循环迭代交替进行。
+MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 与传统机器学习的区别
+传统机器学习：训练集和测试集是同一个task，在训练集样本上训练模型，希望模型在测试集样本上表现好 MAML：task不同，在训练集可见的task上训练模型，希望在未见过的task上效果好 利用训练集的task学习一个初始化参数，使这个参数在未见过的任务上finetune几轮，就能达到较好的效果 两个阶段：meta-train（内循环+外循环迭代更新，support set &amp;amp; query set）、meta-test（在具体任务上finetune）</description>
+    </item>
+    <item>
+      <title>De-biased Attention Supervision for Text Classification with Causality</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/8/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deep Hierarchical Classification for Category Prediction in E-commerce System</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/20_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/20_1/</guid>
+      <description>ACL 2020 workshop</description>
+    </item>
+    <item>
+      <title>DKEC: Domain Knowledge Enhanced Multi-Label Classification for Electronic Health Records</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2024/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2024/</guid>
+      <description>key idea 使用GNN从医学指南中获取疾病的表示，从而指导大模型的输出 使用冻结的预训练编码器（可以是任何模型，当然理论上不如全参数微调） 只训练GNN（HGT），可以作为即插即用的模块，能使得小模型具有和大模型相当的性能 通过年龄特性对某些疾病进行规则筛选 Results in MIMIC III 数据集的划分和之前的SOTA不太一样，因此无法直接比较</description>
+    </item>
+    <item>
+      <title>Effective Convolutional Attention Network for Multi-label Clinical Document Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2021/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2021/</guid>
+      <description>key idea Backbone:CNN+多尺度 通过Conv1d聚合信息的同时，用SE模块进行一定的增强 Label Attention，多标签分类的常用做法，用attention为每一个标签聚合文本特征，对每一个标签的概率进行sigmoid激活 每个标签独立计算概率，但都要考虑所有类别的标签聚合到的特征$$V\in R^{N_l\times D_{conv}}$$ 在训练初期使用bce loss，后期切换到focal loss，以防止实验早期无法拟合常见病（罕见病1-2%左右） 可解释性探讨 Res-SE模块 SE模块，通过token所在的句子来判断这个token的重要性，并进行权重增强</description>
+    </item>
+    <item>
+      <title>Enhancing Hierarchical Text Classification through Knowledge Graph Integration</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/23_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/23_1/</guid>
+      <description>ACL 2023</description>
+    </item>
+    <item>
+      <title>Enhancing Multi-Label Classification via Dynamic Label-Order Learning</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/9/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/9/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Evidential Deep Learning</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/enn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/enn/</guid>
+      <description>B分布和Dirichlet分布 B分布：0-1之间的含参连续分布，概率的概率分布服从B分布。
+如何通俗理解 beta 分布？
+狄利克雷分布（Dirichlet distribution）:B分布在K≥3时的一种推广，K维离散随机变量的概率分布服从Dirichlet分布。
+深度置信网络（ENN） Dr. Dragon 详细数学推导版
+以下为Stupid ZX 无数学民科版
+故事会版 对于一个K分类问题，一般的机器学习建模的是类别的K维分布，模型输出的类别概率不能等同于置信度，因为即使遇到K类以外的样本，仍然满足概率和为1，。
+为了建模不确定性，我们可以把模型的输出也看成服从某种分布，每一个采样值是K分类的概率分布和该判决的置信度。我们不再让神经网络建模K分类的概率，而是建模K分类的概率分布服从的分布，之后采样即可得到置信度和模型的K分类输出。
+优化过程本质上和常规的分类问题是类似的，通过似然值/交叉熵/均方误差，拉进K分类预测值和实际的标签值。虽然从狄利克雷分布中采样K分类的概率预测是不可导的，但是狄利克雷分布的参数到数学期望的映射是可导的，我们可以推导出对分布参数的损失函数，从而优化整个网络。
+省略数学推导过程，我们看一下采用似然值作为K分类损失函数时，网络输出的狄利克雷分布参数的损失函数，
+$$ \Sigma^k_{i=1}y_{i}（logS-log\alpha_{i}） $$ 物理意义是很明确的，最小化各个类别置信度之和S，最大化正确类别的置信度α。
+一句话蒸馏版 模型结构：端到端K分类预测 -&amp;gt; 先获得证据，再通过分布采样获得K分类预测
+优化方法：
+类别标签产生的监督信号，通过公式推导，优化网络的证据预测值 正则项约束：要求错误类别的证据为0 </description>
+    </item>
+    <item>
+      <title>Graph Neural Network Based Multi-Label Hierarchical Classification for Disease Predictions in General Practice</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</guid>
+      <description>key idea Graph构建，包含病人、症状、疾病三种节点类型，症状和疾病通过TransE初始化，病人取症状的均值 过2层GAT，采用多个二分类的分类器，子类疾病的概率=父类概率×子类概率（涨了0.6个点） architecture </description>
+    </item>
+    <item>
+      <title>Graph Representation of Chinese EMRs and its Short-text Classification Application</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/bibm2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/bibm2023/</guid>
+      <description>key idea 用TextGCN来做医学短语分类。
+构建出一个大图之后，可以将子图的embedding直接送入GCN进行分类 优点是非常轻量化，节点和关系嵌入都是预先计算好的，2层的GNN几乎没有参数量，效果似乎也还不错 Graph的构建 节点嵌入(word2vec) word2vec Word2Vec模型中，主要有Skip-Gram和CBOW两种模型，从直观上理解，Skip-Gram是给定input word来预测上下文。而CBOW是给定上下文，来预测input word。这两种方法都是基于神经网络的无监督词嵌入算法。 关系建立(PMI) PMI（Pointwise Mutual Information，逐点互信息），即共现频率/各自出现的频率</description>
+    </item>
+    <item>
+      <title>Hierarchical Knowledge Guided Learning for Real-World Retinal Disease Recognition</title>
+      <link>https://xuzhang0112.github.io/paper_reading/tmi/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/tmi/1/</guid>
+      <description>作者知乎 作者Talk</description>
+    </item>
+    <item>
+      <title>How to Fine-Tune BERT for Text Classification?</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</guid>
+      <description>Key idea 在9个中文数据集上探究了BERT在文本分类任务上的进一步预训练与微调
+结论 实验一：微调策略 对于长文本，经验性地截取开头和结尾 &amp;gt; 全文分段送入BERT，self-attention &amp;gt; max pooling &amp;gt; mean pooling 最后一层的输出 &amp;gt; 若干层的拼接和池化 较低的学习率（2e-5）和layer-wise的学习率衰减（0.95）有助于缓解灾难性遗忘 fine-tune一般采取三角学习率（warm up + linear decay） pretrain: lr=5e-5, seq_len=128; fine-tune: lr=2e-5, seq_len=512 实验二： 进一步预训练 进一步预训练(in-domain &amp;gt; task &amp;gt; cross-domain，不绝对) &amp;gt; 多任务fine-tune &amp;gt; 直接fine-tune 多任务fine-tune在further pretrain的情况下是会掉点的，仅仅优于直接fine-tune ULMFiT: 大规模数据集上进行pre-training然后在特定数据集上达到state-of-the-art的工作，分为3个阶段，phase1 big dataset pretrain; phase2 task dataset pretrain; phase3 finetune </description>
+    </item>
+    <item>
+      <title>HPT: Hierarchy-aware Prompt Tuning for Hierarchical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</guid>
+      <description>key idea 指出了层次化分类的基本范式，通过GNN对层次标签进行编码 同时，保留了预训练时的MLM任务，以缓解灾难性遗忘。 提出了ZMLCE Loss Architecture 结构上的改进
+用GAT构造出每个层级的描述，指导模型作出这一层级的分类；
+在每个层级的分类时，使用这一层级的分类器，在这里，使用了每个类别词的embedding作权重初始化；
+效果还不错，涨了1个点</description>
+    </item>
+    <item>
+      <title>Hugo Blog</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/blog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/cheat_sheet/blog/</guid>
+      <description>Hugo
+hugo server -D #本地编译 hugo #编译 将Hugo静态网站部署到Github Pages PaperMod
+mathjax渲染</description>
+    </item>
+    <item>
+      <title>Improved Graph Contrastive Learning for Short Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/4/</guid>
+      <description>从语料库中构建3种类型的图，单词、实体、词性。
+Word Graph采用GloVe word vectors作为节点嵌入，PMI作为边权重；
+Entity Graph采用TransE获取节点嵌入，cosine similarity作为边权重；
+Pos Graph采用One-hot作为节点嵌入，PMI作为边权重。
+这些嵌入可以通过GNN来进一步聚合邻域的信息。 $$ H^{l+1}=\sigma(\hat{D^{-\frac{1}{2}}}\hat{A}\hat{D^{-\frac{1}{2}}}H^lW^l) $$ 基于这些嵌入，进一步可以构建出文本的表示，对于单词和词性，采用TF-IDF作为系数矩阵，对于实体，则只用0和1来区分文本是否存在该实体，$M_\pi$表示文本与单词、实体、词性之间的系数矩阵。 $$ Z_\pi = M_\pi H_\pi , \pi \in {w,e,p} $$
+$$ Z_{org} = Z_w || Z_e || Z_p $$
+$Z_{pi}$是文本的原始特征表示，可以使用SVD进行进一步的去噪和增强，获得增强的文本表示。 $$ M_{\pi , r} = U_{\pi,r}\Sigma_{\pi,r}V_{\pi,r}^T $$
+$$ Z_{\pi,r}=M_{\pi,r}H_\pi $$
+$$ Z_{aug}=Z_{w,r}||Z_{e,r}||Z_{p,r} $$
+对于无标签的文本，采用对比学习和聚类对比学习损失。
+实例对比学习将每个实例与其增强表示拉近，与其他实例及其增强表示拉远。 $$ L_{cl} = -\sum_{i=1}^{2N}\frac{1}{2N}log\frac{exp(P_i\cdot P_j / \tau)}{\sum_{k=1}^{2N}\prod_{k\neq i}exp(P_i\cdot P_k / \tau)} $$ 聚类对比学习将每个实例与其伪标签（聚类中心）相同的实例拉近，与其他实例拉远。 $$ L_{ccl} = -\sum_i^N \frac{1}{|S_i|-1}\sum_{j\in S_i}log\frac{exp(Q_i\cdot Q_j/\tau)}{\sum_{k=1}^N\prod_{k \neq i}exp(Q_i\cdot Qk/\tau)} $$ 对于有标签的文本，采用交叉熵损失。 $$ L_{ce}=-\sum_{i\in D_{lab}}\sum_j^cy_{ij}logR_{j} $$</description>
+    </item>
+    <item>
+      <title>Incorporating Hierarchy into Text Encoder: a Contrastive Learning Approach for Hierarchical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/22/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/22/</guid>
+      <description>ACL 2022</description>
+    </item>
+    <item>
+      <title>KG-MTT-BERT: Knowledge Graph Enhanced BERT for Multi-Type Medical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2022/</guid>
+      <description>key idea 中文病历报告的疾病分类工作
+使用bert分别处理病历报告的各个字段，探讨了不同尺度和不同池化方式对结果的影响 max-pooling比CLS更好 序列长度大于64时，效果较好 大体上损失函数收敛更快、更低，同时精度提升最快 使用KG、图嵌入和图网络增强了分类 图嵌入:KG2E 推测：词语级别的医学实体编码相比单字级别的中文分词编码，引入了额外的信息，因此能提升性能 数据集规模大概在几万例样本，几百类疾病，各个字段的长度差异较大，entity也比较少</description>
+    </item>
+    <item>
+      <title>Knowledge Injected Prompt Based Fine-tuning for Multi-label Few-shot ICD Coding </title>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</guid>
+      <description>SOTA of MIMIC III, in 2022, micro-f1 = 59.9 (ReRanker, 2-stage)
+key idea 利用UMLS 2021AA知识图谱（4.4M实体）的层次化知识进行对比学习的预训练，并为不同的负样本（UMLS中的邻节点、父节点、不相关节点）设置不同的软间隔
+在这之前先进行MIMIC III上的完型填空预训练 输入格式：疾病a描述+[MASK]+疾病b描述+[MASK]+&amp;hellip;+病历文本，通过MLM来预测疾病的有无
+使用超长文本专用的LongFormer（8192个token，全局注意力）来处理，使用注意力机制来捕获每一种疾病的相关信息，从而根据不同位置编码的MASK来预测不同疾病的有无
+计算量随类别数增加（N^2），因此无法处理超大类别 Details Pretrain，1张V100，48小时
+Finetune, 2张A100，10+0.5小时（MIMIC-III-50 &amp;amp; MIMIC-III-rare50）
+计算量随类别数增加（N^2），因此无法处理超大类别 因此，它在MIMIC III上的SOTA是通过2-stage取得的，先使用之前的sota模型选出300个candidate，再进一步计算</description>
+    </item>
+    <item>
+      <title>Liberating Seen Classes: Boosting Few-Shot and Zero-Shot Text Classification via Anchor Generation and Classification Reframing</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/7/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linear Algebra</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/course/algebra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/cheat_sheet/course/algebra/</guid>
+      <description>作业 作业1
+数域：对加减乘除封闭
+常微分方程的通解：特征方程，指数函数
+线性空间：对加法&amp;amp;数乘封闭+8条
+基：线性无关+表出整个空间
+柯西不等式：根据内积半正定得到不等式，然后再根据结论构造；
+施密特正交化：范数由区间上的内积定义，而不是本身的模长；奇函数/偶函数在对称区间上积分的性质；减去在标准正交基上的分量+单位化；
+作业2
+格拉姆矩阵：向量的内积；对角线上是范数的平方；注意非标准正交基的内积不为1；
+傅立叶变换：向量和不同正交基在酉空间上的内积结果；变换后的内积与原始内积的比值等于基向量的内积；
+帕萨瓦尔定理：时空域和频域的概率密度函数的范数相等；
+时域/频域概率密度函数的期望和方差：一阶矩和二阶矩，三角函数相关的微积分（三角恒等式，三角换元，点火公式考虑平方时的特殊情况pi/4）
+二维傅立叶变换：频域每一个点的基向量沿着二维空间的两个方向变化；而CT重建时是投影后再作一维傅立叶变换，本质上只有沿着一个方向变换的基向量，所以在频域只是过中心的直线（因为基向量只沿着一个方向变化，而不是两个）；
+作业3
+子空间：对加法和数乘封闭+属于原线性空间；
+对角阵：对每一个基向量分别乘以一个系数（左乘变行/右乘变列，本质是分块矩阵乘法）
+若矩阵左乘对角阵和右乘对角阵相等，则该矩阵也是对角阵
+解空间的维度=n-系数矩阵的秩
+直和：和+线性无关；两个空间相等的充要条件是相互包含；
+相抵标准型：先行变换，再列变换；PAQ，行变换倒序，列变换正序；初等变换矩阵本质上还是对行和列的线性组合，可以视情况合并（例如所有列依次调换）；
+广义加号逆：已经掌握了流畅的推导！根据投影的正则方程$$C^TAx=C^Tb$$可得b在A的列空间的投影$$\hat{b}=C(C^TC)C^Tb$$，同时最优最小二乘解$$x^$$属于A的行空间，所以可以表达为$$x^=A^Ty=R^Ty^$$，进一步代入$$CRR^Ty=C(C^TC)C^Tb$$，解得$$x^=R^T(RR^T)^{-1}(C^TC)^{-1}C^T$$（关键在于凑可逆阵，行满秩乘以列满秩必可逆，即$$C^TC和RR^$$可逆）
+CR分解：寻找PAQ满足标准形，然后将标准形拆成两个矩阵的乘积；本质是秩1矩阵的和；
+子空间的和：基向量的和；
+反证法：若a属于A空间+b不属于A空间,则a+b必不属于A空间（否则可以倒推出b属于A空间）
+作业4
+二范数/四范数：最小值考虑one-hot（最小值为1）；最大值考虑柯西不等式（全1向量）；
+线性变换：考虑基变换时，不同的基对应不同的矩阵；不同基下的线性变换矩阵公式$$B=P^{-1}AP$$其中P是A的基到B的基的过渡矩阵；到平凡基的过渡矩阵即现有基的逆矩阵；线性变换和矩阵同构，可以加法、数乘、乘法；
+不同特征值的特征向量线性无关：1.两个特征值，反证法，若线性相关，则属于相同的特征值；2.多个特征值，数学归纳法，若前i+1个特征值的特征向量线性相关则推出前i个特征值的特征向量线性相关；
+秩1矩阵的相似对角化：考虑非零特征值和零特征值的特征子空间，非零特征值取决于是否正交，零特征值的特征子空间维数是n-1
+核空间与象空间：核空间外的基经过线性变换后构成象空间（假设线性相关，则有核空间外的基的线性组合经过线性变换后落入核空间，反证出线性无关+象空间的每个向量可以由这组基表达，即该组基能张成整个象空间），注意线性变换对基和向量的不同作用$$考虑线性变换对空间中向量的作用\beta=\phi\alpha，若满足\alpha = (\epsilon_1,\epsilon_2,\epsilon_3,&amp;hellip;)x, 则对基的作用表现为\phi(\epsilon_1,\epsilon_2,\epsilon_3,&amp;hellip;)=(\epsilon_1,\epsilon_2,\epsilon_3,&amp;hellip;)A,注意\phi可以和后面的任意项结合，（\phi(\epsilon_1,\epsilon_2,\epsilon_3,&amp;hellip;)x=\phi((\epsilon_1,\epsilon_2,\epsilon_3,&amp;hellip;)x)=(\epsilon_1,\epsilon_2,\epsilon_3,&amp;hellip;)xA）对坐标的作用表现为y=Ax$$
+幂等变换：根据特征多项式得到特征值0和1；根据特征值的矩阵方程得到特征空间的维度&amp;gt;=n，（A是（A-I）X=0的解）进而=n。
+虚特征值的特征向量必为虚特征向量，设未知数，由特征方程推导即可；
+作业5
+正交矩阵：一般是根据定义的矩阵方程，作转置/同乘转置/共轭/两式相乘等操作，注意向量内积的结果是标量；所有复特征值的模为1，模的平方=本身乘以共轭；行列式=实特征值的乘积；互异特征值的特征向量在酉空间正交；同一复特征值的特征向量在实空间的内积为0；
+奇异值分解：本质是$$A^T$$是半正定实对称矩阵，可以正交相似对角化；注意V是正交矩阵；并对AV作单位化处理；对于相似对角化，特征值即奇异值；
+诱导范数：线性变换对向量的最大伸缩比例；
+条件数：最大奇异值和最小奇异值的比值；反映了Ax=b的解空间对b的扰动的稳定性；
+Key 1.判断线性空间
+2.判断卷积/微分是否线性移不变系统，判断高通低通
+3.不同基下的线性变换矩阵
+4.反对称矩阵的复特征值和复特征向量的讨论（内积满足的关系）
+5.幂等矩阵的解空间与列空间，证明解空间和列空间的和构成整个空间，证明是直和，分别讨论特征向量的维数
+6.I-ae1e1T的特征值、特征子空间，奇异值分解，最优秩1分解（F范数结论）</description>
+    </item>
+    <item>
+      <title>Matrix</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
+      <description>绪论 矩阵：描述线性系统，进而分析其内在特征，从而优化设计
+举例1：siso系统，R=HS+Z，miso系统
+举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列
+举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时
+简单化：优化$$\omega$$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角
+矩阵的基本概念 柯西不等式推导
+自相关、互相关、自协方差矩阵
+多元正态分布推导
+矩阵的奇异、诱导范数、元素范数（F范数）
+特殊矩阵 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘） 基本矩阵2:初等变换矩阵（推广：移位、选择、置换） 正交矩阵和酉矩阵（转置与逆，特征值分解，范数与内积不变） 中心化矩阵 相似矩阵（特征值）和相合矩阵(二次型) 三角矩阵（行列式） 范德蒙(多项式插值) 傅里叶（频率和时间两个方向都递增） 哈达玛 托普利兹
+矩阵的微分 共轭梯度和无约束优化 奇异值 SVD的三种形式 mn,nn,kk
+凸优化基础 最小二乘 特征值分解 特征分析 子空间 投影分析 </description>
+    </item>
+    <item>
+      <title>Medical Image Computing</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/course/mic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/cheat_sheet/course/mic/</guid>
+      <description>CT Reconstruction Analytical CT reconstruction Radon Transform
+数学形式化描述
+$$ p(s,\theta)=\int^\infty_{-\infty}\int^\infty_{-\infty}f(x,y)\delta(xcos\theta+ysin\theta-s)dxdy $$
+$s,\theta$确定时，相当于仅在直线$xcos\theta+ysin\theta-s=$上作积分 代码实现
+from skimage.transform import warp theta = np.arange(180) # pad padded_image = np.pad(image, pad_width, mode=&amp;#39;constant&amp;#39;, constant_values=0) center = padded_image.shape[0] // 2 # 旋转+投影 radon_image = np.zeros((padded_image.shape[0], len(theta)), dtype=image.dtype) for i, angle in enumerate(np.deg2rad(theta)): cos_a, sin_a = np.cos(angle), np.sin(angle) R = np.array([[cos_a, sin_a, -center * (cos_a + sin_a - 1)], [-sin_a, cos_a, -center * (cos_a - sin_a - 1)], [0, 0, 1]]) rotated = warp(padded_image, R, clip=False) radon_image[:, i] = rotated.</description>
+    </item>
+    <item>
+      <title>Medical knowledge-enhanced prompt learning for diagnosis classification from clinical text</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/23_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/23_2/</guid>
+      <description>ACL 2023 ClinicalNLP Workshop</description>
+    </item>
+    <item>
+      <title>Medical NLP</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/text_classification/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/text_classification/</guid>
+      <description>命名实体识别、词性标注、归一化，有现成的第三方库，不需要神经网络
+医学是一门独立的语言，甚至由于领域知识过于庞杂，任何一个子领域可能使用独立的语言
+Text Classification Benchmark
+2018 BERT
+2019
+SpanBert：对 Bert 预训练的一次深度探索 - 知乎 (zhihu.com) 不只是span mask，还有基于span边界预测指定位置的监督
+RoBERTa模型总结 - 知乎 (zhihu.com) 去除NSP，大batch_size，动态mask
+T5 模型：NLP Text-to-Text 预训练模型超大规模探索 - 知乎 (zhihu.com) Google出品，大量实验，大量结论，可用于指导调参
+2021
+SimCSE论文解读 - 知乎 (zhihu.com) 句子嵌入sota，但不一定利于下游任务
+无监督对比学习SIMCSE理解和中文实验操作-CSDN博客 细节
+Sentence-T5｜谷歌提出文本表示新SOTA (qq.com) 双塔结构，多加了一层投影和L2-Norm
+注意：有监督对比loss上的temperature=100，之前无监督对比学习的T都很小
+对比学习在文本分类任务中的应用实践 - 知乎 (zhihu.com) 混合对比学习和分类监督
+2022
+文本分类还停留在BERT？对偶对比学习框架也太强了-腾讯云开发者社区-腾讯云 (tencent.com) 类似我们的方法</description>
+    </item>
+    <item>
+      <title>Multi-modal Knowledge Graph</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/mm_kg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/mm_kg/</guid>
+      <description>Common Tasks VQA retrieve and read Structured knowledge based methods e.g. ConceptNet Unstructured knowledge based methods retrieve knowledge from Wikipedia and encode relevant text in a memory network for further reasoning augments the knowledge graph YAGO [40] with related images end-to-end methods pre-trained models (implicit konwledge) mainly captures the co-occurrence of imagequestion-answer triplet instead of explainable and refined knowledge KG 关系抽取、链路预测 learn knowledge from structured textual and visual data and maintain the triplet structure for entity alignment utilizes RDF knowledge graphs to represent multimodal information based on graph alignment links the entities in existing knowledge graphs with relevant images 问题</description>
+    </item>
+    <item>
+      <title>Multi-modal Medical Image Processing</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/mm_medical/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/mm_medical/</guid>
+      <description>Dataset MIMIC-CXR 377,110 images, 227,835 reports
+NIH-CXR 112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases
+The labels are expected to be &amp;gt;90% accurate and suitable for weakly-supervised learning
+CheXpert 224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain
+Train: all labeled by CheXpert Labeler
+Validation: 200, labeled by experts
+Test: 500, labeled by experts
+PadChest 160,000+ images from 67,000 patients, from 2009 to 2017 reports labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations 27% were manually annotated and the remaining set was labeled by RNN (0.</description>
+    </item>
+    <item>
+      <title>Pattern Recogniton</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/course/pr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/cheat_sheet/course/pr/</guid>
+      <description>统计模式识别 几何方法 相似性测度：距离（明氏距离、欧式距离、马氏距离）、向量夹角余弦
+平均样本法、平均距离法、最近邻法
+最大值判决：欧式距离下，可增广权向量和样本向量，将判别函数改写为线性形式
+决策面函数：与类别无关，用于二分类，易知权向量与决策面正交，决策面函数度量了样本点到决策面的距离
+线性判别 总体线性可分： 用一个超平面将任意一个类别的样本同其它所有类别的样本分开
+成对线性可分：用一个超平面将所有类别中任意两个类别的样本分开，分类器更多，但是不确定区域更少
+最大值判别：不存在不确定区域
+判别函数：样本点到决策平面的距离
+梯度下降法 vs 最小平方误差法
+线性可分问题的求解 感知器算法（梯度下降法，权向量是所有规范化错分样本之和，学习速率调整）
+最小平方误差法
+Fisher线性判别法
+最优分类超平面法
+非线性可分问题的求解 线性化方法
+非线性化方法：势函数法，非线性SVM
+概率方法 结构模式识别 </description>
+    </item>
+    <item>
+      <title>Python Cheatsheet</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/cheat_sheet/python/</guid>
+      <description>Data Processing Pandas 菜鸟教程yyds
+Dataframe的创建
+# 从外部读取 read_csv() read_excel() # 从列表或字典创建 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]) #列表的每个列表代表一行 Dataframe的索引
+df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[column_name1,colunmn_name2]][[idx1,idx2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = &amp;#39;&amp;#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] + df[b] # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df[df[a] == df[b]] Dataframe的统计分析
+df.value_counts() df.plot() Matplotlib 常用工作流
+import matplotlib.pyplot as plt plt.pca() #清空画布 plt.plot() #画折线 plt.show() #显示图片（ssh时不可用） plt.savefig(save_path) #保存图片 柱状图</description>
+    </item>
+    <item>
+      <title>Reading</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/course/eng/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/cheat_sheet/course/eng/</guid>
+      <description>段落大意 Refering to sth 也是主旨题
+首句/尾句/关键词/转折递进
+观点类的动词和名词 admit/think/ question/ opionion 忽略看后面内容
+Evidence/具体人名地名和数字， 具体的例子可以忽略，直接去下一段找观点（观点都在文中，不需要自己提炼）
+this/ that/ the/ such/ so :this承接前文内容，that承接下文内容，前四个词指代名词，so修饰句子
+原因 先定位现象，原因通常在现象的前和后
+找关键词（名词）cause/ result in/ forces behind/ this is why/ if
+抓主干：主系表，主谓宾，去修饰
+插入语中也可能蕴含原因
+主要原因: chiefly/ mainly/ in a large part/ basically/ fundamentally
+逻辑关系(转折)：but/ yet/ however/ nevertheless/ nonetheless/ rather
+（递进）furthermore/ moreover/ above all
+时间上的前后=因果关系，过去完成时
+单词 因果关系，词语调性一致
+主谓一致，主谓调性一致
+单句引用 论点：精简，系动词be/ seem/ look/ get/ feel/ become/ appear/ symbolize/ represent/ refer to 情感态度 love/ like / care/ distaste</description>
+    </item>
+    <item>
+      <title>Self-Paced Unified Representation Learning for Hierarchical Multi-Label Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/1/</guid>
+      <description>Code
+图同构：问题最初的定义是只考虑拓扑关系，不考虑节点信息（可以用GNN）
+Self-paced Learning：（基于Loss）自适应地动态衡量样本学习难度
+Key Idea 实例特征和层次类别特征的统一表达 考虑层次结构和实例特征的难度估计(从易到难) 基于Text Embedding和Label Embedding来计算类别概率，并且采用扁平化的方法来完成层次多标签预测 $$ \hat{y} = Sigmoid(W_2(W_1[Z^F||Z^G]+b_1)+b_2) $$
+$$ L_{tg} = CE_Loss(y,\hat{y}) $$
+避免了MC Loss，而是直接对Label Embedding施加来自Hierarchy的约束(相邻节点互信息最大化)，使用可学习的label embedding来避免计算量大的无效的图编码器计算。 $$ L^{reconst}=-\frac{1}{|C|^2}\Sigma_{u \in C}\Sigma_{v \in C}(vu^T-A_{uv}) $$ 根据每一层级的Loss来可导地计算每个样本的难易程度（与平均Loss的差），并通过正则项和Loss权重来实现动态的由易到难。
+训练前期，简单样本占主导地位，随着$\lambda$增大，难样本可以在训练初期得到更多的学习。$\lambda=0$是最优。 $$ w_x = \Pi^{L}_{l=1}[1-Sigmoid(L^{(l)}-\hat{L}^{(l)})] $$
+$$ min\ Loss(Y,X|W, \lambda)= \Sigma_{x \in X} w_xL_x - \lambda \Sigma_{x \in X}w_x $$</description>
+    </item>
+    <item>
+      <title>TACIT: A Target-Agnostic Feature Disentanglement Framework for Cross-Domain Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/6/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Text2Tree: Aligning Text Representation to the Label Tree Hierarchy for Imbalanced Medical Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</guid>
+      <description>key idea 通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
+[] 有监督对比学习将同一类别视为正样本，然而罕见病缺乏同一类别正样本
+通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
+同一类目的疾病的相似度&amp;gt;同一章节不同类目疾病的相似度&amp;gt;不同章节疾病间的相似度
+通过注意力机制，利用父节点和相邻节点，来完善罕见病的表达</description>
+    </item>
+    <item>
+      <title>Toward Robustness in Multi-Label Classification: A Data Augmentation Strategy against Imbalance and Noise</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/3/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/cikm2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/cikm2023/</guid>
+      <description>key idea 构建知识图谱 TFIDF筛选实体，UMLS relation table+co-occurance建立关系 多任务训练GAT model 本文对比了两种不同的多任务范式，多任务共享编码器和设置任务特异性编码器。（公式较为繁琐，但描述的实际上就是下面两张图）
+多任务共享编码器（4层GAT，ICD编码根据第2层输出）
+共享编码器+任务特异性编码器（2层GAT+2层GIAT）
+共享编码器聚合特征
+特异性编码器的中间特征（注意到计算相似度的依据是共享特征而不是特异性特征）
+特异性编码器的最终特征是两个特征的加权和，g是控制因子
+将文本节点送入分类器得到分类结果，并同时优化K个任务、$$N_$$个样本、$$C_k$$个类别。
+details 使用了4张2080，共计32GB显存
+不同backbone
+多任务的必要性</description>
+    </item>
+    <item>
+      <title>Towards Semi-Structured Automatic ICD Coding via Tree-based Contrastive Learning</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/nips2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/nips2023/</guid>
+      <description>key idea 通过定位关键词、打乱等数据增强，让模型学习到长文本的篇章结构信息 目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段 通过层次树来进行对比学习 ICD编码任务的典型范式（仅供介绍任务，并非创新点） 针对长文本的数据增强 病历报告是结构多样化的长文本，同时由于疾病的长尾分布而使得分类变得困难，而许多之前的工作忽略了结构信息，单纯作为一个长序列进行建模
+目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段（个人认为，这个思路非常好，它意识到了长文本实际上是由不同侧重的语段构成的，合理的注意力非常重要）
+认为在每个报告中都出现、且只出现一次的词组是语段的划分关键词，筛选出关键词后，即可将长文本划分成多个语段，并通过打乱顺序和掩码操作，让模型习得文章篇章结构的多样性
+通过层次树来进行对比学习 在MIMIC-50上取得了提升
+在MIMIC-III-50-rare提升更明显
+消融实验证明了这些即插即用模块的效果
+另外通过数据证明了MIMIC III是分类难度较大的长文本数据集</description>
+    </item>
+    <item>
+      <title>Visualization</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/visualization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/cheat_sheet/visualization/</guid>
+      <description>基于PyQt5的应用开发 最简单的应用程序=应用进程+窗口组件 import PyQt5.QtWidgets as QtWidgets import sys class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&amp;#39;Demo&amp;#39;) self.show() if __name__ == &amp;#34;__main__&amp;#34;: # 创建应用程序进程 app = QtWidgets.QApplication(sys.argv) # 创建主窗口 window = MainWindow(app) # 主程序开始运行 app.exec_() 在主窗口中添加组件 添加单个组件 class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&amp;#39;MainWindow&amp;#39;) self.setCentralWidget(QtWidgets.QPushButton(&amp;#34;Button&amp;#34;)) self.show() 添加多个组件 from PyQt5.QtWidgets import ( QApplication, QMainWindow, QPushButton, QSlider, QLabel, QCheckBox, QComboBox, QSpinBox, QDoubleSpinBox, QGroupBox, QGridLayout, QFileDialog) import sys from PyQt5.</description>
+    </item>
+    <item>
+      <title>Vscode自用配置</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/vscode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/cheat_sheet/vscode/</guid>
+      <description>主题：One Dark Pro python：编译器（miniconda）+格式化插件（black，需要Pip安装且安装vscode插件） matlab: 编译器+文件编码（gb2312） latex: xelatex
+{ &amp;#34;workbench.colorTheme&amp;#34;: &amp;#34;One Dark Pro&amp;#34;, &amp;#34;code-runner.clearPreviousOutput&amp;#34;: true, &amp;#34;code-runner.runInTerminal&amp;#34;: true, &amp;#34;code-runner.ignoreSelection&amp;#34;: true, &amp;#34;code-runner.saveFileBeforeRun&amp;#34;: true, &amp;#34;code-runner.fileDirectoryAsCwd&amp;#34;: true, &amp;#34;editor.fontSize&amp;#34;: 15, &amp;#34;security.workspace.trust.untrustedFiles&amp;#34;: &amp;#34;open&amp;#34;, &amp;#34;editor.detectIndentation&amp;#34;: false, &amp;#34;explorer.confirmDragAndDrop&amp;#34;: false, &amp;#34;editor.formatOnSave&amp;#34;: true, &amp;#34;editor.formatOnType&amp;#34;: true, &amp;#34;editor.formatOnPaste&amp;#34;: true, &amp;#34;workbench.editor.enablePreview&amp;#34;: false, &amp;#34;python.defaultInterpreterPath&amp;#34;: &amp;#34;/opt/miniconda3/bin/python&amp;#34;, &amp;#34;python.terminal.launchArgs&amp;#34;: [], &amp;#34;python.experiments.optOutFrom&amp;#34;: [], &amp;#34;python.languageServer&amp;#34;: &amp;#34;Pylance&amp;#34;, &amp;#34;[python]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;ms-python.black-formatter&amp;#34;, }, &amp;#34;matlab.mlintpath&amp;#34;: &amp;#34;/Applications/MATLAB_R2023b.app/bin/maca64&amp;#34;, &amp;#34;matlab.matlabpath&amp;#34;: &amp;#34;/Applications/MATLAB_R2023b.app/bin&amp;#34;, &amp;#34;matlab.linterEncoding&amp;#34;: &amp;#34;gb2312&amp;#34;, &amp;#34;[matlab]&amp;#34;: { &amp;#34;files.encoding&amp;#34;: &amp;#34;gb2312&amp;#34;, }, &amp;#34;latex-workshop.latex.autoBuild.run&amp;#34;: &amp;#34;never&amp;#34;, &amp;#34;latex-workshop.showContextMenu&amp;#34;: true, &amp;#34;latex-workshop.intellisense.package.enabled&amp;#34;: true, &amp;#34;latex-workshop.message.error.show&amp;#34;: false, &amp;#34;latex-workshop.</description>
+    </item>
+    <item>
+      <title>You Only Read Once: Constituency-Oriented Relational Graph Convolutional Network for Multi-Aspect Multi-Sentiment Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/2/</guid>
+      <description> 情感分析不是单一情感倾向的，而是多方面、多情感的(细粒度) 三个公共数据集（MAMS、Rest14 和 Lap14） </description>
+    </item>
+    <item>
+      <title>概率统计</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/course/prob/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/cheat_sheet/course/prob/</guid>
+      <description>作业要点 作业1
+几何分布：概率为p的事件首次发生时的次数，期望=1/p
+协方差的计算公式推导：定义+期望的性质
+期望=条件期望的概率加权和
+泊松分布：小概率事件在一段时间内发生的次数，服从泊松分布的随机变量的和服从泊松分布，且$$\lambda=\lambda_1+\lambda_2$$
+X+Y的概率分布：卷积公式，本质上是全概率公式（条件概率）
+贝叶斯公式：后验概率=先验概率+似然概率（后验颠倒）
+作业2
+马尔可夫链：利用含有条件概率的全概率公式
+XY的概率分布：独立则可拆分，并灵活运用方差=二阶矩-一阶矩^2
+多元概率分布之间的转换：利用雅可比行列式（顺序的记忆方法：不同分布都满足概率和为1）
+样本方差的期望：利用期望和方差的性质进行一通推导（期望是线性的，方差不是线性的，虽然可加）
+布朗运动：参考弹珠下落在分隔板上左/右移，借此思考其性质，然后根据定义一通推导就行了
+Matropolis hasting算法：可以采样出任意分布（建议看龙哥博客，因为我现在也忘了）
+作业3
+基于样本的均值和方差估计正态分布的均值和方差
+基于样本最大值估计均匀分布的上界
+估计量的均方误差=偏差的平方+估计量的方差
+区间估计：样本均值服从正态分布，样本方差服从自由度n-1的卡方分布（卡方分布，即多个正态分布的随机变量的平方和的分布）考试考了一道均值和方差都未知时的估计均值，有点坑
+基于区间估计进行假设检验
+作业4
+最大后验估计：基于贝叶斯公式可以获得参数的后验概率，然后将样本代入，即可得到该组样本下待估参数的分布函数，然后取极值点即可
+随机变量的换元：代入计算即可，没什么特别的
+线性回归：b1是相关系数，b0相应减去，基本上就是一通推导得到的，注意利用求和符号的性质
+Key 1.一道简单的证明，忘了
+2.3个变量的次序统计量的联合概率分布，转化成最大值最小值，注意组合数公式
+3.马尔可夫链（赌徒），需要利用条件期望证明
+4.利用期望和方差的性质计算一堆量
+5.均值和方差都未知的区间估计和假设检验，这道题巨坑
+6.很简单的一道证明题，好像就是代入定义，忘了</description>
+    </item>
+  </channel>
+</rss>

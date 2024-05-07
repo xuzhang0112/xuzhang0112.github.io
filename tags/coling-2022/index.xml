@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>COLING 2022 on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/tags/coling-2022/</link>
+    <description>Recent content in COLING 2022 on Xu Zhang&#39;s Blog</description>
+    <image>
+      <title>Xu Zhang&#39;s Blog</title>
+      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.121.2</generator>
+    <language>en</language>
+    <atom:link href="https://xuzhang0112.github.io/tags/coling-2022/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automatic ICD Coding Exploiting Discourse Structure and Reconciled Code Embeddings</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/coling2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/coling2022/</guid>
+      <description>key idea Backbone：biLSTM Discourse Structure: 给不同的篇章加embedding，来帮助模型学习篇章结构 加了embedding容易过拟合，所以加了个0.5的dropout Reconciled Code Embedding: 为了解决ICD Code和病历文本交互时的异质性 从ICD Code和病历文本中学习向量各个维度的缩放比例、归纳偏置 同时，增加罕见病的注意力学习权重，以缓解类别不平衡 行云流水的魔改多尺度attention，配合了一些公式 可视化注意力得分高的区域，来展示模型的感兴趣部分 计算量随类别数增加（N^2），因此无法处理超大类别 attention Word embedding (with code attention)
+Sentence level (code attention同上)
+Document embedding
+Reconciled Code Embedding: 为了解决ICD Code和病历文本交互时的异质性 从ICD Code和病历文本中学习向量各个维度的缩放比例、归纳偏置
+同时，增加罕见病的注意力学习权重，以缓解类别不平衡
+可视化了各个类别的注意力二番薯，$$\tau$$是正则化的缩放比例
+details Adam学习率1e-5, Batch Size12, 正则化系数1e-4
+消融实验
+把测试集的标签按照样本频次划分成了head set(1446，f&amp;gt;50), body set(1779, 5&amp;lt;f&amp;lt;50), tail set(860, &amp;lt;5)
+对比实验
+可视化 注意力得分高的区域，来展示模型的感兴趣部分，并证明模块的有效性</description>
+    </item>
+  </channel>
+</rss>

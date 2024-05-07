@@ -1,0 +1,131 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Linear Algebra | Xu Zhang's Blog</title>
+<meta name=keywords content><meta name=description content="作业 作业1
+数域：对加减乘除封闭
+常微分方程的通解：特征方程，指数函数
+线性空间：对加法&数乘封闭+8条
+基：线性无关+表出整个空间
+柯西不等式：根据内积半正定得到不等式，然后再根据结论构造；
+施密特正交化：范数由区间上的内积定义，而不是本身的模长；奇函数/偶函数在对称区间上积分的性质；减去在标准正交基上的分量+单位化；
+作业2
+格拉姆矩阵：向量的内积；对角线上是范数的平方；注意非标准正交基的内积不为1；
+傅立叶变换：向量和不同正交基在酉空间上的内积结果；变换后的内积与原始内积的比值等于基向量的内积；
+帕萨瓦尔定理：时空域和频域的概率密度函数的范数相等；
+时域/频域概率密度函数的期望和方差：一阶矩和二阶矩，三角函数相关的微积分（三角恒等式，三角换元，点火公式考虑平方时的特殊情况pi/4）
+二维傅立叶变换：频域每一个点的基向量沿着二维空间的两个方向变化；而CT重建时是投影后再作一维傅立叶变换，本质上只有沿着一个方向变换的基向量，所以在频域只是过中心的直线（因为基向量只沿着一个方向变化，而不是两个）；
+作业3
+子空间：对加法和数乘封闭+属于原线性空间；
+对角阵：对每一个基向量分别乘以一个系数（左乘变行/右乘变列，本质是分块矩阵乘法）
+若矩阵左乘对角阵和右乘对角阵相等，则该矩阵也是对角阵
+解空间的维度=n-系数矩阵的秩
+直和：和+线性无关；两个空间相等的充要条件是相互包含；
+相抵标准型：先行变换，再列变换；PAQ，行变换倒序，列变换正序；初等变换矩阵本质上还是对行和列的线性组合，可以视情况合并（例如所有列依次调换）；
+广义加号逆：已经掌握了流畅的推导！根据投影的正则方程$$C^TAx=C^Tb$$可得b在A的列空间的投影$$\hat{b}=C(C^TC)C^Tb$$，同时最优最小二乘解$$x^$$属于A的行空间，所以可以表达为$$x^=A^Ty=R^Ty^$$，进一步代入$$CRR^Ty=C(C^TC)C^Tb$$，解得$$x^=R^T(RR^T)^{-1}(C^TC)^{-1}C^T$$（关键在于凑可逆阵，行满秩乘以列满秩必可逆，即$$C^TC和RR^$$可逆）
+CR分解：寻找PAQ满足标准形，然后将标准形拆成两个矩阵的乘积；本质是秩1矩阵的和；
+子空间的和：基向量的和；
+反证法：若a属于A空间+b不属于A空间,则a+b必不属于A空间（否则可以倒推出b属于A空间）
+作业4
+二范数/四范数：最小值考虑one-hot（最小值为1）；最大值考虑柯西不等式（全1向量）；
+线性变换：考虑基变换时，不同的基对应不同的矩阵；不同基下的线性变换矩阵公式$$B=P^{-1}AP$$其中P是A的基到B的基的过渡矩阵；到平凡基的过渡矩阵即现有基的逆矩阵；线性变换和矩阵同构，可以加法、数乘、乘法；
+不同特征值的特征向量线性无关：1.两个特征值，反证法，若线性相关，则属于相同的特征值；2.多个特征值，数学归纳法，若前i+1个特征值的特征向量线性相关则推出前i个特征值的特征向量线性相关；
+秩1矩阵的相似对角化：考虑非零特征值和零特征值的特征子空间，非零特征值取决于是否正交，零特征值的特征子空间维数是n-1
+核空间与象空间：核空间外的基经过线性变换后构成象空间（假设线性相关，则有核空间外的基的线性组合经过线性变换后落入核空间，反证出线性无关+象空间的每个向量可以由这组基表达，即该组基能张成整个象空间），注意线性变换对基和向量的不同作用$$考虑线性变换对空间中向量的作用\beta=\phi\alpha，若满足\alpha = (\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)x, 则对基的作用表现为\phi(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)=(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)A,注意\phi可以和后面的任意项结合，（\phi(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)x=\phi((\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)x)=(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)xA）对坐标的作用表现为y=Ax$$
+幂等变换：根据特征多项式得到特征值0和1；根据特征值的矩阵方程得到特征空间的维度>=n，（A是（A-I）X=0的解）进而=n。
+虚特征值的特征向量必为虚特征向量，设未知数，由特征方程推导即可；
+作业5
+正交矩阵：一般是根据定义的矩阵方程，作转置/同乘转置/共轭/两式相乘等操作，注意向量内积的结果是标量；所有复特征值的模为1，模的平方=本身乘以共轭；行列式=实特征值的乘积；互异特征值的特征向量在酉空间正交；同一复特征值的特征向量在实空间的内积为0；
+奇异值分解：本质是$$A^T$$是半正定实对称矩阵，可以正交相似对角化；注意V是正交矩阵；并对AV作单位化处理；对于相似对角化，特征值即奇异值；
+诱导范数：线性变换对向量的最大伸缩比例；
+条件数：最大奇异值和最小奇异值的比值；反映了Ax=b的解空间对b的扰动的稳定性；
+Key 1.判断线性空间
+2.判断卷积/微分是否线性移不变系统，判断高通低通
+3.不同基下的线性变换矩阵
+4.反对称矩阵的复特征值和复特征向量的讨论（内积满足的关系）
+5.幂等矩阵的解空间与列空间，证明解空间和列空间的和构成整个空间，证明是直和，分别讨论特征向量的维数
+6.I-ae1e1T的特征值、特征子空间，奇异值分解，最优秩1分解（F范数结论）"><meta name=author content="Xu Zhang"><link rel=canonical href=https://xuzhang0112.github.io/cheat_sheet/course/algebra/><link crossorigin=anonymous href=/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z+V9+cO1A=" rel="preload stylesheet" as=style><link rel=icon href=https://xuzhang0112.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://xuzhang0112.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://xuzhang0112.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://xuzhang0112.github.io/apple-touch-icon.png><link rel=mask-icon href=https://xuzhang0112.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-123-45","auto"),ga("send","pageview"))</script><meta property="og:title" content="Linear Algebra"><meta property="og:description" content="作业 作业1
+数域：对加减乘除封闭
+常微分方程的通解：特征方程，指数函数
+线性空间：对加法&数乘封闭+8条
+基：线性无关+表出整个空间
+柯西不等式：根据内积半正定得到不等式，然后再根据结论构造；
+施密特正交化：范数由区间上的内积定义，而不是本身的模长；奇函数/偶函数在对称区间上积分的性质；减去在标准正交基上的分量+单位化；
+作业2
+格拉姆矩阵：向量的内积；对角线上是范数的平方；注意非标准正交基的内积不为1；
+傅立叶变换：向量和不同正交基在酉空间上的内积结果；变换后的内积与原始内积的比值等于基向量的内积；
+帕萨瓦尔定理：时空域和频域的概率密度函数的范数相等；
+时域/频域概率密度函数的期望和方差：一阶矩和二阶矩，三角函数相关的微积分（三角恒等式，三角换元，点火公式考虑平方时的特殊情况pi/4）
+二维傅立叶变换：频域每一个点的基向量沿着二维空间的两个方向变化；而CT重建时是投影后再作一维傅立叶变换，本质上只有沿着一个方向变换的基向量，所以在频域只是过中心的直线（因为基向量只沿着一个方向变化，而不是两个）；
+作业3
+子空间：对加法和数乘封闭+属于原线性空间；
+对角阵：对每一个基向量分别乘以一个系数（左乘变行/右乘变列，本质是分块矩阵乘法）
+若矩阵左乘对角阵和右乘对角阵相等，则该矩阵也是对角阵
+解空间的维度=n-系数矩阵的秩
+直和：和+线性无关；两个空间相等的充要条件是相互包含；
+相抵标准型：先行变换，再列变换；PAQ，行变换倒序，列变换正序；初等变换矩阵本质上还是对行和列的线性组合，可以视情况合并（例如所有列依次调换）；
+广义加号逆：已经掌握了流畅的推导！根据投影的正则方程$$C^TAx=C^Tb$$可得b在A的列空间的投影$$\hat{b}=C(C^TC)C^Tb$$，同时最优最小二乘解$$x^$$属于A的行空间，所以可以表达为$$x^=A^Ty=R^Ty^$$，进一步代入$$CRR^Ty=C(C^TC)C^Tb$$，解得$$x^=R^T(RR^T)^{-1}(C^TC)^{-1}C^T$$（关键在于凑可逆阵，行满秩乘以列满秩必可逆，即$$C^TC和RR^$$可逆）
+CR分解：寻找PAQ满足标准形，然后将标准形拆成两个矩阵的乘积；本质是秩1矩阵的和；
+子空间的和：基向量的和；
+反证法：若a属于A空间+b不属于A空间,则a+b必不属于A空间（否则可以倒推出b属于A空间）
+作业4
+二范数/四范数：最小值考虑one-hot（最小值为1）；最大值考虑柯西不等式（全1向量）；
+线性变换：考虑基变换时，不同的基对应不同的矩阵；不同基下的线性变换矩阵公式$$B=P^{-1}AP$$其中P是A的基到B的基的过渡矩阵；到平凡基的过渡矩阵即现有基的逆矩阵；线性变换和矩阵同构，可以加法、数乘、乘法；
+不同特征值的特征向量线性无关：1.两个特征值，反证法，若线性相关，则属于相同的特征值；2.多个特征值，数学归纳法，若前i+1个特征值的特征向量线性相关则推出前i个特征值的特征向量线性相关；
+秩1矩阵的相似对角化：考虑非零特征值和零特征值的特征子空间，非零特征值取决于是否正交，零特征值的特征子空间维数是n-1
+核空间与象空间：核空间外的基经过线性变换后构成象空间（假设线性相关，则有核空间外的基的线性组合经过线性变换后落入核空间，反证出线性无关+象空间的每个向量可以由这组基表达，即该组基能张成整个象空间），注意线性变换对基和向量的不同作用$$考虑线性变换对空间中向量的作用\beta=\phi\alpha，若满足\alpha = (\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)x, 则对基的作用表现为\phi(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)=(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)A,注意\phi可以和后面的任意项结合，（\phi(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)x=\phi((\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)x)=(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)xA）对坐标的作用表现为y=Ax$$
+幂等变换：根据特征多项式得到特征值0和1；根据特征值的矩阵方程得到特征空间的维度>=n，（A是（A-I）X=0的解）进而=n。
+虚特征值的特征向量必为虚特征向量，设未知数，由特征方程推导即可；
+作业5
+正交矩阵：一般是根据定义的矩阵方程，作转置/同乘转置/共轭/两式相乘等操作，注意向量内积的结果是标量；所有复特征值的模为1，模的平方=本身乘以共轭；行列式=实特征值的乘积；互异特征值的特征向量在酉空间正交；同一复特征值的特征向量在实空间的内积为0；
+奇异值分解：本质是$$A^T$$是半正定实对称矩阵，可以正交相似对角化；注意V是正交矩阵；并对AV作单位化处理；对于相似对角化，特征值即奇异值；
+诱导范数：线性变换对向量的最大伸缩比例；
+条件数：最大奇异值和最小奇异值的比值；反映了Ax=b的解空间对b的扰动的稳定性；
+Key 1.判断线性空间
+2.判断卷积/微分是否线性移不变系统，判断高通低通
+3.不同基下的线性变换矩阵
+4.反对称矩阵的复特征值和复特征向量的讨论（内积满足的关系）
+5.幂等矩阵的解空间与列空间，证明解空间和列空间的和构成整个空间，证明是直和，分别讨论特征向量的维数
+6.I-ae1e1T的特征值、特征子空间，奇异值分解，最优秩1分解（F范数结论）"><meta property="og:type" content="article"><meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/course/algebra/"><meta property="og:image" content="https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="cheat_sheet"><meta property="og:site_name" content="ExampleSite"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="Linear Algebra"><meta name=twitter:description content="作业 作业1
+数域：对加减乘除封闭
+常微分方程的通解：特征方程，指数函数
+线性空间：对加法&数乘封闭+8条
+基：线性无关+表出整个空间
+柯西不等式：根据内积半正定得到不等式，然后再根据结论构造；
+施密特正交化：范数由区间上的内积定义，而不是本身的模长；奇函数/偶函数在对称区间上积分的性质；减去在标准正交基上的分量+单位化；
+作业2
+格拉姆矩阵：向量的内积；对角线上是范数的平方；注意非标准正交基的内积不为1；
+傅立叶变换：向量和不同正交基在酉空间上的内积结果；变换后的内积与原始内积的比值等于基向量的内积；
+帕萨瓦尔定理：时空域和频域的概率密度函数的范数相等；
+时域/频域概率密度函数的期望和方差：一阶矩和二阶矩，三角函数相关的微积分（三角恒等式，三角换元，点火公式考虑平方时的特殊情况pi/4）
+二维傅立叶变换：频域每一个点的基向量沿着二维空间的两个方向变化；而CT重建时是投影后再作一维傅立叶变换，本质上只有沿着一个方向变换的基向量，所以在频域只是过中心的直线（因为基向量只沿着一个方向变化，而不是两个）；
+作业3
+子空间：对加法和数乘封闭+属于原线性空间；
+对角阵：对每一个基向量分别乘以一个系数（左乘变行/右乘变列，本质是分块矩阵乘法）
+若矩阵左乘对角阵和右乘对角阵相等，则该矩阵也是对角阵
+解空间的维度=n-系数矩阵的秩
+直和：和+线性无关；两个空间相等的充要条件是相互包含；
+相抵标准型：先行变换，再列变换；PAQ，行变换倒序，列变换正序；初等变换矩阵本质上还是对行和列的线性组合，可以视情况合并（例如所有列依次调换）；
+广义加号逆：已经掌握了流畅的推导！根据投影的正则方程$$C^TAx=C^Tb$$可得b在A的列空间的投影$$\hat{b}=C(C^TC)C^Tb$$，同时最优最小二乘解$$x^$$属于A的行空间，所以可以表达为$$x^=A^Ty=R^Ty^$$，进一步代入$$CRR^Ty=C(C^TC)C^Tb$$，解得$$x^=R^T(RR^T)^{-1}(C^TC)^{-1}C^T$$（关键在于凑可逆阵，行满秩乘以列满秩必可逆，即$$C^TC和RR^$$可逆）
+CR分解：寻找PAQ满足标准形，然后将标准形拆成两个矩阵的乘积；本质是秩1矩阵的和；
+子空间的和：基向量的和；
+反证法：若a属于A空间+b不属于A空间,则a+b必不属于A空间（否则可以倒推出b属于A空间）
+作业4
+二范数/四范数：最小值考虑one-hot（最小值为1）；最大值考虑柯西不等式（全1向量）；
+线性变换：考虑基变换时，不同的基对应不同的矩阵；不同基下的线性变换矩阵公式$$B=P^{-1}AP$$其中P是A的基到B的基的过渡矩阵；到平凡基的过渡矩阵即现有基的逆矩阵；线性变换和矩阵同构，可以加法、数乘、乘法；
+不同特征值的特征向量线性无关：1.两个特征值，反证法，若线性相关，则属于相同的特征值；2.多个特征值，数学归纳法，若前i+1个特征值的特征向量线性相关则推出前i个特征值的特征向量线性相关；
+秩1矩阵的相似对角化：考虑非零特征值和零特征值的特征子空间，非零特征值取决于是否正交，零特征值的特征子空间维数是n-1
+核空间与象空间：核空间外的基经过线性变换后构成象空间（假设线性相关，则有核空间外的基的线性组合经过线性变换后落入核空间，反证出线性无关+象空间的每个向量可以由这组基表达，即该组基能张成整个象空间），注意线性变换对基和向量的不同作用$$考虑线性变换对空间中向量的作用\beta=\phi\alpha，若满足\alpha = (\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)x, 则对基的作用表现为\phi(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)=(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)A,注意\phi可以和后面的任意项结合，（\phi(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)x=\phi((\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)x)=(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)xA）对坐标的作用表现为y=Ax$$
+幂等变换：根据特征多项式得到特征值0和1；根据特征值的矩阵方程得到特征空间的维度>=n，（A是（A-I）X=0的解）进而=n。
+虚特征值的特征向量必为虚特征向量，设未知数，由特征方程推导即可；
+作业5
+正交矩阵：一般是根据定义的矩阵方程，作转置/同乘转置/共轭/两式相乘等操作，注意向量内积的结果是标量；所有复特征值的模为1，模的平方=本身乘以共轭；行列式=实特征值的乘积；互异特征值的特征向量在酉空间正交；同一复特征值的特征向量在实空间的内积为0；
+奇异值分解：本质是$$A^T$$是半正定实对称矩阵，可以正交相似对角化；注意V是正交矩阵；并对AV作单位化处理；对于相似对角化，特征值即奇异值；
+诱导范数：线性变换对向量的最大伸缩比例；
+条件数：最大奇异值和最小奇异值的比值；反映了Ax=b的解空间对b的扰动的稳定性；
+Key 1.判断线性空间
+2.判断卷积/微分是否线性移不变系统，判断高通低通
+3.不同基下的线性变换矩阵
+4.反对称矩阵的复特征值和复特征向量的讨论（内积满足的关系）
+5.幂等矩阵的解空间与列空间，证明解空间和列空间的和构成整个空间，证明是直和，分别讨论特征向量的维数
+6.I-ae1e1T的特征值、特征子空间，奇异值分解，最优秩1分解（F范数结论）"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CheatSheet","item":"https://xuzhang0112.github.io/cheat_sheet/"},{"@type":"ListItem","position":2,"name":"Linear Algebra","item":"https://xuzhang0112.github.io/cheat_sheet/course/algebra/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Linear Algebra","name":"Linear Algebra","description":"作业 作业1\n数域：对加减乘除封闭\n常微分方程的通解：特征方程，指数函数\n线性空间：对加法\u0026amp;数乘封闭+8条\n基：线性无关+表出整个空间\n柯西不等式：根据内积半正定得到不等式，然后再根据结论构造；\n施密特正交化：范数由区间上的内积定义，而不是本身的模长；奇函数/偶函数在对称区间上积分的性质；减去在标准正交基上的分量+单位化；\n作业2\n格拉姆矩阵：向量的内积；对角线上是范数的平方；注意非标准正交基的内积不为1；\n傅立叶变换：向量和不同正交基在酉空间上的内积结果；变换后的内积与原始内积的比值等于基向量的内积；\n帕萨瓦尔定理：时空域和频域的概率密度函数的范数相等；\n时域/频域概率密度函数的期望和方差：一阶矩和二阶矩，三角函数相关的微积分（三角恒等式，三角换元，点火公式考虑平方时的特殊情况pi/4）\n二维傅立叶变换：频域每一个点的基向量沿着二维空间的两个方向变化；而CT重建时是投影后再作一维傅立叶变换，本质上只有沿着一个方向变换的基向量，所以在频域只是过中心的直线（因为基向量只沿着一个方向变化，而不是两个）；\n作业3\n子空间：对加法和数乘封闭+属于原线性空间；\n对角阵：对每一个基向量分别乘以一个系数（左乘变行/右乘变列，本质是分块矩阵乘法）\n若矩阵左乘对角阵和右乘对角阵相等，则该矩阵也是对角阵\n解空间的维度=n-系数矩阵的秩\n直和：和+线性无关；两个空间相等的充要条件是相互包含；\n相抵标准型：先行变换，再列变换；PAQ，行变换倒序，列变换正序；初等变换矩阵本质上还是对行和列的线性组合，可以视情况合并（例如所有列依次调换）；\n广义加号逆：已经掌握了流畅的推导！根据投影的正则方程$$C^TAx=C^Tb$$可得b在A的列空间的投影$$\\hat{b}=C(C^TC)C^Tb$$，同时最优最小二乘解$$x^$$属于A的行空间，所以可以表达为$$x^=A^Ty=R^Ty^$$，进一步代入$$CRR^Ty=C(C^TC)C^Tb$$，解得$$x^=R^T(RR^T)^{-1}(C^TC)^{-1}C^T$$（关键在于凑可逆阵，行满秩乘以列满秩必可逆，即$$C^TC和RR^$$可逆）\nCR分解：寻找PAQ满足标准形，然后将标准形拆成两个矩阵的乘积；本质是秩1矩阵的和；\n子空间的和：基向量的和；\n反证法：若a属于A空间+b不属于A空间,则a+b必不属于A空间（否则可以倒推出b属于A空间）\n作业4\n二范数/四范数：最小值考虑one-hot（最小值为1）；最大值考虑柯西不等式（全1向量）；\n线性变换：考虑基变换时，不同的基对应不同的矩阵；不同基下的线性变换矩阵公式$$B=P^{-1}AP$$其中P是A的基到B的基的过渡矩阵；到平凡基的过渡矩阵即现有基的逆矩阵；线性变换和矩阵同构，可以加法、数乘、乘法；\n不同特征值的特征向量线性无关：1.两个特征值，反证法，若线性相关，则属于相同的特征值；2.多个特征值，数学归纳法，若前i+1个特征值的特征向量线性相关则推出前i个特征值的特征向量线性相关；\n秩1矩阵的相似对角化：考虑非零特征值和零特征值的特征子空间，非零特征值取决于是否正交，零特征值的特征子空间维数是n-1\n核空间与象空间：核空间外的基经过线性变换后构成象空间（假设线性相关，则有核空间外的基的线性组合经过线性变换后落入核空间，反证出线性无关+象空间的每个向量可以由这组基表达，即该组基能张成整个象空间），注意线性变换对基和向量的不同作用$$考虑线性变换对空间中向量的作用\\beta=\\phi\\alpha，若满足\\alpha = (\\epsilon_1,\\epsilon_2,\\epsilon_3,\u0026hellip;)x, 则对基的作用表现为\\phi(\\epsilon_1,\\epsilon_2,\\epsilon_3,\u0026hellip;)=(\\epsilon_1,\\epsilon_2,\\epsilon_3,\u0026hellip;)A,注意\\phi可以和后面的任意项结合，（\\phi(\\epsilon_1,\\epsilon_2,\\epsilon_3,\u0026hellip;)x=\\phi((\\epsilon_1,\\epsilon_2,\\epsilon_3,\u0026hellip;)x)=(\\epsilon_1,\\epsilon_2,\\epsilon_3,\u0026hellip;)xA）对坐标的作用表现为y=Ax$$\n幂等变换：根据特征多项式得到特征值0和1；根据特征值的矩阵方程得到特征空间的维度\u0026gt;=n，（A是（A-I）X=0的解）进而=n。\n虚特征值的特征向量必为虚特征向量，设未知数，由特征方程推导即可；\n作业5\n正交矩阵：一般是根据定义的矩阵方程，作转置/同乘转置/共轭/两式相乘等操作，注意向量内积的结果是标量；所有复特征值的模为1，模的平方=本身乘以共轭；行列式=实特征值的乘积；互异特征值的特征向量在酉空间正交；同一复特征值的特征向量在实空间的内积为0；\n奇异值分解：本质是$$A^T$$是半正定实对称矩阵，可以正交相似对角化；注意V是正交矩阵；并对AV作单位化处理；对于相似对角化，特征值即奇异值；\n诱导范数：线性变换对向量的最大伸缩比例；\n条件数：最大奇异值和最小奇异值的比值；反映了Ax=b的解空间对b的扰动的稳定性；\nKey 1.判断线性空间\n2.判断卷积/微分是否线性移不变系统，判断高通低通\n3.不同基下的线性变换矩阵\n4.反对称矩阵的复特征值和复特征向量的讨论（内积满足的关系）\n5.幂等矩阵的解空间与列空间，证明解空间和列空间的和构成整个空间，证明是直和，分别讨论特征向量的维数\n6.I-ae1e1T的特征值、特征子空间，奇异值分解，最优秩1分解（F范数结论）","keywords":[],"articleBody":"作业 作业1\n数域：对加减乘除封闭\n常微分方程的通解：特征方程，指数函数\n线性空间：对加法\u0026数乘封闭+8条\n基：线性无关+表出整个空间\n柯西不等式：根据内积半正定得到不等式，然后再根据结论构造；\n施密特正交化：范数由区间上的内积定义，而不是本身的模长；奇函数/偶函数在对称区间上积分的性质；减去在标准正交基上的分量+单位化；\n作业2\n格拉姆矩阵：向量的内积；对角线上是范数的平方；注意非标准正交基的内积不为1；\n傅立叶变换：向量和不同正交基在酉空间上的内积结果；变换后的内积与原始内积的比值等于基向量的内积；\n帕萨瓦尔定理：时空域和频域的概率密度函数的范数相等；\n时域/频域概率密度函数的期望和方差：一阶矩和二阶矩，三角函数相关的微积分（三角恒等式，三角换元，点火公式考虑平方时的特殊情况pi/4）\n二维傅立叶变换：频域每一个点的基向量沿着二维空间的两个方向变化；而CT重建时是投影后再作一维傅立叶变换，本质上只有沿着一个方向变换的基向量，所以在频域只是过中心的直线（因为基向量只沿着一个方向变化，而不是两个）；\n作业3\n子空间：对加法和数乘封闭+属于原线性空间；\n对角阵：对每一个基向量分别乘以一个系数（左乘变行/右乘变列，本质是分块矩阵乘法）\n若矩阵左乘对角阵和右乘对角阵相等，则该矩阵也是对角阵\n解空间的维度=n-系数矩阵的秩\n直和：和+线性无关；两个空间相等的充要条件是相互包含；\n相抵标准型：先行变换，再列变换；PAQ，行变换倒序，列变换正序；初等变换矩阵本质上还是对行和列的线性组合，可以视情况合并（例如所有列依次调换）；\n广义加号逆：已经掌握了流畅的推导！根据投影的正则方程$$C^TAx=C^Tb$$可得b在A的列空间的投影$$\\hat{b}=C(C^TC)C^Tb$$，同时最优最小二乘解$$x^$$属于A的行空间，所以可以表达为$$x^=A^Ty=R^Ty^$$，进一步代入$$CRR^Ty=C(C^TC)C^Tb$$，解得$$x^=R^T(RR^T)^{-1}(C^TC)^{-1}C^T$$（关键在于凑可逆阵，行满秩乘以列满秩必可逆，即$$C^TC和RR^$$可逆）\nCR分解：寻找PAQ满足标准形，然后将标准形拆成两个矩阵的乘积；本质是秩1矩阵的和；\n子空间的和：基向量的和；\n反证法：若a属于A空间+b不属于A空间,则a+b必不属于A空间（否则可以倒推出b属于A空间）\n作业4\n二范数/四范数：最小值考虑one-hot（最小值为1）；最大值考虑柯西不等式（全1向量）；\n线性变换：考虑基变换时，不同的基对应不同的矩阵；不同基下的线性变换矩阵公式$$B=P^{-1}AP$$其中P是A的基到B的基的过渡矩阵；到平凡基的过渡矩阵即现有基的逆矩阵；线性变换和矩阵同构，可以加法、数乘、乘法；\n不同特征值的特征向量线性无关：1.两个特征值，反证法，若线性相关，则属于相同的特征值；2.多个特征值，数学归纳法，若前i+1个特征值的特征向量线性相关则推出前i个特征值的特征向量线性相关；\n秩1矩阵的相似对角化：考虑非零特征值和零特征值的特征子空间，非零特征值取决于是否正交，零特征值的特征子空间维数是n-1\n核空间与象空间：核空间外的基经过线性变换后构成象空间（假设线性相关，则有核空间外的基的线性组合经过线性变换后落入核空间，反证出线性无关+象空间的每个向量可以由这组基表达，即该组基能张成整个象空间），注意线性变换对基和向量的不同作用$$考虑线性变换对空间中向量的作用\\beta=\\phi\\alpha，若满足\\alpha = (\\epsilon_1,\\epsilon_2,\\epsilon_3,…)x, 则对基的作用表现为\\phi(\\epsilon_1,\\epsilon_2,\\epsilon_3,…)=(\\epsilon_1,\\epsilon_2,\\epsilon_3,…)A,注意\\phi可以和后面的任意项结合，（\\phi(\\epsilon_1,\\epsilon_2,\\epsilon_3,…)x=\\phi((\\epsilon_1,\\epsilon_2,\\epsilon_3,…)x)=(\\epsilon_1,\\epsilon_2,\\epsilon_3,…)xA）对坐标的作用表现为y=Ax$$\n幂等变换：根据特征多项式得到特征值0和1；根据特征值的矩阵方程得到特征空间的维度\u003e=n，（A是（A-I）X=0的解）进而=n。\n虚特征值的特征向量必为虚特征向量，设未知数，由特征方程推导即可；\n作业5\n正交矩阵：一般是根据定义的矩阵方程，作转置/同乘转置/共轭/两式相乘等操作，注意向量内积的结果是标量；所有复特征值的模为1，模的平方=本身乘以共轭；行列式=实特征值的乘积；互异特征值的特征向量在酉空间正交；同一复特征值的特征向量在实空间的内积为0；\n奇异值分解：本质是$$A^T$$是半正定实对称矩阵，可以正交相似对角化；注意V是正交矩阵；并对AV作单位化处理；对于相似对角化，特征值即奇异值；\n诱导范数：线性变换对向量的最大伸缩比例；\n条件数：最大奇异值和最小奇异值的比值；反映了Ax=b的解空间对b的扰动的稳定性；\nKey 1.判断线性空间\n2.判断卷积/微分是否线性移不变系统，判断高通低通\n3.不同基下的线性变换矩阵\n4.反对称矩阵的复特征值和复特征向量的讨论（内积满足的关系）\n5.幂等矩阵的解空间与列空间，证明解空间和列空间的和构成整个空间，证明是直和，分别讨论特征向量的维数\n6.I-ae1e1T的特征值、特征子空间，奇异值分解，最优秩1分解（F范数结论）\n","wordCount":"48","inLanguage":"en","image":"https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","author":{"@type":"Person","name":"Xu Zhang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xuzhang0112.github.io/cheat_sheet/course/algebra/"},"publisher":{"@type":"Organization","name":"Xu Zhang's Blog","logo":{"@type":"ImageObject","url":"https://xuzhang0112.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://xuzhang0112.github.io/ accesskey=h title="Home (Alt + H)"><img src=https://xuzhang0112.github.io/apple-touch-icon.png alt aria-label=logo height=35>Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://xuzhang0112.github.io/cheat_sheet/cli title=CLI><span>CLI</span></a></li><li><a href=https://xuzhang0112.github.io/cheat_sheet/python title=Python><span>Python</span></a></li><li><a href=https://xuzhang0112.github.io/paper_reading/ title="Paper Reading"><span>Paper Reading</span></a></li><li><a href=https://xuzhang0112.github.io/tags/ title=tags><span>tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://xuzhang0112.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://xuzhang0112.github.io/cheat_sheet/>CheatSheet</a></div><h1 class="post-title entry-hint-parent">Linear Algebra</h1><div class=post-meta>Xu Zhang&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/cheat_sheet/course/algebra.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><div class=post-content><h2 id=作业>作业<a hidden class=anchor aria-hidden=true href=#作业>#</a></h2><p>作业1</p><p>数域：对加减乘除封闭</p><p>常微分方程的通解：特征方程，指数函数</p><p>线性空间：对加法&数乘封闭+8条</p><p>基：线性无关+表出整个空间</p><p>柯西不等式：根据内积半正定得到不等式，然后再根据结论构造；</p><p>施密特正交化：范数由区间上的内积定义，而不是本身的模长；奇函数/偶函数在对称区间上积分的性质；减去在标准正交基上的分量+单位化；</p><p>作业2</p><p>格拉姆矩阵：向量的内积；对角线上是范数的平方；注意非标准正交基的内积不为1；</p><p>傅立叶变换：向量和不同正交基在酉空间上的内积结果；变换后的内积与原始内积的比值等于基向量的内积；</p><p>帕萨瓦尔定理：时空域和频域的概率密度函数的范数相等；</p><p>时域/频域概率密度函数的期望和方差：一阶矩和二阶矩，三角函数相关的微积分（三角恒等式，三角换元，点火公式考虑平方时的特殊情况pi/4）</p><p>二维傅立叶变换：频域每一个点的基向量沿着二维空间的两个方向变化；而CT重建时是投影后再作一维傅立叶变换，本质上只有沿着一个方向变换的基向量，所以在频域只是过中心的直线（因为基向量只沿着一个方向变化，而不是两个）；</p><p>作业3</p><p>子空间：对加法和数乘封闭+属于原线性空间；</p><p>对角阵：对每一个基向量分别乘以一个系数（左乘变行/右乘变列，本质是分块矩阵乘法）</p><p>若矩阵左乘对角阵和右乘对角阵相等，则该矩阵也是对角阵</p><p>解空间的维度=n-系数矩阵的秩</p><p>直和：和+线性无关；两个空间相等的充要条件是相互包含；</p><p>相抵标准型：先行变换，再列变换；PAQ，行变换倒序，列变换正序；初等变换矩阵本质上还是对行和列的线性组合，可以视情况合并（例如所有列依次调换）；</p><p>广义加号逆：已经掌握了流畅的推导！根据投影的正则方程$$C^TAx=C^Tb$$可得b在A的列空间的投影$$\hat{b}=C(C^TC)C^Tb$$，同时最优最小二乘解$$x^<em>$$属于A的行空间，所以可以表达为$$x^</em>=A^Ty=R^Ty^<em>$$，进一步代入$$CRR^Ty=C(C^TC)C^Tb$$，解得$$x^</em>=R^T(RR^T)^{-1}(C^TC)^{-1}C^T$$（关键在于凑可逆阵，行满秩乘以列满秩必可逆，即$$C^TC和RR^$$可逆）</p><p>CR分解：寻找PAQ满足标准形，然后将标准形拆成两个矩阵的乘积；本质是秩1矩阵的和；</p><p>子空间的和：基向量的和；</p><p>反证法：若a属于A空间+b不属于A空间,则a+b必不属于A空间（否则可以倒推出b属于A空间）</p><p>作业4</p><p>二范数/四范数：最小值考虑one-hot（最小值为1）；最大值考虑柯西不等式（全1向量）；</p><p>线性变换：考虑基变换时，不同的基对应不同的矩阵；不同基下的线性变换矩阵公式$$B=P^{-1}AP$$其中P是A的基到B的基的过渡矩阵；到平凡基的过渡矩阵即现有基的逆矩阵；线性变换和矩阵同构，可以加法、数乘、乘法；</p><p>不同特征值的特征向量线性无关：1.两个特征值，反证法，若线性相关，则属于相同的特征值；2.多个特征值，数学归纳法，若前i+1个特征值的特征向量线性相关则推出前i个特征值的特征向量线性相关；</p><p>秩1矩阵的相似对角化：考虑非零特征值和零特征值的特征子空间，非零特征值取决于是否正交，零特征值的特征子空间维数是n-1</p><p>核空间与象空间：核空间外的基经过线性变换后构成象空间（假设线性相关，则有核空间外的基的线性组合经过线性变换后落入核空间，反证出线性无关+象空间的每个向量可以由这组基表达，即该组基能张成整个象空间），注意线性变换对基和向量的不同作用$$考虑线性变换对空间中向量的作用\beta=\phi\alpha，若满足\alpha = (\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)x, 则对基的作用表现为\phi(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)=(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)A,注意\phi可以和后面的任意项结合，（\phi(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)x=\phi((\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)x)=(\epsilon_1,\epsilon_2,\epsilon_3,&mldr;)xA）对坐标的作用表现为y=Ax$$</p><p>幂等变换：根据特征多项式得到特征值0和1；根据特征值的矩阵方程得到特征空间的维度>=n，（A是（A-I）X=0的解）进而=n。</p><p>虚特征值的特征向量必为虚特征向量，设未知数，由特征方程推导即可；</p><p>作业5</p><p>正交矩阵：一般是根据定义的矩阵方程，作转置/同乘转置/共轭/两式相乘等操作，注意向量内积的结果是标量；所有复特征值的模为1，模的平方=本身乘以共轭；行列式=实特征值的乘积；互异特征值的特征向量在酉空间正交；同一复特征值的特征向量在实空间的内积为0；</p><p>奇异值分解：本质是$$A^T$$是半正定实对称矩阵，可以正交相似对角化；注意V是正交矩阵；并对AV作单位化处理；对于相似对角化，特征值即奇异值；</p><p>诱导范数：线性变换对向量的最大伸缩比例；</p><p>条件数：最大奇异值和最小奇异值的比值；反映了Ax=b的解空间对b的扰动的稳定性；</p><h2 id=key>Key<a hidden class=anchor aria-hidden=true href=#key>#</a></h2><p>1.判断线性空间</p><p>2.判断卷积/微分是否线性移不变系统，判断高通低通</p><p>3.不同基下的线性变换矩阵</p><p>4.反对称矩阵的复特征值和复特征向量的讨论（内积满足的关系）</p><p>5.幂等矩阵的解空间与列空间，证明解空间和列空间的和构成整个空间，证明是直和，分别讨论特征向量的维数</p><p>6.I-ae1e1T的特征值、特征子空间，奇异值分解，最优秩1分解（F范数结论）</p></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2024 <a href=https://xuzhang0112.github.io/>Xu Zhang's Blog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Text classification on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/tags/text-classification/</link>
+    <description>Recent content in Text classification on Xu Zhang&#39;s Blog</description>
+    <image>
+      <title>Xu Zhang&#39;s Blog</title>
+      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.121.2</generator>
+    <language>en</language>
+    <atom:link href="https://xuzhang0112.github.io/tags/text-classification/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Novel ICD Coding Framework Based on Associated and Hierarchical Code Description Distillation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv24/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv24/</guid>
+      <description>原文链接
+ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
+每个医学报告对应若干ICD code，通过先验知识ICD Tree，可以获得若干相邻的（易混淆的）ICD code。
+监督信号来自两方面：
+文本描述和正确的标签描述都应该能被分类器正确地分类出icd code；
+文本描述应该和标签描述尽可能接近，和易混淆的标签描述尽可能远离；
+对于不同的Backbone，该方法在MIMIC III上可以产生0-3个点的提升。</description>
+    </item>
+    <item>
+      <title>Effective Convolutional Attention Network for Multi-label Clinical Document Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2021/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2021/</guid>
+      <description>key idea Backbone:CNN+多尺度 通过Conv1d聚合信息的同时，用SE模块进行一定的增强 Label Attention，多标签分类的常用做法，用attention为每一个标签聚合文本特征，对每一个标签的概率进行sigmoid激活 每个标签独立计算概率，但都要考虑所有类别的标签聚合到的特征$$V\in R^{N_l\times D_{conv}}$$ 在训练初期使用bce loss，后期切换到focal loss，以防止实验早期无法拟合常见病（罕见病1-2%左右） 可解释性探讨 Res-SE模块 SE模块，通过token所在的句子来判断这个token的重要性，并进行权重增强</description>
+    </item>
+    <item>
+      <title>Enhancing Hierarchical Text Classification through Knowledge Graph Integration</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/23_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/23_1/</guid>
+      <description>ACL 2023</description>
+    </item>
+    <item>
+      <title>How to Fine-Tune BERT for Text Classification?</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</guid>
+      <description>Key idea 在9个中文数据集上探究了BERT在文本分类任务上的进一步预训练与微调
+结论 实验一：微调策略 对于长文本，经验性地截取开头和结尾 &amp;gt; 全文分段送入BERT，self-attention &amp;gt; max pooling &amp;gt; mean pooling 最后一层的输出 &amp;gt; 若干层的拼接和池化 较低的学习率（2e-5）和layer-wise的学习率衰减（0.95）有助于缓解灾难性遗忘 fine-tune一般采取三角学习率（warm up + linear decay） pretrain: lr=5e-5, seq_len=128; fine-tune: lr=2e-5, seq_len=512 实验二： 进一步预训练 进一步预训练(in-domain &amp;gt; task &amp;gt; cross-domain，不绝对) &amp;gt; 多任务fine-tune &amp;gt; 直接fine-tune 多任务fine-tune在further pretrain的情况下是会掉点的，仅仅优于直接fine-tune ULMFiT: 大规模数据集上进行pre-training然后在特定数据集上达到state-of-the-art的工作，分为3个阶段，phase1 big dataset pretrain; phase2 task dataset pretrain; phase3 finetune </description>
+    </item>
+    <item>
+      <title>Improved Graph Contrastive Learning for Short Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/4/</guid>
+      <description>从语料库中构建3种类型的图，单词、实体、词性。
+Word Graph采用GloVe word vectors作为节点嵌入，PMI作为边权重；
+Entity Graph采用TransE获取节点嵌入，cosine similarity作为边权重；
+Pos Graph采用One-hot作为节点嵌入，PMI作为边权重。
+这些嵌入可以通过GNN来进一步聚合邻域的信息。 $$ H^{l+1}=\sigma(\hat{D^{-\frac{1}{2}}}\hat{A}\hat{D^{-\frac{1}{2}}}H^lW^l) $$ 基于这些嵌入，进一步可以构建出文本的表示，对于单词和词性，采用TF-IDF作为系数矩阵，对于实体，则只用0和1来区分文本是否存在该实体，$M_\pi$表示文本与单词、实体、词性之间的系数矩阵。 $$ Z_\pi = M_\pi H_\pi , \pi \in {w,e,p} $$
+$$ Z_{org} = Z_w || Z_e || Z_p $$
+$Z_{pi}$是文本的原始特征表示，可以使用SVD进行进一步的去噪和增强，获得增强的文本表示。 $$ M_{\pi , r} = U_{\pi,r}\Sigma_{\pi,r}V_{\pi,r}^T $$
+$$ Z_{\pi,r}=M_{\pi,r}H_\pi $$
+$$ Z_{aug}=Z_{w,r}||Z_{e,r}||Z_{p,r} $$
+对于无标签的文本，采用对比学习和聚类对比学习损失。
+实例对比学习将每个实例与其增强表示拉近，与其他实例及其增强表示拉远。 $$ L_{cl} = -\sum_{i=1}^{2N}\frac{1}{2N}log\frac{exp(P_i\cdot P_j / \tau)}{\sum_{k=1}^{2N}\prod_{k\neq i}exp(P_i\cdot P_k / \tau)} $$ 聚类对比学习将每个实例与其伪标签（聚类中心）相同的实例拉近，与其他实例拉远。 $$ L_{ccl} = -\sum_i^N \frac{1}{|S_i|-1}\sum_{j\in S_i}log\frac{exp(Q_i\cdot Q_j/\tau)}{\sum_{k=1}^N\prod_{k \neq i}exp(Q_i\cdot Qk/\tau)} $$ 对于有标签的文本，采用交叉熵损失。 $$ L_{ce}=-\sum_{i\in D_{lab}}\sum_j^cy_{ij}logR_{j} $$</description>
+    </item>
+    <item>
+      <title>Incorporating Hierarchy into Text Encoder: a Contrastive Learning Approach for Hierarchical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/22/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/22/</guid>
+      <description>ACL 2022</description>
+    </item>
+    <item>
+      <title>KG-MTT-BERT: Knowledge Graph Enhanced BERT for Multi-Type Medical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2022/</guid>
+      <description>key idea 中文病历报告的疾病分类工作
+使用bert分别处理病历报告的各个字段，探讨了不同尺度和不同池化方式对结果的影响 max-pooling比CLS更好 序列长度大于64时，效果较好 大体上损失函数收敛更快、更低，同时精度提升最快 使用KG、图嵌入和图网络增强了分类 图嵌入:KG2E 推测：词语级别的医学实体编码相比单字级别的中文分词编码，引入了额外的信息，因此能提升性能 数据集规模大概在几万例样本，几百类疾病，各个字段的长度差异较大，entity也比较少</description>
+    </item>
+    <item>
+      <title>Medical knowledge-enhanced prompt learning for diagnosis classification from clinical text</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/23_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/23_2/</guid>
+      <description>ACL 2023 ClinicalNLP Workshop</description>
+    </item>
+    <item>
+      <title>Toward Robustness in Multi-Label Classification: A Data Augmentation Strategy against Imbalance and Noise</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/3/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hierachical classification on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/tags/hierachical-classification/</link>
+    <description>Recent content in Hierachical classification on Xu Zhang&#39;s Blog</description>
+    <image>
+      <title>Xu Zhang&#39;s Blog</title>
+      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.121.2</generator>
+    <language>en</language>
+    <atom:link href="https://xuzhang0112.github.io/tags/hierachical-classification/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deep Hierarchical Classification for Category Prediction in E-commerce System</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/20_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/20_1/</guid>
+      <description>ACL 2020 workshop</description>
+    </item>
+    <item>
+      <title>Graph Neural Network Based Multi-Label Hierarchical Classification for Disease Predictions in General Practice</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</guid>
+      <description>key idea Graph构建，包含病人、症状、疾病三种节点类型，症状和疾病通过TransE初始化，病人取症状的均值 过2层GAT，采用多个二分类的分类器，子类疾病的概率=父类概率×子类概率（涨了0.6个点） architecture </description>
+    </item>
+    <item>
+      <title>HPT: Hierarchy-aware Prompt Tuning for Hierarchical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</guid>
+      <description>key idea 指出了层次化分类的基本范式，通过GNN对层次标签进行编码 同时，保留了预训练时的MLM任务，以缓解灾难性遗忘。 提出了ZMLCE Loss Architecture 结构上的改进
+用GAT构造出每个层级的描述，指导模型作出这一层级的分类；
+在每个层级的分类时，使用这一层级的分类器，在这里，使用了每个类别词的embedding作权重初始化；
+效果还不错，涨了1个点</description>
+    </item>
+  </channel>
+</rss>

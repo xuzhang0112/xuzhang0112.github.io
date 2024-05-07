@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/tags/</link>
+    <description>Recent content in Tags on Xu Zhang&#39;s Blog</description>
+    <image>
+      <title>Xu Zhang&#39;s Blog</title>
+      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.121.2</generator>
+    <language>en</language>
+    <atom:link href="https://xuzhang0112.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AAAI</title>
+      <link>https://xuzhang0112.github.io/tags/aaai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/aaai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AAAI 2024</title>
+      <link>https://xuzhang0112.github.io/tags/aaai-2024/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/aaai-2024/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Arxiv 2022</title>
+      <link>https://xuzhang0112.github.io/tags/arxiv-2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/arxiv-2022/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Arxiv 2024</title>
+      <link>https://xuzhang0112.github.io/tags/arxiv-2024/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/arxiv-2024/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Attention</title>
+      <link>https://xuzhang0112.github.io/tags/attention/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/attention/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>BERT</title>
+      <link>https://xuzhang0112.github.io/tags/bert/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/bert/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>BIBM 2023</title>
+      <link>https://xuzhang0112.github.io/tags/bibm-2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/bibm-2023/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>BNN</title>
+      <link>https://xuzhang0112.github.io/tags/bnn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/bnn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CCL 2019</title>
+      <link>https://xuzhang0112.github.io/tags/ccl-2019/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/ccl-2019/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CIKM 2023</title>
+      <link>https://xuzhang0112.github.io/tags/cikm-2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/cikm-2023/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CNN</title>
+      <link>https://xuzhang0112.github.io/tags/cnn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/cnn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>COLING 2022</title>
+      <link>https://xuzhang0112.github.io/tags/coling-2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/coling-2022/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Contrastive Learning</title>
+      <link>https://xuzhang0112.github.io/tags/contrastive-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/contrastive-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data augmentation</title>
+      <link>https://xuzhang0112.github.io/tags/data-augmentation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/data-augmentation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>EMNLP 2021</title>
+      <link>https://xuzhang0112.github.io/tags/emnlp-2021/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/emnlp-2021/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>EMNLP 2022</title>
+      <link>https://xuzhang0112.github.io/tags/emnlp-2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/emnlp-2022/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>EMNLP 2023</title>
+      <link>https://xuzhang0112.github.io/tags/emnlp-2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/emnlp-2023/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ENN</title>
+      <link>https://xuzhang0112.github.io/tags/enn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/enn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GNN</title>
+      <link>https://xuzhang0112.github.io/tags/gnn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/gnn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hierachical classification</title>
+      <link>https://xuzhang0112.github.io/tags/hierachical-classification/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/hierachical-classification/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hierarchy</title>
+      <link>https://xuzhang0112.github.io/tags/hierarchy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/hierarchy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ICD Tree</title>
+      <link>https://xuzhang0112.github.io/tags/icd-tree/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/icd-tree/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>KG</title>
+      <link>https://xuzhang0112.github.io/tags/kg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/kg/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Knowledge Distillation</title>
+      <link>https://xuzhang0112.github.io/tags/knowledge-distillation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/knowledge-distillation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Label Attention</title>
+      <link>https://xuzhang0112.github.io/tags/label-attention/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/label-attention/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Long-tail</title>
+      <link>https://xuzhang0112.github.io/tags/long-tail/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/long-tail/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Medinfo 2023</title>
+      <link>https://xuzhang0112.github.io/tags/medinfo-2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/medinfo-2023/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MedNLP</title>
+      <link>https://xuzhang0112.github.io/tags/mednlp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/mednlp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Meta Learning</title>
+      <link>https://xuzhang0112.github.io/tags/meta-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/meta-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-label</title>
+      <link>https://xuzhang0112.github.io/tags/multi-label/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/multi-label/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multi-task Learning</title>
+      <link>https://xuzhang0112.github.io/tags/multi-task-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/multi-task-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NIPS 2023</title>
+      <link>https://xuzhang0112.github.io/tags/nips-2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/nips-2023/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prompt Learning</title>
+      <link>https://xuzhang0112.github.io/tags/prompt-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/prompt-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Re-training</title>
+      <link>https://xuzhang0112.github.io/tags/re-training/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/re-training/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>RNN</title>
+      <link>https://xuzhang0112.github.io/tags/rnn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/rnn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Text Classificaiton</title>
+      <link>https://xuzhang0112.github.io/tags/text-classificaiton/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/text-classificaiton/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Text classification</title>
+      <link>https://xuzhang0112.github.io/tags/text-classification/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/text-classification/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TMI 2024</title>
+      <link>https://xuzhang0112.github.io/tags/tmi-2024/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/tmi-2024/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Transformer</title>
+      <link>https://xuzhang0112.github.io/tags/transformer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/tags/transformer/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

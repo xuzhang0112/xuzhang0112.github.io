@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>BERT on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/tags/bert/</link>
+    <description>Recent content in BERT on Xu Zhang&#39;s Blog</description>
+    <image>
+      <title>Xu Zhang&#39;s Blog</title>
+      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.121.2</generator>
+    <language>en</language>
+    <atom:link href="https://xuzhang0112.github.io/tags/bert/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enhancing Hierarchical Text Classification through Knowledge Graph Integration</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/23_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/23_1/</guid>
+      <description>ACL 2023</description>
+    </item>
+    <item>
+      <title>How to Fine-Tune BERT for Text Classification?</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</guid>
+      <description>Key idea 在9个中文数据集上探究了BERT在文本分类任务上的进一步预训练与微调
+结论 实验一：微调策略 对于长文本，经验性地截取开头和结尾 &amp;gt; 全文分段送入BERT，self-attention &amp;gt; max pooling &amp;gt; mean pooling 最后一层的输出 &amp;gt; 若干层的拼接和池化 较低的学习率（2e-5）和layer-wise的学习率衰减（0.95）有助于缓解灾难性遗忘 fine-tune一般采取三角学习率（warm up + linear decay） pretrain: lr=5e-5, seq_len=128; fine-tune: lr=2e-5, seq_len=512 实验二： 进一步预训练 进一步预训练(in-domain &amp;gt; task &amp;gt; cross-domain，不绝对) &amp;gt; 多任务fine-tune &amp;gt; 直接fine-tune 多任务fine-tune在further pretrain的情况下是会掉点的，仅仅优于直接fine-tune ULMFiT: 大规模数据集上进行pre-training然后在特定数据集上达到state-of-the-art的工作，分为3个阶段，phase1 big dataset pretrain; phase2 task dataset pretrain; phase3 finetune </description>
+    </item>
+    <item>
+      <title>HPT: Hierarchy-aware Prompt Tuning for Hierarchical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</guid>
+      <description>key idea 指出了层次化分类的基本范式，通过GNN对层次标签进行编码 同时，保留了预训练时的MLM任务，以缓解灾难性遗忘。 提出了ZMLCE Loss Architecture 结构上的改进
+用GAT构造出每个层级的描述，指导模型作出这一层级的分类；
+在每个层级的分类时，使用这一层级的分类器，在这里，使用了每个类别词的embedding作权重初始化；
+效果还不错，涨了1个点</description>
+    </item>
+    <item>
+      <title>Incorporating Hierarchy into Text Encoder: a Contrastive Learning Approach for Hierarchical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/22/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/22/</guid>
+      <description>ACL 2022</description>
+    </item>
+    <item>
+      <title>KG-MTT-BERT: Knowledge Graph Enhanced BERT for Multi-Type Medical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2022/</guid>
+      <description>key idea 中文病历报告的疾病分类工作
+使用bert分别处理病历报告的各个字段，探讨了不同尺度和不同池化方式对结果的影响 max-pooling比CLS更好 序列长度大于64时，效果较好 大体上损失函数收敛更快、更低，同时精度提升最快 使用KG、图嵌入和图网络增强了分类 图嵌入:KG2E 推测：词语级别的医学实体编码相比单字级别的中文分词编码，引入了额外的信息，因此能提升性能 数据集规模大概在几万例样本，几百类疾病，各个字段的长度差异较大，entity也比较少</description>
+    </item>
+    <item>
+      <title>Knowledge Injected Prompt Based Fine-tuning for Multi-label Few-shot ICD Coding </title>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</guid>
+      <description>SOTA of MIMIC III, in 2022, micro-f1 = 59.9 (ReRanker, 2-stage)
+key idea 利用UMLS 2021AA知识图谱（4.4M实体）的层次化知识进行对比学习的预训练，并为不同的负样本（UMLS中的邻节点、父节点、不相关节点）设置不同的软间隔
+在这之前先进行MIMIC III上的完型填空预训练 输入格式：疾病a描述+[MASK]+疾病b描述+[MASK]+&amp;hellip;+病历文本，通过MLM来预测疾病的有无
+使用超长文本专用的LongFormer（8192个token，全局注意力）来处理，使用注意力机制来捕获每一种疾病的相关信息，从而根据不同位置编码的MASK来预测不同疾病的有无
+计算量随类别数增加（N^2），因此无法处理超大类别 Details Pretrain，1张V100，48小时
+Finetune, 2张A100，10+0.5小时（MIMIC-III-50 &amp;amp; MIMIC-III-rare50）
+计算量随类别数增加（N^2），因此无法处理超大类别 因此，它在MIMIC III上的SOTA是通过2-stage取得的，先使用之前的sota模型选出300个candidate，再进一步计算</description>
+    </item>
+    <item>
+      <title>Medical knowledge-enhanced prompt learning for diagnosis classification from clinical text</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/23_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/23_2/</guid>
+      <description>ACL 2023 ClinicalNLP Workshop</description>
+    </item>
+    <item>
+      <title>Text2Tree: Aligning Text Representation to the Label Tree Hierarchy for Imbalanced Medical Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</guid>
+      <description>key idea 通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
+[] 有监督对比学习将同一类别视为正样本，然而罕见病缺乏同一类别正样本
+通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
+同一类目的疾病的相似度&amp;gt;同一章节不同类目疾病的相似度&amp;gt;不同章节疾病间的相似度
+通过注意力机制，利用父节点和相邻节点，来完善罕见病的表达</description>
+    </item>
+  </channel>
+</rss>

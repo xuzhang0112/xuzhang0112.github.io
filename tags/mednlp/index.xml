@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MedNLP on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/tags/mednlp/</link>
+    <description>Recent content in MedNLP on Xu Zhang&#39;s Blog</description>
+    <image>
+      <title>Xu Zhang&#39;s Blog</title>
+      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.121.2</generator>
+    <language>en</language>
+    <atom:link href="https://xuzhang0112.github.io/tags/mednlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Medical NLP</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/text_classification/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/text_classification/</guid>
+      <description>命名实体识别、词性标注、归一化，有现成的第三方库，不需要神经网络
+医学是一门独立的语言，甚至由于领域知识过于庞杂，任何一个子领域可能使用独立的语言
+Text Classification Benchmark
+2018 BERT
+2019
+SpanBert：对 Bert 预训练的一次深度探索 - 知乎 (zhihu.com) 不只是span mask，还有基于span边界预测指定位置的监督
+RoBERTa模型总结 - 知乎 (zhihu.com) 去除NSP，大batch_size，动态mask
+T5 模型：NLP Text-to-Text 预训练模型超大规模探索 - 知乎 (zhihu.com) Google出品，大量实验，大量结论，可用于指导调参
+2021
+SimCSE论文解读 - 知乎 (zhihu.com) 句子嵌入sota，但不一定利于下游任务
+无监督对比学习SIMCSE理解和中文实验操作-CSDN博客 细节
+Sentence-T5｜谷歌提出文本表示新SOTA (qq.com) 双塔结构，多加了一层投影和L2-Norm
+注意：有监督对比loss上的temperature=100，之前无监督对比学习的T都很小
+对比学习在文本分类任务中的应用实践 - 知乎 (zhihu.com) 混合对比学习和分类监督
+2022
+文本分类还停留在BERT？对偶对比学习框架也太强了-腾讯云开发者社区-腾讯云 (tencent.com) 类似我们的方法</description>
+    </item>
+  </channel>
+</rss>

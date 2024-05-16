@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ICLR on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/paper_reading/iclr/</link>
+    <description>Recent content in ICLR on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <atom:link href="https://xuzhang0112.github.io/paper_reading/iclr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GraphCare: Enhancing Healthcare Predictions with Open-World Personalized Knowledge Graphs</title>
+      <link>https://xuzhang0112.github.io/paper_reading/iclr/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/iclr/1/</guid>
+      <description>GraphCare: Enhancing Healthcare Predictions with Personalized Knowledge Graphs | OpenReview</description>
+      
+    </item>
+    
+  </channel>
+</rss>

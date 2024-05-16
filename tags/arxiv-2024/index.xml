@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Arxiv 2024 on Xu Zhang&#39;s Blog</title>
     <link>https://xuzhang0112.github.io/tags/arxiv-2024/</link>
     <description>Recent content in Arxiv 2024 on Xu Zhang&#39;s Blog</description>
-    <image>
-      <title>Xu Zhang&#39;s Blog</title>
-      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.121.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/tags/arxiv-2024/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Novel ICD Coding Framework Based on Associated and Hierarchical Code Description Distillation</title>
       <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv24/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv24/</guid>
       <description>原文链接
 ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
@@ -24,6 +21,8 @@ ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
 文本描述和正确的标签描述都应该能被分类器正确地分类出icd code；
 文本描述应该和标签描述尽可能接近，和易混淆的标签描述尽可能远离；
 对于不同的Backbone，该方法在MIMIC III上可以产生0-3个点的提升。</description>
+      
     </item>
+    
   </channel>
 </rss>

@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CheatSheet on Xu Zhang&#39;s Blog</title>
     <link>https://xuzhang0112.github.io/categories/cheatsheet/</link>
     <description>Recent content in CheatSheet on Xu Zhang&#39;s Blog</description>
-    <image>
-      <title>Xu Zhang&#39;s Blog</title>
-      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.121.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/categories/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Visualization</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/visualization/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/cheat_sheet/visualization/</guid>
-      <description>基于PyQt5的应用开发 最简单的应用程序=应用进程+窗口组件 import PyQt5.QtWidgets as QtWidgets import sys class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&amp;#39;Demo&amp;#39;) self.show() if __name__ == &amp;#34;__main__&amp;#34;: # 创建应用程序进程 app = QtWidgets.QApplication(sys.argv) # 创建主窗口 window = MainWindow(app) # 主程序开始运行 app.exec_() 在主窗口中添加组件 添加单个组件 class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&amp;#39;MainWindow&amp;#39;) self.setCentralWidget(QtWidgets.QPushButton(&amp;#34;Button&amp;#34;)) self.show() 添加多个组件 from PyQt5.QtWidgets import ( QApplication, QMainWindow, QPushButton, QSlider, QLabel, QCheckBox, QComboBox, QSpinBox, QDoubleSpinBox, QGroupBox, QGridLayout, QFileDialog) import sys from PyQt5.</description>
+      <description>基于PyQt5的应用开发 # 最简单的应用程序=应用进程+窗口组件 # import PyQt5.QtWidgets as QtWidgets import sys class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&amp;#39;Demo&amp;#39;) self.show() if __name__ == &amp;#34;__main__&amp;#34;: # 创建应用程序进程 app = QtWidgets.QApplication(sys.argv) # 创建主窗口 window = MainWindow(app) # 主程序开始运行 app.exec_() 在主窗口中添加组件 # 添加单个组件 # class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&amp;#39;MainWindow&amp;#39;) self.setCentralWidget(QtWidgets.QPushButton(&amp;#34;Button&amp;#34;)) self.show() 添加多个组件 # from PyQt5.QtWidgets import ( QApplication, QMainWindow, QPushButton, QSlider, QLabel, QCheckBox, QComboBox, QSpinBox, QDoubleSpinBox, QGroupBox, QGridLayout, QFileDialog) import sys from PyQt5.</description>
+      
     </item>
+    
   </channel>
 </rss>

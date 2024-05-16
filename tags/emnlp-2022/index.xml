@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>EMNLP 2022 on Xu Zhang&#39;s Blog</title>
     <link>https://xuzhang0112.github.io/tags/emnlp-2022/</link>
     <description>Recent content in EMNLP 2022 on Xu Zhang&#39;s Blog</description>
-    <image>
-      <title>Xu Zhang&#39;s Blog</title>
-      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.121.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/tags/emnlp-2022/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HPT: Hierarchy-aware Prompt Tuning for Hierarchical Text Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</guid>
-      <description>key idea 指出了层次化分类的基本范式，通过GNN对层次标签进行编码 同时，保留了预训练时的MLM任务，以缓解灾难性遗忘。 提出了ZMLCE Loss Architecture 结构上的改进
+      <description>key idea # 指出了层次化分类的基本范式，通过GNN对层次标签进行编码 同时，保留了预训练时的MLM任务，以缓解灾难性遗忘。 提出了ZMLCE Loss Architecture # 结构上的改进
 用GAT构造出每个层级的描述，指导模型作出这一层级的分类；
 在每个层级的分类时，使用这一层级的分类器，在这里，使用了每个类别词的embedding作权重初始化；
 效果还不错，涨了1个点</description>
+      
     </item>
+    
     <item>
       <title>Knowledge Injected Prompt Based Fine-tuning for Multi-label Few-shot ICD Coding </title>
       <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</guid>
       <description>SOTA of MIMIC III, in 2022, micro-f1 = 59.9 (ReRanker, 2-stage)
-key idea 利用UMLS 2021AA知识图谱（4.4M实体）的层次化知识进行对比学习的预训练，并为不同的负样本（UMLS中的邻节点、父节点、不相关节点）设置不同的软间隔
+key idea # 利用UMLS 2021AA知识图谱（4.4M实体）的层次化知识进行对比学习的预训练，并为不同的负样本（UMLS中的邻节点、父节点、不相关节点）设置不同的软间隔
 在这之前先进行MIMIC III上的完型填空预训练 输入格式：疾病a描述+[MASK]+疾病b描述+[MASK]+&amp;hellip;+病历文本，通过MLM来预测疾病的有无
 使用超长文本专用的LongFormer（8192个token，全局注意力）来处理，使用注意力机制来捕获每一种疾病的相关信息，从而根据不同位置编码的MASK来预测不同疾病的有无
-计算量随类别数增加（N^2），因此无法处理超大类别 Details Pretrain，1张V100，48小时
+计算量随类别数增加（N^2），因此无法处理超大类别 Details # Pretrain，1张V100，48小时
 Finetune, 2张A100，10+0.5小时（MIMIC-III-50 &amp;amp; MIMIC-III-rare50）
 计算量随类别数增加（N^2），因此无法处理超大类别 因此，它在MIMIC III上的SOTA是通过2-stage取得的，先使用之前的sota模型选出300个candidate，再进一步计算</description>
+      
     </item>
+    
   </channel>
 </rss>

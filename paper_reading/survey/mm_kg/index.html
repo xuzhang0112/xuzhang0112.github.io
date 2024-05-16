@@ -1,6 +1,1498 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Multi-modal Knowledge Graph | Xu Zhang's Blog</title>
-<meta name=keywords content><meta name=description content="Common Tasks VQA retrieve and read Structured knowledge based methods e.g. ConceptNet Unstructured knowledge based methods retrieve knowledge from Wikipedia and encode relevant text in a memory network for further reasoning augments the knowledge graph YAGO [40] with related images end-to-end methods pre-trained models (implicit konwledge) mainly captures the co-occurrence of imagequestion-answer triplet instead of explainable and refined knowledge KG 关系抽取、链路预测 learn knowledge from structured textual and visual data and maintain the triplet structure for entity alignment utilizes RDF knowledge graphs to represent multimodal information based on graph alignment links the entities in existing knowledge graphs with relevant images 问题"><meta name=author content="Xu Zhang"><link rel=canonical href=https://xuzhang0112.github.io/paper_reading/survey/mm_kg/><link crossorigin=anonymous href=/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z+V9+cO1A=" rel="preload stylesheet" as=style><link rel=icon href=https://xuzhang0112.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://xuzhang0112.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://xuzhang0112.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://xuzhang0112.github.io/apple-touch-icon.png><link rel=mask-icon href=https://xuzhang0112.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-123-45","auto"),ga("send","pageview"))</script><meta property="og:title" content="Multi-modal Knowledge Graph"><meta property="og:description" content="Common Tasks VQA retrieve and read Structured knowledge based methods e.g. ConceptNet Unstructured knowledge based methods retrieve knowledge from Wikipedia and encode relevant text in a memory network for further reasoning augments the knowledge graph YAGO [40] with related images end-to-end methods pre-trained models (implicit konwledge) mainly captures the co-occurrence of imagequestion-answer triplet instead of explainable and refined knowledge KG 关系抽取、链路预测 learn knowledge from structured textual and visual data and maintain the triplet structure for entity alignment utilizes RDF knowledge graphs to represent multimodal information based on graph alignment links the entities in existing knowledge graphs with relevant images 问题"><meta property="og:type" content="article"><meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/mm_kg/"><meta property="og:image" content="https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="paper_reading"><meta property="og:site_name" content="ExampleSite"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="Multi-modal Knowledge Graph"><meta name=twitter:description content="Common Tasks VQA retrieve and read Structured knowledge based methods e.g. ConceptNet Unstructured knowledge based methods retrieve knowledge from Wikipedia and encode relevant text in a memory network for further reasoning augments the knowledge graph YAGO [40] with related images end-to-end methods pre-trained models (implicit konwledge) mainly captures the co-occurrence of imagequestion-answer triplet instead of explainable and refined knowledge KG 关系抽取、链路预测 learn knowledge from structured textual and visual data and maintain the triplet structure for entity alignment utilizes RDF knowledge graphs to represent multimodal information based on graph alignment links the entities in existing knowledge graphs with relevant images 问题"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PaperReading","item":"https://xuzhang0112.github.io/paper_reading/"},{"@type":"ListItem","position":2,"name":"Survey","item":"https://xuzhang0112.github.io/paper_reading/survey/"},{"@type":"ListItem","position":3,"name":"Multi-modal Knowledge Graph","item":"https://xuzhang0112.github.io/paper_reading/survey/mm_kg/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Multi-modal Knowledge Graph","name":"Multi-modal Knowledge Graph","description":"Common Tasks VQA retrieve and read Structured knowledge based methods e.g. ConceptNet Unstructured knowledge based methods retrieve knowledge from Wikipedia and encode relevant text in a memory network for further reasoning augments the knowledge graph YAGO [40] with related images end-to-end methods pre-trained models (implicit konwledge) mainly captures the co-occurrence of imagequestion-answer triplet instead of explainable and refined knowledge KG 关系抽取、链路预测 learn knowledge from structured textual and visual data and maintain the triplet structure for entity alignment utilizes RDF knowledge graphs to represent multimodal information based on graph alignment links the entities in existing knowledge graphs with relevant images 问题","keywords":[],"articleBody":"Common Tasks VQA retrieve and read Structured knowledge based methods e.g. ConceptNet Unstructured knowledge based methods retrieve knowledge from Wikipedia and encode relevant text in a memory network for further reasoning augments the knowledge graph YAGO [40] with related images end-to-end methods pre-trained models (implicit konwledge) mainly captures the co-occurrence of imagequestion-answer triplet instead of explainable and refined knowledge KG 关系抽取、链路预测 learn knowledge from structured textual and visual data and maintain the triplet structure for entity alignment utilizes RDF knowledge graphs to represent multimodal information based on graph alignment links the entities in existing knowledge graphs with relevant images 问题\n模态单一，只有文本，缺乏视觉模态（多模态）\n知识简单，仅包含一阶知识（高阶）\nAll in One: Multi-Task Prompting for Graph Neural Networks [KDD2023 Best Paper] 核心思想：对每一个任务训练一个prompt，而不是训一个模型 如何设计prompt？ 借鉴NLP，思考prompt的token类型、关系和插入方法\n每个prompt也是一个图结构\ntoken类型（节点）：embedding\ntoken结构（边）：可学习参数/相似度/相互独立\n插入方式：输入图节点和prompt图节点计算attention，然后将边进行相应的叠加\n如何设计训练任务？ 所有任务（节点/边/图级别）都可以看成对（添加了指定任务prompt）子图的图级别分类\n对于局部级别的任务，采样其$$\\tau$$近邻子图，然后添加对应任务的prompt，然后做二分类（有几个类别就做几个prompt）\n利用元学习的思想将多个任务的prompt协同训练（元学习：用反向传播优化超参数）\nGraphGPT: Graph Instruction Tuning for Large Language Models motivation 把图的全部节点文本都输入大模型成本过高，但是相邻节点又富含信息，因此希望找到一个方法来对图结构信息做压缩，从而利用大模型来处理图结构\n例子：论文的引用关系可以体现论文的主题（相邻节点促进中心节点的分类）\n核心思想：将图结构和文本做对齐，让GPT读的懂图结构 如何做？ 不训练GNN和LLM，只训练映射头，而且分两个阶段\n第一阶段，让LLM来对图嵌入做排序，让其对应相应的文本嵌入\n第二阶段，让LLM针对指定下游任务（在prompt中体现），进行思维链推导，以获得一定的逻辑性\n如何迁移到下游任务？ 子图匹配：将图映射成节点向量序列，问一系列节点分别对应什么\n节点分类：将图映射成节点向量序列，问第0个节点是什么\n链路预测：将两个图分别映射成嵌入\nHybrid transformer with multi-level fusion for multimodal knowledge graph completion [SIGIR 2022] 核心思想：用统一的框架实现三个KG任务 Multimodal Link Prediction Multimodal Relation extraction (MRE) MNER is the task of extracting named entities from text sequences and corresponding images (MNER) 框架 RE：对CLS token进行预测\nNER：对每个词向量进行预测\n链路预测：对mask token进行预测\n模块 视觉：直接混合attention\n文本：先self-attention再cross-attention\n效果图 证明模块的重要性 Mukea: Multimodal knowledge extraction and accumulation for knowledge-based visual question answering 代码🔗：https://github.com/AndersonStra/MuKEA\n如何做VQA？ 本质：图谱补全（头+关系==预测==\u003e尾）\n基于神经网络来建模头节点和关系向量\n如何训练？ 基于TransE算法来实现逻辑推理关系，同时设计不同尺度的损失函数\n靠近正确答案，远离错误答案 靠近正确答案 多个答案对比 为什么有效？ 因为能（结合图像）正确地捕捉到头部实体和关系，同时（多模态）知识库更完备\n数据集 OKVQA and KRVQA\nMKVSE: Multimodal Knowledge Enhanced Visual-semantic Embedding for Image-text Retrieval [TOMM2023] 代码🔗：https://github.com/PKU-ICST-MIPL/MKVSE-TOMM2023\n做了什么？ 定义了跨模态检索任务：将根据文本提供的几何拓扑关系，并检索变换后的图像\n提出了一个数据集，用于该任务\n数据集 怎么做？ 对比学习\n效果 Masked Vision and Language Pre-training with Unimodal and Multimodal Contrastive Losses for Medical Visual Question Answering [MICCAI 2023] 架构 在开放问题和Y/N问题上的效果 数据集\npretrain ROCO 80,000 MedICaT 217,000 ImageCLEF2022 90,000 test VQA-RAD 315+3064 SLAKE 14028 7:1.5:1.5 PathVQA 32799 5:3:2 ITM\u0026MLM不可或缺 Achieving Cross Modal Generalization with Multimodal Unified Representation [NeurIPS 2023] 问题：\n一、如何将不同模态中具有相同语义的信息提取出来，同时避免 modality-specific 信息的干扰；（粒度不够细）\n二、如何将这些具有相同语义的不同模态用统一的 codebook 表征。（对齐不够齐）\n目标：\n将各个模态的任务转换成离散空间的任务\nOpen Visual Knowledge Extraction via Relation-Oriented Multimodality Model Prompting [NIPS2023] 主任务：视觉知识抽取，分解为目标检测和文本生成\n目标检测：Relation-centric（bbox改成subject和object联合区域，分类器目标改成关系类别 文本生成：改Loss，惩罚相似的生成 数据增强：使用KG、LLM扩充知识（从常识库中补充更多的关系，将主语替换为同义词）；丢弃频繁知识（魔改TF-IDF）； 并不是凭空抽取知识，训练依赖细粒度的标注（BBox，知识），数据集Visual Geonome\n下游任务：文本检索图像，图像识别文本，VQA\n模型：检测：ResNet+FPN，多模态生成：VIT-B-16+BLIP/CLIP（依赖大规模预训练）\n","wordCount":"310","inLanguage":"en","image":"https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","author":{"@type":"Person","name":"Xu Zhang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xuzhang0112.github.io/paper_reading/survey/mm_kg/"},"publisher":{"@type":"Organization","name":"Xu Zhang's Blog","logo":{"@type":"ImageObject","url":"https://xuzhang0112.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://xuzhang0112.github.io/ accesskey=h title="Home (Alt + H)"><img src=https://xuzhang0112.github.io/apple-touch-icon.png alt aria-label=logo height=35>Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://xuzhang0112.github.io/cheat_sheet/cli title=CLI><span>CLI</span></a></li><li><a href=https://xuzhang0112.github.io/cheat_sheet/python title=Python><span>Python</span></a></li><li><a href=https://xuzhang0112.github.io/paper_reading/ title="Paper Reading"><span>Paper Reading</span></a></li><li><a href=https://xuzhang0112.github.io/tags/ title=tags><span>tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://xuzhang0112.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://xuzhang0112.github.io/paper_reading/>PaperReading</a>&nbsp;»&nbsp;<a href=https://xuzhang0112.github.io/paper_reading/survey/>Survey</a></div><h1 class="post-title entry-hint-parent">Multi-modal Knowledge Graph</h1><div class=post-meta>Xu Zhang&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/paper_reading/survey/mm_kg.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#common-tasks>Common Tasks</a><ul><li><a href=#vqa>VQA</a></li><li><a href=#kg>KG</a></li></ul></li><li><a href=#all-in-one-multi-task-prompting-for-graph-neural-networks-kdd2023-best-paper>All in One: Multi-Task Prompting for Graph Neural Networks [KDD2023 Best Paper]</a></li><li><a href=#graphgpt-graph-instruction-tuning-for-large-language-models>GraphGPT: Graph Instruction Tuning for Large Language Models</a></li><li><a href=#hybrid-transformer-with-multi-level-fusion-for-multimodal-knowledge-graph-completion-sigir-2022>Hybrid transformer with multi-level fusion for multimodal knowledge graph completion [SIGIR 2022]</a></li><li><a href=#mukea-multimodal-knowledge-extraction-and-accumulation-for-knowledge-based-visual-question-answering>Mukea: Multimodal knowledge extraction and accumulation for knowledge-based visual question answering</a></li><li><a href=#mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval-tomm2023>MKVSE: Multimodal Knowledge Enhanced Visual-semantic Embedding for Image-text Retrieval [TOMM2023]</a></li><li><a href=#masked-vision-and-language-pre-training-with-unimodal-and-multimodal-contrastive-losses-for-medical-visual-question-answering-miccai-2023>Masked Vision and Language Pre-training with Unimodal and Multimodal Contrastive Losses for Medical Visual Question Answering [MICCAI 2023]</a></li><li><a href=#achieving-cross-modal-generalization-with-multimodal-unified-representation-neurips-2023>Achieving Cross Modal Generalization with Multimodal Unified Representation [NeurIPS 2023]</a></li><li><a href=#open-visual-knowledge-extraction-via-relation-oriented-multimodality-model-prompting-nips2023>Open Visual Knowledge Extraction via Relation-Oriented Multimodality Model Prompting [NIPS2023]</a></li></ul></nav></div></details></div><div class=post-content><h2 id=common-tasks>Common Tasks<a hidden class=anchor aria-hidden=true href=#common-tasks>#</a></h2><h3 id=vqa>VQA<a hidden class=anchor aria-hidden=true href=#vqa>#</a></h3><ul><li>retrieve and read<ul><li>Structured knowledge based methods<ul><li>e.g. ConceptNet</li></ul></li><li>Unstructured knowledge based methods<ul><li>retrieve knowledge from Wikipedia and encode relevant text in a memory network for further reasoning</li><li>augments the knowledge graph YAGO [40] with related images</li></ul></li></ul></li><li>end-to-end methods<ul><li>pre-trained models (implicit konwledge)</li><li>mainly captures the co-occurrence of imagequestion-answer triplet instead of explainable and refined knowledge</li></ul></li></ul><h3 id=kg>KG<a hidden class=anchor aria-hidden=true href=#kg>#</a></h3><ul><li>关系抽取、链路预测<ul><li>learn knowledge from structured textual and visual data and maintain the triplet structure for entity alignment</li><li>utilizes RDF knowledge graphs to represent multimodal information based on graph alignment</li><li>links the entities in existing knowledge graphs with relevant images</li></ul></li></ul><p><strong>问题</strong></p><p>模态单一，只有文本，缺乏视觉模态（多模态）</p><p>知识简单，仅包含一阶知识（高阶）</p><h2 id=all-in-one-multi-task-prompting-for-graph-neural-networks-kdd2023-best-paper>All in One: Multi-Task Prompting for Graph Neural Networks [KDD2023 Best Paper]<a hidden class=anchor aria-hidden=true href=#all-in-one-multi-task-prompting-for-graph-neural-networks-kdd2023-best-paper>#</a></h2><ul><li>核心思想：对每一个任务训练一个prompt，而不是训一个模型</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODJiMjY4YTM5MTFhZjU3MDY1ZGQwNjQyMTZmOWU3ZjJfQ0RZc05VM0ZpNUphQzBuaHNCME5aQWY5VUdaQnhVM2xfVG9rZW46TDdWZWJTMWpUb3NHY0R4MUJIZmNONHlVbnlkXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><ul><li>如何设计prompt？</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MDc4MzdiYmZmNDI2OWU4M2U5MzMxOTg3MzI1NzUxMzJfcTVUbU1lRkc1dFlqMFNYcUYwNHlleHlxcXdPU1V2RUdfVG9rZW46VWtTb2I5MHdwb016eTB4cE5KNGNDNEZ2bkJmXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><p>借鉴NLP，思考prompt的token类型、关系和插入方法</p><p>每个prompt也是一个图结构</p><p>token类型（节点）：embedding</p><p>token结构（边）：可学习参数/相似度/相互独立</p><p>插入方式：输入图节点和prompt图节点计算attention，然后将边进行相应的叠加</p><ul><li>如何设计训练任务？</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODdmMmYwM2Y3NzgyYWVlODA5YzU0YTA5NDcxNWNkZWZfV1ZNR1UycTI2RW9abUZEcjNlRlVrb3REUlh6SmxRZnJfVG9rZW46RUVzSGJXc3RZbzJqTWd4RXpTdmM5RUVJbkhnXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><p>所有任务（节点/边/图级别）都可以看成对（添加了指定任务prompt）子图的图级别分类</p><p>对于局部级别的任务，采样其$$\tau$$近邻子图，然后添加对应任务的prompt，然后做二分类（有几个类别就做几个prompt）</p><p>利用元学习的思想将多个任务的prompt协同训练（元学习：用反向传播优化超参数）</p><h2 id=graphgpt-graph-instruction-tuning-for-large-language-models>GraphGPT: Graph Instruction Tuning for Large Language Models<a hidden class=anchor aria-hidden=true href=#graphgpt-graph-instruction-tuning-for-large-language-models>#</a></h2><ul><li>motivation</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZThjYzk1YTk5OTJiYTdlMWI1YmIxYTg5N2U4NjRkNjVfMU1zY014Q3E4c2NHNEZBUXgyNmlkTEtWQVVNOUhTN3BfVG9rZW46RVJvWmJvY1Rwb3Uxck14VWxhQmNKWld5bjdnXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><p>把图的全部节点文本都输入大模型成本过高，但是相邻节点又富含信息，因此希望找到一个方法来对图结构信息做压缩，从而利用大模型来处理图结构</p><p>例子：论文的引用关系可以体现论文的主题（相邻节点促进中心节点的分类）</p><ul><li>核心思想：将图结构和文本做对齐，让GPT读的懂图结构</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MzIxMmZmYWNkYWMxY2I3NjcwMmFhZDA1NzIwZjg4ZjZfREhyanQ2YVpLMlpWNjUyS3BoT3UxOWphTmR2T1BlYnNfVG9rZW46Sk1oemJGdjhjbzRPWHp4TVdiWmNQenA0bmxiXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><ul><li>如何做？</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YzJlMjJmM2RkZDJmOTA5YzY3NTlkM2YyY2E0MDMzY2NfcUJ2am5YVmZOZFpKcWNHUWRFMWZucTZYQ1pKeE9HZUhfVG9rZW46RWVacWJIVDdDb01zMzV4Yml0MWNvWDVBbjdkXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><p>不训练GNN和LLM，只训练映射头，而且分两个阶段</p><p>第一阶段，让LLM来对图嵌入做排序，让其对应相应的文本嵌入</p><p>第二阶段，让LLM针对指定下游任务（在prompt中体现），进行思维链推导，以获得一定的逻辑性</p><ul><li>如何迁移到下游任务？</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjU2MzBjMDBkY2NmNmIyMDNiYjZiMzgyNjkwYjBiMGVfQzV5V1RFN0NyY0h6Y1plZ3hjVExEVzNkUTV1RjZZSHpfVG9rZW46UWt6b2JwRE5qb0FKWnB4OEpWdWM1elJZbldlXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><p>子图匹配：将图映射成节点向量序列，问一系列节点分别对应什么</p><p>节点分类：将图映射成节点向量序列，问第0个节点是什么</p><p>链路预测：将两个图分别映射成嵌入</p><h2 id=hybrid-transformer-with-multi-level-fusion-for-multimodal-knowledge-graph-completion-sigir-2022>Hybrid transformer with multi-level fusion for multimodal knowledge graph completion [SIGIR 2022]<a hidden class=anchor aria-hidden=true href=#hybrid-transformer-with-multi-level-fusion-for-multimodal-knowledge-graph-completion-sigir-2022>#</a></h2><ul><li>核心思想：用统一的框架实现三个KG任务<ul><li>Multimodal Link Prediction</li><li>Multimodal Relation extraction (MRE)</li><li>MNER is the task of extracting named entities from text sequences and corresponding images (MNER)</li></ul></li><li>框架</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWVkOWNmNDJiNjIyYjBjNDYyYTY0YTRjYTRkMGEzZTZfRjJJMEJZTXZxWG12NGFSSnF1azgxSUxOUGRERmdqZ0FfVG9rZW46SHlZNWJvbUExb0xac2V4eUVNdWNZY2ZibmZiXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><p>RE：对CLS token进行预测</p><p>NER：对每个词向量进行预测</p><p>链路预测：对mask token进行预测</p><ul><li>模块</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NDQxYjUzN2U3MTU4OTMxM2ZiOTFmNTBlZjA1OWFlYmNfUGV5NDZpaDVtR013dzlTeUhGMjdvcWVqUGNMWUtpUFhfVG9rZW46SzhVU2JITkhMb1R4ZlN4V2RzOGNzTVNSbnRkXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><p>视觉：直接混合attention</p><p>文本：先self-attention再cross-attention</p><ul><li>效果图</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YzMwNjQ4ZDgyMDEwYjJhYWQwZjU3MDIxMmYwMWQ4MTJfalgwY2tUMjkwQ1JhZzQwWEpWN0Y3T2J2cFd6Q1NxYVdfVG9rZW46Tno1Y2J2ZmtMb1pPTW14ZTl4SmNvNzhDbnVjXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><ul><li>证明模块的重要性</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MjIwNzAxYTM1MzJiYzdkODFiYzQ3MTU2MDM1NDY2YmVfaWN2b0hlZXpUQTZlYkF1UnVpejgyWUprZ2lxMzRuR3VfVG9rZW46WHd5OWJhRWVDbzBvR3Z4Y3RucmNNNzFmblFDXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><h2 id=mukea-multimodal-knowledge-extraction-and-accumulation-for-knowledge-based-visual-question-answering>Mukea: Multimodal knowledge extraction and accumulation for knowledge-based visual question answering<a hidden class=anchor aria-hidden=true href=#mukea-multimodal-knowledge-extraction-and-accumulation-for-knowledge-based-visual-question-answering>#</a></h2><p>代码🔗：https://github.com/AndersonStra/MuKEA</p><ul><li>如何做VQA？</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OWUxODFiNGIwN2JjZjYwOWQ4Y2RlMzJkMGNlYWJjNzRfaHJ0TjVpU2hyVElyeHhNMXVybGZpVVl0Rk9QNVhiNjJfVG9rZW46R3ZRa2J2N1ljb0R3c2t4ZVNkTGNJeUpYblBmXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><p>本质：图谱补全（头+关系==预测==>尾）</p><p>基于神经网络来建模头节点和关系向量</p><ul><li>如何训练？</li></ul><p>基于TransE算法来实现逻辑推理关系，同时设计不同尺度的损失函数</p><ul><li>靠近正确答案，远离错误答案</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YWYzZTdlNzY4MDc2ZjdjZDllN2ZlZmE4YTUwNzYxMzNfNW1lQkRTRUhOc0EzY1piNGZVQW1jRHRnMjNCeHJXNWhfVG9rZW46RUpMdWJXSGZ2b2kxRDJ4UXJHaWNvc2N1blZlXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><ul><li>靠近正确答案</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDllZjFiODQ5YWUxNDIxNDM4ZGJlNmI1NDlmMDUxZGRfM25BNDFkQXVpQ2g5dDEzWVJ0RlRxdk1RT3BrbUVYUjZfVG9rZW46QXllN2JwZjhob0Q2WFR4Y2N6S2M3MTdjbnpoXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><ul><li>多个答案对比</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MDVlM2E1MzgwNmE0M2U3NGU2YmRmNjY2MDA3Y2NjODZfMlVidm82TUhvNzhnWUVYeE5qWXZBUWpPNXFkWjIyeWVfVG9rZW46VWlOYWI3NFRrbzBrM294bUQxNWMyTUZTbjRiXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><ul><li>为什么有效？</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OWU5ZWY3ZTk0M2QxZTkyNWJlNDQ1NTljN2NjNjRkZGFfbTVwc3YyWExhOVBNR2d6MjdudXpCMnA2c0dCWnhyVklfVG9rZW46QVc3SWJmc1BCb05UbU94RTVYSmNYNkozbmRlXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><p>因为能（结合图像）正确地捕捉到头部实体和关系，同时（多模态）知识库更完备</p><ul><li>数据集</li></ul><p>OKVQA and KRVQA</p><h2 id=mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval-tomm2023>MKVSE: Multimodal Knowledge Enhanced Visual-semantic Embedding for Image-text Retrieval [TOMM2023]<a hidden class=anchor aria-hidden=true href=#mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval-tomm2023>#</a></h2><p>代码🔗：https://github.com/PKU-ICST-MIPL/MKVSE-TOMM2023</p><ul><li>做了什么？</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MjM4NTg2ZWZkYmU0MTk2N2JmMWQ1ZjRjYmZlMzUyMTJfbkhDVXNGeUg5SjNEcDlMcUVVQjBhd3hkaEdBSU9NT3VfVG9rZW46TlpTRmJTY285b1F6eXR4d2ozZGM5Zncwbk5mXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><p>定义了跨模态检索任务：将根据文本提供的几何拓扑关系，并检索变换后的图像</p><p>提出了一个数据集，用于该任务</p><ul><li>数据集</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YmU1MzY5OTA3OTNmMGY1MzlkMzY3MDY2MjFmYmNhODVfZmVwMGtQZXdnQ1ZlSHhkSnNyWUJWU25sdDdzVVFzZVNfVG9rZW46S2h0YmIxSVo2b2FHRWN4SkprdmNuUmZFbktlXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><ul><li>怎么做？</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmJjMzkyYWQ5YmNiY2NjMGQxYTYzYTYzZmMyZjc5YTJfVlYzT0ZqSDR0MkVDTVZMaXMxdTlTZDhPRERTY1hSc2xfVG9rZW46TncwUGJrWHFVbzZxMkR4WDR4TGNDNDR2bkFoXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><p>对比学习</p><ul><li>效果</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YTQ4MjE2ZWY3OTQ3YTNkN2I3NWRiZGNiMTg1MWY2NDlfVFozVUJ0N2NtSzZ0WmhIQjdaRTBoOVhEZUtvM2lGUmlfVG9rZW46UzlJU2I0eTdQb0pyVHd4enR5YmN4bEJrbjVlXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><h2 id=masked-vision-and-language-pre-training-with-unimodal-and-multimodal-contrastive-losses-for-medical-visual-question-answering-miccai-2023>Masked Vision and Language Pre-training with Unimodal and Multimodal Contrastive Losses for Medical Visual Question Answering [MICCAI 2023]<a hidden class=anchor aria-hidden=true href=#masked-vision-and-language-pre-training-with-unimodal-and-multimodal-contrastive-losses-for-medical-visual-question-answering-miccai-2023>#</a></h2><ul><li>架构</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MGY5ZDU3ODAzZDBmMGMxZmYxYjE0MTg2N2FiZjE3NGRfUTFtZTRrUkRmbkZTM3JKakpQbXBlOElhYjR0YmpTc2pfVG9rZW46S0NkTWI4bTNqb3VkRGt4UzQzY2NEYlZybnplXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><ul><li>在开放问题和Y/N问题上的效果</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjEyOTFjOWUxZDI4ZjU0YzM4MjFkOTMwMTJhNmFmYmVfOUtLTHppbWthUExycHNtSzFraWpHZDc5dkhMWGJSamFfVG9rZW46SU1oZGIza3o4b0s5Y3d4YzVWN2NBU1FVbnZiXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><ul><li><p>数据集</p><ul><li><table><thead><tr><th>pretrain</th><th></th><th></th></tr></thead><tbody><tr><td>ROCO</td><td>80,000</td><td></td></tr><tr><td>MedICaT</td><td>217,000</td><td></td></tr><tr><td>ImageCLEF2022</td><td>90,000</td><td></td></tr><tr><td>test</td><td></td><td></td></tr><tr><td>VQA-RAD</td><td>315+3064</td><td></td></tr><tr><td>SLAKE</td><td>14028</td><td>7:1.5:1.5</td></tr><tr><td>PathVQA</td><td>32799</td><td>5:3:2</td></tr></tbody></table></li></ul></li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGE5NWQ1YzNmNzQ1OWQ0MzM4ODQ1YmMwOTc5ODVmZGNfQkFWZjB4dnpRQVBIZWFlQllXR044MUF0R1FKWlk2RkRfVG9rZW46QXRNV2JBRWV4b285dGl4R0M5Y2M5OHFabk5KXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><ul><li>ITM&amp;MLM不可或缺</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NjFkZGM0OTc2MmJmZTE1ODE1ZGRkMzgwZmI1N2YzZGNfZkVBMnZnYWhLSVdKdHM4akdNTlJkWXdzOTgxZUFDSmJfVG9rZW46WUNnS2JOQXlZb3BIcEd4dGFaVWN1R0hhbklnXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><h2 id=achieving-cross-modal-generalization-with-multimodal-unified-representation-neurips-2023>Achieving Cross Modal Generalization with Multimodal Unified Representation [NeurIPS 2023]<a hidden class=anchor aria-hidden=true href=#achieving-cross-modal-generalization-with-multimodal-unified-representation-neurips-2023>#</a></h2><p>问题：</p><p>一、如何将不同模态中具有相同语义的信息提取出来，同时避免 modality-specific 信息的干扰；（粒度不够细）</p><p>二、如何将这些具有相同语义的不同模态用统一的 codebook 表征。（对齐不够齐）</p><p>目标：</p><p>将各个模态的任务转换成离散空间的任务</p><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YWUzNjcyZjE3MWVlNTEwMzFhZDJmYzhlNmQ0Y2FhZWZfajROaTJtVHFOZ3QwTTVaRUJodllYZ1VkNDYwSldpcWJfVG9rZW46VDRBamJWT0h2b1lWOTR4RGRlR2NMOFBabnRnXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><h2 id=open-visual-knowledge-extraction-via-relation-oriented-multimodality-model-prompting-nips2023>Open Visual Knowledge Extraction via Relation-Oriented Multimodality Model Prompting [NIPS2023]<a hidden class=anchor aria-hidden=true href=#open-visual-knowledge-extraction-via-relation-oriented-multimodality-model-prompting-nips2023>#</a></h2><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YjJkMzJhZTFmOTBhOGIyMmJjMTI0MjYzMTZlYjA0ZGNfeHJhbFBzbGRSTmFVODBTbkhvZE55T2VPOThkR0RhNEhfVG9rZW46T0JvcGJvbWdEb1FJYm54VjRWb2M5ZDJubnBmXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt=img></p><p>主任务：视觉知识抽取，分解为目标检测和文本生成</p><ul><li>目标检测：Relation-centric（bbox改成subject和object联合区域，分类器目标改成关系类别</li><li>文本生成：改Loss，惩罚相似的生成</li><li>数据增强：使用KG、LLM扩充知识（从常识库中补充更多的关系，将主语替换为同义词）；丢弃频繁知识（魔改TF-IDF）；</li></ul><p>并不是凭空抽取知识，训练依赖细粒度的标注（BBox，知识），数据集Visual Geonome</p><p>下游任务：文本检索图像，图像识别文本，VQA</p><p>模型：检测：ResNet+FPN，多模态生成：VIT-B-16+BLIP/CLIP（依赖大规模预训练）</p></div><footer class=post-footer><ul class=post-tags></ul><nav class=paginav><a class=prev href=https://xuzhang0112.github.io/paper_reading/survey/text_classification/><span class=title>« Prev</span><br><span>Medical NLP</span>
-</a><a class=next href=https://xuzhang0112.github.io/paper_reading/survey/mm_medical/><span class=title>Next »</span><br><span>Multi-modal Medical Image Processing</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2024 <a href=https://xuzhang0112.github.io/>Xu Zhang's Blog</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Multi-modal Knowledge Graph &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="Multi-modal Knowledge Graph &middot; Xu Zhang&#39;s Blog" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://xuzhang0112.github.io/paper_reading/survey/mm_kg/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.ac59a1b8eaafef739c129d12787ac29f6a420bcb348c7aeec8949a8d0b7d6c2023766c169d14b9031b751504eb3c976efe786fec135b340a49868acd8caa4127.css"
+    integrity="sha512-rFmhuOqv73OcEp0SeHrCn2pCC8s0jHruyJSajQt9bCAjdmwWnRS5Axt1FQTrPJdu/nhv7BNbNApJhorNjKpBJw==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
+    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Multi-modal Knowledge Graph" />
+<meta property="og:description" content="Common Tasks # VQA # retrieve and read Structured knowledge based methods e.g. ConceptNet Unstructured knowledge based methods retrieve knowledge from Wikipedia and encode relevant text in a memory network for further reasoning augments the knowledge graph YAGO [40] with related images end-to-end methods pre-trained models (implicit konwledge) mainly captures the co-occurrence of imagequestion-answer triplet instead of explainable and refined knowledge KG # 关系抽取、链路预测 learn knowledge from structured textual and visual data and maintain the triplet structure for entity alignment utilizes RDF knowledge graphs to represent multimodal information based on graph alignment links the entities in existing knowledge graphs with relevant images 问题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/mm_kg/" /><meta property="article:section" content="paper_reading" />
+
+
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Multi-modal Knowledge Graph"/>
+<meta name="twitter:description" content="Common Tasks # VQA # retrieve and read Structured knowledge based methods e.g. ConceptNet Unstructured knowledge based methods retrieve knowledge from Wikipedia and encode relevant text in a memory network for further reasoning augments the knowledge graph YAGO [40] with related images end-to-end methods pre-trained models (implicit konwledge) mainly captures the co-occurrence of imagequestion-answer triplet instead of explainable and refined knowledge KG # 关系抽取、链路预测 learn knowledge from structured textual and visual data and maintain the triplet structure for entity alignment utilizes RDF knowledge graphs to represent multimodal information based on graph alignment links the entities in existing knowledge graphs with relevant images 问题"/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "PaperReading",
+    "name": "Multi-modal Knowledge Graph",
+    "headline": "Multi-modal Knowledge Graph",
+    
+    "abstract": "Common Tasks # VQA # retrieve and read Structured knowledge based methods e.g. ConceptNet Unstructured knowledge based methods retrieve knowledge from Wikipedia and encode relevant text in a memory network for further reasoning augments the knowledge graph YAGO [40] with related images end-to-end methods pre-trained models (implicit konwledge) mainly captures the co-occurrence of imagequestion-answer triplet instead of explainable and refined knowledge KG # 关系抽取、链路预测 learn knowledge from structured textual and visual data and maintain the triplet structure for entity alignment utilizes RDF knowledge graphs to represent multimodal information based on graph alignment links the entities in existing knowledge graphs with relevant images 问题",
+    "inLanguage": "en",
+    "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/survey\/mm_kg\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Xu Zhang"
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "362"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Xu Zhang" />
+  
+  
+  
+  <link href="https://github.com/xuzhang0112" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/lib/katex/katex.min.af6f85907cdfd6ed3e4906d93a8233d91c5638859f744cd1b98c9b1a3ccaab5f231bdcda49f132f6cdfe8cca86ff33ed468affab8a9a502610a664a34f0f0cfa.css" integrity="sha512-r2&#43;FkHzf1u0&#43;SQbZOoIz2RxWOIWfdEzRuYybGjzKq18jG9zaSfEy9s3&#43;jMqG/zPtRor/q4qaUCYQpmSjTw8M&#43;g==" />
+
+
+<script defer src="/lib/katex/katex.min.20da6cf7343619410c0900fbc626506c65159ea9f312f9729d5cba7aa713707378f9a4222e8f7fb9a42a7240e9749f199b7334401b3e3e4b60e29cf490492552.js" integrity="sha512-INps9zQ2GUEMCQD7xiZQbGUVnqnzEvlynVy6eqcTcHN4&#43;aQiLo9/uaQqckDpdJ8Zm3M0QBs&#43;Pktg4pz0kEklUg=="></script>
+
+
+<script defer src="/lib/katex/auto-render.min.6095714e3aadb63b14ddc4af69346ab12974c1b460654345f8d1860a0b68fcc51b22f68b757433193090bb80afc8965b65cb607e5541d0f5f0f4b2e64d69b9ff.js" integrity="sha512-YJVxTjqttjsU3cSvaTRqsSl0wbRgZUNF&#43;NGGCgto/MUbIvaLdXQzGTCQu4CvyJZbZctgflVB0PXw9LLmTWm5/w=="
+  onload="renderMathInElement(document.body);"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Xu Zhang&rsquo;s Blog</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/cheat_sheet/cli/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="CLI Cheatsheet">
+        CLI
+    </p>
+</a>
+
+
+            
+            
+  <a href="/cheat_sheet/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Python Cheatsheet">
+        Python
+    </p>
+</a>
+
+
+            
+            
+  <a href="/paper_reading/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="PaperReading">
+        Papers
+    </p>
+</a>
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tags">
+        Tags
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/cheat_sheet/cli/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="CLI Cheatsheet">
+            CLI
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/cheat_sheet/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Python Cheatsheet">
+            Python
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/paper_reading/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="PaperReading">
+            Papers
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tags">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/"
+      >PaperReading</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/survey/"
+      >Survey</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/survey/mm_kg/"
+      >Multi-modal Knowledge Graph</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Multi-modal Knowledge Graph
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>362 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+    
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+
+
+<h2 class="relative group">Common Tasks 
+    <div id="common-tasks" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#common-tasks" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">VQA 
+    <div id="vqa" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vqa" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>retrieve and read
+<ul>
+<li>Structured knowledge based methods
+<ul>
+<li>e.g. ConceptNet</li>
+</ul>
+</li>
+<li>Unstructured knowledge based methods
+<ul>
+<li>retrieve knowledge from Wikipedia and encode relevant text in a memory network for further reasoning</li>
+<li>augments the knowledge graph YAGO [40] with related images</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>end-to-end methods
+<ul>
+<li>pre-trained models (implicit konwledge)</li>
+<li>mainly captures the co-occurrence of imagequestion-answer triplet instead of explainable and refined knowledge</li>
+</ul>
+</li>
+</ul>
+
+
+<h3 class="relative group">KG 
+    <div id="kg" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kg" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>关系抽取、链路预测
+<ul>
+<li>learn knowledge from structured textual and visual data and maintain the triplet structure for entity alignment</li>
+<li>utilizes RDF knowledge graphs to represent multimodal information based on graph alignment</li>
+<li>links the entities in existing knowledge graphs with relevant images</li>
+</ul>
+</li>
+</ul>
+<p><strong>问题</strong></p>
+<p>模态单一，只有文本，缺乏视觉模态（多模态）</p>
+<p>知识简单，仅包含一阶知识（高阶）</p>
+
+
+<h2 class="relative group">All in One: Multi-Task Prompting for Graph Neural Networks [KDD2023 Best Paper] 
+    <div id="all-in-one-multi-task-prompting-for-graph-neural-networks-kdd2023-best-paper" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#all-in-one-multi-task-prompting-for-graph-neural-networks-kdd2023-best-paper" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>核心思想：对每一个任务训练一个prompt，而不是训一个模型</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODJiMjY4YTM5MTFhZjU3MDY1ZGQwNjQyMTZmOWU3ZjJfQ0RZc05VM0ZpNUphQzBuaHNCME5aQWY5VUdaQnhVM2xfVG9rZW46TDdWZWJTMWpUb3NHY0R4MUJIZmNONHlVbnlkXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>如何设计prompt？</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MDc4MzdiYmZmNDI2OWU4M2U5MzMxOTg3MzI1NzUxMzJfcTVUbU1lRkc1dFlqMFNYcUYwNHlleHlxcXdPU1V2RUdfVG9rZW46VWtTb2I5MHdwb016eTB4cE5KNGNDNEZ2bkJmXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>借鉴NLP，思考prompt的token类型、关系和插入方法</p>
+<p>每个prompt也是一个图结构</p>
+<p>token类型（节点）：embedding</p>
+<p>token结构（边）：可学习参数/相似度/相互独立</p>
+<p>插入方式：输入图节点和prompt图节点计算attention，然后将边进行相应的叠加</p>
+<ul>
+<li>如何设计训练任务？</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODdmMmYwM2Y3NzgyYWVlODA5YzU0YTA5NDcxNWNkZWZfV1ZNR1UycTI2RW9abUZEcjNlRlVrb3REUlh6SmxRZnJfVG9rZW46RUVzSGJXc3RZbzJqTWd4RXpTdmM5RUVJbkhnXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>所有任务（节点/边/图级别）都可以看成对（添加了指定任务prompt）子图的图级别分类</p>
+<p>对于局部级别的任务，采样其$$\tau$$近邻子图，然后添加对应任务的prompt，然后做二分类（有几个类别就做几个prompt）</p>
+<p>利用元学习的思想将多个任务的prompt协同训练（元学习：用反向传播优化超参数）</p>
+
+
+<h2 class="relative group">GraphGPT: Graph Instruction Tuning for Large Language Models 
+    <div id="graphgpt-graph-instruction-tuning-for-large-language-models" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#graphgpt-graph-instruction-tuning-for-large-language-models" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>motivation</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZThjYzk1YTk5OTJiYTdlMWI1YmIxYTg5N2U4NjRkNjVfMU1zY014Q3E4c2NHNEZBUXgyNmlkTEtWQVVNOUhTN3BfVG9rZW46RVJvWmJvY1Rwb3Uxck14VWxhQmNKWld5bjdnXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>把图的全部节点文本都输入大模型成本过高，但是相邻节点又富含信息，因此希望找到一个方法来对图结构信息做压缩，从而利用大模型来处理图结构</p>
+<p>例子：论文的引用关系可以体现论文的主题（相邻节点促进中心节点的分类）</p>
+<ul>
+<li>核心思想：将图结构和文本做对齐，让GPT读的懂图结构</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MzIxMmZmYWNkYWMxY2I3NjcwMmFhZDA1NzIwZjg4ZjZfREhyanQ2YVpLMlpWNjUyS3BoT3UxOWphTmR2T1BlYnNfVG9rZW46Sk1oemJGdjhjbzRPWHp4TVdiWmNQenA0bmxiXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>如何做？</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YzJlMjJmM2RkZDJmOTA5YzY3NTlkM2YyY2E0MDMzY2NfcUJ2am5YVmZOZFpKcWNHUWRFMWZucTZYQ1pKeE9HZUhfVG9rZW46RWVacWJIVDdDb01zMzV4Yml0MWNvWDVBbjdkXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>不训练GNN和LLM，只训练映射头，而且分两个阶段</p>
+<p>第一阶段，让LLM来对图嵌入做排序，让其对应相应的文本嵌入</p>
+<p>第二阶段，让LLM针对指定下游任务（在prompt中体现），进行思维链推导，以获得一定的逻辑性</p>
+<ul>
+<li>如何迁移到下游任务？</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjU2MzBjMDBkY2NmNmIyMDNiYjZiMzgyNjkwYjBiMGVfQzV5V1RFN0NyY0h6Y1plZ3hjVExEVzNkUTV1RjZZSHpfVG9rZW46UWt6b2JwRE5qb0FKWnB4OEpWdWM1elJZbldlXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>子图匹配：将图映射成节点向量序列，问一系列节点分别对应什么</p>
+<p>节点分类：将图映射成节点向量序列，问第0个节点是什么</p>
+<p>链路预测：将两个图分别映射成嵌入</p>
+
+
+<h2 class="relative group">Hybrid transformer with multi-level fusion for multimodal knowledge graph completion [SIGIR 2022] 
+    <div id="hybrid-transformer-with-multi-level-fusion-for-multimodal-knowledge-graph-completion-sigir-2022" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hybrid-transformer-with-multi-level-fusion-for-multimodal-knowledge-graph-completion-sigir-2022" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>核心思想：用统一的框架实现三个KG任务
+<ul>
+<li>Multimodal Link Prediction</li>
+<li>Multimodal Relation extraction (MRE)</li>
+<li>MNER is the task of extracting named entities from text sequences and corresponding images (MNER)</li>
+</ul>
+</li>
+<li>框架</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWVkOWNmNDJiNjIyYjBjNDYyYTY0YTRjYTRkMGEzZTZfRjJJMEJZTXZxWG12NGFSSnF1azgxSUxOUGRERmdqZ0FfVG9rZW46SHlZNWJvbUExb0xac2V4eUVNdWNZY2ZibmZiXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>RE：对CLS token进行预测</p>
+<p>NER：对每个词向量进行预测</p>
+<p>链路预测：对mask token进行预测</p>
+<ul>
+<li>模块</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NDQxYjUzN2U3MTU4OTMxM2ZiOTFmNTBlZjA1OWFlYmNfUGV5NDZpaDVtR013dzlTeUhGMjdvcWVqUGNMWUtpUFhfVG9rZW46SzhVU2JITkhMb1R4ZlN4V2RzOGNzTVNSbnRkXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>视觉：直接混合attention</p>
+<p>文本：先self-attention再cross-attention</p>
+<ul>
+<li>效果图</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YzMwNjQ4ZDgyMDEwYjJhYWQwZjU3MDIxMmYwMWQ4MTJfalgwY2tUMjkwQ1JhZzQwWEpWN0Y3T2J2cFd6Q1NxYVdfVG9rZW46Tno1Y2J2ZmtMb1pPTW14ZTl4SmNvNzhDbnVjXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>证明模块的重要性</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MjIwNzAxYTM1MzJiYzdkODFiYzQ3MTU2MDM1NDY2YmVfaWN2b0hlZXpUQTZlYkF1UnVpejgyWUprZ2lxMzRuR3VfVG9rZW46WHd5OWJhRWVDbzBvR3Z4Y3RucmNNNzFmblFDXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+
+
+<h2 class="relative group">Mukea: Multimodal knowledge extraction and accumulation for knowledge-based visual question answering 
+    <div id="mukea-multimodal-knowledge-extraction-and-accumulation-for-knowledge-based-visual-question-answering" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mukea-multimodal-knowledge-extraction-and-accumulation-for-knowledge-based-visual-question-answering" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>代码🔗：https://github.com/AndersonStra/MuKEA</p>
+<ul>
+<li>如何做VQA？</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OWUxODFiNGIwN2JjZjYwOWQ4Y2RlMzJkMGNlYWJjNzRfaHJ0TjVpU2hyVElyeHhNMXVybGZpVVl0Rk9QNVhiNjJfVG9rZW46R3ZRa2J2N1ljb0R3c2t4ZVNkTGNJeUpYblBmXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>本质：图谱补全（头+关系==预测==&gt;尾）</p>
+<p>基于神经网络来建模头节点和关系向量</p>
+<ul>
+<li>如何训练？</li>
+</ul>
+<p>基于TransE算法来实现逻辑推理关系，同时设计不同尺度的损失函数</p>
+<ul>
+<li>靠近正确答案，远离错误答案</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YWYzZTdlNzY4MDc2ZjdjZDllN2ZlZmE4YTUwNzYxMzNfNW1lQkRTRUhOc0EzY1piNGZVQW1jRHRnMjNCeHJXNWhfVG9rZW46RUpMdWJXSGZ2b2kxRDJ4UXJHaWNvc2N1blZlXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>靠近正确答案</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDllZjFiODQ5YWUxNDIxNDM4ZGJlNmI1NDlmMDUxZGRfM25BNDFkQXVpQ2g5dDEzWVJ0RlRxdk1RT3BrbUVYUjZfVG9rZW46QXllN2JwZjhob0Q2WFR4Y2N6S2M3MTdjbnpoXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>多个答案对比</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MDVlM2E1MzgwNmE0M2U3NGU2YmRmNjY2MDA3Y2NjODZfMlVidm82TUhvNzhnWUVYeE5qWXZBUWpPNXFkWjIyeWVfVG9rZW46VWlOYWI3NFRrbzBrM294bUQxNWMyTUZTbjRiXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>为什么有效？</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OWU5ZWY3ZTk0M2QxZTkyNWJlNDQ1NTljN2NjNjRkZGFfbTVwc3YyWExhOVBNR2d6MjdudXpCMnA2c0dCWnhyVklfVG9rZW46QVc3SWJmc1BCb05UbU94RTVYSmNYNkozbmRlXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>因为能（结合图像）正确地捕捉到头部实体和关系，同时（多模态）知识库更完备</p>
+<ul>
+<li>数据集</li>
+</ul>
+<p>OKVQA and KRVQA</p>
+
+
+<h2 class="relative group">MKVSE: Multimodal Knowledge Enhanced Visual-semantic Embedding for Image-text Retrieval [TOMM2023] 
+    <div id="mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval-tomm2023" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval-tomm2023" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>代码🔗：https://github.com/PKU-ICST-MIPL/MKVSE-TOMM2023</p>
+<ul>
+<li>做了什么？</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MjM4NTg2ZWZkYmU0MTk2N2JmMWQ1ZjRjYmZlMzUyMTJfbkhDVXNGeUg5SjNEcDlMcUVVQjBhd3hkaEdBSU9NT3VfVG9rZW46TlpTRmJTY285b1F6eXR4d2ozZGM5Zncwbk5mXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>定义了跨模态检索任务：将根据文本提供的几何拓扑关系，并检索变换后的图像</p>
+<p>提出了一个数据集，用于该任务</p>
+<ul>
+<li>数据集</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YmU1MzY5OTA3OTNmMGY1MzlkMzY3MDY2MjFmYmNhODVfZmVwMGtQZXdnQ1ZlSHhkSnNyWUJWU25sdDdzVVFzZVNfVG9rZW46S2h0YmIxSVo2b2FHRWN4SkprdmNuUmZFbktlXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>怎么做？</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmJjMzkyYWQ5YmNiY2NjMGQxYTYzYTYzZmMyZjc5YTJfVlYzT0ZqSDR0MkVDTVZMaXMxdTlTZDhPRERTY1hSc2xfVG9rZW46TncwUGJrWHFVbzZxMkR4WDR4TGNDNDR2bkFoXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>对比学习</p>
+<ul>
+<li>效果</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YTQ4MjE2ZWY3OTQ3YTNkN2I3NWRiZGNiMTg1MWY2NDlfVFozVUJ0N2NtSzZ0WmhIQjdaRTBoOVhEZUtvM2lGUmlfVG9rZW46UzlJU2I0eTdQb0pyVHd4enR5YmN4bEJrbjVlXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+
+
+<h2 class="relative group">Masked Vision and Language Pre-training with Unimodal and Multimodal Contrastive Losses for Medical Visual Question Answering [MICCAI 2023] 
+    <div id="masked-vision-and-language-pre-training-with-unimodal-and-multimodal-contrastive-losses-for-medical-visual-question-answering-miccai-2023" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#masked-vision-and-language-pre-training-with-unimodal-and-multimodal-contrastive-losses-for-medical-visual-question-answering-miccai-2023" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>架构</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MGY5ZDU3ODAzZDBmMGMxZmYxYjE0MTg2N2FiZjE3NGRfUTFtZTRrUkRmbkZTM3JKakpQbXBlOElhYjR0YmpTc2pfVG9rZW46S0NkTWI4bTNqb3VkRGt4UzQzY2NEYlZybnplXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>在开放问题和Y/N问题上的效果</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjEyOTFjOWUxZDI4ZjU0YzM4MjFkOTMwMTJhNmFmYmVfOUtLTHppbWthUExycHNtSzFraWpHZDc5dkhMWGJSamFfVG9rZW46SU1oZGIza3o4b0s5Y3d4YzVWN2NBU1FVbnZiXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>
+<p>数据集</p>
+<p>| -             | pretrain |           |  |
+| &mdash;&mdash;&mdash;&mdash;- | &mdash;&mdash;&ndash; | &mdash;&mdash;&mdash; |
+| ROCO          | 80,000   |           |
+| MedICaT       | 217,000  |           |
+| ImageCLEF2022 | 90,000   |           |
+| test          |          |           |
+| VQA-RAD       | 315+3064 |           |
+| SLAKE         | 14028    | 7:1.5:1.5 |
+| PathVQA       | 32799    | 5:3:2     |</p>
+</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGE5NWQ1YzNmNzQ1OWQ0MzM4ODQ1YmMwOTc5ODVmZGNfQkFWZjB4dnpRQVBIZWFlQllXR044MUF0R1FKWlk2RkRfVG9rZW46QXRNV2JBRWV4b285dGl4R0M5Y2M5OHFabk5KXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>ITM&amp;MLM不可或缺</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NjFkZGM0OTc2MmJmZTE1ODE1ZGRkMzgwZmI1N2YzZGNfZkVBMnZnYWhLSVdKdHM4akdNTlJkWXdzOTgxZUFDSmJfVG9rZW46WUNnS2JOQXlZb3BIcEd4dGFaVWN1R0hhbklnXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+
+
+<h2 class="relative group">Achieving Cross Modal Generalization with Multimodal Unified Representation [NeurIPS 2023] 
+    <div id="achieving-cross-modal-generalization-with-multimodal-unified-representation-neurips-2023" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#achieving-cross-modal-generalization-with-multimodal-unified-representation-neurips-2023" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>问题：</p>
+<p>一、如何将不同模态中具有相同语义的信息提取出来，同时避免 modality-specific 信息的干扰；（粒度不够细）</p>
+<p>二、如何将这些具有相同语义的不同模态用统一的 codebook 表征。（对齐不够齐）</p>
+<p>目标：</p>
+<p>将各个模态的任务转换成离散空间的任务</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YWUzNjcyZjE3MWVlNTEwMzFhZDJmYzhlNmQ0Y2FhZWZfajROaTJtVHFOZ3QwTTVaRUJodllYZ1VkNDYwSldpcWJfVG9rZW46VDRBamJWT0h2b1lWOTR4RGRlR2NMOFBabnRnXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+
+
+<h2 class="relative group">Open Visual Knowledge Extraction via Relation-Oriented Multimodality Model Prompting [NIPS2023] 
+    <div id="open-visual-knowledge-extraction-via-relation-oriented-multimodality-model-prompting-nips2023" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#open-visual-knowledge-extraction-via-relation-oriented-multimodality-model-prompting-nips2023" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YjJkMzJhZTFmOTBhOGIyMmJjMTI0MjYzMTZlYjA0ZGNfeHJhbFBzbGRSTmFVODBTbkhvZE55T2VPOThkR0RhNEhfVG9rZW46T0JvcGJvbWdEb1FJYm54VjRWb2M5ZDJubnBmXzE3MTIyNjQzNTg6MTcxMjI2Nzk1OF9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>主任务：视觉知识抽取，分解为目标检测和文本生成</p>
+<ul>
+<li>目标检测：Relation-centric（bbox改成subject和object联合区域，分类器目标改成关系类别</li>
+<li>文本生成：改Loss，惩罚相似的生成</li>
+<li>数据增强：使用KG、LLM扩充知识（从常识库中补充更多的关系，将主语替换为同义词）；丢弃频繁知识（魔改TF-IDF）；</li>
+</ul>
+<p>并不是凭空抽取知识，训练依赖细粒度的标注（BBox，知识），数据集Visual Geonome</p>
+<p>下游任务：文本检索图像，图像识别文本，VQA</p>
+<p>模型：检测：ResNet+FPN，多模态生成：VIT-B-16+BLIP/CLIP（依赖大规模预训练）</p>
+
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+      <script>
+        var oid = "views_paper_reading\/survey\/mm_kg.md"
+        var oid_likes = "likes_paper_reading\/survey\/mm_kg.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/paper_reading/survey/mm_medical/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Multi-modal Medical Image Processing</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/paper_reading/survey/text_classification/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Medical NLP</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      Xu Zhang
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://xuzhang0112.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

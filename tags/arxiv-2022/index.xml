@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Arxiv 2022 on Xu Zhang&#39;s Blog</title>
     <link>https://xuzhang0112.github.io/tags/arxiv-2022/</link>
     <description>Recent content in Arxiv 2022 on Xu Zhang&#39;s Blog</description>
-    <image>
-      <title>Xu Zhang&#39;s Blog</title>
-      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.121.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/tags/arxiv-2022/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>KG-MTT-BERT: Knowledge Graph Enhanced BERT for Multi-Type Medical Text Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2022/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2022/</guid>
-      <description>key idea 中文病历报告的疾病分类工作
+      <description>key idea # 中文病历报告的疾病分类工作
 使用bert分别处理病历报告的各个字段，探讨了不同尺度和不同池化方式对结果的影响 max-pooling比CLS更好 序列长度大于64时，效果较好 大体上损失函数收敛更快、更低，同时精度提升最快 使用KG、图嵌入和图网络增强了分类 图嵌入:KG2E 推测：词语级别的医学实体编码相比单字级别的中文分词编码，引入了额外的信息，因此能提升性能 数据集规模大概在几万例样本，几百类疾病，各个字段的长度差异较大，entity也比较少</description>
+      
     </item>
+    
   </channel>
 </rss>

@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Meta Learning on Xu Zhang&#39;s Blog</title>
     <link>https://xuzhang0112.github.io/tags/meta-learning/</link>
     <description>Recent content in Meta Learning on Xu Zhang&#39;s Blog</description>
-    <image>
-      <title>Xu Zhang&#39;s Blog</title>
-      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.121.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/tags/meta-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Contrastive Learning &amp; Meta Learning</title>
       <link>https://xuzhang0112.github.io/paper_reading/survey/learning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/survey/learning/</guid>
-      <description>对比学习 InstDisc：提出了个体判别的代理任务，核心思想是每张图片都是一个类 batch_size=256, 256个正样本，4096个负样本 Backbone是ResNet50，2048降维到128 200个epoch,温度0.07，学习率1e-2
+      <description>对比学习 # InstDisc：提出了个体判别的代理任务，核心思想是每张图片都是一个类 # batch_size=256, 256个正样本，4096个负样本 Backbone是ResNet50，2048降维到128 200个epoch,温度0.07，学习率1e-2
 数据结构：memory bank
-InvaSpread：端到端，SimCLR前身 端到端，正负样本来自同一个mini batch，正样本是任一图片及其变换，负样本是其他图片及其变换
+InvaSpread：端到端，SimCLR前身 # 端到端，正负样本来自同一个mini batch，正样本是任一图片及其变换，负样本是其他图片及其变换
 因为字典不够大（batchsize只有256），数据增广不够，没有加MLP，因此效果不好
-MoCo：提出了“字典查找”的概念，认为对比学习本质上是在构建一个大字典 用队列取代memory bank
+MoCo：提出了“字典查找”的概念，认为对比学习本质上是在构建一个大字典 # 用队列取代memory bank
 使用动量编码来解决大字典内key的不一致，由于key的编码器更新缓慢，因此可以认为一致
 损失函数：infoNCE
 普适性强，Q和K的编码器可以不同，输入可以是任意模态
-simCLR：成功实现了端到端的对比学习 只有一个编码器
-更多的数据增强：对比学习非常依赖数据增强 对比学习时增加了一个MLP层（迁移到下游任务时去除） 更大的batchsize：从而实现端到端训练 MoCov2 MoCo+数据增强+MLP+cos schedule
+simCLR：成功实现了端到端的对比学习 # 只有一个编码器
+更多的数据增强：对比学习非常依赖数据增强 对比学习时增加了一个MLP层（迁移到下游任务时去除） 更大的batchsize：从而实现端到端训练 MoCov2 # MoCo+数据增强+MLP+cos schedule
 batch=256时，效果远优于sim CLR
-simCLRv2 模型更大
+simCLRv2 # 模型更大
 MLP：fn-ReLu-fn
 动量编码器
-Meta Learning 参考：Meta-Learning in Neural Networks*: A Survey（2020）*
+Meta Learning # 参考：Meta-Learning in Neural Networks*: A Survey（2020）*
 Meta-learning经常被理解为learn to learn，可以分为两个阶段：内循环和外循环。
 内循环阶段，模型利用训练样本拟合某个特定任务；在外循环阶段，对外循环的某个目标函数进行优化。
 内循环和外循环迭代交替进行。
-MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 与传统机器学习的区别
+MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) # 与传统机器学习的区别
 传统机器学习：训练集和测试集是同一个task，在训练集样本上训练模型，希望模型在测试集样本上表现好 MAML：task不同，在训练集可见的task上训练模型，希望在未见过的task上效果好 利用训练集的task学习一个初始化参数，使这个参数在未见过的任务上finetune几轮，就能达到较好的效果 两个阶段：meta-train（内循环+外循环迭代更新，support set &amp;amp; query set）、meta-test（在具体任务上finetune）</description>
+      
     </item>
+    
   </channel>
 </rss>

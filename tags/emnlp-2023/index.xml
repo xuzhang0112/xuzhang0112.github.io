@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>EMNLP 2023 on Xu Zhang&#39;s Blog</title>
     <link>https://xuzhang0112.github.io/tags/emnlp-2023/</link>
     <description>Recent content in EMNLP 2023 on Xu Zhang&#39;s Blog</description>
-    <image>
-      <title>Xu Zhang&#39;s Blog</title>
-      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.121.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/tags/emnlp-2023/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Text2Tree: Aligning Text Representation to the Label Tree Hierarchy for Imbalanced Medical Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</guid>
-      <description>key idea 通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
-[] 有监督对比学习将同一类别视为正样本，然而罕见病缺乏同一类别正样本
+      <description>key idea # 通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
+[] # 有监督对比学习将同一类别视为正样本，然而罕见病缺乏同一类别正样本
 通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
 同一类目的疾病的相似度&amp;gt;同一章节不同类目疾病的相似度&amp;gt;不同章节疾病间的相似度
 通过注意力机制，利用父节点和相邻节点，来完善罕见病的表达</description>
+      
     </item>
+    
   </channel>
 </rss>

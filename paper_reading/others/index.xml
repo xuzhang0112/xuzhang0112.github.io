@@ -1,104 +1,121 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Others on Xu Zhang&#39;s Blog</title>
     <link>https://xuzhang0112.github.io/paper_reading/others/</link>
     <description>Recent content in Others on Xu Zhang&#39;s Blog</description>
-    <image>
-      <title>Xu Zhang&#39;s Blog</title>
-      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.121.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/paper_reading/others/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automatic ICD Coding Exploiting Discourse Structure and Reconciled Code Embeddings</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/coling2022/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/others/coling2022/</guid>
-      <description>key idea Backbone：biLSTM Discourse Structure: 给不同的篇章加embedding，来帮助模型学习篇章结构 加了embedding容易过拟合，所以加了个0.5的dropout Reconciled Code Embedding: 为了解决ICD Code和病历文本交互时的异质性 从ICD Code和病历文本中学习向量各个维度的缩放比例、归纳偏置 同时，增加罕见病的注意力学习权重，以缓解类别不平衡 行云流水的魔改多尺度attention，配合了一些公式 可视化注意力得分高的区域，来展示模型的感兴趣部分 计算量随类别数增加（N^2），因此无法处理超大类别 attention Word embedding (with code attention)
+      <description>key idea # Backbone：biLSTM Discourse Structure: 给不同的篇章加embedding，来帮助模型学习篇章结构 加了embedding容易过拟合，所以加了个0.5的dropout Reconciled Code Embedding: 为了解决ICD Code和病历文本交互时的异质性 从ICD Code和病历文本中学习向量各个维度的缩放比例、归纳偏置 同时，增加罕见病的注意力学习权重，以缓解类别不平衡 行云流水的魔改多尺度attention，配合了一些公式 可视化注意力得分高的区域，来展示模型的感兴趣部分 计算量随类别数增加（N^2），因此无法处理超大类别 attention # Word embedding (with code attention)
 Sentence level (code attention同上)
 Document embedding
-Reconciled Code Embedding: 为了解决ICD Code和病历文本交互时的异质性 从ICD Code和病历文本中学习向量各个维度的缩放比例、归纳偏置
+Reconciled Code Embedding: 为了解决ICD Code和病历文本交互时的异质性 # 从ICD Code和病历文本中学习向量各个维度的缩放比例、归纳偏置
 同时，增加罕见病的注意力学习权重，以缓解类别不平衡
 可视化了各个类别的注意力二番薯，$$\tau$$是正则化的缩放比例
-details Adam学习率1e-5, Batch Size12, 正则化系数1e-4
+details # Adam学习率1e-5, Batch Size12, 正则化系数1e-4
 消融实验
 把测试集的标签按照样本频次划分成了head set(1446，f&amp;gt;50), body set(1779, 5&amp;lt;f&amp;lt;50), tail set(860, &amp;lt;5)
 对比实验
-可视化 注意力得分高的区域，来展示模型的感兴趣部分，并证明模块的有效性</description>
+可视化 # 注意力得分高的区域，来展示模型的感兴趣部分，并证明模块的有效性</description>
+      
     </item>
+    
     <item>
       <title>Evidential Deep Learning</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/enn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/others/enn/</guid>
-      <description>B分布和Dirichlet分布 B分布：0-1之间的含参连续分布，概率的概率分布服从B分布。
+      <description> B分布和Dirichlet分布 # B分布：0-1之间的含参连续分布，概率的概率分布服从B分布。
 如何通俗理解 beta 分布？
 狄利克雷分布（Dirichlet distribution）:B分布在K≥3时的一种推广，K维离散随机变量的概率分布服从Dirichlet分布。
-深度置信网络（ENN） Dr. Dragon 详细数学推导版
+深度置信网络（ENN） # Dr. Dragon 详细数学推导版
 以下为Stupid ZX 无数学民科版
-故事会版 对于一个K分类问题，一般的机器学习建模的是类别的K维分布，模型输出的类别概率不能等同于置信度，因为即使遇到K类以外的样本，仍然满足概率和为1，。
+故事会版 # 对于一个K分类问题，一般的机器学习建模的是类别的K维分布，模型输出的类别概率不能等同于置信度，因为即使遇到K类以外的样本，仍然满足概率和为1，。
 为了建模不确定性，我们可以把模型的输出也看成服从某种分布，每一个采样值是K分类的概率分布和该判决的置信度。我们不再让神经网络建模K分类的概率，而是建模K分类的概率分布服从的分布，之后采样即可得到置信度和模型的K分类输出。
 优化过程本质上和常规的分类问题是类似的，通过似然值/交叉熵/均方误差，拉进K分类预测值和实际的标签值。虽然从狄利克雷分布中采样K分类的概率预测是不可导的，但是狄利克雷分布的参数到数学期望的映射是可导的，我们可以推导出对分布参数的损失函数，从而优化整个网络。
 省略数学推导过程，我们看一下采用似然值作为K分类损失函数时，网络输出的狄利克雷分布参数的损失函数，
 $$ \Sigma^k_{i=1}y_{i}（logS-log\alpha_{i}） $$ 物理意义是很明确的，最小化各个类别置信度之和S，最大化正确类别的置信度α。
-一句话蒸馏版 模型结构：端到端K分类预测 -&amp;gt; 先获得证据，再通过分布采样获得K分类预测
+一句话蒸馏版 # 模型结构：端到端K分类预测 -&amp;gt; 先获得证据，再通过分布采样获得K分类预测
 优化方法：
 类别标签产生的监督信号，通过公式推导，优化网络的证据预测值 正则项约束：要求错误类别的证据为0 </description>
+      
     </item>
+    
     <item>
       <title>Graph Neural Network Based Multi-Label Hierarchical Classification for Disease Predictions in General Practice</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</guid>
-      <description>key idea Graph构建，包含病人、症状、疾病三种节点类型，症状和疾病通过TransE初始化，病人取症状的均值 过2层GAT，采用多个二分类的分类器，子类疾病的概率=父类概率×子类概率（涨了0.6个点） architecture </description>
+      <description> key idea # Graph构建，包含病人、症状、疾病三种节点类型，症状和疾病通过TransE初始化，病人取症状的均值 过2层GAT，采用多个二分类的分类器，子类疾病的概率=父类概率×子类概率（涨了0.6个点） architecture # </description>
+      
     </item>
+    
     <item>
       <title>Graph Representation of Chinese EMRs and its Short-text Classification Application</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/bibm2023/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/others/bibm2023/</guid>
-      <description>key idea 用TextGCN来做医学短语分类。
-构建出一个大图之后，可以将子图的embedding直接送入GCN进行分类 优点是非常轻量化，节点和关系嵌入都是预先计算好的，2层的GNN几乎没有参数量，效果似乎也还不错 Graph的构建 节点嵌入(word2vec) word2vec Word2Vec模型中，主要有Skip-Gram和CBOW两种模型，从直观上理解，Skip-Gram是给定input word来预测上下文。而CBOW是给定上下文，来预测input word。这两种方法都是基于神经网络的无监督词嵌入算法。 关系建立(PMI) PMI（Pointwise Mutual Information，逐点互信息），即共现频率/各自出现的频率</description>
+      <description>key idea # 用TextGCN来做医学短语分类。
+构建出一个大图之后，可以将子图的embedding直接送入GCN进行分类 优点是非常轻量化，节点和关系嵌入都是预先计算好的，2层的GNN几乎没有参数量，效果似乎也还不错 Graph的构建 # 节点嵌入(word2vec) word2vec Word2Vec模型中，主要有Skip-Gram和CBOW两种模型，从直观上理解，Skip-Gram是给定input word来预测上下文。而CBOW是给定上下文，来预测input word。这两种方法都是基于神经网络的无监督词嵌入算法。 关系建立(PMI) PMI（Pointwise Mutual Information，逐点互信息），即共现频率/各自出现的频率</description>
+      
     </item>
+    
     <item>
       <title>How to Fine-Tune BERT for Text Classification?</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</guid>
-      <description>Key idea 在9个中文数据集上探究了BERT在文本分类任务上的进一步预训练与微调
-结论 实验一：微调策略 对于长文本，经验性地截取开头和结尾 &amp;gt; 全文分段送入BERT，self-attention &amp;gt; max pooling &amp;gt; mean pooling 最后一层的输出 &amp;gt; 若干层的拼接和池化 较低的学习率（2e-5）和layer-wise的学习率衰减（0.95）有助于缓解灾难性遗忘 fine-tune一般采取三角学习率（warm up + linear decay） pretrain: lr=5e-5, seq_len=128; fine-tune: lr=2e-5, seq_len=512 实验二： 进一步预训练 进一步预训练(in-domain &amp;gt; task &amp;gt; cross-domain，不绝对) &amp;gt; 多任务fine-tune &amp;gt; 直接fine-tune 多任务fine-tune在further pretrain的情况下是会掉点的，仅仅优于直接fine-tune ULMFiT: 大规模数据集上进行pre-training然后在特定数据集上达到state-of-the-art的工作，分为3个阶段，phase1 big dataset pretrain; phase2 task dataset pretrain; phase3 finetune </description>
+      <description> Key idea # 在9个中文数据集上探究了BERT在文本分类任务上的进一步预训练与微调
+结论 # 实验一：微调策略 对于长文本，经验性地截取开头和结尾 &amp;gt; 全文分段送入BERT，self-attention &amp;gt; max pooling &amp;gt; mean pooling 最后一层的输出 &amp;gt; 若干层的拼接和池化 较低的学习率（2e-5）和layer-wise的学习率衰减（0.95）有助于缓解灾难性遗忘 fine-tune一般采取三角学习率（warm up + linear decay） pretrain: lr=5e-5, seq_len=128; fine-tune: lr=2e-5, seq_len=512 实验二： 进一步预训练 进一步预训练(in-domain &amp;gt; task &amp;gt; cross-domain，不绝对) &amp;gt; 多任务fine-tune &amp;gt; 直接fine-tune 多任务fine-tune在further pretrain的情况下是会掉点的，仅仅优于直接fine-tune ULMFiT: 大规模数据集上进行pre-training然后在特定数据集上达到state-of-the-art的工作，分为3个阶段，phase1 big dataset pretrain; phase2 task dataset pretrain; phase3 finetune </description>
+      
     </item>
+    
     <item>
       <title>Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/cikm2023/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/others/cikm2023/</guid>
-      <description>key idea 构建知识图谱 TFIDF筛选实体，UMLS relation table+co-occurance建立关系 多任务训练GAT model 本文对比了两种不同的多任务范式，多任务共享编码器和设置任务特异性编码器。（公式较为繁琐，但描述的实际上就是下面两张图）
+      <description>key idea # 构建知识图谱 TFIDF筛选实体，UMLS relation table+co-occurance建立关系 多任务训练GAT model # 本文对比了两种不同的多任务范式，多任务共享编码器和设置任务特异性编码器。（公式较为繁琐，但描述的实际上就是下面两张图）
 多任务共享编码器（4层GAT，ICD编码根据第2层输出）
 共享编码器+任务特异性编码器（2层GAT+2层GIAT）
 共享编码器聚合特征
 特异性编码器的中间特征（注意到计算相似度的依据是共享特征而不是特异性特征）
 特异性编码器的最终特征是两个特征的加权和，g是控制因子
 将文本节点送入分类器得到分类结果，并同时优化K个任务、$$N_$$个样本、$$C_k$$个类别。
-details 使用了4张2080，共计32GB显存
+details # 使用了4张2080，共计32GB显存
 不同backbone
 多任务的必要性</description>
+      
     </item>
+    
     <item>
       <title>Towards Semi-Structured Automatic ICD Coding via Tree-based Contrastive Learning</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/nips2023/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/others/nips2023/</guid>
-      <description>key idea 通过定位关键词、打乱等数据增强，让模型学习到长文本的篇章结构信息 目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段 通过层次树来进行对比学习 ICD编码任务的典型范式（仅供介绍任务，并非创新点） 针对长文本的数据增强 病历报告是结构多样化的长文本，同时由于疾病的长尾分布而使得分类变得困难，而许多之前的工作忽略了结构信息，单纯作为一个长序列进行建模
+      <description>key idea # 通过定位关键词、打乱等数据增强，让模型学习到长文本的篇章结构信息 目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段 通过层次树来进行对比学习 ICD编码任务的典型范式（仅供介绍任务，并非创新点） # 针对长文本的数据增强 # 病历报告是结构多样化的长文本，同时由于疾病的长尾分布而使得分类变得困难，而许多之前的工作忽略了结构信息，单纯作为一个长序列进行建模
 目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段（个人认为，这个思路非常好，它意识到了长文本实际上是由不同侧重的语段构成的，合理的注意力非常重要）
 认为在每个报告中都出现、且只出现一次的词组是语段的划分关键词，筛选出关键词后，即可将长文本划分成多个语段，并通过打乱顺序和掩码操作，让模型习得文章篇章结构的多样性
-通过层次树来进行对比学习 在MIMIC-50上取得了提升
+通过层次树来进行对比学习 # 在MIMIC-50上取得了提升
 在MIMIC-III-50-rare提升更明显
 消融实验证明了这些即插即用模块的效果
 另外通过数据证明了MIMIC III是分类难度较大的长文本数据集</description>
+      
     </item>
+    
   </channel>
 </rss>

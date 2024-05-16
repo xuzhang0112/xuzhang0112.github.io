@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ECCV on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/paper_reading/eccv/</link>
+    <description>Recent content in ECCV on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <atom:link href="https://xuzhang0112.github.io/paper_reading/eccv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Large-Scale Object Classification Using Label Relation Graphs</title>
+      <link>https://xuzhang0112.github.io/paper_reading/eccv/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/eccv/1/</guid>
+      <description>使用概率图模型对属性-类别进行细粒度的建模：首先通过神经网络获取属性，子类的概率同时取决于父类的概率和子类的相关属性
+互斥关系和包含关系
+一致图的稀疏化与稠密化表达
+图像-属性-类别的建模过程</description>
+      
+    </item>
+    
+  </channel>
+</rss>

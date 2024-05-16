@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CIKM 2023 on Xu Zhang&#39;s Blog</title>
     <link>https://xuzhang0112.github.io/tags/cikm-2023/</link>
     <description>Recent content in CIKM 2023 on Xu Zhang&#39;s Blog</description>
-    <image>
-      <title>Xu Zhang&#39;s Blog</title>
-      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.121.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/tags/cikm-2023/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/cikm2023/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/others/cikm2023/</guid>
-      <description>key idea 构建知识图谱 TFIDF筛选实体，UMLS relation table+co-occurance建立关系 多任务训练GAT model 本文对比了两种不同的多任务范式，多任务共享编码器和设置任务特异性编码器。（公式较为繁琐，但描述的实际上就是下面两张图）
+      <description>key idea # 构建知识图谱 TFIDF筛选实体，UMLS relation table+co-occurance建立关系 多任务训练GAT model # 本文对比了两种不同的多任务范式，多任务共享编码器和设置任务特异性编码器。（公式较为繁琐，但描述的实际上就是下面两张图）
 多任务共享编码器（4层GAT，ICD编码根据第2层输出）
 共享编码器+任务特异性编码器（2层GAT+2层GIAT）
 共享编码器聚合特征
 特异性编码器的中间特征（注意到计算相似度的依据是共享特征而不是特异性特征）
 特异性编码器的最终特征是两个特征的加权和，g是控制因子
 将文本节点送入分类器得到分类结果，并同时优化K个任务、$$N_$$个样本、$$C_k$$个类别。
-details 使用了4张2080，共计32GB显存
+details # 使用了4张2080，共计32GB显存
 不同backbone
 多任务的必要性</description>
+      
     </item>
+    
   </channel>
 </rss>

@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AAAI on Xu Zhang&#39;s Blog</title>
     <link>https://xuzhang0112.github.io/tags/aaai/</link>
     <description>Recent content in AAAI on Xu Zhang&#39;s Blog</description>
-    <image>
-      <title>Xu Zhang&#39;s Blog</title>
-      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.121.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/tags/aaai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Improved Graph Contrastive Learning for Short Text Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/aaai/4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/aaai/4/</guid>
       <description>从语料库中构建3种类型的图，单词、实体、词性。
 Word Graph采用GloVe word vectors作为节点嵌入，PMI作为边权重；
@@ -28,34 +25,45 @@ $$ Z_{\pi,r}=M_{\pi,r}H_\pi $$
 $$ Z_{aug}=Z_{w,r}||Z_{e,r}||Z_{p,r} $$
 对于无标签的文本，采用对比学习和聚类对比学习损失。
 实例对比学习将每个实例与其增强表示拉近，与其他实例及其增强表示拉远。 $$ L_{cl} = -\sum_{i=1}^{2N}\frac{1}{2N}log\frac{exp(P_i\cdot P_j / \tau)}{\sum_{k=1}^{2N}\prod_{k\neq i}exp(P_i\cdot P_k / \tau)} $$ 聚类对比学习将每个实例与其伪标签（聚类中心）相同的实例拉近，与其他实例拉远。 $$ L_{ccl} = -\sum_i^N \frac{1}{|S_i|-1}\sum_{j\in S_i}log\frac{exp(Q_i\cdot Q_j/\tau)}{\sum_{k=1}^N\prod_{k \neq i}exp(Q_i\cdot Qk/\tau)} $$ 对于有标签的文本，采用交叉熵损失。 $$ L_{ce}=-\sum_{i\in D_{lab}}\sum_j^cy_{ij}logR_{j} $$</description>
+      
     </item>
+    
     <item>
       <title>Self-Paced Unified Representation Learning for Hierarchical Multi-Label Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/aaai/1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/aaai/1/</guid>
       <description>Code
 图同构：问题最初的定义是只考虑拓扑关系，不考虑节点信息（可以用GNN）
 Self-paced Learning：（基于Loss）自适应地动态衡量样本学习难度
-Key Idea 实例特征和层次类别特征的统一表达 考虑层次结构和实例特征的难度估计(从易到难) 基于Text Embedding和Label Embedding来计算类别概率，并且采用扁平化的方法来完成层次多标签预测 $$ \hat{y} = Sigmoid(W_2(W_1[Z^F||Z^G]+b_1)+b_2) $$
+Key Idea # 实例特征和层次类别特征的统一表达 考虑层次结构和实例特征的难度估计(从易到难) 基于Text Embedding和Label Embedding来计算类别概率，并且采用扁平化的方法来完成层次多标签预测 $$ \hat{y} = Sigmoid(W_2(W_1[Z^F||Z^G]+b_1)+b_2) $$
 $$ L_{tg} = CE_Loss(y,\hat{y}) $$
 避免了MC Loss，而是直接对Label Embedding施加来自Hierarchy的约束(相邻节点互信息最大化)，使用可学习的label embedding来避免计算量大的无效的图编码器计算。 $$ L^{reconst}=-\frac{1}{|C|^2}\Sigma_{u \in C}\Sigma_{v \in C}(vu^T-A_{uv}) $$ 根据每一层级的Loss来可导地计算每个样本的难易程度（与平均Loss的差），并通过正则项和Loss权重来实现动态的由易到难。
 训练前期，简单样本占主导地位，随着$\lambda$增大，难样本可以在训练初期得到更多的学习。$\lambda=0$是最优。 $$ w_x = \Pi^{L}_{l=1}[1-Sigmoid(L^{(l)}-\hat{L}^{(l)})] $$
 $$ min\ Loss(Y,X|W, \lambda)= \Sigma_{x \in X} w_xL_x - \lambda \Sigma_{x \in X}w_x $$</description>
+      
     </item>
+    
     <item>
       <title>Toward Robustness in Multi-Label Classification: A Data Augmentation Strategy against Imbalance and Noise</title>
       <link>https://xuzhang0112.github.io/paper_reading/aaai/3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/aaai/3/</guid>
       <description></description>
+      
     </item>
+    
     <item>
       <title>You Only Read Once: Constituency-Oriented Relational Graph Convolutional Network for Multi-Aspect Multi-Sentiment Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/aaai/2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/aaai/2/</guid>
       <description> 情感分析不是单一情感倾向的，而是多方面、多情感的(细粒度) 三个公共数据集（MAMS、Rest14 和 Lap14） </description>
+      
     </item>
+    
   </channel>
 </rss>

@@ -1,126 +1,1516 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Python Cheatsheet | Xu Zhang's Blog</title>
-<meta name=keywords content><meta name=description content="Data Processing Pandas 菜鸟教程yyds
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Python Cheatsheet &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="Python Cheatsheet &middot; Xu Zhang&#39;s Blog" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://xuzhang0112.github.io/cheat_sheet/python/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.ac59a1b8eaafef739c129d12787ac29f6a420bcb348c7aeec8949a8d0b7d6c2023766c169d14b9031b751504eb3c976efe786fec135b340a49868acd8caa4127.css"
+    integrity="sha512-rFmhuOqv73OcEp0SeHrCn2pCC8s0jHruyJSajQt9bCAjdmwWnRS5Axt1FQTrPJdu/nhv7BNbNApJhorNjKpBJw==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
+    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Python Cheatsheet" />
+<meta property="og:description" content="Data Processing # Pandas # 菜鸟教程yyds
 Dataframe的创建
-# 从外部读取 read_csv() read_excel() # 从列表或字典创建 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]) #列表的每个列表代表一行 Dataframe的索引
-df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[column_name1,colunmn_name2]][[idx1,idx2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = '' # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] + df[b] # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df[df[a] == df[b]] Dataframe的统计分析
-df.value_counts() df.plot() Matplotlib 常用工作流
-import matplotlib.pyplot as plt plt.pca() #清空画布 plt.plot() #画折线 plt.show() #显示图片（ssh时不可用） plt.savefig(save_path) #保存图片 柱状图"><meta name=author content="Xu Zhang"><link rel=canonical href=https://xuzhang0112.github.io/cheat_sheet/python/><link crossorigin=anonymous href=/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z+V9+cO1A=" rel="preload stylesheet" as=style><link rel=icon href=https://xuzhang0112.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://xuzhang0112.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://xuzhang0112.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://xuzhang0112.github.io/apple-touch-icon.png><link rel=mask-icon href=https://xuzhang0112.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script>MathJax={tex:{inlineMath:[["$","$"]]},displayMath:[["$$","$$"],["[[","]]"]],svg:{fontCache:"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-123-45","auto"),ga("send","pageview"))</script><meta property="og:title" content="Python Cheatsheet"><meta property="og:description" content="Data Processing Pandas 菜鸟教程yyds
+# 从外部读取 read_csv() read_excel() # 从可迭代对象创建，每一项都是一行 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[&#39;c1&#39;,&#39;c2&#39;]) #列表的每个列表代表一行 Dataframe的索引
+df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[column_name1,colunmn_name2]][[idx1,idx2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = &#39;&#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] &#43; df[b] # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df[df[a] == df[b]] Dataframe的统计分析
+df.value_counts() df.plot() Matplotlib # 常用工作流
+import matplotlib.pyplot as plt plt.pca() #清空画布 plt.plot() #画折线 plt." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/python/" /><meta property="article:section" content="cheat_sheet" />
+
+
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Python Cheatsheet"/>
+<meta name="twitter:description" content="Data Processing # Pandas # 菜鸟教程yyds
 Dataframe的创建
-# 从外部读取 read_csv() read_excel() # 从列表或字典创建 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]) #列表的每个列表代表一行 Dataframe的索引
-df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[column_name1,colunmn_name2]][[idx1,idx2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = '' # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] + df[b] # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df[df[a] == df[b]] Dataframe的统计分析
-df.value_counts() df.plot() Matplotlib 常用工作流
-import matplotlib.pyplot as plt plt.pca() #清空画布 plt.plot() #画折线 plt.show() #显示图片（ssh时不可用） plt.savefig(save_path) #保存图片 柱状图"><meta property="og:type" content="article"><meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/python/"><meta property="og:image" content="https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="cheat_sheet"><meta property="og:site_name" content="ExampleSite"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="Python Cheatsheet"><meta name=twitter:description content="Data Processing Pandas 菜鸟教程yyds
-Dataframe的创建
-# 从外部读取 read_csv() read_excel() # 从列表或字典创建 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]) #列表的每个列表代表一行 Dataframe的索引
-df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[column_name1,colunmn_name2]][[idx1,idx2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = '' # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] + df[b] # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df[df[a] == df[b]] Dataframe的统计分析
-df.value_counts() df.plot() Matplotlib 常用工作流
-import matplotlib.pyplot as plt plt.pca() #清空画布 plt.plot() #画折线 plt.show() #显示图片（ssh时不可用） plt.savefig(save_path) #保存图片 柱状图"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"CheatSheet","item":"https://xuzhang0112.github.io/cheat_sheet/"},{"@type":"ListItem","position":2,"name":"Python Cheatsheet","item":"https://xuzhang0112.github.io/cheat_sheet/python/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Python Cheatsheet","name":"Python Cheatsheet","description":"Data Processing Pandas 菜鸟教程yyds\nDataframe的创建\n# 从外部读取 read_csv() read_excel() # 从列表或字典创建 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]) #列表的每个列表代表一行 Dataframe的索引\ndf[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[column_name1,colunmn_name2]][[idx1,idx2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = \u0026#39;\u0026#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] + df[b] # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df[df[a] == df[b]] Dataframe的统计分析\ndf.value_counts() df.plot() Matplotlib 常用工作流\nimport matplotlib.pyplot as plt plt.pca() #清空画布 plt.plot() #画折线 plt.show() #显示图片（ssh时不可用） plt.savefig(save_path) #保存图片 柱状图","keywords":[],"articleBody":"Data Processing Pandas 菜鸟教程yyds\nDataframe的创建\n# 从外部读取 read_csv() read_excel() # 从列表或字典创建 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]) #列表的每个列表代表一行 Dataframe的索引\ndf[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[column_name1,colunmn_name2]][[idx1,idx2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = '' # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] + df[b] # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df[df[a] == df[b]] Dataframe的统计分析\ndf.value_counts() df.plot() Matplotlib 常用工作流\nimport matplotlib.pyplot as plt plt.pca() #清空画布 plt.plot() #画折线 plt.show() #显示图片（ssh时不可用） plt.savefig(save_path) #保存图片 柱状图\nbins1=np.load(\"bins1.npy\") bins1=(bins1[:-1]+bins1[:1])/2 hist1=np.load(\"hist1.npy\") plt.bar(bins1,height=hist1) plt.show() 直方图（将数据归类到区间）\nhist() 显示中文字体\nhttps://zhuanlan.zhihu.com/p/403260230\nskimage warp（几何变换）\nMachine Learning PyG: pytorch_gemotry 官方文档\nIntroduction by Example Heterogeneous Graph Learnin Debug\n一定要在cpu上调试（需要显式地to(‘cpu’)），因为gpu上的报错很迷 根据cuda版本和pytorch版本选择合适的PyG版本，用whl安装，然后把sparse-conv卸掉 异构图需要每张图都包含所有类型的节点和边，如果没有就用torch.empty()填充 也可能是dtype不一致或者pyg版本问题 PyTorch Dataset \u0026 Dataloader\ntransform: 一般在Dataset中定义，在返回一个Index的sample时进行处理\nbatch_sampler: 从Dataset中获取一个batch的sample, 其中index的获取取决于采样算法\ncollect_function: 将样本变成Batch\n输入：列表，长度为Batch_size，列表的每个元素是字典，代表一个样本 输出：字典，每个键值对是一个类型和对应的Tensor，并且已经有了Batch_size这个维度 PyTorch DataLoader工作原理可视化\nTensor\n快速创建tensor\ntorch.tensor() #将其他数据类型（list,array等）转换为张量 torch.empty() torch.zeros() torch.ones() torch.rand() # 均匀分布 torch.randn() # 正态分布 torch.randint() # 需要指定上下界 创建tensor时，需要指定size和dtype 一般size=(x, y, z), dtype=torch.xx float=float32; double=float64; int=int32; long=int64 操作tensor\n# 索引 tensor[x,y,z] # 标量索引 tensor[[x1,x2],y,z] # 列表索引 tensor[tensor1,tensor2,tensor3] # 张量索引，注意一个张量只能索引一个维度 # 扩张 tensor.expand() #沿维度扩张n倍 # 转置 tensor.permute(dim1, dim2, dim3, …) tensor.transpose(dim1, dim2) #只能二维 #变形 tensor.view(dim1,dim2,dim3,...) tensor.reshape(dim1,dim2,dim3,...) #计算 tensor.norm(dim, keep_dim=True) #沿指定维度求范数 permute可以对任意高维矩阵进行转置，transpose只能在两个维度之间转换，其他维度保持不变。 view更快，reshape分配新的内存，更慢但更通用 Model\n模型遍历\nmodel.modules() #遍历model的所有子层，类比DFS搜索，有重复。 model.children() #遍历model的所有浅层 model.parameters() #保存的是Weights和Bais参数的值 模型微调\nfor p in self.parameters(): p.requires_grad = False 显存占用\n模型参数：初始化产生 中间结果：前向传播产生（网络中如果存在一些较长的连接，比如第10层的网络需要使用来自网络第一层的输出结果，这部分的特征图就会一直占用显存） 模型参数的梯度：反向传播产生 优化器状态：例如Adam会保存每个参数的二阶梯度 常见模块的的参数量和计算量\nModule 参数量 Conv2d $C_{out} \\times H_{kernel} \\times W_{kernel} \\times C_{in}$ Linear $C_{out} \\times C_{in}$ MultiHeadAttention $N_{head} \\times (C_{in} \\times C_{query} + C_{in} \\times C_{key} +C_{in} \\times C_{value})$ Huggingface Models\nModels 别用trainer了，真的不好用，建议还是用Pytorch自己写训练框架\n预训练模型，凑活用一下\nBasic 相关链接\nre 正则匹配，格式是字符+限定符\n限定符\n? 0或1个 * 任意个 + 1个以上 {m,n} m-n个 字符、元字符\n[a-zA-Z0-9][abc] 小写或大写或数字a或b或c ; 否定:[^a-z] a|b|c a或b或c \\w 单词（英文/数字/下划线） \\d 数字 \\s 空格（包括换行等） \\b 边界 e.g.\\bword\\b . 任意字符 正则表达式在线测试工具 正则表达式里有转义符\"\"时，应该在字符串前加“r” os 查看和更改工作目录，以及工作目录的文件情况\nos.getcwd(path) #查看工作目录 os.chdir(path) #改变工作目录 os.listdir(path) #浏览工作目录 os.mkdir(path) #创建文件夹 os.remove(path) #删除文件 shutil 文件/文件夹的复制、删除、重命名\nshutil.copy(src, dst) #复制文件 shutil.copytree(src, dst) #复制文件夹 shutil.move(src, dst) #重命名文件/文件夹 shutil.rmtree(src, dst) #删除文件夹 os.remove()方法只能删除某个文件; os.mdir()只能删除某个空文件夹 压缩 shutil.make_archive(base_name, format='zip') glob 包括*、**、? 、[ ]这四个通配符。\n* 匹配0个或多个字符\n** 匹配所有文件、目录、子目录和子目录里的文件\n? 匹配一个字符\n[] 匹配指定范围内的字符，如[0-9]匹配数字，[a-z]匹配小写字母\npathlib 操作文件路径\np.name #获取文件名 p.suffix #获取文件后缀 json #读取 with open(filename,'r') as f: json_dict = json.load(f) json_string = json.loads(f) #写入 with open(filename,'w') as f: json.dump(json_dict, f, ensure_ascii=False) Grammar 函数 函数签名\ndef f(x: int, b: float): pass 参数组合\n定义函数时，可使用必选参数、默认参数、可变参数、关键字参数和命名关键字参数。\n这5种参数都可以组合使用，但必须按顺序使用。\n有多个默认参数时，调用的时候，既可以按顺序提供默认参数，也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。\n比如定义一个函数，包含上述若干种参数：\ndef f1(a, b, c=0, *args, **kw): pass def f2(a, b, c=0, *, d, **kw): pass 在函数调用的时候，必须先按顺序传入，再按参数名传入。\n由于Python解释器会按上述顺序解析5种参数，因此，如果要传入可变参数，必须先传入默认参数。\ntuple和dict的解包\n对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，无论它的参数是如何定义的。\nargs = (1, 2, 3, 4) kw = {'d': 99, 'x': '#'} f(*args, **kw) 迭代器 用途：容器的迭代、数据的处理、数据的生成\n可迭代（Iterable）对象：可通过for循环遍历的对象 实现了__iter__()方法，可通过for循环遍历（隐式调用iter()函数） 实现了__getitem__( )方法，可通过“实例名[index]”的方式访问实例中的元素 迭代器（ Iterator） ：实现了__iter__和__next__方法 __iter__方法一般返回self，因为迭代器必须是可迭代对象 __next__方法一般计数并返回 可通过next()函数访问下一个元素 生成器：通过yield关键字将函数定义为生成器，本质上是快速定义的迭代器 yield相当于return+记录状态，下一次使用next()调用生成器时，自动回到断点继续执行\nreturn表示StopIteration\nfor循环：先调用iter（）获取迭代器，然后不断地调用next()来获取迭代值\n凡是可作用于for循环的对象 都是Iterable对象\n对象 静态变量\nClass A: a: List[int] b: Dict[float] | str 方法\n内置方法 实例方法 实例方法最少也要包含一个 self 参数，调用时Python会自动将对象传给self参数 实例方法一般由对象直接调用，也支持使用类名调用实例方法，但此方式需要手动给 self 参数传值 类方法 类方法需要使用＠classmethod修饰符进行修饰 类方法至少要包含一个参数，通常将其命名为 cls，调用时Python 会自动将类本身传给 cls 参数 类方法推荐使用类名直接调用，当然也可以使用实例对象来调用（不推荐） 静态方法 静态方法需要使用＠staticmethod修饰 相当于函数，唯一的区别是静态方法定义在类命名空间中，而函数定义在程序的全局命名空间中 既没有类似 self、cls 这样的特殊参数，也无法调用任何类属性和类方法 既可以由类调用，也可以由对象调用 第三方库的换源、安装与导入 换镜像源\npip config set global.index-url ``https://pypi.mirrors.ustc.edu.cn/simple # 永久切换 安装第三方库\n普通安装\npip install package #安装到python安装目录，可编辑，更新后被覆盖 pip install package -e #安装到工作目录，便于修改 pip install -i ``https://pypi.mirrors.ustc.edu.cn/simple`` matplotlib # 临时指定镜像 pip install -r requirements.txt # 批量安装 导入第三方库\n相对导入的根目录是第一个被执行的python文件所在的位置，可通过sys查看，与os工作目录无关\nsys.path.append() ## NOQA: E402 将项目目录暂时添加到环境变量PYTHONPATH中\n“.“导入仅限于package内部\n","wordCount":"470","inLanguage":"en","image":"https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","author":{"@type":"Person","name":"Xu Zhang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xuzhang0112.github.io/cheat_sheet/python/"},"publisher":{"@type":"Organization","name":"Xu Zhang's Blog","logo":{"@type":"ImageObject","url":"https://xuzhang0112.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://xuzhang0112.github.io/ accesskey=h title="Home (Alt + H)"><img src=https://xuzhang0112.github.io/apple-touch-icon.png alt aria-label=logo height=35>Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://xuzhang0112.github.io/cheat_sheet/cli title=CLI><span>CLI</span></a></li><li><a href=https://xuzhang0112.github.io/cheat_sheet/python title=Python><span class=active>Python</span></a></li><li><a href=https://xuzhang0112.github.io/paper_reading/ title="Paper Reading"><span>Paper Reading</span></a></li><li><a href=https://xuzhang0112.github.io/tags/ title=tags><span>tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://xuzhang0112.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://xuzhang0112.github.io/cheat_sheet/>CheatSheet</a></div><h1 class="post-title entry-hint-parent">Python Cheatsheet</h1><div class=post-meta>Xu Zhang&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/cheat_sheet/python.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#data-processing>Data Processing</a><ul><li><a href=#pandas>Pandas</a></li><li><a href=#matplotlib>Matplotlib</a></li><li><a href=#skimage>skimage</a></li></ul></li><li><a href=#machine-learning>Machine Learning</a><ul><li><a href=#pyg-pytorch_gemotry>PyG: pytorch_gemotry</a></li><li><a href=#pytorch>PyTorch</a></li><li><a href=#huggingface>Huggingface</a></li></ul></li><li><a href=#basic>Basic</a><ul><li><a href=#re>re</a></li><li><a href=#os>os</a></li><li><a href=#shutil>shutil</a></li><li><a href=#glob>glob</a></li><li><a href=#pathlib>pathlib</a></li><li><a href=#json>json</a></li></ul></li><li><a href=#grammar>Grammar</a><ul><li><a href=#函数>函数</a></li><li><a href=#迭代器>迭代器</a></li><li><a href=#对象>对象</a></li><li><a href=#第三方库的换源安装与导入>第三方库的换源、安装与导入</a></li></ul></li></ul></nav></div></details></div><div class=post-content><h2 id=data-processing>Data Processing<a hidden class=anchor aria-hidden=true href=#data-processing>#</a></h2><h3 id=pandas>Pandas<a hidden class=anchor aria-hidden=true href=#pandas>#</a></h3><p><a href=https://www.runoob.com/pandas/pandas-dataframe.html>菜鸟教程yyds</a></p><p>Dataframe的创建</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 从外部读取</span>
-</span></span><span class=line><span class=cl><span class=n>read_csv</span><span class=p>()</span>
-</span></span><span class=line><span class=cl><span class=n>read_excel</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 从列表或字典创建</span>
-</span></span><span class=line><span class=cl><span class=n>Dataframe</span><span class=p>([{</span><span class=n>column1</span><span class=p>:</span><span class=n>a</span><span class=p>,</span><span class=n>column2</span><span class=p>:</span><span class=n>b</span><span class=p>},{}])</span>  <span class=c1>#列表的每个字典代表一行</span>
-</span></span><span class=line><span class=cl><span class=n>Dataframe</span><span class=p>([[</span><span class=n>a</span><span class=p>,</span><span class=n>b</span><span class=p>],[</span><span class=n>c</span><span class=p>,</span><span class=n>d</span><span class=p>],[</span><span class=n>e</span><span class=p>,</span><span class=n>f</span><span class=p>]])</span>  <span class=c1>#列表的每个列表代表一行</span>
-</span></span></code></pre></div><p>Dataframe的索引</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>df</span><span class=p>[</span><span class=n>column_name</span><span class=p>]</span><span class=err>`</span>  <span class=c1>#根据列名  </span>
-</span></span><span class=line><span class=cl><span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=n>idx</span><span class=p>]</span>  <span class=c1>#根据行索引</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=n>idx</span><span class=p>,</span> <span class=n>column_name</span><span class=p>]</span>  <span class=c1>#根据行索引和列名</span>
-</span></span><span class=line><span class=cl><span class=n>df</span><span class=o>.</span><span class=n>iloc</span><span class=p>[</span><span class=n>idx</span><span class=p>,</span> <span class=n>column_idx</span><span class=p>]</span>  <span class=c1>#根据行索引和列索引</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[[</span><span class=n>column_name1</span><span class=p>,</span><span class=n>colunmn_name2</span><span class=p>]][[</span><span class=n>idx1</span><span class=p>,</span><span class=n>idx2</span><span class=p>]]</span> <span class=c1>#索引多行多列</span>
-</span></span></code></pre></div><ul><li>从索引的逻辑中可以看出，pandas是优先考虑<strong>列</strong>的</li><li>事实上，pandas的筛选和赋值大多数也是基于列的</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 创建空列</span>
-</span></span><span class=line><span class=cl><span class=n>df</span><span class=p>[</span><span class=n>new_column</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>  <span class=c1># 提前考虑好类型：0还是空字符串</span>
-</span></span><span class=line><span class=cl><span class=c1># 基于某两列构造新的列</span>
-</span></span><span class=line><span class=cl><span class=n>df</span><span class=p>[</span><span class=n>c</span><span class=p>]</span> <span class=o>=</span> <span class=n>df</span><span class=p>[</span><span class=n>a</span><span class=p>]</span> <span class=o>+</span> <span class=n>df</span><span class=p>[</span><span class=n>b</span><span class=p>]</span>
-</span></span><span class=line><span class=cl><span class=c1># 对某列应用函数，创造新列</span>
-</span></span><span class=line><span class=cl><span class=n>df</span><span class=p>[</span><span class=n>c</span><span class=p>]</span> <span class=o>=</span> <span class=n>df</span><span class=p>[</span><span class=n>a</span><span class=p>]</span><span class=o>.</span><span class=n>apply</span><span class=p>(</span><span class=n>func</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 根据某一列来筛选表格</span>
-</span></span><span class=line><span class=cl><span class=n>df</span><span class=p>[</span><span class=n>df</span><span class=p>[</span><span class=n>a</span><span class=p>]</span> <span class=o>==</span> <span class=n>df</span><span class=p>[</span><span class=n>b</span><span class=p>]]</span>
-</span></span></code></pre></div><p>Dataframe的统计分析</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>df</span><span class=o>.</span><span class=n>value_counts</span><span class=p>()</span>
-</span></span><span class=line><span class=cl><span class=n>df</span><span class=o>.</span><span class=n>plot</span><span class=p>()</span>
-</span></span></code></pre></div><h3 id=matplotlib>Matplotlib<a hidden class=anchor aria-hidden=true href=#matplotlib>#</a></h3><p>常用工作流</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
-</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>pca</span><span class=p>()</span> <span class=c1>#清空画布</span>
-</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>()</span> <span class=c1>#画折线</span>
-</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span> <span class=c1>#显示图片（ssh时不可用）</span>
-</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>savefig</span><span class=p>(</span><span class=n>save_path</span><span class=p>)</span> <span class=c1>#保存图片</span>
-</span></span></code></pre></div><p>柱状图</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>bins1</span><span class=o>=</span><span class=n>np</span><span class=o>.</span><span class=n>load</span><span class=p>(</span><span class=s2>&#34;bins1.npy&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>bins1</span><span class=o>=</span><span class=p>(</span><span class=n>bins1</span><span class=p>[:</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=o>+</span><span class=n>bins1</span><span class=p>[:</span><span class=mi>1</span><span class=p>])</span><span class=o>/</span><span class=mi>2</span>
-</span></span><span class=line><span class=cl><span class=n>hist1</span><span class=o>=</span><span class=n>np</span><span class=o>.</span><span class=n>load</span><span class=p>(</span><span class=s2>&#34;hist1.npy&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>bar</span><span class=p>(</span><span class=n>bins1</span><span class=p>,</span><span class=n>height</span><span class=o>=</span><span class=n>hist1</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</span></span></code></pre></div><p>直方图（将数据归类到区间）</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>hist</span><span class=p>()</span>
-</span></span></code></pre></div><p>显示中文字体</p><p><a href=https://zhuanlan.zhihu.com/p/403260230>https://zhuanlan.zhihu.com/p/403260230</a></p><h3 id=skimage>skimage<a hidden class=anchor aria-hidden=true href=#skimage>#</a></h3><p>warp（几何变换）</p><h2 id=machine-learning>Machine Learning<a hidden class=anchor aria-hidden=true href=#machine-learning>#</a></h2><h3 id=pyg-pytorch_gemotry>PyG: pytorch_gemotry<a hidden class=anchor aria-hidden=true href=#pyg-pytorch_gemotry>#</a></h3><ul><li><p>官方文档</p><ul><li><a href=https://pytorch-geometric.readthedocs.io/en/latest/get_started/introduction.html>Introduction by Example</a></li><li><a href=https://pytorch-geometric.readthedocs.io/en/latest/tutorial/heterogeneous.html>Heterogeneous Graph Learnin</a></li></ul></li><li><p>Debug</p><ol><li>一定要在cpu上调试（需要显式地to(&lsquo;cpu&rsquo;)），因为gpu上的报错很迷</li><li>根据cuda版本和pytorch版本选择合适的PyG版本，用whl安装，然后把sparse-conv卸掉</li><li>异构图需要每张图都包含所有类型的节点和边，如果没有就用torch.empty()填充</li><li>也可能是dtype不一致或者pyg版本问题</li></ol></li></ul><h3 id=pytorch>PyTorch<a hidden class=anchor aria-hidden=true href=#pytorch>#</a></h3><p><em><strong>Dataset & Dataloader</strong></em></p><ul><li><p>transform: 一般在Dataset中定义，在返回一个Index的sample时进行处理</p></li><li><p>batch_sampler: 从Dataset中获取一个batch的sample, 其中index的获取取决于采样算法</p></li><li><p>collect_function: 将样本变成Batch</p><ul><li>输入：列表，长度为Batch_size，列表的每个元素是字典，代表一个样本</li><li>输出：字典，每个键值对是一个类型和对应的Tensor，并且已经有了Batch_size这个维度</li></ul></li><li><p><a href=https://mp.weixin.qq.com/s/Uc2LYM6tIOY8KyxB7aQrOw>PyTorch DataLoader工作原理可视化</a></p></li></ul><p><em><strong>Tensor</strong></em></p><p>快速创建tensor</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>torch</span><span class=o>.</span><span class=n>tensor</span><span class=p>()</span>  <span class=c1>#将其他数据类型（list,array等）转换为张量</span>
-</span></span><span class=line><span class=cl><span class=n>torch</span><span class=o>.</span><span class=n>empty</span><span class=p>()</span>  
-</span></span><span class=line><span class=cl><span class=n>torch</span><span class=o>.</span><span class=n>zeros</span><span class=p>()</span>                                                                            
-</span></span><span class=line><span class=cl><span class=n>torch</span><span class=o>.</span><span class=n>ones</span><span class=p>()</span>                                                                              
-</span></span><span class=line><span class=cl><span class=n>torch</span><span class=o>.</span><span class=n>rand</span><span class=p>()</span>    <span class=c1># 均匀分布                                                                  </span>
-</span></span><span class=line><span class=cl><span class=n>torch</span><span class=o>.</span><span class=n>randn</span><span class=p>()</span>   <span class=c1># 正态分布                                                                  </span>
-</span></span><span class=line><span class=cl><span class=n>torch</span><span class=o>.</span><span class=n>randint</span><span class=p>()</span> <span class=c1># 需要指定上下界                                                            </span>
-</span></span></code></pre></div><ul><li>创建tensor时，需要指定size和dtype</li><li>一般size=(x, y, z), dtype=torch.xx</li><li>float=float32; double=float64; int=int32; long=int64</li></ul><p>操作tensor</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># 索引</span>
-</span></span><span class=line><span class=cl><span class=n>tensor</span><span class=p>[</span><span class=n>x</span><span class=p>,</span><span class=n>y</span><span class=p>,</span><span class=n>z</span><span class=p>]</span> <span class=c1># 标量索引</span>
-</span></span><span class=line><span class=cl><span class=n>tensor</span><span class=p>[[</span><span class=n>x1</span><span class=p>,</span><span class=n>x2</span><span class=p>],</span><span class=n>y</span><span class=p>,</span><span class=n>z</span><span class=p>]</span> <span class=c1># 列表索引</span>
-</span></span><span class=line><span class=cl><span class=n>tensor</span><span class=p>[</span><span class=n>tensor1</span><span class=p>,</span><span class=n>tensor2</span><span class=p>,</span><span class=n>tensor3</span><span class=p>]</span> <span class=c1># 张量索引，注意一个张量只能索引一个维度</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 扩张</span>
-</span></span><span class=line><span class=cl><span class=n>tensor</span><span class=o>.</span><span class=n>expand</span><span class=p>()</span> <span class=c1>#沿维度扩张n倍</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># 转置</span>
-</span></span><span class=line><span class=cl><span class=n>tensor</span><span class=o>.</span><span class=n>permute</span><span class=p>(</span><span class=n>dim1</span><span class=p>,</span> <span class=n>dim2</span><span class=p>,</span> <span class=n>dim3</span><span class=p>,</span> <span class=err>…</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>tensor</span><span class=o>.</span><span class=n>transpose</span><span class=p>(</span><span class=n>dim1</span><span class=p>,</span> <span class=n>dim2</span><span class=p>)</span> <span class=c1>#只能二维</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>#变形</span>
-</span></span><span class=line><span class=cl><span class=n>tensor</span><span class=o>.</span><span class=n>view</span><span class=p>(</span><span class=n>dim1</span><span class=p>,</span><span class=n>dim2</span><span class=p>,</span><span class=n>dim3</span><span class=p>,</span><span class=o>...</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>tensor</span><span class=o>.</span><span class=n>reshape</span><span class=p>(</span><span class=n>dim1</span><span class=p>,</span><span class=n>dim2</span><span class=p>,</span><span class=n>dim3</span><span class=p>,</span><span class=o>...</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>#计算</span>
-</span></span><span class=line><span class=cl><span class=n>tensor</span><span class=o>.</span><span class=n>norm</span><span class=p>(</span><span class=n>dim</span><span class=p>,</span> <span class=n>keep_dim</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span> <span class=c1>#沿指定维度求范数</span>
-</span></span></code></pre></div><ul><li>permute可以对任意高维矩阵进行转置，transpose只能在两个维度之间转换，其他维度保持不变。</li><li>view更快，reshape分配新的内存，更慢但更通用</li></ul><p><em><strong>Model</strong></em></p><p>模型遍历</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>model</span><span class=o>.</span><span class=n>modules</span><span class=p>()</span>  <span class=c1>#遍历model的所有子层，类比DFS搜索，有重复。</span>
-</span></span><span class=line><span class=cl><span class=n>model</span><span class=o>.</span><span class=n>children</span><span class=p>()</span>  <span class=c1>#遍历model的所有浅层</span>
-</span></span><span class=line><span class=cl><span class=n>model</span><span class=o>.</span><span class=n>parameters</span><span class=p>()</span>  <span class=c1>#保存的是Weights和Bais参数的值</span>
-</span></span></code></pre></div><p>模型微调</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>for</span> <span class=n>p</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>parameters</span><span class=p>():</span>
-</span></span><span class=line><span class=cl>    <span class=n>p</span><span class=o>.</span><span class=n>requires_grad</span> <span class=o>=</span> <span class=kc>False</span>
-</span></span></code></pre></div><p>显存占用</p><ol><li>模型参数：初始化产生</li><li>中间结果：前向传播产生（网络中如果存在一些较长的连接，比如第10层的网络需要使用来自网络第一层的输出结果，这部分的特征图就会一直占用显存）</li><li>模型参数的梯度：反向传播产生</li><li>优化器状态：例如Adam会保存每个参数的二阶梯度</li></ol><p>常见模块的的参数量和计算量</p><table><thead><tr><th style=text-align:center>Module</th><th style=text-align:center>参数量</th></tr></thead><tbody><tr><td style=text-align:center>Conv2d</td><td style=text-align:center>$C_{out} \times H_{kernel} \times W_{kernel} \times C_{in}$</td></tr><tr><td style=text-align:center>Linear</td><td style=text-align:center>$C_{out} \times C_{in}$</td></tr><tr><td style=text-align:center>MultiHeadAttention</td><td style=text-align:center>$N_{head} \times (C_{in} \times C_{query} + C_{in} \times C_{key} +C_{in} \times C_{value})$</td></tr></tbody></table><h3 id=huggingface>Huggingface<a hidden class=anchor aria-hidden=true href=#huggingface>#</a></h3><p><em><strong>Models</strong></em></p><p><em><strong>Models</strong></em>
-别用trainer了，真的不好用，建议还是用Pytorch自己写训练框架</p><p>预训练模型，凑活用一下</p><h2 id=basic>Basic<a hidden class=anchor aria-hidden=true href=#basic>#</a></h2><p><a href=https://cloud.tencent.com/developer/article/2148641>相关链接</a></p><h3 id=re>re<a hidden class=anchor aria-hidden=true href=#re>#</a></h3><p>正则匹配，格式是字符+限定符</p><p>限定符</p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>?</td><td>0或1个</td></tr><tr><td>*</td><td>任意个</td></tr><tr><td>+</td><td>1个以上</td></tr><tr><td>{m,n}</td><td>m-n个</td></tr></tbody></table><p>字符、元字符</p><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>[a-zA-Z0-9][abc]</td><td>小写或大写或数字a或b或c ; 否定:[^a-z]</td></tr><tr><td>a|b|c</td><td>a或b或c</td></tr><tr><td>\w</td><td>单词（英文/数字/下划线）</td></tr><tr><td>\d</td><td>数字</td></tr><tr><td>\s</td><td>空格（包括换行等）</td></tr><tr><td>\b</td><td>边界 e.g.\bword\b</td></tr><tr><td>.</td><td>任意字符</td></tr></tbody></table><ul><li><a href=https://regex101.com/>正则表达式在线测试工具</a></li><li>正则表达式里有转义符""时，应该在字符串前加“r”</li></ul><h3 id=os>os<a hidden class=anchor aria-hidden=true href=#os>#</a></h3><p>查看和更改工作目录，以及工作目录的文件情况</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>os</span><span class=o>.</span><span class=n>getcwd</span><span class=p>(</span><span class=n>path</span><span class=p>)</span>  <span class=c1>#查看工作目录</span>
-</span></span><span class=line><span class=cl><span class=n>os</span><span class=o>.</span><span class=n>chdir</span><span class=p>(</span><span class=n>path</span><span class=p>)</span>  <span class=c1>#改变工作目录</span>
-</span></span><span class=line><span class=cl><span class=n>os</span><span class=o>.</span><span class=n>listdir</span><span class=p>(</span><span class=n>path</span><span class=p>)</span>  <span class=c1>#浏览工作目录</span>
-</span></span><span class=line><span class=cl><span class=n>os</span><span class=o>.</span><span class=n>mkdir</span><span class=p>(</span><span class=n>path</span><span class=p>)</span>  <span class=c1>#创建文件夹</span>
-</span></span><span class=line><span class=cl><span class=n>os</span><span class=o>.</span><span class=n>remove</span><span class=p>(</span><span class=n>path</span><span class=p>)</span>  <span class=c1>#删除文件</span>
-</span></span></code></pre></div><h3 id=shutil>shutil<a hidden class=anchor aria-hidden=true href=#shutil>#</a></h3><p>文件/文件夹的复制、删除、重命名</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>shutil</span><span class=o>.</span><span class=n>copy</span><span class=p>(</span><span class=n>src</span><span class=p>,</span> <span class=n>dst</span><span class=p>)</span>  <span class=c1>#复制文件</span>
-</span></span><span class=line><span class=cl><span class=n>shutil</span><span class=o>.</span><span class=n>copytree</span><span class=p>(</span><span class=n>src</span><span class=p>,</span> <span class=n>dst</span><span class=p>)</span>  <span class=c1>#复制文件夹</span>
-</span></span><span class=line><span class=cl><span class=n>shutil</span><span class=o>.</span><span class=n>move</span><span class=p>(</span><span class=n>src</span><span class=p>,</span> <span class=n>dst</span><span class=p>)</span>  <span class=c1>#重命名文件/文件夹</span>
-</span></span><span class=line><span class=cl><span class=n>shutil</span><span class=o>.</span><span class=n>rmtree</span><span class=p>(</span><span class=n>src</span><span class=p>,</span> <span class=n>dst</span><span class=p>)</span>  <span class=c1>#删除文件夹</span>
-</span></span></code></pre></div><ul><li>os.remove()方法只能删除某个文件; os.mdir()只能删除某个空文件夹
-压缩</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>shutil</span><span class=o>.</span><span class=n>make_archive</span><span class=p>(</span><span class=n>base_name</span><span class=p>,</span> <span class=nb>format</span><span class=o>=</span><span class=s1>&#39;zip&#39;</span><span class=p>)</span>
-</span></span></code></pre></div><h3 id=glob>glob<a hidden class=anchor aria-hidden=true href=#glob>#</a></h3><p>包括*、**、? 、[ ]这四个通配符。</p><p>* 匹配0个或多个字符<br>** 匹配所有文件、目录、子目录和子目录里的文件<br>? 匹配一个字符<br>[] 匹配指定范围内的字符，如[0-9]匹配数字，[a-z]匹配小写字母</p><h3 id=pathlib>pathlib<a hidden class=anchor aria-hidden=true href=#pathlib>#</a></h3><p>操作文件路径</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>p</span><span class=o>.</span><span class=n>name</span>  <span class=c1>#获取文件名  </span>
-</span></span><span class=line><span class=cl><span class=n>p</span><span class=o>.</span><span class=n>suffix</span>  <span class=c1>#获取文件后缀</span>
-</span></span></code></pre></div><h3 id=json>json<a hidden class=anchor aria-hidden=true href=#json>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1>#读取</span>
-</span></span><span class=line><span class=cl><span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>filename</span><span class=p>,</span><span class=s1>&#39;r&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>    <span class=n>json_dict</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>load</span><span class=p>(</span><span class=n>f</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=n>json_string</span> <span class=o>=</span> <span class=n>json</span><span class=o>.</span><span class=n>loads</span><span class=p>(</span><span class=n>f</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=c1>#写入</span>
-</span></span><span class=line><span class=cl><span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>filename</span><span class=p>,</span><span class=s1>&#39;w&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
-</span></span><span class=line><span class=cl>    <span class=n>json</span><span class=o>.</span><span class=n>dump</span><span class=p>(</span><span class=n>json_dict</span><span class=p>,</span> <span class=n>f</span><span class=p>,</span> <span class=n>ensure_ascii</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    
-</span></span></code></pre></div><h2 id=grammar>Grammar<a hidden class=anchor aria-hidden=true href=#grammar>#</a></h2><h3 id=函数>函数<a hidden class=anchor aria-hidden=true href=#函数>#</a></h3><p><em><strong>函数签名</strong></em></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-Plain data-lang=Plain><span class=line><span class=cl>def f(x: int, b: float):
-</span></span><span class=line><span class=cl>    pass
-</span></span></code></pre></div><p><em><strong>参数组合</strong></em></p><p>定义函数时，可使用<em><strong>必选参数、默认参数、可变参数、关键字参数和命名关键字参数</strong></em>。</p><p>这5种参数都可以组合使用，但<em><strong>必须按顺序</strong></em>使用。</p><p>有多个默认参数时，调用的时候，既可以按顺序提供默认参数，也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。</p><p>比如定义一个函数，包含上述若干种参数：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>f1</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>,</span> <span class=n>c</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>    <span class=k>pass</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>f2</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=n>b</span><span class=p>,</span> <span class=n>c</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=o>*</span><span class=p>,</span> <span class=n>d</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>):</span>
-</span></span><span class=line><span class=cl>    <span class=k>pass</span>
-</span></span></code></pre></div><p>在函数调用的时候，必须先按顺序传入，再按参数名传入。</p><p>由于Python解释器会按上述顺序解析5种参数，因此，如果要传入可变参数，必须先传入默认参数。</p><p><em><strong>tuple</strong></em><em><strong>和dict的解包</strong></em></p><p>对于任意函数，都可以通过类似<code>func(*args, **kw)</code>的形式调用它，无论它的参数是如何定义的。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>args</span> <span class=o>=</span> <span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=mi>4</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=n>kw</span> <span class=o>=</span> <span class=p>{</span><span class=s1>&#39;d&#39;</span><span class=p>:</span> <span class=mi>99</span><span class=p>,</span> <span class=s1>&#39;x&#39;</span><span class=p>:</span> <span class=s1>&#39;#&#39;</span><span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=n>f</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>)</span>
-</span></span></code></pre></div><h3 id=迭代器>迭代器<a hidden class=anchor aria-hidden=true href=#迭代器>#</a></h3><p>用途：容器的迭代、数据的处理、数据的生成</p><ul><li>可迭代（Iterable）对象：可通过for循环遍历的对象<ul><li>实现了__iter__()方法，可通过for循环遍历（隐式调用iter()函数）</li><li>实现了__getitem__( )方法，可通过“实例名[index]”的方式访问实例中的元素</li></ul></li><li>迭代器（ Iterator） ：实现了__iter__和__next__方法<ul><li>__iter__方法一般返回self，因为迭代器必须是可迭代对象</li><li>__next__方法一般计数并返回</li><li>可通过next()函数访问下一个元素</li></ul></li><li>生成器：通过yield关键字将函数定义为生成器，本质上是快速定义的迭代器</li></ul><p>yield相当于return+记录状态，下一次使用next()调用生成器时，自动回到断点继续执行</p><p>return表示StopIteration</p><p>for循环：先调用iter（）获取迭代器，然后不断地调用next()来获取迭代值</p><p>凡是可作用于for循环的对象 都是Iterable对象</p><h3 id=对象>对象<a hidden class=anchor aria-hidden=true href=#对象>#</a></h3><p><em><strong>静态变量</strong></em></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-Plain data-lang=Plain><span class=line><span class=cl>Class A:
-</span></span><span class=line><span class=cl>    a: List[int]
-</span></span><span class=line><span class=cl>    b: Dict[float] | str
-</span></span></code></pre></div><p><em><strong>方法</strong></em></p><ul><li>内置方法</li><li>实例方法<ul><li>实例方法最少也要包含一个 self 参数，调用时Python会自动将对象传给self参数</li><li>实例方法一般由对象直接调用，也支持使用类名调用实例方法，但此方式需要手动给 self 参数传值</li></ul></li><li>类方法<ul><li>类方法需要使用<code>＠classmethod</code>修饰符进行修饰</li><li>类方法至少要包含一个参数，通常将其命名为 cls，调用时Python 会自动将类本身传给 cls 参数</li><li>类方法推荐使用类名直接调用，当然也可以使用实例对象来调用（不推荐）</li></ul></li><li>静态方法<ul><li>静态方法需要使用<code>＠staticmethod</code>修饰</li><li>相当于函数，唯一的区别是静态方法定义在类命名空间中，而函数定义在程序的全局命名空间中</li><li>既没有类似 self、cls 这样的特殊参数，也无法调用任何类属性和类方法</li><li>既可以由类调用，也可以由对象调用</li></ul></li></ul><h3 id=第三方库的换源安装与导入>第三方库的换源、安装与导入<a hidden class=anchor aria-hidden=true href=#第三方库的换源安装与导入>#</a></h3><p><em><strong>换镜像源</strong></em></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>pip config <span class=nb>set</span> global.index-url <span class=sb>``</span>https://pypi.mirrors.ustc.edu.cn/simple  <span class=c1># 永久切换</span>
-</span></span></code></pre></div><p><em><strong>安装第三方库</strong></em></p><p>普通安装</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>pip install package <span class=c1>#安装到python安装目录，可编辑，更新后被覆盖</span>
-</span></span><span class=line><span class=cl>pip install package -e <span class=c1>#安装到工作目录，便于修改</span>
-</span></span><span class=line><span class=cl>pip install -i <span class=sb>``</span>https://pypi.mirrors.ustc.edu.cn/simple<span class=sb>``</span>  matplotlib <span class=c1># 临时指定镜像</span>
-</span></span><span class=line><span class=cl>pip install -r requirements.txt <span class=c1># 批量安装</span>
-</span></span></code></pre></div><p><em><strong>导入第三方库</strong></em></p><ul><li><p>相对导入的根目录是第一个被执行的python文件所在的位置，可通过sys查看，与os工作目录无关</p></li><li><p><code>sys.path.append() ## NOQA: E402</code> 将项目目录暂时添加到环境变量PYTHONPATH中</p></li><li><p>&ldquo;.&ldquo;导入仅限于package内部</p></li></ul></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2024 <a href=https://xuzhang0112.github.io/>Xu Zhang's Blog</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
+# 从外部读取 read_csv() read_excel() # 从可迭代对象创建，每一项都是一行 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[&#39;c1&#39;,&#39;c2&#39;]) #列表的每个列表代表一行 Dataframe的索引
+df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[column_name1,colunmn_name2]][[idx1,idx2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = &#39;&#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] &#43; df[b] # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df[df[a] == df[b]] Dataframe的统计分析
+df.value_counts() df.plot() Matplotlib # 常用工作流
+import matplotlib.pyplot as plt plt.pca() #清空画布 plt.plot() #画折线 plt."/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "CheatSheet",
+    "name": "Python Cheatsheet",
+    "headline": "Python Cheatsheet",
+    
+    "abstract": "Data Processing # Pandas # 菜鸟教程yyds\nDataframe的创建\n# 从外部读取 read_csv() read_excel() # 从可迭代对象创建，每一项都是一行 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[\u0026#39;c1\u0026#39;,\u0026#39;c2\u0026#39;]) #列表的每个列表代表一行 Dataframe的索引\ndf[column_name]\u0060 #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[column_name1,colunmn_name2]][[idx1,idx2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = \u0026#39;\u0026#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] \u002b df[b] # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df[df[a] == df[b]] Dataframe的统计分析\ndf.value_counts() df.plot() Matplotlib # 常用工作流\nimport matplotlib.pyplot as plt plt.pca() #清空画布 plt.plot() #画折线 plt.",
+    "inLanguage": "en",
+    "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/python\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Xu Zhang"
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "501"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Xu Zhang" />
+  
+  
+  
+  <link href="https://github.com/xuzhang0112" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/lib/katex/katex.min.af6f85907cdfd6ed3e4906d93a8233d91c5638859f744cd1b98c9b1a3ccaab5f231bdcda49f132f6cdfe8cca86ff33ed468affab8a9a502610a664a34f0f0cfa.css" integrity="sha512-r2&#43;FkHzf1u0&#43;SQbZOoIz2RxWOIWfdEzRuYybGjzKq18jG9zaSfEy9s3&#43;jMqG/zPtRor/q4qaUCYQpmSjTw8M&#43;g==" />
+
+
+<script defer src="/lib/katex/katex.min.20da6cf7343619410c0900fbc626506c65159ea9f312f9729d5cba7aa713707378f9a4222e8f7fb9a42a7240e9749f199b7334401b3e3e4b60e29cf490492552.js" integrity="sha512-INps9zQ2GUEMCQD7xiZQbGUVnqnzEvlynVy6eqcTcHN4&#43;aQiLo9/uaQqckDpdJ8Zm3M0QBs&#43;Pktg4pz0kEklUg=="></script>
+
+
+<script defer src="/lib/katex/auto-render.min.6095714e3aadb63b14ddc4af69346ab12974c1b460654345f8d1860a0b68fcc51b22f68b757433193090bb80afc8965b65cb607e5541d0f5f0f4b2e64d69b9ff.js" integrity="sha512-YJVxTjqttjsU3cSvaTRqsSl0wbRgZUNF&#43;NGGCgto/MUbIvaLdXQzGTCQu4CvyJZbZctgflVB0PXw9LLmTWm5/w=="
+  onload="renderMathInElement(document.body);"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Xu Zhang&rsquo;s Blog</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/cheat_sheet/cli/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="CLI Cheatsheet">
+        CLI
+    </p>
+</a>
+
+
+            
+            
+  <a href="/cheat_sheet/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Python Cheatsheet">
+        Python
+    </p>
+</a>
+
+
+            
+            
+  <a href="/paper_reading/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="PaperReading">
+        Papers
+    </p>
+</a>
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tags">
+        Tags
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/cheat_sheet/cli/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="CLI Cheatsheet">
+            CLI
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/cheat_sheet/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Python Cheatsheet">
+            Python
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/paper_reading/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="PaperReading">
+            Papers
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tags">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/cheat_sheet/"
+      >CheatSheet</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/cheat_sheet/python/"
+      >Python Cheatsheet</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Python Cheatsheet
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>501 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+    
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+
+
+<h2 class="relative group">Data Processing 
+    <div id="data-processing" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#data-processing" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Pandas 
+    <div id="pandas" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pandas" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://www.runoob.com/pandas/pandas-dataframe.html"   target="_blank">
+    菜鸟教程yyds</a></p>
+<p>Dataframe的创建</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 从外部读取</span>
+</span></span><span style="display:flex;"><span>read_csv()
+</span></span><span style="display:flex;"><span>read_excel()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 从可迭代对象创建，每一项都是一行</span>
+</span></span><span style="display:flex;"><span>Dataframe([{column1:a,column2:b},{}])  <span style="color:#75715e">#列表的每个字典代表一行</span>
+</span></span><span style="display:flex;"><span>Dataframe([[a,b],[c,d],[e,f]]<span style="color:#960050;background-color:#1e0010">，</span>columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;c1&#39;</span>,<span style="color:#e6db74">&#39;c2&#39;</span>])  <span style="color:#75715e">#列表的每个列表代表一行</span>
+</span></span></code></pre></div><p>Dataframe的索引</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[column_name]<span style="color:#960050;background-color:#1e0010">`</span>  <span style="color:#75715e">#根据列名  </span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>loc[idx]  <span style="color:#75715e">#根据行索引</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>loc[idx, column_name]  <span style="color:#75715e">#根据行索引和列名</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>iloc[idx, column_idx]  <span style="color:#75715e">#根据行索引和列索引</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>loc[[column_name1,colunmn_name2]][[idx1,idx2]] <span style="color:#75715e">#索引多行多列</span>
+</span></span></code></pre></div><ul>
+<li>从索引的逻辑中可以看出，pandas是优先考虑<strong>列</strong>的</li>
+<li>事实上，pandas的筛选和赋值大多数也是基于列的</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 创建空列</span>
+</span></span><span style="display:flex;"><span>df[new_column] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>  <span style="color:#75715e"># 提前考虑好类型：0还是空字符串</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 基于某两列构造新的列</span>
+</span></span><span style="display:flex;"><span>df[c] <span style="color:#f92672">=</span> df[a] <span style="color:#f92672">+</span> df[b]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 对某列应用函数，创造新列</span>
+</span></span><span style="display:flex;"><span>df[c] <span style="color:#f92672">=</span> df[a]<span style="color:#f92672">.</span>apply(func)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 根据某一列来筛选表格</span>
+</span></span><span style="display:flex;"><span>df[df[a] <span style="color:#f92672">==</span> df[b]]
+</span></span></code></pre></div><p>Dataframe的统计分析</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#f92672">.</span>value_counts()
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>plot()
+</span></span></code></pre></div>
+
+<h3 class="relative group">Matplotlib 
+    <div id="matplotlib" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#matplotlib" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>常用工作流</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>pca() <span style="color:#75715e">#清空画布</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot() <span style="color:#75715e">#画折线</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show() <span style="color:#75715e">#显示图片（ssh时不可用）</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>savefig(save_path) <span style="color:#75715e">#保存图片</span>
+</span></span></code></pre></div><p>柱状图</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>bins1<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#34;bins1.npy&#34;</span>)
+</span></span><span style="display:flex;"><span>bins1<span style="color:#f92672">=</span>(bins1[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">+</span>bins1[:<span style="color:#ae81ff">1</span>])<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>hist1<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#34;hist1.npy&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>bar(bins1,height<span style="color:#f92672">=</span>hist1)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p>直方图（将数据归类到区间）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>hist()
+</span></span></code></pre></div><p>显示中文字体</p>
+<p><a href="https://zhuanlan.zhihu.com/p/403260230"   target="_blank">
+    https://zhuanlan.zhihu.com/p/403260230</a></p>
+
+
+<h3 class="relative group">skimage 
+    <div id="skimage" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#skimage" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>warp（几何变换）</p>
+
+
+<h2 class="relative group">Machine Learning 
+    <div id="machine-learning" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#machine-learning" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">PyG: pytorch_gemotry 
+    <div id="pyg-pytorch_gemotry" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pyg-pytorch_gemotry" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p>官方文档</p>
+<ul>
+<li><a href="https://pytorch-geometric.readthedocs.io/en/latest/get_started/introduction.html"   target="_blank">
+    Introduction by Example</a></li>
+<li><a href="https://pytorch-geometric.readthedocs.io/en/latest/tutorial/heterogeneous.html"   target="_blank">
+    Heterogeneous Graph Learnin</a></li>
+</ul>
+</li>
+<li>
+<p>Debug</p>
+<ol>
+<li>一定要在cpu上调试（需要显式地to(&lsquo;cpu&rsquo;)），因为gpu上的报错很迷</li>
+<li>根据cuda版本和pytorch版本选择合适的PyG版本，用whl安装，然后把sparse-conv卸掉</li>
+<li>异构图需要每张图都包含所有类型的节点和边，如果没有就用torch.empty()填充</li>
+<li>也可能是dtype不一致或者pyg版本问题</li>
+</ol>
+</li>
+</ul>
+
+
+<h3 class="relative group">PyTorch 
+    <div id="pytorch" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pytorch" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><em><strong>Dataset &amp; Dataloader</strong></em></p>
+<ul>
+<li>
+<p>transform: 一般在Dataset中定义，在返回一个Index的sample时进行处理</p>
+</li>
+<li>
+<p>batch_sampler: 从Dataset中获取一个batch的sample, 其中index的获取取决于采样算法</p>
+</li>
+<li>
+<p>collect_function: 将样本变成Batch</p>
+<ul>
+<li>输入：列表，长度为Batch_size，列表的每个元素是字典，代表一个样本</li>
+<li>输出：字典，每个键值对是一个类型和对应的Tensor，并且已经有了Batch_size这个维度</li>
+</ul>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s/Uc2LYM6tIOY8KyxB7aQrOw"   target="_blank">
+    PyTorch DataLoader工作原理可视化</a></p>
+</li>
+</ul>
+<p><em><strong>Tensor</strong></em></p>
+<p>快速创建tensor</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>tensor()  <span style="color:#75715e">#将其他数据类型（list,array等）转换为张量</span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>empty()  
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>zeros()                                                                            
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>ones()                                                                              
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>rand()    <span style="color:#75715e"># 均匀分布                                                                  </span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>randn()   <span style="color:#75715e"># 正态分布                                                                  </span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>randint() <span style="color:#75715e"># 需要指定上下界                                                            </span>
+</span></span></code></pre></div><ul>
+<li>创建tensor时，需要指定size和dtype</li>
+<li>一般size=(x, y, z), dtype=torch.xx</li>
+<li>float=float32; double=float64; int=int32; long=int64</li>
+</ul>
+<p>操作tensor</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 索引</span>
+</span></span><span style="display:flex;"><span>tensor[x,y,z] <span style="color:#75715e"># 标量索引</span>
+</span></span><span style="display:flex;"><span>tensor[[x1,x2],y,z] <span style="color:#75715e"># 列表索引</span>
+</span></span><span style="display:flex;"><span>tensor[tensor1,tensor2,tensor3] <span style="color:#75715e"># 张量索引，注意一个张量只能索引一个维度</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 扩张</span>
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>expand() <span style="color:#75715e">#沿维度扩张n倍</span>
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>repeat(n1, n2) <span style="color:#75715e"># repeat的维度必须&gt;=原始维度，并且原始的tensor会置于最后</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">x = randn(dim1,dim2)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">x.repeat(n1,n2)返回(n1*dim1,n2*dim2)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">x.repeat(n1,n2,1,1)返回(n1,n2,dim1,dim2)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 转置</span>
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>permute(dim1, dim2, dim3, <span style="color:#960050;background-color:#1e0010">…</span>)
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>transpose(dim1, dim2) <span style="color:#75715e">#只能二维</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#变形</span>
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>view(dim1,dim2,dim3,<span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>reshape(dim1,dim2,dim3,<span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#计算</span>
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>norm(dim, keep_dim<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>) <span style="color:#75715e">#沿指定维度求范数</span>
+</span></span></code></pre></div><ul>
+<li>permute可以对任意高维矩阵进行转置，transpose只能在两个维度之间转换，其他维度保持不变。</li>
+<li>view更快，reshape分配新的内存，更慢但更通用</li>
+</ul>
+<p><em><strong>Model</strong></em></p>
+<p>模型遍历</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="color:#f92672">.</span>modules()  <span style="color:#75715e">#遍历model的所有子层，类比DFS搜索，有重复。</span>
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>children()  <span style="color:#75715e">#遍历model的所有浅层</span>
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>parameters()  <span style="color:#75715e">#保存的是Weights和Bais参数的值</span>
+</span></span></code></pre></div><p>模型微调</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>parameters():
+</span></span><span style="display:flex;"><span>    p<span style="color:#f92672">.</span>requires_grad <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><p>显存占用</p>
+<ol>
+<li>模型参数：初始化产生</li>
+<li>中间结果：前向传播产生（网络中如果存在一些较长的连接，比如第10层的网络需要使用来自网络第一层的输出结果，这部分的特征图就会一直占用显存）</li>
+<li>模型参数的梯度：反向传播产生</li>
+<li>优化器状态：例如Adam会保存每个参数的二阶梯度</li>
+</ol>
+<p>常见模块的的参数量和计算量</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Module</th>
+<th style="text-align:center">参数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Conv2d</td>
+<td style="text-align:center">$C_{out} \times H_{kernel} \times W_{kernel} \times C_{in}$</td>
+</tr>
+<tr>
+<td style="text-align:center">Linear</td>
+<td style="text-align:center">$C_{out} \times C_{in}$</td>
+</tr>
+<tr>
+<td style="text-align:center">MultiHeadAttention</td>
+<td style="text-align:center">$N_{head} \times (C_{in} \times C_{query} + C_{in} \times C_{key} +C_{in} \times C_{value})$</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">Huggingface 
+    <div id="huggingface" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#huggingface" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><em><strong>Models</strong></em></p>
+<p><em><strong>Models</strong></em>
+别用trainer了，真的不好用，建议还是用Pytorch自己写训练框架</p>
+<p>预训练模型，凑活用一下</p>
+
+
+<h2 class="relative group">Basic 
+    <div id="basic" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#basic" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><a href="https://cloud.tencent.com/developer/article/2148641"   target="_blank">
+    相关链接</a></p>
+
+
+<h3 class="relative group">re 
+    <div id="re" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#re" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>正则匹配，格式是字符+限定符</p>
+<p>限定符</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>?</td>
+<td>0或1个</td>
+</tr>
+<tr>
+<td>*</td>
+<td>任意个</td>
+</tr>
+<tr>
+<td>+</td>
+<td>1个以上</td>
+</tr>
+<tr>
+<td>{m,n}</td>
+<td>m-n个</td>
+</tr>
+</tbody>
+</table>
+<p>字符、元字符</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[a-zA-Z0-9][abc]</td>
+<td>小写或大写或数字a或b或c ; 否定:[^a-z]</td>
+</tr>
+<tr>
+<td>a|b|c</td>
+<td>a或b或c</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>单词（英文/数字/下划线）</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>数字</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>空格（包括换行等）</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>边界 e.g.\bword\b</td>
+</tr>
+<tr>
+<td>.</td>
+<td>任意字符</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="https://regex101.com/"   target="_blank">
+    正则表达式在线测试工具</a></li>
+<li>正则表达式里有转义符&quot;&quot;时，应该在字符串前加“r”</li>
+</ul>
+
+
+<h3 class="relative group">os 
+    <div id="os" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#os" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>查看和更改工作目录，以及工作目录的文件情况</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>os<span style="color:#f92672">.</span>getcwd(path)  <span style="color:#75715e">#查看工作目录</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>chdir(path)  <span style="color:#75715e">#改变工作目录</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>listdir(path)  <span style="color:#75715e">#浏览工作目录</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>mkdir(path)  <span style="color:#75715e">#创建文件夹</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>remove(path)  <span style="color:#75715e">#删除文件</span>
+</span></span></code></pre></div>
+
+<h3 class="relative group">shutil 
+    <div id="shutil" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#shutil" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>文件/文件夹的复制、删除、重命名</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>shutil<span style="color:#f92672">.</span>copy(src, dst)  <span style="color:#75715e">#复制文件</span>
+</span></span><span style="display:flex;"><span>shutil<span style="color:#f92672">.</span>copytree(src, dst)  <span style="color:#75715e">#复制文件夹</span>
+</span></span><span style="display:flex;"><span>shutil<span style="color:#f92672">.</span>move(src, dst)  <span style="color:#75715e">#重命名文件/文件夹</span>
+</span></span><span style="display:flex;"><span>shutil<span style="color:#f92672">.</span>rmtree(src, dst)  <span style="color:#75715e">#删除文件夹</span>
+</span></span></code></pre></div><ul>
+<li>os.remove()方法只能删除某个文件; os.mdir()只能删除某个空文件夹
+压缩</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>shutil<span style="color:#f92672">.</span>make_archive(base_name, format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;zip&#39;</span>)
+</span></span></code></pre></div>
+
+<h3 class="relative group">glob 
+    <div id="glob" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#glob" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>包括*、**、? 、[ ]这四个通配符。</p>
+<p>*  匹配0个或多个字符<br>
+** 匹配所有文件、目录、子目录和子目录里的文件<br>
+? 匹配一个字符<br>
+[] 匹配指定范围内的字符，如[0-9]匹配数字，[a-z]匹配小写字母</p>
+
+
+<h3 class="relative group">pathlib 
+    <div id="pathlib" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pathlib" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>操作文件路径</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p<span style="color:#f92672">.</span>name  <span style="color:#75715e">#获取文件名  </span>
+</span></span><span style="display:flex;"><span>p<span style="color:#f92672">.</span>suffix  <span style="color:#75715e">#获取文件后缀</span>
+</span></span></code></pre></div>
+
+<h3 class="relative group">json 
+    <div id="json" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#json" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#读取</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(filename,<span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>    json_dict <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>load(f)
+</span></span><span style="display:flex;"><span>    json_string <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>loads(f)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#写入</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(filename,<span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>    json<span style="color:#f92672">.</span>dump(json_dict, f, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span></code></pre></div>
+
+<h2 class="relative group">Grammar 
+    <div id="grammar" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#grammar" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">函数 
+    <div id="%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><em><strong>函数签名</strong></em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Plain" data-lang="Plain"><span style="display:flex;"><span>def f(x: int, b: float):
+</span></span><span style="display:flex;"><span>    pass
+</span></span></code></pre></div><p><em><strong>参数组合</strong></em></p>
+<p>定义函数时，可使用<em><strong>必选参数、默认参数、可变参数、关键字参数和命名关键字参数</strong></em>。</p>
+<p>这5种参数都可以组合使用，但<em><strong>必须按顺序</strong></em>使用。</p>
+<p>有多个默认参数时，调用的时候，既可以按顺序提供默认参数，也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。</p>
+<p>比如定义一个函数，包含上述若干种参数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f1</span>(a, b, c<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f2</span>(a, b, c<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, <span style="color:#f92672">*</span>, d, <span style="color:#f92672">**</span>kw):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>在函数调用的时候，必须先按顺序传入，再按参数名传入。</p>
+<p>由于Python解释器会按上述顺序解析5种参数，因此，如果要传入可变参数，必须先传入默认参数。</p>
+<p><em><strong>tuple</strong></em><em><strong>和dict的解包</strong></em></p>
+<p>对于任意函数，都可以通过类似<code>func(*args, **kw)</code>的形式调用它，无论它的参数是如何定义的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>args <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>kw <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;d&#39;</span>: <span style="color:#ae81ff">99</span>, <span style="color:#e6db74">&#39;x&#39;</span>: <span style="color:#e6db74">&#39;#&#39;</span>}
+</span></span><span style="display:flex;"><span>f(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw)
+</span></span></code></pre></div>
+
+<h3 class="relative group">迭代器 
+    <div id="%E8%BF%AD%E4%BB%A3%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>用途：容器的迭代、数据的处理、数据的生成</p>
+<ul>
+<li>可迭代（Iterable）对象：可通过for循环遍历的对象
+<ul>
+<li>实现了__iter__()方法，可通过for循环遍历（隐式调用iter()函数）</li>
+<li>实现了__getitem__( )方法，可通过“实例名[index]”的方式访问实例中的元素</li>
+</ul>
+</li>
+<li>迭代器（ Iterator） ：实现了__iter__和__next__方法
+<ul>
+<li>__iter__方法一般返回self，因为迭代器必须是可迭代对象</li>
+<li>__next__方法一般计数并返回</li>
+<li>可通过next()函数访问下一个元素</li>
+</ul>
+</li>
+<li>生成器：通过yield关键字将函数定义为生成器，本质上是快速定义的迭代器</li>
+</ul>
+<p>yield相当于return+记录状态，下一次使用next()调用生成器时，自动回到断点继续执行</p>
+<p>return表示StopIteration</p>
+<p>for循环：先调用iter（）获取迭代器，然后不断地调用next()来获取迭代值</p>
+<p>凡是可作用于for循环的对象 都是Iterable对象</p>
+
+
+<h3 class="relative group">对象 
+    <div id="%E5%AF%B9%E8%B1%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AF%B9%E8%B1%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><em><strong>静态变量</strong></em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Plain" data-lang="Plain"><span style="display:flex;"><span>Class A:
+</span></span><span style="display:flex;"><span>    a: List[int]
+</span></span><span style="display:flex;"><span>    b: Dict[float] | str
+</span></span></code></pre></div><p><em><strong>方法</strong></em></p>
+<ul>
+<li>内置方法</li>
+<li>实例方法
+<ul>
+<li>实例方法最少也要包含一个 self 参数，调用时Python会自动将对象传给self参数</li>
+<li>实例方法一般由对象直接调用，也支持使用类名调用实例方法，但此方式需要手动给 self 参数传值</li>
+</ul>
+</li>
+<li>类方法
+<ul>
+<li>类方法需要使用<code>＠classmethod</code>修饰符进行修饰</li>
+<li>类方法至少要包含一个参数，通常将其命名为 cls，调用时Python 会自动将类本身传给 cls 参数</li>
+<li>类方法推荐使用类名直接调用，当然也可以使用实例对象来调用（不推荐）</li>
+</ul>
+</li>
+<li>静态方法
+<ul>
+<li>静态方法需要使用<code>＠staticmethod</code>修饰</li>
+<li>相当于函数，唯一的区别是静态方法定义在类命名空间中，而函数定义在程序的全局命名空间中</li>
+<li>既没有类似 self、cls 这样的特殊参数，也无法调用任何类属性和类方法</li>
+<li>既可以由类调用，也可以由对象调用</li>
+</ul>
+</li>
+</ul>
+
+
+<h3 class="relative group">第三方库的换源、安装与导入 
+    <div id="%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E7%9A%84%E6%8D%A2%E6%BA%90%E5%AE%89%E8%A3%85%E4%B8%8E%E5%AF%BC%E5%85%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E7%9A%84%E6%8D%A2%E6%BA%90%E5%AE%89%E8%A3%85%E4%B8%8E%E5%AF%BC%E5%85%A5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><em><strong>换镜像源</strong></em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pip config set global.index-url <span style="color:#e6db74">``</span>https://pypi.mirrors.ustc.edu.cn/simple  <span style="color:#75715e"># 永久切换</span>
+</span></span></code></pre></div><p><em><strong>安装第三方库</strong></em></p>
+<p>普通安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pip install package <span style="color:#75715e">#安装到python安装目录，可编辑，更新后被覆盖</span>
+</span></span><span style="display:flex;"><span>pip install package -e <span style="color:#75715e">#安装到工作目录，便于修改</span>
+</span></span><span style="display:flex;"><span>pip install -i <span style="color:#e6db74">``</span>https://pypi.mirrors.ustc.edu.cn/simple<span style="color:#e6db74">``</span>  matplotlib <span style="color:#75715e"># 临时指定镜像</span>
+</span></span><span style="display:flex;"><span>pip install -r requirements.txt <span style="color:#75715e"># 批量安装</span>
+</span></span></code></pre></div><p><em><strong>导入第三方库</strong></em></p>
+<ul>
+<li>
+<p>相对导入的根目录是第一个被执行的python文件所在的位置，可通过sys查看，与os工作目录无关</p>
+</li>
+<li>
+<p><code>sys.path.append() ## NOQA: E402</code> 将项目目录暂时添加到环境变量PYTHONPATH中</p>
+</li>
+<li>
+<p>&ldquo;.&ldquo;导入仅限于package内部</p>
+</li>
+</ul>
+
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+      <script>
+        var oid = "views_cheat_sheet\/python.md"
+        var oid_likes = "likes_cheat_sheet\/python.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/cheat_sheet/course/eng/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Reading</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/cheat_sheet/course/pr/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Pattern Recogniton</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      Xu Zhang
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://xuzhang0112.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

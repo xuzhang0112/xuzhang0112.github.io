@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Medinfo 2023 on Xu Zhang&#39;s Blog</title>
     <link>https://xuzhang0112.github.io/tags/medinfo-2023/</link>
     <description>Recent content in Medinfo 2023 on Xu Zhang&#39;s Blog</description>
-    <image>
-      <title>Xu Zhang&#39;s Blog</title>
-      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.121.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/tags/medinfo-2023/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Graph Neural Network Based Multi-Label Hierarchical Classification for Disease Predictions in General Practice</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</guid>
-      <description>key idea Graph构建，包含病人、症状、疾病三种节点类型，症状和疾病通过TransE初始化，病人取症状的均值 过2层GAT，采用多个二分类的分类器，子类疾病的概率=父类概率×子类概率（涨了0.6个点） architecture </description>
+      <description> key idea # Graph构建，包含病人、症状、疾病三种节点类型，症状和疾病通过TransE初始化，病人取症状的均值 过2层GAT，采用多个二分类的分类器，子类疾病的概率=父类概率×子类概率（涨了0.6个点） architecture # </description>
+      
     </item>
+    
   </channel>
 </rss>

@@ -1,27 +1,2434 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Multi-modal Medical Image Processing | Xu Zhang's Blog</title>
-<meta name=keywords content><meta name=description content="Dataset MIMIC-CXR 377,110 images, 227,835 reports
-NIH-CXR 112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases
-The labels are expected to be >90% accurate and suitable for weakly-supervised learning
-CheXpert 224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Multi-modal Medical Image Processing &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="Multi-modal Medical Image Processing &middot; Xu Zhang&#39;s Blog" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://xuzhang0112.github.io/paper_reading/survey/mm_medical/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.ac59a1b8eaafef739c129d12787ac29f6a420bcb348c7aeec8949a8d0b7d6c2023766c169d14b9031b751504eb3c976efe786fec135b340a49868acd8caa4127.css"
+    integrity="sha512-rFmhuOqv73OcEp0SeHrCn2pCC8s0jHruyJSajQt9bCAjdmwWnRS5Axt1FQTrPJdu/nhv7BNbNApJhorNjKpBJw==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
+    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Multi-modal Medical Image Processing" />
+<meta property="og:description" content="Dataset # MIMIC-CXR # 377,110 images, 227,835 reports
+NIH-CXR # 112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases
+The labels are expected to be &gt;90% accurate and suitable for weakly-supervised learning
+CheXpert # 224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain
 Train: all labeled by CheXpert Labeler
 Validation: 200, labeled by experts
 Test: 500, labeled by experts
-PadChest 160,000+ images from 67,000 patients, from 2009 to 2017 reports labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations 27% were manually annotated and the remaining set was labeled by RNN (0."><meta name=author content="Xu Zhang"><link rel=canonical href=https://xuzhang0112.github.io/paper_reading/survey/mm_medical/><link crossorigin=anonymous href=/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z+V9+cO1A=" rel="preload stylesheet" as=style><link rel=icon href=https://xuzhang0112.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://xuzhang0112.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://xuzhang0112.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://xuzhang0112.github.io/apple-touch-icon.png><link rel=mask-icon href=https://xuzhang0112.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script>var doNotTrack=!1;doNotTrack||(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date,i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-123-45","auto"),ga("send","pageview"))</script><meta property="og:title" content="Multi-modal Medical Image Processing"><meta property="og:description" content="Dataset MIMIC-CXR 377,110 images, 227,835 reports
-NIH-CXR 112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases
-The labels are expected to be >90% accurate and suitable for weakly-supervised learning
-CheXpert 224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain
+PadChest # 160,000&#43; images from 67,000 patients, from 2009 to 2017 reports labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations 27% were manually annotated and the remaining set was labeled by RNN (0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/mm_medical/" /><meta property="article:section" content="paper_reading" />
+
+
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Multi-modal Medical Image Processing"/>
+<meta name="twitter:description" content="Dataset # MIMIC-CXR # 377,110 images, 227,835 reports
+NIH-CXR # 112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases
+The labels are expected to be &gt;90% accurate and suitable for weakly-supervised learning
+CheXpert # 224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain
 Train: all labeled by CheXpert Labeler
 Validation: 200, labeled by experts
 Test: 500, labeled by experts
-PadChest 160,000+ images from 67,000 patients, from 2009 to 2017 reports labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations 27% were manually annotated and the remaining set was labeled by RNN (0."><meta property="og:type" content="article"><meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/mm_medical/"><meta property="og:image" content="https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="paper_reading"><meta property="og:site_name" content="ExampleSite"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="Multi-modal Medical Image Processing"><meta name=twitter:description content="Dataset MIMIC-CXR 377,110 images, 227,835 reports
-NIH-CXR 112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases
-The labels are expected to be >90% accurate and suitable for weakly-supervised learning
-CheXpert 224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain
-Train: all labeled by CheXpert Labeler
-Validation: 200, labeled by experts
-Test: 500, labeled by experts
-PadChest 160,000+ images from 67,000 patients, from 2009 to 2017 reports labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations 27% were manually annotated and the remaining set was labeled by RNN (0."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PaperReading","item":"https://xuzhang0112.github.io/paper_reading/"},{"@type":"ListItem","position":2,"name":"Survey","item":"https://xuzhang0112.github.io/paper_reading/survey/"},{"@type":"ListItem","position":3,"name":"Multi-modal Medical Image Processing","item":"https://xuzhang0112.github.io/paper_reading/survey/mm_medical/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Multi-modal Medical Image Processing","name":"Multi-modal Medical Image Processing","description":"Dataset MIMIC-CXR 377,110 images, 227,835 reports\nNIH-CXR 112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases\nThe labels are expected to be \u0026gt;90% accurate and suitable for weakly-supervised learning\nCheXpert 224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain\nTrain: all labeled by CheXpert Labeler\nValidation: 200, labeled by experts\nTest: 500, labeled by experts\nPadChest 160,000+ images from 67,000 patients, from 2009 to 2017 reports labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations 27% were manually annotated and the remaining set was labeled by RNN (0.","keywords":[],"articleBody":"Dataset MIMIC-CXR 377,110 images, 227,835 reports\nNIH-CXR 112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases\nThe labels are expected to be \u003e90% accurate and suitable for weakly-supervised learning\nCheXpert 224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain\nTrain: all labeled by CheXpert Labeler\nValidation: 200, labeled by experts\nTest: 500, labeled by experts\nPadChest 160,000+ images from 67,000 patients, from 2009 to 2017 reports labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations 27% were manually annotated and the remaining set was labeled by RNN (0.93 Micro-F1 score) RadGraph structure clinical information in a radiology report with 4 entities and 3 relations, with MIMIC-CXR and CheXpert\nhttps://physionet.org/content/radgraph/1.0.0/\nAnnotations: 500 for train, 100 for test train.json: File containing annotations obtained by board-certified radiologists for 425 radiology reports (MIMIC-CXR) dev.json: File containing annotations obtained by board-certified radiologists for 75 radiology reports (MIMIC-CXR) test.json: File containing annotations obtained by 2 different board-certified radiologists for 100 radiology reports (50 MIMIC-CXR, 50 CheXpert) Graphs MIMIC-CXR_graphs.json: File containing annotations obtained by our deep learning model for 220,763 radiology reports (MIMIC-CXR) CheXpert_graphs.json: File containing annotations obtained by our deep learning model for 500 radiology reports (CheXpert) Models models/model_checkpoint: Folder containing the saved model parameters used to automatically generate the annotations in MIMIC-CXR_graphs.json and CheXpert_graphs.json models/README.txt: File containing instructions for performing inference using model checkpoint models/inference.py: File containing code to extract entities and relations given a directory containing reports in txt format Chest ImaGenome scene graph to describe 242,072 images bounding boxes for 29 unique anatomical regions in the chest sentences describing each region if they exist in the corresponding radiology report Metric NLG BLEU, CIDEr, Meteor, Ronge\nClinical Efficacy Disease 疾病 中文名 症状 归纳 Cardiomegaly 心脏肥大 大小 Mass 肿块 Nodule 结节 Atelectasis 肺不张 一边没气，心脏也跟着挤过来 偏移 Pneumothorax 气胸 有气，肺被挤压 Effusion 积液 膈角很容易被填满，可能把心脏挤到另一边 Pneumonia 肺炎 Infiltrastion 浸润 Edema 水肿 Emphysema 肺气肿 Fibrosis 纤维化 Pleural Thickening 胸膜增厚 Hernia 疝 Consolidation 肺实变 When Radiology Report Generation Meets Knowledge Graph [AAAI 2020] Knowledge Graph Nodes from the same organ are connected Node embedding DenseNet-121 pretrained on CheXpert Attention: 1*1 conv+softmax each class node uses the corresponding channel as spatial attention Training Loss Node Level: binary classification of each node Graph Level: multi-label classification of 14 diseases High-Resolution Chest X-Ray Bone Suppression Using Unpaired CT Structural Priors [TMI 2020] Contrast-Attentive Thoracic Disease Recognition With Dual-Weighting Graph Reasoning [TMI 2021] Intra- and inter-contrastive abnormal attention Intra-contrastive 医学先验：某些肺病通常表现为左右肺的不对称\n先使用DenseNet121提取左右肺特征，做差后，GMP，得到全局特征f_intra\nInter-Contrastive 先使用聚类算法找出3个最具有代表性的normal CXR作为anchor scan，然后通过注意力机制对query scan中相似的部分进行增强，得到3个增强后的特征，然后通过矩阵变换，得到最后的融合全局特征f_inter\nDual-weighting graph reasoning Nodes: N=43, text embedding is obtained by BioSentVec trained on PubMed and MIMIC-III\nEdges: base on coocurance matrix\nDual Weighting: 通过双权重的双层GNN来使43个节点的概念充分交互，捕捉节点之间的相互依赖关系\nMulti-Disease Recognition Visual Signals f_global: 特征提取得到，并经过注意力增强 Graph Node Vector: 细粒度的特征，soft probability of 43 nodes predicted based on image feature f_visual: f_global和graph node vector的外积，表示每个像素处43个节点的概率 Graph Signals Graph embedding: 预先构建的knowledge graph，并通过GNN进行优化，节点的embedding表示相应的医学概念 including findings, diseases or syndromes, qualitative concepts, spatial concepts, temporal concepts, and body locations or regions Prediction Disease Identification Disease Localization MIL: 在进行像素级训练时，将所有像素的类别相乘，作为图片级别的类别，然后使用图像级别的标注进行优化 Training Strategy 先训练特征提取器（多标签分类），然后训练图卷积和视觉卷积\nAnaXNet: Anatomy Aware Multi-label Finding Classification in Chest X-ray [MICCAI 2021] 代码：https://github.com/Nkechinyere-Agu/AnaXNet Faster-RCNN：提取解剖ROIs以及相对应的特征，即k个解剖结构的特征，维度为d Anatomy GCN 基于co-occurance获取描述anatomy之间关系的邻接矩阵，并通过设定阈值滤除噪声，捕捉解剖结构之间的依赖关系 基于依赖关系，聚合各个解剖结构的特征 Cross Anatomy Attention 基于相似度，进一步整合所有解剖结构的特征，并使用残差连接保持原始特征 FC：对于每一个解剖结构的embedding使用分类头进行疾病预测 Auto-Encoding Knowledge Graph for Unsupervised Medical Report Generation [NIPS 2021] Knowledge Graph 构建图谱 Abnormalities and normalities (by computing co-occurance in report corpus) 使用GNN对知识进行编码 Knowledge-driven Encoder 将图像和报告都利用知识embedding进行表达\nKnowledge-driven Decoder 基于之前的所有输出来预测Report的下一个输出，并通过注意力机制整合知识空间中的信息\n使用Knowledge Bank来获取细粒度的知识，其中B是由网络进行端到端学习的\n训练 自监督：训练时R-\u003eG-\u003eR，推断时I-\u003eG-\u003eR\n半/全监督：I-\u003eG-\u003eR（半监督则先无监督预训练）\nAGXNet: Anatomy-Guided Weakly-Supervised Abnormality Localization in Chest X-rays [MICCAI 2022] 代码：https://github.com/batmanlab/AGXNet 细粒度的监督 对Report进行解析，得到Anatomy和Observation的邻接矩阵，第i行第j列表示第i个解剖结构上是/否/不确定存在第j种异常，其中的正例和负例相当于同时给解剖结构和异常观察提供了0/1的标签 使用BCE Loss对Anatomy Network和Observation Network进行多标签分类的训练，训练其判断每个类别的anatomy/observation异常是否存在，并将Anatomy Network的feature map作为注意力图辅助Observation Network进行训练 PU Learning Best Bin Estimation (BBE) 是一种用于估计未标记训练数据中正例占比的方法。 BBE 基于一个假设，即未标记数据的正例和负例分别具有不同的概率分布，但是这些分布的某些区域是相互重叠的。因此，BBE 的目标是找到这些重叠区域的最佳二进制划分，从而最小化正例占比的估计误差。 我们重复步骤 ，直到分类器达到最佳验证性能 Spatial-Hierarchical Graph Neural Network with Dynamic Structure Learning for Histological Image Classification [MICCAI 2022] 代码：https://github.com/HeLongHuang/SHGNN 空间多尺度特征提取 对同一张图像处理得到不同尺度的Patch，使用预训练的ResNet34对图像特征进行编码，得到空间多尺度特征\n图拓扑结构的动态学习 将视觉特征和位置坐标共同编码得到每个entity的联合特征，然后使用K近邻算法将每个节点与它的k个最相似节点建立边的连接（这些节点必须小于阈值），作为图的拓扑结构，即邻接矩阵\n空间多尺度交互 使用GNN在L个不同的尺度对特征进行聚合，然后沿着将每个细胞和它所属的所有尺度组织拼接成token，使用VIT进行全局的信息融合，再使用GNN按照细胞尺度的拓扑结构进行聚合，最后得到分类特征图\n分类 使用全局平均池化将特征拓扑图转化为特征向量，再使用MLP进行分类\n(GSKET)Knowledge Matters: Chest Radiology Report Generation with General and Specific Knowledge [MIA 2022] 代码: https://github.com/LX-doctorAI1/GSKET General Knowledge 构建知识图谱 RadGraph Training Dataset (triplets extracted by experts from 500 MIMIC-CXR reports)\n图算法编码，得到entity和relation的embedding 计算每个entity的相对重要性 考虑相对重要性的多头注意力 Specific Knowledge 相似报告检索 使用预训练的疾病14分类模型，计算输入图像的疾病分布和库中样本的疾病分布的KL散度，选取Top K相似报告\n特定知识查询 使用命名实体识别器Stanza提取报告中的entity，在Rad Graph Inference Dataset中查询每个entity对应的triplet\n例：检索到的报告为““pneumothorax or pleural effusion is seen”，提取的实体集合T为{pneumothorax, pleural, effusion}，检索到的知识为 {pneumothorax suggestive of bleeding, effusion located at bilateral,…}\n知识编码 将一张图查询到的所有Triplets连成一句话，使用Clinical-Bert进行编码\n多头注意力 自回归解码得到报告 损失函数\nInteractive and Explainable Region-guided Radiology Report Generation [CVPR 2023] Model Anatomical Object Detector Faster-RCNN with Pretrained ResNet-50 Classified to 29 anatomical regions and background A top proposal for each class, or deselected if none Region slection \u0026 Abnomality classification predict if a region is selected for sentence generation and is abnormal, respectively. Language Model GPT-2 (355M), an auto-regressive neural network based on self-attention fine-tuned on PubMed abstracts using pseudo self-attention to consider both visual features and previous outputs Train Only detector Detector and binary classifier Whole model Limitations Requires strong supervision (ChestImaGenome) not utilizing 100% data Lack image-level sentences Dynamic Graph Enhanced Contrastive Learning for Chest X-ray Report Generation [CVPR 2023] 代码：https://github.com/mlii0117/DCL\nOverview A dynamic graph to construct the relationships between diseases and organs Represent Image with medical knowledge graph embeddings with Cross Attention Dynamic Graph $$G_{pre}$$: 27 nodes, 20 disease keywords, 7 organs or tissues $$G_{specific}$$: retrieve top-N reports, extract keywords using Stanza, retrieve knowledge in RadGraph, add nodes to $$G_{pre}$$, Embedding: use SciBert to get the initial embedding, add level embedding to show which level the node is at (disease, organ, tissue and so on) Learning IRC：Report embedding\u0026 Image(Graph) embedding -\u003e Contrastive Learning IRM: whether image and report match, Q: Report K, V : Image CE Loss RG: Self Regression, Teacher Forcing Histopathology Whole Slide Image Analysis with Heterogeneous Graph Representation Learning [CVPR 2023] https://github.com/HKU-MedAI/WSI-HGNN\nHeterogeneous graph construction WSI -\u003e non-overlapping patches Node 使用HoverNet获取节点类别 Pretrained on PanNude dataset (nuclei instance segmentation and classification) Detect nuclei in patches and assign types 使用KimiaNet获取节点的embedding Edge 先使用K近邻选取特征相似的节点，然后使用Pearson R计算节点相关性，作为边属性 Heterogeneous graph learning HEATNet 既考虑节点相似度，又考虑边权重的相似度Transformer，聚合节点信息 PL Pooling 使用预训练分类器对节点进行聚类（按patch内部的细胞核类型），在每个类别内部进行池化 Prediction Cancer Staging \u0026 Cancer Classification Casual interpretation 使用去除该节点前后预测值的变化，反映节点在决策中的重要程度\nKiUT: Knowledge-injected U-Transformer for Radiology Report Generation [CVPR 2023] Signals\nVisual Knowledge signal ResNet101 -\u003e 分patch -\u003e RRSA RRSA (Region Relationship Self Attention) : 不仅考虑patch特征的相似度，还考虑两个patch之间的相对位置 Clinical Knowledge Signal symptom node embedding (from MBERT) ✖️ symptom probability（from classifier） Graph Attention: based on symptom relationship graph Contextual Knowledge Signal Previous output -\u003e MBERT -\u003e Masked MHA U connection\n自回归式Decoder，考虑previous output和encoder visual signals Cross Attention的Q是previous output，但K和V不再是last Encoder的输出，而是N-i+1个Encoder的输出 Injected Knowledge Distiller\nLast Decoder的输出通过attention整合clinical knowledge signal和contextual knowledge signal，沿序列维度拼接后预测下一个词的输出\nK-Diag: Knowledge-enhanced Disease Diagnosis in Radiographic Imaging [MICCAI 2023]\nhttps://github.com/MediaBrain-SJTU/K-Diag\nLearnable Prompt Module\n将Q种疾病用N种特征来表达（特征是可学习参数）\n疾病Qd 特征Nd 疾病在特征上的概率分布通过MLP得到QN 最终表达Qd\nDisease-Query Module\nArchitecture: a 4-layer transformer decoder with an MLP to get the final prediction\nqueries: disease embeddings (by pre-trained knowledge encoder and learnable prompt module)\nkeys\u0026values: the encoded features\nbinary classification, CE loss\nMedKLIP: Medical Knowledge Enhanced Language-Image Pre-Training [ICCV 2023]\nhttps://github.com/MediaBrain-SJTU/MedKLIP\npipeline\nImage embedding与某种疾病的entity knowledge embedding(先通过wiki\u0026UMLS知识库构建,然后通过BoiClinical-Bert编码)共同输入模型，预测这种疾病的有/无，位置，特征图 训练时，选取Train Set中的Top Q疾病的知识编码进行训练； 推断时，基于该疾病的医学知识编码进行推断 训练\nPseudo label 疾病是否存在 疾病处于何处：使用BioClinical-Bert进行编码 Fine-grained supervision 疾病有无：BCE Loss 疾病位置：将该疾病的位置编码和其他M种位置编码进行对比学习（因为位置编码的类别数未知） KAD: Knowledge-enhanced Visual-Language Pre-training on Chest Radiology Images [Nature Communication]\nhttps://github.com/xiaoman-zhang/KAD\nKnowledge database\nknowledge graph: concept-relation-concept triplets concept info list: concept-definition pairs Pre-training\nText contrastive learning between medical concepts or definitions image-text contrastive learning with paired chest X-rays and extracted entities(by tools like ChatGPT) optimize a Disease Query Network (DQN) for classification Zero-shot inference\nencode the disease name as a query input, and DQN will output the probability that the pathology is present in the input image PMC-CLIP: Contrastive Language-Image Pre-training using Biomedical Documents PMC-VQA: Visual Instruction Tuning for Medical Visual Question Answering https://github.com/xiaoman-zhang/PMC-VQA\npropose a generative-based model for medical visual understanding construct a dataset, named PMC-VQA, which contains 227k VQA pairs of 149k images that cover various modalities or diseases pre-train on PMC-VQA and then fine-tune it on multiple public benchmarks, e.g., VQA-RAD and SLAKE propose a challenging test set PMC-LLaMA: Further Finetuning LLaMA on Medical Papers https://github.com/chaoyi-wu/PMC-LLaMA\nPMC-LLaMA, fine-tuning LLaMA on 4.8 million biomedical academic papers end-to-end full fine-tuning parameter-efficient fine-tuning Low-Rank Adaptation (LoRA) data-efficient fine-tuning as the training set in USMLE is much smaller compared with that of combining PubMedQA and MedMCQA (10k vs. 400k), less medical knowledge can be learned from the downstream training data, it turns out to be rather more challenging than the previous OOD test Benchmarks（都是选择题） PubMedQA: PubMed论文摘要问答 MedMCQA: 印度医学院入学考试, AIIMS and NEET-PG USMLE: from United States Medical License Exams, 英文、简/繁体中文 Towards Generalist Foundation Model for Radiology https://github.com/chaoyi-wu/RadFM\nDataset Medical Multimodal Dataset (MedMD) visual-language interleaved, 2D\u00263D, research-oriented \u0026real world clinical data subset Interleaved Dataset (CLIP) no strong question-and-answer relationships between contexts Eg. PMC-Inline(将插图定位到论文中的具体某一段落文字) Visual Instruction Datasets (Q\u0026A) eg. “What can you see from the image? I can see lesions.” 包括yes or no判断和开放式问答 Radiology Multimodal Dataset (RadMD) a filtered radiology subset (对不同的子数据集采取不同的过滤策略) contains a total of 3M images, spanning various data formats, modalities, and tasks Unified Learning Paradigm Architecture Visual encoding convert the image into 3D patches, and embed them into a token sequence and feed it into the encoder $$v_i=\\phi_{vis}(v_i)\\in R^{P_i*d}$$ adopt 3D ViT here to be compatible with both 2D and 3D image input the input image sizes to be divisible by the patch size of 32 × 32 × 4, so we resize the depth dimension to the nearest multiple of 4 and will not surpass 64 Eg. 2D input 512512 -\u003e 512512*4 $$P_$$ is the total number of tokens. Due to the inconsistency in depth dimension, $$P_$$ also varies across 2D and 3D images. Generally, 3D cases may have much larger $$P_$$ than 2D cases Aggregation with Perceiver After visual encoding, adopt a perceiver module $$\\phi_{per}$$ to aggregate visual representation $$\\phi_{per}$$ is a transformer decoder with a fixed number of learnable queries visual input is treated as key and value final output embeddings will be normalized into the same dimension with the pre-defined learnable query sequence Multi-modal fusion interleave the visual embedding with text embeddings from tokenization, where the special image placeholder token is simply replaced with the corresponding visual embedding. The interleaved sequence is then passed into a decoder-only large language model (Φllm) to obtain the output Loss function $$\\omega_l$$: medical-related单词具有更高的损失权重（属于UMLS)，非医学相关的word具有更低的权重，image placeholder token没有权重 ","wordCount":"1604","inLanguage":"en","image":"https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished":"0001-01-01T00:00:00Z","dateModified":"0001-01-01T00:00:00Z","author":{"@type":"Person","name":"Xu Zhang"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://xuzhang0112.github.io/paper_reading/survey/mm_medical/"},"publisher":{"@type":"Organization","name":"Xu Zhang's Blog","logo":{"@type":"ImageObject","url":"https://xuzhang0112.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://xuzhang0112.github.io/ accesskey=h title="Home (Alt + H)"><img src=https://xuzhang0112.github.io/apple-touch-icon.png alt aria-label=logo height=35>Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://xuzhang0112.github.io/cheat_sheet/cli title=CLI><span>CLI</span></a></li><li><a href=https://xuzhang0112.github.io/cheat_sheet/python title=Python><span>Python</span></a></li><li><a href=https://xuzhang0112.github.io/paper_reading/ title="Paper Reading"><span>Paper Reading</span></a></li><li><a href=https://xuzhang0112.github.io/tags/ title=tags><span>tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://xuzhang0112.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://xuzhang0112.github.io/paper_reading/>PaperReading</a>&nbsp;»&nbsp;<a href=https://xuzhang0112.github.io/paper_reading/survey/>Survey</a></div><h1 class="post-title entry-hint-parent">Multi-modal Medical Image Processing</h1><div class=post-meta>Xu Zhang&nbsp;|&nbsp;<a href=https://github.com/%3cpath_to_repo%3e/content/paper_reading/survey/mm_medical.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#dataset>Dataset</a></li><li><a href=#mimic-cxr>MIMIC-CXR</a></li><li><a href=#nih-cxr>NIH-CXR</a></li><li><a href=#chexpert>CheXpert</a></li><li><a href=#padchest>PadChest</a></li><li><a href=#radgraph>RadGraph</a></li><li><a href=#chest-imagenome>Chest ImaGenome</a></li></ul><ul><li><a href=#nlg>NLG</a></li><li><a href=#clinical-efficacy>Clinical Efficacy</a></li><li><a href=#disease>Disease</a></li><li><a href=#when-radiology-report-generation-meets-knowledge-graph-aaai-2020>When Radiology Report Generation Meets Knowledge Graph [AAAI 2020]</a></li><li><a href=#contrast-attentive-thoracic-disease-recognition-with-dual-weighting-graph-reasoning-tmi-2021>Contrast-Attentive Thoracic Disease Recognition With Dual-Weighting Graph Reasoning [TMI 2021]</a></li><li><a href=#anaxnet-anatomy-aware-multi-label-finding-classification-in-chest-x-ray-miccai-2021>AnaXNet: Anatomy Aware Multi-label Finding Classification in Chest X-ray [MICCAI 2021]</a></li><li><a href=#auto-encoding-knowledge-graph-for-unsupervised-medical-report-generation-nips-2021>Auto-Encoding Knowledge Graph for Unsupervised Medical Report Generation [NIPS 2021]</a></li><li><a href=#agxnet-anatomy-guided-weakly-supervised-abnormality-localization-in-chest-x-rays-miccai-2022>AGXNet: Anatomy-Guided Weakly-Supervised Abnormality Localization in Chest X-rays [MICCAI 2022]</a></li><li><a href=#spatial-hierarchical-graph-neural-network-with-dynamic-structure-learning-for-histological-image-classification-miccai-2022>Spatial-Hierarchical Graph Neural Network with Dynamic Structure Learning for Histological Image Classification [MICCAI 2022]</a></li><li><a href=#gsketknowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge-mia-2022>(GSKET)Knowledge Matters: Chest Radiology Report Generation with General and Specific Knowledge [MIA 2022]</a></li><li><a href=#interactive-and-explainable-region-guided-radiology-report-generation-cvpr-2023>Interactive and Explainable Region-guided Radiology Report Generation [CVPR 2023]</a></li><li><a href=#dynamic-graph-enhanced-contrastive-learning-for-chest-x-ray-report-generation-cvpr-2023>Dynamic Graph Enhanced Contrastive Learning for Chest X-ray Report Generation [CVPR 2023]</a></li><li><a href=#histopathology-whole-slide-image-analysis-with-heterogeneous-graph-representation-learning-cvpr-2023>Histopathology Whole Slide Image Analysis with Heterogeneous Graph Representation Learning [CVPR 2023]</a></li><li><a href=#kiut-knowledge-injected-u-transformer-for-radiology-report-generation-cvpr-2023>KiUT: Knowledge-injected U-Transformer for Radiology Report Generation [CVPR 2023]</a></li><li><a href=#pmc-clip-contrastive-language-image-pre-training-using-biomedical-documents>PMC-CLIP: Contrastive Language-Image Pre-training using Biomedical Documents</a></li><li><a href=#pmc-vqa-visual-instruction-tuning-for-medical-visual-question-answering>PMC-VQA: Visual Instruction Tuning for Medical Visual Question Answering</a></li><li><a href=#pmc-llama-further-finetuning-llama-on-medical-papers>PMC-LLaMA: Further Finetuning LLaMA on Medical Papers</a></li><li><a href=#towards-generalist-foundation-model-for-radiology>Towards Generalist Foundation Model for Radiology</a></li></ul></nav></div></details></div><div class=post-content><h2 id=dataset>Dataset<a hidden class=anchor aria-hidden=true href=#dataset>#</a></h2><h2 id=mimic-cxr>MIMIC-CXR<a hidden class=anchor aria-hidden=true href=#mimic-cxr>#</a></h2><p>377,110 images, 227,835 reports</p><h2 id=nih-cxr>NIH-CXR<a hidden class=anchor aria-hidden=true href=#nih-cxr>#</a></h2><p>112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases</p><p>The labels are expected to be >90% accurate and suitable for weakly-supervised learning</p><h2 id=chexpert>CheXpert<a hidden class=anchor aria-hidden=true href=#chexpert>#</a></h2><p>224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain</p><p>Train: all labeled by CheXpert Labeler</p><p>Validation: 200, labeled by experts</p><p>Test: 500, labeled by experts</p><h2 id=padchest>PadChest<a hidden class=anchor aria-hidden=true href=#padchest>#</a></h2><ul><li>160,000+ images<ul><li>from 67,000 patients, from 2009 to 2017</li></ul></li><li>reports<ul><li>labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations</li><li>27% were manually annotated and the remaining set was labeled by RNN (0.93 Micro-F1 score)</li></ul></li></ul><h2 id=radgraph>RadGraph<a hidden class=anchor aria-hidden=true href=#radgraph>#</a></h2><p>structure clinical information in a radiology report with 4 entities and 3 relations, with MIMIC-CXR and CheXpert</p><p><a href=https://physionet.org/content/radgraph/1.0.0/>https://physionet.org/content/radgraph/1.0.0/</a></p><ul><li>Annotations: 500 for train, 100 for test<ul><li>train.json: File containing annotations obtained by board-certified radiologists for 425 radiology reports (MIMIC-CXR)</li><li>dev.json: File containing annotations obtained by board-certified radiologists for 75 radiology reports (MIMIC-CXR)</li><li>test.json: File containing annotations obtained by 2 different board-certified radiologists for 100 radiology reports (50 MIMIC-CXR, 50 CheXpert)</li></ul></li><li>Graphs<ul><li>MIMIC-CXR_graphs.json: File containing annotations obtained by our deep learning model for 220,763 radiology reports (MIMIC-CXR)</li><li>CheXpert_graphs.json: File containing annotations obtained by our deep learning model for 500 radiology reports (CheXpert)</li></ul></li><li>Models<ul><li>models/model_checkpoint: Folder containing the saved model parameters used to automatically generate the annotations in MIMIC-CXR_graphs.json and CheXpert_graphs.json</li><li>models/README.txt: File containing instructions for performing inference using model checkpoint</li><li>models/inference.py: File containing code to extract entities and relations given a directory containing reports in txt format</li></ul></li></ul><h2 id=chest-imagenome>Chest ImaGenome<a hidden class=anchor aria-hidden=true href=#chest-imagenome>#</a></h2><ul><li>scene graph to describe 242,072 images</li><li>bounding boxes for 29 unique anatomical regions in the chest</li><li>sentences describing each region if they exist in the corresponding radiology report</li></ul><h1 id=metric>Metric<a hidden class=anchor aria-hidden=true href=#metric>#</a></h1><h2 id=nlg>NLG<a hidden class=anchor aria-hidden=true href=#nlg>#</a></h2><p>BLEU, CIDEr, Meteor, Ronge</p><h2 id=clinical-efficacy>Clinical Efficacy<a hidden class=anchor aria-hidden=true href=#clinical-efficacy>#</a></h2><h2 id=disease>Disease<a hidden class=anchor aria-hidden=true href=#disease>#</a></h2><table><thead><tr><th>疾病</th><th>中文名</th><th>症状</th><th>归纳</th></tr></thead><tbody><tr><td>Cardiomegaly</td><td>心脏肥大</td><td></td><td>大小</td></tr><tr><td>Mass</td><td>肿块</td><td></td><td></td></tr><tr><td>Nodule</td><td>结节</td><td></td><td></td></tr><tr><td>Atelectasis</td><td>肺不张</td><td>一边没气，心脏也跟着挤过来</td><td>偏移</td></tr><tr><td>Pneumothorax</td><td>气胸</td><td>有气，肺被挤压</td><td></td></tr><tr><td>Effusion</td><td>积液</td><td>膈角很容易被填满，可能把心脏挤到另一边</td><td></td></tr><tr><td>Pneumonia</td><td>肺炎</td><td></td><td></td></tr><tr><td>Infiltrastion</td><td>浸润</td><td></td><td></td></tr><tr><td>Edema</td><td>水肿</td><td></td><td></td></tr><tr><td>Emphysema</td><td>肺气肿</td><td></td><td></td></tr><tr><td>Fibrosis</td><td>纤维化</td><td></td><td></td></tr><tr><td>Pleural Thickening</td><td>胸膜增厚</td><td></td><td></td></tr><tr><td>Hernia</td><td>疝</td><td></td><td></td></tr><tr><td>Consolidation</td><td>肺实变</td><td></td><td></td></tr></tbody></table><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MTAwNTE4MmRkYjU1NDMzN2M2NzY0ZGIxODc5ZmExOWZfcU5qOFFvZHBvYkphZHBpWnUya1NaandJYU9ZRkxwb0dfVG9rZW46RlRCNmJiR2FSb1F2T3Z4aDNQemN2V0Jxbm9lXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><h2 id=when-radiology-report-generation-meets-knowledge-graph-aaai-2020>When Radiology Report Generation Meets Knowledge Graph [AAAI 2020]<a hidden class=anchor aria-hidden=true href=#when-radiology-report-generation-meets-knowledge-graph-aaai-2020>#</a></h2><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NjE5MmY4OTQxYWNiOGRjMTU0N2I1MzNkZTkyOTg4NzBfZmRzN0tkV202d3diOEd5NXF1VjdBOGFXWkZ4aTFadmJfVG9rZW46Q3A0QWJvb1Vtb2dieTF4eU9OdmNoalUzbjFlXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>Knowledge Graph<ul><li>Nodes from the same organ are connected<ul><li><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NjI0MWIxYjJjNmQxYzAwNzhiYmE2ZTgwZDhmMzk1YjBfMHVqWWUzNmx3MmJtU1F1ZXVLeG9WaWtPMkY2cHhFd2FfVG9rZW46S2tUT2IxcWpab1E0Y3h4SmtMMmNnOHVxbjJCXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></li></ul></li><li>Node embedding<ul><li>DenseNet-121 pretrained on CheXpert</li><li>Attention:<ul><li>1*1 conv+softmax</li><li>each class node uses the corresponding channel as spatial attention</li></ul></li></ul></li></ul></li><li>Training Loss<ul><li>Node Level: binary classification of each node</li><li>Graph Level: multi-label classification of 14 diseases</li><li>High-Resolution Chest X-Ray Bone Suppression Using Unpaired CT Structural Priors [TMI 2020]</li><li><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OTU4OGQxOTIzNTJjMmUyYjY0YWYzOTZhMWJiNTYwYzJfSnVyNzFWSGJoanJrRnZCeVptbktPYUl0eEhlTFBaamNfVG9rZW46RmRKVGIwR0tsb0JmMEt4ZlNiMGNmU0YyblNnXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></li></ul></li></ul><h2 id=contrast-attentive-thoracic-disease-recognition-with-dual-weighting-graph-reasoning-tmi-2021>Contrast-Attentive Thoracic Disease Recognition With Dual-Weighting Graph Reasoning [TMI 2021]<a hidden class=anchor aria-hidden=true href=#contrast-attentive-thoracic-disease-recognition-with-dual-weighting-graph-reasoning-tmi-2021>#</a></h2><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YWFhZWM3YzJkY2ZhOWUzNjQwMzJjNzVhMTExZDI0YjlfWFh5cm4zaFR4cUpveUdHUnlBN0hvczhybjJZR3h6OE9fVG9rZW46SHEzN2IxWUEzb0F4dkp4bktCV2N0Zm9UbkxmXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>Intra- and inter-contrastive abnormal attention</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MDdiNjFkNDA5ZmFjMTgwZmQxODUyNGZlYzg1YjcyYzRfeUhJMzk4elVsa0VNTXRrc0NCa3hxdEdzMVJPRWtLTTVfVG9rZW46VGlxSGJUeGE0bzk3M2h4ZzhJc2Noa1VFbldiXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ol><li>Intra-contrastive</li></ol><p>医学先验：某些肺病通常表现为左右肺的不对称</p><p>先使用DenseNet121提取左右肺特征，做差后，GMP，得到全局特征f_intra</p><ol><li>Inter-Contrastive</li></ol><p>先使用聚类算法找出3个最具有代表性的normal CXR作为anchor scan，然后通过注意力机制对query scan中相似的部分进行增强，得到3个增强后的特征，然后通过矩阵变换，得到最后的融合全局特征f_inter</p><ul><li>Dual-weighting graph reasoning</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MmQ1NDYzNDAwNTAyMDBkYTA0OTEyN2Y4ZmRhYmVmMDhfNkVGYkt2NG5VaEZCYWxXR21jSXdJT2U4UzBMSEt6N25fVG9rZW46T0E0Q2JSdjV0b093amx4aEdTTWNEQWNNbmNiXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><p>Nodes: N=43, text embedding is obtained by BioSentVec trained on PubMed and MIMIC-III</p><p>Edges: base on coocurance matrix</p><p>Dual Weighting: 通过双权重的双层GNN来使43个节点的概念充分交互，捕捉节点之间的相互依赖关系</p><ul><li>Multi-Disease Recognition</li></ul><ol><li>Visual Signals<ol><li>f_global: 特征提取得到，并经过注意力增强</li><li>Graph Node Vector: 细粒度的特征，soft probability of 43 nodes predicted based on image feature</li><li>f_visual: f_global和graph node vector的外积，表示每个像素处43个节点的概率</li></ol></li><li>Graph Signals<ol><li>Graph embedding: 预先构建的knowledge graph，并通过GNN进行优化，节点的embedding表示相应的医学概念</li><li>including findings, diseases or syndromes, qualitative concepts, spatial concepts, temporal concepts, and body locations or regions</li><li><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YjhjYmFhN2M0NmYwZWEzOTdlNGVjODQwNzQzNTE4NmVfczRpOVd3d3NtYVd4eHF6WVJRZFhrajRnNFBLdm8zWHFfVG9rZW46VE5TTmJwcGNBb3NsVlB4MW1NYWNwOWowbndlXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></li></ol></li><li>Prediction<ol><li><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODQ4ZGFhZjE4ODc5YTliYTMzYjExZTZkNTEyNGVmMGNfck1yU0tTemZNV09kNGxMdGJFQ3V5RlNUbVhSZmtpVUNfVG9rZW46UkF1cWJpSFBUb0Jab1d4aG9Rb2NOTEIxbmFoXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></li><li>Disease Identification</li><li>Disease Localization<ol><li>MIL: 在进行像素级训练时，将所有像素的类别相乘，作为图片级别的类别，然后使用图像级别的标注进行优化</li></ol></li></ol></li><li>Training Strategy</li></ol><p>先训练特征提取器（多标签分类），然后训练图卷积和视觉卷积</p><h2 id=anaxnet-anatomy-aware-multi-label-finding-classification-in-chest-x-ray-miccai-2021>AnaXNet: Anatomy Aware Multi-label Finding Classification in Chest X-ray [MICCAI 2021]<a hidden class=anchor aria-hidden=true href=#anaxnet-anatomy-aware-multi-label-finding-classification-in-chest-x-ray-miccai-2021>#</a></h2><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjEzMTBmYTIwNThhNGFmNTEyNDc2NTc5MjZjZWU5YWRfV1I0RUtpaEh2anVGQkhNRFY2MzNNd3VwS2ZESjFyMnpfVG9rZW46WEVXcmJuNmhEb3RPZ0N4UjZ3S2NSMkl2bnZnXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>代码：https://github.com/Nkechinyere-Agu/AnaXNet</li><li>Faster-RCNN：提取解剖ROIs以及相对应的特征，即k个解剖结构的特征，维度为d</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OGJhNTUwYjk2YTY3NDQ0MDMwMDMxODFhYzExODgwNTZfdkdTdUxVZUd4ZFlyWDFHZU9vNTZESFpWak5xdVpvTTJfVG9rZW46V3I4bGJLUW9Jb1R6WUJ4a0hwamN2SERubnlnXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>Anatomy GCN<ul><li>基于co-occurance获取描述anatomy之间关系的邻接矩阵，并通过设定阈值滤除噪声，捕捉解剖结构之间的依赖关系</li><li><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NTc5YWRmNTVlNDYxYTBjNzQyYWRiN2IxOWJjOTQyMmNfbGpaYU53dnYyejA1MVhaUHlOcmNkd2U3c0FsOEJFT1pfVG9rZW46Qnl0QWJxb3lwbzRSTTB4NjV2YWNFR2dGbmpkXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></li><li>基于依赖关系，聚合各个解剖结构的特征</li></ul></li><li>Cross Anatomy Attention<ul><li>基于相似度，进一步整合所有解剖结构的特征，并使用残差连接保持原始特征</li></ul></li><li>FC：对于每一个解剖结构的embedding使用分类头进行疾病预测</li></ul><h2 id=auto-encoding-knowledge-graph-for-unsupervised-medical-report-generation-nips-2021>Auto-Encoding Knowledge Graph for Unsupervised Medical Report Generation [NIPS 2021]<a hidden class=anchor aria-hidden=true href=#auto-encoding-knowledge-graph-for-unsupervised-medical-report-generation-nips-2021>#</a></h2><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OTgyZTc0MTQzNGQ1NjVhZDgwZGFjODYwYjUwNDUwMjdfakc4aGNYSjM4bERMQTc3dnoxWjFKdGJqMXRLOWdSa2hfVG9rZW46Uzh6TmJaazBsbzJjN1F4R1JTZWNwd0lxbkNjXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>Knowledge Graph</li></ul><ol><li>构建图谱<ol><li>Abnormalities and normalities (by computing co-occurance in report corpus)</li></ol></li><li>使用GNN对知识进行编码</li></ol><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MjM5OTcyZGM0NmIwNGNiZTFmNWFkZTM0NTZjNDE5Y2NfOHd2ZFlxMG43VGRzaFFzb1dXV1l3bFdzZzczOVZlOVpfVG9rZW46VTVmc2I2RkZtb2hUQ0h4SEVlbmNvTENVbnFiXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>Knowledge-driven Encoder</li></ul><p>将图像和报告都利用知识embedding进行表达</p><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OTA4ZjEyZjgwNTgxNTFkZjAwZDE1OGFjNzcwMGU1MGNfS1hzNWVSY2tVZ0FWUDVwVVIzUkhRSEhiVFlOZVBCelhfVG9rZW46RGo2R2JpNU53b3VsakV4WHI3bmNkaThLbjRiXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>Knowledge-driven Decoder</li></ul><p>基于之前的所有输出来预测Report的下一个输出，并通过注意力机制整合知识空间中的信息</p><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDg5ZmQzNGUwOGEwMjRjOWYwZDFlY2Y0ZDQyNWZhMmVfYndab2kwQ0NCWkNydHFlWXBpRU9HY0UzbUY5emN2NTJfVG9rZW46Tm1ONGI3b1JUb09Ec0t4blZqZWNpMG93bldiXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><p>使用Knowledge Bank来获取细粒度的知识，其中B是由网络进行端到端学习的</p><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NDg0MzVhMTI4Yzk5YWRjMWVlYWM2MGNjOWFkZTQ3MDFfcThnOWZXZVdseVlWZno1emFPdzBtRm0xMTlVMnhYQ3lfVG9rZW46RkJ4UmIzTFZjb1hFZHF4TWtFWGN0Z0tMbk1jXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>训练</li></ul><p>自监督：训练时R->G->R，推断时I->G->R</p><p>半/全监督：I->G->R（半监督则先无监督预训练）</p><h2 id=agxnet-anatomy-guided-weakly-supervised-abnormality-localization-in-chest-x-rays-miccai-2022>AGXNet: Anatomy-Guided Weakly-Supervised Abnormality Localization in Chest X-rays [MICCAI 2022]<a hidden class=anchor aria-hidden=true href=#agxnet-anatomy-guided-weakly-supervised-abnormality-localization-in-chest-x-rays-miccai-2022>#</a></h2><ul><li>代码：https://github.com/batmanlab/AGXNet</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MTczOTM3ZDJkNjE3NjM5MjE2ZjAwNjk3ODlmYzhkYWVfRG9WaUdDM1lQT0dwOE1mcUpibU5QZ1htYkM3eml0Q2ZfVG9rZW46S1F2MWJSN21ib1Uyd014cXFVZWNpQkp4bjJmXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>细粒度的监督<ul><li>对Report进行解析，得到Anatomy和Observation的邻接矩阵，第i行第j列表示第i个解剖结构上是/否/不确定存在第j种异常，其中的正例和负例相当于同时给解剖结构和异常观察提供了0/1的标签</li><li>使用BCE Loss对Anatomy Network和Observation Network进行多标签分类的训练，训练其判断每个类别的anatomy/observation异常是否存在，并将Anatomy Network的feature map作为注意力图辅助Observation Network进行训练</li></ul></li><li>PU Learning<ul><li>Best Bin Estimation (BBE) 是一种用于估计未标记训练数据中正例占比的方法。</li><li>BBE 基于一个假设，即未标记数据的正例和负例分别具有不同的概率分布，但是这些分布的某些区域是相互重叠的。因此，BBE 的目标是找到这些重叠区域的最佳二进制划分，从而最小化正例占比的估计误差。</li><li>我们重复步骤 ，直到分类器达到最佳验证性能</li></ul></li></ul><h2 id=spatial-hierarchical-graph-neural-network-with-dynamic-structure-learning-for-histological-image-classification-miccai-2022>Spatial-Hierarchical Graph Neural Network with Dynamic Structure Learning for Histological Image Classification [MICCAI 2022]<a hidden class=anchor aria-hidden=true href=#spatial-hierarchical-graph-neural-network-with-dynamic-structure-learning-for-histological-image-classification-miccai-2022>#</a></h2><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODk2ZDNiNmNlZmU4YTFjZDg2MDkxMjBkOTdkNGY0NmZfN25WcVdvWjV2MXFQWm1naXpQWE5ScHBqM0YwQ0pVaTJfVG9rZW46SThnMmJSRlNabzBBOTR4YjhGV2MzQ1ZYbnNkXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>代码：https://github.com/HeLongHuang/SHGNN</li><li>空间多尺度特征提取</li></ul><p>对同一张图像处理得到不同尺度的Patch，使用预训练的ResNet34对图像特征进行编码，得到空间多尺度特征</p><ul><li>图拓扑结构的动态学习</li></ul><p>将视觉特征和位置坐标共同编码得到每个entity的联合特征，然后使用K近邻算法将每个节点与它的k个最相似节点建立边的连接（这些节点必须小于阈值），作为图的拓扑结构，即邻接矩阵</p><ul><li>空间多尺度交互</li></ul><p>使用GNN在L个不同的尺度对特征进行聚合，然后沿着将每个细胞和它所属的所有尺度组织拼接成token，使用VIT进行全局的信息融合，再使用GNN按照细胞尺度的拓扑结构进行聚合，最后得到分类特征图</p><ul><li>分类</li></ul><p>使用全局平均池化将特征拓扑图转化为特征向量，再使用MLP进行分类</p><h2 id=gsketknowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge-mia-2022>(GSKET)Knowledge Matters: Chest Radiology Report Generation with General and Specific Knowledge [MIA 2022]<a hidden class=anchor aria-hidden=true href=#gsketknowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge-mia-2022>#</a></h2><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NTRiZjM0YzdiZTJjZmM4MWEwYTI1ZDMzODhiMzdhMGFfVjBoN3VzYVdPdnVwUWpUNGlTTlQ5RGpjQlFMNlNJSjNfVG9rZW46WEE0aWJaMlNQb3p0TFZ4TGo1eGMxeW1CbkRiXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>代码: <a href=https://github.com/LX-doctorAI1/GSKET>https://github.com/LX-doctorAI1/GSKET</a></li><li>General Knowledge</li></ul><ol><li>构建知识图谱</li></ol><p>RadGraph Training Dataset (triplets extracted by experts from 500 MIMIC-CXR reports)</p><ol><li>图算法编码，得到entity和relation的embedding</li></ol><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=M2IxODJkN2M3YjQzY2VhMDdhODZjMDZjZmFmOWRhZTJfcGk5MGl4eG1vR3RRMlU1MzlJdENCeE8yMjB4OHZiTVhfVG9rZW46RGtrV2JoM3dabzlIUUt4WlpxdmNtTllLbnFoXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ol><li>计算每个entity的相对重要性</li></ol><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWZjYWZmMzZiY2NjYWNhM2EzZTY1ZjU3NjcyNjUwZTNfNHZEdTRiNkxxMWVnUXpseHk2Mk05NWh1cmFVOVhGZTdfVG9rZW46UDBxd2JJeE1zb3ZHZ1J4bG9qRGM2cVFnblVlXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODY5OGFjYWE2Y2EyODIwZTc4OWNkODI5ODNhMzU4ODBfZVlCdkFXbnFlTExqUzNLc01NcjlmVXZVZjBSYzVyaW9fVG9rZW46QUcwYmJmZU5ab3Nnejd4b3RtTGNmNHlQbjBmXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ol><li>考虑相对重要性的多头注意力</li></ol><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjFjM2M0MWEzNDY2ZTcwNWUzZTJhMTcyYjk1YzY1NTBfektBT1E0UW85QmpYeDJqVFgzTDJvWThRQkVhTVkwTDdfVG9rZW46UEVYbGI5MzI4b3lkSG94dWxCdmNHdjhiblNlXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWFmYjdjOWZmMTY5MmFkM2EyMWZiNWFjMGVkMmQwMjFfMENyTnJ1M0JpUGZWbUdJZVJZQkwyNFR2TUsyc1ZnRGZfVG9rZW46THdYcGJVeElOb0Q3WXR4MXhCQ2NNelNLbmlWXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>Specific Knowledge</li></ul><ol><li>相似报告检索</li></ol><p>使用预训练的疾病14分类模型，计算输入图像的疾病分布和库中样本的疾病分布的KL散度，选取Top K相似报告</p><ol><li>特定知识查询</li></ol><p>使用命名实体识别器Stanza提取报告中的entity，在Rad Graph Inference Dataset中查询每个entity对应的triplet</p><p>例：检索到的报告为““pneumothorax or pleural effusion is seen”，提取的实体集合T为{pneumothorax, pleural, effusion}，检索到的知识为 {pneumothorax suggestive of bleeding, effusion located at bilateral,&mldr;}</p><ol><li>知识编码</li></ol><p>将一张图查询到的所有Triplets连成一句话，使用Clinical-Bert进行编码</p><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YzQxOTc1ZmRkYTMwMDRhNDgzMmMwZWE2OGQ5YmMyZTNfbnRmcEgzRmlmZDNUZWFZRFJvU3BYYkRabkNzbnRsaVFfVG9rZW46RlhmdGJYZGMxb2RyeUJ4dnlWa2M2R2k5bldmXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ol><li>多头注意力</li></ol><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=Zjg2YmM1NTliYTYyZDE4YTBmNDQzNWNmYjQ1ZTdlNGFfazRsaldCRHI4VThWZWg4SkFkWlQ2YVY4TGxob08ycFNfVG9rZW46U1k5R2JUbkZZb3lqYkl4RG1qM2NOd080bndnXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>自回归解码得到报告</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTM2MmU0YzJhNDk3MTE5NjYwMTE3ZGIyYTZiMjc5YTRfajJFd2xnYXlld3VLQ3NQN0xpcjRXdzhpTGtZQng3ek1fVG9rZW46UnBqY2JsclFHbzV5cDJ4d1lqVGNSSmJObmw2XzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><p>损失函数</p><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OGYzYmI4Mjg4MDIzMzNlNGE0MmRmZWJiYTQzZTY0MmFfUjBuZkZ2T1dNTERXampNdmtVVmd6V2F5eFk2enFybXFfVG9rZW46Qkl1TWJsbGZqb1l3NFB4dGU4QWNUaG1hbm9jXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><h2 id=interactive-and-explainable-region-guided-radiology-report-generation-cvpr-2023>Interactive and Explainable Region-guided Radiology Report Generation [CVPR 2023]<a hidden class=anchor aria-hidden=true href=#interactive-and-explainable-region-guided-radiology-report-generation-cvpr-2023>#</a></h2><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTI3ZWU0ZmIzZmEzYTBjZDg1ZjM1NTE2M2EyZDg2NmRfbjNCcko5ZFFvZ0pEU1o2V25OSU1xbjV5aVpqMVhheWRfVG9rZW46QUxZSGJwczMzb0NUTEV4UzRPV2NscjM5blBNXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>Model<ul><li>Anatomical Object Detector<ul><li>Faster-RCNN with Pretrained ResNet-50</li><li>Classified to 29 anatomical regions and background</li><li>A top proposal for each class, or deselected if none</li></ul></li><li>Region slection & Abnomality classification<ul><li>predict if a region is selected for sentence generation and is abnormal, respectively.</li></ul></li><li>Language Model<ul><li>GPT-2 (355M), an auto-regressive neural network based on self-attention</li><li>fine-tuned on PubMed abstracts</li><li>using pseudo self-attention to consider both visual features and previous outputs</li><li><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTg2NDkwZDk3MmVmODAyY2NiNjZhMGU1ZDQ3MzMzYjFfcEJVM1ZWa09oaGpydEVNckpkazZQcks2ZHZqbGZENFlfVG9rZW46T0Q5N2JheUFGb2NIUmd4WnhTZGNpYllDbnplXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></li></ul></li></ul></li><li>Train<ul><li>Only detector</li><li>Detector and binary classifier</li><li>Whole model</li></ul></li><li>Limitations<ul><li>Requires strong supervision (ChestImaGenome)</li><li>not utilizing 100% data</li><li>Lack image-level sentences</li></ul></li></ul><h2 id=dynamic-graph-enhanced-contrastive-learning-for-chest-x-ray-report-generation-cvpr-2023>Dynamic Graph Enhanced Contrastive Learning for Chest X-ray Report Generation [CVPR 2023]<a hidden class=anchor aria-hidden=true href=#dynamic-graph-enhanced-contrastive-learning-for-chest-x-ray-report-generation-cvpr-2023>#</a></h2><p>代码：https://github.com/mlii0117/DCL</p><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MDVmYjk1MDg4YWQzZjUwYTdmYWQ0MmQ5M2E2ZWI3ZGJfRFI2d3FjWk9RbGdONGFFSVZnQk85eEVFZFhTRnVoT09fVG9rZW46RjRCTGJVcnFIb0VFVHF4cVJYUWNLNTdLbloyXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>Overview<ul><li>A dynamic graph to construct the relationships between diseases and organs</li><li>Represent Image with medical knowledge graph embeddings with Cross Attention</li></ul></li><li>Dynamic Graph<ul><li>$$G_{pre}$$: 27 nodes, 20 disease keywords, 7 organs or tissues</li><li>$$G_{specific}$$: retrieve top-N reports, extract keywords using Stanza, retrieve knowledge in RadGraph, add nodes to $$G_{pre}$$,</li><li>Embedding: use SciBert to get the initial embedding, add level embedding to show which level the node is at (disease, organ, tissue and so on)</li></ul></li><li>Learning<ul><li>IRC：Report embedding& Image(Graph) embedding -> Contrastive Learning</li><li>IRM: whether image and report match,<ul><li>Q: Report</li><li>K, V : Image</li><li>CE Loss</li></ul></li><li>RG: Self Regression, Teacher Forcing</li></ul></li></ul><h2 id=histopathology-whole-slide-image-analysis-with-heterogeneous-graph-representation-learning-cvpr-2023>Histopathology Whole Slide Image Analysis with Heterogeneous Graph Representation Learning [CVPR 2023]<a hidden class=anchor aria-hidden=true href=#histopathology-whole-slide-image-analysis-with-heterogeneous-graph-representation-learning-cvpr-2023>#</a></h2><p><a href=https://github.com/HKU-MedAI/WSI-HGNN>https://github.com/HKU-MedAI/WSI-HGNN</a></p><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTAxZDJmNjcwYjA3ZjYzNjU4MzViYjNkNjc0NDdjNGVfMXByNjhSYlNZT0pDclpHSGNZcE1xd1VucUk3Z2NJYkRfVG9rZW46T3JXaWJPbjNBb0hNVTJ4bHI4Y2NRUUlwbk1oXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>Heterogeneous graph construction<ul><li>WSI -> non-overlapping patches</li><li>Node<ul><li>使用HoverNet获取节点类别<ul><li>Pretrained on PanNude dataset (nuclei instance segmentation and classification)</li><li>Detect nuclei in patches and assign types</li></ul></li><li>使用KimiaNet获取节点的embedding</li></ul></li><li>Edge<ul><li>先使用K近邻选取特征相似的节点，然后使用Pearson R计算节点相关性，作为边属性</li></ul></li></ul></li><li>Heterogeneous graph learning<ul><li>HEATNet<ul><li>既考虑节点相似度，又考虑边权重的相似度Transformer，聚合节点信息</li></ul></li><li>PL Pooling<ul><li>使用预训练分类器对节点进行聚类（按patch内部的细胞核类型），在每个类别内部进行池化</li></ul></li><li>Prediction<ul><li>Cancer Staging & Cancer Classification</li></ul></li></ul></li><li>Casual interpretation</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjMxNGI0ZTIxYmQ4NTdkNzM4YjhiYzA2YWRjYzA3YWJfQjMxOExCdDJHTzgwcGlqRWdNeTZDa1pNeWxsWGRvMVJfVG9rZW46SWRjNmJ0UTNWb1FpNDR4bFlBQWM4Sm43bjZPXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><p>使用去除该节点前后预测值的变化，反映节点在决策中的重要程度</p><h2 id=kiut-knowledge-injected-u-transformer-for-radiology-report-generation-cvpr-2023>KiUT: Knowledge-injected U-Transformer for Radiology Report Generation [CVPR 2023]<a hidden class=anchor aria-hidden=true href=#kiut-knowledge-injected-u-transformer-for-radiology-report-generation-cvpr-2023>#</a></h2><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGVjY2U2NjkwMDBlN2Y2MDFlNTJmN2I1YzY1MmJjNWFfcUQzTzdibWJZbk9nOExMRHREVXpWbHFRcjdXSUlPZm5fVG9rZW46VXdzTmIwdFdUb1pYeTd4YXlEN2NzbXR3bm5pXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li><p>Signals</p><ul><li>Visual Knowledge signal<ul><li>ResNet101 -> 分patch -> RRSA</li><li>RRSA (Region Relationship Self Attention) : 不仅考虑patch特征的相似度，还考虑两个patch之间的相对位置</li></ul></li><li>Clinical Knowledge Signal<ul><li>symptom node embedding (from MBERT) ✖️ symptom probability（from classifier）</li><li>Graph Attention: based on symptom relationship graph</li></ul></li><li>Contextual Knowledge Signal<ul><li>Previous output -> MBERT -> Masked MHA</li></ul></li></ul></li><li><p>U connection</p><ul><li>自回归式Decoder，考虑previous output和encoder visual signals</li><li>Cross Attention的Q是previous output，但K和V不再是last Encoder的输出，而是N-i+1个Encoder的输出</li></ul></li><li><p>Injected Knowledge Distiller</p><ul><li><p>Last Decoder的输出通过attention整合clinical knowledge signal和contextual knowledge signal，沿序列维度拼接后预测下一个词的输出</p></li><li><p>K-Diag: Knowledge-enhanced Disease Diagnosis in Radiographic Imaging [MICCAI 2023]</p></li><li><p><a href=https://github.com/MediaBrain-SJTU/K-Diag>https://github.com/MediaBrain-SJTU/K-Diag</a></p></li><li><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmZkZWNhYjcwYmMwNTdlNjZjOGRmYjc5YzRmMjQyOWFfZ1hseG92ZUJOVzhlUEhzbHlHcTc1RG04UHc3OVR1ZHFfVG9rZW46R3FEdWJWZHo0bzhnbDd4Nnk4M2NGOXVZblFoXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p></li><li><p>Learnable Prompt Module</p></li><li><p>将Q种疾病用N种特征来表达（特征是可学习参数）</p></li><li><p>疾病Q<em>d 特征N</em>d 疾病在特征上的概率分布通过MLP得到Q<em>N 最终表达Q</em>d</p></li><li><p>Disease-Query Module</p></li><li><p>Architecture: a 4-layer transformer decoder with an MLP to get the final prediction</p></li><li><p>queries: disease embeddings (by pre-trained knowledge encoder and learnable prompt module)</p></li><li><p>keys&amp;values: the encoded features</p></li><li><p>binary classification, CE loss</p></li><li><p>MedKLIP: Medical Knowledge Enhanced Language-Image Pre-Training [ICCV 2023]</p></li><li><p><a href=https://github.com/MediaBrain-SJTU/MedKLIP>https://github.com/MediaBrain-SJTU/MedKLIP</a></p></li><li><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2EwYzAyNmIxYjA1ZjM5MDExZTA3ZjVmNzVkYjRkMWVfYTk5S3g1VG5ySGVvR1VzOGc4dEFDV0hCNjhDYmpuS0lfVG9rZW46Ukk1TWJPc0Rib1dmMW54Z2VFdGM2S21Lbm1nXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p></li><li><p>pipeline</p><ul><li>Image embedding与某种疾病的entity knowledge embedding(先通过wiki&amp;UMLS知识库构建,然后通过BoiClinical-Bert编码)共同输入模型，预测这种疾病的有/无，位置，特征图</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=M2RjMjY0NTUzZWU0MWE0NGNiM2UzMzRjODNkZWRjYTRfQ2xpdzMwN2lZaVRibUJGN1FZM3U5U280c21zWUNIRUVfVG9rZW46TDVhRWJhU09zbzVKQUN4ZEhldWNrbU5DbkFnXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>训练时，选取Train Set中的Top Q疾病的知识编码进行训练；</li><li>推断时，基于该疾病的医学知识编码进行推断</li></ul></li><li><p>训练</p><ul><li>Pseudo label<ol><li>疾病是否存在</li><li>疾病处于何处：使用BioClinical-Bert进行编码</li></ol></li><li><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MzNjNTk5YjQ4ODZhNTY0NzEyNjcxOWQ1YTc4MmMwNjlfeHZKWWZCM0FhdEViajM4bUZ0akYwUDlCU2VBTWI3dzFfVG9rZW46Q3ZKZGJ6TkpGbzI1V1J4OUlsSWM0WjR3bmtjXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></li><li>Fine-grained supervision</li><li>疾病有无：BCE Loss</li><li>疾病位置：将该疾病的位置编码和其他M种位置编码进行对比学习（因为位置编码的类别数未知）</li></ul></li><li><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NjQ0ODY0NDkzZDFiYzkzYmZlYjZiNzU1YzYyMDE1MDdfbllmcUhuVmhIdlhtMVBVM1R2cEJwcmZZY2tTUUlxTzhfVG9rZW46TWlhRmJCUWJXb0hqdTl4TTB3OWNBQnFSbklkXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p></li><li><p>KAD: Knowledge-enhanced Visual-Language Pre-training on Chest Radiology Images [Nature Communication]</p></li><li><p><a href=https://github.com/xiaoman-zhang/KAD>https://github.com/xiaoman-zhang/KAD</a></p></li><li><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NGZmZTJjZmVjY2NhYzg4YjNiYjFlNzA5OWJkNjE5ZGZfS3Q2WVgyV2hHOVVoamhQR29LZE5GOFgybFpsdkpPbVJfVG9rZW46Qk5CRWJNS2VMb2dVQzB4QzlZWGNkcmM2bk9nXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p></li><li><p>Knowledge database</p><ol><li>knowledge graph: concept-relation-concept triplets</li><li>concept info list: concept-definition pairs</li></ol></li><li><p>Pre-training</p><ol><li>Text contrastive learning between medical concepts or definitions</li><li>image-text contrastive learning with paired chest X-rays and extracted entities(by tools like ChatGPT)</li><li>optimize a Disease Query Network (DQN) for classification</li></ol></li><li><p>Zero-shot inference</p><ol><li>encode the disease name as a query input, and DQN will output the probability that the pathology is present in the input image</li></ol></li></ul></li></ul><h2 id=pmc-clip-contrastive-language-image-pre-training-using-biomedical-documents>PMC-CLIP: Contrastive Language-Image Pre-training using Biomedical Documents<a hidden class=anchor aria-hidden=true href=#pmc-clip-contrastive-language-image-pre-training-using-biomedical-documents>#</a></h2><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MjI4OGNmMDU5NTdlMWU3NjZhNTNjZDFjZTM3MDFiMjhfNEtkbUxCRXZkeFhpVnlZdUI2WHhsV3dMWTB5OUtNelJfVG9rZW46STdmWWJGSjZyb2oxUXN4aFliQWNWdENsbm1DXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><h2 id=pmc-vqa-visual-instruction-tuning-for-medical-visual-question-answering>PMC-VQA: Visual Instruction Tuning for Medical Visual Question Answering<a hidden class=anchor aria-hidden=true href=#pmc-vqa-visual-instruction-tuning-for-medical-visual-question-answering>#</a></h2><p><a href=https://github.com/xiaoman-zhang/PMC-VQA>https://github.com/xiaoman-zhang/PMC-VQA</a></p><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODU4NWEzZDBhOTU1NDk0NTRhYzJlZWQzYTZlNjc5NWVfSDBIQnFVOWxjWExOZjNiQWs5UVBUU05pMnJLMUVVZWZfVG9rZW46QlAxamJHbTJ3bzFLc1N4T2ExbmNNMGVUbnFjXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>propose a generative-based model for medical visual understanding</li><li>construct a dataset, named PMC-VQA, which contains 227k VQA pairs of 149k images that cover various modalities or diseases</li><li>pre-train on PMC-VQA and then fine-tune it on multiple public benchmarks, e.g., VQA-RAD and SLAKE</li><li>propose a challenging test set</li></ul><h2 id=pmc-llama-further-finetuning-llama-on-medical-papers>PMC-LLaMA: Further Finetuning LLaMA on Medical Papers<a hidden class=anchor aria-hidden=true href=#pmc-llama-further-finetuning-llama-on-medical-papers>#</a></h2><p><a href=https://github.com/chaoyi-wu/PMC-LLaMA>https://github.com/chaoyi-wu/PMC-LLaMA</a></p><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YTViZmYwYThmZjQwODliOGQ1NWRiM2FlNDg1ZDVmYjBfWkJta1ZMNVFnTGJ3U1FJS2NiRkxGMW5BRjhmWFZDbllfVG9rZW46VkVSUGJ4UVNLb1ZGNjB4MWd0S2N2WjUzbnFjXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>PMC-LLaMA, fine-tuning LLaMA on 4.8 million biomedical academic papers<ul><li>end-to-end full fine-tuning</li><li>parameter-efficient fine-tuning<ul><li>Low-Rank Adaptation (LoRA)</li></ul></li><li>data-efficient fine-tuning<ul><li>as the training set in USMLE is much smaller compared with that of combining PubMedQA and MedMCQA (10k vs. 400k), less medical knowledge can be learned from the downstream training data, it turns out to be rather more challenging than the previous OOD test</li></ul></li></ul></li><li>Benchmarks（都是选择题）<ul><li>PubMedQA: PubMed论文摘要问答</li><li>MedMCQA: 印度医学院入学考试, AIIMS and NEET-PG</li><li>USMLE: from United States Medical License Exams, 英文、简/繁体中文</li></ul></li></ul><h2 id=towards-generalist-foundation-model-for-radiology>Towards Generalist Foundation Model for Radiology<a hidden class=anchor aria-hidden=true href=#towards-generalist-foundation-model-for-radiology>#</a></h2><p><a href=https://github.com/chaoyi-wu/RadFM>https://github.com/chaoyi-wu/RadFM</a></p><ul><li>Dataset<ul><li>Medical Multimodal Dataset (MedMD)<ul><li><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=Mzg3MzRlM2IzZGY5YjhjN2VkMzVkZDdlZDE0MjhlZjRfRUt6c2JjNkpYbjFYWTN1bnRvNlRYcDdVM3EzczdMSWRfVG9rZW46S1pwZ2JUTUNrb3FUcmd4MmxQcGM4MUlzbmhjXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></li><li>visual-language interleaved, 2D&amp;3D, research-oriented &amp;real world clinical data</li><li>subset<ul><li>Interleaved Dataset (CLIP)<ul><li>no strong question-and-answer relationships between contexts</li><li>Eg. PMC-Inline(将插图定位到论文中的具体某一段落文字)</li></ul></li><li>Visual Instruction Datasets (Q&amp;A)<ul><li>eg. “What can you see from the image? I can see lesions.”</li><li>包括yes or no判断和开放式问答</li></ul></li></ul></li></ul></li><li>Radiology Multimodal Dataset (RadMD)<ul><li>a filtered radiology subset (对不同的子数据集采取不同的过滤策略)</li><li>contains a total of 3M images, spanning various data formats, modalities, and tasks</li></ul></li></ul></li><li>Unified Learning Paradigm</li></ul><p><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OGJmZTM0MWMzNjllZTRlOGQ3MGYxNjZhM2UzYTQxODhfRjJNNkJQTkxjT2pQN0JKdjExZVFSYVRPcVdyeks1VENfVG9rZW46WWxlMWJIc0dlb3ZlYkF4WWZNZmN5ZWtEbmFjXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></p><ul><li>Architecture<ul><li>Visual encoding<ul><li>convert the image into 3D patches, and embed them into a token sequence and feed it into the encoder<ul><li>$$v_i=\phi_{vis}(v_i)\in R^{P_i*d}$$</li><li>adopt 3D ViT here to be compatible with both 2D and 3D image input</li><li>the input image sizes to be divisible by the patch size of 32 × 32 × 4, so we resize the depth dimension to the nearest multiple of 4 and will not surpass 64<ul><li>Eg. 2D input 512<em>512 -> 512</em>512*4</li></ul></li><li>$$P_$$ is the total number of tokens. Due to the inconsistency in depth dimension, $$P_$$ also varies across 2D and 3D images. Generally, 3D cases may have much larger $$P_$$ than 2D cases</li></ul></li></ul></li><li>Aggregation with Perceiver<ul><li>After visual encoding, adopt a perceiver module $$\phi_{per}$$ to aggregate visual representation<ul><li>$$\phi_{per}$$ is a transformer decoder with a fixed number of learnable queries</li><li>visual input is treated as key and value</li><li>final output embeddings will be normalized into the same dimension with the pre-defined learnable query sequence</li></ul></li></ul></li><li>Multi-modal fusion<ul><li>interleave the visual embedding with text embeddings from tokenization, where the special image placeholder token is simply replaced with the corresponding visual embedding.</li><li>The interleaved sequence is then passed into a decoder-only large language model (Φllm) to obtain the output</li></ul></li></ul></li><li>Loss function<ul><li><img loading=lazy src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MjUwYjUyMzM4Zjg2NGUxMjQzNWQ4N2I2Zjc0MTg3YTVfQmp0T1JNaVViNWdTaEhhc1VkejN4Qjh2eldISWptUEFfVG9rZW46Q0lIcGJnZUQ0b1loSnd4aUFndWNLZDN4bk5lXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt=img></li><li>$$\omega_l$$: medical-related单词具有更高的损失权重（属于UMLS)，非医学相关的word具有更低的权重，image placeholder token没有权重</li></ul></li></ul></div><footer class=post-footer><ul class=post-tags></ul><nav class=paginav><a class=prev href=https://xuzhang0112.github.io/paper_reading/survey/mm_kg/><span class=title>« Prev</span><br><span>Multi-modal Knowledge Graph</span>
-</a><a class=next href=https://xuzhang0112.github.io/paper_reading/aaai/1/><span class=title>Next »</span><br><span>Self-Paced Unified Representation Learning for Hierarchical Multi-Label Classification</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2024 <a href=https://xuzhang0112.github.io/>Xu Zhang's Blog</a></span> ·
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
+PadChest # 160,000&#43; images from 67,000 patients, from 2009 to 2017 reports labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations 27% were manually annotated and the remaining set was labeled by RNN (0."/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "PaperReading",
+    "name": "Multi-modal Medical Image Processing",
+    "headline": "Multi-modal Medical Image Processing",
+    
+    "abstract": "Dataset # MIMIC-CXR # 377,110 images, 227,835 reports\nNIH-CXR # 112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases\nThe labels are expected to be \u0026gt;90% accurate and suitable for weakly-supervised learning\nCheXpert # 224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain\nTrain: all labeled by CheXpert Labeler\nValidation: 200, labeled by experts\nTest: 500, labeled by experts\nPadChest # 160,000\u002b images from 67,000 patients, from 2009 to 2017 reports labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations 27% were manually annotated and the remaining set was labeled by RNN (0.",
+    "inLanguage": "en",
+    "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/survey\/mm_medical\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Xu Zhang"
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1630"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Xu Zhang" />
+  
+  
+  
+  <link href="https://github.com/xuzhang0112" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/lib/katex/katex.min.af6f85907cdfd6ed3e4906d93a8233d91c5638859f744cd1b98c9b1a3ccaab5f231bdcda49f132f6cdfe8cca86ff33ed468affab8a9a502610a664a34f0f0cfa.css" integrity="sha512-r2&#43;FkHzf1u0&#43;SQbZOoIz2RxWOIWfdEzRuYybGjzKq18jG9zaSfEy9s3&#43;jMqG/zPtRor/q4qaUCYQpmSjTw8M&#43;g==" />
+
+
+<script defer src="/lib/katex/katex.min.20da6cf7343619410c0900fbc626506c65159ea9f312f9729d5cba7aa713707378f9a4222e8f7fb9a42a7240e9749f199b7334401b3e3e4b60e29cf490492552.js" integrity="sha512-INps9zQ2GUEMCQD7xiZQbGUVnqnzEvlynVy6eqcTcHN4&#43;aQiLo9/uaQqckDpdJ8Zm3M0QBs&#43;Pktg4pz0kEklUg=="></script>
+
+
+<script defer src="/lib/katex/auto-render.min.6095714e3aadb63b14ddc4af69346ab12974c1b460654345f8d1860a0b68fcc51b22f68b757433193090bb80afc8965b65cb607e5541d0f5f0f4b2e64d69b9ff.js" integrity="sha512-YJVxTjqttjsU3cSvaTRqsSl0wbRgZUNF&#43;NGGCgto/MUbIvaLdXQzGTCQu4CvyJZbZctgflVB0PXw9LLmTWm5/w=="
+  onload="renderMathInElement(document.body);"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Xu Zhang&rsquo;s Blog</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/cheat_sheet/cli/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="CLI Cheatsheet">
+        CLI
+    </p>
+</a>
+
+
+            
+            
+  <a href="/cheat_sheet/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Python Cheatsheet">
+        Python
+    </p>
+</a>
+
+
+            
+            
+  <a href="/paper_reading/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="PaperReading">
+        Papers
+    </p>
+</a>
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tags">
+        Tags
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/cheat_sheet/cli/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="CLI Cheatsheet">
+            CLI
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/cheat_sheet/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Python Cheatsheet">
+            Python
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/paper_reading/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="PaperReading">
+            Papers
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tags">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/"
+      >PaperReading</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/survey/"
+      >Survey</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/survey/mm_medical/"
+      >Multi-modal Medical Image Processing</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Multi-modal Medical Image Processing
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>1630 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">8 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+    
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+
+
+<h2 class="relative group">Dataset 
+    <div id="dataset" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dataset" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h2 class="relative group">MIMIC-CXR 
+    <div id="mimic-cxr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mimic-cxr" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>377,110 images, 227,835 reports</p>
+
+
+<h2 class="relative group">NIH-CXR 
+    <div id="nih-cxr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#nih-cxr" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases</p>
+<p>The labels are expected to be &gt;90% accurate and suitable for weakly-supervised learning</p>
+
+
+<h2 class="relative group">CheXpert 
+    <div id="chexpert" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#chexpert" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain</p>
+<p>Train: all labeled by CheXpert Labeler</p>
+<p>Validation: 200, labeled by experts</p>
+<p>Test: 500, labeled by experts</p>
+
+
+<h2 class="relative group">PadChest 
+    <div id="padchest" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#padchest" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>160,000+ images
+<ul>
+<li>from 67,000 patients, from 2009 to 2017</li>
+</ul>
+</li>
+<li>reports
+<ul>
+<li>labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations</li>
+<li>27% were manually annotated and the remaining set was labeled by RNN (0.93 Micro-F1 score)</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 class="relative group">RadGraph 
+    <div id="radgraph" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#radgraph" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>structure clinical information in a radiology report with 4 entities and 3 relations, with MIMIC-CXR and CheXpert</p>
+<p><a href="https://physionet.org/content/radgraph/1.0.0/"   target="_blank">
+    https://physionet.org/content/radgraph/1.0.0/</a></p>
+<ul>
+<li>Annotations: 500 for train, 100 for test
+<ul>
+<li>train.json: File containing annotations obtained by board-certified radiologists for 425 radiology reports (MIMIC-CXR)</li>
+<li>dev.json: File containing annotations obtained by board-certified radiologists for 75 radiology reports (MIMIC-CXR)</li>
+<li>test.json: File containing annotations obtained by 2 different board-certified radiologists for 100 radiology reports (50 MIMIC-CXR, 50 CheXpert)</li>
+</ul>
+</li>
+<li>Graphs
+<ul>
+<li>MIMIC-CXR_graphs.json: File containing annotations obtained by our deep learning model for 220,763 radiology reports (MIMIC-CXR)</li>
+<li>CheXpert_graphs.json: File containing annotations obtained by our deep learning model for 500 radiology reports (CheXpert)</li>
+</ul>
+</li>
+<li>Models
+<ul>
+<li>models/model_checkpoint: Folder containing the saved model parameters used to automatically generate the annotations in MIMIC-CXR_graphs.json and CheXpert_graphs.json</li>
+<li>models/README.txt: File containing instructions for performing inference using model checkpoint</li>
+<li>models/inference.py: File containing code to extract entities and relations given a directory containing reports in txt format</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 class="relative group">Chest ImaGenome 
+    <div id="chest-imagenome" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#chest-imagenome" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>scene graph to describe 242,072 images</li>
+<li>bounding boxes for 29 unique anatomical regions in the chest</li>
+<li>sentences describing each region if they exist in the corresponding radiology report</li>
+</ul>
+
+
+<h1 class="relative group">Metric 
+    <div id="metric" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#metric" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">NLG 
+    <div id="nlg" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#nlg" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>BLEU, CIDEr, Meteor, Ronge</p>
+
+
+<h2 class="relative group">Clinical Efficacy 
+    <div id="clinical-efficacy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#clinical-efficacy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h2 class="relative group">Disease 
+    <div id="disease" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#disease" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<table>
+<thead>
+<tr>
+<th>疾病</th>
+<th>中文名</th>
+<th>症状</th>
+<th>归纳</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cardiomegaly</td>
+<td>心脏肥大</td>
+<td></td>
+<td>大小</td>
+</tr>
+<tr>
+<td>Mass</td>
+<td>肿块</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Nodule</td>
+<td>结节</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Atelectasis</td>
+<td>肺不张</td>
+<td>一边没气，心脏也跟着挤过来</td>
+<td>偏移</td>
+</tr>
+<tr>
+<td>Pneumothorax</td>
+<td>气胸</td>
+<td>有气，肺被挤压</td>
+<td></td>
+</tr>
+<tr>
+<td>Effusion</td>
+<td>积液</td>
+<td>膈角很容易被填满，可能把心脏挤到另一边</td>
+<td></td>
+</tr>
+<tr>
+<td>Pneumonia</td>
+<td>肺炎</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Infiltrastion</td>
+<td>浸润</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Edema</td>
+<td>水肿</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Emphysema</td>
+<td>肺气肿</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fibrosis</td>
+<td>纤维化</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Pleural Thickening</td>
+<td>胸膜增厚</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Hernia</td>
+<td>疝</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Consolidation</td>
+<td>肺实变</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MTAwNTE4MmRkYjU1NDMzN2M2NzY0ZGIxODc5ZmExOWZfcU5qOFFvZHBvYkphZHBpWnUya1NaandJYU9ZRkxwb0dfVG9rZW46RlRCNmJiR2FSb1F2T3Z4aDNQemN2V0Jxbm9lXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+
+
+<h2 class="relative group">When Radiology Report Generation Meets Knowledge Graph [AAAI 2020] 
+    <div id="when-radiology-report-generation-meets-knowledge-graph-aaai-2020" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#when-radiology-report-generation-meets-knowledge-graph-aaai-2020" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NjE5MmY4OTQxYWNiOGRjMTU0N2I1MzNkZTkyOTg4NzBfZmRzN0tkV202d3diOEd5NXF1VjdBOGFXWkZ4aTFadmJfVG9rZW46Q3A0QWJvb1Vtb2dieTF4eU9OdmNoalUzbjFlXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>Knowledge Graph
+<ul>
+<li>Nodes from the same organ are connected
+<ul>
+<li>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NjI0MWIxYjJjNmQxYzAwNzhiYmE2ZTgwZDhmMzk1YjBfMHVqWWUzNmx3MmJtU1F1ZXVLeG9WaWtPMkY2cHhFd2FfVG9rZW46S2tUT2IxcWpab1E0Y3h4SmtMMmNnOHVxbjJCXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</li>
+</ul>
+</li>
+<li>Node embedding
+<ul>
+<li>DenseNet-121 pretrained on CheXpert</li>
+<li>Attention:
+<ul>
+<li>1*1 conv+softmax</li>
+<li>each class node uses the corresponding channel as spatial attention</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Training Loss
+<ul>
+<li>Node Level: binary classification of each node</li>
+<li>Graph Level: multi-label classification of 14 diseases</li>
+<li>High-Resolution Chest X-Ray Bone Suppression Using Unpaired CT Structural Priors [TMI 2020]</li>
+<li>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OTU4OGQxOTIzNTJjMmUyYjY0YWYzOTZhMWJiNTYwYzJfSnVyNzFWSGJoanJrRnZCeVptbktPYUl0eEhlTFBaamNfVG9rZW46RmRKVGIwR0tsb0JmMEt4ZlNiMGNmU0YyblNnXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 class="relative group">Contrast-Attentive Thoracic Disease Recognition With Dual-Weighting Graph Reasoning [TMI 2021] 
+    <div id="contrast-attentive-thoracic-disease-recognition-with-dual-weighting-graph-reasoning-tmi-2021" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#contrast-attentive-thoracic-disease-recognition-with-dual-weighting-graph-reasoning-tmi-2021" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YWFhZWM3YzJkY2ZhOWUzNjQwMzJjNzVhMTExZDI0YjlfWFh5cm4zaFR4cUpveUdHUnlBN0hvczhybjJZR3h6OE9fVG9rZW46SHEzN2IxWUEzb0F4dkp4bktCV2N0Zm9UbkxmXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>Intra- and inter-contrastive abnormal attention</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MDdiNjFkNDA5ZmFjMTgwZmQxODUyNGZlYzg1YjcyYzRfeUhJMzk4elVsa0VNTXRrc0NCa3hxdEdzMVJPRWtLTTVfVG9rZW46VGlxSGJUeGE0bzk3M2h4ZzhJc2Noa1VFbldiXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ol>
+<li>Intra-contrastive</li>
+</ol>
+<p>医学先验：某些肺病通常表现为左右肺的不对称</p>
+<p>先使用DenseNet121提取左右肺特征，做差后，GMP，得到全局特征f_intra</p>
+<ol>
+<li>Inter-Contrastive</li>
+</ol>
+<p>先使用聚类算法找出3个最具有代表性的normal CXR作为anchor scan，然后通过注意力机制对query scan中相似的部分进行增强，得到3个增强后的特征，然后通过矩阵变换，得到最后的融合全局特征f_inter</p>
+<ul>
+<li>Dual-weighting graph reasoning</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MmQ1NDYzNDAwNTAyMDBkYTA0OTEyN2Y4ZmRhYmVmMDhfNkVGYkt2NG5VaEZCYWxXR21jSXdJT2U4UzBMSEt6N25fVG9rZW46T0E0Q2JSdjV0b093amx4aEdTTWNEQWNNbmNiXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>Nodes: N=43, text embedding is obtained by BioSentVec trained on PubMed and MIMIC-III</p>
+<p>Edges: base on coocurance matrix</p>
+<p>Dual Weighting: 通过双权重的双层GNN来使43个节点的概念充分交互，捕捉节点之间的相互依赖关系</p>
+<ul>
+<li>Multi-Disease Recognition</li>
+</ul>
+<ol>
+<li>Visual Signals
+<ol>
+<li>f_global: 特征提取得到，并经过注意力增强</li>
+<li>Graph Node Vector: 细粒度的特征，soft probability of 43 nodes predicted based on image feature</li>
+<li>f_visual: f_global和graph node vector的外积，表示每个像素处43个节点的概率</li>
+</ol>
+</li>
+<li>Graph Signals
+<ol>
+<li>Graph embedding: 预先构建的knowledge graph，并通过GNN进行优化，节点的embedding表示相应的医学概念</li>
+<li>including findings, diseases or syndromes, qualitative concepts, spatial concepts, temporal concepts, and body locations or regions</li>
+<li>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YjhjYmFhN2M0NmYwZWEzOTdlNGVjODQwNzQzNTE4NmVfczRpOVd3d3NtYVd4eHF6WVJRZFhrajRnNFBLdm8zWHFfVG9rZW46VE5TTmJwcGNBb3NsVlB4MW1NYWNwOWowbndlXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</li>
+</ol>
+</li>
+<li>Prediction
+<ol>
+<li>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODQ4ZGFhZjE4ODc5YTliYTMzYjExZTZkNTEyNGVmMGNfck1yU0tTemZNV09kNGxMdGJFQ3V5RlNUbVhSZmtpVUNfVG9rZW46UkF1cWJpSFBUb0Jab1d4aG9Rb2NOTEIxbmFoXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</li>
+<li>Disease Identification</li>
+<li>Disease Localization
+<ol>
+<li>MIL: 在进行像素级训练时，将所有像素的类别相乘，作为图片级别的类别，然后使用图像级别的标注进行优化</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Training Strategy</li>
+</ol>
+<p>先训练特征提取器（多标签分类），然后训练图卷积和视觉卷积</p>
+
+
+<h2 class="relative group">AnaXNet: Anatomy Aware Multi-label Finding Classification in Chest X-ray [MICCAI 2021] 
+    <div id="anaxnet-anatomy-aware-multi-label-finding-classification-in-chest-x-ray-miccai-2021" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#anaxnet-anatomy-aware-multi-label-finding-classification-in-chest-x-ray-miccai-2021" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjEzMTBmYTIwNThhNGFmNTEyNDc2NTc5MjZjZWU5YWRfV1I0RUtpaEh2anVGQkhNRFY2MzNNd3VwS2ZESjFyMnpfVG9rZW46WEVXcmJuNmhEb3RPZ0N4UjZ3S2NSMkl2bnZnXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>代码：https://github.com/Nkechinyere-Agu/AnaXNet</li>
+<li>Faster-RCNN：提取解剖ROIs以及相对应的特征，即k个解剖结构的特征，维度为d</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OGJhNTUwYjk2YTY3NDQ0MDMwMDMxODFhYzExODgwNTZfdkdTdUxVZUd4ZFlyWDFHZU9vNTZESFpWak5xdVpvTTJfVG9rZW46V3I4bGJLUW9Jb1R6WUJ4a0hwamN2SERubnlnXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>Anatomy GCN
+<ul>
+<li>基于co-occurance获取描述anatomy之间关系的邻接矩阵，并通过设定阈值滤除噪声，捕捉解剖结构之间的依赖关系</li>
+<li>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NTc5YWRmNTVlNDYxYTBjNzQyYWRiN2IxOWJjOTQyMmNfbGpaYU53dnYyejA1MVhaUHlOcmNkd2U3c0FsOEJFT1pfVG9rZW46Qnl0QWJxb3lwbzRSTTB4NjV2YWNFR2dGbmpkXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</li>
+<li>基于依赖关系，聚合各个解剖结构的特征</li>
+</ul>
+</li>
+<li>Cross Anatomy Attention
+<ul>
+<li>基于相似度，进一步整合所有解剖结构的特征，并使用残差连接保持原始特征</li>
+</ul>
+</li>
+<li>FC：对于每一个解剖结构的embedding使用分类头进行疾病预测</li>
+</ul>
+
+
+<h2 class="relative group">Auto-Encoding Knowledge Graph for Unsupervised Medical Report Generation [NIPS 2021] 
+    <div id="auto-encoding-knowledge-graph-for-unsupervised-medical-report-generation-nips-2021" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#auto-encoding-knowledge-graph-for-unsupervised-medical-report-generation-nips-2021" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OTgyZTc0MTQzNGQ1NjVhZDgwZGFjODYwYjUwNDUwMjdfakc4aGNYSjM4bERMQTc3dnoxWjFKdGJqMXRLOWdSa2hfVG9rZW46Uzh6TmJaazBsbzJjN1F4R1JTZWNwd0lxbkNjXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>Knowledge Graph</li>
+</ul>
+<ol>
+<li>构建图谱
+<ol>
+<li>Abnormalities and normalities (by computing co-occurance in report corpus)</li>
+</ol>
+</li>
+<li>使用GNN对知识进行编码</li>
+</ol>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MjM5OTcyZGM0NmIwNGNiZTFmNWFkZTM0NTZjNDE5Y2NfOHd2ZFlxMG43VGRzaFFzb1dXV1l3bFdzZzczOVZlOVpfVG9rZW46VTVmc2I2RkZtb2hUQ0h4SEVlbmNvTENVbnFiXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>Knowledge-driven Encoder</li>
+</ul>
+<p>将图像和报告都利用知识embedding进行表达</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OTA4ZjEyZjgwNTgxNTFkZjAwZDE1OGFjNzcwMGU1MGNfS1hzNWVSY2tVZ0FWUDVwVVIzUkhRSEhiVFlOZVBCelhfVG9rZW46RGo2R2JpNU53b3VsakV4WHI3bmNkaThLbjRiXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>Knowledge-driven Decoder</li>
+</ul>
+<p>基于之前的所有输出来预测Report的下一个输出，并通过注意力机制整合知识空间中的信息</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDg5ZmQzNGUwOGEwMjRjOWYwZDFlY2Y0ZDQyNWZhMmVfYndab2kwQ0NCWkNydHFlWXBpRU9HY0UzbUY5emN2NTJfVG9rZW46Tm1ONGI3b1JUb09Ec0t4blZqZWNpMG93bldiXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>使用Knowledge Bank来获取细粒度的知识，其中B是由网络进行端到端学习的</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NDg0MzVhMTI4Yzk5YWRjMWVlYWM2MGNjOWFkZTQ3MDFfcThnOWZXZVdseVlWZno1emFPdzBtRm0xMTlVMnhYQ3lfVG9rZW46RkJ4UmIzTFZjb1hFZHF4TWtFWGN0Z0tMbk1jXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>训练</li>
+</ul>
+<p>自监督：训练时R-&gt;G-&gt;R，推断时I-&gt;G-&gt;R</p>
+<p>半/全监督：I-&gt;G-&gt;R（半监督则先无监督预训练）</p>
+
+
+<h2 class="relative group">AGXNet: Anatomy-Guided Weakly-Supervised Abnormality Localization in Chest X-rays [MICCAI 2022] 
+    <div id="agxnet-anatomy-guided-weakly-supervised-abnormality-localization-in-chest-x-rays-miccai-2022" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#agxnet-anatomy-guided-weakly-supervised-abnormality-localization-in-chest-x-rays-miccai-2022" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>代码：https://github.com/batmanlab/AGXNet</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MTczOTM3ZDJkNjE3NjM5MjE2ZjAwNjk3ODlmYzhkYWVfRG9WaUdDM1lQT0dwOE1mcUpibU5QZ1htYkM3eml0Q2ZfVG9rZW46S1F2MWJSN21ib1Uyd014cXFVZWNpQkp4bjJmXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>细粒度的监督
+<ul>
+<li>对Report进行解析，得到Anatomy和Observation的邻接矩阵，第i行第j列表示第i个解剖结构上是/否/不确定存在第j种异常，其中的正例和负例相当于同时给解剖结构和异常观察提供了0/1的标签</li>
+<li>使用BCE Loss对Anatomy Network和Observation Network进行多标签分类的训练，训练其判断每个类别的anatomy/observation异常是否存在，并将Anatomy Network的feature map作为注意力图辅助Observation Network进行训练</li>
+</ul>
+</li>
+<li>PU Learning
+<ul>
+<li>Best Bin Estimation (BBE) 是一种用于估计未标记训练数据中正例占比的方法。</li>
+<li>BBE 基于一个假设，即未标记数据的正例和负例分别具有不同的概率分布，但是这些分布的某些区域是相互重叠的。因此，BBE 的目标是找到这些重叠区域的最佳二进制划分，从而最小化正例占比的估计误差。</li>
+<li>我们重复步骤 ，直到分类器达到最佳验证性能</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 class="relative group">Spatial-Hierarchical Graph Neural Network with Dynamic Structure Learning for Histological Image Classification [MICCAI 2022] 
+    <div id="spatial-hierarchical-graph-neural-network-with-dynamic-structure-learning-for-histological-image-classification-miccai-2022" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#spatial-hierarchical-graph-neural-network-with-dynamic-structure-learning-for-histological-image-classification-miccai-2022" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODk2ZDNiNmNlZmU4YTFjZDg2MDkxMjBkOTdkNGY0NmZfN25WcVdvWjV2MXFQWm1naXpQWE5ScHBqM0YwQ0pVaTJfVG9rZW46SThnMmJSRlNabzBBOTR4YjhGV2MzQ1ZYbnNkXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>代码：https://github.com/HeLongHuang/SHGNN</li>
+<li>空间多尺度特征提取</li>
+</ul>
+<p>对同一张图像处理得到不同尺度的Patch，使用预训练的ResNet34对图像特征进行编码，得到空间多尺度特征</p>
+<ul>
+<li>图拓扑结构的动态学习</li>
+</ul>
+<p>将视觉特征和位置坐标共同编码得到每个entity的联合特征，然后使用K近邻算法将每个节点与它的k个最相似节点建立边的连接（这些节点必须小于阈值），作为图的拓扑结构，即邻接矩阵</p>
+<ul>
+<li>空间多尺度交互</li>
+</ul>
+<p>使用GNN在L个不同的尺度对特征进行聚合，然后沿着将每个细胞和它所属的所有尺度组织拼接成token，使用VIT进行全局的信息融合，再使用GNN按照细胞尺度的拓扑结构进行聚合，最后得到分类特征图</p>
+<ul>
+<li>分类</li>
+</ul>
+<p>使用全局平均池化将特征拓扑图转化为特征向量，再使用MLP进行分类</p>
+
+
+<h2 class="relative group">(GSKET)Knowledge Matters: Chest Radiology Report Generation with General and Specific Knowledge [MIA 2022] 
+    <div id="gsketknowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge-mia-2022" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gsketknowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge-mia-2022" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NTRiZjM0YzdiZTJjZmM4MWEwYTI1ZDMzODhiMzdhMGFfVjBoN3VzYVdPdnVwUWpUNGlTTlQ5RGpjQlFMNlNJSjNfVG9rZW46WEE0aWJaMlNQb3p0TFZ4TGo1eGMxeW1CbkRiXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>代码: <a href="https://github.com/LX-doctorAI1/GSKET"   target="_blank">
+    https://github.com/LX-doctorAI1/GSKET</a></li>
+<li>General Knowledge</li>
+</ul>
+<ol>
+<li>构建知识图谱</li>
+</ol>
+<p>RadGraph Training Dataset (triplets extracted by experts from 500 MIMIC-CXR reports)</p>
+<ol>
+<li>图算法编码，得到entity和relation的embedding</li>
+</ol>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=M2IxODJkN2M3YjQzY2VhMDdhODZjMDZjZmFmOWRhZTJfcGk5MGl4eG1vR3RRMlU1MzlJdENCeE8yMjB4OHZiTVhfVG9rZW46RGtrV2JoM3dabzlIUUt4WlpxdmNtTllLbnFoXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ol>
+<li>计算每个entity的相对重要性</li>
+</ol>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWZjYWZmMzZiY2NjYWNhM2EzZTY1ZjU3NjcyNjUwZTNfNHZEdTRiNkxxMWVnUXpseHk2Mk05NWh1cmFVOVhGZTdfVG9rZW46UDBxd2JJeE1zb3ZHZ1J4bG9qRGM2cVFnblVlXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODY5OGFjYWE2Y2EyODIwZTc4OWNkODI5ODNhMzU4ODBfZVlCdkFXbnFlTExqUzNLc01NcjlmVXZVZjBSYzVyaW9fVG9rZW46QUcwYmJmZU5ab3Nnejd4b3RtTGNmNHlQbjBmXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ol>
+<li>考虑相对重要性的多头注意力</li>
+</ol>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjFjM2M0MWEzNDY2ZTcwNWUzZTJhMTcyYjk1YzY1NTBfektBT1E0UW85QmpYeDJqVFgzTDJvWThRQkVhTVkwTDdfVG9rZW46UEVYbGI5MzI4b3lkSG94dWxCdmNHdjhiblNlXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWFmYjdjOWZmMTY5MmFkM2EyMWZiNWFjMGVkMmQwMjFfMENyTnJ1M0JpUGZWbUdJZVJZQkwyNFR2TUsyc1ZnRGZfVG9rZW46THdYcGJVeElOb0Q3WXR4MXhCQ2NNelNLbmlWXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>Specific Knowledge</li>
+</ul>
+<ol>
+<li>相似报告检索</li>
+</ol>
+<p>使用预训练的疾病14分类模型，计算输入图像的疾病分布和库中样本的疾病分布的KL散度，选取Top K相似报告</p>
+<ol>
+<li>特定知识查询</li>
+</ol>
+<p>使用命名实体识别器Stanza提取报告中的entity，在Rad Graph Inference Dataset中查询每个entity对应的triplet</p>
+<p>例：检索到的报告为““pneumothorax or pleural effusion is seen”，提取的实体集合T为{pneumothorax, pleural, effusion}，检索到的知识为 {pneumothorax suggestive of bleeding, effusion located at bilateral,&hellip;}</p>
+<ol>
+<li>知识编码</li>
+</ol>
+<p>将一张图查询到的所有Triplets连成一句话，使用Clinical-Bert进行编码</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YzQxOTc1ZmRkYTMwMDRhNDgzMmMwZWE2OGQ5YmMyZTNfbnRmcEgzRmlmZDNUZWFZRFJvU3BYYkRabkNzbnRsaVFfVG9rZW46RlhmdGJYZGMxb2RyeUJ4dnlWa2M2R2k5bldmXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ol>
+<li>多头注意力</li>
+</ol>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=Zjg2YmM1NTliYTYyZDE4YTBmNDQzNWNmYjQ1ZTdlNGFfazRsaldCRHI4VThWZWg4SkFkWlQ2YVY4TGxob08ycFNfVG9rZW46U1k5R2JUbkZZb3lqYkl4RG1qM2NOd080bndnXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>自回归解码得到报告</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTM2MmU0YzJhNDk3MTE5NjYwMTE3ZGIyYTZiMjc5YTRfajJFd2xnYXlld3VLQ3NQN0xpcjRXdzhpTGtZQng3ek1fVG9rZW46UnBqY2JsclFHbzV5cDJ4d1lqVGNSSmJObmw2XzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>损失函数</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OGYzYmI4Mjg4MDIzMzNlNGE0MmRmZWJiYTQzZTY0MmFfUjBuZkZ2T1dNTERXampNdmtVVmd6V2F5eFk2enFybXFfVG9rZW46Qkl1TWJsbGZqb1l3NFB4dGU4QWNUaG1hbm9jXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+
+
+<h2 class="relative group">Interactive and Explainable Region-guided Radiology Report Generation [CVPR 2023] 
+    <div id="interactive-and-explainable-region-guided-radiology-report-generation-cvpr-2023" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#interactive-and-explainable-region-guided-radiology-report-generation-cvpr-2023" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTI3ZWU0ZmIzZmEzYTBjZDg1ZjM1NTE2M2EyZDg2NmRfbjNCcko5ZFFvZ0pEU1o2V25OSU1xbjV5aVpqMVhheWRfVG9rZW46QUxZSGJwczMzb0NUTEV4UzRPV2NscjM5blBNXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>Model
+<ul>
+<li>Anatomical Object Detector
+<ul>
+<li>Faster-RCNN with Pretrained ResNet-50</li>
+<li>Classified to 29 anatomical regions and background</li>
+<li>A top proposal for each class, or deselected if none</li>
+</ul>
+</li>
+<li>Region slection &amp; Abnomality classification
+<ul>
+<li>predict if a region is selected for sentence generation and is abnormal, respectively.</li>
+</ul>
+</li>
+<li>Language Model
+<ul>
+<li>GPT-2 (355M), an auto-regressive neural network based on self-attention</li>
+<li>fine-tuned on PubMed abstracts</li>
+<li>using pseudo self-attention to consider both visual features and previous outputs</li>
+<li>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTg2NDkwZDk3MmVmODAyY2NiNjZhMGU1ZDQ3MzMzYjFfcEJVM1ZWa09oaGpydEVNckpkazZQcks2ZHZqbGZENFlfVG9rZW46T0Q5N2JheUFGb2NIUmd4WnhTZGNpYllDbnplXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Train
+<ul>
+<li>Only detector</li>
+<li>Detector and binary classifier</li>
+<li>Whole model</li>
+</ul>
+</li>
+<li>Limitations
+<ul>
+<li>Requires strong supervision (ChestImaGenome)</li>
+<li>not utilizing 100% data</li>
+<li>Lack image-level sentences</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 class="relative group">Dynamic Graph Enhanced Contrastive Learning for Chest X-ray Report Generation [CVPR 2023] 
+    <div id="dynamic-graph-enhanced-contrastive-learning-for-chest-x-ray-report-generation-cvpr-2023" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dynamic-graph-enhanced-contrastive-learning-for-chest-x-ray-report-generation-cvpr-2023" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>代码：https://github.com/mlii0117/DCL</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MDVmYjk1MDg4YWQzZjUwYTdmYWQ0MmQ5M2E2ZWI3ZGJfRFI2d3FjWk9RbGdONGFFSVZnQk85eEVFZFhTRnVoT09fVG9rZW46RjRCTGJVcnFIb0VFVHF4cVJYUWNLNTdLbloyXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>Overview
+<ul>
+<li>A dynamic graph to construct the relationships between diseases and organs</li>
+<li>Represent Image with medical knowledge graph embeddings with Cross Attention</li>
+</ul>
+</li>
+<li>Dynamic Graph
+<ul>
+<li>$$G_{pre}$$: 27 nodes, 20 disease keywords, 7 organs or tissues</li>
+<li>$$G_{specific}$$: retrieve top-N reports, extract keywords using Stanza, retrieve knowledge in RadGraph, add nodes to $$G_{pre}$$,</li>
+<li>Embedding: use SciBert to get the initial embedding, add level embedding to show which level the node is at (disease, organ, tissue and so on)</li>
+</ul>
+</li>
+<li>Learning
+<ul>
+<li>IRC：Report embedding&amp; Image(Graph) embedding -&gt; Contrastive Learning</li>
+<li>IRM: whether image and report match,
+<ul>
+<li>Q: Report</li>
+<li>K, V : Image</li>
+<li>CE Loss</li>
+</ul>
+</li>
+<li>RG: Self Regression, Teacher Forcing</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 class="relative group">Histopathology Whole Slide Image Analysis with Heterogeneous Graph Representation Learning [CVPR 2023] 
+    <div id="histopathology-whole-slide-image-analysis-with-heterogeneous-graph-representation-learning-cvpr-2023" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#histopathology-whole-slide-image-analysis-with-heterogeneous-graph-representation-learning-cvpr-2023" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><a href="https://github.com/HKU-MedAI/WSI-HGNN"   target="_blank">
+    https://github.com/HKU-MedAI/WSI-HGNN</a></p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTAxZDJmNjcwYjA3ZjYzNjU4MzViYjNkNjc0NDdjNGVfMXByNjhSYlNZT0pDclpHSGNZcE1xd1VucUk3Z2NJYkRfVG9rZW46T3JXaWJPbjNBb0hNVTJ4bHI4Y2NRUUlwbk1oXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>Heterogeneous graph construction
+<ul>
+<li>WSI -&gt; non-overlapping patches</li>
+<li>Node
+<ul>
+<li>使用HoverNet获取节点类别
+<ul>
+<li>Pretrained on PanNude dataset (nuclei instance segmentation and classification)</li>
+<li>Detect nuclei in patches and assign types</li>
+</ul>
+</li>
+<li>使用KimiaNet获取节点的embedding</li>
+</ul>
+</li>
+<li>Edge
+<ul>
+<li>先使用K近邻选取特征相似的节点，然后使用Pearson R计算节点相关性，作为边属性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Heterogeneous graph learning
+<ul>
+<li>HEATNet
+<ul>
+<li>既考虑节点相似度，又考虑边权重的相似度Transformer，聚合节点信息</li>
+</ul>
+</li>
+<li>PL Pooling
+<ul>
+<li>使用预训练分类器对节点进行聚类（按patch内部的细胞核类型），在每个类别内部进行池化</li>
+</ul>
+</li>
+<li>Prediction
+<ul>
+<li>Cancer Staging &amp; Cancer Classification</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Casual interpretation</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjMxNGI0ZTIxYmQ4NTdkNzM4YjhiYzA2YWRjYzA3YWJfQjMxOExCdDJHTzgwcGlqRWdNeTZDa1pNeWxsWGRvMVJfVG9rZW46SWRjNmJ0UTNWb1FpNDR4bFlBQWM4Sm43bjZPXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<p>使用去除该节点前后预测值的变化，反映节点在决策中的重要程度</p>
+
+
+<h2 class="relative group">KiUT: Knowledge-injected U-Transformer for Radiology Report Generation [CVPR 2023] 
+    <div id="kiut-knowledge-injected-u-transformer-for-radiology-report-generation-cvpr-2023" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kiut-knowledge-injected-u-transformer-for-radiology-report-generation-cvpr-2023" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGVjY2U2NjkwMDBlN2Y2MDFlNTJmN2I1YzY1MmJjNWFfcUQzTzdibWJZbk9nOExMRHREVXpWbHFRcjdXSUlPZm5fVG9rZW46VXdzTmIwdFdUb1pYeTd4YXlEN2NzbXR3bm5pXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>
+<p>Signals</p>
+<ul>
+<li>Visual Knowledge signal
+<ul>
+<li>ResNet101 -&gt; 分patch -&gt; RRSA</li>
+<li>RRSA (Region Relationship Self Attention) : 不仅考虑patch特征的相似度，还考虑两个patch之间的相对位置</li>
+</ul>
+</li>
+<li>Clinical Knowledge Signal
+<ul>
+<li>symptom node embedding (from MBERT) ✖️ symptom probability（from classifier）</li>
+<li>Graph Attention: based on symptom relationship graph</li>
+</ul>
+</li>
+<li>Contextual Knowledge Signal
+<ul>
+<li>Previous output -&gt; MBERT -&gt; Masked MHA</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>U connection</p>
+<ul>
+<li>自回归式Decoder，考虑previous output和encoder visual signals</li>
+<li>Cross Attention的Q是previous output，但K和V不再是last Encoder的输出，而是N-i+1个Encoder的输出</li>
+</ul>
+</li>
+<li>
+<p>Injected Knowledge Distiller</p>
+<ul>
+<li>
+<p>Last Decoder的输出通过attention整合clinical knowledge signal和contextual knowledge signal，沿序列维度拼接后预测下一个词的输出</p>
+</li>
+<li>
+<p>K-Diag: Knowledge-enhanced Disease Diagnosis in Radiographic Imaging [MICCAI 2023]</p>
+</li>
+<li>
+<p><a href="https://github.com/MediaBrain-SJTU/K-Diag"   target="_blank">
+    https://github.com/MediaBrain-SJTU/K-Diag</a></p>
+</li>
+<li>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmZkZWNhYjcwYmMwNTdlNjZjOGRmYjc5YzRmMjQyOWFfZ1hseG92ZUJOVzhlUEhzbHlHcTc1RG04UHc3OVR1ZHFfVG9rZW46R3FEdWJWZHo0bzhnbDd4Nnk4M2NGOXVZblFoXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+</li>
+<li>
+<p>Learnable Prompt Module</p>
+</li>
+<li>
+<p>将Q种疾病用N种特征来表达（特征是可学习参数）</p>
+</li>
+<li>
+<p>疾病Q<em>d 特征N</em>d 疾病在特征上的概率分布通过MLP得到Q<em>N 最终表达Q</em>d</p>
+</li>
+<li>
+<p>Disease-Query Module</p>
+</li>
+<li>
+<p>Architecture: a 4-layer transformer decoder with an MLP to get the final prediction</p>
+</li>
+<li>
+<p>queries: disease embeddings (by pre-trained knowledge encoder and learnable prompt module)</p>
+</li>
+<li>
+<p>keys&amp;values: the encoded features</p>
+</li>
+<li>
+<p>binary classification, CE loss</p>
+</li>
+<li>
+<p>MedKLIP: Medical Knowledge Enhanced Language-Image Pre-Training [ICCV 2023]</p>
+</li>
+<li>
+<p><a href="https://github.com/MediaBrain-SJTU/MedKLIP"   target="_blank">
+    https://github.com/MediaBrain-SJTU/MedKLIP</a></p>
+</li>
+<li>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2EwYzAyNmIxYjA1ZjM5MDExZTA3ZjVmNzVkYjRkMWVfYTk5S3g1VG5ySGVvR1VzOGc4dEFDV0hCNjhDYmpuS0lfVG9rZW46Ukk1TWJPc0Rib1dmMW54Z2VFdGM2S21Lbm1nXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+</li>
+<li>
+<p>pipeline</p>
+<ul>
+<li>Image embedding与某种疾病的entity knowledge embedding(先通过wiki&amp;UMLS知识库构建,然后通过BoiClinical-Bert编码)共同输入模型，预测这种疾病的有/无，位置，特征图</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=M2RjMjY0NTUzZWU0MWE0NGNiM2UzMzRjODNkZWRjYTRfQ2xpdzMwN2lZaVRibUJGN1FZM3U5U280c21zWUNIRUVfVG9rZW46TDVhRWJhU09zbzVKQUN4ZEhldWNrbU5DbkFnXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>训练时，选取Train Set中的Top Q疾病的知识编码进行训练；</li>
+<li>推断时，基于该疾病的医学知识编码进行推断</li>
+</ul>
+</li>
+<li>
+<p>训练</p>
+<ul>
+<li>Pseudo label
+<ol>
+<li>疾病是否存在</li>
+<li>疾病处于何处：使用BioClinical-Bert进行编码</li>
+</ol>
+</li>
+<li>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MzNjNTk5YjQ4ODZhNTY0NzEyNjcxOWQ1YTc4MmMwNjlfeHZKWWZCM0FhdEViajM4bUZ0akYwUDlCU2VBTWI3dzFfVG9rZW46Q3ZKZGJ6TkpGbzI1V1J4OUlsSWM0WjR3bmtjXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</li>
+<li>Fine-grained supervision</li>
+<li>疾病有无：BCE Loss</li>
+<li>疾病位置：将该疾病的位置编码和其他M种位置编码进行对比学习（因为位置编码的类别数未知）</li>
+</ul>
+</li>
+<li>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NjQ0ODY0NDkzZDFiYzkzYmZlYjZiNzU1YzYyMDE1MDdfbllmcUhuVmhIdlhtMVBVM1R2cEJwcmZZY2tTUUlxTzhfVG9rZW46TWlhRmJCUWJXb0hqdTl4TTB3OWNBQnFSbklkXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+</li>
+<li>
+<p>KAD: Knowledge-enhanced Visual-Language Pre-training on Chest Radiology Images [Nature Communication]</p>
+</li>
+<li>
+<p><a href="https://github.com/xiaoman-zhang/KAD"   target="_blank">
+    https://github.com/xiaoman-zhang/KAD</a></p>
+</li>
+<li>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NGZmZTJjZmVjY2NhYzg4YjNiYjFlNzA5OWJkNjE5ZGZfS3Q2WVgyV2hHOVVoamhQR29LZE5GOFgybFpsdkpPbVJfVG9rZW46Qk5CRWJNS2VMb2dVQzB4QzlZWGNkcmM2bk9nXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+</li>
+<li>
+<p>Knowledge database</p>
+<ol>
+<li>knowledge graph: concept-relation-concept triplets</li>
+<li>concept info list: concept-definition pairs</li>
+</ol>
+</li>
+<li>
+<p>Pre-training</p>
+<ol>
+<li>Text contrastive learning between medical concepts or definitions</li>
+<li>image-text contrastive learning with paired chest X-rays and extracted entities(by tools like ChatGPT)</li>
+<li>optimize a Disease Query Network (DQN) for classification</li>
+</ol>
+</li>
+<li>
+<p>Zero-shot inference</p>
+<ol>
+<li>encode the disease name as a query input, and DQN will output the probability that the pathology is present in the input image</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 class="relative group">PMC-CLIP: Contrastive Language-Image Pre-training using Biomedical Documents 
+    <div id="pmc-clip-contrastive-language-image-pre-training-using-biomedical-documents" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pmc-clip-contrastive-language-image-pre-training-using-biomedical-documents" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MjI4OGNmMDU5NTdlMWU3NjZhNTNjZDFjZTM3MDFiMjhfNEtkbUxCRXZkeFhpVnlZdUI2WHhsV3dMWTB5OUtNelJfVG9rZW46STdmWWJGSjZyb2oxUXN4aFliQWNWdENsbm1DXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+
+
+<h2 class="relative group">PMC-VQA: Visual Instruction Tuning for Medical Visual Question Answering 
+    <div id="pmc-vqa-visual-instruction-tuning-for-medical-visual-question-answering" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pmc-vqa-visual-instruction-tuning-for-medical-visual-question-answering" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><a href="https://github.com/xiaoman-zhang/PMC-VQA"   target="_blank">
+    https://github.com/xiaoman-zhang/PMC-VQA</a></p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODU4NWEzZDBhOTU1NDk0NTRhYzJlZWQzYTZlNjc5NWVfSDBIQnFVOWxjWExOZjNiQWs5UVBUU05pMnJLMUVVZWZfVG9rZW46QlAxamJHbTJ3bzFLc1N4T2ExbmNNMGVUbnFjXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>propose a generative-based model for medical visual understanding</li>
+<li>construct a dataset, named PMC-VQA, which contains 227k VQA pairs of 149k images that cover various modalities or diseases</li>
+<li>pre-train on PMC-VQA and then fine-tune it on multiple public benchmarks, e.g., VQA-RAD and SLAKE</li>
+<li>propose a challenging test set</li>
+</ul>
+
+
+<h2 class="relative group">PMC-LLaMA: Further Finetuning LLaMA on Medical Papers 
+    <div id="pmc-llama-further-finetuning-llama-on-medical-papers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pmc-llama-further-finetuning-llama-on-medical-papers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><a href="https://github.com/chaoyi-wu/PMC-LLaMA"   target="_blank">
+    https://github.com/chaoyi-wu/PMC-LLaMA</a></p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YTViZmYwYThmZjQwODliOGQ1NWRiM2FlNDg1ZDVmYjBfWkJta1ZMNVFnTGJ3U1FJS2NiRkxGMW5BRjhmWFZDbllfVG9rZW46VkVSUGJ4UVNLb1ZGNjB4MWd0S2N2WjUzbnFjXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>PMC-LLaMA, fine-tuning LLaMA on 4.8 million biomedical academic papers
+<ul>
+<li>end-to-end full fine-tuning</li>
+<li>parameter-efficient fine-tuning
+<ul>
+<li>Low-Rank Adaptation (LoRA)</li>
+</ul>
+</li>
+<li>data-efficient fine-tuning
+<ul>
+<li>as the training set in USMLE is much smaller compared with that of combining PubMedQA and MedMCQA (10k vs. 400k), less medical knowledge can be learned from the downstream training data, it turns out to be rather more challenging than the previous OOD test</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Benchmarks（都是选择题）
+<ul>
+<li>PubMedQA: PubMed论文摘要问答</li>
+<li>MedMCQA: 印度医学院入学考试, AIIMS and NEET-PG</li>
+<li>USMLE: from United States Medical License Exams, 英文、简/繁体中文</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 class="relative group">Towards Generalist Foundation Model for Radiology 
+    <div id="towards-generalist-foundation-model-for-radiology" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#towards-generalist-foundation-model-for-radiology" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><a href="https://github.com/chaoyi-wu/RadFM"   target="_blank">
+    https://github.com/chaoyi-wu/RadFM</a></p>
+<ul>
+<li>Dataset
+<ul>
+<li>Medical Multimodal Dataset (MedMD)
+<ul>
+<li>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=Mzg3MzRlM2IzZGY5YjhjN2VkMzVkZDdlZDE0MjhlZjRfRUt6c2JjNkpYbjFYWTN1bnRvNlRYcDdVM3EzczdMSWRfVG9rZW46S1pwZ2JUTUNrb3FUcmd4MmxQcGM4MUlzbmhjXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</li>
+<li>visual-language interleaved, 2D&amp;3D, research-oriented &amp;real world clinical data</li>
+<li>subset
+<ul>
+<li>Interleaved Dataset (CLIP)
+<ul>
+<li>no strong question-and-answer relationships between contexts</li>
+<li>Eg. PMC-Inline(将插图定位到论文中的具体某一段落文字)</li>
+</ul>
+</li>
+<li>Visual Instruction Datasets (Q&amp;A)
+<ul>
+<li>eg. “What can you see from the image?  I can see lesions.”</li>
+<li>包括yes or no判断和开放式问答</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Radiology Multimodal Dataset (RadMD)
+<ul>
+<li>a filtered radiology subset (对不同的子数据集采取不同的过滤策略)</li>
+<li>contains a total of 3M images, spanning various data formats, modalities, and tasks</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Unified Learning Paradigm</li>
+</ul>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=OGJmZTM0MWMzNjllZTRlOGQ3MGYxNjZhM2UzYTQxODhfRjJNNkJQTkxjT2pQN0JKdjExZVFSYVRPcVdyeks1VENfVG9rZW46WWxlMWJIc0dlb3ZlYkF4WWZNZmN5ZWtEbmFjXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</p>
+<ul>
+<li>Architecture
+<ul>
+<li>Visual encoding
+<ul>
+<li>convert the image into 3D patches, and embed them into a token sequence and feed it into the encoder
+<ul>
+<li>$$v_i=\phi_{vis}(v_i)\in R^{P_i*d}$$</li>
+<li>adopt 3D ViT here to be compatible with both 2D and 3D image input</li>
+<li>the input image sizes to be divisible by the patch size of 32 × 32 × 4, so we resize the depth dimension to the nearest multiple of 4 and will not surpass 64
+<ul>
+<li>Eg. 2D input 512<em>512 -&gt; 512</em>512*4</li>
+</ul>
+</li>
+<li>$$P_$$ is the total number of tokens. Due to the inconsistency in depth dimension, $$P_$$ also varies across 2D and 3D images. Generally, 3D cases may have much larger $$P_$$ than 2D cases</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Aggregation with Perceiver
+<ul>
+<li>After visual encoding, adopt a perceiver module $$\phi_{per}$$ to aggregate visual representation
+<ul>
+<li>$$\phi_{per}$$ is a transformer decoder with a fixed number of learnable queries</li>
+<li>visual input is treated as key and value</li>
+<li>final output embeddings will be normalized into the same dimension with the pre-defined learnable query sequence</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Multi-modal fusion
+<ul>
+<li>interleave the visual embedding with text embeddings from tokenization, where the special image placeholder token is simply replaced with the corresponding visual embedding.</li>
+<li>The interleaved sequence is then passed into a decoder-only large language model (Φllm) to obtain the output</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Loss function
+<ul>
+<li>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MjUwYjUyMzM4Zjg2NGUxMjQzNWQ4N2I2Zjc0MTg3YTVfQmp0T1JNaVViNWdTaEhhc1VkejN4Qjh2eldISWptUEFfVG9rZW46Q0lIcGJnZUQ0b1loSnd4aUFndWNLZDN4bk5lXzE3MTIyNjQ0Mjk6MTcxMjI2ODAyOV9WNA" alt="img" />
+    
+  </figure>
+
+</li>
+<li>$$\omega_l$$: medical-related单词具有更高的损失权重（属于UMLS)，非医学相关的word具有更低的权重，image placeholder token没有权重</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+      <script>
+        var oid = "views_paper_reading\/survey\/mm_medical.md"
+        var oid_likes = "likes_paper_reading\/survey\/mm_medical.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/paper_reading/survey/mm_kg/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Multi-modal Knowledge Graph</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      Xu Zhang
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://xuzhang0112.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

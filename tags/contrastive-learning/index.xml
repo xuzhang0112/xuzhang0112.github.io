@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Contrastive Learning on Xu Zhang&#39;s Blog</title>
     <link>https://xuzhang0112.github.io/tags/contrastive-learning/</link>
     <description>Recent content in Contrastive Learning on Xu Zhang&#39;s Blog</description>
-    <image>
-      <title>Xu Zhang&#39;s Blog</title>
-      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.121.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/tags/contrastive-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Novel ICD Coding Framework Based on Associated and Hierarchical Code Description Distillation</title>
       <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv24/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv24/</guid>
       <description>原文链接
 ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
@@ -24,69 +21,83 @@ ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
 文本描述和正确的标签描述都应该能被分类器正确地分类出icd code；
 文本描述应该和标签描述尽可能接近，和易混淆的标签描述尽可能远离；
 对于不同的Backbone，该方法在MIMIC III上可以产生0-3个点的提升。</description>
+      
     </item>
+    
     <item>
       <title>Contrastive Learning &amp; Meta Learning</title>
       <link>https://xuzhang0112.github.io/paper_reading/survey/learning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/survey/learning/</guid>
-      <description>对比学习 InstDisc：提出了个体判别的代理任务，核心思想是每张图片都是一个类 batch_size=256, 256个正样本，4096个负样本 Backbone是ResNet50，2048降维到128 200个epoch,温度0.07，学习率1e-2
+      <description>对比学习 # InstDisc：提出了个体判别的代理任务，核心思想是每张图片都是一个类 # batch_size=256, 256个正样本，4096个负样本 Backbone是ResNet50，2048降维到128 200个epoch,温度0.07，学习率1e-2
 数据结构：memory bank
-InvaSpread：端到端，SimCLR前身 端到端，正负样本来自同一个mini batch，正样本是任一图片及其变换，负样本是其他图片及其变换
+InvaSpread：端到端，SimCLR前身 # 端到端，正负样本来自同一个mini batch，正样本是任一图片及其变换，负样本是其他图片及其变换
 因为字典不够大（batchsize只有256），数据增广不够，没有加MLP，因此效果不好
-MoCo：提出了“字典查找”的概念，认为对比学习本质上是在构建一个大字典 用队列取代memory bank
+MoCo：提出了“字典查找”的概念，认为对比学习本质上是在构建一个大字典 # 用队列取代memory bank
 使用动量编码来解决大字典内key的不一致，由于key的编码器更新缓慢，因此可以认为一致
 损失函数：infoNCE
 普适性强，Q和K的编码器可以不同，输入可以是任意模态
-simCLR：成功实现了端到端的对比学习 只有一个编码器
-更多的数据增强：对比学习非常依赖数据增强 对比学习时增加了一个MLP层（迁移到下游任务时去除） 更大的batchsize：从而实现端到端训练 MoCov2 MoCo+数据增强+MLP+cos schedule
+simCLR：成功实现了端到端的对比学习 # 只有一个编码器
+更多的数据增强：对比学习非常依赖数据增强 对比学习时增加了一个MLP层（迁移到下游任务时去除） 更大的batchsize：从而实现端到端训练 MoCov2 # MoCo+数据增强+MLP+cos schedule
 batch=256时，效果远优于sim CLR
-simCLRv2 模型更大
+simCLRv2 # 模型更大
 MLP：fn-ReLu-fn
 动量编码器
-Meta Learning 参考：Meta-Learning in Neural Networks*: A Survey（2020）*
+Meta Learning # 参考：Meta-Learning in Neural Networks*: A Survey（2020）*
 Meta-learning经常被理解为learn to learn，可以分为两个阶段：内循环和外循环。
 内循环阶段，模型利用训练样本拟合某个特定任务；在外循环阶段，对外循环的某个目标函数进行优化。
 内循环和外循环迭代交替进行。
-MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 与传统机器学习的区别
+MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) # 与传统机器学习的区别
 传统机器学习：训练集和测试集是同一个task，在训练集样本上训练模型，希望模型在测试集样本上表现好 MAML：task不同，在训练集可见的task上训练模型，希望在未见过的task上效果好 利用训练集的task学习一个初始化参数，使这个参数在未见过的任务上finetune几轮，就能达到较好的效果 两个阶段：meta-train（内循环+外循环迭代更新，support set &amp;amp; query set）、meta-test（在具体任务上finetune）</description>
+      
     </item>
+    
     <item>
       <title>Knowledge Injected Prompt Based Fine-tuning for Multi-label Few-shot ICD Coding </title>
       <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</guid>
       <description>SOTA of MIMIC III, in 2022, micro-f1 = 59.9 (ReRanker, 2-stage)
-key idea 利用UMLS 2021AA知识图谱（4.4M实体）的层次化知识进行对比学习的预训练，并为不同的负样本（UMLS中的邻节点、父节点、不相关节点）设置不同的软间隔
+key idea # 利用UMLS 2021AA知识图谱（4.4M实体）的层次化知识进行对比学习的预训练，并为不同的负样本（UMLS中的邻节点、父节点、不相关节点）设置不同的软间隔
 在这之前先进行MIMIC III上的完型填空预训练 输入格式：疾病a描述+[MASK]+疾病b描述+[MASK]+&amp;hellip;+病历文本，通过MLM来预测疾病的有无
 使用超长文本专用的LongFormer（8192个token，全局注意力）来处理，使用注意力机制来捕获每一种疾病的相关信息，从而根据不同位置编码的MASK来预测不同疾病的有无
-计算量随类别数增加（N^2），因此无法处理超大类别 Details Pretrain，1张V100，48小时
+计算量随类别数增加（N^2），因此无法处理超大类别 Details # Pretrain，1张V100，48小时
 Finetune, 2张A100，10+0.5小时（MIMIC-III-50 &amp;amp; MIMIC-III-rare50）
 计算量随类别数增加（N^2），因此无法处理超大类别 因此，它在MIMIC III上的SOTA是通过2-stage取得的，先使用之前的sota模型选出300个candidate，再进一步计算</description>
+      
     </item>
+    
     <item>
       <title>Text2Tree: Aligning Text Representation to the Label Tree Hierarchy for Imbalanced Medical Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</guid>
-      <description>key idea 通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
-[] 有监督对比学习将同一类别视为正样本，然而罕见病缺乏同一类别正样本
+      <description>key idea # 通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
+[] # 有监督对比学习将同一类别视为正样本，然而罕见病缺乏同一类别正样本
 通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
 同一类目的疾病的相似度&amp;gt;同一章节不同类目疾病的相似度&amp;gt;不同章节疾病间的相似度
 通过注意力机制，利用父节点和相邻节点，来完善罕见病的表达</description>
+      
     </item>
+    
     <item>
       <title>Towards Semi-Structured Automatic ICD Coding via Tree-based Contrastive Learning</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/nips2023/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/others/nips2023/</guid>
-      <description>key idea 通过定位关键词、打乱等数据增强，让模型学习到长文本的篇章结构信息 目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段 通过层次树来进行对比学习 ICD编码任务的典型范式（仅供介绍任务，并非创新点） 针对长文本的数据增强 病历报告是结构多样化的长文本，同时由于疾病的长尾分布而使得分类变得困难，而许多之前的工作忽略了结构信息，单纯作为一个长序列进行建模
+      <description>key idea # 通过定位关键词、打乱等数据增强，让模型学习到长文本的篇章结构信息 目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段 通过层次树来进行对比学习 ICD编码任务的典型范式（仅供介绍任务，并非创新点） # 针对长文本的数据增强 # 病历报告是结构多样化的长文本，同时由于疾病的长尾分布而使得分类变得困难，而许多之前的工作忽略了结构信息，单纯作为一个长序列进行建模
 目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段（个人认为，这个思路非常好，它意识到了长文本实际上是由不同侧重的语段构成的，合理的注意力非常重要）
 认为在每个报告中都出现、且只出现一次的词组是语段的划分关键词，筛选出关键词后，即可将长文本划分成多个语段，并通过打乱顺序和掩码操作，让模型习得文章篇章结构的多样性
-通过层次树来进行对比学习 在MIMIC-50上取得了提升
+通过层次树来进行对比学习 # 在MIMIC-50上取得了提升
 在MIMIC-III-50-rare提升更明显
 消融实验证明了这些即插即用模块的效果
 另外通过数据证明了MIMIC III是分类难度较大的长文本数据集</description>
+      
     </item>
+    
   </channel>
 </rss>

@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Transformer on Xu Zhang&#39;s Blog</title>
     <link>https://xuzhang0112.github.io/tags/transformer/</link>
     <description>Recent content in Transformer on Xu Zhang&#39;s Blog</description>
-    <image>
-      <title>Xu Zhang&#39;s Blog</title>
-      <url>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://xuzhang0112.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
-    </image>
-    <generator>Hugo -- 0.121.2</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/tags/transformer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic Nerual Networks</title>
       <link>https://xuzhang0112.github.io/paper_reading/survey/basic_nn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>https://xuzhang0112.github.io/paper_reading/survey/basic_nn/</guid>
-      <description>Keyword 一图胜前言
-CNN UNet Series R-CNN Series Fast R-CNN Faster R-CNN 使用Backbone（通常是ResNet）提取特征，得到Feature Map 使用RPN得到若干Bounding Box，分类anchor的有无，回归位置和大小 使用ROI进一步对抑制过的Bounding Box进行细化，进一步回归得到准确的位置和大小，分类得到类别，并抑制 Mask R-CNN [ICCV 2017 Best Paper] YOLO Series YOLO V1 YOLO V3 RNN 感觉已经G了，不想写了，随便写点吧
+      <description>Keyword # 一图胜前言
+CNN # UNet Series # R-CNN Series # Fast R-CNN # Faster R-CNN # 使用Backbone（通常是ResNet）提取特征，得到Feature Map 使用RPN得到若干Bounding Box，分类anchor的有无，回归位置和大小 使用ROI进一步对抑制过的Bounding Box进行细化，进一步回归得到准确的位置和大小，分类得到类别，并抑制 Mask R-CNN [ICCV 2017 Best Paper] # YOLO Series # YOLO V1 # YOLO V3 # RNN # 感觉已经G了，不想写了，随便写点吧
 t时刻的输出与t时刻的输入和t-1时刻的隐状态有关
-Mamba 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba
-LSTM 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。
-Transformer 注意力机制
+Mamba # 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba
+LSTM # 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。
+Transformer # 注意力机制
 自注意力：计算encoder/decoder中每个向量与其他向量的相关性，用加权和取代原来的向量
 交叉注意力：计算decoder中每个向量与encoder输出向量的相关性，用加权和取代decoder中的原向量
 多头：多个注意力的结果拼接起来，再通过线性变换降低维度至输入的维度
@@ -30,15 +27,13 @@ Transformer 注意力机制
 Encoder完全并行
 Decoder高度并行，t时刻不依赖于t-1时刻的隐状态ht-1，仅依赖前t-1个输出
 在训练阶段可以通过teacher forcing实现并行训练
-BERT 结构：Transformer的encoder
+BERT # 结构：Transformer的encoder
 预训练：完形填空
-VIT 将图片拆成patch，视为词向量，送入Tansformer的encoder
+VIT # 将图片拆成patch，视为词向量，送入Tansformer的encoder
 需要预训练，是否优于ResNet取决于预训练数据集的大小
-GPT 模型结构：Transformer decoder堆叠
-学习方式：Pretraining-Finetuning
-大规模无标签数据进行无监督训练，代理任务采用下词预测
-在特定任务上进行有监督的模型微调
-GPT-2 学习方式：Pretraining+Zero-Shot 模型参数更大，数据集更大、质量更高，在9个任务上超过有监督SOTA 在摘要、翻译、问答等任务上不如无监督模型 GPT-3 学习方式：Pretraining+Few-Shot 超过了有监督BERT，尚未超过有监督SOTA GPT3.5：InsturctGPT 大规模语言模型（LLM）的Alignment应当遵循3H原则（Helpful,Honest,Harmless） 学习方式：GPT3+SFT+RM+PPO Prompt数据库构建 来源：Labeler+Customer Prompt分类：直接指定任务/通过样例指定 比较数据打分 Instruction FineTuning(IFT) 任务泛化能力 RLHF：符合人类偏好的奖励函数 社会化的过程 学习文字接龙 GNN 本质：MLP+聚合</description>
+GPT # 模型结构：Transformer decoder堆叠</description>
+      
     </item>
+    
   </channel>
 </rss>

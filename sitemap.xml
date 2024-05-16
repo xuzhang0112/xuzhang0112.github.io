@@ -3,19 +3,54 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv24/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/eccv/</loc>
+    <lastmod>2024-05-16T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/eccv/1/</loc>
+    <lastmod>2024-05-16T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
+    <lastmod>2024-05-16T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/</loc>
+    <lastmod>2024-05-16T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/icml/</loc>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/icml/1/</loc>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/</loc>
+    <lastmod>2024-05-09T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/aaai/4/</loc>
+    <lastmod>2024-05-09T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/aaai/1/</loc>
+    <lastmod>2024-05-09T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv24/</loc>
+    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/</loc>
+    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/acl/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/archives/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/others/coling2022/</loc>
@@ -43,9 +78,6 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2024/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/eccv/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2021/</loc>
@@ -87,12 +119,6 @@
     <loc>https://xuzhang0112.github.io/paper_reading/iclr/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/icml/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/4/</loc>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/acl/22/</loc>
   </url>
   <url>
@@ -100,9 +126,6 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/eccv/1/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/7/</loc>
@@ -132,9 +155,6 @@
     <loc>https://xuzhang0112.github.io/paper_reading/others/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/course/pr/</loc>
   </url>
   <url>
@@ -145,9 +165,6 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/search/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/1/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/</loc>
@@ -171,16 +188,10 @@
     <loc>https://xuzhang0112.github.io/paper_reading/others/nips2023/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/icml/1/</loc>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/visualization/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/vscode/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/2/</loc>

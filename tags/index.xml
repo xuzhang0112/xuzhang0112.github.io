@@ -7,13 +7,93 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <atom:link href="https://xuzhang0112.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ECCV</title>
+      <link>https://xuzhang0112.github.io/tags/eccv/</link>
+      <pubDate>Thu, 16 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/tags/eccv/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Agent</title>
+      <link>https://xuzhang0112.github.io/tags/agent/</link>
+      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/tags/agent/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ICML</title>
+      <link>https://xuzhang0112.github.io/tags/icml/</link>
+      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/tags/icml/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>LLM</title>
+      <link>https://xuzhang0112.github.io/tags/llm/</link>
+      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/tags/llm/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>AAAI</title>
       <link>https://xuzhang0112.github.io/tags/aaai/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/tags/aaai/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Text Classificaiton</title>
+      <link>https://xuzhang0112.github.io/tags/text-classificaiton/</link>
+      <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/tags/text-classificaiton/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Text classification</title>
+      <link>https://xuzhang0112.github.io/tags/text-classification/</link>
+      <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/tags/text-classification/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Arxiv 2024</title>
+      <link>https://xuzhang0112.github.io/tags/arxiv-2024/</link>
+      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/tags/arxiv-2024/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Contrastive Learning</title>
+      <link>https://xuzhang0112.github.io/tags/contrastive-learning/</link>
+      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/tags/contrastive-learning/</guid>
       <description></description>
       
     </item>
@@ -34,16 +114,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/tags/arxiv-2022/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Arxiv 2024</title>
-      <link>https://xuzhang0112.github.io/tags/arxiv-2024/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/tags/arxiv-2024/</guid>
       <description></description>
       
     </item>
@@ -124,16 +194,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/tags/coling-2022/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Contrastive Learning</title>
-      <link>https://xuzhang0112.github.io/tags/contrastive-learning/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/tags/contrastive-learning/</guid>
       <description></description>
       
     </item>
@@ -354,26 +414,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/tags/rnn/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Text Classificaiton</title>
-      <link>https://xuzhang0112.github.io/tags/text-classificaiton/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/tags/text-classificaiton/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Text classification</title>
-      <link>https://xuzhang0112.github.io/tags/text-classification/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/tags/text-classification/</guid>
       <description></description>
       
     </item>

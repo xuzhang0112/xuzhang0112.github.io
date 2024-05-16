@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <atom:link href="https://xuzhang0112.github.io/tags/aaai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/aaai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Improved Graph Contrastive Learning for Short Text Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/aaai/4/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/paper_reading/aaai/4/</guid>
       <description>从语料库中构建3种类型的图，单词、实体、词性。
@@ -31,7 +31,7 @@ $$ Z_{aug}=Z_{w,r}||Z_{e,r}||Z_{p,r} $$
     <item>
       <title>Self-Paced Unified Representation Learning for Hierarchical Multi-Label Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/aaai/1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/paper_reading/aaai/1/</guid>
       <description>Code

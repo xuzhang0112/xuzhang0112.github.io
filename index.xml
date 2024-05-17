@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Thu, 16 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Label Relation Graphs Enhanced Hierarchical Residual Network for Hierarchical Multi-Granularity Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/cvpr/1/</link>
+      <pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/cvpr/1/</guid>
+      <description>提出用概率图模型来建模层次关系。
+三个不同层级的模块输出不同层级的得分，所有节点的联合概率是通路上所有节点的得分相乘，在对数空间即相加。
+$$ p_{joint}(y|x)=\prod_i^ne^{x_iy_i}\prod_{i,j\in \set{1,&amp;hellip;,n}}\psi(y_i,y_j) $$ 第一项限制了通路和对数空间，第二项保证了非法通路概率为0，在归一化时，这些非法通路也不予考虑。
+叶节点的边缘概率即叶节点非零的联合概率，而父节点的边缘概率则是所有叶子节点的边缘概率之和。 $$ p_{margin}(y_i|x)=\frac{1}{Z(x)}\sum_{y:yi=1}p_{joint}(y|x) $$ 层次化损失使用对数似然来最大化第i个标签的边缘概率。 $$ L_{hierarchy}(x,y,i)=-ln(P_{margin}(y_i=1|x)) $$ 同时，对于最底层的细粒度，用softmax+ce直接建模了叶节点的概率分布，作为补充。 $$ L_{com}(x,y,i)= \begin{cases} L_{hierarchy}(x,y,i)&amp;amp; \text{if not leaf} \newline L_{hierarchy}(x,y,i)+L_{ce}&amp;amp;\text{otherwise} \end{cases} $$ 多标签的每一个标签都会参与总的损失计算。 $$ L_{total}=\sum_i^n{L_{com}(x,y,i)} $$ 此外，层次化特征的线性加和、非线性激活、多层感知机在消融实验中被证明有效。
+层次化损失和交叉熵损失的结合也在消融中被证明有效。
+值得注意的是，本文提出了Relabeling这一操作，在训练时分配错误的父级标签，来说明添加CE Loss的必要性。
+batchsize设为8，SGD，余弦退火，迁移学习ResNet-50、分组学习率(1/10)。</description>
+      
+    </item>
+    
     <item>
       <title>Large-Scale Object Classification Using Label Relation Graphs</title>
       <link>https://xuzhang0112.github.io/paper_reading/eccv/1/</link>
@@ -357,7 +373,7 @@ $$ \Sigma^k_{i=1}y_{i}（logS-log\alpha_{i}） $$ 物理意义是很明确的，
       <guid>https://xuzhang0112.github.io/cheat_sheet/blog/</guid>
       <description>Hugo
 hugo server -D #本地编译 hugo #编译 将Hugo静态网站部署到Github Pages PaperMod
-mathjax渲染</description>
+mathjax渲染 Social Icons SVG</description>
       
     </item>
     
@@ -724,7 +740,7 @@ details # 使用了4张2080，共计32GB显存
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/vscode/</guid>
       <description>主题：One Dark Pro python：编译器（miniconda）+格式化插件（black，需要Pip安装且安装vscode插件） matlab: 编译器+文件编码（gb2312） latex: xelatex
-{ &amp;#34;workbench.colorTheme&amp;#34;: &amp;#34;One Dark Pro&amp;#34;, &amp;#34;code-runner.clearPreviousOutput&amp;#34;: true, &amp;#34;code-runner.runInTerminal&amp;#34;: true, &amp;#34;code-runner.ignoreSelection&amp;#34;: true, &amp;#34;code-runner.saveFileBeforeRun&amp;#34;: true, &amp;#34;code-runner.fileDirectoryAsCwd&amp;#34;: true, &amp;#34;editor.fontSize&amp;#34;: 15, &amp;#34;security.workspace.trust.untrustedFiles&amp;#34;: &amp;#34;open&amp;#34;, &amp;#34;editor.detectIndentation&amp;#34;: false, &amp;#34;explorer.confirmDragAndDrop&amp;#34;: false, &amp;#34;editor.formatOnSave&amp;#34;: true, &amp;#34;editor.formatOnType&amp;#34;: true, &amp;#34;editor.formatOnPaste&amp;#34;: true, &amp;#34;workbench.editor.enablePreview&amp;#34;: false, &amp;#34;python.defaultInterpreterPath&amp;#34;: &amp;#34;/opt/miniconda3/bin/python&amp;#34;, &amp;#34;python.terminal.launchArgs&amp;#34;: [], &amp;#34;python.experiments.optOutFrom&amp;#34;: [], &amp;#34;python.languageServer&amp;#34;: &amp;#34;Pylance&amp;#34;, &amp;#34;[python]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;ms-python.black-formatter&amp;#34;, }, &amp;#34;matlab.mlintpath&amp;#34;: &amp;#34;/Applications/MATLAB_R2023b.app/bin/maca64&amp;#34;, &amp;#34;matlab.matlabpath&amp;#34;: &amp;#34;/Applications/MATLAB_R2023b.app/bin&amp;#34;, &amp;#34;matlab.linterEncoding&amp;#34;: &amp;#34;gb2312&amp;#34;, &amp;#34;[matlab]&amp;#34;: { &amp;#34;files.encoding&amp;#34;: &amp;#34;gb2312&amp;#34;, }, &amp;#34;latex-workshop.latex.autoBuild.run&amp;#34;: &amp;#34;never&amp;#34;, &amp;#34;latex-workshop.showContextMenu&amp;#34;: true, &amp;#34;latex-workshop.intellisense.package.enabled&amp;#34;: true, &amp;#34;latex-workshop.</description>
+{ &amp;#34;workbench.colorTheme&amp;#34;: &amp;#34;One Dark Pro&amp;#34;, &amp;#34;code-runner.clearPreviousOutput&amp;#34;: true, &amp;#34;code-runner.runInTerminal&amp;#34;: true, &amp;#34;code-runner.ignoreSelection&amp;#34;: true, &amp;#34;code-runner.saveFileBeforeRun&amp;#34;: true, &amp;#34;code-runner.fileDirectoryAsCwd&amp;#34;: true, &amp;#34;editor.fontSize&amp;#34;: 15, &amp;#34;security.workspace.trust.untrustedFiles&amp;#34;: &amp;#34;open&amp;#34;, &amp;#34;editor.detectIndentation&amp;#34;: false, &amp;#34;explorer.confirmDragAndDrop&amp;#34;: false, &amp;#34;editor.formatOnSave&amp;#34;: true, &amp;#34;editor.formatOnType&amp;#34;: true, &amp;#34;editor.formatOnPaste&amp;#34;: true, &amp;#34;workbench.editor.enablePreview&amp;#34;: false, &amp;#34;python.defaultInterpreterPath&amp;#34;: &amp;#34;/opt/miniconda3/bin/python&amp;#34;, &amp;#34;python.terminal.launchArgs&amp;#34;: [], &amp;#34;python.experiments.optOutFrom&amp;#34;: [], &amp;#34;python.languageServer&amp;#34;: &amp;#34;Pylance&amp;#34;, &amp;#34;[python]&amp;#34;: { &amp;#34;editor.defaultFormatter&amp;#34;: &amp;#34;ms-python.black-formatter&amp;#34;, }, &amp;#34;matlab.mlintpath&amp;#34;: &amp;#34;/Applications/MATLAB_R2023b.app/bin/maca64&amp;#34;, &amp;#34;matlab.matlabpath&amp;#34;: &amp;#34;/Applications/MATLAB_R2023b.app/bin&amp;#34;, &amp;#34;matlab.linterEncoding&amp;#34;: &amp;#34;gb2312&amp;#34;, &amp;#34;[matlab]&amp;#34;: { &amp;#34;files.encoding&amp;#34;: &amp;#34;gb2312&amp;#34;, }, &amp;#34;latex-workshop.latex.autoBuild.run&amp;#34;: &amp;#34;never&amp;#34;, &amp;#34;latex-workshop.showContextMenu&amp;#34;: true, &amp;#34;latex-workshop.intellisense.package.enabled&amp;#34;: true, &amp;#34;latex-workshop.message.error.show&amp;#34;: false, &amp;#34;latex-workshop.</description>
       
     </item>
     

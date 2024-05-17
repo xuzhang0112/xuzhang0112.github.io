@@ -684,7 +684,7 @@ from skimage.transform import warp theta = np.arange(180) # pad padded_image = n
     
 </h3>
 <p><strong>Radon Transform</strong></p>
-<!-- raw HTML omitted -->
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/image-20240506002239402.png" alt="image-20240506002239402" style="zoom:50%;" />
 <p>数学形式化描述</p>
 <p>$$
 p(s,\theta)=\int^\infty_{-\infty}\int^\infty_{-\infty}f(x,y)\delta(xcos\theta+ysin\theta-s)dxdy
@@ -712,7 +712,7 @@ $$</p>
 </span></span><span style="display:flex;"><span>    radon_image[:, i] <span style="color:#f92672">=</span> rotated<span style="color:#f92672">.</span>sum(<span style="color:#ae81ff">0</span>)
 </span></span></code></pre></div><p><strong>Sinogram</strong></p>
 <p>正弦图的每一个$\theta$都对应一组s轴上的投影</p>
-<!-- raw HTML omitted -->
+<img src="/Users/zhangxu/Library/Application Support/typora-user-images/image-20240506002304980.png" alt="image-20240506002304980" style="zoom:50%;" />
 <p><strong>中心切片定理</strong></p>
 <p>二维图像的中心切片定理指出：二维函数 <em>f</em>(<em>x, y</em>) 的投影 <em>p</em>(<em>s</em>) 的傅里叶变换 <em>P</em>(ω) 等于函数 <em>f</em>(<em>x, y</em>) 的傅里叶变换 <em>F</em>(ω<em>x,<em>ω</em>y</em>) 沿与探测器平行的方向过原点的片段。</p>
 <p>

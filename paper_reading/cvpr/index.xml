@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CVPR on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/paper_reading/cvpr/</link>
+    <description>Recent content in CVPR on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/cvpr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Label Relation Graphs Enhanced Hierarchical Residual Network for Hierarchical Multi-Granularity Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/cvpr/1/</link>
+      <pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/cvpr/1/</guid>
+      <description>提出用概率图模型来建模层次关系。
+三个不同层级的模块输出不同层级的得分，所有节点的联合概率是通路上所有节点的得分相乘，在对数空间即相加。
+$$ p_{joint}(y|x)=\prod_i^ne^{x_iy_i}\prod_{i,j\in \set{1,&amp;hellip;,n}}\psi(y_i,y_j) $$ 第一项限制了通路和对数空间，第二项保证了非法通路概率为0，在归一化时，这些非法通路也不予考虑。
+叶节点的边缘概率即叶节点非零的联合概率，而父节点的边缘概率则是所有叶子节点的边缘概率之和。 $$ p_{margin}(y_i|x)=\frac{1}{Z(x)}\sum_{y:yi=1}p_{joint}(y|x) $$ 层次化损失使用对数似然来最大化第i个标签的边缘概率。 $$ L_{hierarchy}(x,y,i)=-ln(P_{margin}(y_i=1|x)) $$ 同时，对于最底层的细粒度，用softmax+ce直接建模了叶节点的概率分布，作为补充。 $$ L_{com}(x,y,i)= \begin{cases} L_{hierarchy}(x,y,i)&amp;amp; \text{if not leaf} \newline L_{hierarchy}(x,y,i)+L_{ce}&amp;amp;\text{otherwise} \end{cases} $$ 多标签的每一个标签都会参与总的损失计算。 $$ L_{total}=\sum_i^n{L_{com}(x,y,i)} $$ 此外，层次化特征的线性加和、非线性激活、多层感知机在消融实验中被证明有效。
+层次化损失和交叉熵损失的结合也在消融中被证明有效。
+值得注意的是，本文提出了Relabeling这一操作，在训练时分配错误的父级标签，来说明添加CE Loss的必要性。
+batchsize设为8，SGD，余弦退火，迁移学习ResNet-50、分组学习率(1/10)。</description>
+      
+    </item>
+    
+  </channel>
+</rss>

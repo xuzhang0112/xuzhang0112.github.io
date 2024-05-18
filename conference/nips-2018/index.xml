@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>PaperReading on Xu Zhang&#39;s Blog</title>
-    <link>https://xuzhang0112.github.io/paper_reading/</link>
-    <description>Recent content in PaperReading on Xu Zhang&#39;s Blog</description>
+    <title>NIPS 2018 on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/conference/nips-2018/</link>
+    <description>Recent content in NIPS 2018 on Xu Zhang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xuzhang0112.github.io/conference/nips-2018/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Evidential Deep Learning</title>
       <link>https://xuzhang0112.github.io/paper_reading/nips/2018_/</link>
@@ -27,22 +27,6 @@ $$ \Sigma^k_{i=1}y_{i}（logS-log\alpha_{i}） $$ 物理意义是很明确的，
 一句话蒸馏版 # 模型结构：端到端K分类预测 -&amp;gt; 先获得证据，再通过分布采样获得K分类预测
 优化方法：
 类别标签产生的监督信号，通过公式推导，优化网络的证据预测值 正则项约束：要求错误类别的证据为0 </description>
-      
-    </item>
-    
-    <item>
-      <title>Towards Semi-Structured Automatic ICD Coding via Tree-based Contrastive Learning</title>
-      <link>https://xuzhang0112.github.io/paper_reading/nips/2023_/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/nips/2023_/</guid>
-      <description>key idea # 通过定位关键词、打乱等数据增强，让模型学习到长文本的篇章结构信息 目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段 通过层次树来进行对比学习 ICD编码任务的典型范式（仅供介绍任务，并非创新点） # 针对长文本的数据增强 # 病历报告是结构多样化的长文本，同时由于疾病的长尾分布而使得分类变得困难，而许多之前的工作忽略了结构信息，单纯作为一个长序列进行建模
-目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段（个人认为，这个思路非常好，它意识到了长文本实际上是由不同侧重的语段构成的，合理的注意力非常重要）
-认为在每个报告中都出现、且只出现一次的词组是语段的划分关键词，筛选出关键词后，即可将长文本划分成多个语段，并通过打乱顺序和掩码操作，让模型习得文章篇章结构的多样性
-通过层次树来进行对比学习 # 在MIMIC-50上取得了提升
-在MIMIC-III-50-rare提升更明显
-消融实验证明了这些即插即用模块的效果
-另外通过数据证明了MIMIC III是分类难度较大的长文本数据集</description>
       
     </item>
     

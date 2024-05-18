@@ -272,10 +272,10 @@ BGC和WOS</description>
     
     <item>
       <title>Evidential Deep Learning</title>
-      <link>https://xuzhang0112.github.io/paper_reading/nips/enn/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/2018_/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/nips/enn/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/2018_/</guid>
       <description> B分布和Dirichlet分布 # B分布：0-1之间的含参连续分布，概率的概率分布服从B分布。
 如何通俗理解 beta 分布？
 狄利克雷分布（Dirichlet distribution）:B分布在K≥3时的一种推广，K维离散随机变量的概率分布服从Dirichlet分布。
@@ -691,10 +691,10 @@ details # 使用了4张2080，共计32GB显存
     
     <item>
       <title>Towards Semi-Structured Automatic ICD Coding via Tree-based Contrastive Learning</title>
-      <link>https://xuzhang0112.github.io/paper_reading/nips/nips2023/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/2023_/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/nips/nips2023/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/2023_/</guid>
       <description>key idea # 通过定位关键词、打乱等数据增强，让模型学习到长文本的篇章结构信息 目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段 通过层次树来进行对比学习 ICD编码任务的典型范式（仅供介绍任务，并非创新点） # 针对长文本的数据增强 # 病历报告是结构多样化的长文本，同时由于疾病的长尾分布而使得分类变得困难，而许多之前的工作忽略了结构信息，单纯作为一个长序列进行建模
 目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段（个人认为，这个思路非常好，它意识到了长文本实际上是由不同侧重的语段构成的，合理的注意力非常重要）
 认为在每个报告中都出现、且只出现一次的词组是语段的划分关键词，筛选出关键词后，即可将长文本划分成多个语段，并通过打乱顺序和掩码操作，让模型习得文章篇章结构的多样性

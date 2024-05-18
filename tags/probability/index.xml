@@ -26,10 +26,10 @@ batchsize设为8，SGD，余弦退火，迁移学习ResNet-50、分组学习率(
     
     <item>
       <title>Evidential Deep Learning</title>
-      <link>https://xuzhang0112.github.io/paper_reading/nips/enn/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/2018_/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/nips/enn/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/2018_/</guid>
       <description> B分布和Dirichlet分布 # B分布：0-1之间的含参连续分布，概率的概率分布服从B分布。
 如何通俗理解 beta 分布？
 狄利克雷分布（Dirichlet distribution）:B分布在K≥3时的一种推广，K维离散随机变量的概率分布服从Dirichlet分布。

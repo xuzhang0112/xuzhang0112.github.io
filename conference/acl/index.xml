@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ACL on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/conference/acl/</link>
+    <description>Recent content in ACL on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <atom:link href="https://xuzhang0112.github.io/conference/acl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deep Hierarchical Classification for Category Prediction in E-commerce System</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/20_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/20_1/</guid>
+      <description>key idea # 特征解耦，子类的特征是在父类特征的基础上，拼接独有特征 提出了一个父类子类依赖的Loss，当子类预测错误且与预测的父类不一致时，惩罚错误的父类或子类（总之惩罚错误的那个） architecture # 原图就是这么糊，没有办法
+Loss # 有空再补公式，其实就是key idea第二行，很简单的交叉熵连乘</description>
+      
+    </item>
+    
+    <item>
+      <title>Enhancing Hierarchical Text Classification through Knowledge Graph Integration</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/23_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/23_1/</guid>
+      <description>acl 2023 findings
+Code
+key idea # KTE：知识文本编码器，利用ConceptNet查询文本中所有的关键词，将KG Embedding作为附加信息，加到BERT的文本embedding上，以丰富文本表示；对于标签，额外使用一个GNN，来利用标签的层次信息，聚合相邻标签的信息，以丰富标签表示。
+KHLA：采用3种方式来聚合文本的特征，[cls]聚合，可训练的label embedding聚合，编码器获取的label embedding聚合
+KCL：除了BCE Loss之外，使用实体重合率和标签重合率来衡量文本之间的相似度，并施加对应的对比学习损失
+BGC和WOS</description>
+      
+    </item>
+    
+    <item>
+      <title>Incorporating Hierarchy into Text Encoder: a Contrastive Learning Approach for Hierarchical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/22/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/22/</guid>
+      <description>key idea # 使用GNN获取层次标签的表示，并进一步从文本中抽取和标签相关的特征。 一方面，可以视为数据增强，和原始文本一起，训练分类器；一方面，用于对比学习的正样本，拉进文本与其标签增强表示的距离，拉远和其他文本及其标签增强表示的距离。
+在这篇文章中，Label Embedding仍然只是作为一种文本增强的手段，而不是对比学习的positive anchor，这是否在暗示我们的idea并不可行？</description>
+      
+    </item>
+    
+    <item>
+      <title>Medical knowledge-enhanced prompt learning for diagnosis classification from clinical text</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/23_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/23_2/</guid>
+      <description>key idea # 通过在KG中查询相关知识，然后加入prompt中，并通过bert的[MASK] token预测疾病的有无</description>
+      
+    </item>
+    
+  </channel>
+</rss>

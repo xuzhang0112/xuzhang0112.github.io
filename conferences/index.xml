@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Conferences on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/conferences/</link>
+    <description>Recent content in Conferences on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <atom:link href="https://xuzhang0112.github.io/conferences/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

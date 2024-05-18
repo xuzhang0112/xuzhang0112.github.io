@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TMI 2024 on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/conference/tmi-2024/</link>
+    <description>Recent content in TMI 2024 on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <atom:link href="https://xuzhang0112.github.io/conference/tmi-2024/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hierarchical Knowledge Guided Learning for Real-World Retinal Disease Recognition</title>
+      <link>https://xuzhang0112.github.io/paper_reading/tmi/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/tmi/1/</guid>
+      <description>作者知乎 作者Talk</description>
+      
+    </item>
+    
+  </channel>
+</rss>

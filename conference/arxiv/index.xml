@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arxiv on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/conference/arxiv/</link>
+    <description>Recent content in Arxiv on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <lastBuildDate>Wed, 01 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/conference/arxiv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Novel ICD Coding Framework Based on Associated and Hierarchical Code Description Distillation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv24/</link>
+      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv24/</guid>
+      <description>原文链接
+ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
+每个医学报告对应若干ICD code，通过先验知识ICD Tree，可以获得若干相邻的（易混淆的）ICD code。
+监督信号来自两方面：
+文本描述和正确的标签描述都应该能被分类器正确地分类出icd code；
+文本描述应该和标签描述尽可能接近，和易混淆的标签描述尽可能远离；
+对于不同的Backbone，该方法在MIMIC III上可以产生0-3个点的提升。</description>
+      
+    </item>
+    
+    <item>
+      <title>DKEC: Domain Knowledge Enhanced Multi-Label Classification for Electronic Health Records</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2024/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2024/</guid>
+      <description>key idea # 使用GNN从医学指南中获取疾病的表示，从而指导大模型的输出 使用冻结的预训练编码器（可以是任何模型，当然理论上不如全参数微调） 只训练GNN（HGT），可以作为即插即用的模块，能使得小模型具有和大模型相当的性能 通过年龄特性对某些疾病进行规则筛选 Results in MIMIC III # 数据集的划分和之前的SOTA不太一样，因此无法直接比较</description>
+      
+    </item>
+    
+    <item>
+      <title>KG-MTT-BERT: Knowledge Graph Enhanced BERT for Multi-Type Medical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2022/</guid>
+      <description>key idea # 中文病历报告的疾病分类工作
+使用bert分别处理病历报告的各个字段，探讨了不同尺度和不同池化方式对结果的影响 max-pooling比CLS更好 序列长度大于64时，效果较好 大体上损失函数收敛更快、更低，同时精度提升最快 使用KG、图嵌入和图网络增强了分类 图嵌入:KG2E 推测：词语级别的医学实体编码相比单字级别的中文分词编码，引入了额外的信息，因此能提升性能 数据集规模大概在几万例样本，几百类疾病，各个字段的长度差异较大，entity也比较少</description>
+      
+    </item>
+    
+  </channel>
+</rss>

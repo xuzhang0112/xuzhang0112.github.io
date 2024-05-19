@@ -15,13 +15,15 @@
       
       <guid>https://xuzhang0112.github.io/paper_reading/nips/23_2/</guid>
       <description>NIPS Workshop 2023
-Automated clinical coding using off-the-shelf large language models | OpenReview Model: Llama-2, GPT-3.5 and GPT-4 Dataset: CodiEsp (1000cases) Metrics:
+Automated clinical coding using off-the-shelf large language models | OpenReview 测试了Llama-2, GPT-3.5 和GPT-4在CodiEsp数据集 (1000cases)上的性能
 macro-F1 micro-F1 Proposed(LLM inference) 0.225 0.157 PLM-ICD(BERT based, pretrained on MIMIC III &amp;amp; VI, SOTA) 0.216 0.219 Prompt：“You are a clinical coder, consider the case note and assign the appropriate ICD codes”
 LLM控温：GPT设为0，Llama设为0.001（最小值），以获得确定性输出。
 后处理：将LLM生成的文本与ICD code description进行贪婪匹配。
 StefanoTrv/simple_icd_10_CM: A simple python library for ICD-10-CM codes (github.com)
 JoakimEdin/medical-coding-reproducibility (github.com)
-直接匹配代码/匹配代码描述/树形搜索的对比</description>
+直接匹配代码/匹配代码描述/树形搜索的对比
+层级准确率
+LLM可能会产生（根据先验知识）互斥的结果</description>
       
     </item>
     

@@ -15,7 +15,8 @@
       
       <guid>https://xuzhang0112.github.io/paper_reading/nips/23_2/</guid>
       <description>NIPS Workshop 2023
-Automated clinical coding using off-the-shelf large language models | OpenReview 测试了Llama-2, GPT-3.5 和GPT-4在CodiEsp数据集 (1000cases)上的性能
+Automated clinical coding using off-the-shelf large language models | OpenReview
+测试了Llama-2, GPT-3.5 和GPT-4在CodiEsp数据集 (1000cases)上的性能
 macro-F1 micro-F1 Proposed(LLM inference) 0.225 0.157 PLM-ICD(BERT based, pretrained on MIMIC III &amp;amp; VI, SOTA) 0.216 0.219 Prompt：“You are a clinical coder, consider the case note and assign the appropriate ICD codes”
 LLM控温：GPT设为0，Llama设为0.001（最小值），以获得确定性输出。
 后处理：将LLM生成的文本与ICD code description进行贪婪匹配。
@@ -65,7 +66,8 @@ batchsize设为8，SGD，余弦退火，迁移学习ResNet-50、分组学习率(
       <description>此类文章（LLM推理）通常需要新颖的任务、详细的实验、好的故事。
 Github
 解决8种graph问题
-Prompt: 用于帮助模型理解任务和上下文 Instruction: 指导模型执行具体操作或完成任务</description>
+Prompt: 用于帮助模型理解任务和上下文
+Instruction: 指导模型执行具体操作或完成任务</description>
       
     </item>
     
@@ -192,7 +194,7 @@ GPT # 模型结构：Transformer decoder堆叠</description>
     </item>
     
     <item>
-      <title>CLI Cheatsheet</title>
+      <title>CLI</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/cli/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -616,6 +618,45 @@ Fisher线性判别法
     </item>
     
     <item>
+      <title>Probability</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/course/prob/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/cheat_sheet/course/prob/</guid>
+      <description>作业要点 # 作业1
+几何分布：概率为p的事件首次发生时的次数，期望=1/p
+协方差的计算公式推导：定义+期望的性质
+期望=条件期望的概率加权和
+泊松分布：小概率事件在一段时间内发生的次数，服从泊松分布的随机变量的和服从泊松分布，且$$\lambda=\lambda_1+\lambda_2$$
+X+Y的概率分布：卷积公式，本质上是全概率公式（条件概率）
+贝叶斯公式：后验概率=先验概率+似然概率（后验颠倒）
+作业2
+马尔可夫链：利用含有条件概率的全概率公式
+XY的概率分布：独立则可拆分，并灵活运用方差=二阶矩-一阶矩^2
+多元概率分布之间的转换：利用雅可比行列式（顺序的记忆方法：不同分布都满足概率和为1）
+样本方差的期望：利用期望和方差的性质进行一通推导（期望是线性的，方差不是线性的，虽然可加）
+布朗运动：参考弹珠下落在分隔板上左/右移，借此思考其性质，然后根据定义一通推导就行了
+Matropolis hasting算法：可以采样出任意分布（建议看龙哥博客，因为我现在也忘了）
+作业3
+基于样本的均值和方差估计正态分布的均值和方差
+基于样本最大值估计均匀分布的上界
+估计量的均方误差=偏差的平方+估计量的方差
+区间估计：样本均值服从正态分布，样本方差服从自由度n-1的卡方分布（卡方分布，即多个正态分布的随机变量的平方和的分布）考试考了一道均值和方差都未知时的估计均值，有点坑
+基于区间估计进行假设检验
+作业4
+最大后验估计：基于贝叶斯公式可以获得参数的后验概率，然后将样本代入，即可得到该组样本下待估参数的分布函数，然后取极值点即可
+随机变量的换元：代入计算即可，没什么特别的
+线性回归：b1是相关系数，b0相应减去，基本上就是一通推导得到的，注意利用求和符号的性质
+Key # 1.一道简单的证明，忘了
+2.3个变量的次序统计量的联合概率分布，转化成最大值最小值，注意组合数公式
+3.马尔可夫链（赌徒），需要利用条件期望证明
+4.利用期望和方差的性质计算一堆量
+5.均值和方差都未知的区间估计和假设检验，这道题巨坑
+6.很简单的一道证明题，好像就是代入定义，忘了</description>
+      
+    </item>
+    
+    <item>
       <title>Python</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/python/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -752,45 +793,6 @@ details # 使用了4张2080，共计32GB显存
       
       <guid>https://xuzhang0112.github.io/paper_reading/aaai/2/</guid>
       <description> 情感分析不是单一情感倾向的，而是多方面、多情感的(细粒度) 三个公共数据集（MAMS、Rest14 和 Lap14） </description>
-      
-    </item>
-    
-    <item>
-      <title>概率统计</title>
-      <link>https://xuzhang0112.github.io/cheat_sheet/course/prob/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/cheat_sheet/course/prob/</guid>
-      <description>作业要点 # 作业1
-几何分布：概率为p的事件首次发生时的次数，期望=1/p
-协方差的计算公式推导：定义+期望的性质
-期望=条件期望的概率加权和
-泊松分布：小概率事件在一段时间内发生的次数，服从泊松分布的随机变量的和服从泊松分布，且$$\lambda=\lambda_1+\lambda_2$$
-X+Y的概率分布：卷积公式，本质上是全概率公式（条件概率）
-贝叶斯公式：后验概率=先验概率+似然概率（后验颠倒）
-作业2
-马尔可夫链：利用含有条件概率的全概率公式
-XY的概率分布：独立则可拆分，并灵活运用方差=二阶矩-一阶矩^2
-多元概率分布之间的转换：利用雅可比行列式（顺序的记忆方法：不同分布都满足概率和为1）
-样本方差的期望：利用期望和方差的性质进行一通推导（期望是线性的，方差不是线性的，虽然可加）
-布朗运动：参考弹珠下落在分隔板上左/右移，借此思考其性质，然后根据定义一通推导就行了
-Matropolis hasting算法：可以采样出任意分布（建议看龙哥博客，因为我现在也忘了）
-作业3
-基于样本的均值和方差估计正态分布的均值和方差
-基于样本最大值估计均匀分布的上界
-估计量的均方误差=偏差的平方+估计量的方差
-区间估计：样本均值服从正态分布，样本方差服从自由度n-1的卡方分布（卡方分布，即多个正态分布的随机变量的平方和的分布）考试考了一道均值和方差都未知时的估计均值，有点坑
-基于区间估计进行假设检验
-作业4
-最大后验估计：基于贝叶斯公式可以获得参数的后验概率，然后将样本代入，即可得到该组样本下待估参数的分布函数，然后取极值点即可
-随机变量的换元：代入计算即可，没什么特别的
-线性回归：b1是相关系数，b0相应减去，基本上就是一通推导得到的，注意利用求和符号的性质
-Key # 1.一道简单的证明，忘了
-2.3个变量的次序统计量的联合概率分布，转化成最大值最小值，注意组合数公式
-3.马尔可夫链（赌徒），需要利用条件期望证明
-4.利用期望和方差的性质计算一堆量
-5.均值和方差都未知的区间估计和假设检验，这道题巨坑
-6.很简单的一道证明题，好像就是代入定义，忘了</description>
       
     </item>
     

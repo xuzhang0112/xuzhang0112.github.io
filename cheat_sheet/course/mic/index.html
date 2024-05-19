@@ -241,7 +241,7 @@ from skimage.transform import warp theta = np.arange(180) # pad padded_image = n
         
         <a href="/cheat_sheet/cli/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
           
-          <p class="text-sm font-sm" title="CLI Cheatsheet">
+          <p class="text-sm font-sm" title="CLI">
             CLI
           </p>
         </a>
@@ -250,6 +250,13 @@ from skimage.transform import warp theta = np.arange(180) # pad padded_image = n
           
           <p class="text-sm font-sm" title="Python">
             Python
+          </p>
+        </a>
+        
+        <a href="/cheat_sheet/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Course">
+            Course
           </p>
         </a>
         
@@ -538,7 +545,7 @@ from skimage.transform import warp theta = np.arange(180) # pad padded_image = n
 <li class="mt-1">
     <a href="/cheat_sheet/cli/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-sm font-small" title="CLI Cheatsheet">
+        <p class="text-sm font-small" title="CLI">
             CLI
         </p>
     </a>
@@ -549,6 +556,15 @@ from skimage.transform import warp theta = np.arange(180) # pad padded_image = n
         
         <p class="text-sm font-small" title="Python">
             Python
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/cheat_sheet/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Course">
+            Course
         </p>
     </a>
 </li>
@@ -700,6 +716,8 @@ from skimage.transform import warp theta = np.arange(180) # pad padded_image = n
   
     
   
+    
+  
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
@@ -714,6 +732,15 @@ from skimage.transform import warp theta = np.arange(180) # pad padded_image = n
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/cheat_sheet/"
       >CheatSheet</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/cheat_sheet/course/"
+      >Course</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -827,7 +854,68 @@ from skimage.transform import warp theta = np.arange(180) # pad padded_image = n
   
   <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
     
-    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ct-reconstruction">CT Reconstruction</a>
+      <ul>
+        <li><a href="#analytical-ct-reconstruction">Analytical CT reconstruction</a></li>
+      </ul>
+    </li>
+    <li><a href="#mri-reconstruction">MRI Reconstruction</a></li>
+    <li><a href="#image-enhancement--restoration">Image Enhancement &amp; Restoration</a>
+      <ul>
+        <li><a href="#image-quality-assessment">Image Quality Assessment</a></li>
+        <li><a href="#image-enhancement">Image Enhancement</a></li>
+        <li><a href="#image-restoration">Image Restoration</a></li>
+      </ul>
+    </li>
+    <li><a href="#image-segmentation">Image Segmentation</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ct-reconstruction">CT Reconstruction</a>
+      <ul>
+        <li><a href="#analytical-ct-reconstruction">Analytical CT reconstruction</a></li>
+      </ul>
+    </li>
+    <li><a href="#mri-reconstruction">MRI Reconstruction</a></li>
+    <li><a href="#image-enhancement--restoration">Image Enhancement &amp; Restoration</a>
+      <ul>
+        <li><a href="#image-quality-assessment">Image Quality Assessment</a></li>
+        <li><a href="#image-enhancement">Image Enhancement</a></li>
+        <li><a href="#image-restoration">Image Restoration</a></li>
+      </ul>
+    </li>
+    <li><a href="#image-segmentation">Image Segmentation</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+   </div>
+      </div>
+      
 
       <div class="min-w-0 min-h-0 max-w-fit">
         

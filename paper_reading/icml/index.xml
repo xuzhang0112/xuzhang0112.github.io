@@ -17,7 +17,8 @@
       <description>此类文章（LLM推理）通常需要新颖的任务、详细的实验、好的故事。
 Github
 解决8种graph问题
-Prompt: 用于帮助模型理解任务和上下文 Instruction: 指导模型执行具体操作或完成任务</description>
+Prompt: 用于帮助模型理解任务和上下文
+Instruction: 指导模型执行具体操作或完成任务</description>
       
     </item>
     

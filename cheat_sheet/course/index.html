@@ -8,14 +8,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning &middot; Xu Zhang&#39;s Blog</title>
-  <meta name="title" content="Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning &middot; Xu Zhang&#39;s Blog" />
+  <title>Course &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="Course &middot; Xu Zhang&#39;s Blog" />
   
   
   
   
   
-  <link rel="canonical" href="https://xuzhang0112.github.io/paper_reading/others/cikm2023/" />
+  <link rel="canonical" href="https://xuzhang0112.github.io/cheat_sheet/course/" />
+  
+  <link rel="alternate" type="application/rss+xml" href="/cheat_sheet/course/index.xml" title="Xu Zhang's Blog" />
   
   
   
@@ -60,64 +62,17 @@
   
   
   
-  <meta property="og:title" content="Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning" />
-<meta property="og:description" content="key idea # 构建知识图谱 TFIDF筛选实体，UMLS relation table&#43;co-occurance建立关系 多任务训练GAT model # 本文对比了两种不同的多任务范式，多任务共享编码器和设置任务特异性编码器。（公式较为繁琐，但描述的实际上就是下面两张图）
-多任务共享编码器（4层GAT，ICD编码根据第2层输出）
-共享编码器&#43;任务特异性编码器（2层GAT&#43;2层GIAT）
-共享编码器聚合特征
-特异性编码器的中间特征（注意到计算相似度的依据是共享特征而不是特异性特征）
-特异性编码器的最终特征是两个特征的加权和，g是控制因子
-将文本节点送入分类器得到分类结果，并同时优化K个任务、$$N_$$个样本、$$C_k$$个类别。
-details # 使用了4张2080，共计32GB显存
-不同backbone
-多任务的必要性" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/others/cikm2023/" /><meta property="article:section" content="paper_reading" />
+  <meta property="og:title" content="Course" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/course/" />
 
 
-
-
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning"/>
-<meta name="twitter:description" content="key idea # 构建知识图谱 TFIDF筛选实体，UMLS relation table&#43;co-occurance建立关系 多任务训练GAT model # 本文对比了两种不同的多任务范式，多任务共享编码器和设置任务特异性编码器。（公式较为繁琐，但描述的实际上就是下面两张图）
-多任务共享编码器（4层GAT，ICD编码根据第2层输出）
-共享编码器&#43;任务特异性编码器（2层GAT&#43;2层GIAT）
-共享编码器聚合特征
-特异性编码器的中间特征（注意到计算相似度的依据是共享特征而不是特异性特征）
-特异性编码器的最终特征是两个特征的加权和，g是控制因子
-将文本节点送入分类器得到分类结果，并同时优化K个任务、$$N_$$个样本、$$C_k$$个类别。
-details # 使用了4张2080，共计32GB显存
-不同backbone
-多任务的必要性"/>
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Course"/>
+<meta name="twitter:description" content=""/>
 
   
-  <script type="application/ld+json">
-  [{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "articleSection": "PaperReading",
-    "name": "Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning",
-    "headline": "Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning",
-    
-    "abstract": "key idea # 构建知识图谱 TFIDF筛选实体，UMLS relation table\u002bco-occurance建立关系 多任务训练GAT model # 本文对比了两种不同的多任务范式，多任务共享编码器和设置任务特异性编码器。（公式较为繁琐，但描述的实际上就是下面两张图）\n多任务共享编码器（4层GAT，ICD编码根据第2层输出）\n共享编码器\u002b任务特异性编码器（2层GAT\u002b2层GIAT）\n共享编码器聚合特征\n特异性编码器的中间特征（注意到计算相似度的依据是共享特征而不是特异性特征）\n特异性编码器的最终特征是两个特征的加权和，g是控制因子\n将文本节点送入分类器得到分类结果，并同时优化K个任务、$$N_$$个样本、$$C_k$$个类别。\ndetails # 使用了4张2080，共计32GB显存\n不同backbone\n多任务的必要性",
-    "inLanguage": "en",
-    "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/others\/cikm2023\/",
-    "author" : {
-      "@type": "Person",
-      "name": "Xu Zhang"
-    },
-    
-    
-    
-    
-    
-    
-    
-    
-    "mainEntityOfPage": "true",
-    "wordCount": "22"
-  }]
-  </script>
-
+  
 
   
   
@@ -714,71 +669,11 @@ details # 使用了4张2080，共计32GB显存
       
 
 
-<article>
+ <header>
   
-
-  <header id="single_header" class="mt-5 max-w-prose">
+  <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">Course</h1>
+  <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
     
-    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
-  
-  
-    
-  
-    
-  
-    
-  
-  <li class="inline hidden">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/"
-      >Xu Zhang&#39;s Blog</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-  
-  <li class="inline ">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/paper_reading/"
-      >PaperReading</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-  
-  <li class="inline ">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/paper_reading/others/"
-      >Others</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-  
-  <li class="inline hidden">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/paper_reading/others/cikm2023/"
-      >Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-</ol>
-
-
-    
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning
-    </h1>
-    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-      
-
-
-
-
-
-  
-  
 
 
 
@@ -787,14 +682,6 @@ details # 使用了4张2080，共计32GB显存
 
 
 
-
-
-
-  
-
-
-
-  
 
 
 
@@ -811,218 +698,599 @@ details # 使用了4张2080，共计32GB显存
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <span>22 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
-  
-
-  
-  
 </div>
 
 
-
-
-
-<div class="flex flex-row flex-wrap items-center">
+  </div>
   
   
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/cikm/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    CIKM
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2023/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2023
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-    </div>
-
     
     
-    
-    
-    
-
-    
-
-    
-      
-      
-
-      
-
-      
-
-    
-
+  <script>
+    var oid = "views_cheat_sheet\/course\/_index.md"
+    var oid_likes = "likes_cheat_sheet\/course\/_index.md"
+  </script>
+  
+  
+  
+  <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
   </header>
+  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
+    
+    <div class="min-w-0 min-h-0 max-w-prose">
+      
+    </div>
+   
+
+
+
+  </section>
   
-  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+
     
     
+    
 
-      <div class="min-w-0 min-h-0 max-w-fit">
-        
-        
+    
 
+      
 
-        <div class="article-content max-w-prose mb-20">
+        <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+          
+          
           
 
-<h2 class="relative group">key idea 
-    <div id="key-idea" class="anchor"></div>
+  <a href="/cheat_sheet/course/eng/" class="min-w-full">
     
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#key-idea" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<ol>
-<li>构建知识图谱
-<ul>
-<li>TFIDF筛选实体，UMLS relation table+co-occurance建立关系</li>
-</ul>
-</li>
-<li>多任务训练GAT</li>
-</ol>
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/cheat_sheet/course/eng/">Reading</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
 
 
-<h2 class="relative group">model 
-    <div id="model" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#model" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p>本文对比了两种不同的多任务范式，多任务共享编码器和设置任务特异性编码器。（公式较为繁琐，但描述的实际上就是下面两张图）</p>
-<p>多任务共享编码器（4层GAT，ICD编码根据第2层输出）</p>
-<p>共享编码器+任务特异性编码器（2层GAT+2层GIAT）</p>
-<p>共享编码器聚合特征</p>
-<p>特异性编码器的中间特征（注意到计算相似度的依据是共享特征而不是特异性特征）</p>
-<p>特异性编码器的最终特征是两个特征的加权和，g是控制因子</p>
-<p>将文本节点送入分类器得到分类结果，并同时优化K个任务、$$N_$$个样本、$$C_k$$个类别。</p>
 
 
-<h2 class="relative group">details 
-    <div id="details" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#details" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p>使用了4张2080，共计32GB显存</p>
-<p>不同backbone</p>
-<p>多任务的必要性</p>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>173 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
 
         </div>
-        
-        
 
         
-        
-
-          
       </div>
-     
-      
-      
-        
-        
-      <script>
-        var oid = "views_paper_reading\/others\/cikm2023.md"
-        var oid_likes = "likes_paper_reading\/others\/cikm2023.md"
-      </script>
-      
-      
-      
-      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
-  
-    </section>
-  <footer class="pt-8 max-w-prose print:hidden">
+      <div class="px-6 pt-4 pb-2">
 
-    
-  
-    
-    
-    
-    <div class="pt-8">
-      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
-      <div class="flex justify-between pt-3">
-        <span>
-          
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/paper_reading/others/ccl2019/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >How to Fine-Tune BERT for Text Classification?</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
-          
-        </span>
       </div>
     </div>
+  </a>
+          
+          
+
+  <a href="/cheat_sheet/course/prob/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/cheat_sheet/course/prob/">Probability</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
 
-    
-  </footer>
-</article>
 
-      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
-  <a href="#the-top"
-    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
-    aria-label="Scroll to top" title="Scroll to top">
-    &uarr;
-  </a>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>35 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  
+
+  
+  
 </div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+          
+          
+
+  <a href="/cheat_sheet/course/pr/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/cheat_sheet/course/pr/">Pattern Recogniton</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>56 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+          
+          
+
+  <a href="/cheat_sheet/course/mic/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/cheat_sheet/course/mic/">Medical Image Computing</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>484 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+          
+          
+
+  <a href="/cheat_sheet/course/matrix/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/cheat_sheet/course/matrix/">Matrix</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>46 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+          
+          
+
+  <a href="/cheat_sheet/course/algebra/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/cheat_sheet/course/algebra/">Linear Algebra</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>50 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+          
+          
+        </section>
+
+    
+
+    
+
+  
+
+    
+
+  
+      
     </main><footer id="site-footer" class="py-10 print:hidden">
   
   

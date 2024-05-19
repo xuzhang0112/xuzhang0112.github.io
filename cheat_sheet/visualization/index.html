@@ -233,7 +233,7 @@
         
         <a href="/cheat_sheet/cli/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
           
-          <p class="text-sm font-sm" title="CLI Cheatsheet">
+          <p class="text-sm font-sm" title="CLI">
             CLI
           </p>
         </a>
@@ -242,6 +242,13 @@
           
           <p class="text-sm font-sm" title="Python">
             Python
+          </p>
+        </a>
+        
+        <a href="/cheat_sheet/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Course">
+            Course
           </p>
         </a>
         
@@ -530,7 +537,7 @@
 <li class="mt-1">
     <a href="/cheat_sheet/cli/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-sm font-small" title="CLI Cheatsheet">
+        <p class="text-sm font-small" title="CLI">
             CLI
         </p>
     </a>
@@ -541,6 +548,15 @@
         
         <p class="text-sm font-small" title="Python">
             Python
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/cheat_sheet/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Course">
+            Course
         </p>
     </a>
 </li>
@@ -819,7 +835,116 @@
   
   <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
     
-    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#最简单的应用程序应用进程窗口组件">最简单的应用程序=应用进程+窗口组件</a></li>
+    <li><a href="#在主窗口中添加组件">在主窗口中添加组件</a>
+      <ul>
+        <li><a href="#添加单个组件">添加单个组件</a></li>
+        <li><a href="#添加多个组件">添加多个组件</a></li>
+      </ul>
+    </li>
+    <li><a href="#自定义你的组件">自定义你的组件</a>
+      <ul>
+        <li><a href="#自定义按钮">自定义按钮</a></li>
+        <li><a href="#自定义微调框">自定义微调框</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#基于2d-slice的可视化">基于2D Slice的可视化</a></li>
+    <li><a href="#基于3d-surface-rendering的可视化">基于3D Surface Rendering的可视化</a>
+      <ul>
+        <li><a href="#使用vtkcontourfilter提取等值面">使用vtkContourFilter提取等值面</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#在主窗口中添加可视化组件">在主窗口中添加可视化组件</a>
+      <ul>
+        <li><a href="#添加可视化组件">添加可视化组件</a></li>
+        <li><a href="#自定义可视化管线和可视化组件">自定义可视化管线和可视化组件</a></li>
+      </ul>
+    </li>
+    <li><a href="#在主窗口中添加控制组件">在主窗口中添加控制组件</a></li>
+    <li><a href="#组件交互">组件交互</a>
+      <ul>
+        <li><a href="#选择文件并可视化">选择文件并可视化</a></li>
+        <li><a href="#通过滑动条控制2d切片在3d图像中对应的范围">通过滑动条，控制2D切片在3D图像中对应的范围</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#最简单的应用程序应用进程窗口组件">最简单的应用程序=应用进程+窗口组件</a></li>
+    <li><a href="#在主窗口中添加组件">在主窗口中添加组件</a>
+      <ul>
+        <li><a href="#添加单个组件">添加单个组件</a></li>
+        <li><a href="#添加多个组件">添加多个组件</a></li>
+      </ul>
+    </li>
+    <li><a href="#自定义你的组件">自定义你的组件</a>
+      <ul>
+        <li><a href="#自定义按钮">自定义按钮</a></li>
+        <li><a href="#自定义微调框">自定义微调框</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#基于2d-slice的可视化">基于2D Slice的可视化</a></li>
+    <li><a href="#基于3d-surface-rendering的可视化">基于3D Surface Rendering的可视化</a>
+      <ul>
+        <li><a href="#使用vtkcontourfilter提取等值面">使用vtkContourFilter提取等值面</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#在主窗口中添加可视化组件">在主窗口中添加可视化组件</a>
+      <ul>
+        <li><a href="#添加可视化组件">添加可视化组件</a></li>
+        <li><a href="#自定义可视化管线和可视化组件">自定义可视化管线和可视化组件</a></li>
+      </ul>
+    </li>
+    <li><a href="#在主窗口中添加控制组件">在主窗口中添加控制组件</a></li>
+    <li><a href="#组件交互">组件交互</a>
+      <ul>
+        <li><a href="#选择文件并可视化">选择文件并可视化</a></li>
+        <li><a href="#通过滑动条控制2d切片在3d图像中对应的范围">通过滑动条，控制2D切片在3D图像中对应的范围</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+   </div>
+      </div>
+      
 
       <div class="min-w-0 min-h-0 max-w-fit">
         
@@ -868,17 +993,7 @@
 </span></span><span style="display:flex;"><span>    window <span style="color:#f92672">=</span> MainWindow(app)
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 主程序开始运行</span>
 </span></span><span style="display:flex;"><span>    app<span style="color:#f92672">.</span>exec_()
-</span></span></code></pre></div><p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NTk1N2NiODc3NWY3Y2JjMWMyYTliYjg2ODQ1NTBhOThfcjFoZEkwWlNuV3JxS3dkbTNaRE12Z1c5ZlE4OGRqWFRfVG9rZW46Tlg2MWJYcmN4b2ZMYlh4NElNTmNTSFE2bktoXzE3MTIyNjQyMDY6MTcxMjI2NzgwNl9WNA" alt="img" />
-    
-  </figure>
-
-</p>
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/0.png" alt="0" style="zoom: 50%;" />
 
 
 <h2 class="relative group">在主窗口中添加组件 
@@ -910,17 +1025,7 @@
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setWindowTitle(<span style="color:#e6db74">&#39;MainWindow&#39;</span>)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(QtWidgets<span style="color:#f92672">.</span>QPushButton(<span style="color:#e6db74">&#34;Button&#34;</span>))
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
-</span></span></code></pre></div><p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NmI1MGM2YjcwYTkxOTUyYWJlMjg0NTUyNWVlOGM2ZjJfV2d0OFhNTnFtVDdzeEVsNkpIY1l0SnlDZ3VYbWRDNG1fVG9rZW46SFp4TWJwM2lPb2RjRHN4amNwRGNwNUlPbjRnXzE3MTIyNjQyMDY6MTcxMjI2NzgwNl9WNA" alt="img" />
-    
-  </figure>
-
-</p>
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/1.png" alt="1" style="zoom:50%;" />
 
 
 <h3 class="relative group">添加多个组件 
@@ -960,17 +1065,7 @@
 </span></span><span style="display:flex;"><span>        box<span style="color:#f92672">.</span>setLayout(layout)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(box)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
-</span></span></code></pre></div><p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=YjZlZGFlODQ0Y2M4ZGRlZjA4MTE0NTEyZDM1MWY1MmZfYWdPbVdlRFQzd3pMWG9CRlJHM2RNQlBTRmphamtac1NfVG9rZW46TFZUWGJNemNkbzVHUTd4RThJc2NUTDd6bnU4XzE3MTIyNjQyMDY6MTcxMjI2NzgwNl9WNA" alt="img" />
-    
-  </figure>
-
-</p>
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/2.png" alt="2" style="zoom:50%;" />
 
 
 <h2 class="relative group">自定义你的组件 
@@ -1046,17 +1141,7 @@
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 使按钮的颜色变成选择的颜色，以此展示已经选择的颜色</span>
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>setStyleSheet(
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;background-color: rgb(</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">)&#34;</span><span style="color:#f92672">.</span>format(rgb[<span style="color:#ae81ff">0</span>], rgb[<span style="color:#ae81ff">1</span>], rgb[<span style="color:#ae81ff">2</span>]))
-</span></span></code></pre></div><p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MjJkZTVhODY4ZDczYzNkZDZmMmJhZjE0YmQ1MjMwZDhfck9oSld5cDB6U2VOTW1YcXB3T3Z3bzRNeEhPVmsxUllfVG9rZW46S0Z5VmIzQTk0b3R6OUN4WUJESmNEbHh6bnhjXzE3MTIyNjQyMDY6MTcxMjI2NzgwNl9WNA" alt="img" />
-    
-  </figure>
-
-</p>
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/3.png" alt="3" style="zoom:50%;" />
 
 
 <h3 class="relative group">自定义微调框 
@@ -1104,13 +1189,13 @@
 </h1>
 
 
-<h2 class="relative group">基于2D Slice 
-    <div id="%E5%9F%BA%E4%BA%8E2d-slice" class="anchor"></div>
+<h2 class="relative group">基于2D Slice的可视化 
+    <div id="%E5%9F%BA%E4%BA%8E2d-slice%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E4%BA%8E2d-slice" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E4%BA%8E2d-slice%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
@@ -1145,26 +1230,16 @@
 </span></span><span style="display:flex;"><span>interactor<span style="color:#f92672">.</span>SetRenderWindow(render_window)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>interactor<span style="color:#f92672">.</span>Start()
-</span></span></code></pre></div><p>
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/4.png" alt="4" style="zoom:50%;" />
 
 
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWRhM2QzMDY1MTc4NjU2YjE4NGFiOGMzYTdiY2Q0MjNfS0RBMWp3aG1nRFVxVHcydkhXbU5QQVh5Vk5MMWQzZnVfVG9rZW46RnVaV2J2UHR6b2J4b1R4aFZBS2NNWGpmblliXzE3MTIyNjQyMDY6MTcxMjI2NzgwNl9WNA" alt="img" />
-    
-  </figure>
-
-</p>
-
-
-<h2 class="relative group">基于3D Surface Rendering 
-    <div id="%E5%9F%BA%E4%BA%8E3d-surface-rendering" class="anchor"></div>
+<h2 class="relative group">基于3D Surface Rendering的可视化 
+    <div id="%E5%9F%BA%E4%BA%8E3d-surface-rendering%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E4%BA%8E3d-surface-rendering" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E4%BA%8E3d-surface-rendering%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
@@ -1214,17 +1289,7 @@
 </span></span><span style="display:flex;"><span>interactor<span style="color:#f92672">.</span>SetRenderWindow(render_window)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>interactor<span style="color:#f92672">.</span>Start()
-</span></span></code></pre></div><p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MWFjZDkyN2YxOTA2ZGQ1ZDk5Y2UwYTIxNWNjYmJlNjRfRUQ4N1Z5a3c2Nk05aVh2aW5mZ1RBNkR2bk96Q1RQWk1fVG9rZW46Q3pQTGI2WEdRb2h3dVJ4ZnN3R2M1Wk5BbkNuXzE3MTIyNjQyMDY6MTcxMjI2NzgwNl9WNA" alt="img" />
-    
-  </figure>
-
-</p>
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/5.png" alt="5" style="zoom:50%;" />
 
 
 <h3 class="relative group">使用vtkContourFilter提取等值面 
@@ -1299,17 +1364,7 @@
 </span></span><span style="display:flex;"><span>        box<span style="color:#f92672">.</span>setLayout(layout)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(box)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
-</span></span></code></pre></div><p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MzEyZTI2NmZjZWU3ZTc5MTViMGRmMTY3NWFmOGQ5MDBfZkdRMlVMaUxjQ2xPaEZHTE1XVjdFT0wxdWZUOVdudllfVG9rZW46VXh5Q2J6R0VnbzVQaER4anc4OGNueTlFbjRmXzE3MTIyNjQyMDY6MTcxMjI2NzgwNl9WNA" alt="img" />
-    
-  </figure>
-
-</p>
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/6.png" alt="6" style="zoom:33%;" />
 
 
 <h3 class="relative group">自定义可视化管线和可视化组件 
@@ -1368,17 +1423,7 @@
 </span></span><span style="display:flex;"><span>        box<span style="color:#f92672">.</span>setLayout(layout)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(box)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
-</span></span></code></pre></div><p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjhmYWM0ODZmNWYzMDMwMTBlZWI3YTkwMzIyM2EyODdfdlpuQVdaOERQbUdGVXlSMG9wNTkyblJ6UWpIVWpEbG9fVG9rZW46U2N5RWI3YVNWbzd4SWd4MU9XS2M4WXZRbkdaXzE3MTIyNjQyMDY6MTcxMjI2NzgwNl9WNA" alt="img" />
-    
-  </figure>
-
-</p>
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/7.png" alt="7" style="zoom:33%;" />
 
 
 <h2 class="relative group">在主窗口中添加控制组件 
@@ -1421,17 +1466,7 @@
 </span></span><span style="display:flex;"><span>        box<span style="color:#f92672">.</span>setLayout(layout)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(box)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
-</span></span></code></pre></div><p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ODYzZmQyYjM5ODAzZDdkN2JjNmFjNDgwMDJkMTFlM2VfclluSlZCZ0RGT0ZURUNyclBraE5tcUs3V2FDZWp2TmRfVG9rZW46QmU0M2JJbHhCbzRXanl4WkIzMGNTUEtsbmZjXzE3MTIyNjQyMDY6MTcxMjI2NzgwNl9WNA" alt="img" />
-    
-  </figure>
-
-</p>
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/8.png" alt="8" style="zoom: 50%;" />
 
 
 <h2 class="relative group">组件交互 
@@ -1580,17 +1615,7 @@
 </span></span><span style="display:flex;"><span>        box<span style="color:#f92672">.</span>setLayout(layout)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(box)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
-</span></span></code></pre></div><p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGVlMmQ0YjYyOWExNWFjOTEzY2MxZGZhNWEyNzhlOGFfQzVnVmNGdnUzaTJJM2pnanhLN3lIU2trTzd6S0RBY1FfVG9rZW46R1dwSGJ5MTNLb3hMQ014VVZUZmNlbmUxbnlkXzE3MTIyNjQyMDY6MTcxMjI2NzgwNl9WNA" alt="img" />
-    
-  </figure>
-
-</p>
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/8.png" style="zoom:50%;" />
 
 
 <h3 class="relative group">通过滑动条，控制2D切片在3D图像中对应的范围 
@@ -1748,18 +1773,7 @@
 </span></span><span style="display:flex;"><span>        box<span style="color:#f92672">.</span>setLayout(layout)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(box)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
-</span></span></code></pre></div><p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NzdjNzJhMzA4OWQwOWY2NTU5ZDYxOGI2YWU1MGVlMzNfR2hsVzRqUUFUdnBrRFJwNzM4RmJHNkZPSzd3b1pvNzBfVG9rZW46T1RLNWJXb2g5b0xtYU54aGlRRGNPSERjbmJLXzE3MTIyNjQyMDY6MTcxMjI2NzgwNl9WNA" alt="img" />
-    
-  </figure>
-
-</p>
-
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/10.png" alt="10" style="zoom:50%;" />
         </div>
         
         
@@ -1819,11 +1833,11 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/cheat_sheet/course/eng/">
+            <a class="flex text-right group ml-3" href="/cheat_sheet/python/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Reading</span
+                  >Python</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   

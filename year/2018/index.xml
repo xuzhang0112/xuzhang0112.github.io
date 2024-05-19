@@ -10,10 +10,10 @@
     <lastBuildDate>Tue, 30 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/year/2018/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Evidential Deep Learning</title>
-      <link>https://xuzhang0112.github.io/paper_reading/nips/18_1/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/evidential-deep-learning/</link>
       <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/nips/18_1/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/evidential-deep-learning/</guid>
       <description> B分布和Dirichlet分布 # B分布：0-1之间的含参连续分布，概率的概率分布服从B分布。
 如何通俗理解 beta 分布？
 狄利克雷分布（Dirichlet distribution）:B分布在K≥3时的一种推广，K维离散随机变量的概率分布服从Dirichlet分布。

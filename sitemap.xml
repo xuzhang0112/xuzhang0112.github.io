@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nips/23_2/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/nips/automated-clinical-coding-using-off-the-shelf-large-language-models/</loc>
     <lastmod>2024-05-19T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -55,7 +55,7 @@
     <lastmod>2024-05-09T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/24_/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/a-novel-icd-coding-framework-based-on-associated-and-hierarchical-code-description-distillation/</loc>
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -63,7 +63,7 @@
     <lastmod>2024-05-01T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nips/18_1/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/nips/evidential-deep-learning/</loc>
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -115,19 +115,19 @@
     <loc>https://xuzhang0112.github.io/paper_reading/acl/20_1/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/24_1/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/dkec-domain-knowledge-enhanced-multi-label-classification-for-electronic-health-records/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/cvpr/dynamic-graph-enhanced-contrastive-learning-for-chest-x-ray-report-generation/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2021/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/effective-convolutional-attention-network-for-multi-label-clinical-document-classification/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/emnlp/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/acl/23_1/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/acl/enhancing-hierarchical-text-classification-through-knowledge-graph-integration/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/9/</loc>
@@ -136,7 +136,7 @@
     <loc>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/bibm2023/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/others/graph-representation-of-chinese-emrs-and-its-short-text-classification-application/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/iclr/1/</loc>
@@ -154,7 +154,7 @@
     <loc>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/hpt-hierarchy-aware-prompt-tuning-for-hierarchical-text-classification/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/blog/</loc>
@@ -175,13 +175,13 @@
     <loc>https://xuzhang0112.github.io/paper_reading/nature/kad-knowledge-enhanced-visual-language-pre-training-on-chest-radiology-images/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/22/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/kg-mtt-bert-knowledge-graph-enhanced-bert-for-multi-type-medical-text-classification/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/cvpr/kiut-knowledge-injected-u-transformer-for-radiology-report-generation/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/knowledge-injected-prompt-based-fine-tuning-for-multi-label-few-shot-icd-coding/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/mia/knowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge/</loc>
@@ -202,7 +202,7 @@
     <loc>https://xuzhang0112.github.io/cheat_sheet/course/mic/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/acl/23_2/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/acl/medical-knowledge-enhanced-prompt-learning-for-diagnosis-classification-from-clinical-text/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/text_classification/</loc>
@@ -215,6 +215,9 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/miccai/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/survey/mimic-iii-dataset/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/others/mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval/</loc>
@@ -253,7 +256,7 @@
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/6/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/text2tree-aligning-text-representation-to-the-label-tree-hierarchy-for-imbalanced-medical-classification/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/tmi/</loc>
@@ -262,13 +265,10 @@
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/3/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/cikm2023/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/others/towards-automatic-icd-coding-via-knowledge-enhanced-multi-task-learning/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nips/23_1/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nips/23_3/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/nips/towards-semi-structured-automatic-icd-coding-via-tree-based-contrastive-learning/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/visualization/</loc>

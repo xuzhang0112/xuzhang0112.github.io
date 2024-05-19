@@ -10,10 +10,10 @@
     <lastBuildDate>Sun, 19 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/icd-tree/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automated clinical coding using off-the-shelf large language models</title>
-      <link>https://xuzhang0112.github.io/paper_reading/nips/23_2/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/automated-clinical-coding-using-off-the-shelf-large-language-models/</link>
       <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/nips/23_2/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/automated-clinical-coding-using-off-the-shelf-large-language-models/</guid>
       <description>NIPS Workshop 2023
 Automated clinical coding using off-the-shelf large language models | OpenReview
 测试了Llama-2, GPT-3.5 和GPT-4在CodiEsp数据集 (1000cases)上的性能
@@ -30,10 +30,10 @@ LLM可能会产生（根据先验知识）互斥的结果</description>
     
     <item>
       <title>A Novel ICD Coding Framework Based on Associated and Hierarchical Code Description Distillation</title>
-      <link>https://xuzhang0112.github.io/paper_reading/arxiv/24_/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/a-novel-icd-coding-framework-based-on-associated-and-hierarchical-code-description-distillation/</link>
       <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/24_/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/a-novel-icd-coding-framework-based-on-associated-and-hierarchical-code-description-distillation/</guid>
       <description>原文链接
 ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
 每个医学报告对应若干ICD code，通过先验知识ICD Tree，可以获得若干相邻的（易混淆的）ICD code。
@@ -46,10 +46,10 @@ ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
     
     <item>
       <title>Knowledge Injected Prompt Based Fine-tuning for Multi-label Few-shot ICD Coding </title>
-      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/knowledge-injected-prompt-based-fine-tuning-for-multi-label-few-shot-icd-coding/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/knowledge-injected-prompt-based-fine-tuning-for-multi-label-few-shot-icd-coding/</guid>
       <description>SOTA of MIMIC III, in 2022, micro-f1 = 59.9 (ReRanker, 2-stage)
 key idea # 利用UMLS 2021AA知识图谱（4.4M实体）的层次化知识进行对比学习的预训练，并为不同的负样本（UMLS中的邻节点、父节点、不相关节点）设置不同的软间隔
 在这之前先进行MIMIC III上的完型填空预训练 输入格式：疾病a描述+[MASK]+疾病b描述+[MASK]+&amp;hellip;+病历文本，通过MLM来预测疾病的有无
@@ -62,12 +62,11 @@ Finetune, 2张A100，10+0.5小时（MIMIC-III-50 &amp;amp; MIMIC-III-rare50）
     
     <item>
       <title>Text2Tree: Aligning Text Representation to the Label Tree Hierarchy for Imbalanced Medical Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/text2tree-aligning-text-representation-to-the-label-tree-hierarchy-for-imbalanced-medical-classification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</guid>
-      <description>key idea # 通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
-[] # 有监督对比学习将同一类别视为正样本，然而罕见病缺乏同一类别正样本
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/text2tree-aligning-text-representation-to-the-label-tree-hierarchy-for-imbalanced-medical-classification/</guid>
+      <description>有监督对比学习将同一类别视为正样本，然而罕见病缺乏同一类别正样本
 通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
 同一类目的疾病的相似度&amp;gt;同一章节不同类目疾病的相似度&amp;gt;不同章节疾病间的相似度
 通过注意力机制，利用父节点和相邻节点，来完善罕见病的表达</description>

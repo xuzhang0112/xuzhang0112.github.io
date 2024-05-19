@@ -10,10 +10,10 @@
     <lastBuildDate>Sun, 19 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automated clinical coding using off-the-shelf large language models</title>
-      <link>https://xuzhang0112.github.io/paper_reading/nips/23_2/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/automated-clinical-coding-using-off-the-shelf-large-language-models/</link>
       <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/nips/23_2/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/automated-clinical-coding-using-off-the-shelf-large-language-models/</guid>
       <description>NIPS Workshop 2023
 Automated clinical coding using off-the-shelf large language models | OpenReview
 测试了Llama-2, GPT-3.5 和GPT-4在CodiEsp数据集 (1000cases)上的性能

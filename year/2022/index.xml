@@ -57,12 +57,11 @@ details # Adam学习率1e-5, Batch Size12, 正则化系数1e-4
     
     <item>
       <title>HPT: Hierarchy-aware Prompt Tuning for Hierarchical Text Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/hpt-hierarchy-aware-prompt-tuning-for-hierarchical-text-classification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</guid>
-      <description>key idea # 指出了层次化分类的基本范式，通过GNN对层次标签进行编码 同时，保留了预训练时的MLM任务，以缓解灾难性遗忘。 提出了ZMLCE Loss Architecture # 结构上的改进
-用GAT构造出每个层级的描述，指导模型作出这一层级的分类；
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/hpt-hierarchy-aware-prompt-tuning-for-hierarchical-text-classification/</guid>
+      <description>指出了层次化分类的基本范式，通过GNN对层次标签进行编码 同时，保留了预训练时的MLM任务，以缓解灾难性遗忘。 提出了ZMLCE Loss 用GAT构造出每个层级的描述，指导模型作出这一层级的分类；
 在每个层级的分类时，使用这一层级的分类器，在这里，使用了每个类别词的embedding作权重初始化；
 效果还不错，涨了1个点</description>
       
@@ -86,21 +85,26 @@ NER：对每个词向量进行预测
     
     <item>
       <title>KG-MTT-BERT: Knowledge Graph Enhanced BERT for Multi-Type Medical Text Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/arxiv/22/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/kg-mtt-bert-knowledge-graph-enhanced-bert-for-multi-type-medical-text-classification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/22/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/kg-mtt-bert-knowledge-graph-enhanced-bert-for-multi-type-medical-text-classification/</guid>
       <description>key idea # 中文病历报告的疾病分类工作
-使用bert分别处理病历报告的各个字段，探讨了不同尺度和不同池化方式对结果的影响 max-pooling比CLS更好 序列长度大于64时，效果较好 大体上损失函数收敛更快、更低，同时精度提升最快 使用KG、图嵌入和图网络增强了分类 图嵌入:KG2E 推测：词语级别的医学实体编码相比单字级别的中文分词编码，引入了额外的信息，因此能提升性能 数据集规模大概在几万例样本，几百类疾病，各个字段的长度差异较大，entity也比较少</description>
+使用bert分别处理病历报告的各个字段，探讨了不同尺度和不同池化方式对结果的影响
+max-pooling比CLS更好
+序列长度大于64时，效果较好
+大体上损失函数收敛更快、更低，同时精度提升最快
+使用KG、图嵌入和图网络增强了分类
+图嵌入:KG2E 推测：词语级别的医学实体编码相比单字级别的中文分词编码，引入了额外的信息，因此能提升性能 数据集规模大概在几万例样本，几百类疾病，各个字段的长度差异较大，entity也比较少</description>
       
     </item>
     
     <item>
       <title>Knowledge Injected Prompt Based Fine-tuning for Multi-label Few-shot ICD Coding </title>
-      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/knowledge-injected-prompt-based-fine-tuning-for-multi-label-few-shot-icd-coding/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/knowledge-injected-prompt-based-fine-tuning-for-multi-label-few-shot-icd-coding/</guid>
       <description>SOTA of MIMIC III, in 2022, micro-f1 = 59.9 (ReRanker, 2-stage)
 key idea # 利用UMLS 2021AA知识图谱（4.4M实体）的层次化知识进行对比学习的预训练，并为不同的负样本（UMLS中的邻节点、父节点、不相关节点）设置不同的软间隔
 在这之前先进行MIMIC III上的完型填空预训练 输入格式：疾病a描述+[MASK]+疾病b描述+[MASK]+&amp;hellip;+病历文本，通过MLM来预测疾病的有无

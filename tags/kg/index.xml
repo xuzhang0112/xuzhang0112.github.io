@@ -30,31 +30,49 @@ $$ Z_{aug}=Z_{w,r}||Z_{e,r}||Z_{p,r} $$
     
     <item>
       <title>DKEC: Domain Knowledge Enhanced Multi-Label Classification for Electronic Health Records</title>
-      <link>https://xuzhang0112.github.io/paper_reading/arxiv/24_1/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/dkec-domain-knowledge-enhanced-multi-label-classification-for-electronic-health-records/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/24_1/</guid>
-      <description>key idea # 使用GNN从医学指南中获取疾病的表示，从而指导大模型的输出 使用冻结的预训练编码器（可以是任何模型，当然理论上不如全参数微调） 只训练GNN（HGT），可以作为即插即用的模块，能使得小模型具有和大模型相当的性能 通过年龄特性对某些疾病进行规则筛选 Results in MIMIC III # 数据集的划分和之前的SOTA不太一样，因此无法直接比较</description>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/dkec-domain-knowledge-enhanced-multi-label-classification-for-electronic-health-records/</guid>
+      <description>使用GNN从医学指南中获取疾病的表示，从而指导大模型的输出 使用冻结的预训练编码器（可以是任何模型，当然理论上不如全参数微调） 只训练GNN（HGT），可以作为即插即用的模块，能使得小模型具有和大模型相当的性能 通过年龄特性对某些疾病进行规则筛选 Results in MIMIC III # 数据集的划分和之前的SOTA不太一样，因此无法直接比较</description>
+      
+    </item>
+    
+    <item>
+      <title>Graph Representation of Chinese EMRs and its Short-text Classification Application</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/graph-representation-of-chinese-emrs-and-its-short-text-classification-application/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/others/graph-representation-of-chinese-emrs-and-its-short-text-classification-application/</guid>
+      <description>用TextGCN来做医学短语分类。
+构建出一个大图之后，可以将子图的embedding直接送入GCN进行分类 优点是非常轻量化，节点和关系嵌入都是预先计算好的，2层的GNN几乎没有参数量，效果似乎也还不错 Graph的构建 # 节点嵌入(word2vec) # word2vec Word2Vec模型中，主要有Skip-Gram和CBOW两种模型，从直观上理解，Skip-Gram是给定input word来预测上下文。而CBOW是给定上下文，来预测input word。这两种方法都是基于神经网络的无监督词嵌入算法。
+关系建立(PMI) # PMI（Pointwise Mutual Information，逐点互信息），即共现频率/各自出现的频率
+结果 # </description>
       
     </item>
     
     <item>
       <title>KG-MTT-BERT: Knowledge Graph Enhanced BERT for Multi-Type Medical Text Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/arxiv/22/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/kg-mtt-bert-knowledge-graph-enhanced-bert-for-multi-type-medical-text-classification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/22/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/kg-mtt-bert-knowledge-graph-enhanced-bert-for-multi-type-medical-text-classification/</guid>
       <description>key idea # 中文病历报告的疾病分类工作
-使用bert分别处理病历报告的各个字段，探讨了不同尺度和不同池化方式对结果的影响 max-pooling比CLS更好 序列长度大于64时，效果较好 大体上损失函数收敛更快、更低，同时精度提升最快 使用KG、图嵌入和图网络增强了分类 图嵌入:KG2E 推测：词语级别的医学实体编码相比单字级别的中文分词编码，引入了额外的信息，因此能提升性能 数据集规模大概在几万例样本，几百类疾病，各个字段的长度差异较大，entity也比较少</description>
+使用bert分别处理病历报告的各个字段，探讨了不同尺度和不同池化方式对结果的影响
+max-pooling比CLS更好
+序列长度大于64时，效果较好
+大体上损失函数收敛更快、更低，同时精度提升最快
+使用KG、图嵌入和图网络增强了分类
+图嵌入:KG2E 推测：词语级别的医学实体编码相比单字级别的中文分词编码，引入了额外的信息，因此能提升性能 数据集规模大概在几万例样本，几百类疾病，各个字段的长度差异较大，entity也比较少</description>
       
     </item>
     
     <item>
       <title>Knowledge Injected Prompt Based Fine-tuning for Multi-label Few-shot ICD Coding </title>
-      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/knowledge-injected-prompt-based-fine-tuning-for-multi-label-few-shot-icd-coding/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/knowledge-injected-prompt-based-fine-tuning-for-multi-label-few-shot-icd-coding/</guid>
       <description>SOTA of MIMIC III, in 2022, micro-f1 = 59.9 (ReRanker, 2-stage)
 key idea # 利用UMLS 2021AA知识图谱（4.4M实体）的层次化知识进行对比学习的预训练，并为不同的负样本（UMLS中的邻节点、父节点、不相关节点）设置不同的软间隔
 在这之前先进行MIMIC III上的完型填空预训练 输入格式：疾病a描述+[MASK]+疾病b描述+[MASK]+&amp;hellip;+病历文本，通过MLM来预测疾病的有无
@@ -83,6 +101,17 @@ $$ C_g=KEMHA(I,E_e,E,e,r) $$
 Specific Knowledge # 相似报告检索 # 使用预训练的疾病14分类模型，计算输入图像的疾病分布和库中样本的疾病分布的KL散度，选取Top K相似报告
 特定知识查询 # 使用命名实体识别器Stanza提取报告中的entity，在Rad Graph Inference Dataset中查询每个entity对应的triplet
 例：检索到的报告为““pneumothorax or pleural effusion is seen”，提取的实体集合T为{pneumothorax, pleural, effusion}，检索到的知识为 {pneumothorax suggestive of bleeding, effusion located at bilateral,&amp;hellip;}</description>
+      
+    </item>
+    
+    <item>
+      <title>Medical knowledge-enhanced prompt learning for diagnosis classification from clinical text</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/medical-knowledge-enhanced-prompt-learning-for-diagnosis-classification-from-clinical-text/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/medical-knowledge-enhanced-prompt-learning-for-diagnosis-classification-from-clinical-text/</guid>
+      <description>通过在KG中查询相关知识，然后加入prompt中，并通过bert的[MASK] token预测疾病的有无
+Prompt</description>
       
     </item>
     

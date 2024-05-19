@@ -10,12 +10,14 @@
     <atom:link href="https://xuzhang0112.github.io/conference/bibm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Graph Representation of Chinese EMRs and its Short-text Classification Application</title>
-      <link>https://xuzhang0112.github.io/paper_reading/others/bibm2023/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/others/graph-representation-of-chinese-emrs-and-its-short-text-classification-application/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/others/bibm2023/</guid>
-      <description>key idea # 用TextGCN来做医学短语分类。
-构建出一个大图之后，可以将子图的embedding直接送入GCN进行分类 优点是非常轻量化，节点和关系嵌入都是预先计算好的，2层的GNN几乎没有参数量，效果似乎也还不错 Graph的构建 # 节点嵌入(word2vec) word2vec Word2Vec模型中，主要有Skip-Gram和CBOW两种模型，从直观上理解，Skip-Gram是给定input word来预测上下文。而CBOW是给定上下文，来预测input word。这两种方法都是基于神经网络的无监督词嵌入算法。 关系建立(PMI) PMI（Pointwise Mutual Information，逐点互信息），即共现频率/各自出现的频率</description>
+      <guid>https://xuzhang0112.github.io/paper_reading/others/graph-representation-of-chinese-emrs-and-its-short-text-classification-application/</guid>
+      <description>用TextGCN来做医学短语分类。
+构建出一个大图之后，可以将子图的embedding直接送入GCN进行分类 优点是非常轻量化，节点和关系嵌入都是预先计算好的，2层的GNN几乎没有参数量，效果似乎也还不错 Graph的构建 # 节点嵌入(word2vec) # word2vec Word2Vec模型中，主要有Skip-Gram和CBOW两种模型，从直观上理解，Skip-Gram是给定input word来预测上下文。而CBOW是给定上下文，来预测input word。这两种方法都是基于神经网络的无监督词嵌入算法。
+关系建立(PMI) # PMI（Pointwise Mutual Information，逐点互信息），即共现频率/各自出现的频率
+结果 # </description>
       
     </item>
     

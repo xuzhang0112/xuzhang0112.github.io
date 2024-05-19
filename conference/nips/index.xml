@@ -10,10 +10,10 @@
     <lastBuildDate>Sun, 19 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/conference/nips/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Automated clinical coding using off-the-shelf large language models</title>
-      <link>https://xuzhang0112.github.io/paper_reading/nips/23_2/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/automated-clinical-coding-using-off-the-shelf-large-language-models/</link>
       <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/nips/23_2/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/automated-clinical-coding-using-off-the-shelf-large-language-models/</guid>
       <description>NIPS Workshop 2023
 Automated clinical coding using off-the-shelf large language models | OpenReview
 测试了Llama-2, GPT-3.5 和GPT-4在CodiEsp数据集 (1000cases)上的性能
@@ -30,10 +30,10 @@ LLM可能会产生（根据先验知识）互斥的结果</description>
     
     <item>
       <title>Evidential Deep Learning</title>
-      <link>https://xuzhang0112.github.io/paper_reading/nips/18_1/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/evidential-deep-learning/</link>
       <pubDate>Tue, 30 Apr 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/nips/18_1/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/evidential-deep-learning/</guid>
       <description> B分布和Dirichlet分布 # B分布：0-1之间的含参连续分布，概率的概率分布服从B分布。
 如何通俗理解 beta 分布？
 狄利克雷分布（Dirichlet distribution）:B分布在K≥3时的一种推广，K维离散随机变量的概率分布服从Dirichlet分布。
@@ -98,27 +98,19 @@ $$ B_k=Softmax(g_kB^T)B $$
     
     <item>
       <title>Towards Semi-Structured Automatic ICD Coding via Tree-based Contrastive Learning</title>
-      <link>https://xuzhang0112.github.io/paper_reading/nips/23_1/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/towards-semi-structured-automatic-icd-coding-via-tree-based-contrastive-learning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/nips/23_1/</guid>
-      <description>key idea # 通过定位关键词、打乱等数据增强，让模型学习到长文本的篇章结构信息 目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段 通过层次树来进行对比学习 ICD编码任务的典型范式（仅供介绍任务，并非创新点） # 针对长文本的数据增强 # 病历报告是结构多样化的长文本，同时由于疾病的长尾分布而使得分类变得困难，而许多之前的工作忽略了结构信息，单纯作为一个长序列进行建模
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/towards-semi-structured-automatic-icd-coding-via-tree-based-contrastive-learning/</guid>
+      <description>ICD编码任务的典型范式（仅供介绍任务，并非创新点）
+病历报告是结构多样化的长文本，同时由于疾病的长尾分布而使得分类变得困难，而许多之前的工作忽略了结构信息，单纯作为一个长序列进行建模
 目的是希望模型能够克服文本结构的多样性，在进行不同方面的ICD编码时能够正确定位到合适的语段（个人认为，这个思路非常好，它意识到了长文本实际上是由不同侧重的语段构成的，合理的注意力非常重要）
 认为在每个报告中都出现、且只出现一次的词组是语段的划分关键词，筛选出关键词后，即可将长文本划分成多个语段，并通过打乱顺序和掩码操作，让模型习得文章篇章结构的多样性
-通过层次树来进行对比学习 # 在MIMIC-50上取得了提升
+通过层次树来进行对比学习
+在MIMIC-50上取得了提升
 在MIMIC-III-50-rare提升更明显
 消融实验证明了这些即插即用模块的效果
 另外通过数据证明了MIMIC III是分类难度较大的长文本数据集</description>
-      
-    </item>
-    
-    <item>
-      <title>Towards Semi-Structured Automatic ICD Coding via Tree-based Contrastive Learning</title>
-      <link>https://xuzhang0112.github.io/paper_reading/nips/23_3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/nips/23_3/</guid>
-      <description></description>
       
     </item>
     

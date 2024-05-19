@@ -10,22 +10,21 @@
     <atom:link href="https://xuzhang0112.github.io/paper_reading/emnlp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Effective Convolutional Attention Network for Multi-label Clinical Document Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2021/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/effective-convolutional-attention-network-for-multi-label-clinical-document-classification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2021/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/effective-convolutional-attention-network-for-multi-label-clinical-document-classification/</guid>
       <description>key idea # Backbone:CNN+多尺度 通过Conv1d聚合信息的同时，用SE模块进行一定的增强 Label Attention，多标签分类的常用做法，用attention为每一个标签聚合文本特征，对每一个标签的概率进行sigmoid激活 每个标签独立计算概率，但都要考虑所有类别的标签聚合到的特征$$V\in R^{N_l\times D_{conv}}$$ 在训练初期使用bce loss，后期切换到focal loss，以防止实验早期无法拟合常见病（罕见病1-2%左右） 可解释性探讨 Res-SE模块 # SE模块，通过token所在的句子来判断这个token的重要性，并进行权重增强</description>
       
     </item>
     
     <item>
       <title>HPT: Hierarchy-aware Prompt Tuning for Hierarchical Text Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/hpt-hierarchy-aware-prompt-tuning-for-hierarchical-text-classification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</guid>
-      <description>key idea # 指出了层次化分类的基本范式，通过GNN对层次标签进行编码 同时，保留了预训练时的MLM任务，以缓解灾难性遗忘。 提出了ZMLCE Loss Architecture # 结构上的改进
-用GAT构造出每个层级的描述，指导模型作出这一层级的分类；
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/hpt-hierarchy-aware-prompt-tuning-for-hierarchical-text-classification/</guid>
+      <description>指出了层次化分类的基本范式，通过GNN对层次标签进行编码 同时，保留了预训练时的MLM任务，以缓解灾难性遗忘。 提出了ZMLCE Loss 用GAT构造出每个层级的描述，指导模型作出这一层级的分类；
 在每个层级的分类时，使用这一层级的分类器，在这里，使用了每个类别词的embedding作权重初始化；
 效果还不错，涨了1个点</description>
       
@@ -33,10 +32,10 @@
     
     <item>
       <title>Knowledge Injected Prompt Based Fine-tuning for Multi-label Few-shot ICD Coding </title>
-      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/knowledge-injected-prompt-based-fine-tuning-for-multi-label-few-shot-icd-coding/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/knowledge-injected-prompt-based-fine-tuning-for-multi-label-few-shot-icd-coding/</guid>
       <description>SOTA of MIMIC III, in 2022, micro-f1 = 59.9 (ReRanker, 2-stage)
 key idea # 利用UMLS 2021AA知识图谱（4.4M实体）的层次化知识进行对比学习的预训练，并为不同的负样本（UMLS中的邻节点、父节点、不相关节点）设置不同的软间隔
 在这之前先进行MIMIC III上的完型填空预训练 输入格式：疾病a描述+[MASK]+疾病b描述+[MASK]+&amp;hellip;+病历文本，通过MLM来预测疾病的有无
@@ -49,12 +48,11 @@ Finetune, 2张A100，10+0.5小时（MIMIC-III-50 &amp;amp; MIMIC-III-rare50）
     
     <item>
       <title>Text2Tree: Aligning Text Representation to the Label Tree Hierarchy for Imbalanced Medical Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/text2tree-aligning-text-representation-to-the-label-tree-hierarchy-for-imbalanced-medical-classification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2023/</guid>
-      <description>key idea # 通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
-[] # 有监督对比学习将同一类别视为正样本，然而罕见病缺乏同一类别正样本
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/text2tree-aligning-text-representation-to-the-label-tree-hierarchy-for-imbalanced-medical-classification/</guid>
+      <description>有监督对比学习将同一类别视为正样本，然而罕见病缺乏同一类别正样本
 通过ICD树重新定义ICD标签间的相似度，从而将相似度高的常见病作为正样本，以缓解长尾病的数据缺失问题
 同一类目的疾病的相似度&amp;gt;同一章节不同类目疾病的相似度&amp;gt;不同章节疾病间的相似度
 通过注意力机制，利用父节点和相邻节点，来完善罕见病的表达</description>

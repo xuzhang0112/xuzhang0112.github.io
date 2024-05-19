@@ -61,10 +61,10 @@ $$ min\ Loss(Y,X|W, \lambda)= \Sigma_{x \in X} w_xL_x - \lambda \Sigma_{x \in X}
     
     <item>
       <title>A Novel ICD Coding Framework Based on Associated and Hierarchical Code Description Distillation</title>
-      <link>https://xuzhang0112.github.io/paper_reading/arxiv/24_/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/a-novel-icd-coding-framework-based-on-associated-and-hierarchical-code-description-distillation/</link>
       <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/24_/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/a-novel-icd-coding-framework-based-on-associated-and-hierarchical-code-description-distillation/</guid>
       <description>原文链接
 ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
 每个医学报告对应若干ICD code，通过先验知识ICD Tree，可以获得若干相邻的（易混淆的）ICD code。
@@ -77,11 +77,11 @@ ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
     
     <item>
       <title>DKEC: Domain Knowledge Enhanced Multi-Label Classification for Electronic Health Records</title>
-      <link>https://xuzhang0112.github.io/paper_reading/arxiv/24_1/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/dkec-domain-knowledge-enhanced-multi-label-classification-for-electronic-health-records/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/24_1/</guid>
-      <description>key idea # 使用GNN从医学指南中获取疾病的表示，从而指导大模型的输出 使用冻结的预训练编码器（可以是任何模型，当然理论上不如全参数微调） 只训练GNN（HGT），可以作为即插即用的模块，能使得小模型具有和大模型相当的性能 通过年龄特性对某些疾病进行规则筛选 Results in MIMIC III # 数据集的划分和之前的SOTA不太一样，因此无法直接比较</description>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/dkec-domain-knowledge-enhanced-multi-label-classification-for-electronic-health-records/</guid>
+      <description>使用GNN从医学指南中获取疾病的表示，从而指导大模型的输出 使用冻结的预训练编码器（可以是任何模型，当然理论上不如全参数微调） 只训练GNN（HGT），可以作为即插即用的模块，能使得小模型具有和大模型相当的性能 通过年龄特性对某些疾病进行规则筛选 Results in MIMIC III # 数据集的划分和之前的SOTA不太一样，因此无法直接比较</description>
       
     </item>
     

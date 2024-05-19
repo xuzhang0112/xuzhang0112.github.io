@@ -24,5 +24,58 @@ batchsize设为8，SGD，余弦退火，迁移学习ResNet-50、分组学习率(
       
     </item>
     
+    <item>
+      <title>Dynamic Graph Enhanced Contrastive Learning for Chest X-ray Report Generation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/cvpr/dynamic-graph-enhanced-contrastive-learning-for-chest-x-ray-report-generation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/cvpr/dynamic-graph-enhanced-contrastive-learning-for-chest-x-ray-report-generation/</guid>
+      <description> code
+Overview A dynamic graph to construct the relationships between diseases and organs Represent Image with medical knowledge graph embeddings with Cross Attention Dynamic Graph $$G_{pre}$$: 27 nodes, 20 disease keywords, 7 organs or tissues $$G_{specific}$$: retrieve top-N reports, extract keywords using Stanza, retrieve knowledge in RadGraph, add nodes to $$G_{pre}$$, Embedding: use SciBert to get the initial embedding, add level embedding to show which level the node is at (disease, organ, tissue and so on) Learning IRC：Report embedding&amp;amp; Image(Graph) embedding -&amp;gt; Contrastive Learning IRM: whether image and report match, Q: Report K, V : Image CE Loss RG: Self Regression, Teacher Forcing </description>
+      
+    </item>
+    
+    <item>
+      <title>Histopathology Whole Slide Image Analysis with Heterogeneous Graph Representation Learning</title>
+      <link>https://xuzhang0112.github.io/paper_reading/cvpr/histopathology-whole-slide-image-analysis-with-heterogeneous-graph-representation-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/cvpr/histopathology-whole-slide-image-analysis-with-heterogeneous-graph-representation-learning/</guid>
+      <description>Code
+Heterogeneous graph construction WSI -&amp;gt; non-overlapping patches Node 使用HoverNet获取节点类别 Pretrained on PanNude dataset (nuclei instance segmentation and classification) Detect nuclei in patches and assign types 使用KimiaNet获取节点的embedding Edge 先使用K近邻选取特征相似的节点，然后使用Pearson R计算节点相关性，作为边属性 Heterogeneous graph learning HEATNet 既考虑节点相似度，又考虑边权重的相似度Transformer，聚合节点信息 PL Pooling 使用预训练分类器对节点进行聚类（按patch内部的细胞核类型），在每个类别内部进行池化 Prediction Cancer Staging &amp;amp; Cancer Classification Casual interpretation $$ \Delta_{\delta,v}=L(y,\hat{y}g)-L(y,\hat{y}{g\textbackslash \set{v}}) $$
+使用去除该节点前后预测值的变化，反映节点在决策中的重要程度</description>
+      
+    </item>
+    
+    <item>
+      <title>KiUT: Knowledge-injected U-Transformer for Radiology Report Generation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/cvpr/kiut-knowledge-injected-u-transformer-for-radiology-report-generation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/cvpr/kiut-knowledge-injected-u-transformer-for-radiology-report-generation/</guid>
+      <description> Signals Visual Knowledge signal ResNet101 -&amp;gt; 分patch -&amp;gt; RRSA RRSA (Region Relationship Self Attention) : 不仅考虑patch特征的相似度，还考虑两个patch之间的相对位置 Clinical Knowledge Signal symptom node embedding (from MBERT) ✖️ symptom probability（from classifier） Graph Attention: based on symptom relationship graph Contextual Knowledge Signal Previous output -&amp;gt; MBERT -&amp;gt; Masked MHA U connection 自回归式Decoder，考虑previous output和encoder visual signals Cross Attention的Q是previous output，但K和V不再是last Encoder的输出，而是N-i+1个Encoder的输出 Injected Knowledge Distiller Last Decoder的输出通过attention整合clinical knowledge signal和contextual knowledge signal，沿序列维度拼接后预测下一个词的输出 </description>
+      
+    </item>
+    
+    <item>
+      <title>Mukea: Multimodal knowledge extraction and accumulation for knowledge-based visual question answering</title>
+      <link>https://xuzhang0112.github.io/paper_reading/cvpr/mukea-multimodal-knowledge-extraction-and-accumulation-for-knowledge-based-visual-question-answering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/cvpr/mukea-multimodal-knowledge-extraction-and-accumulation-for-knowledge-based-visual-question-answering/</guid>
+      <description>代码🔗
+如何做VQA？ # 本质：图谱补全（头+关系==预测==&amp;gt;尾）
+基于神经网络来建模头节点和关系向量
+如何训练？ # 基于TransE算法来实现逻辑推理关系，同时设计不同尺度的损失函数
+靠近正确答案，远离错误答案 $$ L_{transE}=\sum_{t^+\in A^+}\sum_{t^-\in A_-}[\gamma+d(h+r,t^+)-d(h+r,t^-)] $$
+靠近正确答案 $$ L_{Tri}=MSE(h+r,t^+) $$
+多个答案对比
+$$ P(t^+)=softmax(T^T(h+r)) $$
+$$ L_{Sem}=-log(P(t^+)) $$
+为什么有效？ # 因为能（结合图像）正确地捕捉到头部实体和关系，同时（多模态）知识库更完备
+数据集 # OKVQA and KRVQA</description>
+      
+    </item>
+    
   </channel>
 </rss>

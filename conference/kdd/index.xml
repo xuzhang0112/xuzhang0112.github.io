@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>KDD on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/conference/kdd/</link>
+    <description>Recent content in KDD on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <atom:link href="https://xuzhang0112.github.io/conference/kdd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>All in One: Multi-Task Prompting for Graph Neural Networks </title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/all-in-one-multi-task-prompting-for-graph-neural-networks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/others/all-in-one-multi-task-prompting-for-graph-neural-networks/</guid>
+      <description>核心思想：对每一个任务训练一个prompt，而不是训一个模型 如何设计prompt？ 借鉴NLP，思考prompt的token类型、关系和插入方法
+每个prompt也是一个图结构
+token类型（节点）：embedding
+token结构（边）：可学习参数/相似度/相互独立
+插入方式：输入图节点和prompt图节点计算attention，然后将边进行相应的叠加
+如何设计训练任务？ 所有任务（节点/边/图级别）都可以看成对（添加了指定任务prompt）子图的图级别分类
+对于局部级别的任务，采样其$$\tau$$近邻子图，然后添加对应任务的prompt，然后做二分类（有几个类别就做几个prompt）
+利用元学习的思想将多个任务的prompt协同训练（元学习：用反向传播优化超参数）</description>
+      
+    </item>
+    
+  </channel>
+</rss>

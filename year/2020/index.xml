@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2020 on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/year/2020/</link>
+    <description>Recent content in 2020 on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <atom:link href="https://xuzhang0112.github.io/year/2020/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When Radiology Report Generation Meets Knowledge Graph</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/</guid>
+      <description>将图像特征建模成不同解剖结构的Graph，用于下游的多标签分类和报告生成。
+Knowledge Graph Nodes from the same organ are connected Node embedding DenseNet-121 pretrained on CheXpert Attention: 1*1 conv+softmax each class node uses the corresponding channel as spatial attention Training Loss Node Level: binary classification of each node Graph Level: multi-label classification of 14 diseases </description>
+      
+    </item>
+    
+  </channel>
+</rss>

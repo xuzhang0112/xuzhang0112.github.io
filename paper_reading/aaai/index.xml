@@ -106,6 +106,17 @@ $$ min\ Loss(Y,X|W, \lambda)= \Sigma_{x \in X} w_xL_x - \lambda \Sigma_{x \in X}
     </item>
     
     <item>
+      <title>When Radiology Report Generation Meets Knowledge Graph</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/</guid>
+      <description>将图像特征建模成不同解剖结构的Graph，用于下游的多标签分类和报告生成。
+Knowledge Graph Nodes from the same organ are connected Node embedding DenseNet-121 pretrained on CheXpert Attention: 1*1 conv+softmax each class node uses the corresponding channel as spatial attention Training Loss Node Level: binary classification of each node Graph Level: multi-label classification of 14 diseases </description>
+      
+    </item>
+    
+    <item>
       <title>You Only Read Once: Constituency-Oriented Relational Graph Convolutional Network for Multi-Aspect Multi-Sentiment Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/aaai/2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

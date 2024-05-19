@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TOMM on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/conference/tomm/</link>
+    <description>Recent content in TOMM on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <atom:link href="https://xuzhang0112.github.io/conference/tomm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MKVSE: Multimodal Knowledge Enhanced Visual-semantic Embedding for Image-text Retrieval</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/others/mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval/</guid>
+      <description>代码🔗：https://github.com/PKU-ICST-MIPL/MKVSE-TOMM2023
+做了什么？ # 定义了跨模态检索任务：将根据文本提供的几何拓扑关系，并检索变换后的图像
+提出了一个数据集，用于该任务
+数据集 # 怎么做？ # 对比学习
+效果 # </description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -9,6 +9,23 @@
     <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/paper_reading/others/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>All in One: Multi-Task Prompting for Graph Neural Networks </title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/all-in-one-multi-task-prompting-for-graph-neural-networks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/others/all-in-one-multi-task-prompting-for-graph-neural-networks/</guid>
+      <description>核心思想：对每一个任务训练一个prompt，而不是训一个模型 如何设计prompt？ 借鉴NLP，思考prompt的token类型、关系和插入方法
+每个prompt也是一个图结构
+token类型（节点）：embedding
+token结构（边）：可学习参数/相似度/相互独立
+插入方式：输入图节点和prompt图节点计算attention，然后将边进行相应的叠加
+如何设计训练任务？ 所有任务（节点/边/图级别）都可以看成对（添加了指定任务prompt）子图的图级别分类
+对于局部级别的任务，采样其$$\tau$$近邻子图，然后添加对应任务的prompt，然后做二分类（有几个类别就做几个prompt）
+利用元学习的思想将多个任务的prompt协同训练（元学习：用反向传播优化超参数）</description>
+      
+    </item>
+    
+    <item>
       <title>Automatic ICD Coding Exploiting Discourse Structure and Reconciled Code Embeddings</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/coling2022/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -50,6 +67,23 @@ details # Adam学习率1e-5, Batch Size12, 正则化系数1e-4
     </item>
     
     <item>
+      <title>GraphGPT: Graph Instruction Tuning for Large Language Models</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/graphgpt-graph-instruction-tuning-for-large-language-models/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/others/graphgpt-graph-instruction-tuning-for-large-language-models/</guid>
+      <description>motivation 把图的全部节点文本都输入大模型成本过高，但是相邻节点又富含信息，因此希望找到一个方法来对图结构信息做压缩，从而利用大模型来处理图结构
+例子：论文的引用关系可以体现论文的主题（相邻节点促进中心节点的分类）
+核心思想：将图结构和文本做对齐，让GPT读的懂图结构 如何做？ 不训练GNN和LLM，只训练映射头，而且分两个阶段
+第一阶段，让LLM来对图嵌入做排序，让其对应相应的文本嵌入
+第二阶段，让LLM针对指定下游任务（在prompt中体现），进行思维链推导，以获得一定的逻辑性
+如何迁移到下游任务？ 子图匹配：将图映射成节点向量序列，问一系列节点分别对应什么
+节点分类：将图映射成节点向量序列，问第0个节点是什么
+链路预测：将两个图分别映射成嵌入</description>
+      
+    </item>
+    
+    <item>
       <title>How to Fine-Tune BERT for Text Classification?</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -57,6 +91,36 @@ details # Adam学习率1e-5, Batch Size12, 正则化系数1e-4
       <guid>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</guid>
       <description> Key idea # 在9个中文数据集上探究了BERT在文本分类任务上的进一步预训练与微调
 结论 # 实验一：微调策略 对于长文本，经验性地截取开头和结尾 &amp;gt; 全文分段送入BERT，self-attention &amp;gt; max pooling &amp;gt; mean pooling 最后一层的输出 &amp;gt; 若干层的拼接和池化 较低的学习率（2e-5）和layer-wise的学习率衰减（0.95）有助于缓解灾难性遗忘 fine-tune一般采取三角学习率（warm up + linear decay） pretrain: lr=5e-5, seq_len=128; fine-tune: lr=2e-5, seq_len=512 实验二： 进一步预训练 进一步预训练(in-domain &amp;gt; task &amp;gt; cross-domain，不绝对) &amp;gt; 多任务fine-tune &amp;gt; 直接fine-tune 多任务fine-tune在further pretrain的情况下是会掉点的，仅仅优于直接fine-tune ULMFiT: 大规模数据集上进行pre-training然后在特定数据集上达到state-of-the-art的工作，分为3个阶段，phase1 big dataset pretrain; phase2 task dataset pretrain; phase3 finetune </description>
+      
+    </item>
+    
+    <item>
+      <title>Hybrid transformer with multi-level fusion for multimodal knowledge graph completion</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/hybrid-transformer-with-multi-level-fusion-for-multimodal-knowledge-graph-completion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/others/hybrid-transformer-with-multi-level-fusion-for-multimodal-knowledge-graph-completion/</guid>
+      <description>用统一的框架实现三个KG任务
+Multimodal Link Prediction Multimodal Relation extraction (MRE) MNER is the task of extracting named entities from text sequences and corresponding images (MNER) 框架 # RE：对CLS token进行预测
+NER：对每个词向量进行预测
+链路预测：对mask token进行预测
+模块 # 视觉：直接混合attention
+文本：先self-attention再cross-attention
+效果图 # </description>
+      
+    </item>
+    
+    <item>
+      <title>MKVSE: Multimodal Knowledge Enhanced Visual-semantic Embedding for Image-text Retrieval</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/others/mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval/</guid>
+      <description>代码🔗：https://github.com/PKU-ICST-MIPL/MKVSE-TOMM2023
+做了什么？ # 定义了跨模态检索任务：将根据文本提供的几何拓扑关系，并检索变换后的图像
+提出了一个数据集，用于该任务
+数据集 # 怎么做？ # 对比学习
+效果 # </description>
       
     </item>
     

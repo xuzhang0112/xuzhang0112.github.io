@@ -86,6 +86,23 @@ ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
     </item>
     
     <item>
+      <title>GraphGPT: Graph Instruction Tuning for Large Language Models</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/graphgpt-graph-instruction-tuning-for-large-language-models/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/others/graphgpt-graph-instruction-tuning-for-large-language-models/</guid>
+      <description>motivation 把图的全部节点文本都输入大模型成本过高，但是相邻节点又富含信息，因此希望找到一个方法来对图结构信息做压缩，从而利用大模型来处理图结构
+例子：论文的引用关系可以体现论文的主题（相邻节点促进中心节点的分类）
+核心思想：将图结构和文本做对齐，让GPT读的懂图结构 如何做？ 不训练GNN和LLM，只训练映射头，而且分两个阶段
+第一阶段，让LLM来对图嵌入做排序，让其对应相应的文本嵌入
+第二阶段，让LLM针对指定下游任务（在prompt中体现），进行思维链推导，以获得一定的逻辑性
+如何迁移到下游任务？ 子图匹配：将图映射成节点向量序列，问一系列节点分别对应什么
+节点分类：将图映射成节点向量序列，问第0个节点是什么
+链路预测：将两个图分别映射成嵌入</description>
+      
+    </item>
+    
+    <item>
       <title>Hierarchical Knowledge Guided Learning for Real-World Retinal Disease Recognition</title>
       <link>https://xuzhang0112.github.io/paper_reading/tmi/1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

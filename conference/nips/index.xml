@@ -51,6 +51,52 @@ $$ \Sigma^k_{i=1}y_{i}（logS-log\alpha_{i}） $$ 物理意义是很明确的，
     </item>
     
     <item>
+      <title>Achieving Cross Modal Generalization with Multimodal Unified Representation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/achieving-cross-modal-generalization-with-multimodal-unified-representation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/achieving-cross-modal-generalization-with-multimodal-unified-representation/</guid>
+      <description>问题：
+一、如何将不同模态中具有相同语义的信息提取出来，同时避免 modality-specific 信息的干扰；（粒度不够细）
+二、如何将这些具有相同语义的不同模态用统一的 codebook 表征。（对齐不够齐）
+目标：
+将各个模态的任务转换成离散空间的任务</description>
+      
+    </item>
+    
+    <item>
+      <title>Auto-Encoding Knowledge Graph for Unsupervised Medical Report Generation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/miccai/auto-encoding-knowledge-graph-for-unsupervised-medical-report-generation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/miccai/auto-encoding-knowledge-graph-for-unsupervised-medical-report-generation/</guid>
+      <description>将图像和报告都投射到知识空间进行表达。
+Knowledge Graph 构建图谱 Abnormalities and normalities (by computing co-occurance in report corpus) 使用GNN对知识进行编码 Knowledge-driven Encoder 将图像和报告都利用知识embedding进行表达
+$$ g_I=KE_I(I,g) $$
+$$ g_R=KE_R(R,g) $$
+Knowledge-driven Decoder 基于之前的所有输出来预测Report的下一个输出，并通过注意力机制整合知识空间中的信息 $$ h_t=Att(x_t,x_{1:t}) $$
+$$ h_t^`=KA(h_t,g_k,B) $$
+使用Knowledge Bank来获取细粒度的知识，其中B是由网络进行端到端学习的
+$$ B_k=Softmax(g_kB^T)B $$
+训练 自监督：训练时R-&amp;gt;G-&amp;gt;R，推断时I-&amp;gt;G-&amp;gt;R
+半/全监督：I-&amp;gt;G-&amp;gt;R（半监督则先无监督预训练）</description>
+      
+    </item>
+    
+    <item>
+      <title>Open Visual Knowledge Extraction via Relation-Oriented Multimodality Model Prompting</title>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/open-visual-knowledge-extraction-via-relation-oriented-multimodality-model-prompting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/open-visual-knowledge-extraction-via-relation-oriented-multimodality-model-prompting/</guid>
+      <description>主任务：视觉知识抽取，分解为目标检测和文本生成
+目标检测：Relation-centric（bbox改成subject和object联合区域，分类器目标改成关系类别 文本生成：改Loss，惩罚相似的生成 数据增强：使用KG、LLM扩充知识（从常识库中补充更多的关系，将主语替换为同义词）；丢弃频繁知识（魔改TF-IDF）； 并不是凭空抽取知识，训练依赖细粒度的标注（BBox，知识），数据集Visual Geonome
+下游任务：文本检索图像，图像识别文本，VQA
+模型：检测：ResNet+FPN，多模态生成：VIT-B-16+BLIP/CLIP（依赖大规模预训练）</description>
+      
+    </item>
+    
+    <item>
       <title>Towards Semi-Structured Automatic ICD Coding via Tree-based Contrastive Learning</title>
       <link>https://xuzhang0112.github.io/paper_reading/nips/23_1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -63,6 +109,16 @@ $$ \Sigma^k_{i=1}y_{i}（logS-log\alpha_{i}） $$ 物理意义是很明确的，
 在MIMIC-III-50-rare提升更明显
 消融实验证明了这些即插即用模块的效果
 另外通过数据证明了MIMIC III是分类难度较大的长文本数据集</description>
+      
+    </item>
+    
+    <item>
+      <title>Towards Semi-Structured Automatic ICD Coding via Tree-based Contrastive Learning</title>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/23_3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/23_3/</guid>
+      <description></description>
       
     </item>
     

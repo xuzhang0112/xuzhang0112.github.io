@@ -9,6 +9,39 @@
     <copyright>© 2024 Xu Zhang</copyright>
     <atom:link href="https://xuzhang0112.github.io/year/2021/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>AnaXNet: Anatomy Aware Multi-label Finding Classification in Chest X-ray</title>
+      <link>https://xuzhang0112.github.io/paper_reading/miccai/anaxnet-anatomy-aware-multi-label-finding-classification-in-chest-x-ray/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/miccai/anaxnet-anatomy-aware-multi-label-finding-classification-in-chest-x-ray/</guid>
+      <description>开源代码
+Faster-RCNN：提取解剖ROIs以及相对应的特征，即k个解剖结构的特征，维度为d
+Anatomy GCN
+基于co-occurance获取描述anatomy之间关系的邻接矩阵，并通过设定阈值滤除噪声，捕捉解剖结构之间的依赖关系 基于依赖关系，聚合各个解剖结构的特征 Cross Anatomy Attention
+基于相似度，进一步整合所有解剖结构的特征，并使用残差连接保持原始特征 FC：对于每一个解剖结构的embedding使用分类头进行疾病预测</description>
+      
+    </item>
+    
+    <item>
+      <title>Auto-Encoding Knowledge Graph for Unsupervised Medical Report Generation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/miccai/auto-encoding-knowledge-graph-for-unsupervised-medical-report-generation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/miccai/auto-encoding-knowledge-graph-for-unsupervised-medical-report-generation/</guid>
+      <description>将图像和报告都投射到知识空间进行表达。
+Knowledge Graph 构建图谱 Abnormalities and normalities (by computing co-occurance in report corpus) 使用GNN对知识进行编码 Knowledge-driven Encoder 将图像和报告都利用知识embedding进行表达
+$$ g_I=KE_I(I,g) $$
+$$ g_R=KE_R(R,g) $$
+Knowledge-driven Decoder 基于之前的所有输出来预测Report的下一个输出，并通过注意力机制整合知识空间中的信息 $$ h_t=Att(x_t,x_{1:t}) $$
+$$ h_t^`=KA(h_t,g_k,B) $$
+使用Knowledge Bank来获取细粒度的知识，其中B是由网络进行端到端学习的
+$$ B_k=Softmax(g_kB^T)B $$
+训练 自监督：训练时R-&amp;gt;G-&amp;gt;R，推断时I-&amp;gt;G-&amp;gt;R
+半/全监督：I-&amp;gt;G-&amp;gt;R（半监督则先无监督预训练）</description>
+      
+    </item>
+    
+    <item>
       <title>Effective Convolutional Attention Network for Multi-label Clinical Document Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2021/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

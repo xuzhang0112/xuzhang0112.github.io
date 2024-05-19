@@ -67,7 +67,22 @@
     <lastmod>2024-04-30T00:00:00+00:00</lastmod>
   </url>
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/nips/achieving-cross-modal-generalization-with-multimodal-unified-representation/</loc>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/acl/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/miccai/agxnet-anatomy-guided-weakly-supervised-abnormality-localization-in-chest-x-rays/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/others/all-in-one-multi-task-prompting-for-graph-neural-networks/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/miccai/anaxnet-anatomy-aware-multi-label-finding-classification-in-chest-x-ray/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/miccai/auto-encoding-knowledge-graph-for-unsupervised-medical-report-generation/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/others/coling2022/</loc>
@@ -79,13 +94,16 @@
     <loc>https://xuzhang0112.github.io/cheat_sheet/</loc>
   </url>
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/survey/chest_xray/</loc>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/cli/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/5/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/learning/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/survey/contrastive_learning/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/course/</loc>
@@ -98,6 +116,9 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/arxiv/24_1/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/dynamic-graph-enhanced-contrastive-learning-for-chest-x-ray-report-generation/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2021/</loc>
@@ -121,7 +142,13 @@
     <loc>https://xuzhang0112.github.io/paper_reading/iclr/1/</loc>
   </url>
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/others/graphgpt-graph-instruction-tuning-for-large-language-models/</loc>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/tmi/1/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/histopathology-whole-slide-image-analysis-with-heterogeneous-graph-representation-learning/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</loc>
@@ -133,22 +160,40 @@
     <loc>https://xuzhang0112.github.io/cheat_sheet/blog/</loc>
   </url>
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/others/hybrid-transformer-with-multi-level-fusion-for-multimodal-knowledge-graph-completion/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/iccv/</loc>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/iclr/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/acl/22/</loc>
   </url>
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/nature/kad-knowledge-enhanced-visual-language-pre-training-on-chest-radiology-images/</loc>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/arxiv/22/</loc>
   </url>
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/kiut-knowledge-injected-u-transformer-for-radiology-report-generation/</loc>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022_/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/mia/knowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/7/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/course/algebra/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/miccai/masked-vision-and-language-pre-training-with-unimodal-and-multimodal-contrastive-losses-for-medical-visual-question-answ/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</loc>
@@ -163,10 +208,28 @@
     <loc>https://xuzhang0112.github.io/paper_reading/survey/text_classification/</loc>
   </url>
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/iccv/medklip-medical-knowledge-enhanced-language-image-pre-training/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/mia/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/miccai/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/others/mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval/</loc>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/mm_kg/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/mm_medical/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/mukea-multimodal-knowledge-extraction-and-accumulation-for-knowledge-based-visual-question-answering/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/nature/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/nips/open-visual-knowledge-extraction-via-relation-oriented-multimodality-model-prompting/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/others/</loc>
@@ -205,10 +268,16 @@
     <loc>https://xuzhang0112.github.io/paper_reading/nips/23_1/</loc>
   </url>
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/nips/23_3/</loc>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/visualization/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/vscode/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/2/</loc>

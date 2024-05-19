@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SIGIR on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/conference/sigir/</link>
+    <description>Recent content in SIGIR on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <atom:link href="https://xuzhang0112.github.io/conference/sigir/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GraphGPT: Graph Instruction Tuning for Large Language Models</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/graphgpt-graph-instruction-tuning-for-large-language-models/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/others/graphgpt-graph-instruction-tuning-for-large-language-models/</guid>
+      <description>motivation 把图的全部节点文本都输入大模型成本过高，但是相邻节点又富含信息，因此希望找到一个方法来对图结构信息做压缩，从而利用大模型来处理图结构
+例子：论文的引用关系可以体现论文的主题（相邻节点促进中心节点的分类）
+核心思想：将图结构和文本做对齐，让GPT读的懂图结构 如何做？ 不训练GNN和LLM，只训练映射头，而且分两个阶段
+第一阶段，让LLM来对图嵌入做排序，让其对应相应的文本嵌入
+第二阶段，让LLM针对指定下游任务（在prompt中体现），进行思维链推导，以获得一定的逻辑性
+如何迁移到下游任务？ 子图匹配：将图映射成节点向量序列，问一系列节点分别对应什么
+节点分类：将图映射成节点向量序列，问第0个节点是什么
+链路预测：将两个图分别映射成嵌入</description>
+      
+    </item>
+    
+    <item>
+      <title>Hybrid transformer with multi-level fusion for multimodal knowledge graph completion</title>
+      <link>https://xuzhang0112.github.io/paper_reading/others/hybrid-transformer-with-multi-level-fusion-for-multimodal-knowledge-graph-completion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/others/hybrid-transformer-with-multi-level-fusion-for-multimodal-knowledge-graph-completion/</guid>
+      <description>用统一的框架实现三个KG任务
+Multimodal Link Prediction Multimodal Relation extraction (MRE) MNER is the task of extracting named entities from text sequences and corresponding images (MNER) 框架 # RE：对CLS token进行预测
+NER：对每个词向量进行预测
+链路预测：对mask token进行预测
+模块 # 视觉：直接混合attention
+文本：先self-attention再cross-attention
+效果图 # </description>
+      
+    </item>
+    
+  </channel>
+</rss>

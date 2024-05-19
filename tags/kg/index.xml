@@ -65,5 +65,37 @@ Finetune, 2张A100，10+0.5小时（MIMIC-III-50 &amp;amp; MIMIC-III-rare50）
       
     </item>
     
+    <item>
+      <title>Knowledge Matters: Chest Radiology Report Generation with General and Specific Knowledge</title>
+      <link>https://xuzhang0112.github.io/paper_reading/mia/knowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/mia/knowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge/</guid>
+      <description>code
+用相似报告和KG来查询潜在的实体，以用于报告解码时的文字表达。
+General Knowledge # 构建知识图谱 # RadGraph Training Dataset (triplets extracted by experts from 500 MIMIC-CXR reports)
+图算法编码，得到entity和relation的embedding # $$ E_e,E_r=RotatE(G_g) $$
+计算每个entity的相对重要性 # $$ r_{i,j}=AvgPool(E_r^{(i,j)}) $$
+$$ E_r^{(i,j)}=Ralation(e_i,e_j) $$
+$$ \phi(r)=AvgPool(rW^R) $$
+考虑相对重要性的多头注意力 # $$ KG-Att(Q,K,V,\phi(r))=softmax(\frac{QK^T}{\sqrt{d_k}}+\phi(r))V $$
+$$ C_g=KEMHA(I,E_e,E,e,r) $$
+Specific Knowledge # 相似报告检索 # 使用预训练的疾病14分类模型，计算输入图像的疾病分布和库中样本的疾病分布的KL散度，选取Top K相似报告
+特定知识查询 # 使用命名实体识别器Stanza提取报告中的entity，在Rad Graph Inference Dataset中查询每个entity对应的triplet
+例：检索到的报告为““pneumothorax or pleural effusion is seen”，提取的实体集合T为{pneumothorax, pleural, effusion}，检索到的知识为 {pneumothorax suggestive of bleeding, effusion located at bilateral,&amp;hellip;}</description>
+      
+    </item>
+    
+    <item>
+      <title>When Radiology Report Generation Meets Knowledge Graph</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/</guid>
+      <description>将图像特征建模成不同解剖结构的Graph，用于下游的多标签分类和报告生成。
+Knowledge Graph Nodes from the same organ are connected Node embedding DenseNet-121 pretrained on CheXpert Attention: 1*1 conv+softmax each class node uses the corresponding channel as spatial attention Training Loss Node Level: binary classification of each node Graph Level: multi-label classification of 14 diseases </description>
+      
+    </item>
+    
   </channel>
 </rss>

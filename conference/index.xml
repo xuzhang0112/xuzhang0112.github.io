@@ -129,11 +129,31 @@
     </item>
     
     <item>
+      <title>ICCV</title>
+      <link>https://xuzhang0112.github.io/conference/iccv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/conference/iccv/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>ICLR</title>
       <link>https://xuzhang0112.github.io/conference/iclr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/conference/iclr/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>KDD</title>
+      <link>https://xuzhang0112.github.io/conference/kdd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/conference/kdd/</guid>
       <description></description>
       
     </item>
@@ -149,11 +169,61 @@
     </item>
     
     <item>
+      <title>MIA</title>
+      <link>https://xuzhang0112.github.io/conference/mia/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/conference/mia/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>MICCAI</title>
+      <link>https://xuzhang0112.github.io/conference/miccai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/conference/miccai/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Nature Communication</title>
+      <link>https://xuzhang0112.github.io/conference/nature-communication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/conference/nature-communication/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SIGIR</title>
+      <link>https://xuzhang0112.github.io/conference/sigir/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/conference/sigir/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>TMI</title>
       <link>https://xuzhang0112.github.io/conference/tmi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/conference/tmi/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>TOMM</title>
+      <link>https://xuzhang0112.github.io/conference/tomm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/conference/tomm/</guid>
       <description></description>
       
     </item>

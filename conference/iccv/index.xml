@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ICCV on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/conference/iccv/</link>
+    <description>Recent content in ICCV on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <atom:link href="https://xuzhang0112.github.io/conference/iccv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MedKLIP: Medical Knowledge Enhanced Language-Image Pre-Training</title>
+      <link>https://xuzhang0112.github.io/paper_reading/iccv/medklip-medical-knowledge-enhanced-language-image-pre-training/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/iccv/medklip-medical-knowledge-enhanced-language-image-pre-training/</guid>
+      <description>code
+pipeline
+Image embedding与某种疾病的entity knowledge embedding(先通过wiki&amp;amp;UMLS知识库构建,然后通过BoiClinical-Bert编码)共同输入模型，预测这种疾病的有/无，位置，特征图
+$$ \hat{s},\hat{p},\hat{m}=\Phi_{fusion}(v,Q) $$
+训练时，选取Train Set中的Top Q疾病的知识编码进行训练；
+推断时，基于该疾病的医学知识编码进行推断
+训练
+Pseudo label
+疾病是否存在 疾病处于何处：使用BioClinical-Bert进行编码 $$ p=\Phi_{text}(\text{&amp;ldquo;it is located at {position}&amp;rdquo;}) $$
+Fine-grained supervision
+疾病有无：BCE Loss
+疾病位置：将该疾病的位置编码和其他M种位置编码进行对比学习（因为位置编码的类别数未知）
+$$ L_{loc}=-\frac{1}{Q}\sum_k^Q\frac{e&amp;lt;\hat{p}_k,p_k&amp;gt;}{e&amp;lt;\hat{p}_k,p_k&amp;gt;+\sum_u^M{e&amp;lt;\hat{p}_k,p_k&amp;gt;}} $$</description>
+      
+    </item>
+    
+  </channel>
+</rss>

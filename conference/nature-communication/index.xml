@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nature Communication on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/conference/nature-communication/</link>
+    <description>Recent content in Nature Communication on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <atom:link href="https://xuzhang0112.github.io/conference/nature-communication/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KAD: Knowledge-enhanced Visual-Language Pre-training on Chest Radiology Images</title>
+      <link>https://xuzhang0112.github.io/paper_reading/nature/kad-knowledge-enhanced-visual-language-pre-training-on-chest-radiology-images/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/nature/kad-knowledge-enhanced-visual-language-pre-training-on-chest-radiology-images/</guid>
+      <description> code
+Knowledge database knowledge graph: concept-relation-concept triplets concept info list: concept-definition pairs Pre-training Text contrastive learning between medical concepts or definitions image-text contrastive learning with paired chest X-rays and extracted entities(by tools like ChatGPT) optimize a Disease Query Network (DQN) for classification Zero-shot inference encode the disease name as a query input, and DQN will output the probability that the pathology is present in the input image </description>
+      
+    </item>
+    
+  </channel>
+</rss>

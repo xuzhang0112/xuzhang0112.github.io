@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MIA on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/conference/mia/</link>
+    <description>Recent content in MIA on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <atom:link href="https://xuzhang0112.github.io/conference/mia/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Knowledge Matters: Chest Radiology Report Generation with General and Specific Knowledge</title>
+      <link>https://xuzhang0112.github.io/paper_reading/mia/knowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/mia/knowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge/</guid>
+      <description>code
+用相似报告和KG来查询潜在的实体，以用于报告解码时的文字表达。
+General Knowledge # 构建知识图谱 # RadGraph Training Dataset (triplets extracted by experts from 500 MIMIC-CXR reports)
+图算法编码，得到entity和relation的embedding # $$ E_e,E_r=RotatE(G_g) $$
+计算每个entity的相对重要性 # $$ r_{i,j}=AvgPool(E_r^{(i,j)}) $$
+$$ E_r^{(i,j)}=Ralation(e_i,e_j) $$
+$$ \phi(r)=AvgPool(rW^R) $$
+考虑相对重要性的多头注意力 # $$ KG-Att(Q,K,V,\phi(r))=softmax(\frac{QK^T}{\sqrt{d_k}}+\phi(r))V $$
+$$ C_g=KEMHA(I,E_e,E,e,r) $$
+Specific Knowledge # 相似报告检索 # 使用预训练的疾病14分类模型，计算输入图像的疾病分布和库中样本的疾病分布的KL散度，选取Top K相似报告
+特定知识查询 # 使用命名实体识别器Stanza提取报告中的entity，在Rad Graph Inference Dataset中查询每个entity对应的triplet
+例：检索到的报告为““pneumothorax or pleural effusion is seen”，提取的实体集合T为{pneumothorax, pleural, effusion}，检索到的知识为 {pneumothorax suggestive of bleeding, effusion located at bilateral,&amp;hellip;}</description>
+      
+    </item>
+    
+  </channel>
+</rss>

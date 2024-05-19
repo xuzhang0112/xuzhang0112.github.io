@@ -7,43 +7,53 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/conference/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/conference/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CVPR 2022</title>
-      <link>https://xuzhang0112.github.io/conference/cvpr-2022/</link>
+      <title>NIPS</title>
+      <link>https://xuzhang0112.github.io/conference/nips/</link>
+      <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/conference/nips/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>CVPR</title>
+      <link>https://xuzhang0112.github.io/conference/cvpr/</link>
       <pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/conference/cvpr-2022/</guid>
+      <guid>https://xuzhang0112.github.io/conference/cvpr/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>ECCV 2016</title>
-      <link>https://xuzhang0112.github.io/conference/eccv-2016/</link>
+      <title>ECCV</title>
+      <link>https://xuzhang0112.github.io/conference/eccv/</link>
       <pubDate>Thu, 16 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/conference/eccv-2016/</guid>
+      <guid>https://xuzhang0112.github.io/conference/eccv/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>ICML 2024</title>
-      <link>https://xuzhang0112.github.io/conference/icml-2024/</link>
+      <title>ICML</title>
+      <link>https://xuzhang0112.github.io/conference/icml/</link>
       <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/conference/icml-2024/</guid>
+      <guid>https://xuzhang0112.github.io/conference/icml/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>AAAI 2024</title>
-      <link>https://xuzhang0112.github.io/conference/aaai-2024/</link>
+      <title>AAAI</title>
+      <link>https://xuzhang0112.github.io/conference/aaai/</link>
       <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/conference/aaai-2024/</guid>
+      <guid>https://xuzhang0112.github.io/conference/aaai/</guid>
       <description></description>
       
     </item>
@@ -69,121 +79,81 @@
     </item>
     
     <item>
-      <title>BIBM 2023</title>
-      <link>https://xuzhang0112.github.io/conference/bibm-2023/</link>
+      <title>BIBM</title>
+      <link>https://xuzhang0112.github.io/conference/bibm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/conference/bibm-2023/</guid>
+      <guid>https://xuzhang0112.github.io/conference/bibm/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>CCL 2019</title>
-      <link>https://xuzhang0112.github.io/conference/ccl-2019/</link>
+      <title>CCL</title>
+      <link>https://xuzhang0112.github.io/conference/ccl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/conference/ccl-2019/</guid>
+      <guid>https://xuzhang0112.github.io/conference/ccl/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>CIKM 2023</title>
-      <link>https://xuzhang0112.github.io/conference/cikm-2023/</link>
+      <title>CIKM</title>
+      <link>https://xuzhang0112.github.io/conference/cikm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/conference/cikm-2023/</guid>
+      <guid>https://xuzhang0112.github.io/conference/cikm/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>COLING 2022</title>
-      <link>https://xuzhang0112.github.io/conference/coling-2022/</link>
+      <title>COLING</title>
+      <link>https://xuzhang0112.github.io/conference/coling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/conference/coling-2022/</guid>
+      <guid>https://xuzhang0112.github.io/conference/coling/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>EMNLP 2021</title>
-      <link>https://xuzhang0112.github.io/conference/emnlp-2021/</link>
+      <title>EMNLP</title>
+      <link>https://xuzhang0112.github.io/conference/emnlp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/conference/emnlp-2021/</guid>
+      <guid>https://xuzhang0112.github.io/conference/emnlp/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>EMNLP 2022</title>
-      <link>https://xuzhang0112.github.io/conference/emnlp-2022/</link>
+      <title>ICLR</title>
+      <link>https://xuzhang0112.github.io/conference/iclr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/conference/emnlp-2022/</guid>
+      <guid>https://xuzhang0112.github.io/conference/iclr/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>EMNLP 2023</title>
-      <link>https://xuzhang0112.github.io/conference/emnlp-2023/</link>
+      <title>MedInfo</title>
+      <link>https://xuzhang0112.github.io/conference/medinfo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/conference/emnlp-2023/</guid>
+      <guid>https://xuzhang0112.github.io/conference/medinfo/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>ICLR 2023</title>
-      <link>https://xuzhang0112.github.io/conference/iclr-2023/</link>
+      <title>TMI</title>
+      <link>https://xuzhang0112.github.io/conference/tmi/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/conference/iclr-2023/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>MedInfo 2023</title>
-      <link>https://xuzhang0112.github.io/conference/medinfo-2023/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/conference/medinfo-2023/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>NIPS 2018</title>
-      <link>https://xuzhang0112.github.io/conference/nips-2018/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/conference/nips-2018/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>NIPS 2023</title>
-      <link>https://xuzhang0112.github.io/conference/nips-2023/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/conference/nips-2023/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>TMI 2024</title>
-      <link>https://xuzhang0112.github.io/conference/tmi-2024/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/conference/tmi-2024/</guid>
+      <guid>https://xuzhang0112.github.io/conference/tmi/</guid>
       <description></description>
       
     </item>

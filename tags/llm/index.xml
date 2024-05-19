@@ -7,17 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Tue, 14 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>VisionGraph: Leveraging Large Multimodal Models for Graph Theory Problems in Visual Context</title>
-      <link>https://xuzhang0112.github.io/paper_reading/icml/1/</link>
-      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      <title>Automated clinical coding using off-the-shelf large language models</title>
+      <link>https://xuzhang0112.github.io/paper_reading/nips/23_2/</link>
+      <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/icml/1/</guid>
-      <description>此类文章（LLM推理）通常需要新颖的任务、详细的实验、好的故事。
-Github
-解决8种graph问题
-Prompt: 用于帮助模型理解任务和上下文 Instruction: 指导模型执行具体操作或完成任务</description>
+      <guid>https://xuzhang0112.github.io/paper_reading/nips/23_2/</guid>
+      <description>NIPS Workshop 2023
+Automated clinical coding using off-the-shelf large language models | OpenReview Model: Llama-2, GPT-3.5 and GPT-4 Dataset: CodiEsp (1000cases) Metrics:
+macro-F1 micro-F1 Proposed(LLM inference) 0.225 0.157 PLM-ICD(BERT based, pretrained on MIMIC III &amp;amp; VI, SOTA) 0.216 0.219 Prompt：“You are a clinical coder, consider the case note and assign the appropriate ICD codes”
+LLM控温：GPT设为0，Llama设为0.001（最小值），以获得确定性输出。
+后处理：将LLM生成的文本与ICD code description进行贪婪匹配。
+StefanoTrv/simple_icd_10_CM: A simple python library for ICD-10-CM codes (github.com)
+JoakimEdin/medical-coding-reproducibility (github.com)
+直接匹配代码/匹配代码描述/树形搜索的对比</description>
       
     </item>
     

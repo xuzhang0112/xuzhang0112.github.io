@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2024 on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/year/2024/</link>
+    <description>Recent content in 2024 on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <lastBuildDate>Tue, 14 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/year/2024/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VisionGraph: Leveraging Large Multimodal Models for Graph Theory Problems in Visual Context</title>
+      <link>https://xuzhang0112.github.io/paper_reading/icml/1/</link>
+      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/icml/1/</guid>
+      <description>此类文章（LLM推理）通常需要新颖的任务、详细的实验、好的故事。
+Github
+解决8种graph问题
+Prompt: 用于帮助模型理解任务和上下文 Instruction: 指导模型执行具体操作或完成任务</description>
+      
+    </item>
+    
+    <item>
+      <title>Improved Graph Contrastive Learning for Short Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/4/</link>
+      <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/4/</guid>
+      <description>从语料库中构建3种类型的图，单词、实体、词性。
+Word Graph采用GloVe word vectors作为节点嵌入，PMI作为边权重；
+Entity Graph采用TransE获取节点嵌入，cosine similarity作为边权重；
+Pos Graph采用One-hot作为节点嵌入，PMI作为边权重。
+这些嵌入可以通过GNN来进一步聚合邻域的信息。 $$ H^{l+1}=\sigma(\hat{D^{-\frac{1}{2}}}\hat{A}\hat{D^{-\frac{1}{2}}}H^lW^l) $$ 基于这些嵌入，进一步可以构建出文本的表示，对于单词和词性，采用TF-IDF作为系数矩阵，对于实体，则只用0和1来区分文本是否存在该实体，$M_\pi$表示文本与单词、实体、词性之间的系数矩阵。 $$ Z_\pi = M_\pi H_\pi , \pi \in {w,e,p} $$
+$$ Z_{org} = Z_w || Z_e || Z_p $$
+$Z_{pi}$是文本的原始特征表示，可以使用SVD进行进一步的去噪和增强，获得增强的文本表示。 $$ M_{\pi , r} = U_{\pi,r}\Sigma_{\pi,r}V_{\pi,r}^T $$
+$$ Z_{\pi,r}=M_{\pi,r}H_\pi $$
+$$ Z_{aug}=Z_{w,r}||Z_{e,r}||Z_{p,r} $$
+对于无标签的文本，采用对比学习和聚类对比学习损失。
+实例对比学习将每个实例与其增强表示拉近，与其他实例及其增强表示拉远。 $$ L_{cl} = -\sum_{i=1}^{2N}\frac{1}{2N}log\frac{exp(P_i\cdot P_j / \tau)}{\sum_{k=1}^{2N}\prod_{k\neq i}exp(P_i\cdot P_k / \tau)} $$ 聚类对比学习将每个实例与其伪标签（聚类中心）相同的实例拉近，与其他实例拉远。 $$ L_{ccl} = -\sum_i^N \frac{1}{|S_i|-1}\sum_{j\in S_i}log\frac{exp(Q_i\cdot Q_j/\tau)}{\sum_{k=1}^N\prod_{k \neq i}exp(Q_i\cdot Qk/\tau)} $$ 对于有标签的文本，采用交叉熵损失。 $$ L_{ce}=-\sum_{i\in D_{lab}}\sum_j^cy_{ij}logR_{j} $$</description>
+      
+    </item>
+    
+    <item>
+      <title>Self-Paced Unified Representation Learning for Hierarchical Multi-Label Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/1/</link>
+      <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/1/</guid>
+      <description>Code
+图同构：问题最初的定义是只考虑拓扑关系，不考虑节点信息（可以用GNN）
+Self-paced Learning：（基于Loss）自适应地动态衡量样本学习难度
+Key Idea # 实例特征和层次类别特征的统一表达 考虑层次结构和实例特征的难度估计(从易到难) 基于Text Embedding和Label Embedding来计算类别概率，并且采用扁平化的方法来完成层次多标签预测 $$ \hat{y} = Sigmoid(W_2(W_1[Z^F||Z^G]+b_1)+b_2) $$
+$$ L_{tg} = CE_Loss(y,\hat{y}) $$
+避免了MC Loss，而是直接对Label Embedding施加来自Hierarchy的约束(相邻节点互信息最大化)，使用可学习的label embedding来避免计算量大的无效的图编码器计算。 $$ L^{reconst}=-\frac{1}{|C|^2}\Sigma_{u \in C}\Sigma_{v \in C}(vu^T-A_{uv}) $$ 根据每一层级的Loss来可导地计算每个样本的难易程度（与平均Loss的差），并通过正则项和Loss权重来实现动态的由易到难。
+训练前期，简单样本占主导地位，随着$\lambda$增大，难样本可以在训练初期得到更多的学习。$\lambda=0$是最优。 $$ w_x = \Pi^{L}_{l=1}[1-Sigmoid(L^{(l)}-\hat{L}^{(l)})] $$
+$$ min\ Loss(Y,X|W, \lambda)= \Sigma_{x \in X} w_xL_x - \lambda \Sigma_{x \in X}w_x $$</description>
+      
+    </item>
+    
+    <item>
+      <title>A Novel ICD Coding Framework Based on Associated and Hierarchical Code Description Distillation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/24_/</link>
+      <pubDate>Wed, 01 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/24_/</guid>
+      <description>原文链接
+ICD编码任务如上图所示，根据医学文本，分类出对应的ICD code
+每个医学报告对应若干ICD code，通过先验知识ICD Tree，可以获得若干相邻的（易混淆的）ICD code。
+监督信号来自两方面：
+文本描述和正确的标签描述都应该能被分类器正确地分类出icd code；
+文本描述应该和标签描述尽可能接近，和易混淆的标签描述尽可能远离；
+对于不同的Backbone，该方法在MIMIC III上可以产生0-3个点的提升。</description>
+      
+    </item>
+    
+    <item>
+      <title>DKEC: Domain Knowledge Enhanced Multi-Label Classification for Electronic Health Records</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/24_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/24_1/</guid>
+      <description>key idea # 使用GNN从医学指南中获取疾病的表示，从而指导大模型的输出 使用冻结的预训练编码器（可以是任何模型，当然理论上不如全参数微调） 只训练GNN（HGT），可以作为即插即用的模块，能使得小模型具有和大模型相当的性能 通过年龄特性对某些疾病进行规则筛选 Results in MIMIC III # 数据集的划分和之前的SOTA不太一样，因此无法直接比较</description>
+      
+    </item>
+    
+    <item>
+      <title>Hierarchical Knowledge Guided Learning for Real-World Retinal Disease Recognition</title>
+      <link>https://xuzhang0112.github.io/paper_reading/tmi/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/tmi/1/</guid>
+      <description>作者知乎 作者Talk</description>
+      
+    </item>
+    
+  </channel>
+</rss>

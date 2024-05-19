@@ -274,7 +274,7 @@ GPT # 模型结构：Transformer decoder堆叠"/>
         
         <a href="/cheat_sheet/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
           
-          <p class="text-sm font-sm" title="Python Cheatsheet">
+          <p class="text-sm font-sm" title="Python">
             Python
           </p>
         </a>
@@ -342,13 +342,58 @@ GPT # 模型结构：Transformer decoder堆叠"/>
 
 
             
-            
-  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
     
-    <p class="text-base font-medium" title="Tags">
-        Tags
-    </p>
-</a>
+    <a  class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Group
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Tags">
+            Tags
+          </p>
+        </a>
+        
+        <a href="/year/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Year">
+            Year
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
             
@@ -528,7 +573,7 @@ GPT # 模型结构：Transformer decoder堆叠"/>
 <li class="mt-1">
     <a href="/cheat_sheet/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-sm font-small" title="Python Cheatsheet">
+        <p class="text-sm font-small" title="Python">
             Python
         </p>
     </a>
@@ -595,15 +640,56 @@ GPT # 模型结构：Transformer decoder堆叠"/>
 
                     
 
-                    
+                     
   <li class="mt-1">
+    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Group
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
     <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-bg font-bg" title="Tags">
+        <p class="text-sm font-small" title="Tags">
             Tags
         </p>
     </a>
 </li>
+
+<li class="mt-1">
+    <a href="/year/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Year">
+            Year
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
 
 
 
@@ -746,6 +832,10 @@ GPT # 模型结构：Transformer decoder堆叠"/>
   
   
   
+  
+  
+  
+  
 </div>
 
 
@@ -806,14 +896,17 @@ GPT # 模型结构：Transformer decoder堆叠"/>
       <ul>
         <li><a href="#bert">BERT</a></li>
         <li><a href="#vit">VIT</a></li>
+        <li><a href="#gpt">GPT</a></li>
       </ul>
     </li>
-    <li><a href="#gpt">GPT</a></li>
-    <li><a href="#gnn">GNN</a></li>
-    <li><a href="#gcn">GCN</a></li>
-    <li><a href="#gat">GAT</a></li>
-    <li><a href="#不同消息传递方式的优劣">不同消息传递方式的优劣</a></li>
-    <li><a href="#采样与批次">采样与批次</a></li>
+    <li><a href="#gnn">GNN</a>
+      <ul>
+        <li><a href="#gcn">GCN</a></li>
+        <li><a href="#gat">GAT</a></li>
+        <li><a href="#不同消息传递方式的优劣">不同消息传递方式的优劣</a></li>
+        <li><a href="#采样与批次">采样与批次</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -846,14 +939,17 @@ GPT # 模型结构：Transformer decoder堆叠"/>
       <ul>
         <li><a href="#bert">BERT</a></li>
         <li><a href="#vit">VIT</a></li>
+        <li><a href="#gpt">GPT</a></li>
       </ul>
     </li>
-    <li><a href="#gpt">GPT</a></li>
-    <li><a href="#gnn">GNN</a></li>
-    <li><a href="#gcn">GCN</a></li>
-    <li><a href="#gat">GAT</a></li>
-    <li><a href="#不同消息传递方式的优劣">不同消息传递方式的优劣</a></li>
-    <li><a href="#采样与批次">采样与批次</a></li>
+    <li><a href="#gnn">GNN</a>
+      <ul>
+        <li><a href="#gcn">GCN</a></li>
+        <li><a href="#gat">GAT</a></li>
+        <li><a href="#不同消息传递方式的优劣">不同消息传递方式的优劣</a></li>
+        <li><a href="#采样与批次">采样与批次</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -1174,7 +1270,7 @@ GPT # 模型结构：Transformer decoder堆叠"/>
 <p>需要预训练，是否优于ResNet取决于预训练数据集的大小</p>
 
 
-<h2 class="relative group">GPT 
+<h3 class="relative group">GPT 
     <div id="gpt" class="anchor"></div>
     
     <span
@@ -1183,7 +1279,7 @@ GPT # 模型结构：Transformer decoder堆叠"/>
             style="text-decoration-line: none !important;" href="#gpt" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
+</h3>
 <p>模型结构：Transformer decoder堆叠</p>
 <p>学习方式：Pretraining-Finetuning</p>
 <p>大规模无标签数据进行无监督训练，代理任务采用下词预测</p>
@@ -1254,7 +1350,7 @@ GPT # 模型结构：Transformer decoder堆叠"/>
 </p>
 
 
-<h2 class="relative group">GCN 
+<h3 class="relative group">GCN 
     <div id="gcn" class="anchor"></div>
     
     <span
@@ -1263,12 +1359,12 @@ GPT # 模型结构：Transformer decoder堆叠"/>
             style="text-decoration-line: none !important;" href="#gcn" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
+</h3>
 <p>GCN通过汇聚操作实现节点和边之间的消息传递。</p>
 <p>常用的汇聚方式有求和、平均、最大值等。</p>
 
 
-<h2 class="relative group">GAT 
+<h3 class="relative group">GAT 
     <div id="gat" class="anchor"></div>
     
     <span
@@ -1277,11 +1373,11 @@ GPT # 模型结构：Transformer decoder堆叠"/>
             style="text-decoration-line: none !important;" href="#gat" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
+</h3>
 <p>通过注意力机制来进行节点间的聚合，由于QKV的参数矩阵可以共享，因此可以适应动态变化的子图。</p>
 
 
-<h2 class="relative group">不同消息传递方式的优劣 
+<h3 class="relative group">不同消息传递方式的优劣 
     <div id="%E4%B8%8D%E5%90%8C%E6%B6%88%E6%81%AF%E4%BC%A0%E9%80%92%E6%96%B9%E5%BC%8F%E7%9A%84%E4%BC%98%E5%8A%A3" class="anchor"></div>
     
     <span
@@ -1290,11 +1386,11 @@ GPT # 模型结构：Transformer decoder堆叠"/>
             style="text-decoration-line: none !important;" href="#%E4%B8%8D%E5%90%8C%E6%B6%88%E6%81%AF%E4%BC%A0%E9%80%92%E6%96%B9%E5%BC%8F%E7%9A%84%E4%BC%98%E5%8A%A3" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
+</h3>
 <p>节点、全局节点、边之间都进行消息传递的效果最好，效果第二好的是在节点和全局节点之间进行消息传递，效果最差的是仅在节点之间进行消息传递。</p>
 
 
-<h2 class="relative group">采样与批次 
+<h3 class="relative group">采样与批次 
     <div id="%E9%87%87%E6%A0%B7%E4%B8%8E%E6%89%B9%E6%AC%A1" class="anchor"></div>
     
     <span
@@ -1303,7 +1399,7 @@ GPT # 模型结构：Transformer decoder堆叠"/>
             style="text-decoration-line: none !important;" href="#%E9%87%87%E6%A0%B7%E4%B8%8E%E6%89%B9%E6%AC%A1" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
+</h3>
 <p>采样：由于GNN的计算量很大，需要对图进行采样。常见的采样方式有随机采样和随机游走。</p>
 <p>Batch：每一步计算量太小不利于并行，我们希望像别的神经网络一样，我们能把这些小样本做成一个小批量，这样对一个大的矩阵或者一个tensor做运算。</p>
 

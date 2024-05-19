@@ -7,24 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <atom:link href="https://xuzhang0112.github.io/tags/kg/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/kg/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Graph Representation of Chinese EMRs and its Short-text Classification Application</title>
-      <link>https://xuzhang0112.github.io/paper_reading/others/bibm2023/</link>
+      <title>Improved Graph Contrastive Learning for Short Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/4/</link>
+      <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/4/</guid>
+      <description>从语料库中构建3种类型的图，单词、实体、词性。
+Word Graph采用GloVe word vectors作为节点嵌入，PMI作为边权重；
+Entity Graph采用TransE获取节点嵌入，cosine similarity作为边权重；
+Pos Graph采用One-hot作为节点嵌入，PMI作为边权重。
+这些嵌入可以通过GNN来进一步聚合邻域的信息。 $$ H^{l+1}=\sigma(\hat{D^{-\frac{1}{2}}}\hat{A}\hat{D^{-\frac{1}{2}}}H^lW^l) $$ 基于这些嵌入，进一步可以构建出文本的表示，对于单词和词性，采用TF-IDF作为系数矩阵，对于实体，则只用0和1来区分文本是否存在该实体，$M_\pi$表示文本与单词、实体、词性之间的系数矩阵。 $$ Z_\pi = M_\pi H_\pi , \pi \in {w,e,p} $$
+$$ Z_{org} = Z_w || Z_e || Z_p $$
+$Z_{pi}$是文本的原始特征表示，可以使用SVD进行进一步的去噪和增强，获得增强的文本表示。 $$ M_{\pi , r} = U_{\pi,r}\Sigma_{\pi,r}V_{\pi,r}^T $$
+$$ Z_{\pi,r}=M_{\pi,r}H_\pi $$
+$$ Z_{aug}=Z_{w,r}||Z_{e,r}||Z_{p,r} $$
+对于无标签的文本，采用对比学习和聚类对比学习损失。
+实例对比学习将每个实例与其增强表示拉近，与其他实例及其增强表示拉远。 $$ L_{cl} = -\sum_{i=1}^{2N}\frac{1}{2N}log\frac{exp(P_i\cdot P_j / \tau)}{\sum_{k=1}^{2N}\prod_{k\neq i}exp(P_i\cdot P_k / \tau)} $$ 聚类对比学习将每个实例与其伪标签（聚类中心）相同的实例拉近，与其他实例拉远。 $$ L_{ccl} = -\sum_i^N \frac{1}{|S_i|-1}\sum_{j\in S_i}log\frac{exp(Q_i\cdot Q_j/\tau)}{\sum_{k=1}^N\prod_{k \neq i}exp(Q_i\cdot Qk/\tau)} $$ 对于有标签的文本，采用交叉熵损失。 $$ L_{ce}=-\sum_{i\in D_{lab}}\sum_j^cy_{ij}logR_{j} $$</description>
+      
+    </item>
+    
+    <item>
+      <title>DKEC: Domain Knowledge Enhanced Multi-Label Classification for Electronic Health Records</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/24_1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/others/bibm2023/</guid>
-      <description>key idea # 用TextGCN来做医学短语分类。
-构建出一个大图之后，可以将子图的embedding直接送入GCN进行分类 优点是非常轻量化，节点和关系嵌入都是预先计算好的，2层的GNN几乎没有参数量，效果似乎也还不错 Graph的构建 # 节点嵌入(word2vec) word2vec Word2Vec模型中，主要有Skip-Gram和CBOW两种模型，从直观上理解，Skip-Gram是给定input word来预测上下文。而CBOW是给定上下文，来预测input word。这两种方法都是基于神经网络的无监督词嵌入算法。 关系建立(PMI) PMI（Pointwise Mutual Information，逐点互信息），即共现频率/各自出现的频率</description>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/24_1/</guid>
+      <description>key idea # 使用GNN从医学指南中获取疾病的表示，从而指导大模型的输出 使用冻结的预训练编码器（可以是任何模型，当然理论上不如全参数微调） 只训练GNN（HGT），可以作为即插即用的模块，能使得小模型具有和大模型相当的性能 通过年龄特性对某些疾病进行规则筛选 Results in MIMIC III # 数据集的划分和之前的SOTA不太一样，因此无法直接比较</description>
       
     </item>
     
     <item>
       <title>KG-MTT-BERT: Knowledge Graph Enhanced BERT for Multi-Type Medical Text Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2022/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/22/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2022/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/22/</guid>
       <description>key idea # 中文病历报告的疾病分类工作
 使用bert分别处理病历报告的各个字段，探讨了不同尺度和不同池化方式对结果的影响 max-pooling比CLS更好 序列长度大于64时，效果较好 大体上损失函数收敛更快、更低，同时精度提升最快 使用KG、图嵌入和图网络增强了分类 图嵌入:KG2E 推测：词语级别的医学实体编码相比单字级别的中文分词编码，引入了额外的信息，因此能提升性能 数据集规模大概在几万例样本，几百类疾病，各个字段的长度差异较大，entity也比较少</description>
       
@@ -43,35 +62,6 @@ key idea # 利用UMLS 2021AA知识图谱（4.4M实体）的层次化知识进行
 计算量随类别数增加（N^2），因此无法处理超大类别 Details # Pretrain，1张V100，48小时
 Finetune, 2张A100，10+0.5小时（MIMIC-III-50 &amp;amp; MIMIC-III-rare50）
 计算量随类别数增加（N^2），因此无法处理超大类别 因此，它在MIMIC III上的SOTA是通过2-stage取得的，先使用之前的sota模型选出300个candidate，再进一步计算</description>
-      
-    </item>
-    
-    <item>
-      <title>Medical knowledge-enhanced prompt learning for diagnosis classification from clinical text</title>
-      <link>https://xuzhang0112.github.io/paper_reading/acl/23_2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/acl/23_2/</guid>
-      <description>key idea # 通过在KG中查询相关知识，然后加入prompt中，并通过bert的[MASK] token预测疾病的有无</description>
-      
-    </item>
-    
-    <item>
-      <title>Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning</title>
-      <link>https://xuzhang0112.github.io/paper_reading/others/cikm2023/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/others/cikm2023/</guid>
-      <description>key idea # 构建知识图谱 TFIDF筛选实体，UMLS relation table+co-occurance建立关系 多任务训练GAT model # 本文对比了两种不同的多任务范式，多任务共享编码器和设置任务特异性编码器。（公式较为繁琐，但描述的实际上就是下面两张图）
-多任务共享编码器（4层GAT，ICD编码根据第2层输出）
-共享编码器+任务特异性编码器（2层GAT+2层GIAT）
-共享编码器聚合特征
-特异性编码器的中间特征（注意到计算相似度的依据是共享特征而不是特异性特征）
-特异性编码器的最终特征是两个特征的加权和，g是控制因子
-将文本节点送入分类器得到分类结果，并同时优化K个任务、$$N_$$个样本、$$C_k$$个类别。
-details # 使用了4张2080，共计32GB显存
-不同backbone
-多任务的必要性</description>
       
     </item>
     

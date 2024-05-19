@@ -24,5 +24,69 @@ batchsize设为8，SGD，余弦退火，迁移学习ResNet-50、分组学习率(
       
     </item>
     
+    <item>
+      <title>Large-Scale Object Classification Using Label Relation Graphs</title>
+      <link>https://xuzhang0112.github.io/paper_reading/eccv/1/</link>
+      <pubDate>Thu, 16 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/eccv/1/</guid>
+      <description>使用概率图模型对属性-类别进行细粒度的建模：首先通过神经网络获取属性，子类的概率同时取决于父类的概率和子类的相关属性
+互斥关系和包含关系
+一致图的稀疏化与稠密化表达
+图像-属性-类别的建模过程</description>
+      
+    </item>
+    
+    <item>
+      <title>Self-Paced Unified Representation Learning for Hierarchical Multi-Label Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/1/</link>
+      <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/1/</guid>
+      <description>Code
+图同构：问题最初的定义是只考虑拓扑关系，不考虑节点信息（可以用GNN）
+Self-paced Learning：（基于Loss）自适应地动态衡量样本学习难度
+Key Idea # 实例特征和层次类别特征的统一表达 考虑层次结构和实例特征的难度估计(从易到难) 基于Text Embedding和Label Embedding来计算类别概率，并且采用扁平化的方法来完成层次多标签预测 $$ \hat{y} = Sigmoid(W_2(W_1[Z^F||Z^G]+b_1)+b_2) $$
+$$ L_{tg} = CE_Loss(y,\hat{y}) $$
+避免了MC Loss，而是直接对Label Embedding施加来自Hierarchy的约束(相邻节点互信息最大化)，使用可学习的label embedding来避免计算量大的无效的图编码器计算。 $$ L^{reconst}=-\frac{1}{|C|^2}\Sigma_{u \in C}\Sigma_{v \in C}(vu^T-A_{uv}) $$ 根据每一层级的Loss来可导地计算每个样本的难易程度（与平均Loss的差），并通过正则项和Loss权重来实现动态的由易到难。
+训练前期，简单样本占主导地位，随着$\lambda$增大，难样本可以在训练初期得到更多的学习。$\lambda=0$是最优。 $$ w_x = \Pi^{L}_{l=1}[1-Sigmoid(L^{(l)}-\hat{L}^{(l)})] $$
+$$ min\ Loss(Y,X|W, \lambda)= \Sigma_{x \in X} w_xL_x - \lambda \Sigma_{x \in X}w_x $$</description>
+      
+    </item>
+    
+    <item>
+      <title>Deep Hierarchical Classification for Category Prediction in E-commerce System</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/20_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/20_1/</guid>
+      <description>key idea # 特征解耦，子类的特征是在父类特征的基础上，拼接独有特征 提出了一个父类子类依赖的Loss，当子类预测错误且与预测的父类不一致时，惩罚错误的父类或子类（总之惩罚错误的那个） architecture # 原图就是这么糊，没有办法
+Loss # 有空再补公式，其实就是key idea第二行，很简单的交叉熵连乘</description>
+      
+    </item>
+    
+    <item>
+      <title>Hierarchical Knowledge Guided Learning for Real-World Retinal Disease Recognition</title>
+      <link>https://xuzhang0112.github.io/paper_reading/tmi/1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/tmi/1/</guid>
+      <description>作者知乎 作者Talk</description>
+      
+    </item>
+    
+    <item>
+      <title>HPT: Hierarchy-aware Prompt Tuning for Hierarchical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</guid>
+      <description>key idea # 指出了层次化分类的基本范式，通过GNN对层次标签进行编码 同时，保留了预训练时的MLM任务，以缓解灾难性遗忘。 提出了ZMLCE Loss Architecture # 结构上的改进
+用GAT构造出每个层级的描述，指导模型作出这一层级的分类；
+在每个层级的分类时，使用这一层级的分类器，在这里，使用了每个类别词的embedding作权重初始化；
+效果还不错，涨了1个点</description>
+      
+    </item>
+    
   </channel>
 </rss>

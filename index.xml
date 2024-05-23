@@ -7,7 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Sun, 19 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pattern Recogniton</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/course/pr/</link>
+      <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/cheat_sheet/course/pr/</guid>
+      <description>统计模式识别 # 几何方法 # 相似性测度：距离（明氏距离、欧式距离、马氏距离）、向量夹角余弦
+平均样本法、平均距离法、最近邻法
+最大值判决：欧式距离下，可增广权向量和样本向量，将判别函数改写为线性形式
+决策面函数：与类别无关，用于二分类，易知权向量与决策面正交，决策面函数度量了样本点到决策面的距离
+线性判别 # 总体线性可分： 用一个超平面将任意一个类别的样本同其它所有类别的样本分开
+成对线性可分：用一个超平面将所有类别中任意两个类别的样本分开，分类器更多，但是不确定区域更少
+最大值判别：不存在不确定区域
+判别函数：样本点到决策平面的距离
+梯度下降法 vs 最小平方误差法
+线性可分问题的求解 # 感知器算法（梯度下降法，权向量是所有规范化错分样本之和，学习速率调整）
+最小平方误差法
+Fisher线性判别法
+最优分类超平面法
+非线性可分问题的求解 # 线性化方法
+非线性化方法：势函数法，非线性SVM
+概率方法（贝叶斯） # 聚类方法 # 聚类定义：不知道每个类别的具体分布
+聚类准则：类间距离大，类内距离小
+基于分裂的聚类 # 基于合并的聚类 # 动态聚类 # 近邻函数值准则聚类 # 最小张树聚类 # 结构模式识别 # 句法模式识别 # 终止符 $V_T$$V_T=\set{a,b,c}$ Terminal 非终止符 $V_N=\set{S,A,B,C}$
+S是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\alpha\rightarrow\beta,\alpha\in V^+,\beta \in V^*$ Parse 文法： 非终止符（大写） -&amp;gt; 终止符(小写)
+4种文法的关系：限制逐渐增加，范围逐渐缩小
+类型 文法 限制 0型文法 无约束文法 $\alpha\rightarrow\beta$ 左端不能为空 递归特性，可以产生一切类型的样本 图灵机 1型文法 上下文有关 $\alpha_1A\alpha_2\rightarrow\alpha_1B\alpha_2$ $ A \leq 2型文法 上下文无关 $A\rightarrow\beta$ 左端是单个非终止符 最左推导/最右推导（从最左/最优的非终止符开始推导） 下推自动机 3型文法 正则 $A\rightarrow a$</description>
+      
+    </item>
+    
     <item>
       <title>Automated clinical coding using off-the-shelf large language models</title>
       <link>https://xuzhang0112.github.io/paper_reading/nips/automated-clinical-coding-using-off-the-shelf-large-language-models/</link>
@@ -292,10 +322,10 @@ PadChest # 160,000+ images from 67,000 patients, from 2009 to 2017 reports label
       <guid>https://xuzhang0112.github.io/cheat_sheet/cli/</guid>
       <description>基本命令 # 命令=可执行文件/别名+文件路径
 用&amp;quot;&amp;amp;&amp;amp;&amp;ldquo;连接：多条命令依次执行，报错则终止
-用“||”连接：多条命令依次执行，成功则终止
+用“||”连接：多条命令依次执行，任意一条命令成功，则后续命令不执行
 文件路径 # 备注 绝对路径 /data/xuzhang/&amp;hellip; 相对路径 用户根目录下~/... 当前目录下./
 上一级目录下../
-上上一级目录下../../ 相对路径是相对于当前工作路径！！！可执行文件的调用export设置环境变量PATHalias设置别名在当前文件夹下使用./ 文件管理 # 浏览 ls dir查看dir内的文件（省略则为当前文件夹） 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 重命名文件/文件夹mv file1 file2 重命名file1为file2mv dir1 dir2重命名dir1为dir2（dir2不存在）移动文件/文件夹到目标文件夹内部（必须目标文件夹存在）mv file1 dir2移动file1/dire1到dir2（dir2存在）mv dir1 dir2移动dir1到dir2（dir2存在）移动多个文件mv file1 file2 dir2移动file1和file2到dir2 关键看目标文件夹是否存在 拷贝 cp file1 file2``cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 # 压缩 解压 zip &amp;amp; unzip gzip &amp;amp; gunzip gunzip -r dir 解压文件夹下所有.gz文件 文件删改 # 查看 cat file1``cat file1 file2 本义是“concatenate and print files”，连接和查看多个文件内容，实际多用于查看单个文件内容 head -n 10 输出文本文件的前10行 tail -n 10 wc file.</description>
+上上一级目录下../../ 相对路径是相对于当前工作路径！！！可执行文件的调用export设置环境变量PATHalias设置别名在当前文件夹下使用./ 文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -lh --max length=1 dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件/文件夹 mv dir1 dir2 mv file1 dir2 移动文件/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 # 压缩 解压 zip &amp;amp; unzip gzip &amp;amp; gunzip gunzip -r dir 解压文件夹下所有.</description>
       
     </item>
     
@@ -856,36 +886,6 @@ $$ L_{Sem}=-log(P(t^+)) $$
 目标检测：Relation-centric（bbox改成subject和object联合区域，分类器目标改成关系类别 文本生成：改Loss，惩罚相似的生成 数据增强：使用KG、LLM扩充知识（从常识库中补充更多的关系，将主语替换为同义词）；丢弃频繁知识（魔改TF-IDF）； 并不是凭空抽取知识，训练依赖细粒度的标注（BBox，知识），数据集Visual Geonome
 下游任务：文本检索图像，图像识别文本，VQA
 模型：检测：ResNet+FPN，多模态生成：VIT-B-16+BLIP/CLIP（依赖大规模预训练）</description>
-      
-    </item>
-    
-    <item>
-      <title>Pattern Recogniton</title>
-      <link>https://xuzhang0112.github.io/cheat_sheet/course/pr/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/cheat_sheet/course/pr/</guid>
-      <description>统计模式识别 # 几何方法 # 相似性测度：距离（明氏距离、欧式距离、马氏距离）、向量夹角余弦
-平均样本法、平均距离法、最近邻法
-最大值判决：欧式距离下，可增广权向量和样本向量，将判别函数改写为线性形式
-决策面函数：与类别无关，用于二分类，易知权向量与决策面正交，决策面函数度量了样本点到决策面的距离
-线性判别 # 总体线性可分： 用一个超平面将任意一个类别的样本同其它所有类别的样本分开
-成对线性可分：用一个超平面将所有类别中任意两个类别的样本分开，分类器更多，但是不确定区域更少
-最大值判别：不存在不确定区域
-判别函数：样本点到决策平面的距离
-梯度下降法 vs 最小平方误差法
-线性可分问题的求解 # 感知器算法（梯度下降法，权向量是所有规范化错分样本之和，学习速率调整）
-最小平方误差法
-Fisher线性判别法
-最优分类超平面法
-非线性可分问题的求解 # 线性化方法
-非线性化方法：势函数法，非线性SVM
-概率方法 # 结构模式识别 # a 基元 图表达 串表达 相似度指标
-编辑距离 茶与荼，失之毫厘谬以千里
-形式语言理论 文法推断、句法分析 文法 字母表 句子链 语言 文法：起始符 -&amp;gt; 非终止符 -&amp;gt; 终止符
-0型文法（无约束文法） 递归特性 1型文法（上下文有关）
-2型文法(上下文无关)
-3型文法（正则） 句法分析</description>
       
     </item>
     

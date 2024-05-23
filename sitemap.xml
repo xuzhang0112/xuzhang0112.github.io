@@ -3,6 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://xuzhang0112.github.io/cheat_sheet/</loc>
+    <lastmod>2024-05-23T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/cheat_sheet/course/</loc>
+    <lastmod>2024-05-23T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/cheat_sheet/course/pr/</loc>
+    <lastmod>2024-05-23T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/</loc>
+    <lastmod>2024-05-23T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/nips/automated-clinical-coding-using-off-the-shelf-large-language-models/</loc>
     <lastmod>2024-05-19T00:00:00+00:00</lastmod>
   </url>
@@ -12,10 +28,6 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/</loc>
-    <lastmod>2024-05-19T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/</loc>
     <lastmod>2024-05-19T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -91,9 +103,6 @@
     <loc>https://xuzhang0112.github.io/paper_reading/survey/basic_nn/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/</loc>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/chest_xray/</loc>
   </url>
   <url>
@@ -104,9 +113,6 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/contrastive_learning/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/8/</loc>
@@ -236,9 +242,6 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/others/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/pr/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/course/prob/</loc>

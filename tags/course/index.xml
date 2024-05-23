@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Course on Xu Zhang&#39;s Blog</title>
-    <link>https://xuzhang0112.github.io/cheat_sheet/course/</link>
+    <link>https://xuzhang0112.github.io/tags/course/</link>
     <description>Recent content in Course on Xu Zhang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Thu, 23 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/cheat_sheet/course/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/course/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pattern Recogniton</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/course/pr/</link>
@@ -161,31 +161,6 @@ Key # 1.一道简单的证明，忘了
 4.利用期望和方差的性质计算一堆量
 5.均值和方差都未知的区间估计和假设检验，这道题巨坑
 6.很简单的一道证明题，好像就是代入定义，忘了</description>
-      
-    </item>
-    
-    <item>
-      <title>Reading</title>
-      <link>https://xuzhang0112.github.io/cheat_sheet/course/eng/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/cheat_sheet/course/eng/</guid>
-      <description>段落大意 # Refering to sth 也是主旨题
-首句/尾句/关键词/转折递进
-观点类的动词和名词 admit/think/ question/ opionion 忽略看后面内容
-Evidence/具体人名地名和数字， 具体的例子可以忽略，直接去下一段找观点（观点都在文中，不需要自己提炼）
-this/ that/ the/ such/ so :this承接前文内容，that承接下文内容，前四个词指代名词，so修饰句子
-原因 # 先定位现象，原因通常在现象的前和后
-找关键词（名词）cause/ result in/ forces behind/ this is why/ if
-抓主干：主系表，主谓宾，去修饰
-插入语中也可能蕴含原因
-主要原因: chiefly/ mainly/ in a large part/ basically/ fundamentally
-逻辑关系(转折)：but/ yet/ however/ nevertheless/ nonetheless/ rather
-（递进）furthermore/ moreover/ above all
-时间上的前后=因果关系，过去完成时
-单词 # 因果关系，词语调性一致
-主谓一致，主谓调性一致
-单句引用 # 论点：精简，系动词be/ seem/ look/ get/ feel/ become/ appear/ symbolize/ represent/ refer to 情感态度 love/ like / care/ distaste</description>
       
     </item>
     

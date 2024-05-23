@@ -12,7 +12,7 @@
   <meta name="title" content="Pattern Recogniton &middot; Xu Zhang&#39;s Blog" />
   
   
-  
+  <meta name="keywords" content="Course, " />
   
   
   <link rel="canonical" href="https://xuzhang0112.github.io/cheat_sheet/course/pr/" />
@@ -76,16 +76,16 @@ Fisher线性判别法
 最优分类超平面法
 非线性可分问题的求解 # 线性化方法
 非线性化方法：势函数法，非线性SVM
-概率方法 # 结构模式识别 # a 基元 图表达 串表达 相似度指标
-编辑距离 茶与荼，失之毫厘谬以千里
-形式语言理论 文法推断、句法分析 文法 字母表 句子链 语言 文法：起始符 -&gt; 非终止符 -&gt; 终止符
-0型文法（无约束文法） 递归特性 1型文法（上下文有关）
-2型文法(上下文无关)
-3型文法（正则） 句法分析" />
+概率方法（贝叶斯） # 聚类方法 # 聚类定义：不知道每个类别的具体分布
+聚类准则：类间距离大，类内距离小
+基于分裂的聚类 # 基于合并的聚类 # 动态聚类 # 近邻函数值准则聚类 # 最小张树聚类 # 结构模式识别 # 句法模式识别 # 终止符 $V_T$$V_T=\set{a,b,c}$ Terminal 非终止符 $V_N=\set{S,A,B,C}$
+S是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\alpha\rightarrow\beta,\alpha\in V^&#43;,\beta \in V^*$ Parse 文法： 非终止符（大写） -&gt; 终止符(小写)
+4种文法的关系：限制逐渐增加，范围逐渐缩小
+类型 文法 限制 0型文法 无约束文法 $\alpha\rightarrow\beta$ 左端不能为空 递归特性，可以产生一切类型的样本 图灵机 1型文法 上下文有关 $\alpha_1A\alpha_2\rightarrow\alpha_1B\alpha_2$ $ A \leq 2型文法 上下文无关 $A\rightarrow\beta$ 左端是单个非终止符 最左推导/最右推导（从最左/最优的非终止符开始推导） 下推自动机 3型文法 正则 $A\rightarrow a$" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/course/pr/" /><meta property="article:section" content="cheat_sheet" />
-
-
+<meta property="article:published_time" content="2024-05-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-05-23T00:00:00+00:00" />
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Pattern Recogniton"/>
@@ -104,12 +104,12 @@ Fisher线性判别法
 最优分类超平面法
 非线性可分问题的求解 # 线性化方法
 非线性化方法：势函数法，非线性SVM
-概率方法 # 结构模式识别 # a 基元 图表达 串表达 相似度指标
-编辑距离 茶与荼，失之毫厘谬以千里
-形式语言理论 文法推断、句法分析 文法 字母表 句子链 语言 文法：起始符 -&gt; 非终止符 -&gt; 终止符
-0型文法（无约束文法） 递归特性 1型文法（上下文有关）
-2型文法(上下文无关)
-3型文法（正则） 句法分析"/>
+概率方法（贝叶斯） # 聚类方法 # 聚类定义：不知道每个类别的具体分布
+聚类准则：类间距离大，类内距离小
+基于分裂的聚类 # 基于合并的聚类 # 动态聚类 # 近邻函数值准则聚类 # 最小张树聚类 # 结构模式识别 # 句法模式识别 # 终止符 $V_T$$V_T=\set{a,b,c}$ Terminal 非终止符 $V_N=\set{S,A,B,C}$
+S是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\alpha\rightarrow\beta,\alpha\in V^&#43;,\beta \in V^*$ Parse 文法： 非终止符（大写） -&gt; 终止符(小写)
+4种文法的关系：限制逐渐增加，范围逐渐缩小
+类型 文法 限制 0型文法 无约束文法 $\alpha\rightarrow\beta$ 左端不能为空 递归特性，可以产生一切类型的样本 图灵机 1型文法 上下文有关 $\alpha_1A\alpha_2\rightarrow\alpha_1B\alpha_2$ $ A \leq 2型文法 上下文无关 $A\rightarrow\beta$ 左端是单个非终止符 最左推导/最右推导（从最左/最优的非终止符开始推导） 下推自动机 3型文法 正则 $A\rightarrow a$"/>
 
   
   <script type="application/ld+json">
@@ -120,23 +120,23 @@ Fisher线性判别法
     "name": "Pattern Recogniton",
     "headline": "Pattern Recogniton",
     
-    "abstract": "统计模式识别 # 几何方法 # 相似性测度：距离（明氏距离、欧式距离、马氏距离）、向量夹角余弦\n平均样本法、平均距离法、最近邻法\n最大值判决：欧式距离下，可增广权向量和样本向量，将判别函数改写为线性形式\n决策面函数：与类别无关，用于二分类，易知权向量与决策面正交，决策面函数度量了样本点到决策面的距离\n线性判别 # 总体线性可分： 用一个超平面将任意一个类别的样本同其它所有类别的样本分开\n成对线性可分：用一个超平面将所有类别中任意两个类别的样本分开，分类器更多，但是不确定区域更少\n最大值判别：不存在不确定区域\n判别函数：样本点到决策平面的距离\n梯度下降法 vs 最小平方误差法\n线性可分问题的求解 # 感知器算法（梯度下降法，权向量是所有规范化错分样本之和，学习速率调整）\n最小平方误差法\nFisher线性判别法\n最优分类超平面法\n非线性可分问题的求解 # 线性化方法\n非线性化方法：势函数法，非线性SVM\n概率方法 # 结构模式识别 # a 基元 图表达 串表达 相似度指标\n编辑距离 茶与荼，失之毫厘谬以千里\n形式语言理论 文法推断、句法分析 文法 字母表 句子链 语言 文法：起始符 -\u0026gt; 非终止符 -\u0026gt; 终止符\n0型文法（无约束文法） 递归特性 1型文法（上下文有关）\n2型文法(上下文无关)\n3型文法（正则） 句法分析",
+    "abstract": "统计模式识别 # 几何方法 # 相似性测度：距离（明氏距离、欧式距离、马氏距离）、向量夹角余弦\n平均样本法、平均距离法、最近邻法\n最大值判决：欧式距离下，可增广权向量和样本向量，将判别函数改写为线性形式\n决策面函数：与类别无关，用于二分类，易知权向量与决策面正交，决策面函数度量了样本点到决策面的距离\n线性判别 # 总体线性可分： 用一个超平面将任意一个类别的样本同其它所有类别的样本分开\n成对线性可分：用一个超平面将所有类别中任意两个类别的样本分开，分类器更多，但是不确定区域更少\n最大值判别：不存在不确定区域\n判别函数：样本点到决策平面的距离\n梯度下降法 vs 最小平方误差法\n线性可分问题的求解 # 感知器算法（梯度下降法，权向量是所有规范化错分样本之和，学习速率调整）\n最小平方误差法\nFisher线性判别法\n最优分类超平面法\n非线性可分问题的求解 # 线性化方法\n非线性化方法：势函数法，非线性SVM\n概率方法（贝叶斯） # 聚类方法 # 聚类定义：不知道每个类别的具体分布\n聚类准则：类间距离大，类内距离小\n基于分裂的聚类 # 基于合并的聚类 # 动态聚类 # 近邻函数值准则聚类 # 最小张树聚类 # 结构模式识别 # 句法模式识别 # 终止符 $V_T$$V_T=\\set{a,b,c}$ Terminal 非终止符 $V_N=\\set{S,A,B,C}$\nS是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\\alpha\\rightarrow\\beta,\\alpha\\in V^\u002b,\\beta \\in V^*$ Parse 文法： 非终止符（大写） -\u0026gt; 终止符(小写)\n4种文法的关系：限制逐渐增加，范围逐渐缩小\n类型 文法 限制 0型文法 无约束文法 $\\alpha\\rightarrow\\beta$ 左端不能为空 递归特性，可以产生一切类型的样本 图灵机 1型文法 上下文有关 $\\alpha_1A\\alpha_2\\rightarrow\\alpha_1B\\alpha_2$ $ A \\leq 2型文法 上下文无关 $A\\rightarrow\\beta$ 左端是单个非终止符 最左推导\/最右推导（从最左\/最优的非终止符开始推导） 下推自动机 3型文法 正则 $A\\rightarrow a$",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/course\/pr\/",
     "author" : {
       "@type": "Person",
       "name": "Xu Zhang"
     },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-05-23T00:00:00\u002b00:00",
+    "datePublished": "2024-05-23T00:00:00\u002b00:00",
     
+    "dateModified": "2024-05-23T00:00:00\u002b00:00",
     
-    
-    
-    
-    
-    
+    "keywords": ["Course"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "56"
+    "wordCount": "106"
   }]
   </script>
 
@@ -726,11 +726,7 @@ Fisher线性判别法
 
 
 
-  
 
-
-
-  
 
 
 
@@ -746,8 +742,6 @@ Fisher线性判别法
 
 <div class="flex flex-row flex-wrap items-center">
   
-  
-  <span>56 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
   
 
   
@@ -764,6 +758,16 @@ Fisher线性判别法
   
   
   
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/course/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Course
+  </span>
+</span>
+  </span>
   
   
   
@@ -813,13 +817,25 @@ Fisher线性判别法
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#统计模式识别">统计模式识别</a>
+    <li><a href="#几何方法">几何方法</a>
       <ul>
-        <li><a href="#几何方法">几何方法</a></li>
-        <li><a href="#概率方法">概率方法</a></li>
+        <li><a href="#线性判别">线性判别</a></li>
       </ul>
     </li>
-    <li><a href="#结构模式识别">结构模式识别</a></li>
+    <li><a href="#概率方法贝叶斯">概率方法（贝叶斯）</a></li>
+    <li><a href="#聚类方法">聚类方法</a>
+      <ul>
+        <li><a href="#基于分裂的聚类">基于分裂的聚类</a></li>
+        <li><a href="#基于合并的聚类">基于合并的聚类</a></li>
+        <li><a href="#动态聚类">动态聚类</a></li>
+        <li><a href="#近邻函数值准则聚类">近邻函数值准则聚类</a></li>
+        <li><a href="#最小张树聚类">最小张树聚类</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#句法模式识别">句法模式识别</a></li>
   </ul>
 </nav>
   </div>
@@ -833,13 +849,25 @@ Fisher线性判别法
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#统计模式识别">统计模式识别</a>
+    <li><a href="#几何方法">几何方法</a>
       <ul>
-        <li><a href="#几何方法">几何方法</a></li>
-        <li><a href="#概率方法">概率方法</a></li>
+        <li><a href="#线性判别">线性判别</a></li>
       </ul>
     </li>
-    <li><a href="#结构模式识别">结构模式识别</a></li>
+    <li><a href="#概率方法贝叶斯">概率方法（贝叶斯）</a></li>
+    <li><a href="#聚类方法">聚类方法</a>
+      <ul>
+        <li><a href="#基于分裂的聚类">基于分裂的聚类</a></li>
+        <li><a href="#基于合并的聚类">基于合并的聚类</a></li>
+        <li><a href="#动态聚类">动态聚类</a></li>
+        <li><a href="#近邻函数值准则聚类">近邻函数值准则聚类</a></li>
+        <li><a href="#最小张树聚类">最小张树聚类</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#句法模式识别">句法模式识别</a></li>
   </ul>
 </nav>
   </div>
@@ -857,7 +885,7 @@ Fisher线性判别法
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">统计模式识别 
+<h1 class="relative group">统计模式识别 
     <div id="%E7%BB%9F%E8%AE%A1%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB" class="anchor"></div>
     
     <span
@@ -866,10 +894,10 @@ Fisher线性判别法
             style="text-decoration-line: none !important;" href="#%E7%BB%9F%E8%AE%A1%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
+</h1>
 
 
-<h3 class="relative group">几何方法 
+<h2 class="relative group">几何方法 
     <div id="%E5%87%A0%E4%BD%95%E6%96%B9%E6%B3%95" class="anchor"></div>
     
     <span
@@ -878,14 +906,14 @@ Fisher线性判别法
             style="text-decoration-line: none !important;" href="#%E5%87%A0%E4%BD%95%E6%96%B9%E6%B3%95" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h2>
 <p>相似性测度：距离（明氏距离、欧式距离、马氏距离）、向量夹角余弦</p>
 <p>平均样本法、平均距离法、最近邻法</p>
 <p>最大值判决：欧式距离下，可增广权向量和样本向量，将判别函数改写为线性形式</p>
 <p>决策面函数：与类别无关，用于二分类，易知权向量与决策面正交，决策面函数度量了样本点到决策面的距离</p>
 
 
-<h4 class="relative group">线性判别 
+<h3 class="relative group">线性判别 
     <div id="%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB" class="anchor"></div>
     
     <span
@@ -894,7 +922,7 @@ Fisher线性判别法
             style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB" aria-label="Anchor">#</a>
     </span>        
     
-</h4>
+</h3>
 <p>总体线性可分： 用一个超平面将任意一个类别的样本同其它所有类别的样本分开</p>
 <p>成对线性可分：用一个超平面将所有类别中任意两个类别的样本分开，分类器更多，但是不确定区域更少</p>
 <p>最大值判别：不存在不确定区域</p>
@@ -932,19 +960,93 @@ Fisher线性判别法
 <p>非线性化方法：势函数法，非线性SVM</p>
 
 
-<h3 class="relative group">概率方法 
-    <div id="%E6%A6%82%E7%8E%87%E6%96%B9%E6%B3%95" class="anchor"></div>
+<h2 class="relative group">概率方法（贝叶斯） 
+    <div id="%E6%A6%82%E7%8E%87%E6%96%B9%E6%B3%95%E8%B4%9D%E5%8F%B6%E6%96%AF" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%A6%82%E7%8E%87%E6%96%B9%E6%B3%95" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E6%A6%82%E7%8E%87%E6%96%B9%E6%B3%95%E8%B4%9D%E5%8F%B6%E6%96%AF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h2 class="relative group">聚类方法 
+    <div id="%E8%81%9A%E7%B1%BB%E6%96%B9%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%81%9A%E7%B1%BB%E6%96%B9%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>聚类定义：不知道每个类别的具体分布</p>
+<p>聚类准则：类间距离大，类内距离小</p>
+
+
+<h3 class="relative group">基于分裂的聚类 
+    <div id="%E5%9F%BA%E4%BA%8E%E5%88%86%E8%A3%82%E7%9A%84%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E4%BA%8E%E5%88%86%E8%A3%82%E7%9A%84%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 
 
-<h2 class="relative group">结构模式识别 
+<h3 class="relative group">基于合并的聚类 
+    <div id="%E5%9F%BA%E4%BA%8E%E5%90%88%E5%B9%B6%E7%9A%84%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E4%BA%8E%E5%90%88%E5%B9%B6%E7%9A%84%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">动态聚类 
+    <div id="%E5%8A%A8%E6%80%81%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8A%A8%E6%80%81%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">近邻函数值准则聚类 
+    <div id="%E8%BF%91%E9%82%BB%E5%87%BD%E6%95%B0%E5%80%BC%E5%87%86%E5%88%99%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%91%E9%82%BB%E5%87%BD%E6%95%B0%E5%80%BC%E5%87%86%E5%88%99%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">最小张树聚类 
+    <div id="%E6%9C%80%E5%B0%8F%E5%BC%A0%E6%A0%91%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9C%80%E5%B0%8F%E5%BC%A0%E6%A0%91%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h1 class="relative group">结构模式识别 
     <div id="%E7%BB%93%E6%9E%84%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB" class="anchor"></div>
     
     <span
@@ -953,26 +1055,121 @@ Fisher线性判别法
             style="text-decoration-line: none !important;" href="#%E7%BB%93%E6%9E%84%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB" aria-label="Anchor">#</a>
     </span>        
     
+</h1>
+
+
+<h2 class="relative group">句法模式识别 
+    <div id="%E5%8F%A5%E6%B3%95%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%A5%E6%B3%95%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB" aria-label="Anchor">#</a>
+    </span>        
+    
 </h2>
-<p><strong>a</strong>
-基元
-图表达 串表达
-相似度指标</p>
-<p>编辑距离
-茶与荼，失之毫厘谬以千里</p>
-<p>形式语言理论
-文法推断、句法分析
-<strong>文法</strong>
-字母表
-句子链
-语言
-文法：起始符 -&gt; 非终止符 -&gt; 终止符</p>
-<p>0型文法（无约束文法）
-递归特性
-1型文法（上下文有关）</p>
-<p>2型文法(上下文无关)</p>
-<p>3型文法（正则）
-<strong>句法分析</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>终止符</td>
+<td>$V_T$$V_T=\set{a,b,c}$</td>
+<td>Terminal</td>
+</tr>
+<tr>
+<td>非终止符</td>
+<td>$V_N=\set{S,A,B,C}$<br />S是起始符，是一类特殊的非终止符</td>
+<td>Nonterminal</td>
+</tr>
+<tr>
+<td>产生式</td>
+<td>$\alpha\rightarrow\beta,\alpha\in V^+,\beta \in V^*$</td>
+<td>Parse</td>
+</tr>
+</tbody>
+</table>
+<p>文法： 非终止符（大写） -&gt; 终止符(小写)</p>
+<p>4种文法的关系：限制逐渐增加，范围逐渐缩小</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th></th>
+<th>文法</th>
+<th>限制</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0型文法</td>
+<td>无约束文法</td>
+<td>$\alpha\rightarrow\beta$</td>
+<td>左端不能为空</td>
+<td>递归特性，可以产生一切类型的样本</td>
+<td>图灵机</td>
+</tr>
+<tr>
+<td>1型文法</td>
+<td>上下文有关</td>
+<td>$\alpha_1A\alpha_2\rightarrow\alpha_1B\alpha_2$</td>
+<td>$</td>
+<td>A</td>
+<td>\leq</td>
+</tr>
+<tr>
+<td>2型文法</td>
+<td>上下文无关</td>
+<td>$A\rightarrow\beta$</td>
+<td>左端是单个非终止符</td>
+<td>最左推导/最右推导（从最左/最优的非终止符开始推导）</td>
+<td>下推自动机</td>
+</tr>
+<tr>
+<td>3型文法</td>
+<td>正则</td>
+<td>$A\rightarrow a$<br />$A\rightarrow aB$</td>
+<td>右端只能是单个终止符或单个终止符+单个非终止符</td>
+<td>可以用状态图表示</td>
+<td>有限状态自动机</td>
+</tr>
+</tbody>
+</table>
+<p>句法识别方法：样本是否能被模式类的文法生成</p>
+<p>$模式类\omega_i对应的文法是G_i，如果x\in L(G_i)，那么则判定x\in w_i$</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>参考匹配法</td>
+<td>每个模式类根据对应的文法生成对应的参考列，将样本与每一列的参考列逐个比对</td>
+<td></td>
+</tr>
+<tr>
+<td>状态图法</td>
+<td>对于正则文法，若能找到状态图中的通路，则属于模式类</td>
+<td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202405240237497.png" alt="image-20240524023750867" style="zoom: 33%;" /></td>
+</tr>
+<tr>
+<td>填充树法</td>
+<td>对于上下文无关文法，在每一步时考虑所有可能得文法，直到产生样本或无法产生样本为止（本质上是穷举）</td>
+<td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202405240242713.png" alt="image-20240524024203703" style="zoom:33%;" /></td>
+</tr>
+</tbody>
+</table>
 
         </div>
         
@@ -1010,7 +1207,7 @@ Fisher线性判别法
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/cheat_sheet/course/prob/">
+            <a class="flex group mr-3" href="/cheat_sheet/course/algebra/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1022,7 +1219,7 @@ Fisher线性判别法
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Probability</span
+                  >Linear Algebra</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1032,26 +1229,6 @@ Fisher线性判别法
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/cheat_sheet/course/mic/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Medical Image Computing</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>

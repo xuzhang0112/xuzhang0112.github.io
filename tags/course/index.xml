@@ -31,7 +31,7 @@ Fisher线性判别法
 非线性化方法：势函数法，非线性SVM
 概率方法（贝叶斯） # 聚类方法 # 聚类定义：不知道每个类别的具体分布
 聚类准则：类间距离大，类内距离小
-基于分裂的聚类 # 基于合并的聚类 # 动态聚类 # 近邻函数值准则聚类 # 最小张树聚类 # 结构模式识别 # 句法模式识别 # 终止符 $V_T$$V_T=\set{a,b,c}$ Terminal 非终止符 $V_N=\set{S,A,B,C}$
+基于分裂的聚类 # 基于合并的聚类 # 动态聚类（K-Means） # 近邻函数值准则聚类 # 最小张树聚类 # 结构模式识别 # 句法模式识别 # 终止符 $V_T$$V_T=\set{a,b,c}$ Terminal 非终止符 $V_N=\set{S,A,B,C}$
 S是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\alpha\rightarrow\beta,\alpha\in V^+,\beta \in V^*$ Parse 文法： 非终止符（大写） -&amp;gt; 终止符(小写)
 4种文法的关系：限制逐渐增加，范围逐渐缩小
 类型 文法 限制 0型文法 无约束文法 $\alpha\rightarrow\beta$ 左端不能为空 递归特性，可以产生一切类型的样本 图灵机 1型文法 上下文有关 $\alpha_1A\alpha_2\rightarrow\alpha_1B\alpha_2$ $ A \leq 2型文法 上下文无关 $A\rightarrow\beta$ 左端是单个非终止符 最左推导/最右推导（从最左/最优的非终止符开始推导） 下推自动机 3型文法 正则 $A\rightarrow a$</description>

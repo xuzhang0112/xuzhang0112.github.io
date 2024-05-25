@@ -78,7 +78,7 @@ Fisher线性判别法
 非线性化方法：势函数法，非线性SVM
 概率方法（贝叶斯） # 聚类方法 # 聚类定义：不知道每个类别的具体分布
 聚类准则：类间距离大，类内距离小
-基于分裂的聚类 # 基于合并的聚类 # 动态聚类 # 近邻函数值准则聚类 # 最小张树聚类 # 结构模式识别 # 句法模式识别 # 终止符 $V_T$$V_T=\set{a,b,c}$ Terminal 非终止符 $V_N=\set{S,A,B,C}$
+基于分裂的聚类 # 基于合并的聚类 # 动态聚类（K-Means） # 近邻函数值准则聚类 # 最小张树聚类 # 结构模式识别 # 句法模式识别 # 终止符 $V_T$$V_T=\set{a,b,c}$ Terminal 非终止符 $V_N=\set{S,A,B,C}$
 S是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\alpha\rightarrow\beta,\alpha\in V^&#43;,\beta \in V^*$ Parse 文法： 非终止符（大写） -&gt; 终止符(小写)
 4种文法的关系：限制逐渐增加，范围逐渐缩小
 类型 文法 限制 0型文法 无约束文法 $\alpha\rightarrow\beta$ 左端不能为空 递归特性，可以产生一切类型的样本 图灵机 1型文法 上下文有关 $\alpha_1A\alpha_2\rightarrow\alpha_1B\alpha_2$ $ A \leq 2型文法 上下文无关 $A\rightarrow\beta$ 左端是单个非终止符 最左推导/最右推导（从最左/最优的非终止符开始推导） 下推自动机 3型文法 正则 $A\rightarrow a$" />
@@ -106,7 +106,7 @@ Fisher线性判别法
 非线性化方法：势函数法，非线性SVM
 概率方法（贝叶斯） # 聚类方法 # 聚类定义：不知道每个类别的具体分布
 聚类准则：类间距离大，类内距离小
-基于分裂的聚类 # 基于合并的聚类 # 动态聚类 # 近邻函数值准则聚类 # 最小张树聚类 # 结构模式识别 # 句法模式识别 # 终止符 $V_T$$V_T=\set{a,b,c}$ Terminal 非终止符 $V_N=\set{S,A,B,C}$
+基于分裂的聚类 # 基于合并的聚类 # 动态聚类（K-Means） # 近邻函数值准则聚类 # 最小张树聚类 # 结构模式识别 # 句法模式识别 # 终止符 $V_T$$V_T=\set{a,b,c}$ Terminal 非终止符 $V_N=\set{S,A,B,C}$
 S是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\alpha\rightarrow\beta,\alpha\in V^&#43;,\beta \in V^*$ Parse 文法： 非终止符（大写） -&gt; 终止符(小写)
 4种文法的关系：限制逐渐增加，范围逐渐缩小
 类型 文法 限制 0型文法 无约束文法 $\alpha\rightarrow\beta$ 左端不能为空 递归特性，可以产生一切类型的样本 图灵机 1型文法 上下文有关 $\alpha_1A\alpha_2\rightarrow\alpha_1B\alpha_2$ $ A \leq 2型文法 上下文无关 $A\rightarrow\beta$ 左端是单个非终止符 最左推导/最右推导（从最左/最优的非终止符开始推导） 下推自动机 3型文法 正则 $A\rightarrow a$"/>
@@ -120,7 +120,7 @@ S是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\alpha\rig
     "name": "Pattern Recogniton",
     "headline": "Pattern Recogniton",
     
-    "abstract": "统计模式识别 # 几何方法 # 相似性测度：距离（明氏距离、欧式距离、马氏距离）、向量夹角余弦\n平均样本法、平均距离法、最近邻法\n最大值判决：欧式距离下，可增广权向量和样本向量，将判别函数改写为线性形式\n决策面函数：与类别无关，用于二分类，易知权向量与决策面正交，决策面函数度量了样本点到决策面的距离\n线性判别 # 总体线性可分： 用一个超平面将任意一个类别的样本同其它所有类别的样本分开\n成对线性可分：用一个超平面将所有类别中任意两个类别的样本分开，分类器更多，但是不确定区域更少\n最大值判别：不存在不确定区域\n判别函数：样本点到决策平面的距离\n梯度下降法 vs 最小平方误差法\n线性可分问题的求解 # 感知器算法（梯度下降法，权向量是所有规范化错分样本之和，学习速率调整）\n最小平方误差法\nFisher线性判别法\n最优分类超平面法\n非线性可分问题的求解 # 线性化方法\n非线性化方法：势函数法，非线性SVM\n概率方法（贝叶斯） # 聚类方法 # 聚类定义：不知道每个类别的具体分布\n聚类准则：类间距离大，类内距离小\n基于分裂的聚类 # 基于合并的聚类 # 动态聚类 # 近邻函数值准则聚类 # 最小张树聚类 # 结构模式识别 # 句法模式识别 # 终止符 $V_T$$V_T=\\set{a,b,c}$ Terminal 非终止符 $V_N=\\set{S,A,B,C}$\nS是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\\alpha\\rightarrow\\beta,\\alpha\\in V^\u002b,\\beta \\in V^*$ Parse 文法： 非终止符（大写） -\u0026gt; 终止符(小写)\n4种文法的关系：限制逐渐增加，范围逐渐缩小\n类型 文法 限制 0型文法 无约束文法 $\\alpha\\rightarrow\\beta$ 左端不能为空 递归特性，可以产生一切类型的样本 图灵机 1型文法 上下文有关 $\\alpha_1A\\alpha_2\\rightarrow\\alpha_1B\\alpha_2$ $ A \\leq 2型文法 上下文无关 $A\\rightarrow\\beta$ 左端是单个非终止符 最左推导\/最右推导（从最左\/最优的非终止符开始推导） 下推自动机 3型文法 正则 $A\\rightarrow a$",
+    "abstract": "统计模式识别 # 几何方法 # 相似性测度：距离（明氏距离、欧式距离、马氏距离）、向量夹角余弦\n平均样本法、平均距离法、最近邻法\n最大值判决：欧式距离下，可增广权向量和样本向量，将判别函数改写为线性形式\n决策面函数：与类别无关，用于二分类，易知权向量与决策面正交，决策面函数度量了样本点到决策面的距离\n线性判别 # 总体线性可分： 用一个超平面将任意一个类别的样本同其它所有类别的样本分开\n成对线性可分：用一个超平面将所有类别中任意两个类别的样本分开，分类器更多，但是不确定区域更少\n最大值判别：不存在不确定区域\n判别函数：样本点到决策平面的距离\n梯度下降法 vs 最小平方误差法\n线性可分问题的求解 # 感知器算法（梯度下降法，权向量是所有规范化错分样本之和，学习速率调整）\n最小平方误差法\nFisher线性判别法\n最优分类超平面法\n非线性可分问题的求解 # 线性化方法\n非线性化方法：势函数法，非线性SVM\n概率方法（贝叶斯） # 聚类方法 # 聚类定义：不知道每个类别的具体分布\n聚类准则：类间距离大，类内距离小\n基于分裂的聚类 # 基于合并的聚类 # 动态聚类（K-Means） # 近邻函数值准则聚类 # 最小张树聚类 # 结构模式识别 # 句法模式识别 # 终止符 $V_T$$V_T=\\set{a,b,c}$ Terminal 非终止符 $V_N=\\set{S,A,B,C}$\nS是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\\alpha\\rightarrow\\beta,\\alpha\\in V^\u002b,\\beta \\in V^*$ Parse 文法： 非终止符（大写） -\u0026gt; 终止符(小写)\n4种文法的关系：限制逐渐增加，范围逐渐缩小\n类型 文法 限制 0型文法 无约束文法 $\\alpha\\rightarrow\\beta$ 左端不能为空 递归特性，可以产生一切类型的样本 图灵机 1型文法 上下文有关 $\\alpha_1A\\alpha_2\\rightarrow\\alpha_1B\\alpha_2$ $ A \\leq 2型文法 上下文无关 $A\\rightarrow\\beta$ 左端是单个非终止符 最左推导\/最右推导（从最左\/最优的非终止符开始推导） 下推自动机 3型文法 正则 $A\\rightarrow a$",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/course\/pr\/",
     "author" : {
@@ -827,7 +827,7 @@ S是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\alpha\rig
       <ul>
         <li><a href="#基于分裂的聚类">基于分裂的聚类</a></li>
         <li><a href="#基于合并的聚类">基于合并的聚类</a></li>
-        <li><a href="#动态聚类">动态聚类</a></li>
+        <li><a href="#动态聚类k-means">动态聚类（K-Means）</a></li>
         <li><a href="#近邻函数值准则聚类">近邻函数值准则聚类</a></li>
         <li><a href="#最小张树聚类">最小张树聚类</a></li>
       </ul>
@@ -859,7 +859,7 @@ S是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\alpha\rig
       <ul>
         <li><a href="#基于分裂的聚类">基于分裂的聚类</a></li>
         <li><a href="#基于合并的聚类">基于合并的聚类</a></li>
-        <li><a href="#动态聚类">动态聚类</a></li>
+        <li><a href="#动态聚类k-means">动态聚类（K-Means）</a></li>
         <li><a href="#近邻函数值准则聚类">近邻函数值准则聚类</a></li>
         <li><a href="#最小张树聚类">最小张树聚类</a></li>
       </ul>
@@ -1010,13 +1010,13 @@ S是起始符，是一类特殊的非终止符 Nonterminal 产生式 $\alpha\rig
 </h3>
 
 
-<h3 class="relative group">动态聚类 
-    <div id="%E5%8A%A8%E6%80%81%E8%81%9A%E7%B1%BB" class="anchor"></div>
+<h3 class="relative group">动态聚类（K-Means） 
+    <div id="%E5%8A%A8%E6%80%81%E8%81%9A%E7%B1%BBk-means" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%8A%A8%E6%80%81%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E5%8A%A8%E6%80%81%E8%81%9A%E7%B1%BBk-means" aria-label="Anchor">#</a>
     </span>        
     
 </h3>

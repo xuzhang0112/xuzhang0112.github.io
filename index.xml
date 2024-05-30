@@ -7,27 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Sat, 25 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Incorporating Hierarchy into Text Encoder: a Contrastive Learning Approach for Hierarchical Text Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/acl/incorporating-hierarchy-into-text-encoder-a-contrastive-learning-approach-for-hierarchical-text-classification/</link>
-      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      <title>Matrix</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</link>
+      <pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/acl/incorporating-hierarchy-into-text-encoder-a-contrastive-learning-approach-for-hierarchical-text-classification/</guid>
-      <description>使用GNN获取层次标签的表示，并进一步从文本中抽取和标签相关的特征。 一方面，可以视为数据增强，和原始文本一起，训练分类器；一方面，用于对比学习的正样本，拉进文本与其标签增强表示的距离，拉远和其他文本及其标签增强表示的距离。
-首先使用Graph Encoder计算Label的表示，然后用Attention来计算Label和文本中各个token之间的相似度，以获取和标签关联程度最高的token，将其余token置零，作为标签增强的正样本。
-对比学习拉近同一样本及其正样本，拉远不同样本。 $$ L_{cl}=-\frac{1}{2N}\sum_m^{2N}\frac{exp(sim(z_m,\hat{z_m})/ \tau)}{\sum_{i,i\neq m}^{2N}exp(sim(z_m,z_i)/\tau)} $$ 每个样本及其正样本都被送进编码器和分类器，以求正确分类。 $$ L = L^C+\hat{L^C}+\lambda L_{cl} $$ 极端退化的情况下，Label embedding可以看成一种类别注意力，对文本进行增强，共同送进分类器；而对比学习和图编码器可以辅助类别注意力的训练，同时提升BERT的性能。
-正样本的生成也可以采取Dropout或者Random masking，效果会相应地退化。
-图编码器采用的是Graphormer，影响最大的是name，其次是positon，最无关紧要的是edge。
-超参数：$\tau=1,\lambda=0.1,\gamma=0.05$（网格搜索搜出来的，取决于数据集）
-可以用T-SNE可视化，发现同一个父类的标签的确是距离近的。</description>
+      <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
+      <description>绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计
+举例1：siso系统，R=HS+Z，miso系统
+举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列
+举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时
+简单化：优化$\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角
+矩阵的基本概念 # 柯西不等式推导
+自相关、互相关、自协方差矩阵
+多元正态分布推导
+矩阵的奇异、诱导范数、元素范数（F范数）
+特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）
+基本矩阵2:初等变换矩阵（推广：移位、选择、置换）
+正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
+若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。
+（转置与逆，特征值分解，范数与内积不变）
+中心化矩阵 # 求和向量 $$ J_N=[1\ 1\ \dots\ 1] $$ 满足 $$ J_N\mathbf{x}=\sum_i x_i $$ 进而有中心化矩阵 $$ C_n = I_n - \frac{1}{N}J_N $$ 使得 $$ C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
+相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$
+特征值完全相同
+相合矩阵(二次型) # $$ B=C^HAC $$
+二次型函数相吻合
+三角矩阵 $$ det(A)=\prod_i^Na_{ii} $$</description>
       
     </item>
     
     <item>
       <title>Pattern Recogniton</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/course/pr/</link>
-      <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/pr/</guid>
       <description>统计模式识别 # 相似性度量 # 相似性测度
@@ -42,6 +55,22 @@
 线性分类器的解必然构成解区域，解是不确定的。（0-1损失函数）
 LMSE算法 # 如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。
 如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为 $$ J(w)=||Xw-b||^2 $$ 相应的梯度为 $$ \nabla J(w)=\nabla ||Xw-b||^2 = 2X^T(Xw-b) $$ 相应的更新方式为 $$ w_{k+1}=w_k+\rho_{k+1}X^T(Xw+b) $$ 但是，上述方法需要给定松弛变量，事实上，松弛变量也可以在优化中求解，即H-K算法。 $$ b_{k+1}=b_k-\eta_{k+1}\nabla J(w(k))|b $$</description>
+      
+    </item>
+    
+    <item>
+      <title>Incorporating Hierarchy into Text Encoder: a Contrastive Learning Approach for Hierarchical Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/incorporating-hierarchy-into-text-encoder-a-contrastive-learning-approach-for-hierarchical-text-classification/</link>
+      <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/incorporating-hierarchy-into-text-encoder-a-contrastive-learning-approach-for-hierarchical-text-classification/</guid>
+      <description>使用GNN获取层次标签的表示，并进一步从文本中抽取和标签相关的特征。 一方面，可以视为数据增强，和原始文本一起，训练分类器；一方面，用于对比学习的正样本，拉进文本与其标签增强表示的距离，拉远和其他文本及其标签增强表示的距离。
+首先使用Graph Encoder计算Label的表示，然后用Attention来计算Label和文本中各个token之间的相似度，以获取和标签关联程度最高的token，将其余token置零，作为标签增强的正样本。
+对比学习拉近同一样本及其正样本，拉远不同样本。 $$ L_{cl}=-\frac{1}{2N}\sum_m^{2N}\frac{exp(sim(z_m,\hat{z_m})/ \tau)}{\sum_{i,i\neq m}^{2N}exp(sim(z_m,z_i)/\tau)} $$ 每个样本及其正样本都被送进编码器和分类器，以求正确分类。 $$ L = L^C+\hat{L^C}+\lambda L_{cl} $$ 极端退化的情况下，Label embedding可以看成一种类别注意力，对文本进行增强，共同送进分类器；而对比学习和图编码器可以辅助类别注意力的训练，同时提升BERT的性能。
+正样本的生成也可以采取Dropout或者Random masking，效果会相应地退化。
+图编码器采用的是Graphormer，影响最大的是name，其次是positon，最无关紧要的是edge。
+超参数：$\tau=1,\lambda=0.1,\gamma=0.05$（网格搜索搜出来的，取决于数据集）
+可以用T-SNE可视化，发现同一个父类的标签的确是距离近的。</description>
       
     </item>
     
@@ -728,27 +757,6 @@ Key # 1.判断线性空间
       <description>架构
 在开放问题和Y/N问题上的效果 数据集
 pretrain ROCO 80,000 MedICaT 217,000 ImageCLEF2022 90,000 test VQA-RAD 315+3064 SLAKE 14028 7:1.5:1.5 PathVQA 32799 5:3:2 ITM&amp;amp;MLM不可或缺 </description>
-      
-    </item>
-    
-    <item>
-      <title>Matrix</title>
-      <link>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
-      <description> 绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计
-举例1：siso系统，R=HS+Z，miso系统
-举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列
-举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时
-简单化：优化$$\omega$$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角
-矩阵的基本概念 # 柯西不等式推导
-自相关、互相关、自协方差矩阵
-多元正态分布推导
-矩阵的奇异、诱导范数、元素范数（F范数）
-特殊矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘） 基本矩阵2:初等变换矩阵（推广：移位、选择、置换） 正交矩阵和酉矩阵（转置与逆，特征值分解，范数与内积不变） 中心化矩阵 相似矩阵（特征值）和相合矩阵(二次型) 三角矩阵（行列式） 范德蒙(多项式插值) 傅里叶（频率和时间两个方向都递增） 哈达玛 托普利兹
-矩阵的微分 # 共轭梯度和无约束优化 # 奇异值 # SVD的三种形式 mn,nn,kk
-凸优化基础 # 最小二乘 # 特征值分解 # 特征分析 # 子空间 # 投影分析 # </description>
       
     </item>
     

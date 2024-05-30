@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://xuzhang0112.github.io/cheat_sheet/</loc>
+    <lastmod>2024-05-30T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/cheat_sheet/course/</loc>
+    <lastmod>2024-05-30T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</loc>
+    <lastmod>2024-05-30T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/cheat_sheet/course/pr/</loc>
+    <lastmod>2024-05-30T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/</loc>
+    <lastmod>2024-05-30T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/acl/</loc>
     <lastmod>2024-05-25T00:00:00+00:00</lastmod>
   </url>
@@ -13,22 +33,6 @@
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/</loc>
     <lastmod>2024-05-25T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/</loc>
-    <lastmod>2024-05-25T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/</loc>
-    <lastmod>2024-05-23T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/</loc>
-    <lastmod>2024-05-23T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/pr/</loc>
-    <lastmod>2024-05-23T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/nips/automated-clinical-coding-using-off-the-shelf-large-language-models/</loc>
@@ -202,9 +206,6 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/miccai/masked-vision-and-language-pre-training-with-unimodal-and-multimodal-contrastive-losses-for-medical-visual-question-answ/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/course/mic/</loc>

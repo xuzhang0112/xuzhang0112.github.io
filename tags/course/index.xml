@@ -7,11 +7,40 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Thu, 23 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/course/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/course/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matrix</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</link>
+      <pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
+      <description>绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计
+举例1：siso系统，R=HS+Z，miso系统
+举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列
+举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时
+简单化：优化$\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角
+矩阵的基本概念 # 柯西不等式推导
+自相关、互相关、自协方差矩阵
+多元正态分布推导
+矩阵的奇异、诱导范数、元素范数（F范数）
+特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）
+基本矩阵2:初等变换矩阵（推广：移位、选择、置换）
+正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
+若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。
+（转置与逆，特征值分解，范数与内积不变）
+中心化矩阵 # 求和向量 $$ J_N=[1\ 1\ \dots\ 1] $$ 满足 $$ J_N\mathbf{x}=\sum_i x_i $$ 进而有中心化矩阵 $$ C_n = I_n - \frac{1}{N}J_N $$ 使得 $$ C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
+相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$
+特征值完全相同
+相合矩阵(二次型) # $$ B=C^HAC $$
+二次型函数相吻合
+三角矩阵 $$ det(A)=\prod_i^Na_{ii} $$</description>
+      
+    </item>
+    
     <item>
       <title>Pattern Recogniton</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/course/pr/</link>
-      <pubDate>Thu, 23 May 2024 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/pr/</guid>
       <description>统计模式识别 # 相似性度量 # 相似性测度
@@ -78,27 +107,6 @@ Key # 1.判断线性空间
 4.反对称矩阵的复特征值和复特征向量的讨论（内积满足的关系）
 5.幂等矩阵的解空间与列空间，证明解空间和列空间的和构成整个空间，证明是直和，分别讨论特征向量的维数
 6.I-ae1e1T的特征值、特征子空间，奇异值分解，最优秩1分解（F范数结论）</description>
-      
-    </item>
-    
-    <item>
-      <title>Matrix</title>
-      <link>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
-      <description> 绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计
-举例1：siso系统，R=HS+Z，miso系统
-举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列
-举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时
-简单化：优化$$\omega$$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角
-矩阵的基本概念 # 柯西不等式推导
-自相关、互相关、自协方差矩阵
-多元正态分布推导
-矩阵的奇异、诱导范数、元素范数（F范数）
-特殊矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘） 基本矩阵2:初等变换矩阵（推广：移位、选择、置换） 正交矩阵和酉矩阵（转置与逆，特征值分解，范数与内积不变） 中心化矩阵 相似矩阵（特征值）和相合矩阵(二次型) 三角矩阵（行列式） 范德蒙(多项式插值) 傅里叶（频率和时间两个方向都递增） 哈达玛 托普利兹
-矩阵的微分 # 共轭梯度和无约束优化 # 奇异值 # SVD的三种形式 mn,nn,kk
-凸优化基础 # 最小二乘 # 特征值分解 # 特征分析 # 子空间 # 投影分析 # </description>
       
     </item>
     

@@ -61,37 +61,53 @@
   
   
   <meta property="og:title" content="Matrix" />
-<meta property="og:description" content=" 绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计
+<meta property="og:description" content="绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计
 举例1：siso系统，R=HS&#43;Z，miso系统
 举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列
 举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时
-简单化：优化$$\omega$$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角
+简单化：优化$\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角
 矩阵的基本概念 # 柯西不等式推导
 自相关、互相关、自协方差矩阵
 多元正态分布推导
 矩阵的奇异、诱导范数、元素范数（F范数）
-特殊矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘） 基本矩阵2:初等变换矩阵（推广：移位、选择、置换） 正交矩阵和酉矩阵（转置与逆，特征值分解，范数与内积不变） 中心化矩阵 相似矩阵（特征值）和相合矩阵(二次型) 三角矩阵（行列式） 范德蒙(多项式插值) 傅里叶（频率和时间两个方向都递增） 哈达玛 托普利兹
-矩阵的微分 # 共轭梯度和无约束优化 # 奇异值 # SVD的三种形式 mn,nn,kk
-凸优化基础 # 最小二乘 # 特征值分解 # 特征分析 # 子空间 # 投影分析 # " />
+特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）
+基本矩阵2:初等变换矩阵（推广：移位、选择、置换）
+正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
+若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。
+（转置与逆，特征值分解，范数与内积不变）
+中心化矩阵 # 求和向量 $$ J_N=[1\ 1\ \dots\ 1] $$ 满足 $$ J_N\mathbf{x}=\sum_i x_i $$ 进而有中心化矩阵 $$ C_n = I_n - \frac{1}{N}J_N $$ 使得 $$ C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
+相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$
+特征值完全相同
+相合矩阵(二次型) # $$ B=C^HAC $$
+二次型函数相吻合
+三角矩阵 $$ det(A)=\prod_i^Na_{ii} $$" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/course/matrix/" /><meta property="article:section" content="cheat_sheet" />
-
-
+<meta property="article:published_time" content="2024-05-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-05-30T00:00:00+00:00" />
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Matrix"/>
-<meta name="twitter:description" content=" 绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计
+<meta name="twitter:description" content="绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计
 举例1：siso系统，R=HS&#43;Z，miso系统
 举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列
 举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时
-简单化：优化$$\omega$$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角
+简单化：优化$\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角
 矩阵的基本概念 # 柯西不等式推导
 自相关、互相关、自协方差矩阵
 多元正态分布推导
 矩阵的奇异、诱导范数、元素范数（F范数）
-特殊矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘） 基本矩阵2:初等变换矩阵（推广：移位、选择、置换） 正交矩阵和酉矩阵（转置与逆，特征值分解，范数与内积不变） 中心化矩阵 相似矩阵（特征值）和相合矩阵(二次型) 三角矩阵（行列式） 范德蒙(多项式插值) 傅里叶（频率和时间两个方向都递增） 哈达玛 托普利兹
-矩阵的微分 # 共轭梯度和无约束优化 # 奇异值 # SVD的三种形式 mn,nn,kk
-凸优化基础 # 最小二乘 # 特征值分解 # 特征分析 # 子空间 # 投影分析 # "/>
+特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）
+基本矩阵2:初等变换矩阵（推广：移位、选择、置换）
+正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
+若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。
+（转置与逆，特征值分解，范数与内积不变）
+中心化矩阵 # 求和向量 $$ J_N=[1\ 1\ \dots\ 1] $$ 满足 $$ J_N\mathbf{x}=\sum_i x_i $$ 进而有中心化矩阵 $$ C_n = I_n - \frac{1}{N}J_N $$ 使得 $$ C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
+相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$
+特征值完全相同
+相合矩阵(二次型) # $$ B=C^HAC $$
+二次型函数相吻合
+三角矩阵 $$ det(A)=\prod_i^Na_{ii} $$"/>
 
   
   <script type="application/ld+json">
@@ -102,23 +118,23 @@
     "name": "Matrix",
     "headline": "Matrix",
     
-    "abstract": " 绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计\n举例1：siso系统，R=HS\u002bZ，miso系统\n举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列\n举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时\n简单化：优化$$\\omega$$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角\n矩阵的基本概念 # 柯西不等式推导\n自相关、互相关、自协方差矩阵\n多元正态分布推导\n矩阵的奇异、诱导范数、元素范数（F范数）\n特殊矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘） 基本矩阵2:初等变换矩阵（推广：移位、选择、置换） 正交矩阵和酉矩阵（转置与逆，特征值分解，范数与内积不变） 中心化矩阵 相似矩阵（特征值）和相合矩阵(二次型) 三角矩阵（行列式） 范德蒙(多项式插值) 傅里叶（频率和时间两个方向都递增） 哈达玛 托普利兹\n矩阵的微分 # 共轭梯度和无约束优化 # 奇异值 # SVD的三种形式 mn,nn,kk\n凸优化基础 # 最小二乘 # 特征值分解 # 特征分析 # 子空间 # 投影分析 # ",
+    "abstract": "绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计\n举例1：siso系统，R=HS\u002bZ，miso系统\n举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列\n举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时\n简单化：优化$\\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角\n矩阵的基本概念 # 柯西不等式推导\n自相关、互相关、自协方差矩阵\n多元正态分布推导\n矩阵的奇异、诱导范数、元素范数（F范数）\n特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）\n基本矩阵2:初等变换矩阵（推广：移位、选择、置换）\n正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。\n若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。\n（转置与逆，特征值分解，范数与内积不变）\n中心化矩阵 # 求和向量 $$ J_N=[1\\ 1\\ \\dots\\ 1] $$ 满足 $$ J_N\\mathbf{x}=\\sum_i x_i $$ 进而有中心化矩阵 $$ C_n = I_n - \\frac{1}{N}J_N $$ 使得 $$ C_N\\mathbf{x}=[x_1-\\bar{x}\\quad x_2-\\bar{x}\\quad \\dots\\quad x_N-\\bar{x}] $$\n相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$\n特征值完全相同\n相合矩阵(二次型) # $$ B=C^HAC $$\n二次型函数相吻合\n三角矩阵 $$ det(A)=\\prod_i^Na_{ii} $$",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/course\/matrix\/",
     "author" : {
       "@type": "Person",
       "name": "Xu Zhang"
     },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-05-30T00:00:00\u002b00:00",
+    "datePublished": "2024-05-30T00:00:00\u002b00:00",
     
-    
-    
-    
-    
+    "dateModified": "2024-05-30T00:00:00\u002b00:00",
     
     "keywords": ["Course"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "46"
+    "wordCount": "237"
   }]
   </script>
 
@@ -799,9 +815,23 @@
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
+    <li><a href="#绪论">绪论</a></li>
     <li><a href="#矩阵的基本概念">矩阵的基本概念</a></li>
-    <li><a href="#特殊矩阵">特殊矩阵</a></li>
-    <li><a href="#矩阵的微分">矩阵的微分</a></li>
+    <li><a href="#特殊矩阵">特殊矩阵</a>
+      <ul>
+        <li><a href="#基本矩阵">基本矩阵</a></li>
+        <li><a href="#正交矩阵和酉矩阵">正交矩阵和酉矩阵</a></li>
+        <li><a href="#相似与相合">相似与相合</a></li>
+        <li><a href="#vandermonde矩阵">Vandermonde矩阵</a></li>
+      </ul>
+    </li>
+    <li><a href="#矩阵的微分">矩阵的微分</a>
+      <ul>
+        <li><a href="#矩阵函数">矩阵函数</a></li>
+        <li><a href="#矩阵求导">矩阵求导</a></li>
+        <li><a href="#矩阵微分">矩阵微分</a></li>
+      </ul>
+    </li>
     <li><a href="#共轭梯度和无约束优化">共轭梯度和无约束优化</a></li>
     <li><a href="#奇异值">奇异值</a></li>
     <li><a href="#凸优化基础">凸优化基础</a></li>
@@ -823,9 +853,23 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
+    <li><a href="#绪论">绪论</a></li>
     <li><a href="#矩阵的基本概念">矩阵的基本概念</a></li>
-    <li><a href="#特殊矩阵">特殊矩阵</a></li>
-    <li><a href="#矩阵的微分">矩阵的微分</a></li>
+    <li><a href="#特殊矩阵">特殊矩阵</a>
+      <ul>
+        <li><a href="#基本矩阵">基本矩阵</a></li>
+        <li><a href="#正交矩阵和酉矩阵">正交矩阵和酉矩阵</a></li>
+        <li><a href="#相似与相合">相似与相合</a></li>
+        <li><a href="#vandermonde矩阵">Vandermonde矩阵</a></li>
+      </ul>
+    </li>
+    <li><a href="#矩阵的微分">矩阵的微分</a>
+      <ul>
+        <li><a href="#矩阵函数">矩阵函数</a></li>
+        <li><a href="#矩阵求导">矩阵求导</a></li>
+        <li><a href="#矩阵微分">矩阵微分</a></li>
+      </ul>
+    </li>
     <li><a href="#共轭梯度和无约束优化">共轭梯度和无约束优化</a></li>
     <li><a href="#奇异值">奇异值</a></li>
     <li><a href="#凸优化基础">凸优化基础</a></li>
@@ -851,7 +895,7 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h1 class="relative group">绪论 
+<h2 class="relative group">绪论 
     <div id="%E7%BB%AA%E8%AE%BA" class="anchor"></div>
     
     <span
@@ -860,12 +904,12 @@
             style="text-decoration-line: none !important;" href="#%E7%BB%AA%E8%AE%BA" aria-label="Anchor">#</a>
     </span>        
     
-</h1>
+</h2>
 <p><strong>矩阵：描述线性系统，进而分析其内在特征，从而优化设计</strong></p>
 <p>举例1：siso系统，R=HS+Z，miso系统</p>
 <p>举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列</p>
 <p>举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时</p>
-<p>简单化：优化$$\omega$$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角</p>
+<p>简单化：优化$\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角</p>
 
 
 <h2 class="relative group">矩阵的基本概念 
@@ -894,16 +938,176 @@
     </span>        
     
 </h2>
-<p>基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）
-基本矩阵2:初等变换矩阵（推广：移位、选择、置换）
-正交矩阵和酉矩阵（转置与逆，特征值分解，范数与内积不变）
-中心化矩阵
-相似矩阵（特征值）和相合矩阵(二次型)
-三角矩阵（行列式）
-范德蒙(多项式插值)
-傅里叶（频率和时间两个方向都递增）
-哈达玛
-托普利兹</p>
+
+
+<h3 class="relative group">基本矩阵 
+    <div id="%E5%9F%BA%E6%9C%AC%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E6%9C%AC%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）</p>
+<p>基本矩阵2:初等变换矩阵（推广：移位、选择、置换）</p>
+
+
+<h3 class="relative group">正交矩阵和酉矩阵 
+    <div id="%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5%E5%92%8C%E9%85%89%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5%E5%92%8C%E9%85%89%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。</p>
+<p>若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。</p>
+<p>（转置与逆，特征值分解，范数与内积不变）</p>
+
+
+<h4 class="relative group">中心化矩阵 
+    <div id="%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>求和向量
+$$
+J_N=[1\ 1\ \dots\ 1]
+$$
+满足
+$$
+J_N\mathbf{x}=\sum_i x_i
+$$
+进而有中心化矩阵
+$$
+C_n = I_n - \frac{1}{N}J_N
+$$
+使得
+$$
+C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}]
+$$</p>
+
+
+<h3 class="relative group">相似与相合 
+    <div id="%E7%9B%B8%E4%BC%BC%E4%B8%8E%E7%9B%B8%E5%90%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9B%B8%E4%BC%BC%E4%B8%8E%E7%9B%B8%E5%90%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">相似矩阵（特征值） 
+    <div id="%E7%9B%B8%E4%BC%BC%E7%9F%A9%E9%98%B5%E7%89%B9%E5%BE%81%E5%80%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9B%B8%E4%BC%BC%E7%9F%A9%E9%98%B5%E7%89%B9%E5%BE%81%E5%80%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+B=S^{-1}AS
+$$</p>
+<p>特征值完全相同</p>
+
+
+<h4 class="relative group">相合矩阵(二次型) 
+    <div id="%E7%9B%B8%E5%90%88%E7%9F%A9%E9%98%B5%E4%BA%8C%E6%AC%A1%E5%9E%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9B%B8%E5%90%88%E7%9F%A9%E9%98%B5%E4%BA%8C%E6%AC%A1%E5%9E%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+B=C^HAC
+$$</p>
+<p>二次型函数相吻合</p>
+<p>三角矩阵
+$$
+det(A)=\prod_i^Na_{ii}
+$$</p>
+
+
+<h3 class="relative group">Vandermonde矩阵 
+    <div id="vandermonde%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vandermonde%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+A=
+\begin{bmatrix}
+a_1^0\ a_2^0\ \dots\ a_N^0\newline
+a_1\ a_2\ \dots\ a_N\newline
+\vdots \newline
+a_1^{N-1}\ a_2^{N-1}\ \dots\ a_N^{N-1}\newline
+\end{bmatrix}
+$$</p>
+<p>行列式$det(A)=\prod_{i,j}^N(a_i-a_j)$</p>
+<p>多项式插值中，线性方程组的系数矩阵是Vandermonde矩阵；</p>
+<p>P个入射信号、N个阵元的信号响应矩阵是N*P维Vandermonde矩阵，其中阵元的响应强度随距离成指数级上升（0到N-1），而不同的入射信号对应不同的夹角($a_i$)。</p>
+
+
+<h4 class="relative group">Fourier矩阵 
+    <div id="fourier%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fourier%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>一种特殊的vandermonde矩阵，指数在频率和时间两个方向都递增。</p>
+
+
+<h4 class="relative group">Hardmard矩阵 
+    <div id="hardmard%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hardmard%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>它的元素全部是+1或-1，并且满足矩阵乘法条件 $HH^T=H^TH=nI$​。</p>
+<p>CDMA码分多址</p>
+
+
+<h4 class="relative group">Toeplitz矩阵 
+    <div id="toeplitz%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#toeplitz%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><strong>常值对角线</strong>：每条从左上到右下的对角线上的元素都是相同的</p>
+<p>自回归模型</p>
 
 
 <h2 class="relative group">矩阵的微分 
@@ -916,6 +1120,137 @@
     </span>        
     
 </h2>
+
+
+<h3 class="relative group">矩阵函数 
+    <div id="%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>矩阵函数是通过矩阵的加法和乘法来定义的，而对于指数函数和三角函数，则是通过推广标量函数的幂级数展开来定义。</p>
+<p>方法1：当矩阵是幂等矩阵时，可以将幂级数中的累加项合并，并利用指数函数的展开式来化解一系列系数的求和。</p>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202405291724667.png" alt="image-20240529172416528" style="zoom:67%;" />
+<p>当矩阵乘法可交换时，指数函数和三角函数才满足一些交换的性质。</p>
+<p>方法2：将矩阵对角化，矩阵的幂级数，即，将对角线上的各个元素代入幂级数的原函数。</p>
+<p>如果
+$$
+P^{-1}AP=\Lambda
+$$
+则有
+$$
+e^A=Pdiag(e^{\lambda_1},\dots,e^{\lambda_n})P^{-1}\newline
+e^A=Pdiag(e^{\lambda_1t},\dots,e^{\lambda_nt})P^{-1}\newline
+e^A=Pdiag(sin\lambda_1,\dots,sin{\lambda_n})P^{-1}
+$$</p>
+
+
+<h3 class="relative group">矩阵求导 
+    <div id="%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>实值函数的自变量和因变量都可以是标量、向量、矩阵。</p>
+<table>
+<thead>
+<tr>
+<th>函数（因变量）</th>
+<th>向量变元$\mathbf{x}\in R^m$</th>
+<th>矩阵变元$X\in R^{m\times n}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标量函数$f\in R$</td>
+<td>$f:R^m\rightarrow R^{m\times n}$</td>
+<td>$f:R^{m\times n}\rightarrow R$</td>
+</tr>
+<tr>
+<td>向量函数$f\in R^p$</td>
+<td>$f(\mathbf{x})\newline f:R^m\rightarrow R^p$</td>
+<td>$f(X)\newline f:R^{m\times n}\rightarrow R^p$</td>
+</tr>
+<tr>
+<td>矩阵函数$f\in R^{p\times q}$</td>
+<td>$F(\mathbf{x})\newline f:R^m\rightarrow R^{p\times q}$</td>
+<td>$F(X)\newline f:R^{m\times n}\rightarrow R^{p\times q}$</td>
+</tr>
+</tbody>
+</table>
+<p>如果是标量函数，本质上是multi-input &amp; single output，其偏导定义如下。</p>
+<table>
+<thead>
+<tr>
+<th>偏导</th>
+<th>对变元的操作</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>行向量偏导</strong></td>
+<td>将矩阵X行向量化</td>
+<td>$D_{vec^T(X)}f(X)$</td>
+</tr>
+<tr>
+<td><strong>Jacobin矩阵</strong></td>
+<td>保持矩阵不变</td>
+<td>$D_Xf(X)$</td>
+</tr>
+<tr>
+<td>列向量偏导</td>
+<td>将矩阵X列向量化</td>
+<td>$\nabla_{vec(X)}f(X)$</td>
+</tr>
+<tr>
+<td>梯度矩阵</td>
+<td>将矩阵X转置</td>
+<td>$\nabla_Xf(X)$</td>
+</tr>
+</tbody>
+</table>
+<p>梯度的负方向称为<strong>梯度流</strong>，即梯度下降的方向。</p>
+<p>如果是向量/矩阵函数，都可以看成是广义的<strong>矩阵变元的实矩阵函数</strong>，本质是multi-input &amp; multi-output。</p>
+<p>将向量/矩阵函数<strong>列向量化</strong>，求其对变元的<strong>行向量偏导</strong>，称为矩阵函数的<strong>协梯度矩阵</strong>，也称<strong>Jacobin矩阵</strong>，记为$D_XF(X)$。</p>
+
+
+<h3 class="relative group">矩阵微分 
+    <div id="%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>考虑矩阵变元微分$dX=\begin{bmatrix}dX_{11} &hellip; dX_{1n}\newline &hellip;\newline dX_{n1} &hellip; dX_{nn} \end{bmatrix}$，则标量函数的微分</p>
+<p>$$df(X)=rvec(A)vec(X)=tr(AdX)$$</p>
+<p>相应地，标量函数的偏导
+$$
+\nabla_Xf(X)=\frac{\partial f(X)}{\partial X} = A^T
+$$
+实值标量函数总可以写成迹函数的形式，因为
+$$
+f(X)=tr(f(X))$$
+进而可以使用迹函数的性质
+$$
+tr(AdXB)=tr(BAdX)
+$$</p>
+<p>对于$dX^T$，也可以利用迹函数的性质</p>
+<p>$$tr(AdX^TB)=tr(B^TdXA^T)=tr(A^TB^TdX)$$</p>
+<p>以得到迹函数微分矩阵的规范形式。</p>
+<p>矩阵微分的公式需要背诵。</p>
+<p>标量函数的二阶梯度矩阵称为<strong>Hessian矩阵</strong>，即梯度向量的Jacobin矩阵。</p>
 
 
 <h2 class="relative group">共轭梯度和无约束优化 
@@ -1050,7 +1385,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/cheat_sheet/course/mic/">
+            <a class="flex group mr-3" href="/cheat_sheet/course/pr/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1062,7 +1397,7 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Medical Image Computing</span
+                  >Pattern Recogniton</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1072,26 +1407,6 @@
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/cheat_sheet/course/algebra/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Linear Algebra</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>

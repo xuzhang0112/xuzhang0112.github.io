@@ -134,7 +134,7 @@
     "keywords": ["Course"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "237"
+    "wordCount": "366"
   }]
   </script>
 
@@ -830,14 +830,34 @@
         <li><a href="#矩阵函数">矩阵函数</a></li>
         <li><a href="#矩阵求导">矩阵求导</a></li>
         <li><a href="#矩阵微分">矩阵微分</a></li>
+        <li><a href="#复变函数">复变函数</a></li>
       </ul>
     </li>
-    <li><a href="#共轭梯度和无约束优化">共轭梯度和无约束优化</a></li>
-    <li><a href="#奇异值">奇异值</a></li>
-    <li><a href="#凸优化基础">凸优化基础</a></li>
+    <li><a href="#无约束优化">无约束优化</a></li>
+    <li><a href="#凸优化基础">凸优化基础</a>
+      <ul>
+        <li><a href="#保凸变换">保凸变换</a></li>
+        <li><a href="#凸问题的求解">凸问题的求解</a></li>
+        <li><a href="#拉格朗日乘子法">拉格朗日乘子法</a></li>
+        <li><a href="#梯度下降法">梯度下降法</a></li>
+      </ul>
+    </li>
     <li><a href="#最小二乘">最小二乘</a></li>
-    <li><a href="#特征值分解">特征值分解</a></li>
-    <li><a href="#特征分析">特征分析</a></li>
+    <li><a href="#矩阵分解">矩阵分解</a>
+      <ul>
+        <li><a href="#特征值和特征向量的定义与性质">特征值和特征向量的定义与性质</a></li>
+        <li><a href="#特征值分解evd">特征值分解（EVD）</a></li>
+        <li><a href="#奇异值分解svd">奇异值分解（SVD)</a></li>
+        <li><a href="#svd-vs-evd">SVD vs EVD</a></li>
+        <li><a href="#hermitian矩阵的evdsvd">Hermitian矩阵的EVD（SVD）</a></li>
+      </ul>
+    </li>
+    <li><a href="#特征分析">特征分析</a>
+      <ul>
+        <li><a href="#rayleigh商">Rayleigh商</a></li>
+        <li><a href="#jordan标准形">Jordan标准形</a></li>
+      </ul>
+    </li>
     <li><a href="#子空间">子空间</a></li>
     <li><a href="#投影分析">投影分析</a></li>
   </ul>
@@ -868,14 +888,34 @@
         <li><a href="#矩阵函数">矩阵函数</a></li>
         <li><a href="#矩阵求导">矩阵求导</a></li>
         <li><a href="#矩阵微分">矩阵微分</a></li>
+        <li><a href="#复变函数">复变函数</a></li>
       </ul>
     </li>
-    <li><a href="#共轭梯度和无约束优化">共轭梯度和无约束优化</a></li>
-    <li><a href="#奇异值">奇异值</a></li>
-    <li><a href="#凸优化基础">凸优化基础</a></li>
+    <li><a href="#无约束优化">无约束优化</a></li>
+    <li><a href="#凸优化基础">凸优化基础</a>
+      <ul>
+        <li><a href="#保凸变换">保凸变换</a></li>
+        <li><a href="#凸问题的求解">凸问题的求解</a></li>
+        <li><a href="#拉格朗日乘子法">拉格朗日乘子法</a></li>
+        <li><a href="#梯度下降法">梯度下降法</a></li>
+      </ul>
+    </li>
     <li><a href="#最小二乘">最小二乘</a></li>
-    <li><a href="#特征值分解">特征值分解</a></li>
-    <li><a href="#特征分析">特征分析</a></li>
+    <li><a href="#矩阵分解">矩阵分解</a>
+      <ul>
+        <li><a href="#特征值和特征向量的定义与性质">特征值和特征向量的定义与性质</a></li>
+        <li><a href="#特征值分解evd">特征值分解（EVD）</a></li>
+        <li><a href="#奇异值分解svd">奇异值分解（SVD)</a></li>
+        <li><a href="#svd-vs-evd">SVD vs EVD</a></li>
+        <li><a href="#hermitian矩阵的evdsvd">Hermitian矩阵的EVD（SVD）</a></li>
+      </ul>
+    </li>
+    <li><a href="#特征分析">特征分析</a>
+      <ul>
+        <li><a href="#rayleigh商">Rayleigh商</a></li>
+        <li><a href="#jordan标准形">Jordan标准形</a></li>
+      </ul>
+    </li>
     <li><a href="#子空间">子空间</a></li>
     <li><a href="#投影分析">投影分析</a></li>
   </ul>
@@ -1197,27 +1237,28 @@ $$</p>
 </thead>
 <tbody>
 <tr>
-<td><strong>行向量偏导</strong></td>
+<td>行向量偏导</td>
 <td>将矩阵X行向量化</td>
-<td>$D_{vec^T(X)}f(X)$</td>
+<td>$D_{vec^T(X)}f(X)=\frac{\partial f(X)}{\partial vec^T(X)}$</td>
 </tr>
 <tr>
 <td><strong>Jacobin矩阵</strong></td>
-<td>保持矩阵不变</td>
-<td>$D_Xf(X)$</td>
+<td>将矩阵X转置</td>
+<td>$D_Xf(X)=\frac{\partial f(X)}{\partial X^T}$</td>
 </tr>
 <tr>
 <td>列向量偏导</td>
 <td>将矩阵X列向量化</td>
-<td>$\nabla_{vec(X)}f(X)$</td>
+<td>$\nabla_{vec(X)}f(X)=\frac{\partial f(X)}{\partial vec(X)}$</td>
 </tr>
 <tr>
-<td>梯度矩阵</td>
-<td>将矩阵X转置</td>
-<td>$\nabla_Xf(X)$</td>
+<td><strong>梯度矩阵</strong></td>
+<td>矩阵X不变</td>
+<td>$\nabla_Xf(X)=\frac{\partial f(X)}{\partial X}$</td>
 </tr>
 </tbody>
 </table>
+<p>注意$vec^T(X)=[vec(X)]^T$和$rvec(X)$的区别。</p>
 <p>梯度的负方向称为<strong>梯度流</strong>，即梯度下降的方向。</p>
 <p>如果是向量/矩阵函数，都可以看成是广义的<strong>矩阵变元的实矩阵函数</strong>，本质是multi-input &amp; multi-output。</p>
 <p>将向量/矩阵函数<strong>列向量化</strong>，求其对变元的<strong>行向量偏导</strong>，称为矩阵函数的<strong>协梯度矩阵</strong>，也称<strong>Jacobin矩阵</strong>，记为$D_XF(X)$。</p>
@@ -1245,37 +1286,53 @@ f(X)=tr(f(X))$$
 进而可以使用迹函数的性质
 $$
 tr(AdXB)=tr(BAdX)
-$$</p>
-<p>对于$dX^T$，也可以利用迹函数的性质</p>
+$$
+对于$dX^T$，也可以利用迹函数的性质</p>
 <p>$$tr(AdX^TB)=tr(B^TdXA^T)=tr(A^TB^TdX)$$</p>
 <p>以得到迹函数微分矩阵的规范形式。</p>
 <p>矩阵微分的公式需要背诵。</p>
 <p>标量函数的二阶梯度矩阵称为<strong>Hessian矩阵</strong>，即梯度向量的Jacobin矩阵。</p>
 
 
-<h2 class="relative group">共轭梯度和无约束优化 
-    <div id="%E5%85%B1%E8%BD%AD%E6%A2%AF%E5%BA%A6%E5%92%8C%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96" class="anchor"></div>
+<h3 class="relative group">复变函数 
+    <div id="%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%85%B1%E8%BD%AD%E6%A2%AF%E5%BA%A6%E5%92%8C%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
+</h3>
+<p>关于复变函数f(z)，下列叙述等价</p>
+<ul>
+<li>f(z)是全纯/复解析函数</li>
+<li>f&rsquo;(z)存在且连续</li>
+<li>f(z)满足Cauchy-Riemann方程</li>
+<li>f(z)的所有导数存在且拥有一个收敛的幂级数</li>
+</ul>
+<p>虽然幂函数、指数函数、对数函数都是复解析函数，但存在一些常用函数不是全纯函数，例如$f(z)=z^*$和$f(z)=Re(z)$​。</p>
+<p>如果一个给定的复变函数可以写成$f(z)=f(z,z^<em>)$，则可以直接求取其关于$z$和$z^</em>$的偏导 。</p>
+<p>复变函数的偏导</p>
+<p>复变函数的微分</p>
 
 
-<h2 class="relative group">奇异值 
-    <div id="%E5%A5%87%E5%BC%82%E5%80%BC" class="anchor"></div>
+<h2 class="relative group">无约束优化 
+    <div id="%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%A5%87%E5%BC%82%E5%80%BC" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p>SVD的三种形式 mn,nn,kk</p>
+<p>局部极小点的求解可以转化为
+$$
+f&rsquo;(x)=0\newline
+f&rsquo;&rsquo;(x)&gt;0
+$$
+对于矩阵函数，即Jacobin矩阵为0且Hessian矩阵正定。</p>
 
 
 <h2 class="relative group">凸优化基础 
@@ -1288,6 +1345,185 @@ $$</p>
     </span>        
     
 </h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>凸函数</td>
+<td>$f(\theta x+(1-\theta)y)\le \theta f(x)+(1-\theta)f(y)$</td>
+<td>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406012029108.png" alt="image-20240601202948591" />
+    
+  </figure>
+
+</td>
+</tr>
+<tr>
+<td>凸优化</td>
+<td>目标函数和约束函数都是凸函数</td>
+<td></td>
+</tr>
+<tr>
+<td>凸集</td>
+<td>集合内任意两点的连线上的点都在集合内</td>
+<td>超平面、多面体、欧几里得球、凸锥（锥：对乘法封闭）等</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">保凸变换 
+    <div id="%E4%BF%9D%E5%87%B8%E5%8F%98%E6%8D%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BF%9D%E5%87%B8%E5%8F%98%E6%8D%A2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仿射变换</td>
+<td>线性变换+平移</td>
+<td></td>
+</tr>
+<tr>
+<td>投影变换</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>分式线性映射</td>
+<td>仿射变换+投影变换</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">凸问题的求解 
+    <div id="%E5%87%B8%E9%97%AE%E9%A2%98%E7%9A%84%E6%B1%82%E8%A7%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%B8%E9%97%AE%E9%A2%98%E7%9A%84%E6%B1%82%E8%A7%A3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>凸优化问题的一般形式</p>
+<p>凸优化问题的性质：局部最优解就是全局最优解</p>
+<p>典型凸优化问题</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>线性规划</td>
+<td>目标函数等高线是平行线</td>
+<td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406012037696.png" alt="image-20240601203739659" style="zoom: 25%;" /></td>
+</tr>
+<tr>
+<td>线性分式规划</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>二次规划</td>
+<td>目标函数等高线是椭球面</td>
+<td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406012037955.png" alt="image-20240601203752027" style="zoom: 25%;" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">拉格朗日乘子法 
+    <div id="%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>非迭代地求解凸优化问题。</p>
+
+
+<h4 class="relative group">拉格朗日函数 
+    <div id="%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+
+<h4 class="relative group">对偶问题 
+    <div id="%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+
+<h4 class="relative group">KKT条件 
+    <div id="kkt%E6%9D%A1%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kkt%E6%9D%A1%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><a href="https://zhuanlan.zhihu.com/p/111882165"   target="_blank">
+    对KKT条件的理解 - 骚动的白米饭的文章 - 知乎</a></p>
+
+
+<h3 class="relative group">梯度下降法 
+    <div id="%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>略</p>
 
 
 <h2 class="relative group">最小二乘 
@@ -1302,16 +1538,151 @@ $$</p>
 </h2>
 
 
-<h2 class="relative group">特征值分解 
-    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3" class="anchor"></div>
+<h2 class="relative group">矩阵分解 
+    <div id="%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
+
+
+<h3 class="relative group">特征值和特征向量的定义与性质 
+    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%80%A7%E8%B4%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%80%A7%E8%B4%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>阶数为n的矩阵A有n个特征值，特征多项式的次数称为代数重数，特征值对应的特征向量空间的维度称为几何重数。
+<ul>
+<li>若$rank(A-\lambda I)\le n-1$，则$\lambda$为矩阵A的特征值</li>
+</ul>
+</li>
+<li>矩阵A的不同运算结果的特征值如下：
+<ol>
+<li>A和$A^T$有相同的特征值</li>
+<li>$1/\lambda$是$A^{-1}$的特征值</li>
+<li>${\lambda}^k$是$A^k$​的特征值</li>
+<li>$A+\sigma^2I$的特征为$\lambda+\sigma^2$​</li>
+</ol>
+</li>
+<li>某些特殊矩阵的特征值如下：
+<ol>
+<li>幂等矩阵的特征值为0或1</li>
+<li>实正交矩阵的特征值为1或-1</li>
+</ol>
+</li>
+<li>特征值与迹、行列式、秩的关系：
+<ol>
+<li>迹是特征值之和</li>
+<li>行列式是特征值之积</li>
+<li>秩是非零特征值的个数
+<ul>
+<li>若矩阵A存在一个单重特征值0，则秩为n-1</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<h3 class="relative group">特征值分解（EVD） 
+    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3evd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3evd" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">奇异值分解（SVD) 
+    <div id="%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3svd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3svd" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>SVD的三种形式 mn,nn,kk</p>
+<p><a href="https://www.bilibili.com/video/BV15k4y1p72z/?share_source=copy_web&amp;vd_source=25a43cd801433b3abc43d1a368f146be"   target="_blank">
+    代数明珠&ndash;奇异值分解（SVD）生动动画演示</a></p>
+<p>两种主流理解：</p>
+<ol>
+<li>旋转-拉伸-升降维度-旋转</li>
+<li>高秩矩阵分解为秩1矩阵的和</li>
+</ol>
+
+
+<h3 class="relative group">SVD vs EVD 
+    <div id="svd-vs-evd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#svd-vs-evd" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+<thead>
+<tr>
+<th>SVD</th>
+<th>EVD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>适用于任何$m\times n$矩阵</td>
+<td>只适用于$n\times n$方阵</td>
+</tr>
+<tr>
+<td>奇异值与奇异向量的关系<br />$u_i^HAv_i=\sigma_i$</td>
+<td>特征值与特征向量的关系<br />$Av_i=\lambda_iv_i$</td>
+</tr>
+</tbody>
+</table>
+<p>A的非零奇异值是$A^HA$或$AA^H$的非零特征值的正平方根；</p>
+<p><strong>A的左奇异向量是$AA^H$的特征向量；A的右奇异向量是$A^HA$的特征向量；</strong></p>
+
+
+<h3 class="relative group">Hermitian矩阵的EVD（SVD） 
+    <div id="hermitian%E7%9F%A9%E9%98%B5%E7%9A%84evdsvd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hermitian%E7%9F%A9%E9%98%B5%E7%9A%84evdsvd" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>特征多项式$f(x)=det(A-xI)$</p>
+
+
+<h4 class="relative group">Cayley–Hamilton定理 
+    <div id="cayleyhamilton%E5%AE%9A%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cayleyhamilton%E5%AE%9A%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>将矩阵A代入其特征多项式$f(\lambda)$，该矩阵方程仍成立。</p>
+<p>应用：逆矩阵的计算、矩阵幂的计算（多项式除法）</p>
 
 
 <h2 class="relative group">特征分析 
@@ -1326,6 +1697,30 @@ $$</p>
 </h2>
 
 
+<h3 class="relative group">Rayleigh商 
+    <div id="rayleigh%E5%95%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rayleigh%E5%95%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">Jordan标准形 
+    <div id="jordan%E6%A0%87%E5%87%86%E5%BD%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#jordan%E6%A0%87%E5%87%86%E5%BD%A2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
 <h2 class="relative group">子空间 
     <div id="%E5%AD%90%E7%A9%BA%E9%97%B4" class="anchor"></div>
     
@@ -1336,6 +1731,12 @@ $$</p>
     </span>        
     
 </h2>
+<p>线性空间</p>
+<p>子空间</p>
+<p>基</p>
+<p>维数</p>
+<p>正交和正交补</p>
+<p>子空间基的构造</p>
 
 
 <h2 class="relative group">投影分析 

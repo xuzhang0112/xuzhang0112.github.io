@@ -7,17 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ICD coding</title>
-      <link>https://xuzhang0112.github.io/paper_reading/survey/icd_coding/</link>
-      <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
+      <title>Medical NLP</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</link>
+      <pubDate>Mon, 03 Jun 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/survey/icd_coding/</guid>
-      <description>Experiment # 如果采取CNN、LSTM、GNN（KG），则需要分词和词向量，中文医学文本的分词和词向量需要关注一下，可能需要自己训。
-如果采用BERT，对比学习和类别注意力应该是可靠的方法，可以加入，而层次化方法可以基于类别注意力（参考LAAT）。
-如果确定采用KG增强的技术路线，则需要下载相关的KG（例如UMLS和BIOS），同时准备好NER和词向量。
-ICD coding # SOTA on MIMIC III # Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding+self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN+多尺度+label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</guid>
+      <description>Tips # 记得多看看有没有现成的API可以调
+Experiment # 只使用BERT的情况下，考虑下列改进：
+更好的文本表示：对比学习、类别注意力 基于疾病KG的层次化方法：概率图/LATT等。 如果额外引入图结构信息，则需要完成下列工作
+分词+标准化（疑似讯飞引擎提供，必须确保不会出现其他的词） 构建词表（节点）、统计词频（边）（参考BertGCN，transductive） GNN，这个很简单 ICD coding # SOTA on MIMIC III # Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding+self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN+多尺度+label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
 BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN+ KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
 Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用micro平均，则有：precision = recall = f1 = accuracy，详见 机器学习系列 | 01：多类别分类任务(multi-class)中为何precision,recall和F1相等？</description>
       
@@ -396,10 +396,10 @@ PadChest # 160,000+ images from 67,000 patients, from 2009 to 2017 reports label
     
     <item>
       <title>Contrastive Learning &amp; Meta Learning</title>
-      <link>https://xuzhang0112.github.io/paper_reading/survey/contrastive_learning/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/learning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/survey/contrastive_learning/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/learning/</guid>
       <description>对比学习 # InstDisc：提出了个体判别的代理任务，核心思想是每张图片都是一个类 # batch_size=256, 256个正样本，4096个负样本 Backbone是ResNet50，2048降维到128 200个epoch,温度0.07，学习率1e-2
 数据结构：memory bank
 InvaSpread：端到端，SimCLR前身 # 端到端，正负样本来自同一个mini batch，正样本是任一图片及其变换，负样本是其他图片及其变换
@@ -797,31 +797,6 @@ Prompt</description>
     </item>
     
     <item>
-      <title>Medical NLP</title>
-      <link>https://xuzhang0112.github.io/paper_reading/survey/text_classification/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/survey/text_classification/</guid>
-      <description>命名实体识别、词性标注、归一化，有现成的第三方库，不需要神经网络
-医学是一门独立的语言，甚至由于领域知识过于庞杂，任何一个子领域可能使用独立的语言
-Text Classification Benchmark
-2018 BERT
-2019
-SpanBert：对 Bert 预训练的一次深度探索 - 知乎 (zhihu.com) 不只是span mask，还有基于span边界预测指定位置的监督
-RoBERTa模型总结 - 知乎 (zhihu.com) 去除NSP，大batch_size，动态mask
-T5 模型：NLP Text-to-Text 预训练模型超大规模探索 - 知乎 (zhihu.com) Google出品，大量实验，大量结论，可用于指导调参
-2021
-SimCSE论文解读 - 知乎 (zhihu.com) 句子嵌入sota，但不一定利于下游任务
-无监督对比学习SIMCSE理解和中文实验操作-CSDN博客 细节
-Sentence-T5｜谷歌提出文本表示新SOTA (qq.com) 双塔结构，多加了一层投影和L2-Norm
-注意：有监督对比loss上的temperature=100，之前无监督对比学习的T都很小
-对比学习在文本分类任务中的应用实践 - 知乎 (zhihu.com) 混合对比学习和分类监督
-2022
-文本分类还停留在BERT？对偶对比学习框架也太强了-腾讯云开发者社区-腾讯云 (tencent.com) 类似我们的方法</description>
-      
-    </item>
-    
-    <item>
       <title>MedKLIP: Medical Knowledge Enhanced Language-Image Pre-Training</title>
       <link>https://xuzhang0112.github.io/paper_reading/iccv/medklip-medical-knowledge-enhanced-language-image-pre-training/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -854,17 +829,6 @@ $$ L_{loc}=-\frac{1}{Q}\sum_k^Q\frac{e&amp;lt;\hat{p}_k,p_k&amp;gt;}{e&amp;lt;\h
 提出了一个数据集，用于该任务
 数据集 # 怎么做？ # 对比学习
 效果 # </description>
-      
-    </item>
-    
-    <item>
-      <title>MM KG</title>
-      <link>https://xuzhang0112.github.io/paper_reading/survey/mm_kg/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/survey/mm_kg/</guid>
-      <description>Common Tasks # VQA # retrieve and read Structured knowledge based methods e.g. ConceptNet Unstructured knowledge based methods retrieve knowledge from Wikipedia and encode relevant text in a memory network for further reasoning augments the knowledge graph YAGO [40] with related images end-to-end methods pre-trained models (implicit konwledge) mainly captures the co-occurrence of imagequestion-answer triplet instead of explainable and refined knowledge KG # 关系抽取、链路预测
-learn knowledge from structured textual and visual data and maintain the triplet structure for entity alignment utilizes RDF knowledge graphs to represent multimodal information based on graph alignment links the entities in existing knowledge graphs with relevant images 问题</description>
       
     </item>
     

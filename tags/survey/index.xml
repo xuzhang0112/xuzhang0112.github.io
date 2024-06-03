@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Survey on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/tags/survey/</link>
+    <description>Recent content in Survey on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <lastBuildDate>Mon, 03 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/survey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Medical NLP</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</link>
+      <pubDate>Mon, 03 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</guid>
+      <description>Tips # 记得多看看有没有现成的API可以调
+Experiment # 只使用BERT的情况下，考虑下列改进：
+更好的文本表示：对比学习、类别注意力 基于疾病KG的层次化方法：概率图/LATT等。 如果额外引入图结构信息，则需要完成下列工作
+分词+标准化（疑似讯飞引擎提供，必须确保不会出现其他的词） 构建词表（节点）、统计词频（边）（参考BertGCN，transductive） GNN，这个很简单 ICD coding # SOTA on MIMIC III # Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding+self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN+多尺度+label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
+BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN+ KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
+Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用micro平均，则有：precision = recall = f1 = accuracy，详见 机器学习系列 | 01：多类别分类任务(multi-class)中为何precision,recall和F1相等？</description>
+      
+    </item>
+    
+    <item>
+      <title>Basic Nerual Networks</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/basic_nn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/basic_nn/</guid>
+      <description>CNN # UNet Series # R-CNN Series # Fast R-CNN # Faster R-CNN # 使用Backbone（通常是ResNet）提取特征，得到Feature Map 使用RPN得到若干Bounding Box，分类anchor的有无，回归位置和大小 使用ROI进一步对抑制过的Bounding Box进行细化，进一步回归得到准确的位置和大小，分类得到类别，并抑制 Mask R-CNN [ICCV 2017 Best Paper] # YOLO Series # YOLO V1 # YOLO V3 # RNN # 感觉已经G了，不想写了，随便写点吧
+t时刻的输出与t时刻的输入和t-1时刻的隐状态有关
+Mamba # 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba
+LSTM # 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。
+Transformer # 注意力机制
+自注意力：计算encoder/decoder中每个向量与其他向量的相关性，用加权和取代原来的向量
+交叉注意力：计算decoder中每个向量与encoder输出向量的相关性，用加权和取代decoder中的原向量
+多头：多个注意力的结果拼接起来，再通过线性变换降低维度至输入的维度
+高度并行化
+Encoder完全并行
+Decoder高度并行，t时刻不依赖于t-1时刻的隐状态ht-1，仅依赖前t-1个输出
+在训练阶段可以通过teacher forcing实现并行训练
+BERT # 结构：Transformer的encoder
+预训练：完形填空
+VIT # 将图片拆成patch，视为词向量，送入Tansformer的encoder
+需要预训练，是否优于ResNet取决于预训练数据集的大小
+GPT # 模型结构：Transformer decoder堆叠</description>
+      
+    </item>
+    
+    <item>
+      <title>Chest X-ray Dataset</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/chest_xray/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/chest_xray/</guid>
+      <description>Dataset # MIMIC-CXR # 377,110 images, 227,835 reports
+NIH-CXR # 112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases
+The labels are expected to be &amp;gt;90% accurate and suitable for weakly-supervised learning
+CheXpert # 224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain
+Train: all labeled by CheXpert Labeler
+Validation: 200, labeled by experts
+Test: 500, labeled by experts
+PadChest # 160,000+ images from 67,000 patients, from 2009 to 2017 reports labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations 27% were manually annotated and the remaining set was labeled by RNN (0.</description>
+      
+    </item>
+    
+    <item>
+      <title>Contrastive Learning &amp; Meta Learning</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/learning/</guid>
+      <description>对比学习 # InstDisc：提出了个体判别的代理任务，核心思想是每张图片都是一个类 # batch_size=256, 256个正样本，4096个负样本 Backbone是ResNet50，2048降维到128 200个epoch,温度0.07，学习率1e-2
+数据结构：memory bank
+InvaSpread：端到端，SimCLR前身 # 端到端，正负样本来自同一个mini batch，正样本是任一图片及其变换，负样本是其他图片及其变换
+因为字典不够大（batchsize只有256），数据增广不够，没有加MLP，因此效果不好
+MoCo：提出了“字典查找”的概念，认为对比学习本质上是在构建一个大字典 # 用队列取代memory bank
+使用动量编码来解决大字典内key的不一致，由于key的编码器更新缓慢，因此可以认为一致
+损失函数：infoNCE
+普适性强，Q和K的编码器可以不同，输入可以是任意模态
+simCLR：成功实现了端到端的对比学习 # 只有一个编码器
+更多的数据增强：对比学习非常依赖数据增强 对比学习时增加了一个MLP层（迁移到下游任务时去除） 更大的batchsize：从而实现端到端训练 MoCov2 # MoCo+数据增强+MLP+cos schedule
+batch=256时，效果远优于sim CLR
+simCLRv2 # 模型更大
+MLP：fn-ReLu-fn
+动量编码器
+Meta Learning # 参考：Meta-Learning in Neural Networks*: A Survey（2020）
+Meta-learning经常被理解为learn to learn，可以分为两个阶段：内循环和外循环。
+内循环阶段，模型利用训练样本拟合某个特定任务；在外循环阶段，对外循环的某个目标函数进行优化。
+内循环和外循环迭代交替进行。
+MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) # 与传统机器学习的区别
+传统机器学习：训练集和测试集是同一个task，在训练集样本上训练模型，希望模型在测试集样本上表现好 MAML：task不同，在训练集可见的task上训练模型，希望在未见过的task上效果好 利用训练集的task学习一个初始化参数，使这个参数在未见过的任务上finetune几轮，就能达到较好的效果 两个阶段：meta-train（内循环+外循环迭代更新，support set &amp;amp; query set）、meta-test（在具体任务上finetune）</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -3,20 +3,20 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/icd_coding/</loc>
-    <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</loc>
+    <lastmod>2024-06-03T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/</loc>
-    <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-03T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/</loc>
-    <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-03T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/</loc>
-    <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-03T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/</loc>
@@ -129,7 +129,7 @@
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/5/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/contrastive_learning/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/survey/learning/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/8/</loc>
@@ -222,9 +222,6 @@
     <loc>https://xuzhang0112.github.io/paper_reading/acl/medical-knowledge-enhanced-prompt-learning-for-diagnosis-classification-from-clinical-text/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/text_classification/</loc>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/iccv/medklip-medical-knowledge-enhanced-language-image-pre-training/</loc>
   </url>
   <url>
@@ -235,9 +232,6 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/others/mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/mm_kg/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/cvpr/mukea-multimodal-knowledge-extraction-and-accumulation-for-knowledge-based-visual-question-answering/</loc>

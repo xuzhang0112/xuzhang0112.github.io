@@ -12,7 +12,7 @@
   <meta name="title" content="Contrastive Learning & Meta Learning &middot; Xu Zhang&#39;s Blog" />
   
   
-  
+  <meta name="keywords" content="Survey, " />
   
   
   <link rel="canonical" href="https://xuzhang0112.github.io/paper_reading/survey/learning/" />
@@ -75,7 +75,7 @@ batch=256时，效果远优于sim CLR
 simCLRv2 # 模型更大
 MLP：fn-ReLu-fn
 动量编码器
-Meta Learning # 参考：Meta-Learning in Neural Networks*: A Survey（2020）*
+Meta Learning # 参考：Meta-Learning in Neural Networks*: A Survey（2020）
 Meta-learning经常被理解为learn to learn，可以分为两个阶段：内循环和外循环。
 内循环阶段，模型利用训练样本拟合某个特定任务；在外循环阶段，对外循环的某个目标函数进行优化。
 内循环和外循环迭代交替进行。
@@ -102,7 +102,7 @@ batch=256时，效果远优于sim CLR
 simCLRv2 # 模型更大
 MLP：fn-ReLu-fn
 动量编码器
-Meta Learning # 参考：Meta-Learning in Neural Networks*: A Survey（2020）*
+Meta Learning # 参考：Meta-Learning in Neural Networks*: A Survey（2020）
 Meta-learning经常被理解为learn to learn，可以分为两个阶段：内循环和外循环。
 内循环阶段，模型利用训练样本拟合某个特定任务；在外循环阶段，对外循环的某个目标函数进行优化。
 内循环和外循环迭代交替进行。
@@ -118,7 +118,7 @@ MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 
     "name": "Contrastive Learning \u0026 Meta Learning",
     "headline": "Contrastive Learning \u0026 Meta Learning",
     
-    "abstract": "对比学习 # InstDisc：提出了个体判别的代理任务，核心思想是每张图片都是一个类 # batch_size=256, 256个正样本，4096个负样本 Backbone是ResNet50，2048降维到128 200个epoch,温度0.07，学习率1e-2\n数据结构：memory bank\nInvaSpread：端到端，SimCLR前身 # 端到端，正负样本来自同一个mini batch，正样本是任一图片及其变换，负样本是其他图片及其变换\n因为字典不够大（batchsize只有256），数据增广不够，没有加MLP，因此效果不好\nMoCo：提出了“字典查找”的概念，认为对比学习本质上是在构建一个大字典 # 用队列取代memory bank\n使用动量编码来解决大字典内key的不一致，由于key的编码器更新缓慢，因此可以认为一致\n损失函数：infoNCE\n普适性强，Q和K的编码器可以不同，输入可以是任意模态\nsimCLR：成功实现了端到端的对比学习 # 只有一个编码器\n更多的数据增强：对比学习非常依赖数据增强 对比学习时增加了一个MLP层（迁移到下游任务时去除） 更大的batchsize：从而实现端到端训练 MoCov2 # MoCo\u002b数据增强\u002bMLP\u002bcos schedule\nbatch=256时，效果远优于sim CLR\nsimCLRv2 # 模型更大\nMLP：fn-ReLu-fn\n动量编码器\nMeta Learning # 参考：Meta-Learning in Neural Networks*: A Survey（2020）*\nMeta-learning经常被理解为learn to learn，可以分为两个阶段：内循环和外循环。\n内循环阶段，模型利用训练样本拟合某个特定任务；在外循环阶段，对外循环的某个目标函数进行优化。\n内循环和外循环迭代交替进行。\nMAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) # 与传统机器学习的区别\n传统机器学习：训练集和测试集是同一个task，在训练集样本上训练模型，希望模型在测试集样本上表现好 MAML：task不同，在训练集可见的task上训练模型，希望在未见过的task上效果好 利用训练集的task学习一个初始化参数，使这个参数在未见过的任务上finetune几轮，就能达到较好的效果 两个阶段：meta-train（内循环\u002b外循环迭代更新，support set \u0026amp; query set）、meta-test（在具体任务上finetune）",
+    "abstract": "对比学习 # InstDisc：提出了个体判别的代理任务，核心思想是每张图片都是一个类 # batch_size=256, 256个正样本，4096个负样本 Backbone是ResNet50，2048降维到128 200个epoch,温度0.07，学习率1e-2\n数据结构：memory bank\nInvaSpread：端到端，SimCLR前身 # 端到端，正负样本来自同一个mini batch，正样本是任一图片及其变换，负样本是其他图片及其变换\n因为字典不够大（batchsize只有256），数据增广不够，没有加MLP，因此效果不好\nMoCo：提出了“字典查找”的概念，认为对比学习本质上是在构建一个大字典 # 用队列取代memory bank\n使用动量编码来解决大字典内key的不一致，由于key的编码器更新缓慢，因此可以认为一致\n损失函数：infoNCE\n普适性强，Q和K的编码器可以不同，输入可以是任意模态\nsimCLR：成功实现了端到端的对比学习 # 只有一个编码器\n更多的数据增强：对比学习非常依赖数据增强 对比学习时增加了一个MLP层（迁移到下游任务时去除） 更大的batchsize：从而实现端到端训练 MoCov2 # MoCo\u002b数据增强\u002bMLP\u002bcos schedule\nbatch=256时，效果远优于sim CLR\nsimCLRv2 # 模型更大\nMLP：fn-ReLu-fn\n动量编码器\nMeta Learning # 参考：Meta-Learning in Neural Networks*: A Survey（2020）\nMeta-learning经常被理解为learn to learn，可以分为两个阶段：内循环和外循环。\n内循环阶段，模型利用训练样本拟合某个特定任务；在外循环阶段，对外循环的某个目标函数进行优化。\n内循环和外循环迭代交替进行。\nMAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) # 与传统机器学习的区别\n传统机器学习：训练集和测试集是同一个task，在训练集样本上训练模型，希望模型在测试集样本上表现好 MAML：task不同，在训练集可见的task上训练模型，希望在未见过的task上效果好 利用训练集的task学习一个初始化参数，使这个参数在未见过的任务上finetune几轮，就能达到较好的效果 两个阶段：meta-train（内循环\u002b外循环迭代更新，support set \u0026amp; query set）、meta-test（在具体任务上finetune）",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/survey\/learning\/",
     "author" : {
@@ -131,7 +131,7 @@ MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 
     
     
     
-    
+    "keywords": ["Survey"],
     
     "mainEntityOfPage": "true",
     "wordCount": "72"
@@ -302,7 +302,7 @@ MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 
   <div>
   <div class="cursor-pointer flex items-center nested-menu">
     
-    <a  href="/paper_reading/"   class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="PaperReading">
+    <a  class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
       Papers
     </a>
     <span>
@@ -338,6 +338,13 @@ MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 
           </p>
         </a>
         
+        <a href="/year/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Year">
+            Year
+          </p>
+        </a>
+        
         <a href="/paper_reading/survey/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
           
           <p class="text-sm font-sm" title="Survey">
@@ -353,58 +360,13 @@ MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 
 
 
             
-             
-  <div>
-  <div class="cursor-pointer flex items-center nested-menu">
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
-    <a  class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
-      Group
-    </a>
-    <span>
-      
-
-  <span class="relative block icon">
-    <svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 20 20"
-  fill="currentColor"
-  aria-hidden="true"
->
-  <path
-    fill-rule="evenodd"
-    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-    clip-rule="evenodd"
-  />
-</svg>
-
-  </span>
-
-
-    </span>
-  </div>
-  <div class="absolute menuhide">
-    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
-      <div class="flex flex-col space-y-3">
-        
-        <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-          
-          <p class="text-sm font-sm" title="Tags">
-            Tags
-          </p>
-        </a>
-        
-        <a href="/year/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-          
-          <p class="text-sm font-sm" title="Year">
-            Year
-          </p>
-        </a>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
+    <p class="text-base font-medium" title="Tags">
+        Tags
+    </p>
+</a>
 
 
             
@@ -609,7 +571,7 @@ MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 
   <li class="mt-1">
     <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-bg font-bg" title="PaperReading">
+        <p class="text-bg font-bg" title="">
             Papers
         </p>
         <span>
@@ -646,6 +608,15 @@ MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 
 </li>
 
 <li class="mt-1">
+    <a href="/year/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Year">
+            Year
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
     <a href="/paper_reading/survey/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-sm font-small" title="Survey">
@@ -660,56 +631,15 @@ MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 
 
                     
 
-                     
+                    
   <li class="mt-1">
-    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            Group
-        </p>
-        <span>
-            
-
-  <span class="relative block icon">
-    <svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 20 20"
-  fill="currentColor"
-  aria-hidden="true"
->
-  <path
-    fill-rule="evenodd"
-    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-    clip-rule="evenodd"
-  />
-</svg>
-
-  </span>
-
-
-        </span>
-    </a>
-</li>
-
-<li class="mt-1">
     <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-sm font-small" title="Tags">
+        <p class="text-bg font-bg" title="Tags">
             Tags
         </p>
     </a>
 </li>
-
-<li class="mt-1">
-    <a href="/year/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-sm font-small" title="Year">
-            Year
-        </p>
-    </a>
-</li>
-
-<li class="mb-2"></li>
 
 
 
@@ -810,11 +740,7 @@ MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 
 
 
 
-  
 
-
-
-  
 
 
 
@@ -830,8 +756,6 @@ MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 
 
 <div class="flex flex-row flex-wrap items-center">
   
-  
-  <span>72 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
   
 
   
@@ -848,6 +772,16 @@ MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 
   
   
   
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/survey/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Survey
+  </span>
+</span>
+  </span>
   
   
   
@@ -1072,32 +1006,10 @@ Backbone是ResNet50，2048降维到128
     </span>        
     
 </h2>
-<p>参考：<em>Meta-Learning</em> <em>in</em> <em>Neural Networks</em>*: A Survey（2020）*</p>
-<p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=MDFhYjJkNWM2NGYxMGNlMTU2OWEyNjcyODYzZGEwNTRfTUxTdUlYcFVFcEFESXZiOG5ZTTZGR2hIajBaWmVPZDNfVG9rZW46WlhYWGJLbWhwb2lCVFd4UVJTcmNWd0VEbk5jXzE3MTIyNjQ1MjA6MTcxMjI2ODEyMF9WNA" alt="img" />
-    
-  </figure>
-
-</p>
+<p>参考：<em>Meta-Learning</em> <em>in</em> <em>Neural Networks</em>*: A Survey（2020）</p>
 <p>Meta-learning经常被理解为learn to learn，可以分为两个阶段：内循环和外循环。</p>
 <p>内循环阶段，模型利用训练样本拟合某个特定任务；在外循环阶段，对外循环的某个目标函数进行优化。</p>
 <p>内循环和外循环迭代交替进行。</p>
-<p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NWJhMDViM2E2OGUxM2YwNjM4YmUxYmRmYWE0YjM4ZmJfbW44d2I2WjB0MHZsSGpDb25nQnRTY0tyOEtRR3Uyd1pfVG9rZW46UVRwTGJWREpab1V2dEx4NzJyMGN4aEsybm9iXzE3MTIyNjQ1MjA6MTcxMjI2ODEyMF9WNA" alt="img" />
-    
-  </figure>
-
-</p>
 
 
 <h3 class="relative group">MAML: Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks（2017) 
@@ -1120,18 +1032,7 @@ Backbone是ResNet50，2048降维到128
 </li>
 </ul>
 <p>两个阶段：meta-train（内循环+外循环迭代更新，support set &amp; query set）、meta-test（在具体任务上finetune）</p>
-<p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://fii5qk81yts.feishu.cn/space/api/box/stream/download/asynccode/?code=NTUyOGM2OGYzMzhkZDFmZTY1NTQzOTM1YjQxMTUwYzlfa2thbHA4Ukk1V3laUmt3THlETzJUQjBUTnBaVngyUklfVG9rZW46SHRDZmJTclp2b1l1T1h4UzRQdGN3ODFGbmxnXzE3MTIyNjQ1MjA6MTcxMjI2ODEyMF9WNA" alt="img" />
-    
-  </figure>
-
-</p>
-
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202405192126447.png" alt="9ab4c4bd-11ee-4a95-b377-f58ca4480c6a" style="zoom:50%;" />
         </div>
         
         
@@ -1168,34 +1069,14 @@ Backbone是ResNet50，2048降维到128
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/paper_reading/survey/text_classification/">
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Medical NLP</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                </span>
-              </span>
-            </a>
-          
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/paper_reading/survey/basic_nn/">
+            <a class="flex text-right group ml-3" href="/paper_reading/survey/chest_xray/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Basic Nerual Networks</span
+                  >Chest X-ray Dataset</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   

@@ -3,6 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/survey/icd_coding/</loc>
+    <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
+    <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/survey/</loc>
+    <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/</loc>
+    <lastmod>2024-06-01T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/</loc>
     <lastmod>2024-05-30T00:00:00+00:00</lastmod>
   </url>
@@ -19,19 +35,11 @@
     <lastmod>2024-05-30T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/</loc>
-    <lastmod>2024-05-30T00:00:00+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/acl/</loc>
     <lastmod>2024-05-25T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/acl/incorporating-hierarchy-into-text-encoder-a-contrastive-learning-approach-for-hierarchical-text-classification/</loc>
-    <lastmod>2024-05-25T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
     <lastmod>2024-05-25T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -226,9 +234,6 @@
     <loc>https://xuzhang0112.github.io/paper_reading/miccai/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/mimic-iii-dataset/</loc>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/others/mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval/</loc>
   </url>
   <url>
@@ -254,9 +259,6 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/course/eng/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/6/</loc>

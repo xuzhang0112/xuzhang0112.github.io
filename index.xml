@@ -7,33 +7,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Thu, 30 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ICD coding</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/icd_coding/</link>
+      <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/icd_coding/</guid>
+      <description>Experiment # 如果采取CNN、LSTM、GNN（KG），则需要分词和词向量，中文医学文本的分词和词向量需要关注一下，可能需要自己训。
+如果采用BERT，对比学习和类别注意力应该是可靠的方法，可以加入，而层次化方法可以基于类别注意力（参考LAAT）。
+如果确定采用KG增强的技术路线，则需要下载相关的KG（例如UMLS和BIOS），同时准备好NER和词向量。
+ICD coding # SOTA on MIMIC III # Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding+self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN+多尺度+label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
+BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN+ KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
+Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用micro平均，则有：precision = recall = f1 = accuracy，详见 机器学习系列 | 01：多类别分类任务(multi-class)中为何precision,recall和F1相等？</description>
+      
+    </item>
+    
     <item>
       <title>Matrix</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</link>
       <pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
-      <description>绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计
-举例1：siso系统，R=HS+Z，miso系统
-举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列
-举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时
-简单化：优化$\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角
-矩阵的基本概念 # 柯西不等式推导
+      <description>矩阵的基本概念 # 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
+A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A+B)(A-B)$满足交换律 $(A+B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 柯西不等式推导
 自相关、互相关、自协方差矩阵
 多元正态分布推导
 矩阵的奇异、诱导范数、元素范数（F范数）
 特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）
 基本矩阵2:初等变换矩阵（推广：移位、选择、置换）
-正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
+三角阵 # 上/下三角阵的逆矩阵仍然是上/下三角阵。
+若矩阵是三角阵，又是酉矩阵，则矩阵是对角阵，且对角线元素的范数（绝对值）为1 若矩阵是上三角分块酉矩阵，$A=\begin{bmatrix}P\quad B\newline 0\quad Q\end{bmatrix}$，那么P、Q都是酉矩阵，且B=0 上/下三角阵的和、积仍然是上/下三角阵。
+对称矩阵和Hermitian矩阵 # 若矩阵A满足$A^T=A$，则矩阵为对称矩阵。
+若矩阵A满足$A^H=A$，则矩阵为Hermitian矩阵。
+若Hermitian矩阵A使得一切$\mathbf{x}$满足$x^HAx&amp;gt;0$，则称矩阵A是正定矩阵（二次型&amp;gt;0） 正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
 若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。
 （转置与逆，特征值分解，范数与内积不变）
-中心化矩阵 # 求和向量 $$ J_N=[1\ 1\ \dots\ 1] $$ 满足 $$ J_N\mathbf{x}=\sum_i x_i $$ 进而有中心化矩阵 $$ C_n = I_n - \frac{1}{N}J_N $$ 使得 $$ C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
-相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$
-特征值完全相同
-相合矩阵(二次型) # $$ B=C^HAC $$
-二次型函数相吻合
-三角矩阵 $$ det(A)=\prod_i^Na_{ii} $$</description>
+中心化矩阵 # $$ 求和向量J_N=[1\ 1\ \dots\ 1]\newline 满足J_N\mathbf{x}=\sum_i x_i\newline 进而有中心化矩阵C_n = I_n - \frac{1}{N}J_N\newline 使得C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
+相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$</description>
       
     </item>
     
@@ -829,17 +840,6 @@ Fine-grained supervision
 疾病有无：BCE Loss
 疾病位置：将该疾病的位置编码和其他M种位置编码进行对比学习（因为位置编码的类别数未知）
 $$ L_{loc}=-\frac{1}{Q}\sum_k^Q\frac{e&amp;lt;\hat{p}_k,p_k&amp;gt;}{e&amp;lt;\hat{p}_k,p_k&amp;gt;+\sum_u^M{e&amp;lt;\hat{p}_k,p_k&amp;gt;}} $$</description>
-      
-    </item>
-    
-    <item>
-      <title>MIMIC-III Dataset</title>
-      <link>https://xuzhang0112.github.io/paper_reading/survey/mimic-iii-dataset/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/survey/mimic-iii-dataset/</guid>
-      <description>MIMIC-III # Clinical report records number 112k 平均长度 709.3 tokens content Data includes vital signs, medications, laboratory measurements, observations and notes charted by care providers, fluid balance, procedure codes, diagnostic codes, imaging reports, hospital length of stay, survival data, and more. ICD-9 Code 总数 1,159 平均每个报告 7.6 共计26张表格
-ID SUBJECT_ID 病人ID HADM_ID 住院ID ICUSTAY_ID ICU的ID Event NOTEEVENTS 出院概括 OUTPUTEVENTS 测量结果 LABEVENTS 化验结果 D_ （共计5张） D_ICD_DIAGNOSES ICD诊断代码表 D_ICD_PROCEDURES ICD治疗代码表 D_ITEMS Item对应表 整合NOTEEVENTS、ICD诊断码、ICD治疗码，得到下列文件：</description>
       
     </item>
     

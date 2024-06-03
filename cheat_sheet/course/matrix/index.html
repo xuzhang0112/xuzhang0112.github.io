@@ -61,26 +61,22 @@
   
   
   <meta property="og:title" content="Matrix" />
-<meta property="og:description" content="绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计
-举例1：siso系统，R=HS&#43;Z，miso系统
-举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列
-举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时
-简单化：优化$\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角
-矩阵的基本概念 # 柯西不等式推导
+<meta property="og:description" content="矩阵的基本概念 # 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
+A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 柯西不等式推导
 自相关、互相关、自协方差矩阵
 多元正态分布推导
 矩阵的奇异、诱导范数、元素范数（F范数）
 特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）
 基本矩阵2:初等变换矩阵（推广：移位、选择、置换）
-正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
+三角阵 # 上/下三角阵的逆矩阵仍然是上/下三角阵。
+若矩阵是三角阵，又是酉矩阵，则矩阵是对角阵，且对角线元素的范数（绝对值）为1 若矩阵是上三角分块酉矩阵，$A=\begin{bmatrix}P\quad B\newline 0\quad Q\end{bmatrix}$，那么P、Q都是酉矩阵，且B=0 上/下三角阵的和、积仍然是上/下三角阵。
+对称矩阵和Hermitian矩阵 # 若矩阵A满足$A^T=A$，则矩阵为对称矩阵。
+若矩阵A满足$A^H=A$，则矩阵为Hermitian矩阵。
+若Hermitian矩阵A使得一切$\mathbf{x}$满足$x^HAx&gt;0$，则称矩阵A是正定矩阵（二次型&gt;0） 正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
 若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。
 （转置与逆，特征值分解，范数与内积不变）
-中心化矩阵 # 求和向量 $$ J_N=[1\ 1\ \dots\ 1] $$ 满足 $$ J_N\mathbf{x}=\sum_i x_i $$ 进而有中心化矩阵 $$ C_n = I_n - \frac{1}{N}J_N $$ 使得 $$ C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
-相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$
-特征值完全相同
-相合矩阵(二次型) # $$ B=C^HAC $$
-二次型函数相吻合
-三角矩阵 $$ det(A)=\prod_i^Na_{ii} $$" />
+中心化矩阵 # $$ 求和向量J_N=[1\ 1\ \dots\ 1]\newline 满足J_N\mathbf{x}=\sum_i x_i\newline 进而有中心化矩阵C_n = I_n - \frac{1}{N}J_N\newline 使得C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
+相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/course/matrix/" /><meta property="article:section" content="cheat_sheet" />
 <meta property="article:published_time" content="2024-05-30T00:00:00+00:00" />
@@ -88,26 +84,22 @@
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Matrix"/>
-<meta name="twitter:description" content="绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计
-举例1：siso系统，R=HS&#43;Z，miso系统
-举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列
-举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时
-简单化：优化$\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角
-矩阵的基本概念 # 柯西不等式推导
+<meta name="twitter:description" content="矩阵的基本概念 # 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
+A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 柯西不等式推导
 自相关、互相关、自协方差矩阵
 多元正态分布推导
 矩阵的奇异、诱导范数、元素范数（F范数）
 特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）
 基本矩阵2:初等变换矩阵（推广：移位、选择、置换）
-正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
+三角阵 # 上/下三角阵的逆矩阵仍然是上/下三角阵。
+若矩阵是三角阵，又是酉矩阵，则矩阵是对角阵，且对角线元素的范数（绝对值）为1 若矩阵是上三角分块酉矩阵，$A=\begin{bmatrix}P\quad B\newline 0\quad Q\end{bmatrix}$，那么P、Q都是酉矩阵，且B=0 上/下三角阵的和、积仍然是上/下三角阵。
+对称矩阵和Hermitian矩阵 # 若矩阵A满足$A^T=A$，则矩阵为对称矩阵。
+若矩阵A满足$A^H=A$，则矩阵为Hermitian矩阵。
+若Hermitian矩阵A使得一切$\mathbf{x}$满足$x^HAx&gt;0$，则称矩阵A是正定矩阵（二次型&gt;0） 正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
 若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。
 （转置与逆，特征值分解，范数与内积不变）
-中心化矩阵 # 求和向量 $$ J_N=[1\ 1\ \dots\ 1] $$ 满足 $$ J_N\mathbf{x}=\sum_i x_i $$ 进而有中心化矩阵 $$ C_n = I_n - \frac{1}{N}J_N $$ 使得 $$ C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
-相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$
-特征值完全相同
-相合矩阵(二次型) # $$ B=C^HAC $$
-二次型函数相吻合
-三角矩阵 $$ det(A)=\prod_i^Na_{ii} $$"/>
+中心化矩阵 # $$ 求和向量J_N=[1\ 1\ \dots\ 1]\newline 满足J_N\mathbf{x}=\sum_i x_i\newline 进而有中心化矩阵C_n = I_n - \frac{1}{N}J_N\newline 使得C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
+相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$"/>
 
   
   <script type="application/ld+json">
@@ -118,7 +110,7 @@
     "name": "Matrix",
     "headline": "Matrix",
     
-    "abstract": "绪论 # 矩阵：描述线性系统，进而分析其内在特征，从而优化设计\n举例1：siso系统，R=HS\u002bZ，miso系统\n举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列\n举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时\n简单化：优化$\\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角\n矩阵的基本概念 # 柯西不等式推导\n自相关、互相关、自协方差矩阵\n多元正态分布推导\n矩阵的奇异、诱导范数、元素范数（F范数）\n特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）\n基本矩阵2:初等变换矩阵（推广：移位、选择、置换）\n正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。\n若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。\n（转置与逆，特征值分解，范数与内积不变）\n中心化矩阵 # 求和向量 $$ J_N=[1\\ 1\\ \\dots\\ 1] $$ 满足 $$ J_N\\mathbf{x}=\\sum_i x_i $$ 进而有中心化矩阵 $$ C_n = I_n - \\frac{1}{N}J_N $$ 使得 $$ C_N\\mathbf{x}=[x_1-\\bar{x}\\quad x_2-\\bar{x}\\quad \\dots\\quad x_N-\\bar{x}] $$\n相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$\n特征值完全相同\n相合矩阵(二次型) # $$ B=C^HAC $$\n二次型函数相吻合\n三角矩阵 $$ det(A)=\\prod_i^Na_{ii} $$",
+    "abstract": "矩阵的基本概念 # 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：\nA、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A\u002bB)(A-B)$满足交换律 $(A\u002bB)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 柯西不等式推导\n自相关、互相关、自协方差矩阵\n多元正态分布推导\n矩阵的奇异、诱导范数、元素范数（F范数）\n特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）\n基本矩阵2:初等变换矩阵（推广：移位、选择、置换）\n三角阵 # 上\/下三角阵的逆矩阵仍然是上\/下三角阵。\n若矩阵是三角阵，又是酉矩阵，则矩阵是对角阵，且对角线元素的范数（绝对值）为1 若矩阵是上三角分块酉矩阵，$A=\\begin{bmatrix}P\\quad B\\newline 0\\quad Q\\end{bmatrix}$，那么P、Q都是酉矩阵，且B=0 上\/下三角阵的和、积仍然是上\/下三角阵。\n对称矩阵和Hermitian矩阵 # 若矩阵A满足$A^T=A$，则矩阵为对称矩阵。\n若矩阵A满足$A^H=A$，则矩阵为Hermitian矩阵。\n若Hermitian矩阵A使得一切$\\mathbf{x}$满足$x^HAx\u0026gt;0$，则称矩阵A是正定矩阵（二次型\u0026gt;0） 正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。\n若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。\n（转置与逆，特征值分解，范数与内积不变）\n中心化矩阵 # $$ 求和向量J_N=[1\\ 1\\ \\dots\\ 1]\\newline 满足J_N\\mathbf{x}=\\sum_i x_i\\newline 进而有中心化矩阵C_n = I_n - \\frac{1}{N}J_N\\newline 使得C_N\\mathbf{x}=[x_1-\\bar{x}\\quad x_2-\\bar{x}\\quad \\dots\\quad x_N-\\bar{x}] $$\n相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/course\/matrix\/",
     "author" : {
@@ -134,7 +126,7 @@
     "keywords": ["Course"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "366"
+    "wordCount": "459"
   }]
   </script>
 
@@ -815,41 +807,28 @@
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#绪论">绪论</a></li>
-    <li><a href="#矩阵的基本概念">矩阵的基本概念</a></li>
-    <li><a href="#特殊矩阵">特殊矩阵</a>
+    <li><a href="#矩阵的基本概念">矩阵的基本概念</a>
       <ul>
-        <li><a href="#基本矩阵">基本矩阵</a></li>
-        <li><a href="#正交矩阵和酉矩阵">正交矩阵和酉矩阵</a></li>
-        <li><a href="#相似与相合">相似与相合</a></li>
-        <li><a href="#vandermonde矩阵">Vandermonde矩阵</a></li>
+        <li><a href="#交换律">交换律</a></li>
+        <li><a href="#逆矩阵">逆矩阵</a></li>
+        <li><a href="#特殊矩阵">特殊矩阵</a></li>
       </ul>
     </li>
-    <li><a href="#矩阵的微分">矩阵的微分</a>
+    <li><a href="#矩阵函数与优化">矩阵函数与优化</a>
       <ul>
         <li><a href="#矩阵函数">矩阵函数</a></li>
-        <li><a href="#矩阵求导">矩阵求导</a></li>
-        <li><a href="#矩阵微分">矩阵微分</a></li>
-        <li><a href="#复变函数">复变函数</a></li>
-      </ul>
-    </li>
-    <li><a href="#无约束优化">无约束优化</a></li>
-    <li><a href="#凸优化基础">凸优化基础</a>
-      <ul>
-        <li><a href="#保凸变换">保凸变换</a></li>
-        <li><a href="#凸问题的求解">凸问题的求解</a></li>
-        <li><a href="#拉格朗日乘子法">拉格朗日乘子法</a></li>
-        <li><a href="#梯度下降法">梯度下降法</a></li>
+        <li><a href="#矩阵的求导与微分">矩阵的求导与微分</a></li>
+        <li><a href="#共轭梯度">共轭梯度</a></li>
+        <li><a href="#无约束优化">无约束优化</a></li>
+        <li><a href="#凸优化">凸优化</a></li>
       </ul>
     </li>
     <li><a href="#最小二乘">最小二乘</a></li>
     <li><a href="#矩阵分解">矩阵分解</a>
       <ul>
-        <li><a href="#特征值和特征向量的定义与性质">特征值和特征向量的定义与性质</a></li>
-        <li><a href="#特征值分解evd">特征值分解（EVD）</a></li>
-        <li><a href="#奇异值分解svd">奇异值分解（SVD)</a></li>
-        <li><a href="#svd-vs-evd">SVD vs EVD</a></li>
-        <li><a href="#hermitian矩阵的evdsvd">Hermitian矩阵的EVD（SVD）</a></li>
+        <li><a href="#特征值和特征向量">特征值和特征向量</a></li>
+        <li><a href="#特征值分解和奇异值分解evd--svd">特征值分解和奇异值分解（EVD &amp; SVD）</a></li>
+        <li><a href="#迹">迹</a></li>
       </ul>
     </li>
     <li><a href="#特征分析">特征分析</a>
@@ -858,8 +837,14 @@
         <li><a href="#jordan标准形">Jordan标准形</a></li>
       </ul>
     </li>
-    <li><a href="#子空间">子空间</a></li>
+    <li><a href="#子空间">子空间</a>
+      <ul>
+        <li><a href="#线性空间">线性空间</a></li>
+        <li><a href="#子空间的基与维数">子空间的基与维数</a></li>
+      </ul>
+    </li>
     <li><a href="#投影分析">投影分析</a></li>
+    <li><a href="#应用">应用</a></li>
   </ul>
 </nav>
   </div>
@@ -873,41 +858,28 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#绪论">绪论</a></li>
-    <li><a href="#矩阵的基本概念">矩阵的基本概念</a></li>
-    <li><a href="#特殊矩阵">特殊矩阵</a>
+    <li><a href="#矩阵的基本概念">矩阵的基本概念</a>
       <ul>
-        <li><a href="#基本矩阵">基本矩阵</a></li>
-        <li><a href="#正交矩阵和酉矩阵">正交矩阵和酉矩阵</a></li>
-        <li><a href="#相似与相合">相似与相合</a></li>
-        <li><a href="#vandermonde矩阵">Vandermonde矩阵</a></li>
+        <li><a href="#交换律">交换律</a></li>
+        <li><a href="#逆矩阵">逆矩阵</a></li>
+        <li><a href="#特殊矩阵">特殊矩阵</a></li>
       </ul>
     </li>
-    <li><a href="#矩阵的微分">矩阵的微分</a>
+    <li><a href="#矩阵函数与优化">矩阵函数与优化</a>
       <ul>
         <li><a href="#矩阵函数">矩阵函数</a></li>
-        <li><a href="#矩阵求导">矩阵求导</a></li>
-        <li><a href="#矩阵微分">矩阵微分</a></li>
-        <li><a href="#复变函数">复变函数</a></li>
-      </ul>
-    </li>
-    <li><a href="#无约束优化">无约束优化</a></li>
-    <li><a href="#凸优化基础">凸优化基础</a>
-      <ul>
-        <li><a href="#保凸变换">保凸变换</a></li>
-        <li><a href="#凸问题的求解">凸问题的求解</a></li>
-        <li><a href="#拉格朗日乘子法">拉格朗日乘子法</a></li>
-        <li><a href="#梯度下降法">梯度下降法</a></li>
+        <li><a href="#矩阵的求导与微分">矩阵的求导与微分</a></li>
+        <li><a href="#共轭梯度">共轭梯度</a></li>
+        <li><a href="#无约束优化">无约束优化</a></li>
+        <li><a href="#凸优化">凸优化</a></li>
       </ul>
     </li>
     <li><a href="#最小二乘">最小二乘</a></li>
     <li><a href="#矩阵分解">矩阵分解</a>
       <ul>
-        <li><a href="#特征值和特征向量的定义与性质">特征值和特征向量的定义与性质</a></li>
-        <li><a href="#特征值分解evd">特征值分解（EVD）</a></li>
-        <li><a href="#奇异值分解svd">奇异值分解（SVD)</a></li>
-        <li><a href="#svd-vs-evd">SVD vs EVD</a></li>
-        <li><a href="#hermitian矩阵的evdsvd">Hermitian矩阵的EVD（SVD）</a></li>
+        <li><a href="#特征值和特征向量">特征值和特征向量</a></li>
+        <li><a href="#特征值分解和奇异值分解evd--svd">特征值分解和奇异值分解（EVD &amp; SVD）</a></li>
+        <li><a href="#迹">迹</a></li>
       </ul>
     </li>
     <li><a href="#特征分析">特征分析</a>
@@ -916,8 +888,14 @@
         <li><a href="#jordan标准形">Jordan标准形</a></li>
       </ul>
     </li>
-    <li><a href="#子空间">子空间</a></li>
+    <li><a href="#子空间">子空间</a>
+      <ul>
+        <li><a href="#线性空间">线性空间</a></li>
+        <li><a href="#子空间的基与维数">子空间的基与维数</a></li>
+      </ul>
+    </li>
     <li><a href="#投影分析">投影分析</a></li>
+    <li><a href="#应用">应用</a></li>
   </ul>
 </nav>
   </div>
@@ -935,23 +913,6 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">绪论 
-    <div id="%E7%BB%AA%E8%AE%BA" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%BB%AA%E8%AE%BA" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p><strong>矩阵：描述线性系统，进而分析其内在特征，从而优化设计</strong></p>
-<p>举例1：siso系统，R=HS+Z，miso系统</p>
-<p>举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列</p>
-<p>举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时</p>
-<p>简单化：优化$\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角</p>
-
-
 <h2 class="relative group">矩阵的基本概念 
     <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" class="anchor"></div>
     
@@ -962,13 +923,61 @@
     </span>        
     
 </h2>
+
+
+<h3 class="relative group">交换律 
+    <div id="%E4%BA%A4%E6%8D%A2%E5%BE%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BA%A4%E6%8D%A2%E5%BE%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>矩阵乘法一般情况下不满足交换律，但也有例外：</p>
+<ul>
+<li>A、B中有单位阵、数量阵、对角阵、零矩阵</li>
+<li>当$AB=BA$时
+<ul>
+<li>$(A+B)(A-B)$满足交换律</li>
+<li>$(A+B)^m$可使用二项式定理展开</li>
+</ul>
+</li>
+</ul>
+
+
+<h3 class="relative group">逆矩阵 
+    <div id="%E9%80%86%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%86%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>求解思路：
+<ol>
+<li>直接求逆，推导出逆矩阵</li>
+<li>证明$AA^{-1}=I$</li>
+</ol>
+</li>
+<li>特殊构造
+<ol>
+<li>当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​</li>
+<li>当A正交时，注意$A^{-1}=A^T$</li>
+</ol>
+</li>
+</ul>
 <p>柯西不等式推导</p>
 <p>自相关、互相关、自协方差矩阵</p>
 <p>多元正态分布推导</p>
 <p>矩阵的奇异、诱导范数、元素范数（F范数）</p>
 
 
-<h2 class="relative group">特殊矩阵 
+<h3 class="relative group">特殊矩阵 
     <div id="%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5" class="anchor"></div>
     
     <span
@@ -977,10 +986,10 @@
             style="text-decoration-line: none !important;" href="#%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
+</h3>
 
 
-<h3 class="relative group">基本矩阵 
+<h4 class="relative group">基本矩阵 
     <div id="%E5%9F%BA%E6%9C%AC%E7%9F%A9%E9%98%B5" class="anchor"></div>
     
     <span
@@ -989,12 +998,47 @@
             style="text-decoration-line: none !important;" href="#%E5%9F%BA%E6%9C%AC%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
 <p>基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）</p>
 <p>基本矩阵2:初等变换矩阵（推广：移位、选择、置换）</p>
 
 
-<h3 class="relative group">正交矩阵和酉矩阵 
+<h4 class="relative group">三角阵 
+    <div id="%E4%B8%89%E8%A7%92%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%89%E8%A7%92%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>上/下三角阵的逆矩阵仍然是上/下三角阵。</p>
+<ul>
+<li>若矩阵是三角阵，又是酉矩阵，则矩阵是对角阵，且对角线元素的范数（绝对值）为1</li>
+<li>若矩阵是上三角分块酉矩阵，$A=\begin{bmatrix}P\quad B\newline 0\quad Q\end{bmatrix}$，那么P、Q都是酉矩阵，且B=0</li>
+</ul>
+<p>上/下三角阵的和、积仍然是上/下三角阵。</p>
+
+
+<h4 class="relative group">对称矩阵和Hermitian矩阵 
+    <div id="%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5%E5%92%8Chermitian%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5%E5%92%8Chermitian%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>若矩阵A满足$A^T=A$，则矩阵为对称矩阵。</p>
+<p>若矩阵A满足$A^H=A$，则矩阵为Hermitian矩阵。</p>
+<ul>
+<li>若Hermitian矩阵A使得一切$\mathbf{x}$满足$x^HAx&gt;0$，则称矩阵A是正定矩阵（二次型&gt;0）</li>
+</ul>
+
+
+<h4 class="relative group">正交矩阵和酉矩阵 
     <div id="%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5%E5%92%8C%E9%85%89%E7%9F%A9%E9%98%B5" class="anchor"></div>
     
     <span
@@ -1003,7 +1047,7 @@
             style="text-decoration-line: none !important;" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5%E5%92%8C%E9%85%89%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
 <p>若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。</p>
 <p>若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。</p>
 <p>（转置与逆，特征值分解，范数与内积不变）</p>
@@ -1019,25 +1063,15 @@
     </span>        
     
 </h4>
-<p>求和向量
-$$
-J_N=[1\ 1\ \dots\ 1]
-$$
-满足
-$$
-J_N\mathbf{x}=\sum_i x_i
-$$
-进而有中心化矩阵
-$$
-C_n = I_n - \frac{1}{N}J_N
-$$
-使得
-$$
-C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}]
+<p>$$
+求和向量J_N=[1\ 1\ \dots\ 1]\newline
+满足J_N\mathbf{x}=\sum_i x_i\newline
+进而有中心化矩阵C_n = I_n - \frac{1}{N}J_N\newline
+使得C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}]
 $$</p>
 
 
-<h3 class="relative group">相似与相合 
+<h4 class="relative group">相似与相合 
     <div id="%E7%9B%B8%E4%BC%BC%E4%B8%8E%E7%9B%B8%E5%90%88" class="anchor"></div>
     
     <span
@@ -1046,7 +1080,7 @@ $$</p>
             style="text-decoration-line: none !important;" href="#%E7%9B%B8%E4%BC%BC%E4%B8%8E%E7%9B%B8%E5%90%88" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
 
 
 <h4 class="relative group">相似矩阵（特征值） 
@@ -1085,7 +1119,7 @@ det(A)=\prod_i^Na_{ii}
 $$</p>
 
 
-<h3 class="relative group">Vandermonde矩阵 
+<h4 class="relative group">Vandermonde矩阵 
     <div id="vandermonde%E7%9F%A9%E9%98%B5" class="anchor"></div>
     
     <span
@@ -1094,7 +1128,7 @@ $$</p>
             style="text-decoration-line: none !important;" href="#vandermonde%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
 <p>$$
 A=
 \begin{bmatrix}
@@ -1150,13 +1184,13 @@ $$</p>
 <p>自回归模型</p>
 
 
-<h2 class="relative group">矩阵的微分 
-    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E5%BE%AE%E5%88%86" class="anchor"></div>
+<h2 class="relative group">矩阵函数与优化 
+    <div id="%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%BE%AE%E5%88%86" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
@@ -1174,7 +1208,35 @@ $$</p>
 </h3>
 <p>矩阵函数是通过矩阵的加法和乘法来定义的，而对于指数函数和三角函数，则是通过推广标量函数的幂级数展开来定义。</p>
 <p>方法1：当矩阵是幂等矩阵时，可以将幂级数中的累加项合并，并利用指数函数的展开式来化解一系列系数的求和。</p>
-<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202405291724667.png" alt="image-20240529172416528" style="zoom:67%;" />
+<blockquote>
+<p>$$
+A=
+\begin{bmatrix}
+1\quad 1\newline
+0\quad 0
+\end{bmatrix}
+,B=
+\begin{bmatrix}
+1\quad 1\newline
+0\quad 0
+\end{bmatrix}
+,求e^A,e^B,e^{A+B}\newline
+A是幂等阵，A^2=A，进而A^n=A\newline
+由幂级数展开知e^A=I+(\frac{1}{1!}+\frac{1}{2!}+\dots)A\newline
+再根据e=(1+\frac{1}{1!}+\frac{1}{2!}+\dots)进一步化简，得e^A=I+(e-1)A\newline
+同理可得e^B=I+(e-1)B\newline
+而e^{A+B}不能使用幂的乘法，而是应该使用幂级数展开，\newline
+e^{A+B}=I+\sum_i\frac{1}{i!}(A+B)^i\newline
+因为A+B=
+\begin{bmatrix}
+2\quad 0\newline
+0\quad 0
+\end{bmatrix}
+所以(A+B)^k=2^k(A+B)，\newline
+继而e^{A+B}=I+\sum_{k=1}\frac{2^k}{k!}(A+B)\newline
+根据e^2=\sum_{k=0}\frac{2^k}{k!}，化简得e^{A+B}=I+(e^2-1)(A+B)
+$$</p>
+</blockquote>
 <p>当矩阵乘法可交换时，指数函数和三角函数才满足一些交换的性质。</p>
 <p>方法2：将矩阵对角化，矩阵的幂级数，即，将对角线上的各个元素代入幂级数的原函数。</p>
 <p>如果
@@ -1189,13 +1251,13 @@ e^A=Pdiag(sin\lambda_1,\dots,sin{\lambda_n})P^{-1}
 $$</p>
 
 
-<h3 class="relative group">矩阵求导 
-    <div id="%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC" class="anchor"></div>
+<h3 class="relative group">矩阵的求导与微分 
+    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E6%B1%82%E5%AF%BC%E4%B8%8E%E5%BE%AE%E5%88%86" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E6%B1%82%E5%AF%BC%E4%B8%8E%E5%BE%AE%E5%88%86" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -1226,6 +1288,18 @@ $$</p>
 </tr>
 </tbody>
 </table>
+
+
+<h4 class="relative group">偏导 
+    <div id="%E5%81%8F%E5%AF%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%81%8F%E5%AF%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 <p>如果是标量函数，本质上是multi-input &amp; single output，其偏导定义如下。</p>
 <table>
 <thead>
@@ -1264,16 +1338,16 @@ $$</p>
 <p>将向量/矩阵函数<strong>列向量化</strong>，求其对变元的<strong>行向量偏导</strong>，称为矩阵函数的<strong>协梯度矩阵</strong>，也称<strong>Jacobin矩阵</strong>，记为$D_XF(X)$。</p>
 
 
-<h3 class="relative group">矩阵微分 
-    <div id="%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86" class="anchor"></div>
+<h4 class="relative group">微分 
+    <div id="%E5%BE%AE%E5%88%86" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E5%BE%AE%E5%88%86" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
 <p>考虑矩阵变元微分$dX=\begin{bmatrix}dX_{11} &hellip; dX_{1n}\newline &hellip;\newline dX_{n1} &hellip; dX_{nn} \end{bmatrix}$，则标量函数的微分</p>
 <p>$$df(X)=rvec(A)vec(X)=tr(AdX)$$</p>
 <p>相应地，标量函数的偏导
@@ -1282,25 +1356,28 @@ $$
 $$
 实值标量函数总可以写成迹函数的形式，因为
 $$
-f(X)=tr(f(X))$$
+f(X)=tr(f(X))
+$$
 进而可以使用迹函数的性质
 $$
 tr(AdXB)=tr(BAdX)
 $$
-对于$dX^T$，也可以利用迹函数的性质</p>
-<p>$$tr(AdX^TB)=tr(B^TdXA^T)=tr(A^TB^TdX)$$</p>
-<p>以得到迹函数微分矩阵的规范形式。</p>
+对于$dX^T$，也可以利用迹函数的性质
+$$
+tr(AdX^TB)=tr(B^TdXA^T)=tr(A^TB^TdX)
+$$
+以得到迹函数微分矩阵的规范形式。</p>
 <p>矩阵微分的公式需要背诵。</p>
 <p>标量函数的二阶梯度矩阵称为<strong>Hessian矩阵</strong>，即梯度向量的Jacobin矩阵。</p>
 
 
-<h3 class="relative group">复变函数 
-    <div id="%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0" class="anchor"></div>
+<h3 class="relative group">共轭梯度 
+    <div id="%E5%85%B1%E8%BD%AD%E6%A2%AF%E5%BA%A6" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%A4%8D%E5%8F%98%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E5%85%B1%E8%BD%AD%E6%A2%AF%E5%BA%A6" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -1311,13 +1388,14 @@ $$
 <li>f(z)满足Cauchy-Riemann方程</li>
 <li>f(z)的所有导数存在且拥有一个收敛的幂级数</li>
 </ul>
-<p>虽然幂函数、指数函数、对数函数都是复解析函数，但存在一些常用函数不是全纯函数，例如$f(z)=z^*$和$f(z)=Re(z)$​。</p>
-<p>如果一个给定的复变函数可以写成$f(z)=f(z,z^<em>)$，则可以直接求取其关于$z$和$z^</em>$的偏导 。</p>
+<p>虽然幂函数、指数函数、对数函数都是复解析函数，但存在一些常用函数不是全纯函数，例如$f(z)=z^*$和$f(z)=Re(z)$。</p>
+<p>如果一个给定的复变函数可以写成$f(z)=f(z,z^<em>)$的形式，
+则可以直接求取其关于$z和z^</em>$的偏导 。</p>
 <p>复变函数的偏导</p>
 <p>复变函数的微分</p>
 
 
-<h2 class="relative group">无约束优化 
+<h3 class="relative group">无约束优化 
     <div id="%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96" class="anchor"></div>
     
     <span
@@ -1326,7 +1404,7 @@ $$
             style="text-decoration-line: none !important;" href="#%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
+</h3>
 <p>局部极小点的求解可以转化为
 $$
 f&rsquo;(x)=0\newline
@@ -1335,16 +1413,16 @@ $$
 对于矩阵函数，即Jacobin矩阵为0且Hessian矩阵正定。</p>
 
 
-<h2 class="relative group">凸优化基础 
-    <div id="%E5%87%B8%E4%BC%98%E5%8C%96%E5%9F%BA%E7%A1%80" class="anchor"></div>
+<h3 class="relative group">凸优化 
+    <div id="%E5%87%B8%E4%BC%98%E5%8C%96" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%87%B8%E4%BC%98%E5%8C%96%E5%9F%BA%E7%A1%80" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E5%87%B8%E4%BC%98%E5%8C%96" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
+</h3>
 <table>
 <thead>
 <tr>
@@ -1383,7 +1461,7 @@ $$
 </table>
 
 
-<h3 class="relative group">保凸变换 
+<h4 class="relative group">保凸变换 
     <div id="%E4%BF%9D%E5%87%B8%E5%8F%98%E6%8D%A2" class="anchor"></div>
     
     <span
@@ -1392,7 +1470,7 @@ $$
             style="text-decoration-line: none !important;" href="#%E4%BF%9D%E5%87%B8%E5%8F%98%E6%8D%A2" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
 <table>
 <thead>
 <tr>
@@ -1421,7 +1499,7 @@ $$
 </table>
 
 
-<h3 class="relative group">凸问题的求解 
+<h4 class="relative group">凸问题的求解 
     <div id="%E5%87%B8%E9%97%AE%E9%A2%98%E7%9A%84%E6%B1%82%E8%A7%A3" class="anchor"></div>
     
     <span
@@ -1430,7 +1508,7 @@ $$
             style="text-decoration-line: none !important;" href="#%E5%87%B8%E9%97%AE%E9%A2%98%E7%9A%84%E6%B1%82%E8%A7%A3" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
 <p>凸优化问题的一般形式</p>
 <p>凸优化问题的性质：局部最优解就是全局最优解</p>
 <p>典型凸优化问题</p>
@@ -1462,7 +1540,7 @@ $$
 </table>
 
 
-<h3 class="relative group">拉格朗日乘子法 
+<h4 class="relative group">拉格朗日乘子法 
     <div id="%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95" class="anchor"></div>
     
     <span
@@ -1471,7 +1549,7 @@ $$
             style="text-decoration-line: none !important;" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
 <p>非迭代地求解凸优化问题。</p>
 
 
@@ -1513,7 +1591,7 @@ $$
     对KKT条件的理解 - 骚动的白米饭的文章 - 知乎</a></p>
 
 
-<h3 class="relative group">梯度下降法 
+<h4 class="relative group">梯度下降法 
     <div id="%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" class="anchor"></div>
     
     <span
@@ -1522,7 +1600,7 @@ $$
             style="text-decoration-line: none !important;" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
 <p>略</p>
 
 
@@ -1550,51 +1628,146 @@ $$
 </h2>
 
 
-<h3 class="relative group">特征值和特征向量的定义与性质 
-    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%80%A7%E8%B4%A8" class="anchor"></div>
+<h3 class="relative group">特征值和特征向量 
+    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E6%80%A7%E8%B4%A8" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
-<ol>
-<li>阶数为n的矩阵A有n个特征值，特征多项式的次数称为代数重数，特征值对应的特征向量空间的维度称为几何重数。
+
+
+<h4 class="relative group">定义 
+    <div id="%E5%AE%9A%E4%B9%89" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%9A%E4%B9%89" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>阶数为n的矩阵A有n个特征值，特征多项式的次数称为代数重数，特征值对应的特征向量空间的维度称为几何重数。</p>
 <ul>
 <li>若$rank(A-\lambda I)\le n-1$，则$\lambda$为矩阵A的特征值</li>
 </ul>
-</li>
-<li>矩阵A的不同运算结果的特征值如下：
-<ol>
-<li>A和$A^T$有相同的特征值</li>
-<li>$1/\lambda$是$A^{-1}$的特征值</li>
-<li>${\lambda}^k$是$A^k$​的特征值</li>
-<li>$A+\sigma^2I$的特征为$\lambda+\sigma^2$​</li>
-</ol>
-</li>
-<li>某些特殊矩阵的特征值如下：
-<ol>
-<li>幂等矩阵的特征值为0或1</li>
-<li>实正交矩阵的特征值为1或-1</li>
-</ol>
-</li>
-<li>特征值与迹、行列式、秩的关系：
-<ol>
-<li>迹是特征值之和</li>
-<li>行列式是特征值之积</li>
-<li>秩是非零特征值的个数
+
+
+<h4 class="relative group">一些矩阵的特征值 
+    <div id="%E4%B8%80%E4%BA%9B%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%80%E4%BA%9B%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>若矩阵$A$的特征值为$\lambda$，则它的不同运算结果的特征值如下：</p>
+<table>
+<thead>
+<tr>
+<th>矩阵</th>
+<th>特征值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$A^T$</td>
+<td>${\lambda}$</td>
+</tr>
+<tr>
+<td>$A^k$</td>
+<td>${\lambda}^k$</td>
+</tr>
+<tr>
+<td>$A^{-1}$</td>
+<td>$1/\lambda$</td>
+</tr>
+<tr>
+<td>$A+\sigma^2I$</td>
+<td>$\lambda+\sigma^2$</td>
+</tr>
+</tbody>
+</table>
 <ul>
-<li>若矩阵A存在一个单重特征值0，则秩为n-1</li>
+<li>$AA^H$的特征值可通过在$Ax=\lambda x$方程两边同乘以$A$的方式，构造出$AA^H$对特征向量$Ax$的特征值。</li>
 </ul>
-</li>
-</ol>
-</li>
-</ol>
+<p>某些特殊矩阵的特征值如下：</p>
+<table>
+<thead>
+<tr>
+<th>矩阵</th>
+<th>特征值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>幂等矩阵</td>
+<td>0或1</td>
+</tr>
+<tr>
+<td>实正交矩阵</td>
+<td>1或-1</td>
+</tr>
+</tbody>
+</table>
 
 
-<h3 class="relative group">特征值分解（EVD） 
+<h4 class="relative group">特征值与迹、行列式、秩的关系 
+    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E8%BF%B9%E8%A1%8C%E5%88%97%E5%BC%8F%E7%A7%A9%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E8%BF%B9%E8%A1%8C%E5%88%97%E5%BC%8F%E7%A7%A9%E7%9A%84%E5%85%B3%E7%B3%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>推论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迹</td>
+<td>特征值之和</td>
+<td></td>
+</tr>
+<tr>
+<td>行列式</td>
+<td>特征值之积</td>
+<td></td>
+</tr>
+<tr>
+<td>秩</td>
+<td>非零特征值的个数</td>
+<td>若矩阵A存在一个单重特征值0，则秩为n-1</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">特征值分解和奇异值分解（EVD &amp; SVD） 
+    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3%E5%92%8C%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3evd--svd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3%E5%92%8C%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3evd--svd" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">特征值分解（EVD） 
     <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3evd" class="anchor"></div>
     
     <span
@@ -1603,10 +1776,10 @@ $$
             style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3evd" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
 
 
-<h3 class="relative group">奇异值分解（SVD) 
+<h4 class="relative group">奇异值分解（SVD) 
     <div id="%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3svd" class="anchor"></div>
     
     <span
@@ -1615,8 +1788,7 @@ $$
             style="text-decoration-line: none !important;" href="#%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3svd" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
-<p>SVD的三种形式 mn,nn,kk</p>
+</h4>
 <p><a href="https://www.bilibili.com/video/BV15k4y1p72z/?share_source=copy_web&amp;vd_source=25a43cd801433b3abc43d1a368f146be"   target="_blank">
     代数明珠&ndash;奇异值分解（SVD）生动动画演示</a></p>
 <p>两种主流理解：</p>
@@ -1626,7 +1798,7 @@ $$
 </ol>
 
 
-<h3 class="relative group">SVD vs EVD 
+<h4 class="relative group">SVD vs EVD 
     <div id="svd-vs-evd" class="anchor"></div>
     
     <span
@@ -1635,7 +1807,7 @@ $$
             style="text-decoration-line: none !important;" href="#svd-vs-evd" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
 <table>
 <thead>
 <tr>
@@ -1658,7 +1830,7 @@ $$
 <p><strong>A的左奇异向量是$AA^H$的特征向量；A的右奇异向量是$A^HA$的特征向量；</strong></p>
 
 
-<h3 class="relative group">Hermitian矩阵的EVD（SVD） 
+<h4 class="relative group">Hermitian矩阵的EVD（SVD） 
     <div id="hermitian%E7%9F%A9%E9%98%B5%E7%9A%84evdsvd" class="anchor"></div>
     
     <span
@@ -1667,7 +1839,7 @@ $$
             style="text-decoration-line: none !important;" href="#hermitian%E7%9F%A9%E9%98%B5%E7%9A%84evdsvd" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
 <p>特征多项式$f(x)=det(A-xI)$</p>
 
 
@@ -1683,6 +1855,21 @@ $$
 </h4>
 <p>将矩阵A代入其特征多项式$f(\lambda)$，该矩阵方程仍成立。</p>
 <p>应用：逆矩阵的计算、矩阵幂的计算（多项式除法）</p>
+
+
+<h3 class="relative group">迹 
+    <div id="%E8%BF%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)
+$$</p>
 
 
 <h2 class="relative group">特征分析 
@@ -1731,10 +1918,36 @@ $$
     </span>        
     
 </h2>
-<p>线性空间</p>
-<p>子空间</p>
-<p>基</p>
-<p>维数</p>
+
+
+<h3 class="relative group">线性空间 
+    <div id="%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>对加法和数乘封闭</p>
+
+
+<h3 class="relative group">子空间的基与维数 
+    <div id="%E5%AD%90%E7%A9%BA%E9%97%B4%E7%9A%84%E5%9F%BA%E4%B8%8E%E7%BB%B4%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AD%90%E7%A9%BA%E9%97%B4%E7%9A%84%E5%9F%BA%E4%B8%8E%E7%BB%B4%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>维数公式：$dim(S_1+S_2)=dim(S_1)+dim(S_2)-dim(S_1 \cap S_2)$</p>
+<ul>
+<li>和空间的维数可以求解矩阵的秩，基向量可以消去任意若干直至等于秩</li>
+<li>交空间的维数可以用维数公式，基向量的求解方式为：将交空间的向量用两个空间的向量分别表示，得到线性方程组，将交空间的向量用某一个空间的系数和基向量表示出来，再合并系数即可。</li>
+</ul>
 <p>正交和正交补</p>
 <p>子空间基的构造</p>
 
@@ -1749,6 +1962,23 @@ $$
     </span>        
     
 </h2>
+
+
+<h2 class="relative group">应用 
+    <div id="%E5%BA%94%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BA%94%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><strong>矩阵：描述线性系统，进而分析其内在特征，从而优化设计</strong></p>
+<p>举例1：siso系统，R=HS+Z，miso系统</p>
+<p>举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列</p>
+<p>举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时</p>
+<p>简单化：优化$\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角</p>
 
         </div>
         

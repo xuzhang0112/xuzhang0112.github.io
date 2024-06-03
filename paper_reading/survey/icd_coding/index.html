@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Basic Nerual Networks &middot; Xu Zhang&#39;s Blog</title>
-  <meta name="title" content="Basic Nerual Networks &middot; Xu Zhang&#39;s Blog" />
+  <title>ICD coding &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="ICD coding &middot; Xu Zhang&#39;s Blog" />
   
   
   
   
   
-  <link rel="canonical" href="https://xuzhang0112.github.io/paper_reading/survey/basic_nn/" />
+  <link rel="canonical" href="https://xuzhang0112.github.io/paper_reading/survey/icd_coding/" />
   
   
   
@@ -60,48 +60,26 @@
   
   
   
-  <meta property="og:title" content="Basic Nerual Networks" />
-<meta property="og:description" content="CNN # UNet Series # R-CNN Series # Fast R-CNN # Faster R-CNN # 使用Backbone（通常是ResNet）提取特征，得到Feature Map 使用RPN得到若干Bounding Box，分类anchor的有无，回归位置和大小 使用ROI进一步对抑制过的Bounding Box进行细化，进一步回归得到准确的位置和大小，分类得到类别，并抑制 Mask R-CNN [ICCV 2017 Best Paper] # YOLO Series # YOLO V1 # YOLO V3 # RNN # 感觉已经G了，不想写了，随便写点吧
-t时刻的输出与t时刻的输入和t-1时刻的隐状态有关
-Mamba # 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba
-LSTM # 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。
-Transformer # 注意力机制
-自注意力：计算encoder/decoder中每个向量与其他向量的相关性，用加权和取代原来的向量
-交叉注意力：计算decoder中每个向量与encoder输出向量的相关性，用加权和取代decoder中的原向量
-多头：多个注意力的结果拼接起来，再通过线性变换降低维度至输入的维度
-高度并行化
-Encoder完全并行
-Decoder高度并行，t时刻不依赖于t-1时刻的隐状态ht-1，仅依赖前t-1个输出
-在训练阶段可以通过teacher forcing实现并行训练
-BERT # 结构：Transformer的encoder
-预训练：完形填空
-VIT # 将图片拆成patch，视为词向量，送入Tansformer的encoder
-需要预训练，是否优于ResNet取决于预训练数据集的大小
-GPT # 模型结构：Transformer decoder堆叠" />
+  <meta property="og:title" content="ICD coding" />
+<meta property="og:description" content="Experiment # 如果采取CNN、LSTM、GNN（KG），则需要分词和词向量，中文医学文本的分词和词向量需要关注一下，可能需要自己训。
+如果采用BERT，对比学习和类别注意力应该是可靠的方法，可以加入，而层次化方法可以基于类别注意力（参考LAAT）。
+如果确定采用KG增强的技术路线，则需要下载相关的KG（例如UMLS和BIOS），同时准备好NER和词向量。
+ICD coding # SOTA on MIMIC III # Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
+BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN&#43; KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
+Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用micro平均，则有：precision = recall = f1 = accuracy，详见 机器学习系列 | 01：多类别分类任务(multi-class)中为何precision,recall和F1相等？" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/basic_nn/" /><meta property="article:section" content="paper_reading" />
+<meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/icd_coding/" /><meta property="article:section" content="paper_reading" />
+<meta property="article:published_time" content="2024-06-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-01T00:00:00+00:00" />
 
 
-
-
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Basic Nerual Networks"/>
-<meta name="twitter:description" content="CNN # UNet Series # R-CNN Series # Fast R-CNN # Faster R-CNN # 使用Backbone（通常是ResNet）提取特征，得到Feature Map 使用RPN得到若干Bounding Box，分类anchor的有无，回归位置和大小 使用ROI进一步对抑制过的Bounding Box进行细化，进一步回归得到准确的位置和大小，分类得到类别，并抑制 Mask R-CNN [ICCV 2017 Best Paper] # YOLO Series # YOLO V1 # YOLO V3 # RNN # 感觉已经G了，不想写了，随便写点吧
-t时刻的输出与t时刻的输入和t-1时刻的隐状态有关
-Mamba # 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba
-LSTM # 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。
-Transformer # 注意力机制
-自注意力：计算encoder/decoder中每个向量与其他向量的相关性，用加权和取代原来的向量
-交叉注意力：计算decoder中每个向量与encoder输出向量的相关性，用加权和取代decoder中的原向量
-多头：多个注意力的结果拼接起来，再通过线性变换降低维度至输入的维度
-高度并行化
-Encoder完全并行
-Decoder高度并行，t时刻不依赖于t-1时刻的隐状态ht-1，仅依赖前t-1个输出
-在训练阶段可以通过teacher forcing实现并行训练
-BERT # 结构：Transformer的encoder
-预训练：完形填空
-VIT # 将图片拆成patch，视为词向量，送入Tansformer的encoder
-需要预训练，是否优于ResNet取决于预训练数据集的大小
-GPT # 模型结构：Transformer decoder堆叠"/>
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="ICD coding"/>
+<meta name="twitter:description" content="Experiment # 如果采取CNN、LSTM、GNN（KG），则需要分词和词向量，中文医学文本的分词和词向量需要关注一下，可能需要自己训。
+如果采用BERT，对比学习和类别注意力应该是可靠的方法，可以加入，而层次化方法可以基于类别注意力（参考LAAT）。
+如果确定采用KG增强的技术路线，则需要下载相关的KG（例如UMLS和BIOS），同时准备好NER和词向量。
+ICD coding # SOTA on MIMIC III # Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
+BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN&#43; KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
+Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用micro平均，则有：precision = recall = f1 = accuracy，详见 机器学习系列 | 01：多类别分类任务(multi-class)中为何precision,recall和F1相等？"/>
 
   
   <script type="application/ld+json">
@@ -109,26 +87,26 @@ GPT # 模型结构：Transformer decoder堆叠"/>
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "PaperReading",
-    "name": "Basic Nerual Networks",
-    "headline": "Basic Nerual Networks",
+    "name": "ICD coding",
+    "headline": "ICD coding",
     
-    "abstract": "CNN # UNet Series # R-CNN Series # Fast R-CNN # Faster R-CNN # 使用Backbone（通常是ResNet）提取特征，得到Feature Map 使用RPN得到若干Bounding Box，分类anchor的有无，回归位置和大小 使用ROI进一步对抑制过的Bounding Box进行细化，进一步回归得到准确的位置和大小，分类得到类别，并抑制 Mask R-CNN [ICCV 2017 Best Paper] # YOLO Series # YOLO V1 # YOLO V3 # RNN # 感觉已经G了，不想写了，随便写点吧\nt时刻的输出与t时刻的输入和t-1时刻的隐状态有关\nMamba # 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba\nLSTM # 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。\nTransformer # 注意力机制\n自注意力：计算encoder\/decoder中每个向量与其他向量的相关性，用加权和取代原来的向量\n交叉注意力：计算decoder中每个向量与encoder输出向量的相关性，用加权和取代decoder中的原向量\n多头：多个注意力的结果拼接起来，再通过线性变换降低维度至输入的维度\n高度并行化\nEncoder完全并行\nDecoder高度并行，t时刻不依赖于t-1时刻的隐状态ht-1，仅依赖前t-1个输出\n在训练阶段可以通过teacher forcing实现并行训练\nBERT # 结构：Transformer的encoder\n预训练：完形填空\nVIT # 将图片拆成patch，视为词向量，送入Tansformer的encoder\n需要预训练，是否优于ResNet取决于预训练数据集的大小\nGPT # 模型结构：Transformer decoder堆叠",
+    "abstract": "Experiment # 如果采取CNN、LSTM、GNN（KG），则需要分词和词向量，中文医学文本的分词和词向量需要关注一下，可能需要自己训。\n如果采用BERT，对比学习和类别注意力应该是可靠的方法，可以加入，而层次化方法可以基于类别注意力（参考LAAT）。\n如果确定采用KG增强的技术路线，则需要下载相关的KG（例如UMLS和BIOS），同时准备好NER和词向量。\nICD coding # SOTA on MIMIC III # Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN\u002bLabel Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding\u002bself attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN\u002b多尺度\u002blabel attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。\nBERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN\u002b KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。\nLongformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用micro平均，则有：precision = recall = f1 = accuracy，详见 机器学习系列 | 01：多类别分类任务(multi-class)中为何precision,recall和F1相等？",
     "inLanguage": "en",
-    "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/survey\/basic_nn\/",
+    "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/survey\/icd_coding\/",
     "author" : {
       "@type": "Person",
       "name": "Xu Zhang"
     },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-06-01T00:00:00\u002b00:00",
+    "datePublished": "2024-06-01T00:00:00\u002b00:00",
     
-    
-    
-    
-    
+    "dateModified": "2024-06-01T00:00:00\u002b00:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "110"
+    "wordCount": "206"
   }]
   </script>
 
@@ -686,8 +664,8 @@ GPT # 模型结构：Transformer decoder堆叠"/>
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/paper_reading/survey/basic_nn/"
-      >Basic Nerual Networks</a
+      href="/paper_reading/survey/icd_coding/"
+      >ICD coding</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -696,7 +674,7 @@ GPT # 模型结构：Transformer decoder堆叠"/>
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Basic Nerual Networks
+      ICD coding
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -799,34 +777,15 @@ GPT # 模型结构：Transformer decoder堆叠"/>
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#cnn">CNN</a>
+    <li><a href="#experiment">Experiment</a></li>
+    <li><a href="#icd-coding">ICD coding</a>
       <ul>
-        <li><a href="#unet-series">UNet Series</a></li>
-        <li><a href="#r-cnn-series">R-CNN Series</a></li>
-        <li><a href="#yolo-series">YOLO Series</a></li>
+        <li><a href="#sota-on-mimic-iii">SOTA on MIMIC III</a></li>
+        <li><a href="#mimic-iii">MIMIC III</a></li>
+        <li><a href="#iflytek-950">Iflytek 950</a></li>
       </ul>
     </li>
-    <li><a href="#rnn">RNN</a>
-      <ul>
-        <li><a href="#mamba">Mamba</a></li>
-        <li><a href="#lstm">LSTM</a></li>
-      </ul>
-    </li>
-    <li><a href="#transformer">Transformer</a>
-      <ul>
-        <li><a href="#bert">BERT</a></li>
-        <li><a href="#vit">VIT</a></li>
-        <li><a href="#gpt">GPT</a></li>
-      </ul>
-    </li>
-    <li><a href="#gnn">GNN</a>
-      <ul>
-        <li><a href="#gcn">GCN</a></li>
-        <li><a href="#gat">GAT</a></li>
-        <li><a href="#不同消息传递方式的优劣">不同消息传递方式的优劣</a></li>
-        <li><a href="#采样与批次">采样与批次</a></li>
-      </ul>
-    </li>
+    <li><a href="#mortalitysoldurg-prediciton">Mortality/SOL/durg prediciton</a></li>
   </ul>
 </nav>
   </div>
@@ -840,34 +799,15 @@ GPT # 模型结构：Transformer decoder堆叠"/>
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#cnn">CNN</a>
+    <li><a href="#experiment">Experiment</a></li>
+    <li><a href="#icd-coding">ICD coding</a>
       <ul>
-        <li><a href="#unet-series">UNet Series</a></li>
-        <li><a href="#r-cnn-series">R-CNN Series</a></li>
-        <li><a href="#yolo-series">YOLO Series</a></li>
+        <li><a href="#sota-on-mimic-iii">SOTA on MIMIC III</a></li>
+        <li><a href="#mimic-iii">MIMIC III</a></li>
+        <li><a href="#iflytek-950">Iflytek 950</a></li>
       </ul>
     </li>
-    <li><a href="#rnn">RNN</a>
-      <ul>
-        <li><a href="#mamba">Mamba</a></li>
-        <li><a href="#lstm">LSTM</a></li>
-      </ul>
-    </li>
-    <li><a href="#transformer">Transformer</a>
-      <ul>
-        <li><a href="#bert">BERT</a></li>
-        <li><a href="#vit">VIT</a></li>
-        <li><a href="#gpt">GPT</a></li>
-      </ul>
-    </li>
-    <li><a href="#gnn">GNN</a>
-      <ul>
-        <li><a href="#gcn">GCN</a></li>
-        <li><a href="#gat">GAT</a></li>
-        <li><a href="#不同消息传递方式的优劣">不同消息传递方式的优劣</a></li>
-        <li><a href="#采样与批次">采样与批次</a></li>
-      </ul>
-    </li>
+    <li><a href="#mortalitysoldurg-prediciton">Mortality/SOL/durg prediciton</a></li>
   </ul>
 </nav>
   </div>
@@ -885,440 +825,381 @@ GPT # 模型结构：Transformer decoder堆叠"/>
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">CNN 
-    <div id="cnn" class="anchor"></div>
+<h2 class="relative group">Experiment 
+    <div id="experiment" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#cnn" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#experiment" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>如果采取CNN、LSTM、GNN（KG），则需要分词和词向量，中文医学文本的分词和词向量需要关注一下，可能需要自己训。</p>
+<p>如果采用BERT，对比学习和类别注意力应该是可靠的方法，可以加入，而层次化方法可以基于类别注意力（参考LAAT）。</p>
+<p>如果确定采用KG增强的技术路线，则需要下载相关的KG（例如UMLS和BIOS），同时准备好NER和词向量。</p>
+
+
+<h2 class="relative group">ICD coding 
+    <div id="icd-coding" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#icd-coding" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 
 
-<h3 class="relative group">UNet Series 
-    <div id="unet-series" class="anchor"></div>
+<h3 class="relative group">SOTA on MIMIC III 
+    <div id="sota-on-mimic-iii" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#unet-series" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#sota-on-mimic-iii" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
-<p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th></th>
+<th>Innovation</th>
+<th>miF1</th>
+<th>miAUC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://arxiv.org/pdf/1802.05695v2"   target="_blank">
+    CAML</a></td>
+<td>NAACL 2018</td>
+<td>开山之作，Baseline，CNN+Label Attention</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://arxiv.org/pdf/2007.06351v1"   target="_blank">
+    LAAT</a></td>
+<td>IJCAI 2020</td>
+<td>LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测；</td>
+<td>57.5</td>
+<td>98.8</td>
+</tr>
+<tr>
+<td><a href="https://arxiv.org/pdf/2107.10650v1"   target="_blank">
+    RAC</a></td>
+<td>MLHC 2021</td>
+<td>Convolved embdding+self attention编码文本，然后与code attention交互（最接近BERT的一个工作）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://aclanthology.org/2021.emnlp-main.481.pdf"   target="_blank">
+    EffectiveCAN</a></td>
+<td>EMNLP 2021</td>
+<td>CNN+多尺度+label attention</td>
+<td><strong>58.9</strong></td>
+<td>98.8</td>
+</tr>
+<tr>
+<td><a href="https://arxiv.org/abs/2203.01515"   target="_blank">
+    MSMN</a></td>
+<td>ACL 2022 short</td>
+<td>在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。<br />BERT相比LSTM无显著提升；省下的显存可以用于注意力；</td>
+<td>58.4</td>
+<td>99.2</td>
+</tr>
+<tr>
+<td>MSMN+<a href="https://arxiv.org/pdf/2210.03304v2"   target="_blank">
+    KEPTLongformer</a></td>
+<td>EMNLP 2022</td>
+<td>首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。<br />Longformer相比BERT可以接受更长的上下文。</td>
+<td>59.9</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>多分类如果采用micro平均，则有：precision = recall = f1 = accuracy，详见<a href="https://developer.aliyun.com/article/1258690"   target="_blank">
+    机器学习系列 | 01：多类别分类任务(multi-class)中为何precision,recall和F1相等？</a></p>
 
 
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/0.PNG" alt="unet" />
-    
-  </figure>
-
-</p>
-
-
-<h3 class="relative group">R-CNN Series 
-    <div id="r-cnn-series" class="anchor"></div>
+<h3 class="relative group">MIMIC III 
+    <div id="mimic-iii" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#r-cnn-series" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#mimic-iii" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
-<p>
+<table>
+<thead>
+<tr>
+<th>MIMIC-III Full</th>
+<th>Train</th>
+<th>Dev</th>
+<th>Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Doc.</td>
+<td>47,723</td>
+<td>1,631</td>
+<td>3,372</td>
+</tr>
+<tr>
+<td>Avg # words per Doc.</td>
+<td>1,434</td>
+<td>1,724</td>
+<td>1,731</td>
+</tr>
+<tr>
+<td>Avg # codes per Doc.</td>
+<td>15.7</td>
+<td>18.0</td>
+<td>17.4</td>
+</tr>
+<tr>
+<td>Total # codes</td>
+<td>8,692</td>
+<td>3,012</td>
+<td>4,085</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>MIMIC-III 50</th>
+<th>Train</th>
+<th>Dev</th>
+<th>Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Doc.</td>
+<td>8,066</td>
+<td>1,573</td>
+<td>1,729</td>
+</tr>
+<tr>
+<td>Avg # words per Doc.</td>
+<td>1,478</td>
+<td>1,739</td>
+<td>1,763</td>
+</tr>
+<tr>
+<td>Avg # codes per Doc.</td>
+<td>5.7</td>
+<td>5.9</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>Total # codes</td>
+<td>50</td>
+<td>50</td>
+<td>50</td>
+</tr>
+</tbody>
+</table>
+<p>共计26张表格</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>文件名</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>SUBJECT_ID</td>
+<td>病人ID</td>
+</tr>
+<tr>
+<td></td>
+<td>HADM_ID</td>
+<td>住院ID</td>
+</tr>
+<tr>
+<td></td>
+<td>ICUSTAY_ID</td>
+<td>ICU的ID</td>
+</tr>
+<tr>
+<td>Event</td>
+<td>NOTEEVENTS</td>
+<td>出院概括</td>
+</tr>
+<tr>
+<td></td>
+<td>OUTPUTEVENTS</td>
+<td>测量结果</td>
+</tr>
+<tr>
+<td></td>
+<td>LABEVENTS</td>
+<td>化验结果</td>
+</tr>
+<tr>
+<td>Dict （共计5张）</td>
+<td>D_ICD_DIAGNOSES</td>
+<td>ICD诊断代码表</td>
+</tr>
+<tr>
+<td></td>
+<td>D_ICD_PROCEDURES</td>
+<td>ICD治疗代码表</td>
+</tr>
+<tr>
+<td></td>
+<td>D_ITEMS</td>
+<td>Item对应表</td>
+</tr>
+</tbody>
+</table>
+<p>ID用于连接多个表格，整合多个表格，得到下列文件：</p>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIMIC-III full</td>
+<td>train_full.csv, test_full.csv, dev_full.csv</td>
+</tr>
+<tr>
+<td>MIMIC-III 50</td>
+<td>train_50.csv, test_50.csv, dev_50.csv</td>
+</tr>
+</tbody>
+</table>
 
 
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/1.PNG" alt="1" />
-    
-  </figure>
-
-</p>
-
-
-<h4 class="relative group">Fast R-CNN 
-    <div id="fast-r-cnn" class="anchor"></div>
+<h3 class="relative group">Iflytek 950 
+    <div id="iflytek-950" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#fast-r-cnn" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>
-
-
-
-
-  
-  
-  
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="/Users/zhangxu/Documents/2.PNG" alt="2" />
-      
-    </figure>
-  
-
-</p>
-
-
-<h4 class="relative group">Faster R-CNN 
-    <div id="faster-r-cnn" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#faster-r-cnn" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/3.PNG" alt="3" />
-    
-  </figure>
-
-</p>
-<ol>
-<li>使用Backbone（通常是ResNet）提取特征，得到Feature Map</li>
-<li>使用RPN得到若干Bounding Box，分类anchor的有无，回归位置和大小</li>
-<li>使用ROI进一步对抑制过的Bounding Box进行细化，进一步回归得到准确的位置和大小，分类得到类别，并抑制</li>
-</ol>
-
-
-<h4 class="relative group">Mask R-CNN [ICCV 2017 Best Paper] 
-    <div id="mask-r-cnn-iccv-2017-best-paper" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#mask-r-cnn-iccv-2017-best-paper" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/4.PNG" alt="4" />
-    
-  </figure>
-
-</p>
-
-
-<h3 class="relative group">YOLO Series 
-    <div id="yolo-series" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#yolo-series" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#iflytek-950" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>等级</th>
+<th>基层</th>
+<th>抗攻击</th>
+<th>高价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline(BERT)</td>
+<td>0.86</td>
+<td>0.82</td>
+<td>0.60</td>
+<td>0.87</td>
+</tr>
+<tr>
+<td>Hierarchical（3层，1+1+2）</td>
+<td>0.71</td>
+<td>0.77</td>
+<td>0.55</td>
+<td>0.77</td>
+</tr>
+<tr>
+<td>Contrastive Learning</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Label Attention</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KG</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
-<h4 class="relative group">YOLO V1 
-    <div id="yolo-v1" class="anchor"></div>
+<h2 class="relative group">Mortality/SOL/durg prediciton 
+    <div id="mortalitysoldurg-prediciton" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#yolo-v1" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>
-
-
-
-
-  
-  
-  
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="/Users/zhangxu/Documents/5.PNG" alt="5" />
-      
-    </figure>
-  
-
-</p>
-
-
-<h4 class="relative group">YOLO V3 
-    <div id="yolo-v3" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#yolo-v3" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>
-
-
-
-
-  
-  
-  
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="/Users/zhangxu/Documents/6.PNG" alt="6" />
-      
-    </figure>
-  
-
-</p>
-
-
-<h2 class="relative group">RNN 
-    <div id="rnn" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#rnn" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#mortalitysoldurg-prediciton" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p>感觉已经G了，不想写了，随便写点吧</p>
-<p>t时刻的输出与t时刻的输入和t-1时刻的隐状态有关</p>
-
-
-<h3 class="relative group">Mamba 
-    <div id="mamba" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#mamba" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p><a href="https://blog.csdn.net/v_JULY_v/article/details/134923301"   target="_blank">
-    一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba</a></p>
-
-
-<h3 class="relative group">LSTM 
-    <div id="lstm" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#lstm" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。</p>
-
-
-<h2 class="relative group">Transformer 
-    <div id="transformer" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#transformer" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/7.PNG" alt="7" />
-    
-  </figure>
-
-</p>
-<p>注意力机制</p>
-<p>自注意力：计算encoder/decoder中每个向量与其他向量的相关性，用加权和取代原来的向量</p>
-<p>交叉注意力：计算decoder中每个向量与encoder输出向量的相关性，用加权和取代decoder中的原向量</p>
-<p>多头：多个注意力的结果拼接起来，再通过线性变换降低维度至输入的维度</p>
-<p>高度并行化</p>
-<p>Encoder完全并行</p>
-<p>Decoder高度并行，t时刻不依赖于t-1时刻的隐状态ht-1，仅依赖前t-1个输出</p>
-<p>在训练阶段可以通过teacher forcing实现并行训练</p>
-
-
-<h3 class="relative group">BERT 
-    <div id="bert" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#bert" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>结构：Transformer的encoder</p>
-<p>预训练：完形填空</p>
-
-
-<h3 class="relative group">VIT 
-    <div id="vit" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#vit" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>将图片拆成patch，视为词向量，送入Tansformer的encoder</p>
-<p>需要预训练，是否优于ResNet取决于预训练数据集的大小</p>
-
-
-<h3 class="relative group">GPT 
-    <div id="gpt" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#gpt" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>模型结构：Transformer decoder堆叠</p>
-<p>学习方式：Pretraining-Finetuning</p>
-<p>大规模无标签数据进行无监督训练，代理任务采用下词预测</p>
-<p>在特定任务上进行有监督的模型微调</p>
-<ul>
-<li>GPT-2
-<ul>
-<li>学习方式：Pretraining+Zero-Shot</li>
-<li>模型参数更大，数据集更大、质量更高，在9个任务上超过有监督SOTA</li>
-<li>在摘要、翻译、问答等任务上不如无监督模型</li>
-</ul>
-</li>
-<li>GPT-3
-<ul>
-<li>学习方式：Pretraining+Few-Shot</li>
-<li>超过了有监督BERT，尚未超过有监督SOTA</li>
-</ul>
-</li>
-<li>GPT3.5：InsturctGPT
-<ul>
-<li>大规模语言模型（LLM）的Alignment应当遵循3H原则（Helpful,Honest,Harmless）</li>
-<li>学习方式：GPT3+SFT+RM+PPO</li>
-<li>Prompt数据库构建
-<ul>
-<li>来源：Labeler+Customer</li>
-<li>Prompt分类：直接指定任务/通过样例指定</li>
-</ul>
-</li>
-<li>比较数据打分</li>
-<li>Instruction FineTuning(IFT)
-<ul>
-<li>任务泛化能力</li>
-</ul>
-</li>
-<li>RLHF：符合人类偏好的奖励函数</li>
-</ul>
-</li>
-<li>社会化的过程
-<ul>
-<li>学习文字接龙</li>
-</ul>
-</li>
-</ul>
-
-
-<h2 class="relative group">GNN 
-    <div id="gnn" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#gnn" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p>本质：MLP+聚合</p>
-<p>GNN的层数：一般取2或3（六度空间理论）</p>
-<p>
-
-
-
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/_.png" alt="_" />
-    
-  </figure>
-
-</p>
-
-
-<h3 class="relative group">GCN 
-    <div id="gcn" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#gcn" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>GCN通过汇聚操作实现节点和边之间的消息传递。</p>
-<p>常用的汇聚方式有求和、平均、最大值等。</p>
-
-
-<h3 class="relative group">GAT 
-    <div id="gat" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#gat" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>通过注意力机制来进行节点间的聚合，由于QKV的参数矩阵可以共享，因此可以适应动态变化的子图。</p>
-
-
-<h3 class="relative group">不同消息传递方式的优劣 
-    <div id="%E4%B8%8D%E5%90%8C%E6%B6%88%E6%81%AF%E4%BC%A0%E9%80%92%E6%96%B9%E5%BC%8F%E7%9A%84%E4%BC%98%E5%8A%A3" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%B8%8D%E5%90%8C%E6%B6%88%E6%81%AF%E4%BC%A0%E9%80%92%E6%96%B9%E5%BC%8F%E7%9A%84%E4%BC%98%E5%8A%A3" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>节点、全局节点、边之间都进行消息传递的效果最好，效果第二好的是在节点和全局节点之间进行消息传递，效果最差的是仅在节点之间进行消息传递。</p>
-
-
-<h3 class="relative group">采样与批次 
-    <div id="%E9%87%87%E6%A0%B7%E4%B8%8E%E6%89%B9%E6%AC%A1" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E9%87%87%E6%A0%B7%E4%B8%8E%E6%89%B9%E6%AC%A1" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>采样：由于GNN的计算量很大，需要对图进行采样。常见的采样方式有随机采样和随机游走。</p>
-<p>Batch：每一步计算量太小不利于并行，我们希望像别的神经网络一样，我们能把这些小样本做成一个小批量，这样对一个大的矩阵或者一个tensor做运算。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://openreview.net/pdf?id=tVTN7Zs0ml"   target="_blank">
+    GraphCare</a></td>
+<td>ICML 2024</td>
+<td>首先构造一个巨大的KG，然后将每个病人病历报告中的关键词建立成子图，然后送进GNN进行预测。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://openreview.net/pdf?id=pe0Vdv7rsL"   target="_blank">
+    GT-BEHRT</a></td>
+<td>ICML 2024</td>
+<td>将每一个Visit用GNN编码成embedding，作为BERT的输入token，再让BERT建模时序信息。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
         </div>
         
@@ -1335,8 +1216,8 @@ GPT # 模型结构：Transformer decoder堆叠"/>
         
         
       <script>
-        var oid = "views_paper_reading\/survey\/basic_nn.md"
-        var oid_likes = "likes_paper_reading\/survey\/basic_nn.md"
+        var oid = "views_paper_reading\/survey\/icd_coding.md"
+        var oid_likes = "likes_paper_reading\/survey\/icd_coding.md"
       </script>
       
       
@@ -1356,7 +1237,7 @@ GPT # 模型结构：Transformer decoder堆叠"/>
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/paper_reading/survey/chest_xray/">
+            <a class="flex group mr-3" href="/paper_reading/survey/basic_nn/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1368,7 +1249,7 @@ GPT # 模型结构：Transformer decoder堆叠"/>
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Chest X-ray Dataset</span
+                  >Basic Nerual Networks</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1378,26 +1259,6 @@ GPT # 模型结构：Transformer decoder堆叠"/>
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/paper_reading/survey/icd_coding/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >ICD coding</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>

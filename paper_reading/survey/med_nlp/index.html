@@ -61,12 +61,11 @@
   
   
   <meta property="og:title" content="Medical NLP" />
-<meta property="og:description" content="Tips # 记得多看看有没有现成的API可以调
-Experiment # 只使用BERT的情况下，考虑下列改进：
+<meta property="og:description" content="Tips # 记得多看看有没有现成的API可以调（分词/标准化/停用词等） 中文并没有开源的优质词向量，本人用的也是讯飞的闭源BERT 24年搞BERT，49年入清军……不如多模态……本人因为已经入坑半年，沉没成本太高，所以还在坚持 To do # 只使用BERT的情况下，考虑下列改进：
 更好的文本表示：对比学习、类别注意力 基于疾病KG的层次化方法：概率图/LATT等。 如果额外引入图结构信息，则需要完成下列工作
-分词&#43;标准化（疑似讯飞引擎提供，必须确保不会出现其他的词） 构建词表（节点）、统计词频（边）（参考BertGCN，transductive） GNN，这个很简单 ICD coding # SOTA on MIMIC III # Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
-BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN&#43; KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
-Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用micro平均，则有：precision = recall = f1 = accuracy，详见 机器学习系列 | 01：多类别分类任务(multi-class)中为何precision,recall和F1相等？" />
+分词&#43;标准化（疑似讯飞引擎提供，必须确保不会出现其他的词） 构建词表（节点）、统计词频（边）（参考BertGCN，transductive） GNN，torch_geometric调库就行了，已经轻车熟路 ICD coding # SOTA on MIMIC III # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
+Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
+BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN&#43; KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/med_nlp/" /><meta property="article:section" content="paper_reading" />
 <meta property="article:published_time" content="2024-06-03T00:00:00+00:00" />
@@ -74,12 +73,11 @@ Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Medical NLP"/>
-<meta name="twitter:description" content="Tips # 记得多看看有没有现成的API可以调
-Experiment # 只使用BERT的情况下，考虑下列改进：
+<meta name="twitter:description" content="Tips # 记得多看看有没有现成的API可以调（分词/标准化/停用词等） 中文并没有开源的优质词向量，本人用的也是讯飞的闭源BERT 24年搞BERT，49年入清军……不如多模态……本人因为已经入坑半年，沉没成本太高，所以还在坚持 To do # 只使用BERT的情况下，考虑下列改进：
 更好的文本表示：对比学习、类别注意力 基于疾病KG的层次化方法：概率图/LATT等。 如果额外引入图结构信息，则需要完成下列工作
-分词&#43;标准化（疑似讯飞引擎提供，必须确保不会出现其他的词） 构建词表（节点）、统计词频（边）（参考BertGCN，transductive） GNN，这个很简单 ICD coding # SOTA on MIMIC III # Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
-BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN&#43; KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
-Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用micro平均，则有：precision = recall = f1 = accuracy，详见 机器学习系列 | 01：多类别分类任务(multi-class)中为何precision,recall和F1相等？"/>
+分词&#43;标准化（疑似讯飞引擎提供，必须确保不会出现其他的词） 构建词表（节点）、统计词频（边）（参考BertGCN，transductive） GNN，torch_geometric调库就行了，已经轻车熟路 ICD coding # SOTA on MIMIC III # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
+Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
+BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN&#43; KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。"/>
 
   
   <script type="application/ld+json">
@@ -90,7 +88,7 @@ Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用
     "name": "Medical NLP",
     "headline": "Medical NLP",
     
-    "abstract": "Tips # 记得多看看有没有现成的API可以调\nExperiment # 只使用BERT的情况下，考虑下列改进：\n更好的文本表示：对比学习、类别注意力 基于疾病KG的层次化方法：概率图\/LATT等。 如果额外引入图结构信息，则需要完成下列工作\n分词\u002b标准化（疑似讯飞引擎提供，必须确保不会出现其他的词） 构建词表（节点）、统计词频（边）（参考BertGCN，transductive） GNN，这个很简单 ICD coding # SOTA on MIMIC III # Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN\u002bLabel Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding\u002bself attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN\u002b多尺度\u002blabel attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。\nBERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN\u002b KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。\nLongformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用micro平均，则有：precision = recall = f1 = accuracy，详见 机器学习系列 | 01：多类别分类任务(multi-class)中为何precision,recall和F1相等？",
+    "abstract": "Tips # 记得多看看有没有现成的API可以调（分词\/标准化\/停用词等） 中文并没有开源的优质词向量，本人用的也是讯飞的闭源BERT 24年搞BERT，49年入清军……不如多模态……本人因为已经入坑半年，沉没成本太高，所以还在坚持 To do # 只使用BERT的情况下，考虑下列改进：\n更好的文本表示：对比学习、类别注意力 基于疾病KG的层次化方法：概率图\/LATT等。 如果额外引入图结构信息，则需要完成下列工作\n分词\u002b标准化（疑似讯飞引擎提供，必须确保不会出现其他的词） 构建词表（节点）、统计词频（边）（参考BertGCN，transductive） GNN，torch_geometric调库就行了，已经轻车熟路 ICD coding # SOTA on MIMIC III # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了\nModel Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN\u002bLabel Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding\u002bself attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN\u002b多尺度\u002blabel attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。\nBERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN\u002b KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/survey\/med_nlp\/",
     "author" : {
@@ -106,7 +104,7 @@ Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用
     "keywords": ["Survey"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "256"
+    "wordCount": "260"
   }]
   </script>
 
@@ -804,7 +802,7 @@ Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用
     <nav id="TableOfContents">
   <ul>
     <li><a href="#tips">Tips</a></li>
-    <li><a href="#experiment">Experiment</a></li>
+    <li><a href="#to-do">To do</a></li>
     <li><a href="#icd-coding">ICD coding</a>
       <ul>
         <li><a href="#sota-on-mimic-iii">SOTA on MIMIC III</a></li>
@@ -828,7 +826,7 @@ Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用
     <nav id="TableOfContents">
   <ul>
     <li><a href="#tips">Tips</a></li>
-    <li><a href="#experiment">Experiment</a></li>
+    <li><a href="#to-do">To do</a></li>
     <li><a href="#icd-coding">ICD coding</a>
       <ul>
         <li><a href="#sota-on-mimic-iii">SOTA on MIMIC III</a></li>
@@ -865,16 +863,20 @@ Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用
     </span>        
     
 </h2>
-<p>记得多看看有没有现成的API可以调</p>
+<ol>
+<li>记得多看看有没有现成的API可以调（分词/标准化/停用词等）</li>
+<li>中文并没有开源的优质词向量，本人用的也是讯飞的闭源BERT</li>
+<li>24年搞BERT，49年入清军……不如多模态……本人因为已经入坑半年，沉没成本太高，所以还在坚持</li>
+</ol>
 
 
-<h2 class="relative group">Experiment 
-    <div id="experiment" class="anchor"></div>
+<h2 class="relative group">To do 
+    <div id="to-do" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#experiment" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#to-do" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
@@ -887,7 +889,7 @@ Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用
 <ol>
 <li>分词+标准化（疑似讯飞引擎提供，必须确保不会出现其他的词）</li>
 <li>构建词表（节点）、统计词频（边）（参考BertGCN，transductive）</li>
-<li>GNN，这个很简单</li>
+<li>GNN，torch_geometric调库就行了，已经轻车熟路</li>
 </ol>
 
 
@@ -913,6 +915,7 @@ Longformer相比BERT可以接受更长的上下文。 59.9 多分类如果采用
     </span>        
     
 </h3>
+<p>某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了</p>
 <table>
 <thead>
 <tr>

@@ -7,29 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Thu, 30 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/course/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/course/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Matrix</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</link>
-      <pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
-      <description>矩阵的基本概念 # 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
-A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A+B)(A-B)$满足交换律 $(A+B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 柯西不等式推导
-自相关、互相关、自协方差矩阵
-多元正态分布推导
-矩阵的奇异、诱导范数、元素范数（F范数）
-特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）
-基本矩阵2:初等变换矩阵（推广：移位、选择、置换）
-三角阵 # 上/下三角阵的逆矩阵仍然是上/下三角阵。
-若矩阵是三角阵，又是酉矩阵，则矩阵是对角阵，且对角线元素的范数（绝对值）为1 若矩阵是上三角分块酉矩阵，$A=\begin{bmatrix}P\quad B\newline 0\quad Q\end{bmatrix}$，那么P、Q都是酉矩阵，且B=0 上/下三角阵的和、积仍然是上/下三角阵。
-对称矩阵和Hermitian矩阵 # 若矩阵A满足$A^T=A$，则矩阵为对称矩阵。
-若矩阵A满足$A^H=A$，则矩阵为Hermitian矩阵。
-若Hermitian矩阵A使得一切$\mathbf{x}$满足$x^HAx&amp;gt;0$，则称矩阵A是正定矩阵（二次型&amp;gt;0） 正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
-若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。
-（转置与逆，特征值分解，范数与内积不变）
-中心化矩阵 # $$ 求和向量J_N=[1\ 1\ \dots\ 1]\newline 满足J_N\mathbf{x}=\sum_i x_i\newline 进而有中心化矩阵C_n = I_n - \frac{1}{N}J_N\newline 使得C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
-相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$</description>
+      <description>优先搞懂：
+KKT 瑞利商 诱导范数 某些矩阵的分解 看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
+矩阵的基本概念 # 若向量$a,b$，则它的内积、外积定义如下：
+inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
+Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product $A\cdot B$ or $AB$ 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
+A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA$ 当$AB=BA$时 $(A+B)(A-B)$满足交换律 $(A+B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 迹 # 性质 推论 线性性质 $tr(A+B)=tr(A)+tr(B)$ $tr(r\cdot A)=r\cdot tr(A)$ $tr(A)=tr(A^T)$ 矩阵乘积可交换 $tr(AB)=tr(BA)$ $tr(ABC)=tr(BAC)=tr(CAB)=\dots$ $tr(AB)=\sum_{ij}a_{ij}b_{ji}$ $tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)$ 相似不变性 $tr(B)=tr(PAP^{-1})=tr(A)$ 柯西不等式推导</description>
       
     </item>
     

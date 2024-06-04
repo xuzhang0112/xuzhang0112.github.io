@@ -61,45 +61,25 @@
   
   
   <meta property="og:title" content="Matrix" />
-<meta property="og:description" content="矩阵的基本概念 # 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
-A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 柯西不等式推导
-自相关、互相关、自协方差矩阵
-多元正态分布推导
-矩阵的奇异、诱导范数、元素范数（F范数）
-特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）
-基本矩阵2:初等变换矩阵（推广：移位、选择、置换）
-三角阵 # 上/下三角阵的逆矩阵仍然是上/下三角阵。
-若矩阵是三角阵，又是酉矩阵，则矩阵是对角阵，且对角线元素的范数（绝对值）为1 若矩阵是上三角分块酉矩阵，$A=\begin{bmatrix}P\quad B\newline 0\quad Q\end{bmatrix}$，那么P、Q都是酉矩阵，且B=0 上/下三角阵的和、积仍然是上/下三角阵。
-对称矩阵和Hermitian矩阵 # 若矩阵A满足$A^T=A$，则矩阵为对称矩阵。
-若矩阵A满足$A^H=A$，则矩阵为Hermitian矩阵。
-若Hermitian矩阵A使得一切$\mathbf{x}$满足$x^HAx&gt;0$，则称矩阵A是正定矩阵（二次型&gt;0） 正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
-若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。
-（转置与逆，特征值分解，范数与内积不变）
-中心化矩阵 # $$ 求和向量J_N=[1\ 1\ \dots\ 1]\newline 满足J_N\mathbf{x}=\sum_i x_i\newline 进而有中心化矩阵C_n = I_n - \frac{1}{N}J_N\newline 使得C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
-相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$" />
+<meta property="og:description" content="优先搞懂：
+KKT 瑞利商 诱导范数 某些矩阵的分解 看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
+矩阵的基本概念 # 若向量$a,b$，则它的内积、外积定义如下：
+inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
+Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product $A\cdot B$ or $AB$ 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
+A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 迹 # 性质 推论 线性性质 $tr(A&#43;B)=tr(A)&#43;tr(B)$ $tr(r\cdot A)=r\cdot tr(A)$ $tr(A)=tr(A^T)$ 矩阵乘积可交换 $tr(AB)=tr(BA)$ $tr(ABC)=tr(BAC)=tr(CAB)=\dots$ $tr(AB)=\sum_{ij}a_{ij}b_{ji}$ $tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)$ 相似不变性 $tr(B)=tr(PAP^{-1})=tr(A)$ 柯西不等式推导" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/course/matrix/" /><meta property="article:section" content="cheat_sheet" />
-<meta property="article:published_time" content="2024-05-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-05-30T00:00:00+00:00" />
+<meta property="article:published_time" content="2024-06-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-04T00:00:00+00:00" />
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Matrix"/>
-<meta name="twitter:description" content="矩阵的基本概念 # 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
-A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 柯西不等式推导
-自相关、互相关、自协方差矩阵
-多元正态分布推导
-矩阵的奇异、诱导范数、元素范数（F范数）
-特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）
-基本矩阵2:初等变换矩阵（推广：移位、选择、置换）
-三角阵 # 上/下三角阵的逆矩阵仍然是上/下三角阵。
-若矩阵是三角阵，又是酉矩阵，则矩阵是对角阵，且对角线元素的范数（绝对值）为1 若矩阵是上三角分块酉矩阵，$A=\begin{bmatrix}P\quad B\newline 0\quad Q\end{bmatrix}$，那么P、Q都是酉矩阵，且B=0 上/下三角阵的和、积仍然是上/下三角阵。
-对称矩阵和Hermitian矩阵 # 若矩阵A满足$A^T=A$，则矩阵为对称矩阵。
-若矩阵A满足$A^H=A$，则矩阵为Hermitian矩阵。
-若Hermitian矩阵A使得一切$\mathbf{x}$满足$x^HAx&gt;0$，则称矩阵A是正定矩阵（二次型&gt;0） 正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。
-若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。
-（转置与逆，特征值分解，范数与内积不变）
-中心化矩阵 # $$ 求和向量J_N=[1\ 1\ \dots\ 1]\newline 满足J_N\mathbf{x}=\sum_i x_i\newline 进而有中心化矩阵C_n = I_n - \frac{1}{N}J_N\newline 使得C_N\mathbf{x}=[x_1-\bar{x}\quad x_2-\bar{x}\quad \dots\quad x_N-\bar{x}] $$
-相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$"/>
+<meta name="twitter:description" content="优先搞懂：
+KKT 瑞利商 诱导范数 某些矩阵的分解 看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
+矩阵的基本概念 # 若向量$a,b$，则它的内积、外积定义如下：
+inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
+Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product $A\cdot B$ or $AB$ 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
+A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 迹 # 性质 推论 线性性质 $tr(A&#43;B)=tr(A)&#43;tr(B)$ $tr(r\cdot A)=r\cdot tr(A)$ $tr(A)=tr(A^T)$ 矩阵乘积可交换 $tr(AB)=tr(BA)$ $tr(ABC)=tr(BAC)=tr(CAB)=\dots$ $tr(AB)=\sum_{ij}a_{ij}b_{ji}$ $tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)$ 相似不变性 $tr(B)=tr(PAP^{-1})=tr(A)$ 柯西不等式推导"/>
 
   
   <script type="application/ld+json">
@@ -110,7 +90,7 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
     "name": "Matrix",
     "headline": "Matrix",
     
-    "abstract": "矩阵的基本概念 # 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：\nA、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A\u002bB)(A-B)$满足交换律 $(A\u002bB)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 柯西不等式推导\n自相关、互相关、自协方差矩阵\n多元正态分布推导\n矩阵的奇异、诱导范数、元素范数（F范数）\n特殊矩阵 # 基本矩阵 # 基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）\n基本矩阵2:初等变换矩阵（推广：移位、选择、置换）\n三角阵 # 上\/下三角阵的逆矩阵仍然是上\/下三角阵。\n若矩阵是三角阵，又是酉矩阵，则矩阵是对角阵，且对角线元素的范数（绝对值）为1 若矩阵是上三角分块酉矩阵，$A=\\begin{bmatrix}P\\quad B\\newline 0\\quad Q\\end{bmatrix}$，那么P、Q都是酉矩阵，且B=0 上\/下三角阵的和、积仍然是上\/下三角阵。\n对称矩阵和Hermitian矩阵 # 若矩阵A满足$A^T=A$，则矩阵为对称矩阵。\n若矩阵A满足$A^H=A$，则矩阵为Hermitian矩阵。\n若Hermitian矩阵A使得一切$\\mathbf{x}$满足$x^HAx\u0026gt;0$，则称矩阵A是正定矩阵（二次型\u0026gt;0） 正交矩阵和酉矩阵 # 若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。\n若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。\n（转置与逆，特征值分解，范数与内积不变）\n中心化矩阵 # $$ 求和向量J_N=[1\\ 1\\ \\dots\\ 1]\\newline 满足J_N\\mathbf{x}=\\sum_i x_i\\newline 进而有中心化矩阵C_n = I_n - \\frac{1}{N}J_N\\newline 使得C_N\\mathbf{x}=[x_1-\\bar{x}\\quad x_2-\\bar{x}\\quad \\dots\\quad x_N-\\bar{x}] $$\n相似与相合 # 相似矩阵（特征值） # $$ B=S^{-1}AS $$",
+    "abstract": "优先搞懂：\nKKT 瑞利商 诱导范数 某些矩阵的分解 看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)\n矩阵的基本概念 # 若向量$a,b$，则它的内积、外积定义如下：\ninner product $\\sum a_ib_i$ $a\\odot b$ Outer product $ab^T$ $a\\otimes b$ 若矩阵$A\\in R^{m\\times n},B\\in R^{m\\times n}$，则它的哈达玛积、克罗内亚积如下：\nHardmard Product 逐元素相乘 $A\\circ B \\in R^{m\\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\\otimes B \\in R^{m^2\\times n^2}$ Matrix Product $A\\cdot B$ or $AB$ 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：\nA、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA$ 当$AB=BA$时 $(A\u002bB)(A-B)$满足交换律 $(A\u002bB)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 迹 # 性质 推论 线性性质 $tr(A\u002bB)=tr(A)\u002btr(B)$ $tr(r\\cdot A)=r\\cdot tr(A)$ $tr(A)=tr(A^T)$ 矩阵乘积可交换 $tr(AB)=tr(BA)$ $tr(ABC)=tr(BAC)=tr(CAB)=\\dots$ $tr(AB)=\\sum_{ij}a_{ij}b_{ji}$ $tr(A^TB)=\\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\\cdot vec(B)$ 相似不变性 $tr(B)=tr(PAP^{-1})=tr(A)$ 柯西不等式推导",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/course\/matrix\/",
     "author" : {
@@ -118,15 +98,15 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
       "name": "Xu Zhang"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-05-30T00:00:00\u002b00:00",
-    "datePublished": "2024-05-30T00:00:00\u002b00:00",
+    "dateCreated": "2024-06-04T00:00:00\u002b00:00",
+    "datePublished": "2024-06-04T00:00:00\u002b00:00",
     
-    "dateModified": "2024-05-30T00:00:00\u002b00:00",
+    "dateModified": "2024-06-04T00:00:00\u002b00:00",
     
     "keywords": ["Course"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "459"
+    "wordCount": "510"
   }]
   </script>
 
@@ -827,6 +807,7 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
       <ul>
         <li><a href="#交换律">交换律</a></li>
         <li><a href="#逆矩阵">逆矩阵</a></li>
+        <li><a href="#迹">迹</a></li>
         <li><a href="#特殊矩阵">特殊矩阵</a></li>
       </ul>
     </li>
@@ -834,6 +815,7 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
       <ul>
         <li><a href="#矩阵函数">矩阵函数</a></li>
         <li><a href="#矩阵的求导与微分">矩阵的求导与微分</a></li>
+        <li><a href="#矩阵微分的计算">矩阵微分的计算</a></li>
         <li><a href="#共轭梯度">共轭梯度</a></li>
         <li><a href="#无约束优化">无约束优化</a></li>
         <li><a href="#凸优化">凸优化</a></li>
@@ -844,7 +826,6 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
       <ul>
         <li><a href="#特征值和特征向量">特征值和特征向量</a></li>
         <li><a href="#特征值分解和奇异值分解evd--svd">特征值分解和奇异值分解（EVD &amp; SVD）</a></li>
-        <li><a href="#迹">迹</a></li>
       </ul>
     </li>
     <li><a href="#特征分析">特征分析</a>
@@ -857,10 +838,10 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
       <ul>
         <li><a href="#线性空间">线性空间</a></li>
         <li><a href="#子空间的基与维数">子空间的基与维数</a></li>
+        <li><a href="#直和">直和</a></li>
       </ul>
     </li>
     <li><a href="#投影分析">投影分析</a></li>
-    <li><a href="#应用">应用</a></li>
   </ul>
 </nav>
   </div>
@@ -878,6 +859,7 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
       <ul>
         <li><a href="#交换律">交换律</a></li>
         <li><a href="#逆矩阵">逆矩阵</a></li>
+        <li><a href="#迹">迹</a></li>
         <li><a href="#特殊矩阵">特殊矩阵</a></li>
       </ul>
     </li>
@@ -885,6 +867,7 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
       <ul>
         <li><a href="#矩阵函数">矩阵函数</a></li>
         <li><a href="#矩阵的求导与微分">矩阵的求导与微分</a></li>
+        <li><a href="#矩阵微分的计算">矩阵微分的计算</a></li>
         <li><a href="#共轭梯度">共轭梯度</a></li>
         <li><a href="#无约束优化">无约束优化</a></li>
         <li><a href="#凸优化">凸优化</a></li>
@@ -895,7 +878,6 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
       <ul>
         <li><a href="#特征值和特征向量">特征值和特征向量</a></li>
         <li><a href="#特征值分解和奇异值分解evd--svd">特征值分解和奇异值分解（EVD &amp; SVD）</a></li>
-        <li><a href="#迹">迹</a></li>
       </ul>
     </li>
     <li><a href="#特征分析">特征分析</a>
@@ -908,10 +890,10 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
       <ul>
         <li><a href="#线性空间">线性空间</a></li>
         <li><a href="#子空间的基与维数">子空间的基与维数</a></li>
+        <li><a href="#直和">直和</a></li>
       </ul>
     </li>
     <li><a href="#投影分析">投影分析</a></li>
-    <li><a href="#应用">应用</a></li>
   </ul>
 </nav>
   </div>
@@ -927,7 +909,15 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
 
 
         <div class="article-content max-w-prose mb-20">
-          
+          <p>优先搞懂：</p>
+<ol>
+<li>KKT</li>
+<li>瑞利商</li>
+<li>诱导范数</li>
+<li>某些矩阵的分解</li>
+</ol>
+<p>看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)</p>
+
 
 <h2 class="relative group">矩阵的基本概念 
     <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" class="anchor"></div>
@@ -939,6 +929,55 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
     </span>        
     
 </h2>
+<p>若向量$a,b$，则它的内积、外积定义如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inner product</td>
+<td>$\sum a_ib_i$</td>
+<td>$a\odot b$</td>
+</tr>
+<tr>
+<td>Outer product</td>
+<td>$ab^T$</td>
+<td>$a\otimes b$</td>
+</tr>
+</tbody>
+</table>
+<p>若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardmard Product</td>
+<td>逐元素相乘</td>
+<td>$A\circ B \in R^{m\times n}$</td>
+</tr>
+<tr>
+<td>Kronnecker Product</td>
+<td>矩阵A每个元素乘以矩阵B</td>
+<td>$A\otimes B \in R^{m^2\times n^2}$</td>
+</tr>
+<tr>
+<td>Matrix Product</td>
+<td></td>
+<td>$A\cdot B$ or $AB$</td>
+</tr>
+</tbody>
+</table>
 
 
 <h3 class="relative group">交换律 
@@ -953,7 +992,7 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
 </h3>
 <p>矩阵乘法一般情况下不满足交换律，但也有例外：</p>
 <ul>
-<li>A、B中有单位阵、数量阵、对角阵、零矩阵</li>
+<li>A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA$</li>
 <li>当$AB=BA$时
 <ul>
 <li>$(A+B)(A-B)$满足交换律</li>
@@ -987,6 +1026,59 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
 </ol>
 </li>
 </ul>
+
+
+<h3 class="relative group">迹 
+    <div id="%E8%BF%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>性质</th>
+<th>推论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>线性性质</td>
+<td>$tr(A+B)=tr(A)+tr(B)$</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>$tr(r\cdot A)=r\cdot tr(A)$</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>$tr(A)=tr(A^T)$</td>
+<td></td>
+</tr>
+<tr>
+<td>矩阵乘积可交换</td>
+<td>$tr(AB)=tr(BA)$</td>
+<td>$tr(ABC)=tr(BAC)=tr(CAB)=\dots$</td>
+</tr>
+<tr>
+<td></td>
+<td>$tr(AB)=\sum_{ij}a_{ij}b_{ji}$</td>
+<td>$tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)$</td>
+</tr>
+<tr>
+<td>相似不变性</td>
+<td>$tr(B)=tr(PAP^{-1})=tr(A)$</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>柯西不等式推导</p>
 <p>自相关、互相关、自协方差矩阵</p>
 <p>多元正态分布推导</p>
@@ -1050,7 +1142,8 @@ A、B中有单位阵、数量阵、对角阵、零矩阵 当$AB=BA$时 $(A&#43;B
 <p>若矩阵A满足$A^T=A$，则矩阵为对称矩阵。</p>
 <p>若矩阵A满足$A^H=A$，则矩阵为Hermitian矩阵。</p>
 <ul>
-<li>若Hermitian矩阵A使得一切$\mathbf{x}$满足$x^HAx&gt;0$，则称矩阵A是正定矩阵（二次型&gt;0）</li>
+<li>若Hermitian矩阵A使得一切$\mathbf{x}$满足$x^HAx&gt;0$​，则称矩阵A是正定矩阵（二次型&gt;0）</li>
+<li>若Hermitian矩阵A是幂等矩阵，即$A^2=A$，则矩阵A一定是半正定的</li>
 </ul>
 
 
@@ -1316,7 +1409,18 @@ $$</p>
     </span>        
     
 </h4>
-<p>如果是标量函数，本质上是multi-input &amp; single output，其偏导定义如下。</p>
+
+
+<h4 class="relative group">标量函数的偏导 
+    <div id="%E6%A0%87%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%81%8F%E5%AF%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A0%87%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%81%8F%E5%AF%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 <table>
 <thead>
 <tr>
@@ -1328,11 +1432,11 @@ $$</p>
 <tbody>
 <tr>
 <td>行向量偏导</td>
-<td>将矩阵X行向量化</td>
+<td>将矩阵X行向量化（先列向量化，再转置）</td>
 <td>$D_{vec^T(X)}f(X)=\frac{\partial f(X)}{\partial vec^T(X)}$</td>
 </tr>
 <tr>
-<td><strong>Jacobin矩阵</strong></td>
+<td><strong>Jacobian矩阵</strong></td>
 <td>将矩阵X转置</td>
 <td>$D_Xf(X)=\frac{\partial f(X)}{\partial X^T}$</td>
 </tr>
@@ -1348,43 +1452,115 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<p>注意$vec^T(X)=[vec(X)]^T$和$rvec(X)$的区别。</p>
-<p>梯度的负方向称为<strong>梯度流</strong>，即梯度下降的方向。</p>
-<p>如果是向量/矩阵函数，都可以看成是广义的<strong>矩阵变元的实矩阵函数</strong>，本质是multi-input &amp; multi-output。</p>
-<p>将向量/矩阵函数<strong>列向量化</strong>，求其对变元的<strong>行向量偏导</strong>，称为矩阵函数的<strong>协梯度矩阵</strong>，也称<strong>Jacobin矩阵</strong>，记为$D_XF(X)$。</p>
 
 
-<h4 class="relative group">微分 
-    <div id="%E5%BE%AE%E5%88%86" class="anchor"></div>
+<h4 class="relative group">行向量偏导与Jacobian矩阵的关系 
+    <div id="%E8%A1%8C%E5%90%91%E9%87%8F%E5%81%8F%E5%AF%BC%E4%B8%8Ejacobian%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%BE%AE%E5%88%86" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E8%A1%8C%E5%90%91%E9%87%8F%E5%81%8F%E5%AF%BC%E4%B8%8Ejacobian%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%B3%E7%B3%BB" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<p>考虑矩阵变元微分$dX=\begin{bmatrix}dX_{11} &hellip; dX_{1n}\newline &hellip;\newline dX_{n1} &hellip; dX_{nn} \end{bmatrix}$，则标量函数的微分</p>
-<p>$$df(X)=rvec(A)vec(X)=tr(AdX)$$</p>
-<p>相应地，标量函数的偏导
-$$
-\nabla_Xf(X)=\frac{\partial f(X)}{\partial X} = A^T
-$$
-实值标量函数总可以写成迹函数的形式，因为
-$$
-f(X)=tr(f(X))
-$$
-进而可以使用迹函数的性质
-$$
-tr(AdXB)=tr(BAdX)
-$$
-对于$dX^T$，也可以利用迹函数的性质
-$$
-tr(AdX^TB)=tr(B^TdXA^T)=tr(A^TB^TdX)
-$$
-以得到迹函数微分矩阵的规范形式。</p>
-<p>矩阵微分的公式需要背诵。</p>
-<p>标量函数的二阶梯度矩阵称为<strong>Hessian矩阵</strong>，即梯度向量的Jacobin矩阵。</p>
+<p>行向量偏导$vec^T(X)=[vec(X)]^T$和Jacobian矩阵$X^T$是不同的，行向量偏导实际上并没有对$X$作转置，如果需要将jacobian矩阵转化为行向量偏导的形式，则需要$rvec(X)=vec^T(X^T)$</p>
+
+
+<h4 class="relative group">矩阵/向量函数的Jacobin矩阵和梯度矩阵 
+    <div id="%E7%9F%A9%E9%98%B5%E5%90%91%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84jacobin%E7%9F%A9%E9%98%B5%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%90%91%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84jacobin%E7%9F%A9%E9%98%B5%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>首先向量/矩阵函数列向量化，再<strong>转置</strong>为行向量，然后求偏导，即为矩阵变元函数的<strong>Jacobian矩阵</strong>，记为$D_XF(X)$​</p>
+<p>如果是列向量偏导，则认为不做转置，称为梯度矩阵。</p>
+
+
+<h4 class="relative group">二阶偏导 
+    <div id="%E4%BA%8C%E9%98%B6%E5%81%8F%E5%AF%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BA%8C%E9%98%B6%E5%81%8F%E5%AF%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>标量函数的二阶梯度矩阵称为<strong>Hessian矩阵</strong>，先对标量函数求一阶<strong>梯度矩阵</strong>，然后求解<strong>Jacobian矩阵</strong>。</p>
+
+
+<h4 class="relative group">梯度流 
+    <div id="%E6%A2%AF%E5%BA%A6%E6%B5%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A2%AF%E5%BA%A6%E6%B5%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>梯度的负方向称为<strong>梯度流</strong>，即梯度下降的方向。</p>
+
+
+<h3 class="relative group">矩阵微分的计算 
+    <div id="%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E7%9A%84%E8%AE%A1%E7%AE%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E7%9A%84%E8%AE%A1%E7%AE%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>将标量矩阵函数转化为迹的形式，然后同时利用迹的性质和微分的性质。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>性质</th>
+<th>推论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>$d(UV)=d(U)V+udV$</td>
+<td>$d(UVW)=d(U)VW+Ud(V)W+UVdW$</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>$d(AXB)=Ad(X)B$</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>$d(X^TAX)=d(X)^TAX+X^TAdX$</td>
+</tr>
+<tr>
+<td></td>
+<td>$d(tr(F(X)))=tr(d(F(X)))$</td>
+<td>$d(tr(X))=tr(d(X))$</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>$d(tr(X^TX))=2tr(X^TdX)$</td>
+</tr>
+<tr>
+<td></td>
+<td>$d</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+<p>若矩阵微分$df(X)=tr(AdX)$，则矩阵的梯度矩阵（偏导）$\nabla f(X)=\frac{f(X)}{\partial X}=A^T$</p>
+<p>常见函数的微分和梯度矩阵如表格所示。</p>
 
 
 <h3 class="relative group">共轭梯度 
@@ -1666,10 +1842,21 @@ $$
     </span>        
     
 </h4>
-<p>阶数为n的矩阵A有n个特征值，特征多项式的次数称为代数重数，特征值对应的特征向量空间的维度称为几何重数。</p>
+<p>若$Ax=\lambda x$，则称A存在特征值为$\lambda$的特征向量$x$</p>
 <ul>
-<li>若$rank(A-\lambda I)\le n-1$，则$\lambda$为矩阵A的特征值</li>
+<li>
+<p>阶数为n的矩阵A有n个特征值，特征多项式的次数称为代数重数，特征值对应的特征向量空间的维度称为几何重数。</p>
+</li>
+<li>
+<p>若$rank(A-\lambda I)\le n-1$，则$\lambda$​为矩阵A的特征值</p>
+</li>
+<li>
+<p>若矩阵$A$满足$\sum_{j}|a_{ij}&lt;1|$，即每一行的和小于1，则$A$​的每一个特征值的绝对值$|\lambda|&lt;1$</p>
+</li>
 </ul>
+<blockquote>
+<p>考察矩阵A对向量x左乘变行，即每一行的线性组合，矩阵A的每一行是组合系数，而对于最大的元素，其它元素系数和为1的线性组合必然小于该元素，因此特征值必然小于1（不等式放缩）</p>
+</blockquote>
 
 
 <h4 class="relative group">一些矩阵的特征值 
@@ -1873,21 +2060,6 @@ $$
 <p>应用：逆矩阵的计算、矩阵幂的计算（多项式除法）</p>
 
 
-<h3 class="relative group">迹 
-    <div id="%E8%BF%B9" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%BF%B9" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>$$
-tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)
-$$</p>
-
-
 <h2 class="relative group">特征分析 
     <div id="%E7%89%B9%E5%BE%81%E5%88%86%E6%9E%90" class="anchor"></div>
     
@@ -1910,6 +2082,8 @@ $$</p>
     </span>        
     
 </h3>
+<p><a href="https://zhuanlan.zhihu.com/p/432080955"   target="_blank">
+    瑞利商和广义瑞利商 - Void的文章 - 知乎</a></p>
 
 
 <h3 class="relative group">Jordan标准形 
@@ -1964,8 +2138,23 @@ $$</p>
 <li>和空间的维数可以求解矩阵的秩，基向量可以消去任意若干直至等于秩</li>
 <li>交空间的维数可以用维数公式，基向量的求解方式为：将交空间的向量用两个空间的向量分别表示，得到线性方程组，将交空间的向量用某一个空间的系数和基向量表示出来，再合并系数即可。</li>
 </ul>
-<p>正交和正交补</p>
-<p>子空间基的构造</p>
+
+
+<h3 class="relative group">直和 
+    <div id="%E7%9B%B4%E5%92%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9B%B4%E5%92%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>无交子空间的和称为直和</p>
+<blockquote>
+<p>首先计算两个子空间的和，计算极大无关组的秩，得到和空间的维数，然后根据维数公式计算交空间的维数（为0），证明无交，即为直和</p>
+</blockquote>
+<p>首先</p>
 
 
 <h2 class="relative group">投影分析 
@@ -1978,23 +2167,6 @@ $$</p>
     </span>        
     
 </h2>
-
-
-<h2 class="relative group">应用 
-    <div id="%E5%BA%94%E7%94%A8" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%BA%94%E7%94%A8" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<p><strong>矩阵：描述线性系统，进而分析其内在特征，从而优化设计</strong></p>
-<p>举例1：siso系统，R=HS+Z，miso系统</p>
-<p>举例2：图像压缩 SVD，类比：消去（近似）线性相关的行或列</p>
-<p>举例3：通信系统Y=AX，根据接收信号Y，恢复原始信号X，当A不可逆需要选择，当含有加性噪声时</p>
-<p>简单化：优化$\omega$最大化SNR（MVDR问题）补偿相位，高置信高权重，非对角阵转对角</p>
 
         </div>
         

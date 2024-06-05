@@ -14,8 +14,7 @@
       <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
-      <description>优先搞懂：
-KKT 瑞利商 诱导范数 某些矩阵的分解 看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
+      <description>看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
 矩阵的基本概念 # 若向量$a,b$，则它的内积、外积定义如下：
 inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
 Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product $A\cdot B$ or $AB$ 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：

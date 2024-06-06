@@ -106,7 +106,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "413"
+    "wordCount": "407"
   }]
   </script>
 
@@ -1364,11 +1364,14 @@
 </h3>
 <p><a href="https://chenglu.me/blogs/what-is-cuda"   target="_blank">
     CUDA 是什么 | Chenglu’s Log</a></p>
-<p>CUDA主要有两个API：runtime API、driver API</p>
-<p>Driver version：可通过<code>nvidia-smi</code>查看显卡的驱动和CUDA驱动版本，CUDA驱动版本需要高于CUDA的runtime版本</p>
-<p>Runtime version: 可通过<code>nvcc -V</code>查看，表示CUDA Toolkit的runtime版本，通过CUDA Toolkit installer安装，见<code>usr/local/cuda/include/cuda.h</code>），需要高于pytorch编译时的CUDA版本</p>
-<p>Conda安装的CUDA toolkit是不完整的，而且当系统里存在CUDA toolkit时，会优先调用系统级的CUDA</p>
-<p>tensorflow和pytorch可以直接调用服务器预装的CUDA和cuDNN (pytorch不需要cuDNN)</p>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406052252187.png" alt="image-20240605225234182" style="zoom:67%;" />
+<p>Driver：可通过<code>nvidia-smi</code>查看显卡的驱动和CUDA驱动版本，驱动版本需要高于Runtime版本</p>
+<p>Runtime: 可通过<code>nvcc -V</code>查看，表示CUDA Toolkit的runtime版本，通过CUDA Toolkit installer安装，见<code>usr/local/cuda/include/cuda.h</code>），一些软件会调用Runtime提供的API</p>
+<p>不同应用对CUDA各个层的依赖要求是不同的</p>
+<ul>
+<li>PyTorch会打包所需要的Runtime依赖，不调用本机的CUDA Toolkit，只需要驱动版本满足要求即可。</li>
+<li>Tensorflow需要安装相应的Library，例如CuDNN，也会对Runtime有要求</li>
+</ul>
 
 
 <h3 class="relative group">Conda 

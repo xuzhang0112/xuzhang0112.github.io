@@ -14,11 +14,13 @@
       <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
-      <description>看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
+      <description>看不懂的题：9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
 矩阵的基本概念 # 若向量$a,b$，则它的内积、外积定义如下：
 inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
 Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product $A\cdot B$ or $AB$ 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
-A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA$ 当$AB=BA$时 $(A+B)(A-B)$满足交换律 $(A+B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 迹 # 性质 推论 线性性质 $tr(A+B)=tr(A)+tr(B)$ $tr(r\cdot A)=r\cdot tr(A)$ $tr(A)=tr(A^T)$ 矩阵乘积可交换 $tr(AB)=tr(BA)$ $tr(ABC)=tr(BAC)=tr(CAB)=\dots$ $tr(AB)=\sum_{ij}a_{ij}b_{ji}$ $tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)$ 相似不变性 $tr(B)=tr(PAP^{-1})=tr(A)$ 柯西不等式推导</description>
+A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A+B)(A-B)$满足交换律 $(A+B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 秩 # 矩阵秩为1，则每一行线性相关，即系数成比例（可据此推导出系数关系）
+行列式 # 拉普拉斯展开：行列式可以按某一行或列展开为元素与其代数余子式的乘积和，即$|B|=\sum_j b_{ij}C_{ij}$，其中代数余子式$C_{ij} = (−1)^{i + j}M_{ij}$​
+$$ 考虑矩阵B= \begin{bmatrix} 1\quad2\quad3\newline 4\quad5\quad6\newline 7\quad8\quad9\newline \end{bmatrix} \newline 它的行列式|B|= 1\cdot \begin{vmatrix} 5\quad6\newline 8\quad9\newline \end{vmatrix} -2\cdot \begin{vmatrix} 4\quad6\newline 7\quad9\newline \end{vmatrix} +3\cdot \begin{vmatrix} 4\quad5\newline 7\quad8\newline \end{vmatrix} $$</description>
       
     </item>
     
@@ -29,7 +31,7 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/pr/</guid>
       <description>统计模式识别 # 相似性度量 # 相似性测度
-明氏距离 $[\sum^n x_i-y_i 欧式距离 马氏距离 $(X-M)^T\Sigma(X-M)$ 与分布的距离 向量夹角余弦 最小距离分类器 # 平均样本法 每个类别取各个样本的平均值作为平均样本 平均距离法 求样本到各个样本的距离的平均值作为平均距离 最近邻法 最大值判决：欧式距离下，可增广权向量和样本向量，将判别函数改写为线性形式
+明氏距离 欧式距离 马氏距离 $(X-M)^T\Sigma(X-M)$ 与分布的距离 向量夹角余弦 最小距离分类器 # 平均样本法 每个类别取各个样本的平均值作为平均样本 平均距离法 求样本到各个样本的距离的平均值作为平均距离 最近邻法 最大值判决：欧式距离下，可增广权向量和样本向量，将判别函数改写为线性形式
 线性分类器 # 线性可分
 总体线性可分 用一个超平面将任意一个类别的样本同其它所有类别的样本分开 成对线性可分 用一个超平面将所有类别中任意两个类别的样本分开，分类器更多，但是不确定区域更少 n维线性分类器可以表达为超平面 $$ w^Tx+b=0 $$ 如果对数据增广，令x的第n+1维恒为1，则可以进一步简化为 $$ \hat{w}^T\hat{x}=0 $$ 线性可分则要求所有样本满足 $$ w^Tx&amp;gt;0,x\in w_1\newline w^Tx&amp;lt;0,x\in w_2 $$
 感知器 # 线性分类器+激活函数（阶跃函数）

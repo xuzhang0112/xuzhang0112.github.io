@@ -7,18 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/</guid>
+      <description>引入LLM和外部知识库KG来产生定性认识，然后根据定量数据产生精准描述。
+使用LLM+规则从时序数据和病历文本中抽取实体，基于这些实体在KG中查询相关的知识，包括定义、描述、三元组 整合原始文本和检索到的知识，生成知识增强的文本 使用LM做文本嵌入，用GRU做时序数据编码，使用cross attention融合，并据此做出死亡和生存时间预测 RAG # 时序数据知识检索 # 对于时序数据，计算每个指标的均值和方差，偏离3倍标准差的认为是异常值，从而评估某个指标过低/过高；
+如果某个指标出现在某个疾病的定义/描述中，则认为暗示这种疾病；
+文本报告知识检索 # 对于文本报告，使用LLM进行NER，并滤除不合法的实体（不在文本中，不是疾病名）
+LLM NER Prompt # 文本生成 Prompt # 对于提取到的每一种疾病，检索相应节点的定义、描述、三元组，并使用LLM整合成文本。
+多模态融合 # 每个模态用cross attention聚合另一模态的信息，再拼接到一起
+实验 # 对比实验 # 消融实验 # 时序数据占主导，文本和RAG能起到一定辅助作用
+LM &amp;amp; LLM # 功能 Tokens Params 推理方式 Clinical-LongFromer 文本嵌入 512-4096 BGE-M3 实体嵌入 8182 Qwen Chat 7B 实体抽取 8192 7B DeepSeek Chat 文本生成 236B API </description>
+      
+    </item>
+    
     <item>
       <title>Matrix</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</link>
       <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
-      <description>看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
+      <description>看不懂的题：9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
 矩阵的基本概念 # 若向量$a,b$，则它的内积、外积定义如下：
 inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
 Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product $A\cdot B$ or $AB$ 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
-A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA$ 当$AB=BA$时 $(A+B)(A-B)$满足交换律 $(A+B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 迹 # 性质 推论 线性性质 $tr(A+B)=tr(A)+tr(B)$ $tr(r\cdot A)=r\cdot tr(A)$ $tr(A)=tr(A^T)$ 矩阵乘积可交换 $tr(AB)=tr(BA)$ $tr(ABC)=tr(BAC)=tr(CAB)=\dots$ $tr(AB)=\sum_{ij}a_{ij}b_{ji}$ $tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)$ 相似不变性 $tr(B)=tr(PAP^{-1})=tr(A)$ 柯西不等式推导</description>
+A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A+B)(A-B)$满足交换律 $(A+B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 秩 # 矩阵秩为1，则每一行线性相关，即系数成比例（可据此推导出系数关系）
+行列式 # 拉普拉斯展开：行列式可以按某一行或列展开为元素与其代数余子式的乘积和，即$|B|=\sum_j b_{ij}C_{ij}$，其中代数余子式$C_{ij} = (−1)^{i + j}M_{ij}$​
+$$ 考虑矩阵B= \begin{bmatrix} 1\quad2\quad3\newline 4\quad5\quad6\newline 7\quad8\quad9\newline \end{bmatrix} \newline 它的行列式|B|= 1\cdot \begin{vmatrix} 5\quad6\newline 8\quad9\newline \end{vmatrix} -2\cdot \begin{vmatrix} 4\quad6\newline 7\quad9\newline \end{vmatrix} +3\cdot \begin{vmatrix} 4\quad5\newline 7\quad8\newline \end{vmatrix} $$</description>
       
     </item>
     
@@ -43,7 +62,7 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/pr/</guid>
       <description>统计模式识别 # 相似性度量 # 相似性测度
-明氏距离 $[\sum^n x_i-y_i 欧式距离 马氏距离 $(X-M)^T\Sigma(X-M)$ 与分布的距离 向量夹角余弦 最小距离分类器 # 平均样本法 每个类别取各个样本的平均值作为平均样本 平均距离法 求样本到各个样本的距离的平均值作为平均距离 最近邻法 最大值判决：欧式距离下，可增广权向量和样本向量，将判别函数改写为线性形式
+明氏距离 欧式距离 马氏距离 $(X-M)^T\Sigma(X-M)$ 与分布的距离 向量夹角余弦 最小距离分类器 # 平均样本法 每个类别取各个样本的平均值作为平均样本 平均距离法 求样本到各个样本的距离的平均值作为平均距离 最近邻法 最大值判决：欧式距离下，可增广权向量和样本向量，将判别函数改写为线性形式
 线性分类器 # 线性可分
 总体线性可分 用一个超平面将任意一个类别的样本同其它所有类别的样本分开 成对线性可分 用一个超平面将所有类别中任意两个类别的样本分开，分类器更多，但是不确定区域更少 n维线性分类器可以表达为超平面 $$ w^Tx+b=0 $$ 如果对数据增广，令x的第n+1维恒为1，则可以进一步简化为 $$ \hat{w}^T\hat{x}=0 $$ 线性可分则要求所有样本满足 $$ w^Tx&amp;gt;0,x\in w_1\newline w^Tx&amp;lt;0,x\in w_2 $$
 感知器 # 线性分类器+激活函数（阶跃函数）

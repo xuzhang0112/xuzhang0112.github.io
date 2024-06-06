@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
   data-auto-appearance="true"><head>
-	<meta name="generator" content="Hugo 0.121.2">
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -9,16 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Xu Zhang&#39;s Blog</title>
-  <meta name="title" content="Xu Zhang&#39;s Blog" />
+  <title>EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling &middot; Xu Zhang&#39;s Blog" />
   
   
+  <meta name="keywords" content="LLM, RAG, Multimodal, " />
   
   
-  
-  <link rel="canonical" href="https://xuzhang0112.github.io/" />
-  
-  <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Xu Zhang's Blog" />
+  <link rel="canonical" href="https://xuzhang0112.github.io/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/" />
   
   
   
@@ -63,31 +60,58 @@
   
   
   
-  <meta property="og:title" content="Xu Zhang&#39;s Blog" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://xuzhang0112.github.io/" />
+  <meta property="og:title" content="EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling" />
+<meta property="og:description" content="引入LLM和外部知识库KG来产生定性认识，然后根据定量数据产生精准描述。
+使用LLM&#43;规则从时序数据和病历文本中抽取实体，基于这些实体在KG中查询相关的知识，包括定义、描述、三元组 整合原始文本和检索到的知识，生成知识增强的文本 使用LM做文本嵌入，用GRU做时序数据编码，使用cross attention融合，并据此做出死亡和生存时间预测 RAG # 时序数据知识检索 # 对于时序数据，计算每个指标的均值和方差，偏离3倍标准差的认为是异常值，从而评估某个指标过低/过高；
+如果某个指标出现在某个疾病的定义/描述中，则认为暗示这种疾病；
+文本报告知识检索 # 对于文本报告，使用LLM进行NER，并滤除不合法的实体（不在文本中，不是疾病名）
+LLM NER Prompt # 文本生成 Prompt # 对于提取到的每一种疾病，检索相应节点的定义、描述、三元组，并使用LLM整合成文本。
+多模态融合 # 每个模态用cross attention聚合另一模态的信息，再拼接到一起
+实验 # 对比实验 # 消融实验 # 时序数据占主导，文本和RAG能起到一定辅助作用
+LM &amp; LLM # 功能 Tokens Params 推理方式 Clinical-LongFromer 文本嵌入 512-4096 BGE-M3 实体嵌入 8182 Qwen Chat 7B 实体抽取 8192 7B DeepSeek Chat 文本生成 236B API " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/" /><meta property="article:section" content="paper_reading" />
+<meta property="article:published_time" content="2024-06-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-06T00:00:00+00:00" />
 
 
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Xu Zhang&#39;s Blog"/>
-<meta name="twitter:description" content=""/>
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling"/>
+<meta name="twitter:description" content="引入LLM和外部知识库KG来产生定性认识，然后根据定量数据产生精准描述。
+使用LLM&#43;规则从时序数据和病历文本中抽取实体，基于这些实体在KG中查询相关的知识，包括定义、描述、三元组 整合原始文本和检索到的知识，生成知识增强的文本 使用LM做文本嵌入，用GRU做时序数据编码，使用cross attention融合，并据此做出死亡和生存时间预测 RAG # 时序数据知识检索 # 对于时序数据，计算每个指标的均值和方差，偏离3倍标准差的认为是异常值，从而评估某个指标过低/过高；
+如果某个指标出现在某个疾病的定义/描述中，则认为暗示这种疾病；
+文本报告知识检索 # 对于文本报告，使用LLM进行NER，并滤除不合法的实体（不在文本中，不是疾病名）
+LLM NER Prompt # 文本生成 Prompt # 对于提取到的每一种疾病，检索相应节点的定义、描述、三元组，并使用LLM整合成文本。
+多模态融合 # 每个模态用cross attention聚合另一模态的信息，再拼接到一起
+实验 # 对比实验 # 消融实验 # 时序数据占主导，文本和RAG能起到一定辅助作用
+LM &amp; LLM # 功能 Tokens Params 推理方式 Clinical-LongFromer 文本嵌入 512-4096 BGE-M3 实体嵌入 8182 Qwen Chat 7B 实体抽取 8192 7B DeepSeek Chat 文本生成 236B API "/>
 
   
   <script type="application/ld+json">
-  {
+  [{
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https:\/\/xuzhang0112.github.io\/",
-    "name": "Xu Zhang\u0027s Blog",
+    "@type": "Article",
+    "articleSection": "PaperReading",
+    "name": "EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling",
+    "headline": "EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling",
     
+    "abstract": "引入LLM和外部知识库KG来产生定性认识，然后根据定量数据产生精准描述。\n使用LLM\u002b规则从时序数据和病历文本中抽取实体，基于这些实体在KG中查询相关的知识，包括定义、描述、三元组 整合原始文本和检索到的知识，生成知识增强的文本 使用LM做文本嵌入，用GRU做时序数据编码，使用cross attention融合，并据此做出死亡和生存时间预测 RAG # 时序数据知识检索 # 对于时序数据，计算每个指标的均值和方差，偏离3倍标准差的认为是异常值，从而评估某个指标过低\/过高；\n如果某个指标出现在某个疾病的定义\/描述中，则认为暗示这种疾病；\n文本报告知识检索 # 对于文本报告，使用LLM进行NER，并滤除不合法的实体（不在文本中，不是疾病名）\nLLM NER Prompt # 文本生成 Prompt # 对于提取到的每一种疾病，检索相应节点的定义、描述、三元组，并使用LLM整合成文本。\n多模态融合 # 每个模态用cross attention聚合另一模态的信息，再拼接到一起\n实验 # 对比实验 # 消融实验 # 时序数据占主导，文本和RAG能起到一定辅助作用\nLM \u0026amp; LLM # 功能 Tokens Params 推理方式 Clinical-LongFromer 文本嵌入 512-4096 BGE-M3 实体嵌入 8182 Qwen Chat 7B 实体抽取 8192 7B DeepSeek Chat 文本生成 236B API ",
     "inLanguage": "en",
-    "url": "https:\/\/xuzhang0112.github.io\/",
-    
-    "publisher" : {
+    "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/arxiv\/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling\/",
+    "author" : {
       "@type": "Person",
       "name": "Xu Zhang"
-    }
-  }
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-06-06T00:00:00\u002b00:00",
+    "datePublished": "2024-06-06T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-06-06T00:00:00\u002b00:00",
+    
+    "keywords": ["LLM","RAG","Multimodal"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "58"
+  }]
   </script>
 
 
@@ -614,638 +638,559 @@
   <div class="relative flex flex-col grow">
     <main id="main-content" class="grow">
       
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
   
   
     
-<article class=" flex flex-col items-center justify-center text-center">
-  <header class="relative px-1 py-1 flex flex-col items-center mb-3">
+  
     
-      
-      
-        
-      
-      
-        
-          
-        
-        <img class="mb-2 rounded-full h-36 w-36" width="144" height="144" alt="Xu Zhang"
-          src="/img/zx_hue2fb9e9b268b3f17d7c6476e22477ff1_82142_288x288_fill_q75_box_smart1.jpg" />
-      
+  
     
-    <h1 class="text-4xl font-extrabold">
-      Xu Zhang
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/"
+      >PaperReading</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/arxiv/"
+      >Arxiv</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/"
+      >EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling
     </h1>
-    
-    <h2 class="text-xl text-neutral-500 dark:text-neutral-400">
-      Bitchy, lazy &amp; stupid
-    </h2>
-    
-    <div class="mt-1 text-2xl">
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
-  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://www.zhihu.com/people/zhang-xu-20-31-39"
-          target="_blank"
-          aria-label="Zhihu"
-          rel="me noopener noreferrer"
-          ><span class="inline-block align-text-bottom">
 
-  <span class="relative block icon">
-    <svg t="1715843817929" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1769" width="200" height="200"><path d="M539.101 769.844l-76.117 48.43-96.094-151.063c-19.842 63.221-52.85 120.174-96.455 172.482-18.128 21.78-36.977 41.396-58.667 62.004-6.99 6.629-34.947 32.332-39.592 36.976l-63.762-63.762c6.268-6.268 35.489-33.143 41.26-38.6 19.391-18.398 35.85-35.623 51.497-54.382 57.089-68.452 91.54-144.75 96.365-235.884H117.749V455.86h180.373V275.485h-39.14c-31.07 57.089-70.256 100.198-118.055 128.832l-46.356-77.29c62.905-37.788 109.351-117.423 136.993-241.7l88.023 19.57c-6.313 28.544-13.664 55.33-22.051 80.402h203.506v90.186H388.31V455.86h112.733v90.186h-104.39l142.45 223.799z m173.068-3.157l50.325-40.268h76.749V275.485H658.869V726.42h33.189l20.111 40.268zM568.682 185.3H929.43v631.307H794.15l-112.733 90.186-45.094-90.186h-67.64V185.299z" fill="#0E87EA" p-id="1770"></path></svg>
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/arxiv/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Arxiv
   </span>
-
-</span></a
-        >
-      
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://space.bilibili.com/456489591"
-          target="_blank"
-          aria-label="Bilibili"
-          rel="me noopener noreferrer"
-          ><span class="inline-block align-text-bottom">
-
-  <span class="relative block icon">
-    <svg t="1715844111366" class="icon" viewBox="0 0 1129 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3635" width="200" height="200"><path d="M234.909 9.656a80.468 80.468 0 0 1 68.398 0 167.374 167.374 0 0 1 41.843 30.578l160.937 140.82h115.07l160.936-140.82a168.983 168.983 0 0 1 41.843-30.578A80.468 80.468 0 0 1 930.96 76.445a80.468 80.468 0 0 1-17.703 53.914 449.818 449.818 0 0 1-35.406 32.187 232.553 232.553 0 0 1-22.531 18.508h100.585a170.593 170.593 0 0 1 118.289 53.109 171.397 171.397 0 0 1 53.914 118.288v462.693a325.897 325.897 0 0 1-4.024 70.007 178.64 178.64 0 0 1-80.468 112.656 173.007 173.007 0 0 1-92.539 25.75h-738.7a341.186 341.186 0 0 1-72.421-4.024A177.835 177.835 0 0 1 28.91 939.065a172.202 172.202 0 0 1-27.36-92.539V388.662a360.498 360.498 0 0 1 0-66.789A177.03 177.03 0 0 1 162.487 178.64h105.414c-16.899-12.07-31.383-26.555-46.672-39.43a80.468 80.468 0 0 1-25.75-65.984 80.468 80.468 0 0 1 39.43-63.57M216.4 321.873a80.468 80.468 0 0 0-63.57 57.937 108.632 108.632 0 0 0 0 30.578v380.615a80.468 80.468 0 0 0 55.523 80.469 106.218 106.218 0 0 0 34.601 5.632h654.208a80.468 80.468 0 0 0 76.444-47.476 112.656 112.656 0 0 0 8.047-53.109v-354.06a135.187 135.187 0 0 0 0-38.625 80.468 80.468 0 0 0-52.304-54.719 129.554 129.554 0 0 0-49.89-7.242H254.22a268.764 268.764 0 0 0-37.82 0z m0 0" fill="#20B0E3" p-id="3636"></path><path d="M348.369 447.404a80.468 80.468 0 0 1 55.523 18.507 80.468 80.468 0 0 1 28.164 59.547v80.468a80.468 80.468 0 0 1-16.094 51.5 80.468 80.468 0 0 1-131.968-9.656 104.609 104.609 0 0 1-10.46-54.719v-80.468a80.468 80.468 0 0 1 70.007-67.593z m416.02 0a80.468 80.468 0 0 1 86.102 75.64v80.468a94.148 94.148 0 0 1-12.07 53.11 80.468 80.468 0 0 1-132.773 0 95.757 95.757 0 0 1-12.875-57.133V519.02a80.468 80.468 0 0 1 70.007-70.812z m0 0" fill="#20B0E3" p-id="3637"></path></svg>
+</span>
   </span>
-
-</span></a
-        >
-      
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://github.com/xuzhang0112"
-          target="_blank"
-          aria-label="Github"
-          rel="me noopener noreferrer"
-          ><span class="inline-block align-text-bottom">
-
-  <span class="relative block icon">
-    <svg t="1715844149936" class="icon" viewBox="0 0 1049 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4605" width="200" height="200"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z" fill="#191717" p-id="4606"></path><path d="M199.040177 753.571326c-0.869171 2.607513-5.215026 3.476684-8.691711 1.738342s-6.084198-5.215026-4.345855-7.82254c0.869171-2.607513 5.215026-3.476684 8.691711-1.738342s5.215026 5.215026 4.345855 7.82254z m-6.953369-4.345856M219.900283 777.038945c-2.607513 2.607513-7.82254 0.869171-10.430053-2.607514-3.476684-3.476684-4.345855-8.691711-1.738342-11.299224 2.607513-2.607513 6.953369-0.869171 10.430053 2.607514 3.476684 4.345855 4.345855 9.560882 1.738342 11.299224z m-5.215026-5.215027M240.760389 807.459932c-3.476684 2.607513-8.691711 0-11.299224-4.345855-3.476684-4.345855-3.476684-10.430053 0-12.168395 3.476684-2.607513 8.691711 0 11.299224 4.345855 3.476684 4.345855 3.476684 9.560882 0 12.168395z m0 0M269.443034 837.011749c-2.607513 3.476684-8.691711 2.607513-13.906737-1.738342-4.345855-4.345855-6.084198-10.430053-2.607513-13.037566 2.607513-3.476684 8.691711-2.607513 13.906737 1.738342 4.345855 3.476684 5.215026 9.560882 2.607513 13.037566z m0 0M308.555733 853.526c-0.869171 4.345855-6.953369 6.084198-13.037566 4.345855-6.084198-1.738342-9.560882-6.953369-8.691711-10.430053 0.869171-4.345855 6.953369-6.084198 13.037566-4.345855 6.084198 1.738342 9.560882 6.084198 8.691711 10.430053z m0 0M351.145116 857.002684c0 4.345855-5.215026 7.82254-11.299224 7.82254-6.084198 0-11.299224-3.476684-11.299224-7.82254s5.215026-7.82254 11.299224-7.82254c6.084198 0 11.299224 3.476684 11.299224 7.82254z m0 0M391.126986 850.049315c0.869171 4.345855-3.476684 8.691711-9.560882 9.560882-6.084198 0.869171-11.299224-1.738342-12.168395-6.084197-0.869171-4.345855 3.476684-8.691711 9.560881-9.560882 6.084198-0.869171 11.299224 1.738342 12.168396 6.084197z m0 0" fill="#191717" p-id="4607"></path></svg>
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/llm/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LLM
   </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/rag/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    RAG
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/multimodal/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Multimodal
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2024/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    2024
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
 
-</span></a
-        >
-      
-    
-  </div>
 
 
     </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
   </header>
-  <section class="prose dark:prose-invert"></section>
-</article>
-<section>
   
-
-
-
-
-
-<h2 class="mt-8 text-2xl font-extrabold mb-10">Recent</h2>
-
-
-  
-
-
-<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-  
-  
-
-  <a href="/paper_reading/emnlp/text2tree-aligning-text-representation-to-the-label-tree-hierarchy-for-imbalanced-medical-classification/" class="min-w-full">
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
     
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
 
-      <div class="px-6 py-4">
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#rag">RAG</a>
+      <ul>
+        <li><a href="#时序数据知识检索">时序数据知识检索</a></li>
+        <li><a href="#文本报告知识检索">文本报告知识检索</a></li>
+        <li><a href="#llm-ner-prompt">LLM NER Prompt</a></li>
+        <li><a href="#文本生成-prompt">文本生成 Prompt</a></li>
+      </ul>
+    </li>
+    <li><a href="#多模态融合">多模态融合</a></li>
+    <li><a href="#实验">实验</a>
+      <ul>
+        <li><a href="#对比实验">对比实验</a></li>
+        <li><a href="#消融实验">消融实验</a></li>
+      </ul>
+    </li>
+    <li><a href="#lm--llm">LM &amp; LLM</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#rag">RAG</a>
+      <ul>
+        <li><a href="#时序数据知识检索">时序数据知识检索</a></li>
+        <li><a href="#文本报告知识检索">文本报告知识检索</a></li>
+        <li><a href="#llm-ner-prompt">LLM NER Prompt</a></li>
+        <li><a href="#文本生成-prompt">文本生成 Prompt</a></li>
+      </ul>
+    </li>
+    <li><a href="#多模态融合">多模态融合</a></li>
+    <li><a href="#实验">实验</a>
+      <ul>
+        <li><a href="#对比实验">对比实验</a></li>
+        <li><a href="#消融实验">消融实验</a></li>
+      </ul>
+    </li>
+    <li><a href="#lm--llm">LM &amp; LLM</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
 
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/emnlp/text2tree-aligning-text-representation-to-the-label-tree-hierarchy-for-imbalanced-medical-classification/">Text2Tree: Aligning Text Representation to the Label Tree Hierarchy for Imbalanced Medical Classification</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/emnlp/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    EMNLP
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/icd-tree/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    ICD Tree
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2023/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2023
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
+   </div>
       </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-  
-  
-
-  <a href="/paper_reading/aaai/3/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/aaai/3/">Toward Robustness in Multi-Label Classification: A Data Augmentation Strategy against Imbalance and Noise</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-  
-  
-
-  <a href="/paper_reading/others/towards-automatic-icd-coding-via-knowledge-enhanced-multi-task-learning/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/others/towards-automatic-icd-coding-via-knowledge-enhanced-multi-task-learning/">Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/cikm/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    CIKM
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2023/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2023
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-  
-  
-
-  <a href="/paper_reading/nips/towards-semi-structured-automatic-icd-coding-via-tree-based-contrastive-learning/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/nips/towards-semi-structured-automatic-icd-coding-via-tree-based-contrastive-learning/">Towards Semi-Structured Automatic ICD Coding via Tree-based Contrastive Learning</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/nips/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    NIPS
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2023/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2023
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-  
-  
-
-  <a href="/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/">When Radiology Report Generation Meets Knowledge Graph</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/aaai/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    AAAI
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/kg/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    KG
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2020/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2020
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-  
-</section>
-
-
-
-
-</section>
-  
-
       
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>引入LLM和外部知识库KG来产生定性认识，然后根据定量数据产生精准描述。</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406070039103.png" alt="image-20240607003922539" />
+    
+  </figure>
+
+</p>
+<ol>
+<li>使用LLM+规则从时序数据和病历文本中抽取实体，基于这些实体在KG中查询相关的知识，包括定义、描述、三元组</li>
+<li>整合原始文本和检索到的知识，生成知识增强的文本</li>
+<li>使用LM做文本嵌入，用GRU做时序数据编码，使用cross attention融合，并据此做出死亡和生存时间预测</li>
+</ol>
+
+
+<h2 class="relative group">RAG 
+    <div id="rag" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rag" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">时序数据知识检索 
+    <div id="%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E7%9F%A5%E8%AF%86%E6%A3%80%E7%B4%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E7%9F%A5%E8%AF%86%E6%A3%80%E7%B4%A2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406070044495.png" alt="image-20240607004402396" style="zoom: 33%;" />
+<p>对于时序数据，计算每个指标的均值和方差，偏离3倍标准差的认为是异常值，从而评估某个指标过低/过高；</p>
+<p>如果某个指标出现在某个疾病的定义/描述中，则认为暗示这种疾病；</p>
+
+
+<h3 class="relative group">文本报告知识检索 
+    <div id="%E6%96%87%E6%9C%AC%E6%8A%A5%E5%91%8A%E7%9F%A5%E8%AF%86%E6%A3%80%E7%B4%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%96%87%E6%9C%AC%E6%8A%A5%E5%91%8A%E7%9F%A5%E8%AF%86%E6%A3%80%E7%B4%A2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406070046815.png" alt="image-20240607004630204" style="zoom: 33%;" />
+<p>对于文本报告，使用LLM进行NER，并滤除不合法的实体（不在文本中，不是疾病名）</p>
+
+
+<h3 class="relative group">LLM NER Prompt 
+    <div id="llm-ner-prompt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llm-ner-prompt" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406070049306.png" alt="image-20240607004932692" style="zoom:50%;" />
+
+
+<h3 class="relative group">文本生成 Prompt 
+    <div id="%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90-prompt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90-prompt" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406070056286.png" alt="image-20240607005600461" style="zoom:50%;" />
+<p>对于提取到的每一种疾病，检索相应节点的定义、描述、三元组，并使用LLM整合成文本。</p>
+
+
+<h2 class="relative group">多模态融合 
+    <div id="%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406070057287.png" alt="image-20240607005731787" style="zoom:50%;" />
+<p>每个模态用cross attention聚合另一模态的信息，再拼接到一起</p>
+
+
+<h2 class="relative group">实验 
+    <div id="%E5%AE%9E%E9%AA%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%9E%E9%AA%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">对比实验 
+    <div id="%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406070130555.png" alt="image-20240607013047944" />
+    
+  </figure>
+
+</p>
+
+
+<h3 class="relative group">消融实验 
+    <div id="%E6%B6%88%E8%9E%8D%E5%AE%9E%E9%AA%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B6%88%E8%9E%8D%E5%AE%9E%E9%AA%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406070119831.png" alt="image-20240607011925033" />
+    
+  </figure>
+
+</p>
+<p>时序数据占主导，文本和RAG能起到一定辅助作用</p>
+
+
+<h2 class="relative group">LM &amp; LLM 
+    <div id="lm--llm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#lm--llm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>功能</th>
+<th>Tokens</th>
+<th>Params</th>
+<th>推理方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clinical-LongFromer</td>
+<td>文本嵌入</td>
+<td>512-4096</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BGE-M3</td>
+<td>实体嵌入</td>
+<td>8182</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Qwen Chat 7B</td>
+<td>实体抽取</td>
+<td>8192</td>
+<td>7B</td>
+<td></td>
+</tr>
+<tr>
+<td>DeepSeek Chat</td>
+<td>文本生成</td>
+<td></td>
+<td>236B</td>
+<td>API</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+      <script>
+        var oid = "views_paper_reading\/arxiv\/EMERGE-Integrating-RAG-for-Improved-Multimodal-EHR-Predictive-Modeling.md"
+        var oid_likes = "likes_paper_reading\/arxiv\/EMERGE-Integrating-RAG-for-Improved-Multimodal-EHR-Predictive-Modeling.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/paper_reading/arxiv/a-novel-icd-coding-framework-based-on-associated-and-hierarchical-code-description-distillation/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >A Novel ICD Coding Framework Based on Associated and Hierarchical Code Description Distillation</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
     </main><footer id="site-footer" class="py-10 print:hidden">
   
   

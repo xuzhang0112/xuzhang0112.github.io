@@ -7,7 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Wed, 01 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/arxiv/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/arxiv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/</guid>
+      <description>引入LLM和外部知识库KG来产生定性认识，然后根据定量数据产生精准描述。
+使用LLM+规则从时序数据和病历文本中抽取实体，基于这些实体在KG中查询相关的知识，包括定义、描述、三元组 整合原始文本和检索到的知识，生成知识增强的文本 使用LM做文本嵌入，用GRU做时序数据编码，使用cross attention融合，并据此做出死亡和生存时间预测 RAG # 时序数据知识检索 # 对于时序数据，计算每个指标的均值和方差，偏离3倍标准差的认为是异常值，从而评估某个指标过低/过高；
+如果某个指标出现在某个疾病的定义/描述中，则认为暗示这种疾病；
+文本报告知识检索 # 对于文本报告，使用LLM进行NER，并滤除不合法的实体（不在文本中，不是疾病名）
+LLM NER Prompt # 文本生成 Prompt # 对于提取到的每一种疾病，检索相应节点的定义、描述、三元组，并使用LLM整合成文本。
+多模态融合 # 每个模态用cross attention聚合另一模态的信息，再拼接到一起
+实验 # 对比实验 # 消融实验 # 时序数据占主导，文本和RAG能起到一定辅助作用
+LM &amp;amp; LLM # 功能 Tokens Params 推理方式 Clinical-LongFromer 文本嵌入 512-4096 BGE-M3 实体嵌入 8182 Qwen Chat 7B 实体抽取 8192 7B DeepSeek Chat 文本生成 236B API </description>
+      
+    </item>
+    
     <item>
       <title>A Novel ICD Coding Framework Based on Associated and Hierarchical Code Description Distillation</title>
       <link>https://xuzhang0112.github.io/paper_reading/arxiv/a-novel-icd-coding-framework-based-on-associated-and-hierarchical-code-description-distillation/</link>

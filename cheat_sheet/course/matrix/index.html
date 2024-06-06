@@ -61,11 +61,13 @@
   
   
   <meta property="og:title" content="Matrix" />
-<meta property="og:description" content="看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
+<meta property="og:description" content="看不懂的题：9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
 矩阵的基本概念 # 若向量$a,b$，则它的内积、外积定义如下：
 inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
 Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product $A\cdot B$ or $AB$ 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
-A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 迹 # 性质 推论 线性性质 $tr(A&#43;B)=tr(A)&#43;tr(B)$ $tr(r\cdot A)=r\cdot tr(A)$ $tr(A)=tr(A^T)$ 矩阵乘积可交换 $tr(AB)=tr(BA)$ $tr(ABC)=tr(BAC)=tr(CAB)=\dots$ $tr(AB)=\sum_{ij}a_{ij}b_{ji}$ $tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)$ 相似不变性 $tr(B)=tr(PAP^{-1})=tr(A)$ 柯西不等式推导" />
+A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 秩 # 矩阵秩为1，则每一行线性相关，即系数成比例（可据此推导出系数关系）
+行列式 # 拉普拉斯展开：行列式可以按某一行或列展开为元素与其代数余子式的乘积和，即$|B|=\sum_j b_{ij}C_{ij}$，其中代数余子式$C_{ij} = (−1)^{i &#43; j}M_{ij}$​
+$$ 考虑矩阵B= \begin{bmatrix} 1\quad2\quad3\newline 4\quad5\quad6\newline 7\quad8\quad9\newline \end{bmatrix} \newline 它的行列式|B|= 1\cdot \begin{vmatrix} 5\quad6\newline 8\quad9\newline \end{vmatrix} -2\cdot \begin{vmatrix} 4\quad6\newline 7\quad9\newline \end{vmatrix} &#43;3\cdot \begin{vmatrix} 4\quad5\newline 7\quad8\newline \end{vmatrix} $$" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/course/matrix/" /><meta property="article:section" content="cheat_sheet" />
 <meta property="article:published_time" content="2024-06-04T00:00:00+00:00" />
@@ -73,11 +75,13 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Matrix"/>
-<meta name="twitter:description" content="看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
+<meta name="twitter:description" content="看不懂的题：9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
 矩阵的基本概念 # 若向量$a,b$，则它的内积、外积定义如下：
 inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
 Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product $A\cdot B$ or $AB$ 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：
-A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 迹 # 性质 推论 线性性质 $tr(A&#43;B)=tr(A)&#43;tr(B)$ $tr(r\cdot A)=r\cdot tr(A)$ $tr(A)=tr(A^T)$ 矩阵乘积可交换 $tr(AB)=tr(BA)$ $tr(ABC)=tr(BAC)=tr(CAB)=\dots$ $tr(AB)=\sum_{ij}a_{ij}b_{ji}$ $tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)$ 相似不变性 $tr(B)=tr(PAP^{-1})=tr(A)$ 柯西不等式推导"/>
+A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 秩 # 矩阵秩为1，则每一行线性相关，即系数成比例（可据此推导出系数关系）
+行列式 # 拉普拉斯展开：行列式可以按某一行或列展开为元素与其代数余子式的乘积和，即$|B|=\sum_j b_{ij}C_{ij}$，其中代数余子式$C_{ij} = (−1)^{i &#43; j}M_{ij}$​
+$$ 考虑矩阵B= \begin{bmatrix} 1\quad2\quad3\newline 4\quad5\quad6\newline 7\quad8\quad9\newline \end{bmatrix} \newline 它的行列式|B|= 1\cdot \begin{vmatrix} 5\quad6\newline 8\quad9\newline \end{vmatrix} -2\cdot \begin{vmatrix} 4\quad6\newline 7\quad9\newline \end{vmatrix} &#43;3\cdot \begin{vmatrix} 4\quad5\newline 7\quad8\newline \end{vmatrix} $$"/>
 
   
   <script type="application/ld+json">
@@ -88,7 +92,7 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
     "name": "Matrix",
     "headline": "Matrix",
     
-    "abstract": "看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)\n矩阵的基本概念 # 若向量$a,b$，则它的内积、外积定义如下：\ninner product $\\sum a_ib_i$ $a\\odot b$ Outer product $ab^T$ $a\\otimes b$ 若矩阵$A\\in R^{m\\times n},B\\in R^{m\\times n}$，则它的哈达玛积、克罗内亚积如下：\nHardmard Product 逐元素相乘 $A\\circ B \\in R^{m\\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\\otimes B \\in R^{m^2\\times n^2}$ Matrix Product $A\\cdot B$ or $AB$ 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：\nA、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA$ 当$AB=BA$时 $(A\u002bB)(A-B)$满足交换律 $(A\u002bB)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 证明$AA^{-1}=I$ 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 迹 # 性质 推论 线性性质 $tr(A\u002bB)=tr(A)\u002btr(B)$ $tr(r\\cdot A)=r\\cdot tr(A)$ $tr(A)=tr(A^T)$ 矩阵乘积可交换 $tr(AB)=tr(BA)$ $tr(ABC)=tr(BAC)=tr(CAB)=\\dots$ $tr(AB)=\\sum_{ij}a_{ij}b_{ji}$ $tr(A^TB)=\\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\\cdot vec(B)$ 相似不变性 $tr(B)=tr(PAP^{-1})=tr(A)$ 柯西不等式推导",
+    "abstract": "看不懂的题：9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)\n矩阵的基本概念 # 若向量$a,b$，则它的内积、外积定义如下：\ninner product $\\sum a_ib_i$ $a\\odot b$ Outer product $ab^T$ $a\\otimes b$ 若矩阵$A\\in R^{m\\times n},B\\in R^{m\\times n}$，则它的哈达玛积、克罗内亚积如下：\nHardmard Product 逐元素相乘 $A\\circ B \\in R^{m\\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\\otimes B \\in R^{m^2\\times n^2}$ Matrix Product $A\\cdot B$ or $AB$ 交换律 # 矩阵乘法一般情况下不满足交换律，但也有例外：\nA、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A\u002bB)(A-B)$满足交换律 $(A\u002bB)^m$可使用二项式定理展开 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$ 秩 # 矩阵秩为1，则每一行线性相关，即系数成比例（可据此推导出系数关系）\n行列式 # 拉普拉斯展开：行列式可以按某一行或列展开为元素与其代数余子式的乘积和，即$|B|=\\sum_j b_{ij}C_{ij}$，其中代数余子式$C_{ij} = (−1)^{i \u002b j}M_{ij}$​\n$$ 考虑矩阵B= \\begin{bmatrix} 1\\quad2\\quad3\\newline 4\\quad5\\quad6\\newline 7\\quad8\\quad9\\newline \\end{bmatrix} \\newline 它的行列式|B|= 1\\cdot \\begin{vmatrix} 5\\quad6\\newline 8\\quad9\\newline \\end{vmatrix} -2\\cdot \\begin{vmatrix} 4\\quad6\\newline 7\\quad9\\newline \\end{vmatrix} \u002b3\\cdot \\begin{vmatrix} 4\\quad5\\newline 7\\quad8\\newline \\end{vmatrix} $$",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/course\/matrix\/",
     "author" : {
@@ -104,7 +108,7 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
     "keywords": ["Course"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "570"
+    "wordCount": "650"
   }]
   </script>
 
@@ -805,6 +809,8 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
       <ul>
         <li><a href="#交换律">交换律</a></li>
         <li><a href="#逆矩阵">逆矩阵</a></li>
+        <li><a href="#秩">秩</a></li>
+        <li><a href="#行列式">行列式</a></li>
         <li><a href="#迹">迹</a></li>
         <li><a href="#范数">范数</a></li>
         <li><a href="#特殊矩阵">特殊矩阵</a></li>
@@ -825,6 +831,7 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
     </li>
     <li><a href="#特征分析">特征分析</a>
       <ul>
+        <li><a href="#cayleyhamilton定理">Cayley–Hamilton定理</a></li>
         <li><a href="#rayleigh商">Rayleigh商</a></li>
         <li><a href="#jordan标准形">Jordan标准形</a></li>
       </ul>
@@ -858,6 +865,8 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
       <ul>
         <li><a href="#交换律">交换律</a></li>
         <li><a href="#逆矩阵">逆矩阵</a></li>
+        <li><a href="#秩">秩</a></li>
+        <li><a href="#行列式">行列式</a></li>
         <li><a href="#迹">迹</a></li>
         <li><a href="#范数">范数</a></li>
         <li><a href="#特殊矩阵">特殊矩阵</a></li>
@@ -878,6 +887,7 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
     </li>
     <li><a href="#特征分析">特征分析</a>
       <ul>
+        <li><a href="#cayleyhamilton定理">Cayley–Hamilton定理</a></li>
         <li><a href="#rayleigh商">Rayleigh商</a></li>
         <li><a href="#jordan标准形">Jordan标准形</a></li>
       </ul>
@@ -909,7 +919,7 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
 
 
         <div class="article-content max-w-prose mb-20">
-          <p>看不懂的题：4（逆矩阵，没答案，没算）9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)</p>
+          <p>看不懂的题：9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)</p>
 
 
 <h2 class="relative group">矩阵的基本概念 
@@ -985,7 +995,8 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
 </h3>
 <p>矩阵乘法一般情况下不满足交换律，但也有例外：</p>
 <ul>
-<li>A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA$</li>
+<li>A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​</li>
+<li>A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$</li>
 <li>当$AB=BA$时
 <ul>
 <li>$(A+B)(A-B)$满足交换律</li>
@@ -1009,7 +1020,7 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
 <li>求解思路：
 <ol>
 <li>直接求逆，推导出逆矩阵</li>
-<li>证明$AA^{-1}=I$</li>
+<li>构造$AA^{-1}=I$（一般移项后对A作因式分解）</li>
 </ol>
 </li>
 <li>特殊构造
@@ -1019,6 +1030,59 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
 </ol>
 </li>
 </ul>
+
+
+<h3 class="relative group">秩 
+    <div id="%E7%A7%A9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%A7%A9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>矩阵秩为1，则每一行线性相关，即系数成比例（可据此推导出系数关系）</p>
+
+
+<h3 class="relative group">行列式 
+    <div id="%E8%A1%8C%E5%88%97%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A1%8C%E5%88%97%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>拉普拉斯展开：行列式可以按某一行或列展开为元素与其代数余子式的乘积和，即$|B|=\sum_j b_{ij}C_{ij}$，其中代数余子式$C_{ij} = (−1)^{i + j}M_{ij}$​</p>
+<blockquote>
+<p>$$
+考虑矩阵B=
+\begin{bmatrix}
+1\quad2\quad3\newline
+4\quad5\quad6\newline
+7\quad8\quad9\newline
+\end{bmatrix}
+\newline
+它的行列式|B|=
+1\cdot
+\begin{vmatrix}
+5\quad6\newline
+8\quad9\newline
+\end{vmatrix}
+-2\cdot
+\begin{vmatrix}
+4\quad6\newline
+7\quad9\newline
+\end{vmatrix}
++3\cdot
+\begin{vmatrix}
+4\quad5\newline
+7\quad8\newline
+\end{vmatrix}
+$$</p>
+</blockquote>
 
 
 <h3 class="relative group">迹 
@@ -1203,9 +1267,18 @@ A、B中任一是单位阵、数量阵、对角阵、零矩阵时，满足$AB=BA
 </h4>
 <p>若矩阵A满足$A^T=A$，则矩阵为对称矩阵。</p>
 <p>若矩阵A满足$A^H=A$，则矩阵为Hermitian矩阵。</p>
+<p>若矩阵A是Hermitian阵，且使得一切$\mathbf{x}$满足$x^HAx&gt;0$，则称矩阵A是正定矩阵</p>
 <ul>
-<li>若Hermitian矩阵A使得一切$\mathbf{x}$满足$x^HAx&gt;0$​，则称矩阵A是正定矩阵（二次型&gt;0）</li>
-<li>若Hermitian矩阵A是幂等矩阵，即$A^2=A$，则矩阵A一定是半正定的</li>
+<li>
+<p>判断：各阶顺序主子式&gt;0（左上角行列式&gt;0）</p>
+</li>
+<li>
+<p>若$A$是正定矩阵，则有对角化$A=P^{-1}diag(\lambda_1,\lambda2,\dots)P$</p>
+<p>进一步有$A^{1/2}=P^{-1}diag(\sqrt{\lambda1},\sqrt{\lambda2},\dots)P$</p>
+</li>
+<li>
+<p>若Hermitian矩阵A是幂等矩阵，即$A^2=A$，则矩阵A一定是半正定的</p>
+</li>
 </ul>
 
 
@@ -1669,12 +1742,16 @@ $$</p>
     </span>        
     
 </h4>
-<p>局部极小点的求解可以转化为
+<p>局部<strong>极小点</strong>的求解可以转化为
 $$
 f&rsquo;(x)=0\newline
 f&rsquo;&rsquo;(x)&gt;0
 $$
 对于矩阵函数，即Jacobin矩阵为0且Hessian矩阵正定。</p>
+<ul>
+<li>判断驻点是否为极大值，则判断$-f(x)$的驻点是否为极小值</li>
+<li>既不是极大值、也不是极小值的驻点，称为鞍点</li>
+</ul>
 
 
 <h4 class="relative group">凸优化 
@@ -1806,7 +1883,11 @@ $$
 <p>阶数为n的矩阵A有n个特征值，特征多项式的次数称为代数重数，特征值对应的特征向量空间的维度称为几何重数。</p>
 </li>
 <li>
-<p>若$rank(A-\lambda I)\le n-1$，则$\lambda$​为矩阵A的特征值</p>
+<p>$A-\lambda I$的零空间维度，即$\lambda$对应的特征向量的维度</p>
+<ul>
+<li>若$rank(A-\lambda I)\le n-1$，则$\lambda$​为矩阵A的特征值</li>
+<li>$det(A-\lambda I)=0$是特征方程，可据此解得特征值$\lambda$</li>
+</ul>
 </li>
 <li>
 <p>若矩阵$A$满足$\sum_{j}|a_{ij}&lt;1|$，即每一行的和小于1，则$A$​的每一个特征值的绝对值$|\lambda|&lt;1$</p>
@@ -1916,6 +1997,20 @@ $$
 </table>
 
 
+<h4 class="relative group">广义特征值 
+    <div id="%E5%B9%BF%E4%B9%89%E7%89%B9%E5%BE%81%E5%80%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B9%BF%E4%B9%89%E7%89%B9%E5%BE%81%E5%80%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>若$Ax=\lambda Bx$则称$\lambda,x$是矩阵束$A,B$的广义特征值和特征向量</p>
+<p>矩阵束左乘/右乘非奇异矩阵，不会改变广义特征值和特征向量</p>
+
+
 <h3 class="relative group">特征值分解和奇异值分解（EVD &amp; SVD） 
     <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3%E5%92%8C%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3evd--svd" class="anchor"></div>
     
@@ -1938,6 +2033,12 @@ $$
     </span>        
     
 </h4>
+<p>若$A$有$n$个线性无关的特征向量，则有$AU=U\Sigma$，其中$U$是特征向量构成的矩阵</p>
+<p>因为$U$满秩，所以$U$可逆，有$A=U\Sigma U^{-1}$​​</p>
+<ul>
+<li>特别地，当$A$是Hermitian阵时，特征值为实数，特征向量相互正交，进一步有酉对角化$A=U\Sigma U^{-1}=U\Sigma U^H$，$U$​是酉矩阵</li>
+<li>矩阵$A$可酉对角化的充要条件是$A$是正规矩阵，即$A^HA=A^HA$</li>
+</ul>
 
 
 <h4 class="relative group">奇异值分解（SVD) 
@@ -1991,33 +2092,6 @@ $$
 <p><strong>A的左奇异向量是$AA^H$的特征向量；A的右奇异向量是$A^HA$的特征向量；</strong></p>
 
 
-<h4 class="relative group">Hermitian矩阵的EVD（SVD） 
-    <div id="hermitian%E7%9F%A9%E9%98%B5%E7%9A%84evdsvd" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#hermitian%E7%9F%A9%E9%98%B5%E7%9A%84evdsvd" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>特征多项式$f(x)=det(A-xI)$</p>
-
-
-<h4 class="relative group">Cayley–Hamilton定理 
-    <div id="cayleyhamilton%E5%AE%9A%E7%90%86" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#cayleyhamilton%E5%AE%9A%E7%90%86" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>将矩阵A代入其特征多项式$f(\lambda)$，该矩阵方程仍成立。</p>
-<p>应用：逆矩阵的计算、矩阵幂的计算（多项式除法）</p>
-
-
 <h2 class="relative group">特征分析 
     <div id="%E7%89%B9%E5%BE%81%E5%88%86%E6%9E%90" class="anchor"></div>
     
@@ -2028,6 +2102,56 @@ $$
     </span>        
     
 </h2>
+
+
+<h3 class="relative group">Cayley–Hamilton定理 
+    <div id="cayleyhamilton%E5%AE%9A%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cayleyhamilton%E5%AE%9A%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>将矩阵A代入其特征多项式$f(\lambda)$，该矩阵方程仍成立。</p>
+
+
+<h4 class="relative group">逆矩阵的计算 
+    <div id="%E9%80%86%E7%9F%A9%E9%98%B5%E7%9A%84%E8%AE%A1%E7%AE%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%86%E7%9F%A9%E9%98%B5%E7%9A%84%E8%AE%A1%E7%AE%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+
+<h4 class="relative group">矩阵幂的计算 
+    <div id="%E7%9F%A9%E9%98%B5%E5%B9%82%E7%9A%84%E8%AE%A1%E7%AE%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%B9%82%E7%9A%84%E8%AE%A1%E7%AE%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>根据特征多项式寻找$A^m$​满足的矩阵方程，可利用多项式除法来降幂</p>
+
+
+<h4 class="relative group">矩阵微分方程的求解 
+    <div id="%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%9A%84%E6%B1%82%E8%A7%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%9A%84%E6%B1%82%E8%A7%A3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 
 
 <h3 class="relative group">Rayleigh商 
@@ -2071,6 +2195,8 @@ $$
     </span>        
     
 </h3>
+<p>任一矩阵可块对角化为Jordan标准型，即$J=P^{-1}AP$</p>
+<p>其中$J=\begin{bmatrix} J_1(\lambda_1)\quad \quad \newline \quad J_2(\lambda_2) \quad \newline \quad \quad J_3(\lambda_3)\end{bmatrix}$，而$J_i(\lambda_i)=\begin{bmatrix} \lambda_i\quad1\quad0\newline 0\quad \lambda_i \quad1\newline 0\quad 0\quad \lambda_i\end{bmatrix}$</p>
 
 
 <h2 class="relative group">线性空间 

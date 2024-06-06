@@ -7,14 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <atom:link href="https://xuzhang0112.github.io/paper_reading/iclr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/iclr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GraphCare: Enhancing Healthcare Predictions with Open-World Personalized Knowledge Graphs</title>
-      <link>https://xuzhang0112.github.io/paper_reading/iclr/1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>https://xuzhang0112.github.io/paper_reading/iclr/graphcare-enhancing-healthcare-predictions-with-open-world-personalized-knowledge-graphs/</link>
+      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/iclr/1/</guid>
-      <description>GraphCare: Enhancing Healthcare Predictions with Personalized Knowledge Graphs | OpenReview</description>
+      <guid>https://xuzhang0112.github.io/paper_reading/iclr/graphcare-enhancing-healthcare-predictions-with-open-world-personalized-knowledge-graphs/</guid>
+      <description> GraphCare: Enhancing Healthcare Predictions with Personalized Knowledge Graphs | OpenReview
+首先构建一个大型KG（UMLS），为每个医学概念采样一个小型子图 从报告中提取子图，并将所有出现的医学概念的相应子图拼接到该子图 将知识增强后的子图送入GNN，进行下游任务的预测 </description>
       
     </item>
     

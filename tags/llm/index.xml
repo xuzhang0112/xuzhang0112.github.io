@@ -47,10 +47,10 @@ LLM可能会产生（根据先验知识）互斥的结果</description>
     
     <item>
       <title>VisionGraph: Leveraging Large Multimodal Models for Graph Theory Problems in Visual Context</title>
-      <link>https://xuzhang0112.github.io/paper_reading/icml/1/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/icml/visiongraph-leveraging-large-multimodal-models-for-graph-theory-problems-in-visual-context/</link>
       <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/icml/1/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/icml/visiongraph-leveraging-large-multimodal-models-for-graph-theory-problems-in-visual-context/</guid>
       <description>此类文章（LLM推理）通常需要新颖的任务、详细的实验、好的故事。
 Github
 解决8种graph问题

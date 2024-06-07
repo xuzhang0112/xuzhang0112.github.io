@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Mon, 03 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/survey/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/survey/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Medical NLP</title>
       <link>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</link>
-      <pubDate>Mon, 03 Jun 2024 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</guid>
       <description>To do # 讯飞 # 基于纯BERT的优化
@@ -21,7 +21,7 @@
 分词+标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）
 考虑使用外部KG来增强表达
 数据集
-数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM+GNN
+数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM+GNN
 但现阶段还是先做好讯飞
 Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
 搞点对比学习778

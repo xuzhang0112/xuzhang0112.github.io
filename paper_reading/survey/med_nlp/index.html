@@ -68,7 +68,7 @@
 分词&#43;标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）
 考虑使用外部KG来增强表达
 数据集
-数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM&#43;GNN
+数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM&#43;GNN
 但现阶段还是先做好讯飞
 Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
 搞点对比学习778
@@ -76,8 +76,8 @@ Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
 Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/med_nlp/" /><meta property="article:section" content="paper_reading" />
-<meta property="article:published_time" content="2024-06-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-03T00:00:00+00:00" />
+<meta property="article:published_time" content="2024-06-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-05T00:00:00+00:00" />
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Medical NLP"/>
@@ -88,7 +88,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
 分词&#43;标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）
 考虑使用外部KG来增强表达
 数据集
-数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM&#43;GNN
+数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM&#43;GNN
 但现阶段还是先做好讯飞
 Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
 搞点对比学习778
@@ -104,7 +104,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
     "name": "Medical NLP",
     "headline": "Medical NLP",
     
-    "abstract": "To do # 讯飞 # 基于纯BERT的优化\n更好的文本表示：对比学习、类别注意力\n基于疾病KG的层次化方法：概率图\/LATT等。\n讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能\n分词\u002b标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）\n考虑使用外部KG来增强表达\n数据集\n数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM\u002bGNN\n但现阶段还是先做好讯飞\nResult # Iflytek 950 # 加什么都是负优化……ICD-10也不work\n搞点对比学习778\n等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1\u002b1\u002b2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了\nModel Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN\u002bLabel Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding\u002bself attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN\u002b多尺度\u002blabel attention 58.",
+    "abstract": "To do # 讯飞 # 基于纯BERT的优化\n更好的文本表示：对比学习、类别注意力\n基于疾病KG的层次化方法：概率图\/LATT等。\n讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能\n分词\u002b标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）\n考虑使用外部KG来增强表达\n数据集\n数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM\u002bGNN\n但现阶段还是先做好讯飞\nResult # Iflytek 950 # 加什么都是负优化……ICD-10也不work\n搞点对比学习778\n等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1\u002b1\u002b2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了\nModel Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN\u002bLabel Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding\u002bself attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN\u002b多尺度\u002blabel attention 58.",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/survey\/med_nlp\/",
     "author" : {
@@ -112,15 +112,15 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
       "name": "Xu Zhang"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-06-03T00:00:00\u002b00:00",
-    "datePublished": "2024-06-03T00:00:00\u002b00:00",
+    "dateCreated": "2024-06-05T00:00:00\u002b00:00",
+    "datePublished": "2024-06-05T00:00:00\u002b00:00",
     
-    "dateModified": "2024-06-03T00:00:00\u002b00:00",
+    "dateModified": "2024-06-05T00:00:00\u002b00:00",
     
     "keywords": ["Survey"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "346"
+    "wordCount": "360"
   }]
   </script>
 
@@ -837,6 +837,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
     </li>
     <li><a href="#dataset">Dataset</a>
       <ul>
+        <li><a href="#iflytek">Iflytek</a></li>
         <li><a href="#mimic-iii-1">MIMIC III</a></li>
         <li><a href="#kg">KG</a></li>
       </ul>
@@ -874,6 +875,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
     </li>
     <li><a href="#dataset">Dataset</a>
       <ul>
+        <li><a href="#iflytek">Iflytek</a></li>
         <li><a href="#mimic-iii-1">MIMIC III</a></li>
         <li><a href="#kg">KG</a></li>
       </ul>
@@ -945,6 +947,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
 <ol>
 <li>数据集分布统计</li>
 <li>错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work）</li>
+<li>医生复核后的准确率统计</li>
 </ol>
 </li>
 </ul>
@@ -1131,7 +1134,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
 <td>[MRR](<a href="https://arxiv.org/pdf/2405.19093"   target="_blank">
     2405.19093 (arxiv.org)</a>)</td>
 <td>Arxiv 2024</td>
-<td></td>
+<td>粗召回topk+检索知识重排</td>
 <td><strong>60.3</strong></td>
 <td>99.5</td>
 </tr>
@@ -1229,6 +1232,64 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
     </span>        
     
 </h2>
+
+
+<h3 class="relative group">Iflytek 
+    <div id="iflytek" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#iflytek" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>样本数</th>
+<th>类别数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主训练集</td>
+<td></td>
+<td>950</td>
+</tr>
+<tr>
+<td>辅助训练集</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>验证集</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>测试集-等级</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>测试集-基层</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>测试集-抗攻击</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>测试集-高价值</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 <h3 class="relative group">MIMIC III 

@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://xuzhang0112.github.io/cheat_sheet/</loc>
+    <lastmod>2024-06-07T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/cheat_sheet/course/</loc>
+    <lastmod>2024-06-07T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</loc>
+    <lastmod>2024-06-07T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/cheat_sheet/course/pr/</loc>
+    <lastmod>2024-06-07T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/</loc>
+    <lastmod>2024-06-07T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/arxiv/</loc>
     <lastmod>2024-06-06T00:00:00+00:00</lastmod>
   </url>
@@ -23,32 +43,12 @@
     <lastmod>2024-06-06T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/</loc>
-    <lastmod>2024-06-06T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/</loc>
-    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/</loc>
-    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</loc>
-    <lastmod>2024-06-04T00:00:00+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</loc>
-    <lastmod>2024-06-03T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-05T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/</loc>
-    <lastmod>2024-06-03T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/pr/</loc>
-    <lastmod>2024-05-30T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-05T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/acl/</loc>

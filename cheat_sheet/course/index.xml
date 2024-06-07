@@ -7,11 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Tue, 04 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/cheat_sheet/course/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/cheat_sheet/course/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Matrix</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</link>
-      <pubDate>Tue, 04 Jun 2024 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 07 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
       <description>看不懂的题：9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
@@ -27,7 +27,7 @@ $$ 考虑矩阵B= \begin{bmatrix} 1\quad2\quad3\newline 4\quad5\quad6\newline 7\
     <item>
       <title>Pattern Recogniton</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/course/pr/</link>
-      <pubDate>Thu, 30 May 2024 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 07 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/pr/</guid>
       <description>统计模式识别 # 相似性度量 # 相似性测度

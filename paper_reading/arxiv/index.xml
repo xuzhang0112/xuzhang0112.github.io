@@ -14,7 +14,8 @@
       <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/</guid>
-      <description>引入LLM和外部知识库KG来产生定性认识，然后根据定量数据产生精准描述。
+      <description> 2406.00036 (arxiv.org)
+引入LLM和外部知识库KG来产生定性认识，然后根据定量数据产生精准描述。
 使用LLM+规则从时序数据和病历文本中抽取实体，基于这些实体在KG中查询相关的知识，包括定义、描述、三元组 整合原始文本和检索到的知识，生成知识增强的文本 使用LM做文本嵌入，用GRU做时序数据编码，使用cross attention融合，并据此做出死亡和生存时间预测 RAG # 时序数据知识检索 # 对于时序数据，计算每个指标的均值和方差，偏离3倍标准差的认为是异常值，从而评估某个指标过低/过高；
 如果某个指标出现在某个疾病的定义/描述中，则认为暗示这种疾病；
 文本报告知识检索 # 对于文本报告，使用LLM进行NER，并滤除不合法的实体（不在文本中，不是疾病名）
@@ -64,6 +65,16 @@ max-pooling比CLS更好
 大体上损失函数收敛更快、更低，同时精度提升最快
 使用KG、图嵌入和图网络增强了分类
 图嵌入:KG2E 推测：词语级别的医学实体编码相比单字级别的中文分词编码，引入了额外的信息，因此能提升性能 数据集规模大概在几万例样本，几百类疾病，各个字段的长度差异较大，entity也比较少</description>
+      
+    </item>
+    
+    <item>
+      <title>Multi-stage Retrieve and Re-rank Model for Automatic Medical Coding Recommendation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/multi-stage-retrieve-and-re-rank-model-for-automatic-medical-coding/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/multi-stage-retrieve-and-re-rank-model-for-automatic-medical-coding/</guid>
+      <description>2405.19093 (arxiv.org)</description>
       
     </item>
     

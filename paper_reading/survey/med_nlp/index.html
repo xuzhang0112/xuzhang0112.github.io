@@ -61,11 +61,19 @@
   
   
   <meta property="og:title" content="Medical NLP" />
-<meta property="og:description" content="Tips # 记得多看看有没有现成的API可以调（分词/标准化/停用词等） 中文并没有开源的优质词向量，本人用的也是讯飞的闭源BERT 24年搞BERT，49年入清军……不如多模态……本人因为已经入坑半年，沉没成本太高，所以还在坚持 To do # 只使用BERT的情况下，考虑下列改进：
-更好的文本表示：对比学习、类别注意力 基于疾病KG的层次化方法：概率图/LATT等。 如果额外引入图结构信息，则需要完成下列工作
-分词&#43;标准化（疑似讯飞引擎提供，必须确保不会出现其他的词） 构建词表（节点）、统计词频（边）（参考BertGCN，transductive） GNN，torch_geometric调库就行了，已经轻车熟路 ICD coding # SOTA on MIMIC III # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
-Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
-BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN&#43; KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。" />
+<meta property="og:description" content="To do # 讯飞 # 基于纯BERT的优化
+更好的文本表示：对比学习、类别注意力
+基于疾病KG的层次化方法：概率图/LATT等。
+讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能
+分词&#43;标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）
+考虑使用外部KG来增强表达
+数据集
+数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM&#43;GNN
+但现阶段还是先做好讯飞
+Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
+搞点对比学习778
+等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1&#43;1&#43;2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
+Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/med_nlp/" /><meta property="article:section" content="paper_reading" />
 <meta property="article:published_time" content="2024-06-03T00:00:00+00:00" />
@@ -73,11 +81,19 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Medical NLP"/>
-<meta name="twitter:description" content="Tips # 记得多看看有没有现成的API可以调（分词/标准化/停用词等） 中文并没有开源的优质词向量，本人用的也是讯飞的闭源BERT 24年搞BERT，49年入清军……不如多模态……本人因为已经入坑半年，沉没成本太高，所以还在坚持 To do # 只使用BERT的情况下，考虑下列改进：
-更好的文本表示：对比学习、类别注意力 基于疾病KG的层次化方法：概率图/LATT等。 如果额外引入图结构信息，则需要完成下列工作
-分词&#43;标准化（疑似讯飞引擎提供，必须确保不会出现其他的词） 构建词表（节点）、统计词频（边）（参考BertGCN，transductive） GNN，torch_geometric调库就行了，已经轻车熟路 ICD coding # SOTA on MIMIC III # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
-Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
-BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN&#43; KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。"/>
+<meta name="twitter:description" content="To do # 讯飞 # 基于纯BERT的优化
+更好的文本表示：对比学习、类别注意力
+基于疾病KG的层次化方法：概率图/LATT等。
+讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能
+分词&#43;标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）
+考虑使用外部KG来增强表达
+数据集
+数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM&#43;GNN
+但现阶段还是先做好讯飞
+Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
+搞点对比学习778
+等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1&#43;1&#43;2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
+Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58."/>
 
   
   <script type="application/ld+json">
@@ -88,7 +104,7 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
     "name": "Medical NLP",
     "headline": "Medical NLP",
     
-    "abstract": "Tips # 记得多看看有没有现成的API可以调（分词\/标准化\/停用词等） 中文并没有开源的优质词向量，本人用的也是讯飞的闭源BERT 24年搞BERT，49年入清军……不如多模态……本人因为已经入坑半年，沉没成本太高，所以还在坚持 To do # 只使用BERT的情况下，考虑下列改进：\n更好的文本表示：对比学习、类别注意力 基于疾病KG的层次化方法：概率图\/LATT等。 如果额外引入图结构信息，则需要完成下列工作\n分词\u002b标准化（疑似讯飞引擎提供，必须确保不会出现其他的词） 构建词表（节点）、统计词频（边）（参考BertGCN，transductive） GNN，torch_geometric调库就行了，已经轻车熟路 ICD coding # SOTA on MIMIC III # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了\nModel Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN\u002bLabel Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding\u002bself attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN\u002b多尺度\u002blabel attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。\nBERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN\u002b KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。",
+    "abstract": "To do # 讯飞 # 基于纯BERT的优化\n更好的文本表示：对比学习、类别注意力\n基于疾病KG的层次化方法：概率图\/LATT等。\n讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能\n分词\u002b标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）\n考虑使用外部KG来增强表达\n数据集\n数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM\u002bGNN\n但现阶段还是先做好讯飞\nResult # Iflytek 950 # 加什么都是负优化……ICD-10也不work\n搞点对比学习778\n等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1\u002b1\u002b2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了\nModel Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN\u002bLabel Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding\u002bself attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN\u002b多尺度\u002blabel attention 58.",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/survey\/med_nlp\/",
     "author" : {
@@ -104,7 +120,7 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
     "keywords": ["Survey"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "260"
+    "wordCount": "346"
   }]
   </script>
 
@@ -801,17 +817,30 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#tips">Tips</a></li>
-    <li><a href="#to-do">To do</a></li>
-    <li><a href="#icd-coding">ICD coding</a>
+    <li><a href="#to-do">To do</a>
       <ul>
-        <li><a href="#sota-on-mimic-iii">SOTA on MIMIC III</a></li>
+        <li><a href="#讯飞">讯飞</a></li>
         <li><a href="#mimic-iii">MIMIC III</a></li>
+      </ul>
+    </li>
+    <li><a href="#result">Result</a>
+      <ul>
         <li><a href="#iflytek-950">Iflytek 950</a></li>
       </ul>
     </li>
-    <li><a href="#mortalitysoldurg-prediciton">Mortality/SOL/durg prediciton</a></li>
-    <li><a href="#通用文本分类进展">通用文本分类进展</a></li>
+    <li><a href="#sota">SOTA</a>
+      <ul>
+        <li><a href="#icd-coding">ICD coding</a></li>
+        <li><a href="#mortalitysoldurg-prediciton">Mortality/SOL/durg prediciton</a></li>
+        <li><a href="#通用文本分类">通用文本分类</a></li>
+      </ul>
+    </li>
+    <li><a href="#dataset">Dataset</a>
+      <ul>
+        <li><a href="#mimic-iii-1">MIMIC III</a></li>
+        <li><a href="#kg">KG</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -825,17 +854,30 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#tips">Tips</a></li>
-    <li><a href="#to-do">To do</a></li>
-    <li><a href="#icd-coding">ICD coding</a>
+    <li><a href="#to-do">To do</a>
       <ul>
-        <li><a href="#sota-on-mimic-iii">SOTA on MIMIC III</a></li>
+        <li><a href="#讯飞">讯飞</a></li>
         <li><a href="#mimic-iii">MIMIC III</a></li>
+      </ul>
+    </li>
+    <li><a href="#result">Result</a>
+      <ul>
         <li><a href="#iflytek-950">Iflytek 950</a></li>
       </ul>
     </li>
-    <li><a href="#mortalitysoldurg-prediciton">Mortality/SOL/durg prediciton</a></li>
-    <li><a href="#通用文本分类进展">通用文本分类进展</a></li>
+    <li><a href="#sota">SOTA</a>
+      <ul>
+        <li><a href="#icd-coding">ICD coding</a></li>
+        <li><a href="#mortalitysoldurg-prediciton">Mortality/SOL/durg prediciton</a></li>
+        <li><a href="#通用文本分类">通用文本分类</a></li>
+      </ul>
+    </li>
+    <li><a href="#dataset">Dataset</a>
+      <ul>
+        <li><a href="#mimic-iii-1">MIMIC III</a></li>
+        <li><a href="#kg">KG</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -853,23 +895,6 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">Tips 
-    <div id="tips" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#tips" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<ol>
-<li>记得多看看有没有现成的API可以调（分词/标准化/停用词等）</li>
-<li>中文并没有开源的优质词向量，本人用的也是讯飞的闭源BERT</li>
-<li>24年搞BERT，49年入清军……不如多模态……本人因为已经入坑半年，沉没成本太高，所以还在坚持</li>
-</ol>
-
-
 <h2 class="relative group">To do 
     <div id="to-do" class="anchor"></div>
     
@@ -880,38 +905,158 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
     </span>        
     
 </h2>
-<p>只使用BERT的情况下，考虑下列改进：</p>
-<ol>
-<li>更好的文本表示：对比学习、类别注意力</li>
-<li>基于疾病KG的层次化方法：概率图/LATT等。</li>
-</ol>
-<p>如果额外引入图结构信息，则需要完成下列工作</p>
-<ol>
-<li>分词+标准化（疑似讯飞引擎提供，必须确保不会出现其他的词）</li>
-<li>构建词表（节点）、统计词频（边）（参考BertGCN，transductive）</li>
-<li>GNN，torch_geometric调库就行了，已经轻车熟路</li>
-</ol>
 
 
-<h2 class="relative group">ICD coding 
+<h3 class="relative group">讯飞 
+    <div id="%E8%AE%AF%E9%A3%9E" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AE%AF%E9%A3%9E" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p>基于纯BERT的优化</p>
+<ol>
+<li>
+<p>更好的文本表示：对比学习、类别注意力</p>
+</li>
+<li>
+<p>基于疾病KG的层次化方法：概率图/LATT等。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能</p>
+<ol>
+<li>
+<p>分词+标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）</p>
+</li>
+<li>
+<p>考虑使用外部KG来增强表达</p>
+</li>
+</ol>
+</li>
+<li>
+<p>数据集</p>
+<ol>
+<li>数据集分布统计</li>
+<li>错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work）</li>
+</ol>
+</li>
+</ul>
+
+
+<h3 class="relative group">MIMIC III 
+    <div id="mimic-iii" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mimic-iii" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM+GNN</p>
+<p>但现阶段还是先做好讯飞</p>
+
+
+<h2 class="relative group">Result 
+    <div id="result" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#result" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Iflytek 950 
+    <div id="iflytek-950" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#iflytek-950" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>加什么都是负优化……ICD-10也不work</p>
+<p>搞点对比学习778</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>等级</th>
+<th>基层</th>
+<th>抗攻击</th>
+<th>高价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline(BERT)</td>
+<td>0.86</td>
+<td>0.82</td>
+<td>0.60</td>
+<td>0.87</td>
+</tr>
+<tr>
+<td>Hierarchical（3层，1+1+2）</td>
+<td>0.71</td>
+<td>0.77</td>
+<td>0.55</td>
+<td>0.77</td>
+</tr>
+<tr>
+<td>Contrastive Learning</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Label Attention</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KG</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 class="relative group">SOTA 
+    <div id="sota" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sota" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">ICD coding 
     <div id="icd-coding" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
             style="text-decoration-line: none !important;" href="#icd-coding" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-
-
-<h3 class="relative group">SOTA on MIMIC III 
-    <div id="sota-on-mimic-iii" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#sota-on-mimic-iii" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -956,7 +1101,7 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
     EffectiveCAN</a></td>
 <td>EMNLP 2021</td>
 <td>CNN+多尺度+label attention</td>
-<td><strong>58.9</strong></td>
+<td>58.9</td>
 <td>98.8</td>
 </tr>
 <tr>
@@ -976,11 +1121,19 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
 <td></td>
 </tr>
 <tr>
+<td>HCDD</td>
+<td>Arxiv 2024</td>
+<td>层次结构+对比学习</td>
 <td></td>
 <td></td>
+</tr>
+<tr>
+<td>[MRR](<a href="https://arxiv.org/pdf/2405.19093"   target="_blank">
+    2405.19093 (arxiv.org)</a>)</td>
+<td>Arxiv 2024</td>
 <td></td>
-<td></td>
-<td></td>
+<td><strong>60.3</strong></td>
+<td>99.5</td>
 </tr>
 </tbody>
 </table>
@@ -988,16 +1141,108 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
     机器学习系列 | 01：多类别分类任务(multi-class)中为何precision,recall和F1相等？</a></p>
 
 
-<h3 class="relative group">MIMIC III 
-    <div id="mimic-iii" class="anchor"></div>
+<h3 class="relative group">Mortality/SOL/durg prediciton 
+    <div id="mortalitysoldurg-prediciton" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#mimic-iii" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#mortalitysoldurg-prediciton" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://openreview.net/pdf?id=tVTN7Zs0ml"   target="_blank">
+    GraphCare</a></td>
+<td>ICML 2024</td>
+<td>首先构造一个巨大的KG，然后将每个病人病历报告中的关键词建立成子图，然后送进GNN进行预测。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://openreview.net/pdf?id=pe0Vdv7rsL"   target="_blank">
+    GT-BEHRT</a></td>
+<td>ICML 2024</td>
+<td>将每一个Visit用GNN编码成embedding，作为BERT的输入token，再让BERT建模时序信息。</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>EMERGE</td>
+<td>Arxiv 2024</td>
+<td>用LLM+RAG产生病理报告的进一步描述，然后微调GRU根据数据做出精确诊断</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">通用文本分类 
+    <div id="%E9%80%9A%E7%94%A8%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%9A%E7%94%A8%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>2018 BERT</p>
+<p>2019</p>
+<p><a href="https://zhuanlan.zhihu.com/p/75893972"   target="_blank">
+    SpanBert：对 Bert 预训练的一次深度探索 - 知乎 (zhihu.com)</a> 不只是span mask，还有基于span边界预测指定位置的监督</p>
+<p><a href="https://zhuanlan.zhihu.com/p/404741162"   target="_blank">
+    RoBERTa模型总结 - 知乎 (zhihu.com)</a> 去除NSP，大batch_size，动态mask</p>
+<p><a href="https://zhuanlan.zhihu.com/p/88438851"   target="_blank">
+    T5 模型：NLP Text-to-Text 预训练模型超大规模探索 - 知乎 (zhihu.com)</a> Google出品，大量实验，大量结论，可用于指导调参</p>
+<p>2021</p>
+<p><a href="https://zhuanlan.zhihu.com/p/369075953"   target="_blank">
+    SimCSE论文解读 - 知乎 (zhihu.com)</a> 句子嵌入sota，但不一定利于下游任务</p>
+<p><a href="https://blog.csdn.net/HUSTHY/article/details/119971673"   target="_blank">
+    无监督对比学习SIMCSE理解和中文实验操作-CSDN博客</a> 细节</p>
+<p><a href="https://mp.weixin.qq.com/s/Ed-qlaQj2zvTMv8-T-grCg"   target="_blank">
+    Sentence-T5｜谷歌提出文本表示新SOTA (qq.com)</a> 双塔结构，多加了一层投影和L2-Norm</p>
+<p>注意：有监督对比loss上的temperature=100，之前无监督对比学习的T都很小</p>
+<p><a href="https://zhuanlan.zhihu.com/p/528648578"   target="_blank">
+    对比学习在文本分类任务中的应用实践 - 知乎 (zhihu.com)</a> 混合对比学习和分类监督</p>
+
+
+<h2 class="relative group">Dataset 
+    <div id="dataset" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dataset" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">MIMIC III 
+    <div id="mimic-iii-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mimic-iii-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM+GNN</p>
+<p>以及，严重怀疑卷不动了</p>
 <table>
 <thead>
 <tr>
@@ -1148,79 +1393,34 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
 </table>
 
 
-<h3 class="relative group">Iflytek 950 
-    <div id="iflytek-950" class="anchor"></div>
+<h3 class="relative group">KG 
+    <div id="kg" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#iflytek-950" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#kg" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>等级</th>
-<th>基层</th>
-<th>抗攻击</th>
-<th>高价值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Baseline(BERT)</td>
-<td>0.86</td>
-<td>0.82</td>
-<td>0.60</td>
-<td>0.87</td>
-</tr>
-<tr>
-<td>Hierarchical（3层，1+1+2）</td>
-<td>0.71</td>
-<td>0.77</td>
-<td>0.55</td>
-<td>0.77</td>
-</tr>
-<tr>
-<td>Contrastive Learning</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Label Attention</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>KG</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p><a href="https://www.jianshu.com/p/140a9127acdb"   target="_blank">
+    知识图谱汇总 - 简书 (jianshu.com)</a></p>
 
 
-<h2 class="relative group">Mortality/SOL/durg prediciton 
-    <div id="mortalitysoldurg-prediciton" class="anchor"></div>
+<h4 class="relative group">中文KG 
+    <div id="%E4%B8%AD%E6%96%87kg" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#mortalitysoldurg-prediciton" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E4%B8%AD%E6%96%87kg" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
+</h4>
 <table>
 <thead>
 <tr>
+<th>BKG</th>
 <th></th>
 <th></th>
 <th></th>
@@ -1230,22 +1430,39 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
 </thead>
 <tbody>
 <tr>
-<td><a href="https://openreview.net/pdf?id=tVTN7Zs0ml"   target="_blank">
-    GraphCare</a></td>
-<td>ICML 2024</td>
-<td>首先构造一个巨大的KG，然后将每个病人病历报告中的关键词建立成子图，然后送进GNN进行预测。</td>
+<td>CMeKG</td>
+<td>北京大学、郑州大学以及鹏城实验室</td>
+<td>1万余种疾病、近2万种药物、1万余个症状、3千种诊疗技术</td>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://openreview.net/pdf?id=pe0Vdv7rsL"   target="_blank">
-    GT-BEHRT</a></td>
-<td>ICML 2024</td>
-<td>将每一个Visit用GNN编码成embedding，作为BERT的输入token，再让BERT建模时序信息。</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
+<td>CUMLS</td>
+<td>中国医学科学院医学信息研究所基于 UMLS 开发</td>
+<td>医学主题词 3 万多条、入口词 3 万多条、医学术语 10 万多条和医学词汇素材 30 万多条。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>医药卫生知识服务系统</td>
+<td>中国医学科学院医学信息研究所</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OMAHA</td>
+<td>浙江数字医疗卫生技术研究院</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -1256,34 +1473,85 @@ BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.
 </table>
 
 
-<h2 class="relative group">通用文本分类进展 
-    <div id="%E9%80%9A%E7%94%A8%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E8%BF%9B%E5%B1%95" class="anchor"></div>
+<h4 class="relative group">英文KG 
+    <div id="%E8%8B%B1%E6%96%87kg" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E9%80%9A%E7%94%A8%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E8%BF%9B%E5%B1%95" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E8%8B%B1%E6%96%87kg" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
-<p>2018 BERT</p>
-<p>2019</p>
-<p><a href="https://zhuanlan.zhihu.com/p/75893972"   target="_blank">
-    SpanBert：对 Bert 预训练的一次深度探索 - 知乎 (zhihu.com)</a> 不只是span mask，还有基于span边界预测指定位置的监督</p>
-<p><a href="https://zhuanlan.zhihu.com/p/404741162"   target="_blank">
-    RoBERTa模型总结 - 知乎 (zhihu.com)</a> 去除NSP，大batch_size，动态mask</p>
-<p><a href="https://zhuanlan.zhihu.com/p/88438851"   target="_blank">
-    T5 模型：NLP Text-to-Text 预训练模型超大规模探索 - 知乎 (zhihu.com)</a> Google出品，大量实验，大量结论，可用于指导调参</p>
-<p>2021</p>
-<p><a href="https://zhuanlan.zhihu.com/p/369075953"   target="_blank">
-    SimCSE论文解读 - 知乎 (zhihu.com)</a> 句子嵌入sota，但不一定利于下游任务</p>
-<p><a href="https://blog.csdn.net/HUSTHY/article/details/119971673"   target="_blank">
-    无监督对比学习SIMCSE理解和中文实验操作-CSDN博客</a> 细节</p>
-<p><a href="https://mp.weixin.qq.com/s/Ed-qlaQj2zvTMv8-T-grCg"   target="_blank">
-    Sentence-T5｜谷歌提出文本表示新SOTA (qq.com)</a> 双塔结构，多加了一层投影和L2-Norm</p>
-<p>注意：有监督对比loss上的temperature=100，之前无监督对比学习的T都很小</p>
-<p><a href="https://zhuanlan.zhihu.com/p/528648578"   target="_blank">
-    对比学习在文本分类任务中的应用实践 - 知乎 (zhihu.com)</a> 混合对比学习和分类监督</p>
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UMLS</td>
+<td></td>
+<td>词汇库，444 万实体和 1610 万实体名称；<br />为词汇库提供统一的分类，共有 127 种；提供实体类型关系，54种，包括等级关系和相关关系；<br />专业词典和词汇处理工具，包含约 45万条生物医学和常用英语词汇条目以及 80余万条词汇变化形式</td>
+</tr>
+<tr>
+<td>SNOMED CT</td>
+<td>由2大医学术语库SNOMED RT 和 CTV3合并</td>
+<td></td>
+</tr>
+<tr>
+<td>Linked Life Data</td>
+<td></td>
+<td>基因、蛋白质、疾病、药物、分子相互作用、通路、靶点和临床试验相关信息</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">互联网大厂 
+    <div id="%E4%BA%92%E8%81%94%E7%BD%91%E5%A4%A7%E5%8E%82" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BA%92%E8%81%94%E7%BD%91%E5%A4%A7%E5%8E%82" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>腾讯医疗健康</td>
+<td>300万个实体、2100万条关系</td>
+<td></td>
+</tr>
+<tr>
+<td>阿里Doctor you</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>百度灵医</td>
+<td>疾病知识9700+，典型病例3600+，国家临床路径1200+，医学词典17万+，医学计算器270+，心电图760+，临床检验330+，临床决策知识2600+</td>
+<td></td>
+</tr>
+<tr>
+<td>平安医疗科技</td>
+<td>60万医学概念、530万医学关系</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
         </div>
         

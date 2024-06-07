@@ -14,7 +14,8 @@
       <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/</guid>
-      <description>引入LLM和外部知识库KG来产生定性认识，然后根据定量数据产生精准描述。
+      <description> 2406.00036 (arxiv.org)
+引入LLM和外部知识库KG来产生定性认识，然后根据定量数据产生精准描述。
 使用LLM+规则从时序数据和病历文本中抽取实体，基于这些实体在KG中查询相关的知识，包括定义、描述、三元组 整合原始文本和检索到的知识，生成知识增强的文本 使用LM做文本嵌入，用GRU做时序数据编码，使用cross attention融合，并据此做出死亡和生存时间预测 RAG # 时序数据知识检索 # 对于时序数据，计算每个指标的均值和方差，偏离3倍标准差的认为是异常值，从而评估某个指标过低/过高；
 如果某个指标出现在某个疾病的定义/描述中，则认为暗示这种疾病；
 文本报告知识检索 # 对于文本报告，使用LLM进行NER，并滤除不合法的实体（不在文本中，不是疾病名）
@@ -58,11 +59,19 @@ $$ 考虑矩阵B= \begin{bmatrix} 1\quad2\quad3\newline 4\quad5\quad6\newline 7\
       <pubDate>Mon, 03 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</guid>
-      <description>Tips # 记得多看看有没有现成的API可以调（分词/标准化/停用词等） 中文并没有开源的优质词向量，本人用的也是讯飞的闭源BERT 24年搞BERT，49年入清军……不如多模态……本人因为已经入坑半年，沉没成本太高，所以还在坚持 To do # 只使用BERT的情况下，考虑下列改进：
-更好的文本表示：对比学习、类别注意力 基于疾病KG的层次化方法：概率图/LATT等。 如果额外引入图结构信息，则需要完成下列工作
-分词+标准化（疑似讯飞引擎提供，必须确保不会出现其他的词） 构建词表（节点）、统计词频（边）（参考BertGCN，transductive） GNN，torch_geometric调库就行了，已经轻车熟路 ICD coding # SOTA on MIMIC III # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
-Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding+self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN+多尺度+label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
-BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN+ KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。</description>
+      <description>To do # 讯飞 # 基于纯BERT的优化
+更好的文本表示：对比学习、类别注意力
+基于疾病KG的层次化方法：概率图/LATT等。
+讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能
+分词+标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）
+考虑使用外部KG来增强表达
+数据集
+数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM+GNN
+但现阶段还是先做好讯飞
+Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
+搞点对比学习778
+等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1+1+2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
+Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding+self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN+多尺度+label attention 58.</description>
       
     </item>
     
@@ -861,6 +870,16 @@ $$ P(t^+)=softmax(T^T(h+r)) $$
 $$ L_{Sem}=-log(P(t^+)) $$
 为什么有效？ # 因为能（结合图像）正确地捕捉到头部实体和关系，同时（多模态）知识库更完备
 数据集 # OKVQA and KRVQA</description>
+      
+    </item>
+    
+    <item>
+      <title>Multi-stage Retrieve and Re-rank Model for Automatic Medical Coding Recommendation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/multi-stage-retrieve-and-re-rank-model-for-automatic-medical-coding/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/multi-stage-retrieve-and-re-rank-model-for-automatic-medical-coding/</guid>
+      <description>2405.19093 (arxiv.org)</description>
       
     </item>
     

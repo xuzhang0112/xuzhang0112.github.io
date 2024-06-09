@@ -108,7 +108,7 @@ $$ 考虑矩阵B= \begin{bmatrix} 1\quad2\quad3\newline 4\quad5\quad6\newline 7\
     "keywords": ["Course"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "650"
+    "wordCount": "661"
   }]
   </script>
 
@@ -812,6 +812,7 @@ $$ 考虑矩阵B= \begin{bmatrix} 1\quad2\quad3\newline 4\quad5\quad6\newline 7\
         <li><a href="#秩">秩</a></li>
         <li><a href="#行列式">行列式</a></li>
         <li><a href="#迹">迹</a></li>
+        <li><a href="#随机向量">随机向量</a></li>
         <li><a href="#范数">范数</a></li>
         <li><a href="#特殊矩阵">特殊矩阵</a></li>
       </ul>
@@ -868,6 +869,7 @@ $$ 考虑矩阵B= \begin{bmatrix} 1\quad2\quad3\newline 4\quad5\quad6\newline 7\
         <li><a href="#秩">秩</a></li>
         <li><a href="#行列式">行列式</a></li>
         <li><a href="#迹">迹</a></li>
+        <li><a href="#随机向量">随机向量</a></li>
         <li><a href="#范数">范数</a></li>
         <li><a href="#特殊矩阵">特殊矩阵</a></li>
       </ul>
@@ -1139,6 +1141,49 @@ $$</p>
 <p>柯西不等式推导</p>
 <p>自相关、互相关、自协方差矩阵</p>
 <p>多元正态分布推导</p>
+
+
+<h3 class="relative group">随机向量 
+    <div id="%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自相关矩阵</td>
+<td>$R_x=E[(x(\xi)x^H(\xi))]$</td>
+<td></td>
+</tr>
+<tr>
+<td>互相关矩阵</td>
+<td>$R_{xy}=E[(x(\xi)y^H(\xi))]$</td>
+<td></td>
+</tr>
+<tr>
+<td>自协方差矩阵</td>
+<td>$C_x=E([x(\xi)-\mu][x(\xi)-\mu]^T)$</td>
+<td>$C_x=R_x-\mu_x\mu_x^T$</td>
+</tr>
+<tr>
+<td>互协方差矩阵</td>
+<td>$C_x=E([x(\xi)-\mu_x][y(\xi)-\mu_y]^T)$</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 <h3 class="relative group">范数 

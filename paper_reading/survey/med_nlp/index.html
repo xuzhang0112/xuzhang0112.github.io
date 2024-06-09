@@ -61,7 +61,7 @@
   
   
   <meta property="og:title" content="Medical NLP" />
-<meta property="og:description" content="To do # 讯飞 # 基于纯BERT的优化
+<meta property="og:description" content="To do # 当前正在做 # 医生复核后的准确率统计 加个对比学习进去 讯飞 # 基于纯BERT的优化
 更好的文本表示：对比学习、类别注意力
 基于疾病KG的层次化方法：概率图/LATT等。
 讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能
@@ -73,7 +73,7 @@
 Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
 搞点对比学习778
 等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1&#43;1&#43;2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
-Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58." />
+Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/med_nlp/" /><meta property="article:section" content="paper_reading" />
 <meta property="article:published_time" content="2024-06-05T00:00:00+00:00" />
@@ -81,7 +81,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Medical NLP"/>
-<meta name="twitter:description" content="To do # 讯飞 # 基于纯BERT的优化
+<meta name="twitter:description" content="To do # 当前正在做 # 医生复核后的准确率统计 加个对比学习进去 讯飞 # 基于纯BERT的优化
 更好的文本表示：对比学习、类别注意力
 基于疾病KG的层次化方法：概率图/LATT等。
 讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能
@@ -93,7 +93,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
 Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
 搞点对比学习778
 等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1&#43;1&#43;2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
-Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58."/>
+Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57."/>
 
   
   <script type="application/ld+json">
@@ -104,7 +104,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
     "name": "Medical NLP",
     "headline": "Medical NLP",
     
-    "abstract": "To do # 讯飞 # 基于纯BERT的优化\n更好的文本表示：对比学习、类别注意力\n基于疾病KG的层次化方法：概率图\/LATT等。\n讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能\n分词\u002b标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）\n考虑使用外部KG来增强表达\n数据集\n数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM\u002bGNN\n但现阶段还是先做好讯飞\nResult # Iflytek 950 # 加什么都是负优化……ICD-10也不work\n搞点对比学习778\n等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1\u002b1\u002b2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了\nModel Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN\u002bLabel Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding\u002bself attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN\u002b多尺度\u002blabel attention 58.",
+    "abstract": "To do # 当前正在做 # 医生复核后的准确率统计 加个对比学习进去 讯飞 # 基于纯BERT的优化\n更好的文本表示：对比学习、类别注意力\n基于疾病KG的层次化方法：概率图\/LATT等。\n讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能\n分词\u002b标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）\n考虑使用外部KG来增强表达\n数据集\n数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM\u002bGNN\n但现阶段还是先做好讯飞\nResult # Iflytek 950 # 加什么都是负优化……ICD-10也不work\n搞点对比学习778\n等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1\u002b1\u002b2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了\nModel Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN\u002bLabel Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/survey\/med_nlp\/",
     "author" : {
@@ -120,7 +120,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
     "keywords": ["Survey"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "360"
+    "wordCount": "369"
   }]
   </script>
 
@@ -819,6 +819,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
   <ul>
     <li><a href="#to-do">To do</a>
       <ul>
+        <li><a href="#当前正在做">当前正在做</a></li>
         <li><a href="#讯飞">讯飞</a></li>
         <li><a href="#mimic-iii">MIMIC III</a></li>
       </ul>
@@ -857,6 +858,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
   <ul>
     <li><a href="#to-do">To do</a>
       <ul>
+        <li><a href="#当前正在做">当前正在做</a></li>
         <li><a href="#讯飞">讯飞</a></li>
         <li><a href="#mimic-iii">MIMIC III</a></li>
       </ul>
@@ -907,6 +909,22 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
     </span>        
     
 </h2>
+
+
+<h3 class="relative group">当前正在做 
+    <div id="%E5%BD%93%E5%89%8D%E6%AD%A3%E5%9C%A8%E5%81%9A" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BD%93%E5%89%8D%E6%AD%A3%E5%9C%A8%E5%81%9A" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>医生复核后的准确率统计</li>
+<li>加个对比学习进去</li>
+</ol>
 
 
 <h3 class="relative group">讯飞 
@@ -1080,8 +1098,8 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
     CAML</a></td>
 <td>NAACL 2018</td>
 <td>开山之作，Baseline，CNN+Label Attention</td>
-<td></td>
-<td></td>
+<td>53.9</td>
+<td>98.6</td>
 </tr>
 <tr>
 <td><a href="https://arxiv.org/pdf/2007.06351v1"   target="_blank">
@@ -1121,6 +1139,13 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
 <td>EMNLP 2022</td>
 <td>首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。<br />Longformer相比BERT可以接受更长的上下文。</td>
 <td>59.9</td>
+<td></td>
+</tr>
+<tr>
+<td>Text2Tree</td>
+<td>EMNLP 2023</td>
+<td></td>
+<td></td>
 <td></td>
 </tr>
 <tr>

@@ -14,7 +14,7 @@
       <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</guid>
-      <description>To do # 讯飞 # 基于纯BERT的优化
+      <description>To do # 当前正在做 # 医生复核后的准确率统计 加个对比学习进去 讯飞 # 基于纯BERT的优化
 更好的文本表示：对比学习、类别注意力
 基于疾病KG的层次化方法：概率图/LATT等。
 讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能
@@ -26,7 +26,7 @@
 Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
 搞点对比学习778
 等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1+1+2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
-Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding+self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN+多尺度+label attention 58.</description>
+Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.</description>
       
     </item>
     

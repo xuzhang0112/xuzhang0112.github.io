@@ -14,7 +14,8 @@
       <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/paper_reading/acl/incorporating-hierarchy-into-text-encoder-a-contrastive-learning-approach-for-hierarchical-text-classification/</guid>
-      <description>使用GNN获取层次标签的表示，并进一步从文本中抽取和标签相关的特征。 一方面，可以视为数据增强，和原始文本一起，训练分类器；一方面，用于对比学习的正样本，拉进文本与其标签增强表示的距离，拉远和其他文本及其标签增强表示的距离。
+      <description>2203.03825 (arxiv.org)
+使用GNN获取层次标签的表示，并进一步从文本中抽取和标签相关的特征。 一方面，可以视为数据增强，和原始文本一起，训练分类器；一方面，用于对比学习的正样本，拉进文本与其标签增强表示的距离，拉远和其他文本及其标签增强表示的距离。
 首先使用Graph Encoder计算Label的表示，然后用Attention来计算Label和文本中各个token之间的相似度，以获取和标签关联程度最高的token，将其余token置零，作为标签增强的正样本。
 对比学习拉近同一样本及其正样本，拉远不同样本。 $$ L_{cl}=-\frac{1}{2N}\sum_m^{2N}\frac{exp(sim(z_m,\hat{z_m})/ \tau)}{\sum_{i,i\neq m}^{2N}exp(sim(z_m,z_i)/\tau)} $$ 每个样本及其正样本都被送进编码器和分类器，以求正确分类。 $$ L = L^C+\hat{L^C}+\lambda L_{cl} $$ 极端退化的情况下，Label embedding可以看成一种类别注意力，对文本进行增强，共同送进分类器；而对比学习和图编码器可以辅助类别注意力的训练，同时提升BERT的性能。
 正样本的生成也可以采取Dropout或者Random masking，效果会相应地退化。

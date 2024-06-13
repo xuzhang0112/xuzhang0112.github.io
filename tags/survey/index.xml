@@ -14,7 +14,10 @@
       <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</guid>
-      <description>To do # 当前正在做 # 医生复核后的准确率统计 加个对比学习进去 讯飞 # 基于纯BERT的优化
+      <description>To do # 当前正在做 # 数据分析
+整理医生复核结果，重新计算准确率 统计一下数据集分布（如果有时间的话） 层次化
+用Linear整合 Detach，防止影响梯度 深监督 随机加mask构造正样本，加对比学习
+讯飞 # 基于纯BERT的优化
 更好的文本表示：对比学习、类别注意力
 基于疾病KG的层次化方法：概率图/LATT等。
 讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能
@@ -24,9 +27,7 @@
 数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM+GNN
 但现阶段还是先做好讯飞
 Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
-搞点对比学习778
-等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1+1+2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
-Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.</description>
+Baseline: BERT + Pooling + Softmax # 等级 基层 抗攻击 高价值 BERT+max pooling 0.86 0.82 0.60 0.87 Backbone lr decay (0.1) 0.86 0.84 0.62 0.78 Layer-wise lr rate decay 0.86 0.83 0.60 0.87 Hierarchical # 等级 基层 抗攻击 高价值 Baseline 0.</description>
       
     </item>
     

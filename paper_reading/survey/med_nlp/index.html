@@ -61,7 +61,10 @@
   
   
   <meta property="og:title" content="Medical NLP" />
-<meta property="og:description" content="To do # 当前正在做 # 医生复核后的准确率统计 加个对比学习进去 讯飞 # 基于纯BERT的优化
+<meta property="og:description" content="To do # 当前正在做 # 数据分析
+整理医生复核结果，重新计算准确率 统计一下数据集分布（如果有时间的话） 层次化
+用Linear整合 Detach，防止影响梯度 深监督 随机加mask构造正样本，加对比学习
+讯飞 # 基于纯BERT的优化
 更好的文本表示：对比学习、类别注意力
 基于疾病KG的层次化方法：概率图/LATT等。
 讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能
@@ -71,9 +74,7 @@
 数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM&#43;GNN
 但现阶段还是先做好讯飞
 Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
-搞点对比学习778
-等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1&#43;1&#43;2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
-Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57." />
+Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 BERT&#43;max pooling 0.86 0.82 0.60 0.87 Backbone lr decay (0.1) 0.86 0.84 0.62 0.78 Layer-wise lr rate decay 0.86 0.83 0.60 0.87 Hierarchical # 等级 基层 抗攻击 高价值 Baseline 0." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/med_nlp/" /><meta property="article:section" content="paper_reading" />
 <meta property="article:published_time" content="2024-06-05T00:00:00+00:00" />
@@ -81,7 +82,10 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Medical NLP"/>
-<meta name="twitter:description" content="To do # 当前正在做 # 医生复核后的准确率统计 加个对比学习进去 讯飞 # 基于纯BERT的优化
+<meta name="twitter:description" content="To do # 当前正在做 # 数据分析
+整理医生复核结果，重新计算准确率 统计一下数据集分布（如果有时间的话） 层次化
+用Linear整合 Detach，防止影响梯度 深监督 随机加mask构造正样本，加对比学习
+讯飞 # 基于纯BERT的优化
 更好的文本表示：对比学习、类别注意力
 基于疾病KG的层次化方法：概率图/LATT等。
 讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能
@@ -91,9 +95,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
 数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM&#43;GNN
 但现阶段还是先做好讯飞
 Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
-搞点对比学习778
-等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1&#43;1&#43;2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
-Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57."/>
+Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 BERT&#43;max pooling 0.86 0.82 0.60 0.87 Backbone lr decay (0.1) 0.86 0.84 0.62 0.78 Layer-wise lr rate decay 0.86 0.83 0.60 0.87 Hierarchical # 等级 基层 抗攻击 高价值 Baseline 0."/>
 
   
   <script type="application/ld+json">
@@ -104,7 +106,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
     "name": "Medical NLP",
     "headline": "Medical NLP",
     
-    "abstract": "To do # 当前正在做 # 医生复核后的准确率统计 加个对比学习进去 讯飞 # 基于纯BERT的优化\n更好的文本表示：对比学习、类别注意力\n基于疾病KG的层次化方法：概率图\/LATT等。\n讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能\n分词\u002b标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）\n考虑使用外部KG来增强表达\n数据集\n数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM\u002bGNN\n但现阶段还是先做好讯飞\nResult # Iflytek 950 # 加什么都是负优化……ICD-10也不work\n搞点对比学习778\n等级 基层 抗攻击 高价值 Baseline(BERT) 0.86 0.82 0.60 0.87 Hierarchical（3层，1\u002b1\u002b2） 0.71 0.77 0.55 0.77 Contrastive Learning Label Attention KG SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了\nModel Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN\u002bLabel Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.",
+    "abstract": "To do # 当前正在做 # 数据分析\n整理医生复核结果，重新计算准确率 统计一下数据集分布（如果有时间的话） 层次化\n用Linear整合 Detach，防止影响梯度 深监督 随机加mask构造正样本，加对比学习\n讯飞 # 基于纯BERT的优化\n更好的文本表示：对比学习、类别注意力\n基于疾病KG的层次化方法：概率图\/LATT等。\n讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能\n分词\u002b标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）\n考虑使用外部KG来增强表达\n数据集\n数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM\u002bGNN\n但现阶段还是先做好讯飞\nResult # Iflytek 950 # 加什么都是负优化……ICD-10也不work\nBaseline: BERT \u002b Pooling \u002b Softmax # 等级 基层 抗攻击 高价值 BERT\u002bmax pooling 0.86 0.82 0.60 0.87 Backbone lr decay (0.1) 0.86 0.84 0.62 0.78 Layer-wise lr rate decay 0.86 0.83 0.60 0.87 Hierarchical # 等级 基层 抗攻击 高价值 Baseline 0.",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/survey\/med_nlp\/",
     "author" : {
@@ -120,7 +122,7 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
     "keywords": ["Survey"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "369"
+    "wordCount": "446"
   }]
   </script>
 
@@ -922,8 +924,24 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
     
 </h3>
 <ol>
-<li>医生复核后的准确率统计</li>
-<li>加个对比学习进去</li>
+<li>
+<p>数据分析</p>
+<ol>
+<li>整理医生复核结果，重新计算准确率</li>
+<li>统计一下数据集分布（如果有时间的话）</li>
+</ol>
+</li>
+<li>
+<p>层次化</p>
+<ol>
+<li>用Linear整合</li>
+<li>Detach，防止影响梯度</li>
+<li>深监督</li>
+</ol>
+</li>
+<li>
+<p>随机加mask构造正样本，加对比学习</p>
+</li>
 </ol>
 
 
@@ -1008,7 +1026,18 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
     
 </h3>
 <p>加什么都是负优化……ICD-10也不work</p>
-<p>搞点对比学习778</p>
+
+
+<h4 class="relative group">Baseline: BERT + Pooling + Softmax 
+    <div id="baseline-bert--pooling--softmax" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#baseline-bert--pooling--softmax" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 <table>
 <thead>
 <tr>
@@ -1021,39 +1050,177 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
 </thead>
 <tbody>
 <tr>
-<td>Baseline(BERT)</td>
+<td>BERT+max pooling</td>
 <td>0.86</td>
 <td>0.82</td>
 <td>0.60</td>
 <td>0.87</td>
 </tr>
 <tr>
-<td>Hierarchical（3层，1+1+2）</td>
+<td>Backbone lr decay (0.1)</td>
+<td>0.86</td>
+<td>0.84</td>
+<td>0.62</td>
+<td>0.78</td>
+</tr>
+<tr>
+<td>Layer-wise lr rate decay</td>
+<td>0.86</td>
+<td>0.83</td>
+<td>0.60</td>
+<td>0.87</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">Hierarchical 
+    <div id="hierarchical" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hierarchical" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>等级</th>
+<th>基层</th>
+<th>抗攻击</th>
+<th>高价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td>0.86</td>
+<td>0.82</td>
+<td>0.60</td>
+<td>0.87</td>
+</tr>
+<tr>
+<td>3层，1+1+2</td>
 <td>0.71</td>
 <td>0.77</td>
 <td>0.55</td>
 <td>0.77</td>
 </tr>
 <tr>
-<td>Contrastive Learning</td>
+<td>3层，1+1+3</td>
+<td>0.82</td>
+<td>0.81</td>
+<td>0.62</td>
+<td>0.83</td>
+</tr>
+<tr>
+<td>3层，联合概率$P(y)=\prod_{y_i}P(y_i)$<br />其中$P(y_i)=\begin{cases}sigmoid(z_i),y_i=1\newline 1-sigmoid(z_i),y_i=0\end{cases}$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">Contrastive Learning 
+    <div id="contrastive-learning" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#contrastive-learning" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>等级</th>
+<th>基层</th>
+<th>抗攻击</th>
+<th>高价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td>0.86</td>
+<td>0.82</td>
+<td>0.60</td>
+<td>0.87</td>
+</tr>
+<tr>
+<td>50%概率加mask，$\tau=1, \lambda=0.1$</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Label Attention</td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">医生复核 
+    <div id="%E5%8C%BB%E7%94%9F%E5%A4%8D%E6%A0%B8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8C%BB%E7%94%9F%E5%A4%8D%E6%A0%B8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
 <tr>
-<td>KG</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<th></th>
+<th>等级</th>
+<th>基层</th>
+<th>抗攻击</th>
+<th>高价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td>0.86</td>
+<td>0.82</td>
+<td>0.60</td>
+<td>0.87</td>
+</tr>
+<tr>
+<td>引擎+医生复核</td>
+<td>97.70</td>
+<td>98.12</td>
+<td>90.91</td>
+<td>99.38</td>
 </tr>
 </tbody>
 </table>
@@ -1295,22 +1462,22 @@ Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;La
 </tr>
 <tr>
 <td>测试集-等级</td>
-<td></td>
+<td>3128</td>
 <td></td>
 </tr>
 <tr>
 <td>测试集-基层</td>
-<td></td>
+<td>3308</td>
 <td></td>
 </tr>
 <tr>
 <td>测试集-抗攻击</td>
-<td></td>
+<td>957</td>
 <td></td>
 </tr>
 <tr>
 <td>测试集-高价值</td>
-<td></td>
+<td>1122</td>
 <td></td>
 </tr>
 </tbody>

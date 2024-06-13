@@ -71,9 +71,10 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
 按顺序遍历样本，直到所有样本被正确分类
 若样本$X_i$满足$\begin{cases}W^TX_i&gt;0\quad if X_i\in\omega_1\newline W^TX&lt;0\quad if X_i\in\omega_2\end{cases}$，则说明该样本被正确分类；
 否则：$W=\begin{cases}W&#43;\rho X_i\quad if X_i\in\omega_1\newline W-\rho X_i\quad if X_i\in\omega_2\end{cases}$
-梯度下降法视角 # 如果将所有负例的特征向量取负号，则感知器的训练目标转化为：令所有样本都满足$w^Tx&gt;0$，相应的准则函数$J=\sum_{x\in X_0}(-w^Tx),X_0是所有错分样本$
-若使用梯度下降法进行优化，则每一步的梯度恰好是当前所有错分样本之和 $$ \sum_{x\in X_0}(-x) $$ 修正式为 $$ w_{k&#43;1}=w_k&#43;\rho_{k&#43;1}\sum_{x\in X_0}x $$
-学习率和优化器 # 学习速率$\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。" />
+学习率和优化器 # 学习速率$\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。
+常用的梯度下降法有：批量梯度法（BGD）、随机梯度法（SGD）、小批次梯度法（MBGD），分别对应整个数据集、单个样本、一小批样本进行梯度的计算。
+最小平方和，LMSE # 如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。
+如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为 $$ J(w)=||Xw-b||^2 $$ 相应的梯度为 $$ \nabla J(w)=\nabla ||Xw-b||^2 = 2X^T(Xw-b) $$ 相应的更新方式为 $$ w_{k&#43;1}=w_k&#43;\rho_{k&#43;1}X^T(Xw&#43;b) $$ 但是，上述方法需要给定松弛变量，事实上，松弛变量也可以在优化中求解，即H-K算法。 $$ b_{k&#43;1}=b_k-\eta_{k&#43;1}\nabla J(w(k))|b $$" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/course/pr/" /><meta property="article:section" content="cheat_sheet" />
 <meta property="article:published_time" content="2024-06-07T00:00:00+00:00" />
@@ -91,9 +92,10 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
 按顺序遍历样本，直到所有样本被正确分类
 若样本$X_i$满足$\begin{cases}W^TX_i&gt;0\quad if X_i\in\omega_1\newline W^TX&lt;0\quad if X_i\in\omega_2\end{cases}$，则说明该样本被正确分类；
 否则：$W=\begin{cases}W&#43;\rho X_i\quad if X_i\in\omega_1\newline W-\rho X_i\quad if X_i\in\omega_2\end{cases}$
-梯度下降法视角 # 如果将所有负例的特征向量取负号，则感知器的训练目标转化为：令所有样本都满足$w^Tx&gt;0$，相应的准则函数$J=\sum_{x\in X_0}(-w^Tx),X_0是所有错分样本$
-若使用梯度下降法进行优化，则每一步的梯度恰好是当前所有错分样本之和 $$ \sum_{x\in X_0}(-x) $$ 修正式为 $$ w_{k&#43;1}=w_k&#43;\rho_{k&#43;1}\sum_{x\in X_0}x $$
-学习率和优化器 # 学习速率$\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。"/>
+学习率和优化器 # 学习速率$\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。
+常用的梯度下降法有：批量梯度法（BGD）、随机梯度法（SGD）、小批次梯度法（MBGD），分别对应整个数据集、单个样本、一小批样本进行梯度的计算。
+最小平方和，LMSE # 如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。
+如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为 $$ J(w)=||Xw-b||^2 $$ 相应的梯度为 $$ \nabla J(w)=\nabla ||Xw-b||^2 = 2X^T(Xw-b) $$ 相应的更新方式为 $$ w_{k&#43;1}=w_k&#43;\rho_{k&#43;1}X^T(Xw&#43;b) $$ 但是，上述方法需要给定松弛变量，事实上，松弛变量也可以在优化中求解，即H-K算法。 $$ b_{k&#43;1}=b_k-\eta_{k&#43;1}\nabla J(w(k))|b $$"/>
 
   
   <script type="application/ld+json">
@@ -104,7 +106,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
     "name": "Pattern Recogniton",
     "headline": "Pattern Recogniton",
     
-    "abstract": "相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别\n平均样本法 样本到每个类别的各样本平均值的距离 平均距离法 样本到每个类别的各个样本的距离的平均值 最近邻法 样本最近的样本 距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦\n线性分类器 # n维线性分类器可以表达为超平面$w^Tx\u002bb=0$ 如果将样本X的第n\u002b1维设为1，则超平面可以简化为$w^Tx=0$ 若样本集线性可分，则存在分类器使得所有样本满足$\\begin{cases}w^Tx\u0026gt;0\\quad if\\ x\\in w_1\\newline w^Tx\u0026lt;0\\quad if\\ x\\in w_2\\end{cases}$\n线性分类器的解必然构成解区域，解是不确定的\n多分类问题按照是否线性可分、是否存在不确定区域的解可以分成三种情况\n情况 分类器 总体线性可分 训练n个超平面，分隔每个类和其他所有类 成对线性可分 用$C_n^2$个独立的超平面，将两个类别分开 成对线性可分，且存在没有不确定区域的解 每个类别训练一个判别函数，采用最大值判决\n$G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器\u002b阶跃函数\n按顺序遍历样本，直到所有样本被正确分类\n若样本$X_i$满足$\\begin{cases}W^TX_i\u0026gt;0\\quad if X_i\\in\\omega_1\\newline W^TX\u0026lt;0\\quad if X_i\\in\\omega_2\\end{cases}$，则说明该样本被正确分类；\n否则：$W=\\begin{cases}W\u002b\\rho X_i\\quad if X_i\\in\\omega_1\\newline W-\\rho X_i\\quad if X_i\\in\\omega_2\\end{cases}$\n梯度下降法视角 # 如果将所有负例的特征向量取负号，则感知器的训练目标转化为：令所有样本都满足$w^Tx\u0026gt;0$，相应的准则函数$J=\\sum_{x\\in X_0}(-w^Tx),X_0是所有错分样本$\n若使用梯度下降法进行优化，则每一步的梯度恰好是当前所有错分样本之和 $$ \\sum_{x\\in X_0}(-x) $$ 修正式为 $$ w_{k\u002b1}=w_k\u002b\\rho_{k\u002b1}\\sum_{x\\in X_0}x $$\n学习率和优化器 # 学习速率$\\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。",
+    "abstract": "相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别\n平均样本法 样本到每个类别的各样本平均值的距离 平均距离法 样本到每个类别的各个样本的距离的平均值 最近邻法 样本最近的样本 距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦\n线性分类器 # n维线性分类器可以表达为超平面$w^Tx\u002bb=0$ 如果将样本X的第n\u002b1维设为1，则超平面可以简化为$w^Tx=0$ 若样本集线性可分，则存在分类器使得所有样本满足$\\begin{cases}w^Tx\u0026gt;0\\quad if\\ x\\in w_1\\newline w^Tx\u0026lt;0\\quad if\\ x\\in w_2\\end{cases}$\n线性分类器的解必然构成解区域，解是不确定的\n多分类问题按照是否线性可分、是否存在不确定区域的解可以分成三种情况\n情况 分类器 总体线性可分 训练n个超平面，分隔每个类和其他所有类 成对线性可分 用$C_n^2$个独立的超平面，将两个类别分开 成对线性可分，且存在没有不确定区域的解 每个类别训练一个判别函数，采用最大值判决\n$G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器\u002b阶跃函数\n按顺序遍历样本，直到所有样本被正确分类\n若样本$X_i$满足$\\begin{cases}W^TX_i\u0026gt;0\\quad if X_i\\in\\omega_1\\newline W^TX\u0026lt;0\\quad if X_i\\in\\omega_2\\end{cases}$，则说明该样本被正确分类；\n否则：$W=\\begin{cases}W\u002b\\rho X_i\\quad if X_i\\in\\omega_1\\newline W-\\rho X_i\\quad if X_i\\in\\omega_2\\end{cases}$\n学习率和优化器 # 学习速率$\\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。\n常用的梯度下降法有：批量梯度法（BGD）、随机梯度法（SGD）、小批次梯度法（MBGD），分别对应整个数据集、单个样本、一小批样本进行梯度的计算。\n最小平方和，LMSE # 如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。\n如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为 $$ J(w)=||Xw-b||^2 $$ 相应的梯度为 $$ \\nabla J(w)=\\nabla ||Xw-b||^2 = 2X^T(Xw-b) $$ 相应的更新方式为 $$ w_{k\u002b1}=w_k\u002b\\rho_{k\u002b1}X^T(Xw\u002bb) $$ 但是，上述方法需要给定松弛变量，事实上，松弛变量也可以在优化中求解，即H-K算法。 $$ b_{k\u002b1}=b_k-\\eta_{k\u002b1}\\nabla J(w(k))|b $$",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/course\/pr\/",
     "author" : {
@@ -120,7 +122,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
     "keywords": ["Course"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "399"
+    "wordCount": "385"
   }]
   </script>
 
@@ -1037,27 +1039,6 @@ w^Tx&lt;0\quad if\ x\in w_2\end{cases}$</p>
 </blockquote>
 
 
-<h4 class="relative group">梯度下降法视角 
-    <div id="%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E8%A7%86%E8%A7%92" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E8%A7%86%E8%A7%92" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>如果<strong>将所有负例的特征向量取负号</strong>，则感知器的训练目标转化为：令所有样本都满足$w^Tx&gt;0$，相应的准则函数$J=\sum_{x\in X_0}(-w^Tx),X_0是所有错分样本$</p>
-<p>若使用<strong>梯度下降法</strong>进行优化，则每一步的梯度恰好是当前所有错分样本之和
-$$
-\sum_{x\in X_0}(-x)
-$$
-修正式为
-$$
-w_{k+1}=w_k+\rho_{k+1}\sum_{x\in X_0}x
-$$</p>
-
-
 <h4 class="relative group">学习率和优化器 
     <div id="%E5%AD%A6%E4%B9%A0%E7%8E%87%E5%92%8C%E4%BC%98%E5%8C%96%E5%99%A8" class="anchor"></div>
     
@@ -1082,6 +1063,7 @@ $$</p>
     </span>        
     
 </h3>
+<blockquote>
 <p>如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。</p>
 <p>如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为
 $$
@@ -1119,6 +1101,7 @@ w_{k+1}=(X^TX)^{-1}X^Tb_{k+1}
 =w_k+\eta_{k+1}(X^TX)^{-1}X^T|e_k|
 $$</p>
 <p>若训练集线性可分，则误差向量e可以优化至0；反之，当误差向量&lt;0，说明样本集线性不可分。</p>
+</blockquote>
 
 
 <h3 class="relative group">SVM 

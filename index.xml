@@ -7,16 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Fri, 07 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Matrix</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</link>
-      <pubDate>Fri, 07 Jun 2024 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
-      <description>看不懂的题：9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
-PDF看不懂的题：18题，25题 KKT必考 还有广义瑞利商 正交补
-矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
+      <description>矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
 inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 矩阵的Hardmard积、Kronnecker积和乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
 Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：
 A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A+B)(A-B)$满足交换律 $(A+B)^m$可使用二项式定理展开 矩阵的直和 # 矩阵的直和定义如下：
@@ -28,7 +26,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
     <item>
       <title>Pattern Recogniton</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/course/pr/</link>
-      <pubDate>Fri, 07 Jun 2024 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/course/pr/</guid>
       <description>相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别

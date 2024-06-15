@@ -61,9 +61,7 @@
   
   
   <meta property="og:title" content="Matrix" />
-<meta property="og:description" content="看不懂的题：9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
-PDF看不懂的题：18题，25题 KKT必考 还有广义瑞利商 正交补
-矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
+<meta property="og:description" content="矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
 inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 矩阵的Hardmard积、Kronnecker积和乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
 Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：
 A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 矩阵的直和 # 矩阵的直和定义如下：
@@ -71,14 +69,12 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/course/matrix/" /><meta property="article:section" content="cheat_sheet" />
-<meta property="article:published_time" content="2024-06-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-07T00:00:00+00:00" />
+<meta property="article:published_time" content="2024-06-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-14T00:00:00+00:00" />
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Matrix"/>
-<meta name="twitter:description" content="看不懂的题：9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)
-PDF看不懂的题：18题，25题 KKT必考 还有广义瑞利商 正交补
-矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
+<meta name="twitter:description" content="矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
 inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 矩阵的Hardmard积、Kronnecker积和乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
 Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：
 A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 矩阵的直和 # 矩阵的直和定义如下：
@@ -94,7 +90,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
     "name": "Matrix",
     "headline": "Matrix",
     
-    "abstract": "看不懂的题：9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)\nPDF看不懂的题：18题，25题 KKT必考 还有广义瑞利商 正交补\n矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：\ninner product $\\sum a_ib_i$ $a\\odot b$ Outer product $ab^T$ $a\\otimes b$ 矩阵的Hardmard积、Kronnecker积和乘法 # 若矩阵$A\\in R^{m\\times n},B\\in R^{m\\times n}$，则它的哈达玛积、克罗内亚积如下：\nHardmard Product 逐元素相乘 $A\\circ B \\in R^{m\\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\\otimes B \\in R^{m^2\\times n^2}$ Matrix Product 矩阵乘法 $A\\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：\nA、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A\u002bB)(A-B)$满足交换律 $(A\u002bB)^m$可使用二项式定理展开 矩阵的直和 # 矩阵的直和定义如下：\n$$A\\oplus B=\\begin{bmatrix}A\\quad O\\newline O\\quad B\\end{bmatrix}$$\n逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆",
+    "abstract": "矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：\ninner product $\\sum a_ib_i$ $a\\odot b$ Outer product $ab^T$ $a\\otimes b$ 矩阵的Hardmard积、Kronnecker积和乘法 # 若矩阵$A\\in R^{m\\times n},B\\in R^{m\\times n}$，则它的哈达玛积、克罗内亚积如下：\nHardmard Product 逐元素相乘 $A\\circ B \\in R^{m\\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\\otimes B \\in R^{m^2\\times n^2}$ Matrix Product 矩阵乘法 $A\\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：\nA、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A\u002bB)(A-B)$满足交换律 $(A\u002bB)^m$可使用二项式定理展开 矩阵的直和 # 矩阵的直和定义如下：\n$$A\\oplus B=\\begin{bmatrix}A\\quad O\\newline O\\quad B\\end{bmatrix}$$\n逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/course\/matrix\/",
     "author" : {
@@ -102,15 +98,15 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
       "name": "Xu Zhang"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-06-07T00:00:00\u002b00:00",
-    "datePublished": "2024-06-07T00:00:00\u002b00:00",
+    "dateCreated": "2024-06-14T00:00:00\u002b00:00",
+    "datePublished": "2024-06-14T00:00:00\u002b00:00",
     
-    "dateModified": "2024-06-07T00:00:00\u002b00:00",
+    "dateModified": "2024-06-14T00:00:00\u002b00:00",
     
     "keywords": ["Course"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "801"
+    "wordCount": "816"
   }]
   </script>
 
@@ -835,6 +831,11 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
       <ul>
         <li><a href="#cayleyhamilton定理">Cayley–Hamilton定理</a></li>
         <li><a href="#rayleigh商">Rayleigh商</a></li>
+      </ul>
+    </li>
+    <li><a href="#线性方程">线性方程</a>
+      <ul>
+        <li><a href="#线性方程组axb的解">线性方程组$AX=b$​​的解</a></li>
         <li><a href="#最小二乘">最小二乘</a></li>
       </ul>
     </li>
@@ -842,7 +843,6 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
       <ul>
         <li><a href="#维数">维数</a></li>
         <li><a href="#子空间">子空间</a></li>
-        <li><a href="#线性方程组ax0的解空间">线性方程组$AX=0$的解空间</a></li>
         <li><a href="#投影矩阵">投影矩阵</a></li>
       </ul>
     </li>
@@ -887,6 +887,11 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
       <ul>
         <li><a href="#cayleyhamilton定理">Cayley–Hamilton定理</a></li>
         <li><a href="#rayleigh商">Rayleigh商</a></li>
+      </ul>
+    </li>
+    <li><a href="#线性方程">线性方程</a>
+      <ul>
+        <li><a href="#线性方程组axb的解">线性方程组$AX=b$​​的解</a></li>
         <li><a href="#最小二乘">最小二乘</a></li>
       </ul>
     </li>
@@ -894,7 +899,6 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
       <ul>
         <li><a href="#维数">维数</a></li>
         <li><a href="#子空间">子空间</a></li>
-        <li><a href="#线性方程组ax0的解空间">线性方程组$AX=0$的解空间</a></li>
         <li><a href="#投影矩阵">投影矩阵</a></li>
       </ul>
     </li>
@@ -913,9 +917,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 
 
         <div class="article-content max-w-prose mb-20">
-          <p>看不懂的题：9,14,15（迹）12（正规方程）16（hardmard积，秩）17（诱导范数）18（正定矩阵的分解）18,20（求Jacobin矩阵和Hessin阵）22(相似形分解)</p>
-<p>PDF看不懂的题：18题，25题 KKT必考 还有广义瑞利商 正交补</p>
-
+          
 
 <h2 class="relative group">矩阵的基本概念 
     <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" class="anchor"></div>
@@ -1254,8 +1256,6 @@ $$</p>
 <ul>
 <li>$tr(XX^T)=\sum |x_{ij}|^2$，多天线发射信号矩阵的功率</li>
 </ul>
-<p>柯西不等式推导</p>
-<p>多元正态分布推导</p>
 
 
 <h3 class="relative group">范数 
@@ -1314,6 +1314,44 @@ $$</p>
 <p>当$p\rightarrow\infty$时，称为极大值范数，返回矩阵的最大元素$max(a_{ij})$</p>
 
 
+<h4 class="relative group">范数的性质 
+    <div id="%E8%8C%83%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%8C%83%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>矩阵范数</th>
+<th>向量范数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>三角不等式</td>
+<td>$||A+B||\le||A||+||B||$</td>
+<td>$||u+v||\le||u||+||v||$</td>
+</tr>
+<tr>
+<td>Cauchy不等式</td>
+<td>$||AB||\le||A||\cdot||B||$</td>
+<td>$||uv||\le||u||\cdot||v||$</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
 <h4 class="relative group">矩阵的诱导范数 
     <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E8%AF%B1%E5%AF%BC%E8%8C%83%E6%95%B0" class="anchor"></div>
     
@@ -1369,9 +1407,32 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>误差向量的每个维度期望为0，但功率不为0（因为正负相互抵消，平方后累积）</li>
-</ul>
+
+
+<h4 class="relative group">高斯随机向量 
+    <div id="%E9%AB%98%E6%96%AF%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%AB%98%E6%96%AF%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>设高斯随机向量$x(t)=[x_1(t),\dots,x_N(t)]^T$服从多维正态分布$N(\mu,C_x)$，均值向量$\mu=[\mu_1,\dots,\mu_N]^T$若各个维度独立，则有协方差矩阵$C_x=diag{\sigma_1^2,\dots,\sigma_N^2}$，概率密度函数$f(x)=\frac{1}{(2\pi)^{N/2}det(C_x)^{1/2}}exp(-\frac{1}{2}(x-\mu)^TC_x^{-1}(x-\mu))$​</p>
+
+
+<h4 class="relative group">随机误差向量 
+    <div id="%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE%E5%90%91%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>误差向量的每个维度期望为0，但功率不为0（因为正负相互抵消，平方后累积）</p>
 
 
 <h3 class="relative group">特殊矩阵 
@@ -1396,38 +1457,70 @@ $$</p>
     </span>        
     
 </h4>
-<p>基本矩阵1:只有一个元素为1的矩阵（两个基本矩阵相乘）</p>
-<p>基本矩阵2:初等变换矩阵（推广：移位、选择、置换）</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>推广</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基本矩阵</td>
+<td>$E_{mn}=e_me_n^T$是第m行第n列的元素为1的矩阵，<br />其中$e_n$是第n个元素为1的单位向量</td>
+<td></td>
+</tr>
+<tr>
+<td>I型基本矩阵</td>
+<td>$E_{(p,q)}$</td>
+<td>互换矩阵<br />选择矩阵<br />置换矩阵</td>
+</tr>
+<tr>
+<td>II型基本矩阵</td>
+<td>$E_{\alpha(p)}$</td>
+<td></td>
+</tr>
+<tr>
+<td>III型基本矩阵</td>
+<td>$E_{(p)+\alpha(q)}$</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
-<h4 class="relative group">正规矩阵 
-    <div id="%E6%AD%A3%E8%A7%84%E7%9F%A9%E9%98%B5" class="anchor"></div>
+<h4 class="relative group">三角阵、对角阵 
+    <div id="%E4%B8%89%E8%A7%92%E9%98%B5%E5%AF%B9%E8%A7%92%E9%98%B5" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%AD%A3%E8%A7%84%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E4%B8%89%E8%A7%92%E9%98%B5%E5%AF%B9%E8%A7%92%E9%98%B5" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<p>若$A^HA=AA^H$，则称A是正规矩阵</p>
-<ul>
-<li>对称矩阵、斜对称矩阵、正交矩阵是正规矩阵；Hermitian阵、斜Hermitian阵、酉矩阵是正规矩阵。</li>
-<li>$A^HA$也被称为$A$的列向量的Gram矩阵</li>
-</ul>
-
-
-<h4 class="relative group">三角阵 
-    <div id="%E4%B8%89%E8%A7%92%E9%98%B5" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%B8%89%E8%A7%92%E9%98%B5" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>上/下三角阵的逆矩阵仍然是上/下三角阵。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>逆矩阵</th>
+<th>行列式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上/下三角阵</td>
+<td>上/下三角阵</td>
+<td>$det(A)=\prod_i^Na_{ii}$</td>
+</tr>
+<tr>
+<td>对角阵</td>
+<td>对角阵</td>
+<td>$det(A)=\prod_i^Na_{ii}$</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li>若矩阵是三角阵，又是酉矩阵，则矩阵是对角阵，且对角线元素的范数（绝对值）为1</li>
 <li>若矩阵是上三角分块酉矩阵，$A=\begin{bmatrix}P\quad B\newline 0\quad Q\end{bmatrix}$，那么P、Q都是酉矩阵，且B=0</li>
@@ -1435,62 +1528,74 @@ $$</p>
 <p>上/下三角阵的和、积仍然是上/下三角阵。</p>
 
 
-<h4 class="relative group">对称矩阵和Hermitian矩阵 
-    <div id="%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5%E5%92%8Chermitian%E7%9F%A9%E9%98%B5" class="anchor"></div>
+<h4 class="relative group">对称、正定、正交、正规 
+    <div id="%E5%AF%B9%E7%A7%B0%E6%AD%A3%E5%AE%9A%E6%AD%A3%E4%BA%A4%E6%AD%A3%E8%A7%84" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5%E5%92%8Chermitian%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E5%AF%B9%E7%A7%B0%E6%AD%A3%E5%AE%9A%E6%AD%A3%E4%BA%A4%E6%AD%A3%E8%A7%84" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<p>若矩阵A满足$A^T=A$，则矩阵为对称矩阵。</p>
-<p>若矩阵A满足$A^H=A$，则矩阵为Hermitian矩阵。</p>
-<p>若矩阵A是Hermitian阵，且使得一切$\mathbf{x}$满足$x^HAx&gt;0$，则称矩阵A是正定矩阵</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>实空间</th>
+<th>复空间</th>
+<th>常见举例</th>
+<th>性质</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对称矩阵</td>
+<td>$A^T=A$</td>
+<td>$A^H=A$<br />(Hermitian阵)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>正定矩阵</td>
+<td>$x^TAx&gt;0$</td>
+<td>$x^HAx&gt;0$<br />（前提先是对称阵）</td>
+<td>各阶顺序主子式&gt;0（左上角行列式&gt;0）</td>
+<td>特征值是正数</td>
+</tr>
+<tr>
+<td>正交矩阵</td>
+<td>$QQ^T=Q^TQ=I$</td>
+<td>$UU^H=U^HU=I$<br />（酉矩阵）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>正规矩阵</td>
+<td>$A^TA=AA^T$</td>
+<td>$A^HA=AA^H$</td>
+<td></td>
+<td>必可以酉对角化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>正规矩阵</strong></p>
 <ul>
 <li>
-<p>判断：各阶顺序主子式&gt;0（左上角行列式&gt;0）</p>
+<p>实空间的对称矩阵、斜对称矩阵、正交矩阵是正规的；复空间的Hermitian阵、斜Hermitian阵、酉矩阵是正规矩阵</p>
 </li>
 <li>
-<p>若$A$是正定矩阵，则有对角化$A=P^{-1}diag(\lambda_1,\lambda2,\dots)P$</p>
-<p>进一步有$A^{1/2}=P^{-1}diag(\sqrt{\lambda1},\sqrt{\lambda2},\dots)P$</p>
+<p>正规矩阵必可以酉对角化</p>
 </li>
 <li>
-<p>若Hermitian矩阵A是幂等矩阵，即$A^2=A$，则矩阵A一定是半正定的</p>
+<p>若$A$是反对称矩阵，则$I+A,I-A,A-I$​​是非奇异的</p>
 </li>
 </ul>
-
-
-<h4 class="relative group">正交矩阵和酉矩阵 
-    <div id="%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5%E5%92%8C%E9%85%89%E7%9F%A9%E9%98%B5" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5%E5%92%8C%E9%85%89%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>若矩阵Q满足$QQ^T=Q^TQ=I$则称为正交矩阵。</p>
-<p>若矩阵U满足$UU^H=U^HU=I$则称为酉矩阵。</p>
-<p>（转置与逆，特征值分解，范数与内积不变）</p>
-
-
-<h4 class="relative group">中心化矩阵 
-    <div id="%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>求和矩阵$J_N=\begin{bmatrix}1\quad\dots\quad1\newline\dots\newline1\quad\dots\quad1\newline\end{bmatrix}$，$J_NX$表示将矩阵$X$的每个向量表示为N个向量的和
-中心化矩阵$C_N = I_N - \frac{1}{N}J_N\newline$，$C_NX$表示矩阵X的每个向量减去这N个向量的均值</p>
+<p><strong>正定矩阵</strong></p>
 <ul>
-<li>信号直流功率、交流功率的计算</li>
+<li>正定矩阵可以酉对角化，进而分解成n个正定的秩1矩阵的和，也可以开平方根，$B=B^{\frac{1}{2}}(B^{\frac{1}{2}})^H$，且$I=B^{\frac{1}{2}}B^{-\frac{1}{2}}$</li>
+<li>若$A,B$为正定矩阵，则哈达玛积$A<em>B$正定，若$A,B$为半正定矩阵，则哈达玛积$A</em>B$半正定</li>
+<li>若$A$是半正定矩阵，且非奇异，则$A$是正定矩阵</li>
 </ul>
 
 
@@ -1504,42 +1609,44 @@ $$</p>
     </span>        
     
 </h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>定义</th>
+<th>性质</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>相似矩阵</td>
+<td>$B=S^{-1}AS$</td>
+<td>特征值相同</td>
+</tr>
+<tr>
+<td>相合矩阵</td>
+<td>$B=C^HAC$</td>
+<td>二次型函数相吻合</td>
+</tr>
+</tbody>
+</table>
 
 
-<h4 class="relative group">相似矩阵（特征值） 
-    <div id="%E7%9B%B8%E4%BC%BC%E7%9F%A9%E9%98%B5%E7%89%B9%E5%BE%81%E5%80%BC" class="anchor"></div>
+<h4 class="relative group">中心化矩阵 
+    <div id="%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9B%B8%E4%BC%BC%E7%9F%A9%E9%98%B5%E7%89%B9%E5%BE%81%E5%80%BC" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<p>$$
-B=S^{-1}AS
-$$</p>
-<p>特征值完全相同</p>
-
-
-<h4 class="relative group">相合矩阵(二次型) 
-    <div id="%E7%9B%B8%E5%90%88%E7%9F%A9%E9%98%B5%E4%BA%8C%E6%AC%A1%E5%9E%8B" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9B%B8%E5%90%88%E7%9F%A9%E9%98%B5%E4%BA%8C%E6%AC%A1%E5%9E%8B" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>$$
-B=C^HAC
-$$</p>
-<p>二次型函数相吻合</p>
-<p>三角矩阵
-$$
-det(A)=\prod_i^Na_{ii}
-$$</p>
+<p>求和矩阵$J_N=\begin{bmatrix}1\quad\dots\quad1\newline\dots\newline1\quad\dots\quad1\newline\end{bmatrix}$，$J_NX$表示将矩阵$X$的每个向量表示为N个向量的和</p>
+<p>中心化矩阵$C_N = I_N - \frac{1}{N}J_N$，$C_NX$​表示矩阵X的每个向量减去这N个向量的均值</p>
+<ul>
+<li>信号直流功率、交流功率的计算</li>
+</ul>
 
 
 <h4 class="relative group">Vandermonde矩阵 
@@ -1569,51 +1676,10 @@ $$</p>
 <li>
 <p>P个入射信号、N个阵元的信号响应矩阵是N*P维Vandermonde矩阵，其中阵元的响应强度随距离成指数级上升（0到N-1），而不同的入射信号对应不同的夹角($a_i$)。</p>
 </li>
+<li>
+<p><strong>Fourier矩阵</strong>也是一种特殊的vandermonde矩阵，指数在频率和时间两个方向都递增。DFT可以写成复空间上的内积$y(k)=\sum_{n=0}^{N-1} x(n)e^{-j\frac{2\pi kn}{N}}= &lt;x,f_k&gt; = f_k^H x$，其中$f_k=[1,e^{-j\frac{2\pi k}{N}},\dots,e^{-j\frac{2\pi k(N-1)}{N}}]$</p>
+</li>
 </ul>
-
-
-<h4 class="relative group">Fourier矩阵 
-    <div id="fourier%E7%9F%A9%E9%98%B5" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#fourier%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>一种特殊的vandermonde矩阵，指数在频率和时间两个方向都递增。</p>
-<ul>
-<li>DFT可以写成复空间上的内积$y(k)=\sum_{n=0}^{N-1} x(n)e^{-j\frac{2\pi kn}{N}}= &lt;x,f_k&gt; = f_k^H x$，其中$f_k=[1,e^{-j\frac{2\pi k}{N}},\dots,e^{-j\frac{2\pi k(N-1)}{N}}]$</li>
-</ul>
-
-
-<h4 class="relative group">Hardmard矩阵 
-    <div id="hardmard%E7%9F%A9%E9%98%B5" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#hardmard%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p>它的元素全部是+1或-1，并且满足矩阵乘法条件 $HH^T=H^TH=nI$​。</p>
-<p>CDMA码分多址</p>
-
-
-<h4 class="relative group">Toeplitz矩阵 
-    <div id="toeplitz%E7%9F%A9%E9%98%B5" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#toeplitz%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<p><strong>常值对角线</strong>：每条从左上到右下的对角线上的元素都是相同的</p>
-<p>自回归模型</p>
 
 
 <h2 class="relative group">矩阵函数与优化 
@@ -1641,46 +1707,31 @@ $$</p>
 <p>矩阵函数是通过矩阵的加法和乘法来定义的，而对于指数函数和三角函数，则是通过推广标量函数的幂级数展开来定义。</p>
 <p>方法1：当矩阵是幂等矩阵时，可以将幂级数中的累加项合并，并利用指数函数的展开式来化解一系列系数的求和。</p>
 <blockquote>
-<p>$$
-A=
-\begin{bmatrix}
-1\quad 1\newline
-0\quad 0
-\end{bmatrix}
-,B=
-\begin{bmatrix}
-1\quad 1\newline
-0\quad 0
-\end{bmatrix}
-,求e^A,e^B,e^{A+B}\newline
-A是幂等阵，A^2=A，进而A^n=A\newline
-由幂级数展开知e^A=I+(\frac{1}{1!}+\frac{1}{2!}+\dots)A\newline
-再根据e=(1+\frac{1}{1!}+\frac{1}{2!}+\dots)进一步化简，得e^A=I+(e-1)A\newline
-同理可得e^B=I+(e-1)B\newline
-而e^{A+B}不能使用幂的乘法，而是应该使用幂级数展开，\newline
-e^{A+B}=I+\sum_i\frac{1}{i!}(A+B)^i\newline
-因为A+B=
+<p>$A=\begin{bmatrix}1\quad 1\newline0\quad 0\end{bmatrix},B=\begin{bmatrix}
+1\quad 1\newline0\quad 0\end{bmatrix}$，求$e^A,e^B,e^{A+B}$</p>
+<p>A是幂等阵，$A^2=A$，进而$A^n=A$</p>
+<p>由幂级数展开知$e^A=I+(\frac{1}{1!}+\frac{1}{2!}+\dots)A$
+，再根据$e=(1+\frac{1}{1!}+\frac{1}{2!}+\dots)$进一步化简，得$e^A=I+(e-1)A$</p>
+<p>同理可得$e^B=I+(e-1)B$</p>
+<p>根据幂级数展开$e^{A+B}=I+\sum_i\frac{1}{i!}(A+B)^i$
+因为$A+B=
 \begin{bmatrix}
 2\quad 0\newline
 0\quad 0
-\end{bmatrix}
-所以(A+B)^k=2^k(A+B)，\newline
-继而e^{A+B}=I+\sum_{k=1}\frac{2^k}{k!}(A+B)\newline
-根据e^2=\sum_{k=0}\frac{2^k}{k!}，化简得e^{A+B}=I+(e^2-1)(A+B)
-$$</p>
+\end{bmatrix}$，所以$(A+B)^k=2^k(A+B)$
+，继而$e^{A+B}=I+\sum_{k=1}\frac{2^k}{k!}(A+B)$
+，根据$e^2=\sum_{k=0}\frac{2^k}{k!}$，化简得$e^{A+B}=I+(e^2-1)(A+B)$</p>
+<ul>
+<li>当矩阵乘法可交换时，指数函数和三角函数才满足一些交换的性质，故$e^{A+B}$不能直接使用幂的乘法</li>
+</ul>
 </blockquote>
-<p>当矩阵乘法可交换时，指数函数和三角函数才满足一些交换的性质。</p>
 <p>方法2：将矩阵对角化，矩阵的幂级数，即，将对角线上的各个元素代入幂级数的原函数。</p>
-<p>如果
-$$
-P^{-1}AP=\Lambda
-$$
-则有
-$$
-e^A=Pdiag(e^{\lambda_1},\dots,e^{\lambda_n})P^{-1}\newline
-e^A=Pdiag(e^{\lambda_1t},\dots,e^{\lambda_nt})P^{-1}\newline
-e^A=Pdiag(sin\lambda_1,\dots,sin{\lambda_n})P^{-1}
-$$</p>
+<blockquote>
+<p>如果矩阵可对角化为$P^{-1}AP=\Lambda$​，则有：</p>
+<p>$e^A=Pdiag(e^{\lambda_1},\dots,e^{\lambda_n})P^{-1}$​</p>
+<p>$e^{tA}=Pdiag(e^{\lambda_1t},\dots,e^{\lambda_nt})P^{-1}$​​</p>
+<p>$sinA=Pdiag(sin\lambda_1,\dots,sin{\lambda_n})P^{-1}$​​</p>
+</blockquote>
 
 
 <h3 class="relative group">矩阵的求导与微分 
@@ -2119,18 +2170,6 @@ $$
     </span>        
     
 </h3>
-
-
-<h4 class="relative group">定义 
-    <div id="%E5%AE%9A%E4%B9%89" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%AE%9A%E4%B9%89" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
 <p>若$Ax=\lambda x$，则称A存在特征值为$\lambda$的特征向量$x$</p>
 <ul>
 <li>
@@ -2150,18 +2189,6 @@ $$
 <blockquote>
 <p>考察矩阵A对向量x左乘变行，即每一行的线性组合，矩阵A的每一行是组合系数，而对于最大的元素，其它元素系数和为1的线性组合必然小于该元素，因此特征值必然小于1（不等式放缩）</p>
 </blockquote>
-
-
-<h4 class="relative group">一些矩阵的特征值 
-    <div id="%E4%B8%80%E4%BA%9B%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%B8%80%E4%BA%9B%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
 <p>若矩阵$A$的特征值为$\lambda$，则它的不同运算结果的特征值如下：</p>
 <table>
 <thead>
@@ -2452,7 +2479,66 @@ $$
     </span>        
     
 </h4>
-<p>考虑广义特征值$Ax=\lambda Bx$，则有广义瑞利商$R(A,B,x)=\frac{x^TAx}{x^TBx}$</p>
+<p>考虑广义特征值$Ax=\lambda Bx$，则有广义瑞利商$R(A,B,x)=\frac{x^TAx}{x^TBx}$，可以进一步转化为$B^{-1}A$的瑞利商</p>
+
+
+<h2 class="relative group">线性方程 
+    <div id="%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">线性方程组$AX=b$​​的解 
+    <div id="%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84axb%E7%9A%84%E8%A7%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84axb%E7%9A%84%E8%A7%A3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>假设线性方程组$AX=b$有m个方程、n个未知数，即系数矩阵$A\in C^{m\times n}$，则解的情况为：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>独立方程个数</th>
+<th>增广矩阵和系数矩阵的关系</th>
+<th>系数矩阵</th>
+<th>线性空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有唯一解</td>
+<td>适定方程</td>
+<td>$r(A|b)=r(A)$</td>
+<td>$r(A)=m=n$</td>
+<td>$b\in Col(A)$</td>
+</tr>
+<tr>
+<td>有无穷多解</td>
+<td>欠定方程</td>
+<td>$r(A|b)=r(A)$</td>
+<td></td>
+<td>$b\in Col(A)$</td>
+</tr>
+<tr>
+<td>无解</td>
+<td>超定方程</td>
+<td>$r(A|b)&gt;r(A)$</td>
+<td></td>
+<td>$b\notin Col(A)$</td>
+</tr>
+</tbody>
+</table>
 
 
 <h3 class="relative group">最小二乘 
@@ -2465,6 +2551,7 @@ $$
     </span>        
     
 </h3>
+<p>对于超定方程，可使用最小二乘法求取近似解</p>
 <table>
 <thead>
 <tr>
@@ -2510,6 +2597,7 @@ $$
 <p>在集合$V$和数域$K$上定义加法和数乘运算，若满足8条基本性质，则称集合$V$是$K$上的线性空间</p>
 <ul>
 <li>如果没有定义新的加法和数乘，则只需满足对加法和数乘封闭</li>
+<li>线性变换：满足线性性质，即齐次性和可加性</li>
 </ul>
 
 
@@ -2585,7 +2673,7 @@ $$
 <td>$Null(A)$</td>
 <td>$R^n$</td>
 <td></td>
-<td></td>
+<td>$AX=0$的解空间</td>
 </tr>
 <tr>
 <td></td>
@@ -2596,9 +2684,16 @@ $$
 </tr>
 </tbody>
 </table>
-<p>N维实数空间$R^N$可以分解为矩阵的列空间和零空间的直和，即$R^N=Col(A)\oplus Null(A)$</p>
 <ul>
-<li>直和：无交子空间的和</li>
+<li>
+<p>若矩阵是非奇异的，则说明$Ax=0$的解空间是零向量空间（只有零解）</p>
+</li>
+<li>
+<p>N维实数空间$R^N$可以分解为矩阵的列空间和零空间的直和，即$R^N=Col(A)\oplus Null(A)$</p>
+</li>
+<li>
+<p>直和：无交子空间的和</p>
+</li>
 </ul>
 <blockquote>
 <p>证明两个子空间的和是直和（无交）</p>
@@ -2616,23 +2711,7 @@ $$
     </span>        
     
 </h4>
-<p>若$Ax=\lambda x$的特征向量张成的子空间称为矩阵$A$​​的不变子空间，即对A封闭</p>
-
-
-<h3 class="relative group">线性方程组$AX=0$的解空间 
-    <div id="%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84ax0%E7%9A%84%E8%A7%A3%E7%A9%BA%E9%97%B4" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84ax0%E7%9A%84%E8%A7%A3%E7%A9%BA%E9%97%B4" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>若矩阵是非奇异的，则说明$Ax=0$的解空间是零向量空间（只有零解）</p>
-<ul>
-<li>若$A$是反对称矩阵，则$I+A,I-A,A-I$是非奇异的</li>
-</ul>
+<p>若$Ax=\lambda x$的特征向量张成的子空间称为矩阵$A$​​​的不变子空间，即对A封闭</p>
 
 
 <h3 class="relative group">投影矩阵 
@@ -2645,15 +2724,9 @@ $$
     </span>        
     
 </h3>
-<p><a href="https://www.cnblogs.com/bigmonkey/p/9897047.html"   target="_blank">
-    线性代数笔记18——投影矩阵和最小二乘 - 我是8位的 - 博客园 (cnblogs.com)</a></p>
-<p>考虑$b$在$a$上的投影$p=\frac{a^Tb}{a^Ta}a=Pb$，则有投影矩阵$P=\frac{ba^T}{a^Ta}$​</p>
-<p>投影矩阵$P$（投影算子）具有下列性质：</p>
-<ul>
-<li>$rank(P)=1$，即$P$是一个秩1矩阵</li>
-<li>$P$是投影算子，等价于，$P$是幂等矩阵$P^2=P$​（投影多次等价于投影一次）</li>
-<li>若投影算子$P_1,P_2$可交换，则$P=P_1P_2$也是投影算子（证明幂等矩阵）</li>
-</ul>
+<p>投影矩阵必定是幂等矩阵，有$A^2=A$​，特征值为0和1，相当于只保留若干个方向的分量，其余方向的分量置零</p>
+<p>但是，投影矩阵未必一定是正交投影，特征值为1的特征向量实际上有无穷多个，然而只有一个和投影方向是正交的</p>
+<p>投影矩阵是正交投影矩阵，当且仅当它是对称幂等矩阵</p>
 
         </div>
         

@@ -61,41 +61,21 @@
   
   
   <meta property="og:title" content="Medical NLP" />
-<meta property="og:description" content="To do # 当前正在做 # 数据分析
-整理医生复核结果，重新计算准确率 统计一下数据集分布（如果有时间的话） 层次化
-用Linear整合 Detach，防止影响梯度 深监督 随机加mask构造正样本，加对比学习
-讯飞 # 基于纯BERT的优化
-更好的文本表示：对比学习、类别注意力
-基于疾病KG的层次化方法：概率图/LATT等。
-讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能
-分词&#43;标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）
-考虑使用外部KG来增强表达
-数据集
-数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM&#43;GNN
-但现阶段还是先做好讯飞
-Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
-Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 BERT&#43;max pooling 0.86 0.82 0.60 0.87 Backbone lr decay (0.1) 0.86 0.84 0.62 0.78 Layer-wise lr rate decay 0.86 0.83 0.60 0.87 Hierarchical # 等级 基层 抗攻击 高价值 Baseline 0." />
+<meta property="og:description" content="SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
+Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
+BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN&#43; KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
+Longformer相比BERT可以接受更长的上下文。 59.9 Text2Tree EMNLP 2023 HCDD Arxiv 2024 层次结构&#43;对比学习 [MRR]( 2405.19093 (arxiv.org)) Arxiv 2024 粗召回topk&#43;检索知识重排 60.3 99." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/med_nlp/" /><meta property="article:section" content="paper_reading" />
-<meta property="article:published_time" content="2024-06-05T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-05T00:00:00+00:00" />
+<meta property="article:published_time" content="2024-06-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-23T00:00:00+00:00" />
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Medical NLP"/>
-<meta name="twitter:description" content="To do # 当前正在做 # 数据分析
-整理医生复核结果，重新计算准确率 统计一下数据集分布（如果有时间的话） 层次化
-用Linear整合 Detach，防止影响梯度 深监督 随机加mask构造正样本，加对比学习
-讯飞 # 基于纯BERT的优化
-更好的文本表示：对比学习、类别注意力
-基于疾病KG的层次化方法：概率图/LATT等。
-讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能
-分词&#43;标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）
-考虑使用外部KG来增强表达
-数据集
-数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM&#43;GNN
-但现阶段还是先做好讯飞
-Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
-Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 BERT&#43;max pooling 0.86 0.82 0.60 0.87 Backbone lr decay (0.1) 0.86 0.84 0.62 0.78 Layer-wise lr rate decay 0.86 0.83 0.60 0.87 Hierarchical # 等级 基层 抗攻击 高价值 Baseline 0."/>
+<meta name="twitter:description" content="SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
+Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN&#43;Label Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding&#43;self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN&#43;多尺度&#43;label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
+BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN&#43; KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
+Longformer相比BERT可以接受更长的上下文。 59.9 Text2Tree EMNLP 2023 HCDD Arxiv 2024 层次结构&#43;对比学习 [MRR]( 2405.19093 (arxiv.org)) Arxiv 2024 粗召回topk&#43;检索知识重排 60.3 99."/>
 
   
   <script type="application/ld+json">
@@ -106,7 +86,7 @@ Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 B
     "name": "Medical NLP",
     "headline": "Medical NLP",
     
-    "abstract": "To do # 当前正在做 # 数据分析\n整理医生复核结果，重新计算准确率 统计一下数据集分布（如果有时间的话） 层次化\n用Linear整合 Detach，防止影响梯度 深监督 随机加mask构造正样本，加对比学习\n讯飞 # 基于纯BERT的优化\n更好的文本表示：对比学习、类别注意力\n基于疾病KG的层次化方法：概率图\/LATT等。\n讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能\n分词\u002b标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）\n考虑使用外部KG来增强表达\n数据集\n数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM\u002bGNN\n但现阶段还是先做好讯飞\nResult # Iflytek 950 # 加什么都是负优化……ICD-10也不work\nBaseline: BERT \u002b Pooling \u002b Softmax # 等级 基层 抗攻击 高价值 BERT\u002bmax pooling 0.86 0.82 0.60 0.87 Backbone lr decay (0.1) 0.86 0.84 0.62 0.78 Layer-wise lr rate decay 0.86 0.83 0.60 0.87 Hierarchical # 等级 基层 抗攻击 高价值 Baseline 0.",
+    "abstract": "SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了\nModel Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN\u002bLabel Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding\u002bself attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN\u002b多尺度\u002blabel attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。\nBERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN\u002b KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。\nLongformer相比BERT可以接受更长的上下文。 59.9 Text2Tree EMNLP 2023 HCDD Arxiv 2024 层次结构\u002b对比学习 [MRR]( 2405.19093 (arxiv.org)) Arxiv 2024 粗召回topk\u002b检索知识重排 60.3 99.",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/survey\/med_nlp\/",
     "author" : {
@@ -114,15 +94,15 @@ Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 B
       "name": "Xu Zhang"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-06-05T00:00:00\u002b00:00",
-    "datePublished": "2024-06-05T00:00:00\u002b00:00",
+    "dateCreated": "2024-06-23T00:00:00\u002b00:00",
+    "datePublished": "2024-06-23T00:00:00\u002b00:00",
     
-    "dateModified": "2024-06-05T00:00:00\u002b00:00",
+    "dateModified": "2024-06-23T00:00:00\u002b00:00",
     
     "keywords": ["Survey"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "446"
+    "wordCount": "416"
   }]
   </script>
 
@@ -819,18 +799,6 @@ Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 B
     class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#to-do">To do</a>
-      <ul>
-        <li><a href="#当前正在做">当前正在做</a></li>
-        <li><a href="#讯飞">讯飞</a></li>
-        <li><a href="#mimic-iii">MIMIC III</a></li>
-      </ul>
-    </li>
-    <li><a href="#result">Result</a>
-      <ul>
-        <li><a href="#iflytek-950">Iflytek 950</a></li>
-      </ul>
-    </li>
     <li><a href="#sota">SOTA</a>
       <ul>
         <li><a href="#icd-coding">ICD coding</a></li>
@@ -841,8 +809,13 @@ Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 B
     <li><a href="#dataset">Dataset</a>
       <ul>
         <li><a href="#iflytek">Iflytek</a></li>
-        <li><a href="#mimic-iii-1">MIMIC III</a></li>
+        <li><a href="#mimic-iii">MIMIC III</a></li>
         <li><a href="#kg">KG</a></li>
+      </ul>
+    </li>
+    <li><a href="#result">Result</a>
+      <ul>
+        <li><a href="#iflytek-950">Iflytek 950</a></li>
       </ul>
     </li>
   </ul>
@@ -858,18 +831,6 @@ Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 B
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#to-do">To do</a>
-      <ul>
-        <li><a href="#当前正在做">当前正在做</a></li>
-        <li><a href="#讯飞">讯飞</a></li>
-        <li><a href="#mimic-iii">MIMIC III</a></li>
-      </ul>
-    </li>
-    <li><a href="#result">Result</a>
-      <ul>
-        <li><a href="#iflytek-950">Iflytek 950</a></li>
-      </ul>
-    </li>
     <li><a href="#sota">SOTA</a>
       <ul>
         <li><a href="#icd-coding">ICD coding</a></li>
@@ -880,8 +841,13 @@ Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 B
     <li><a href="#dataset">Dataset</a>
       <ul>
         <li><a href="#iflytek">Iflytek</a></li>
-        <li><a href="#mimic-iii-1">MIMIC III</a></li>
+        <li><a href="#mimic-iii">MIMIC III</a></li>
         <li><a href="#kg">KG</a></li>
+      </ul>
+    </li>
+    <li><a href="#result">Result</a>
+      <ul>
+        <li><a href="#iflytek-950">Iflytek 950</a></li>
       </ul>
     </li>
   </ul>
@@ -900,331 +866,6 @@ Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 B
 
         <div class="article-content max-w-prose mb-20">
           
-
-<h2 class="relative group">To do 
-    <div id="to-do" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#to-do" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-
-
-<h3 class="relative group">当前正在做 
-    <div id="%E5%BD%93%E5%89%8D%E6%AD%A3%E5%9C%A8%E5%81%9A" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%BD%93%E5%89%8D%E6%AD%A3%E5%9C%A8%E5%81%9A" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ol>
-<li>
-<p>数据分析</p>
-<ol>
-<li>整理医生复核结果，重新计算准确率</li>
-<li>统计一下数据集分布（如果有时间的话）</li>
-</ol>
-</li>
-<li>
-<p>层次化</p>
-<ol>
-<li>用Linear整合</li>
-<li>Detach，防止影响梯度</li>
-<li>深监督</li>
-</ol>
-</li>
-<li>
-<p>随机加mask构造正样本，加对比学习</p>
-</li>
-</ol>
-
-
-<h3 class="relative group">讯飞 
-    <div id="%E8%AE%AF%E9%A3%9E" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%AE%AF%E9%A3%9E" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>
-<p>基于纯BERT的优化</p>
-<ol>
-<li>
-<p>更好的文本表示：对比学习、类别注意力</p>
-</li>
-<li>
-<p>基于疾病KG的层次化方法：概率图/LATT等。</p>
-</li>
-</ol>
-</li>
-<li>
-<p>讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能</p>
-<ol>
-<li>
-<p>分词+标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）</p>
-</li>
-<li>
-<p>考虑使用外部KG来增强表达</p>
-</li>
-</ol>
-</li>
-<li>
-<p>数据集</p>
-<ol>
-<li>数据集分布统计</li>
-<li>错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work）</li>
-<li>医生复核后的准确率统计</li>
-</ol>
-</li>
-</ul>
-
-
-<h3 class="relative group">MIMIC III 
-    <div id="mimic-iii" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#mimic-iii" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM+GNN</p>
-<p>但现阶段还是先做好讯飞</p>
-
-
-<h2 class="relative group">Result 
-    <div id="result" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#result" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-
-
-<h3 class="relative group">Iflytek 950 
-    <div id="iflytek-950" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#iflytek-950" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>加什么都是负优化……ICD-10也不work</p>
-
-
-<h4 class="relative group">Baseline: BERT + Pooling + Softmax 
-    <div id="baseline-bert--pooling--softmax" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#baseline-bert--pooling--softmax" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>等级</th>
-<th>基层</th>
-<th>抗攻击</th>
-<th>高价值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BERT+max pooling</td>
-<td>0.86</td>
-<td>0.82</td>
-<td>0.60</td>
-<td>0.87</td>
-</tr>
-<tr>
-<td>Backbone lr decay (0.1)</td>
-<td>0.86</td>
-<td>0.84</td>
-<td>0.62</td>
-<td>0.78</td>
-</tr>
-<tr>
-<td>Layer-wise lr rate decay</td>
-<td>0.86</td>
-<td>0.83</td>
-<td>0.60</td>
-<td>0.87</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-
-<h4 class="relative group">Hierarchical 
-    <div id="hierarchical" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#hierarchical" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>等级</th>
-<th>基层</th>
-<th>抗攻击</th>
-<th>高价值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Baseline</td>
-<td>0.86</td>
-<td>0.82</td>
-<td>0.60</td>
-<td>0.87</td>
-</tr>
-<tr>
-<td>3层，1+1+2</td>
-<td>0.71</td>
-<td>0.77</td>
-<td>0.55</td>
-<td>0.77</td>
-</tr>
-<tr>
-<td>3层，1+1+3</td>
-<td>0.82</td>
-<td>0.81</td>
-<td>0.62</td>
-<td>0.83</td>
-</tr>
-<tr>
-<td>3层，联合概率$P(y)=\prod_{y_i}P(y_i)$<br />其中$P(y_i)=\begin{cases}sigmoid(z_i),y_i=1\newline 1-sigmoid(z_i),y_i=0\end{cases}$</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-
-<h4 class="relative group">Contrastive Learning 
-    <div id="contrastive-learning" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#contrastive-learning" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>等级</th>
-<th>基层</th>
-<th>抗攻击</th>
-<th>高价值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Baseline</td>
-<td>0.86</td>
-<td>0.82</td>
-<td>0.60</td>
-<td>0.87</td>
-</tr>
-<tr>
-<td>50%概率加mask，$\tau=1, \lambda=0.1$</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-
-<h4 class="relative group">医生复核 
-    <div id="%E5%8C%BB%E7%94%9F%E5%A4%8D%E6%A0%B8" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%8C%BB%E7%94%9F%E5%A4%8D%E6%A0%B8" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>等级</th>
-<th>基层</th>
-<th>抗攻击</th>
-<th>高价值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Baseline</td>
-<td>0.86</td>
-<td>0.82</td>
-<td>0.60</td>
-<td>0.87</td>
-</tr>
-<tr>
-<td>引擎+医生复核</td>
-<td>97.70</td>
-<td>98.12</td>
-<td>90.91</td>
-<td>99.38</td>
-</tr>
-</tbody>
-</table>
-
 
 <h2 class="relative group">SOTA 
     <div id="sota" class="anchor"></div>
@@ -1485,12 +1126,12 @@ Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 B
 
 
 <h3 class="relative group">MIMIC III 
-    <div id="mimic-iii-1" class="anchor"></div>
+    <div id="mimic-iii" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#mimic-iii-1" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#mimic-iii" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -1806,6 +1447,229 @@ Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 B
 </tbody>
 </table>
 
+
+<h2 class="relative group">Result 
+    <div id="result" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#result" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Iflytek 950 
+    <div id="iflytek-950" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#iflytek-950" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>加什么都是负优化……ICD-10也不work</p>
+
+
+<h4 class="relative group">Baseline: BERT + Pooling + Softmax 
+    <div id="baseline-bert--pooling--softmax" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#baseline-bert--pooling--softmax" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>等级</th>
+<th>基层</th>
+<th>抗攻击</th>
+<th>高价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BERT+max pooling</td>
+<td>0.86</td>
+<td>0.82</td>
+<td>0.60</td>
+<td>0.87</td>
+</tr>
+<tr>
+<td>Backbone lr decay (0.1)</td>
+<td>0.86</td>
+<td>0.84</td>
+<td>0.62</td>
+<td>0.78</td>
+</tr>
+<tr>
+<td>Layer-wise lr rate decay</td>
+<td>0.86</td>
+<td>0.83</td>
+<td>0.60</td>
+<td>0.87</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">Hierarchical 
+    <div id="hierarchical" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hierarchical" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>等级</th>
+<th>基层</th>
+<th>抗攻击</th>
+<th>高价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td>0.86</td>
+<td>0.82</td>
+<td>0.60</td>
+<td>0.87</td>
+</tr>
+<tr>
+<td>3层，1+1+2</td>
+<td>0.71</td>
+<td>0.77</td>
+<td>0.55</td>
+<td>0.77</td>
+</tr>
+<tr>
+<td>3层，1+1+3</td>
+<td>0.82</td>
+<td>0.81</td>
+<td>0.62</td>
+<td>0.83</td>
+</tr>
+<tr>
+<td>3层，联合概率$P(y)=\prod_{y_i}P(y_i)$<br />其中$P(y_i)=\begin{cases}sigmoid(z_i),y_i=1\newline 1-sigmoid(z_i),y_i=0\end{cases}$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">Contrastive Learning 
+    <div id="contrastive-learning" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#contrastive-learning" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>等级</th>
+<th>基层</th>
+<th>抗攻击</th>
+<th>高价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td>0.86</td>
+<td>0.82</td>
+<td>0.60</td>
+<td>0.87</td>
+</tr>
+<tr>
+<td>50%概率加mask，$\tau=1, \lambda=0.1$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">医生复核 
+    <div id="%E5%8C%BB%E7%94%9F%E5%A4%8D%E6%A0%B8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8C%BB%E7%94%9F%E5%A4%8D%E6%A0%B8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>等级</th>
+<th>基层</th>
+<th>抗攻击</th>
+<th>高价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline</td>
+<td>0.86</td>
+<td>0.82</td>
+<td>0.60</td>
+<td>0.87</td>
+</tr>
+<tr>
+<td>引擎+医生复核</td>
+<td>97.70</td>
+<td>98.12</td>
+<td>90.91</td>
+<td>99.38</td>
+</tr>
+</tbody>
+</table>
+
         </div>
         
         
@@ -1864,6 +1728,26 @@ Baseline: BERT &#43; Pooling &#43; Softmax # 等级 基层 抗攻击 高价值 B
           
         </span>
         <span>
+          
+            <a class="flex text-right group ml-3" href="/paper_reading/survey/hierarchical-classificaiton/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Hierarchical Classificaiton</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>

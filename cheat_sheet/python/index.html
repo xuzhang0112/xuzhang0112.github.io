@@ -104,7 +104,7 @@ df.value_counts(column_name) df."/>
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "531"
+    "wordCount": "592"
   }]
   </script>
 
@@ -1050,7 +1050,11 @@ df.value_counts(column_name) df."/>
 <li>float=float32; double=float64; int=int32; long=int64</li>
 </ul>
 <p>操作tensor</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 索引</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#拼接</span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>cat([tensor,<span style="color:#f92672">...</span>], dim<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>) <span style="color:#75715e"># 在现有的维度上堆叠</span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>stack([tensor,<span style="color:#f92672">...</span>], dim<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>) <span style="color:#75715e"># 创建一个新的维度，在上面堆叠</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 索引</span>
 </span></span><span style="display:flex;"><span>tensor[x,y,z] <span style="color:#75715e"># 标量索引</span>
 </span></span><span style="display:flex;"><span>tensor[[x1,x2],y,z] <span style="color:#75715e"># 列表索引</span>
 </span></span><span style="display:flex;"><span>tensor[tensor1,tensor2,tensor3] <span style="color:#75715e"># 张量索引，注意一个张量只能索引一个维度</span>
@@ -1161,7 +1165,26 @@ df.value_counts(column_name) df."/>
     </span>        
     
 </h3>
-<p>正则匹配，格式是字符+限定符</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, my email is example@email.com&#34;</span>
+</span></span><span style="display:flex;"><span>pattern <span style="color:#f92672">=</span> <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用 re.findall 匹配所有符合模式的子字符串，以列表返回</span>
+</span></span><span style="display:flex;"><span>matches <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>findall(pattern, text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用 re.sub 将指定模式的子串替换为新子串</span>
+</span></span><span style="display:flex;"><span>redacted_text <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>sub(pattern, <span style="color:#e6db74">&#34;REDACTED&#34;</span>, text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用 re.split 按指定模式的子串分割文本</span>
+</span></span><span style="display:flex;"><span>parts <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>split(pattern, text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用 re.search 搜索文本, 返回第一个匹配项的首尾位置</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">match</span> <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>search(pattern, text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用 re.match 验证字符串是否符合模式</span>
+</span></span><span style="display:flex;"><span>bool(re<span style="color:#f92672">.</span><span style="color:#66d9ef">match</span>(pattern, number))
+</span></span></code></pre></div><p>正则匹配，格式是字符+限定符</p>
 <p>限定符</p>
 <table>
 <thead>

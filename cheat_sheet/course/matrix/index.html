@@ -62,9 +62,9 @@
   
   <meta property="og:title" content="Matrix" />
 <meta property="og:description" content="矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
-inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 矩阵的Hardmard积、Kronnecker积和乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
+inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ Hardmard积、Kronnecker积和矩阵乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
 Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：
-A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 矩阵的直和 # 矩阵的直和定义如下：
+A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 直和 # 矩阵的直和定义如下：
 $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆" />
 <meta property="og:type" content="article" />
@@ -75,9 +75,9 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Matrix"/>
 <meta name="twitter:description" content="矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
-inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ 矩阵的Hardmard积、Kronnecker积和乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
+inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ Hardmard积、Kronnecker积和矩阵乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
 Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：
-A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 矩阵的直和 # 矩阵的直和定义如下：
+A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 直和 # 矩阵的直和定义如下：
 $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆"/>
 
@@ -90,7 +90,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
     "name": "Matrix",
     "headline": "Matrix",
     
-    "abstract": "矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：\ninner product $\\sum a_ib_i$ $a\\odot b$ Outer product $ab^T$ $a\\otimes b$ 矩阵的Hardmard积、Kronnecker积和乘法 # 若矩阵$A\\in R^{m\\times n},B\\in R^{m\\times n}$，则它的哈达玛积、克罗内亚积如下：\nHardmard Product 逐元素相乘 $A\\circ B \\in R^{m\\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\\otimes B \\in R^{m^2\\times n^2}$ Matrix Product 矩阵乘法 $A\\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：\nA、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A\u002bB)(A-B)$满足交换律 $(A\u002bB)^m$可使用二项式定理展开 矩阵的直和 # 矩阵的直和定义如下：\n$$A\\oplus B=\\begin{bmatrix}A\\quad O\\newline O\\quad B\\end{bmatrix}$$\n逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆",
+    "abstract": "矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：\ninner product $\\sum a_ib_i$ $a\\odot b$ Outer product $ab^T$ $a\\otimes b$ Hardmard积、Kronnecker积和矩阵乘法 # 若矩阵$A\\in R^{m\\times n},B\\in R^{m\\times n}$，则它的哈达玛积、克罗内亚积如下：\nHardmard Product 逐元素相乘 $A\\circ B \\in R^{m\\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\\otimes B \\in R^{m^2\\times n^2}$ Matrix Product 矩阵乘法 $A\\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：\nA、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A\u002bB)(A-B)$满足交换律 $(A\u002bB)^m$可使用二项式定理展开 直和 # 矩阵的直和定义如下：\n$$A\\oplus B=\\begin{bmatrix}A\\quad O\\newline O\\quad B\\end{bmatrix}$$\n逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/course\/matrix\/",
     "author" : {
@@ -965,13 +965,13 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 </table>
 
 
-<h4 class="relative group">矩阵的Hardmard积、Kronnecker积和乘法 
-    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84hardmard%E7%A7%AFkronnecker%E7%A7%AF%E5%92%8C%E4%B9%98%E6%B3%95" class="anchor"></div>
+<h4 class="relative group">Hardmard积、Kronnecker积和矩阵乘法 
+    <div id="hardmard%E7%A7%AFkronnecker%E7%A7%AF%E5%92%8C%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84hardmard%E7%A7%AFkronnecker%E7%A7%AF%E5%92%8C%E4%B9%98%E6%B3%95" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#hardmard%E7%A7%AFkronnecker%E7%A7%AF%E5%92%8C%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
@@ -1015,13 +1015,13 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 </ul>
 
 
-<h4 class="relative group">矩阵的直和 
-    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E7%9B%B4%E5%92%8C" class="anchor"></div>
+<h4 class="relative group">直和 
+    <div id="%E7%9B%B4%E5%92%8C" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%9B%B4%E5%92%8C" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E7%9B%B4%E5%92%8C" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
@@ -2335,15 +2335,12 @@ $$
 </h3>
 <p>任意矩阵$A$可以奇异值分解为$A=U\Sigma V^H$，其中$U$的列向量是$AA^H$的特征向量，$V$的列向量是$A^HA$的特征向量，对角线上是矩阵$A$的奇异值，是$AA^H$和$A^HA$​的特征值的非负平方根，通常由大到小排列</p>
 <ul>
-<li>由$AV=U\Sigma$可知$A\overrightarrow{v_i}=\sigma_i\overrightarrow{u_i}$，奇异值的个数取决于其中维数小的矩阵</li>
+<li>由$AV=U\Sigma$可知$A\overrightarrow{v_i}=\sigma_i\overrightarrow{u_i}$​，奇异值的个数取决于其中维数小的矩阵</li>
+<li>由矩阵乘法的秩1分解视角，$A=\sum_i \lambda_iu_iv_i^H$，其中$\lambda_i$​是非零奇异值</li>
+<li>若矩阵可EVD，则奇异值和特征值等价</li>
+<li><a href="https://www.bilibili.com/video/BV15k4y1p72z/?share_source=copy_web&amp;vd_source=25a43cd801433b3abc43d1a368f146be"   target="_blank">
+    SVD生动动画演示：旋转-拉伸-升降维度-旋转</a></li>
 </ul>
-<p><a href="https://www.bilibili.com/video/BV15k4y1p72z/?share_source=copy_web&amp;vd_source=25a43cd801433b3abc43d1a368f146be"   target="_blank">
-    代数明珠&ndash;奇异值分解（SVD）生动动画演示</a></p>
-<p>两种主流理解：</p>
-<ol>
-<li>旋转-拉伸-升降维度-旋转</li>
-<li>高秩矩阵分解为秩1矩阵的和</li>
-</ol>
 
 
 <h4 class="relative group">SVD vs EVD 
@@ -2786,6 +2783,26 @@ $$
           
         </span>
         <span>
+          
+            <a class="flex text-right group ml-3" href="/cheat_sheet/course/biomed/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Biomed</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>

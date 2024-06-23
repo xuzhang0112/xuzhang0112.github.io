@@ -7,27 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Wed, 05 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/survey/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/survey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hierarchical Classificaiton</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/hierarchical-classificaiton/</link>
+      <pubDate>Sun, 23 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/hierarchical-classificaiton/</guid>
+      <description>Dataset # Image Classification # Text Classification # Dataset Content WOS Web of Science (WOS) is a document classification dataset that contains 46,985 documents with 134 categories which include 7 parents categories. RCV1-v2 The RCV1 dataset is a benchmark dataset on text categorization. It is a collection of newswire articles producd by Reuters in 1996-1997. It contains 804,414 manually labeled newswire documents, and categorized with respect to three controlled vocabularies: industries, topics and regions.</description>
+      
+    </item>
+    
     <item>
       <title>Medical NLP</title>
       <link>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</link>
-      <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 23 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</guid>
-      <description>To do # 当前正在做 # 数据分析
-整理医生复核结果，重新计算准确率 统计一下数据集分布（如果有时间的话） 层次化
-用Linear整合 Detach，防止影响梯度 深监督 随机加mask构造正样本，加对比学习
-讯飞 # 基于纯BERT的优化
-更好的文本表示：对比学习、类别注意力
-基于疾病KG的层次化方法：概率图/LATT等。
-讯飞使用KIE引擎从每份报告中提取子图，诉求是引入外接KG，提升性能
-分词+标准化，构建词表（节点）、统计词频（边）（参考BertGCN，transductive）
-考虑使用外部KG来增强表达
-数据集
-数据集分布统计 错误案例的分析（尤其是据此分析应该做什么样的改进，为什么不work） 医生复核后的准确率统计 MIMIC III # 考虑一下用什么Backbone，个人偏好Longformer，但是也可以试试LSTM+GNN
-但现阶段还是先做好讯飞
-Result # Iflytek 950 # 加什么都是负优化……ICD-10也不work
-Baseline: BERT + Pooling + Softmax # 等级 基层 抗攻击 高价值 BERT+max pooling 0.86 0.82 0.60 0.87 Backbone lr decay (0.1) 0.86 0.84 0.62 0.78 Layer-wise lr rate decay 0.86 0.83 0.60 0.87 Hierarchical # 等级 基层 抗攻击 高价值 Baseline 0.</description>
+      <description>SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
+Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding+self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN+多尺度+label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
+BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN+ KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
+Longformer相比BERT可以接受更长的上下文。 59.9 Text2Tree EMNLP 2023 HCDD Arxiv 2024 层次结构+对比学习 [MRR]( 2405.19093 (arxiv.org)) Arxiv 2024 粗召回topk+检索知识重排 60.3 99.</description>
       
     </item>
     

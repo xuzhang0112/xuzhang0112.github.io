@@ -8,16 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Arxiv &middot; Xu Zhang&#39;s Blog</title>
-  <meta name="title" content="Arxiv &middot; Xu Zhang&#39;s Blog" />
+  <title>TocBERT: Medical Document Structure Extraction Using Bidirectional Transformers &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="TocBERT: Medical Document Structure Extraction Using Bidirectional Transformers &middot; Xu Zhang&#39;s Blog" />
   
   
   
   
   
-  <link rel="canonical" href="https://xuzhang0112.github.io/paper_reading/arxiv/" />
-  
-  <link rel="alternate" type="application/rss+xml" href="/paper_reading/arxiv/index.xml" title="Xu Zhang's Blog" />
+  <link rel="canonical" href="https://xuzhang0112.github.io/paper_reading/arxiv/tocbert-medical-document-structure-extraction-using-bidirectional-transformers/" />
   
   
   
@@ -62,17 +60,58 @@
   
   
   
-  <meta property="og:title" content="Arxiv" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/arxiv/" />
+  <meta property="og:title" content="TocBERT: Medical Document Structure Extraction Using Bidirectional Transformers" />
+<meta property="og:description" content="在MIMIC III上首次完成了topical text segmentation任务，该任务主要是基于相邻句向量之间的相似度。
+首先使用句嵌入模型将token序列压缩为句向量，然后再使用句序列模型对句子之间的语义突变关系进行建模。
+在MIMIC III数据集中，discharge summaries只占很少的一部分，约60k份报告，而它的token数集中在1500左右。
+层次化文本分割：划分子标题
+线性文本分割：不划分子标题
+在各个任务上，TocBERT相比规则匹配的方法TocRegex，前者基于后者的标注作训练，却能在测试集上取得更好的效果
+TocBERT的一个可能的作用是构建标题和子标题的本体论（KG可以看成是本体论的一个应用）" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/arxiv/tocbert-medical-document-structure-extraction-using-bidirectional-transformers/" /><meta property="article:section" content="paper_reading" />
+<meta property="article:published_time" content="2024-07-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-07-03T00:00:00+00:00" />
 
 
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Arxiv"/>
-<meta name="twitter:description" content=""/>
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="TocBERT: Medical Document Structure Extraction Using Bidirectional Transformers"/>
+<meta name="twitter:description" content="在MIMIC III上首次完成了topical text segmentation任务，该任务主要是基于相邻句向量之间的相似度。
+首先使用句嵌入模型将token序列压缩为句向量，然后再使用句序列模型对句子之间的语义突变关系进行建模。
+在MIMIC III数据集中，discharge summaries只占很少的一部分，约60k份报告，而它的token数集中在1500左右。
+层次化文本分割：划分子标题
+线性文本分割：不划分子标题
+在各个任务上，TocBERT相比规则匹配的方法TocRegex，前者基于后者的标注作训练，却能在测试集上取得更好的效果
+TocBERT的一个可能的作用是构建标题和子标题的本体论（KG可以看成是本体论的一个应用）"/>
 
   
-  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "PaperReading",
+    "name": "TocBERT: Medical Document Structure Extraction Using Bidirectional Transformers",
+    "headline": "TocBERT: Medical Document Structure Extraction Using Bidirectional Transformers",
+    
+    "abstract": "在MIMIC III上首次完成了topical text segmentation任务，该任务主要是基于相邻句向量之间的相似度。\n首先使用句嵌入模型将token序列压缩为句向量，然后再使用句序列模型对句子之间的语义突变关系进行建模。\n在MIMIC III数据集中，discharge summaries只占很少的一部分，约60k份报告，而它的token数集中在1500左右。\n层次化文本分割：划分子标题\n线性文本分割：不划分子标题\n在各个任务上，TocBERT相比规则匹配的方法TocRegex，前者基于后者的标注作训练，却能在测试集上取得更好的效果\nTocBERT的一个可能的作用是构建标题和子标题的本体论（KG可以看成是本体论的一个应用）",
+    "inLanguage": "en",
+    "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/arxiv\/tocbert-medical-document-structure-extraction-using-bidirectional-transformers\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Xu Zhang"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-07-03T00:00:00\u002b00:00",
+    "datePublished": "2024-07-03T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-07-03T00:00:00\u002b00:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "12"
+  }]
+  </script>
+
 
   
   
@@ -599,11 +638,75 @@
       
 
 
- <header>
+<article>
   
-  <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">Arxiv</h1>
-  <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+
+  <header id="single_header" class="mt-5 max-w-prose">
     
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/"
+      >PaperReading</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/arxiv/"
+      >Arxiv</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/arxiv/tocbert-medical-document-structure-extraction-using-bidirectional-transformers/"
+      >TocBERT: Medical Document Structure Extraction Using Bidirectional Transformers</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      TocBERT: Medical Document Structure Extraction Using Bidirectional Transformers
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
 
 
 
@@ -628,731 +731,184 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
+
+  
+  
 </div>
 
 
-  </div>
+
+
+
+<div class="flex flex-row flex-wrap items-center">
   
   
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/arxiv/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Arxiv
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2024/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    2024
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
     
     
-  <script>
-    var oid = "views_paper_reading\/arxiv\/_index.md"
-    var oid_likes = "likes_paper_reading\/arxiv\/_index.md"
-  </script>
-  
-  
-  
-  <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
   </header>
-  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
     
-    <div class="min-w-0 min-h-0 max-w-prose">
+    
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>在MIMIC III上首次完成了topical text segmentation任务，该任务主要是基于相邻句向量之间的相似度。</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407032238492.png" alt="image-20240703223847897" />
+    
+  </figure>
+
+</p>
+<p>首先使用句嵌入模型将token序列压缩为句向量，然后再使用句序列模型对句子之间的语义突变关系进行建模。</p>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407032242516.png" alt="image-20240703224213496" style="zoom:50%;" />
+<p>在MIMIC III数据集中，discharge summaries只占很少的一部分，约60k份报告，而它的token数集中在1500左右。</p>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407032322536.png" alt="image-20240703232217255" style="zoom:67%;" />
+<p>层次化文本分割：划分子标题</p>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407032325812.png" alt="image-20240703232504970" style="zoom:67%;" />
+<p>线性文本分割：不划分子标题</p>
+<p>在各个任务上，TocBERT相比规则匹配的方法TocRegex，前者基于后者的标注作训练，却能在测试集上取得更好的效果</p>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407032320407.png" alt="image-20240703232014075" style="zoom: 50%;" />
+<p>TocBERT的一个可能的作用是构建标题和子标题的本体论（KG可以看成是本体论的一个应用）</p>
+
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
       
-    </div>
-   
-
-
-
-  </section>
-  
-
-    
-    
-    
-
-    
-
       
-
-        <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-          
-          
-          
-
-  <a href="/paper_reading/arxiv/tocbert-medical-document-structure-extraction-using-bidirectional-transformers/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
         
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/arxiv/tocbert-medical-document-structure-extraction-using-bidirectional-transformers/">TocBERT: Medical Document Structure Extraction Using Bidirectional Transformers</div>
         
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/arxiv/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Arxiv
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2024/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2024
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-          
-          
-
-  <a href="/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/">EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/arxiv/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Arxiv
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/llm/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    LLM
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/rag/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    RAG
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/multimodal/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Multimodal
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2024/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2024
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-          
-          
-
-  <a href="/paper_reading/arxiv/a-novel-icd-coding-framework-based-on-associated-and-hierarchical-code-description-distillation/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/arxiv/a-novel-icd-coding-framework-based-on-associated-and-hierarchical-code-description-distillation/">A Novel ICD Coding Framework Based on Associated and Hierarchical Code Description Distillation</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/arxiv/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Arxiv
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/icd-tree/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    ICD Tree
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2024/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2024
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-          
-          
-          
-          
-
-  <a href="/paper_reading/arxiv/multi-stage-retrieve-and-re-rank-model-for-automatic-medical-coding/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/arxiv/multi-stage-retrieve-and-re-rank-model-for-automatic-medical-coding/">Multi-stage Retrieve and Re-rank Model for Automatic Medical Coding Recommendation</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/kg/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    KG
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-          
-          
-
-  <a href="/paper_reading/arxiv/kg-mtt-bert-knowledge-graph-enhanced-bert-for-multi-type-medical-text-classification/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/arxiv/kg-mtt-bert-knowledge-graph-enhanced-bert-for-multi-type-medical-text-classification/">KG-MTT-BERT: Knowledge Graph Enhanced BERT for Multi-Type Medical Text Classification</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/arxiv/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Arxiv
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/kg/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    KG
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2022/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2022
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-          
-          
-
-  <a href="/paper_reading/arxiv/dkec-domain-knowledge-enhanced-multi-label-classification-for-electronic-health-records/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/arxiv/dkec-domain-knowledge-enhanced-multi-label-classification-for-electronic-health-records/">DKEC: Domain Knowledge Enhanced Multi-Label Classification for Electronic Health Records</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/arxiv/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Arxiv
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/kg/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    KG
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2024/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2024
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-          
-          
-        </section>
-
-    
-
-    
-
-  
-
-    
-
-  
+      <script>
+        var oid = "views_paper_reading\/arxiv\/TocBERT-Medical-Document-Structure-Extraction-Using-Bidirectional-Transformers.md"
+        var oid_likes = "likes_paper_reading\/arxiv\/TocBERT-Medical-Document-Structure-Extraction-Using-Bidirectional-Transformers.md"
+      </script>
       
+      
+      
+      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
     </main><footer id="site-footer" class="py-10 print:hidden">
   
   

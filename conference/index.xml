@@ -7,11 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Thu, 06 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/conference/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/conference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Survey</title>
+      <link>https://xuzhang0112.github.io/conference/survey/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/conference/survey/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>Arxiv</title>
       <link>https://xuzhang0112.github.io/conference/arxiv/</link>
-      <pubDate>Thu, 06 Jun 2024 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 03 Jul 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/conference/arxiv/</guid>
       <description></description>

@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Thu, 06 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/arxiv/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/arxiv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TocBERT: Medical Document Structure Extraction Using Bidirectional Transformers</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/tocbert-medical-document-structure-extraction-using-bidirectional-transformers/</link>
+      <pubDate>Wed, 03 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/tocbert-medical-document-structure-extraction-using-bidirectional-transformers/</guid>
+      <description>在MIMIC III上首次完成了topical text segmentation任务，该任务主要是基于相邻句向量之间的相似度。
+首先使用句嵌入模型将token序列压缩为句向量，然后再使用句序列模型对句子之间的语义突变关系进行建模。
+在MIMIC III数据集中，discharge summaries只占很少的一部分，约60k份报告，而它的token数集中在1500左右。
+层次化文本分割：划分子标题
+线性文本分割：不划分子标题
+在各个任务上，TocBERT相比规则匹配的方法TocRegex，前者基于后者的标注作训练，却能在测试集上取得更好的效果
+TocBERT的一个可能的作用是构建标题和子标题的本体论（KG可以看成是本体论的一个应用）</description>
+      
+    </item>
+    
     <item>
       <title>EMERGE: Integrating RAG for Improved Multimodal EHR Predictive Modeling</title>
       <link>https://xuzhang0112.github.io/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/</link>

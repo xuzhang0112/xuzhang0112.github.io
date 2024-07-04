@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Sun, 23 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/survey/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/survey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unifying Large Language Models and Knowledge Graphs: A Roadmap</title>
+      <link>https://xuzhang0112.github.io/paper_reading/survey/unifying-large-language-models-and-knowledge-graphs-a-roadmap/</link>
+      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/survey/unifying-large-language-models-and-knowledge-graphs-a-roadmap/</guid>
+      <description>Introduction &amp;amp; Background # LLM和KG各有利弊：LLM富含通用知识、擅长语言处理、具有泛化性；KG具有结构化的精确知识，可解释性强，知识专业性强，可演化；
+LLM # Encoder-only、Decoder-only、Encoder-Decoder的LLM发展路线图
+Encoder和Decoder之间的异同，以及Self-Attention的内部结构
+KG # 各种类型的KG，包括百科全书、常识、领域知识和多模态的知识图谱
+LLM与KG的结合 # LLM和KG交互的3种方式：KG增强LLM，LLM增强KG，两者协同
+目前LLM和KG的结合应用较少，知名的有ERNIE3.0、Bard和Doctor.ai
+重点在于如何将LLM与KG结合，一些可能的技术手段有Prompt工程、GNN、神经符号推理、表征学习、上下文学习、少样本学习。
+KG-ENHANCED LLMS # KG-enhanced LLM Pre-training # Integrating KGs into Training Objective # 增强KG实体 # Method GLM 基于KG来计算mask概率，n-hop的实体被赋予更高的mask概率 E-BERT 基于token和entity的loss大小来动态调整各自的权重 SKEP 基于PMI来挖掘表达情感倾向的词语，然后赋予这些词语更高的概率 利用KG和文本之间的连接 # Method ERINE 对齐文本token和KG实体 KALM 整合实体嵌入，预测实体 KEPLER 同时训练KG嵌入和Mask token预测 Deterministic LLM 遮盖事实性关系的决定性token，并设置相应的预测任务和对比任务 WKLM 替换同类型的实体，让LLM鉴别是否被替换 ERINE：将对齐文本和KG作为训练目标
+Integrating KGs into LLM Inputs # Method ERINE3.0 将KG三元组与句子拼接，同时预测masked token和三元组中的relation；会引入Knowledge Noise K-BERT 引入visible matrix，仅句子中的实体token与三元组有交互 COLAKE 将输入token建立成子图，从而拼接相应的KG子图 DkLLM 检测长尾实体，用pseudo token替代 Dict-BERT 将长尾实体用字典中的定义描述替换，并将长尾概念与描述对齐 Colake：输入文本子图拼接KG子图</description>
+      
+    </item>
+    
     <item>
       <title>Hierarchical Classificaiton</title>
       <link>https://xuzhang0112.github.io/paper_reading/survey/hierarchical-classificaiton/</link>

@@ -3,6 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
+    <lastmod>2024-07-04T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/survey/</loc>
+    <lastmod>2024-07-04T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/survey/unifying-large-language-models-and-knowledge-graphs-a-roadmap/</loc>
+    <lastmod>2024-07-04T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/</loc>
+    <lastmod>2024-07-04T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/</loc>
+    <lastmod>2024-07-03T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/tocbert-medical-document-structure-extraction-using-bidirectional-transformers/</loc>
+    <lastmod>2024-07-03T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/course/biomed/</loc>
     <lastmod>2024-06-28T00:00:00+00:00</lastmod>
   </url>
@@ -15,23 +39,11 @@
     <lastmod>2024-06-28T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/</loc>
-    <lastmod>2024-06-28T00:00:00+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/hierarchical-classificaiton/</loc>
     <lastmod>2024-06-23T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</loc>
-    <lastmod>2024-06-23T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
-    <lastmod>2024-06-23T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/</loc>
     <lastmod>2024-06-23T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -41,10 +53,6 @@
   <url>
     <loc>https://xuzhang0112.github.io/cheat_sheet/course/pr/</loc>
     <lastmod>2024-06-14T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/</loc>
-    <lastmod>2024-06-06T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/</loc>

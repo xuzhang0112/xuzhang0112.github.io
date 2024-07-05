@@ -8,16 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Survey &middot; Xu Zhang&#39;s Blog</title>
-  <meta name="title" content="Survey &middot; Xu Zhang&#39;s Blog" />
+  <title>EHR Coding with Multi-scale Feature Attention and Structured Knowledge Graph Propagation &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="EHR Coding with Multi-scale Feature Attention and Structured Knowledge Graph Propagation &middot; Xu Zhang&#39;s Blog" />
   
   
+  <meta name="keywords" content="KG, " />
   
   
-  
-  <link rel="canonical" href="https://xuzhang0112.github.io/paper_reading/survey/" />
-  
-  <link rel="alternate" type="application/rss+xml" href="/paper_reading/survey/index.xml" title="Xu Zhang's Blog" />
+  <link rel="canonical" href="https://xuzhang0112.github.io/paper_reading/cikm/ehr-coding-with-multi-scale-feature-attention-and-structured-knowledge-graph-propagation/" />
   
   
   
@@ -62,17 +60,54 @@
   
   
   
-  <meta property="og:title" content="Survey" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/survey/" />
+  <meta property="og:title" content="EHR Coding with Multi-scale Feature Attention and Structured Knowledge Graph Propagation" />
+<meta property="og:description" content="K层Conv1d堆叠，每次都拼接前一层的特征，以捕获不同n-gram的特征 多尺度特征，用m个MLP计算k个尺度特征的权重，加权相加，得到m个多尺度特征 用GCN和ICD-9-CM描述来建立每个节点Code的本体概念 Results
+Full-label Set
+Top-50 Label Set
+消融实验
+超参数敏感性" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/cikm/ehr-coding-with-multi-scale-feature-attention-and-structured-knowledge-graph-propagation/" /><meta property="article:section" content="paper_reading" />
+<meta property="article:published_time" content="2024-07-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-07-05T00:00:00+00:00" />
 
 
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Survey"/>
-<meta name="twitter:description" content=""/>
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="EHR Coding with Multi-scale Feature Attention and Structured Knowledge Graph Propagation"/>
+<meta name="twitter:description" content="K层Conv1d堆叠，每次都拼接前一层的特征，以捕获不同n-gram的特征 多尺度特征，用m个MLP计算k个尺度特征的权重，加权相加，得到m个多尺度特征 用GCN和ICD-9-CM描述来建立每个节点Code的本体概念 Results
+Full-label Set
+Top-50 Label Set
+消融实验
+超参数敏感性"/>
 
   
-  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "PaperReading",
+    "name": "EHR Coding with Multi-scale Feature Attention and Structured Knowledge Graph Propagation",
+    "headline": "EHR Coding with Multi-scale Feature Attention and Structured Knowledge Graph Propagation",
+    
+    "abstract": "K层Conv1d堆叠，每次都拼接前一层的特征，以捕获不同n-gram的特征 多尺度特征，用m个MLP计算k个尺度特征的权重，加权相加，得到m个多尺度特征 用GCN和ICD-9-CM描述来建立每个节点Code的本体概念 Results\nFull-label Set\nTop-50 Label Set\n消融实验\n超参数敏感性",
+    "inLanguage": "en",
+    "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/cikm\/ehr-coding-with-multi-scale-feature-attention-and-structured-knowledge-graph-propagation\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Xu Zhang"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-07-05T00:00:00\u002b00:00",
+    "datePublished": "2024-07-05T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-07-05T00:00:00\u002b00:00",
+    
+    "keywords": ["KG"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "11"
+  }]
+  </script>
+
 
   
   
@@ -599,94 +634,60 @@
       
 
 
- <header>
+<article>
   
-  <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">Survey</h1>
-  <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+
+  <header id="single_header" class="mt-5 max-w-prose">
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-</div>
-
-
-  </div>
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
   
   
     
-    
-  <script>
-    var oid = "views_paper_reading\/survey\/_index.md"
-    var oid_likes = "likes_paper_reading\/survey\/_index.md"
-  </script>
   
+    
   
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
   
-  <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
-  </header>
-  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
-    
-    <div class="min-w-0 min-h-0 max-w-prose">
-      
-    </div>
-   
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/"
+      >PaperReading</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
 
-
-
-  </section>
   
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/paper_reading/cikm/ehr-coding-with-multi-scale-feature-attention-and-structured-knowledge-graph-propagation/"
+      >EHR Coding with Multi-scale Feature Attention and Structured Knowledge Graph Propagation</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
 
     
-    
-    
-
-    
-
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      EHR Coding with Multi-scale Feature Attention and Structured Knowledge Graph Propagation
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
 
-        <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-          
-          
-          
-
-  <a href="/paper_reading/survey/med_nlp/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/survey/med_nlp/">Medical NLP</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
 
 
 
 
+  
+  
 
 
 
@@ -729,14 +730,10 @@
   
   
   
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/survey/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/cikm/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Survey
+    CIKM
   </span>
 </span>
   </span>
@@ -746,104 +743,6 @@
   
   
   
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-          
-          
-
-  <a href="/paper_reading/survey/unifying-large-language-models-and-knowledge-graphs-a-roadmap/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/survey/unifying-large-language-models-and-knowledge-graphs-a-roadmap/">Unifying Large Language Models and Knowledge Graphs: A Roadmap</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/survey/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Survey
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/llm/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    LLM
-  </span>
-</span>
-  </span>
   
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/kg/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
@@ -859,10 +758,10 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2023/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2019/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2023
+    2019
   </span>
 </span>
   </span>
@@ -874,415 +773,145 @@
 
 
 
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
     </div>
-  </a>
-          
-          
 
-  <a href="/paper_reading/survey/hierarchical-classificaiton/" class="min-w-full">
     
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/survey/hierarchical-classificaiton/">Hierarchical Classificaiton</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/survey/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Survey
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hierarchical/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Hierarchical
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-          
-          
-          
-          
-
-  <a href="/paper_reading/survey/learning/" class="min-w-full">
     
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/survey/learning/">Contrastive Learning & Meta Learning</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/survey/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Survey
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-          
-          
-
-  <a href="/paper_reading/survey/chest_xray/" class="min-w-full">
     
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/survey/chest_xray/">Chest X-ray Dataset</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/survey/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Survey
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-          
-          
-
-  <a href="/paper_reading/survey/basic_nn/" class="min-w-full">
     
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/paper_reading/survey/basic_nn/">Basic Nerual Networks</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/survey/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Survey
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-          
-          
-        </section>
-
     
 
     
 
-  
-
     
-
-  
       
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+    
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407051303181.png" alt="image-20240705130339906" />
+    
+  </figure>
+
+</p>
+<ol>
+<li>K层Conv1d堆叠，每次都拼接前一层的特征，以捕获不同n-gram的特征</li>
+<li>多尺度特征，用m个MLP计算k个尺度特征的权重，加权相加，得到m个多尺度特征</li>
+<li>用GCN和ICD-9-CM描述来建立每个节点Code的本体概念</li>
+</ol>
+<p>Results</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407051307496.png" alt="image-20240705130754843" />
+    
+  </figure>
+
+</p>
+<p>Full-label Set</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407051309567.png" alt="image-20240705130929627" />
+    
+  </figure>
+
+</p>
+<p>Top-50 Label Set</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407051334854.png" alt="image-20240705133412027" />
+    
+  </figure>
+
+</p>
+<p>消融实验</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407051307798.png" alt="image-20240705130705255" />
+    
+  </figure>
+
+</p>
+<p>超参数敏感性</p>
+
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+      <script>
+        var oid = "views_paper_reading\/cikm\/EHR-Coding-with-Multi-scale-Feature-Attention-and-Structured-Knowledge-Graph-Propagation.md"
+        var oid_likes = "likes_paper_reading\/cikm\/EHR-Coding-with-Multi-scale-Feature-Attention-and-Structured-Knowledge-Graph-Propagation.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
     </main><footer id="site-footer" class="py-10 print:hidden">
   
   

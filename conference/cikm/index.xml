@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <atom:link href="https://xuzhang0112.github.io/conference/cikm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/conference/cikm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EHR Coding with Multi-scale Feature Attention and Structured Knowledge Graph Propagation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/cikm/ehr-coding-with-multi-scale-feature-attention-and-structured-knowledge-graph-propagation/</link>
+      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/cikm/ehr-coding-with-multi-scale-feature-attention-and-structured-knowledge-graph-propagation/</guid>
+      <description>K层Conv1d堆叠，每次都拼接前一层的特征，以捕获不同n-gram的特征 多尺度特征，用m个MLP计算k个尺度特征的权重，加权相加，得到m个多尺度特征 用GCN和ICD-9-CM描述来建立每个节点Code的本体概念 Results
+Full-label Set
+Top-50 Label Set
+消融实验
+超参数敏感性</description>
+      
+    </item>
+    
     <item>
       <title>Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning</title>
       <link>https://xuzhang0112.github.io/paper_reading/others/towards-automatic-icd-coding-via-knowledge-enhanced-multi-task-learning/</link>

@@ -15,9 +15,8 @@
       
       <guid>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</guid>
       <description>SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
-Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding+self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN+多尺度+label attention 58.9 98.8 MSMN ACL 2022 short 在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。
-BERT相比LSTM无显著提升；省下的显存可以用于注意力； 58.4 99.2 MSMN+ KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
-Longformer相比BERT可以接受更长的上下文。 59.9 Text2Tree EMNLP 2023 HCDD Arxiv 2024 层次结构+对比学习 [MRR]( 2405.19093 (arxiv.org)) Arxiv 2024 粗召回topk+检索知识重排 60.3 99.</description>
+Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding+self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN+多尺度+label attention 58.9 98.8 MSMN ACL 2022 short LSTM；在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。 58.4 99.2 [Hierarchical BERT]( 2204.09600 (arxiv.org)) Arxiv 2022 先用BERT得到句子级别的表示，然后用Transformer得到整篇文档级别的表示 57.6 MSMN+ KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
+Longformer相比BERT可以接受更长的上下文。 59.9 Text2Tree EMNLP 2023 HCDD Arxiv 2024 层次结构+对比学习 [MRR]( 2405.</description>
       
     </item>
     

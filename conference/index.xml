@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Fri, 05 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/conference/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/conference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NIPS</title>
+      <link>https://xuzhang0112.github.io/conference/nips/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/conference/nips/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>CIKM</title>
       <link>https://xuzhang0112.github.io/conference/cikm/</link>
@@ -54,16 +64,6 @@
       <pubDate>Sat, 25 May 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/conference/acl/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>NIPS</title>
-      <link>https://xuzhang0112.github.io/conference/nips/</link>
-      <pubDate>Sun, 19 May 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/conference/nips/</guid>
       <description></description>
       
     </item>

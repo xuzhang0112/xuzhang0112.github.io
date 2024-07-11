@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/nips/graphadapter-tuning-vision-language-models-with-dual-knowledge-graph/</loc>
+    <lastmod>2024-07-07T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/nips/</loc>
+    <lastmod>2024-07-07T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
+    <lastmod>2024-07-07T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/</loc>
+    <lastmod>2024-07-07T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/cikm/</loc>
+    <lastmod>2024-07-05T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/cikm/ehr-coding-with-multi-scale-feature-attention-and-structured-knowledge-graph-propagation/</loc>
     <lastmod>2024-07-05T00:00:00+00:00</lastmod>
   </url>
@@ -11,15 +31,7 @@
     <lastmod>2024-07-05T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
-    <lastmod>2024-07-05T00:00:00+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/</loc>
-    <lastmod>2024-07-05T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/</loc>
     <lastmod>2024-07-05T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -83,10 +95,6 @@
     <lastmod>2024-05-19T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nips/</loc>
-    <lastmod>2024-05-19T00:00:00+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/cvpr/</loc>
     <lastmod>2024-05-17T00:00:00+00:00</lastmod>
   </url>
@@ -146,7 +154,7 @@
     <loc>https://xuzhang0112.github.io/paper_reading/miccai/auto-encoding-knowledge-graph-for-unsupervised-medical-report-generation/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/coling2022/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/others/automatic-icd-coding-exploiting-discourse-structure-and-reconciled-code-embeddings/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/basic_nn/</loc>

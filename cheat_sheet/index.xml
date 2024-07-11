@@ -35,7 +35,8 @@
 Blowfish 好用的一
 定制化功能 # 公式渲染 # 在layouts/partials中重写主题的某些文件，以blowfish为例，需要在vendor.html中重写katex部分的js脚本。
 社交图标 # Social Icons SVG
-局域网 # ifconfig # 查看Ip hugo server --bind=[ip] --baseURL=http://[ip] #部署到ip和端口 eduroam好像有点问题……ustcnet可以……算了，不管了</description>
+局域网 # ifconfig # 查看Ip hugo server --bind=[ip] --baseURL=http://[ip] #部署到ip和端口 eduroam好像有点问题……ustcnet可以……算了，不管了
+搜索 # Search Tools 原理</description>
       
     </item>
     

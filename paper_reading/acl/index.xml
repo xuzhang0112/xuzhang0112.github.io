@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Sat, 25 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/acl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/acl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HyperCore: Hyperbolic and Co-graph Representation for Automatic ICD Coding</title>
+      <link>https://xuzhang0112.github.io/paper_reading/acl/hypercore/</link>
+      <pubDate>Mon, 22 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/acl/hypercore/</guid>
+      <description>充分利用了ICD-9 KG中的疾病描述和层次关系，同时考虑了双曲空间和欧式空间的相似度
+双曲空间：利用Code层次产生Code嵌入，利用Code描述捕获文档信息，投射到双曲空间，计算相似度
+欧式空间：利用GCN捕获来自ICD-9 KG的Code嵌入，从而捕获文档信息
+ICD-9 # ICD-9包含每个症状的描述信息和ICD-Code间的层次关系，是一个KG
+双曲空间 # 欧式空间到双曲空间 - 白婷 - 博客园 (cnblogs.com)
+基于层级关系的词向量：双曲空间词嵌入</description>
+      
+    </item>
+    
     <item>
       <title>Incorporating Hierarchy into Text Encoder: a Contrastive Learning Approach for Hierarchical Text Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/acl/incorporating-hierarchy-into-text-encoder-a-contrastive-learning-approach-for-hierarchical-text-classification/</link>

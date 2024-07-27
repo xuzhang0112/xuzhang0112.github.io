@@ -61,11 +61,12 @@
   
   
   <meta property="og:title" content="Python" />
-<meta property="og:description" content="Data Processing # Jupter Notebook # 模块自动重载，否则每次修改需要重启kernel
+<meta property="og:description" content="Data Processing # Jupter Notebook # 在cell中执行shell
+!pwd #单条shell命令 %%bash #整个cell作为shell脚本 模块自动重载，否则每次修改需要重启kernel
 %load_ext autoreload %autoreload 2 #每执行一个cell都会重载所有模块 Pandas # 菜鸟教程yyds
 Dataframe的创建
 # 从外部读取 read_csv() read_excel() # 从可迭代对象创建，每一项都是一行 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[&#39;c1&#39;,&#39;c2&#39;]) #列表的每个列表代表一行 Dataframe的索引
-df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[idx1,idx2]][[column_name1,colunmn_name2]] #索引多行多列 df.loc[[idx1,idx2],[column_name1,colunmn_name2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = &#39;&#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] &#43; df[b] df.loc[:,c] = df[a] &#43; df[b] # 新版本的赋值，更建议的写法是使用.loc # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df." />
+df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[idx1,idx2]][[column_name1,colunmn_name2]] #索引多行多列 df.loc[[idx1,idx2],[column_name1,colunmn_name2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = &#39;&#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] &#43; df[b] df.loc[:,c] = df[a] &#43; df[b] # 新版本的赋值，更建议的写法是使用.loc # 对某列应用函数，创造新列 df[c] = df[a]." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/python/" /><meta property="article:section" content="cheat_sheet" />
 
@@ -73,11 +74,12 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
 
 
   <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Python"/>
-<meta name="twitter:description" content="Data Processing # Jupter Notebook # 模块自动重载，否则每次修改需要重启kernel
+<meta name="twitter:description" content="Data Processing # Jupter Notebook # 在cell中执行shell
+!pwd #单条shell命令 %%bash #整个cell作为shell脚本 模块自动重载，否则每次修改需要重启kernel
 %load_ext autoreload %autoreload 2 #每执行一个cell都会重载所有模块 Pandas # 菜鸟教程yyds
 Dataframe的创建
 # 从外部读取 read_csv() read_excel() # 从可迭代对象创建，每一项都是一行 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[&#39;c1&#39;,&#39;c2&#39;]) #列表的每个列表代表一行 Dataframe的索引
-df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[idx1,idx2]][[column_name1,colunmn_name2]] #索引多行多列 df.loc[[idx1,idx2],[column_name1,colunmn_name2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = &#39;&#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] &#43; df[b] df.loc[:,c] = df[a] &#43; df[b] # 新版本的赋值，更建议的写法是使用.loc # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df."/>
+df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[idx1,idx2]][[column_name1,colunmn_name2]] #索引多行多列 df.loc[[idx1,idx2],[column_name1,colunmn_name2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = &#39;&#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] &#43; df[b] df.loc[:,c] = df[a] &#43; df[b] # 新版本的赋值，更建议的写法是使用.loc # 对某列应用函数，创造新列 df[c] = df[a]."/>
 
   
   <script type="application/ld+json">
@@ -88,7 +90,7 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
     "name": "Python",
     "headline": "Python",
     
-    "abstract": "Data Processing # Jupter Notebook # 模块自动重载，否则每次修改需要重启kernel\n%load_ext autoreload %autoreload 2 #每执行一个cell都会重载所有模块 Pandas # 菜鸟教程yyds\nDataframe的创建\n# 从外部读取 read_csv() read_excel() # 从可迭代对象创建，每一项都是一行 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[\u0026#39;c1\u0026#39;,\u0026#39;c2\u0026#39;]) #列表的每个列表代表一行 Dataframe的索引\ndf[column_name]\u0060 #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[idx1,idx2]][[column_name1,colunmn_name2]] #索引多行多列 df.loc[[idx1,idx2],[column_name1,colunmn_name2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = \u0026#39;\u0026#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] \u002b df[b] df.loc[:,c] = df[a] \u002b df[b] # 新版本的赋值，更建议的写法是使用.loc # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df.",
+    "abstract": "Data Processing # Jupter Notebook # 在cell中执行shell\n!pwd #单条shell命令 %%bash #整个cell作为shell脚本 模块自动重载，否则每次修改需要重启kernel\n%load_ext autoreload %autoreload 2 #每执行一个cell都会重载所有模块 Pandas # 菜鸟教程yyds\nDataframe的创建\n# 从外部读取 read_csv() read_excel() # 从可迭代对象创建，每一项都是一行 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[\u0026#39;c1\u0026#39;,\u0026#39;c2\u0026#39;]) #列表的每个列表代表一行 Dataframe的索引\ndf[column_name]\u0060 #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[idx1,idx2]][[column_name1,colunmn_name2]] #索引多行多列 df.loc[[idx1,idx2],[column_name1,colunmn_name2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = \u0026#39;\u0026#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] \u002b df[b] df.loc[:,c] = df[a] \u002b df[b] # 新版本的赋值，更建议的写法是使用.loc # 对某列应用函数，创造新列 df[c] = df[a].",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/python\/",
     "author" : {
@@ -104,7 +106,7 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "594"
+    "wordCount": "666"
   }]
   </script>
 
@@ -791,7 +793,7 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
       <ul>
         <li><a href="#pyg-pytorch_gemotry">PyG: pytorch_gemotry</a></li>
         <li><a href="#pytorch">PyTorch</a></li>
-        <li><a href="#huggingface">Huggingface</a></li>
+        <li><a href="#-transformers">🤗 transformers</a></li>
       </ul>
     </li>
     <li><a href="#basic">Basic</a>
@@ -836,7 +838,7 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
       <ul>
         <li><a href="#pyg-pytorch_gemotry">PyG: pytorch_gemotry</a></li>
         <li><a href="#pytorch">PyTorch</a></li>
-        <li><a href="#huggingface">Huggingface</a></li>
+        <li><a href="#-transformers">🤗 transformers</a></li>
       </ul>
     </li>
     <li><a href="#basic">Basic</a>
@@ -896,7 +898,10 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
     </span>        
     
 </h3>
-<p>模块自动重载，否则每次修改需要重启kernel</p>
+<p>在cell中执行shell</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>!pwd <span style="color:#75715e">#单条shell命令</span>
+</span></span><span style="display:flex;"><span>%%bash <span style="color:#75715e">#整个cell作为shell脚本</span>
+</span></span></code></pre></div><p>模块自动重载，否则每次修改需要重启kernel</p>
 <pre tabindex="0"><code>%load_ext autoreload
 %autoreload 2 #每执行一个cell都会重载所有模块
 </code></pre>
@@ -1142,21 +1147,48 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
 </table>
 
 
-<h3 class="relative group">Huggingface 
-    <div id="huggingface" class="anchor"></div>
+<h3 class="relative group">🤗 transformers 
+    <div id="-transformers" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#huggingface" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#-transformers" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
-<p><em><strong>Models</strong></em></p>
-<p><em><strong>Models</strong></em>
-别用trainer了，真的不好用，建议还是用Pytorch自己写训练框架</p>
-<p>预训练模型，凑活用一下</p>
-
+<p><em><strong>customization &amp; finetuning of PLM</strong></em></p>
+<p>如果不需要调整模型结构，那么仅通过AutoClass即可调用PLM来实现一系列下游任务</p>
+<pre tabindex="0"><code>model = AutoModelForSequenceClassification.from_pretrained(&#34;google-bert/bert-base-cased&#34;, num_labels=5)
+</code></pre><p>如果要实现更加定制化的操作，PLM也可以作为Backbone组件，实现<strong>自定义结构的下游任务模型</strong></p>
+<p><code>AutoConfig</code>通过<code>from_pretrained</code>导入PLM的超参数，并支持添加新的自定义参数</p>
+<p><code>AutoTokenizer</code>通过<code>from_pretrained</code>与PLM保持一致</p>
+<p><code>CustomModel</code>则需要满足：</p>
+<ul>
+<li>继承自<code>PreTrainedModel</code></li>
+<li>在初始化时，定义PLM的结构</li>
+<li><code>init_weights</code>令非预训练参数按要求初始化</li>
+<li><code>from_pretrained</code>导入预训练权重</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomModel</span>(PreTrainedModel):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, config):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(config)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>prtrained_model <span style="color:#f92672">=</span> ResNet(config)
+</span></span><span style="display:flex;"><span>				self<span style="color:#f92672">.</span>classifier <span style="color:#f92672">=</span> Linear(config<span style="color:#f92672">.</span>hidden_size, config<span style="color:#f92672">.</span>num_labels)
+</span></span><span style="display:flex;"><span>				self<span style="color:#f92672">.</span>init_weights()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, tensor, labels<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        hidden_states <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>prtrained_model(tensor)
+</span></span><span style="display:flex;"><span>        logits <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>classifier(hidden_states)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> labels <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>            loss <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>cross_entropy(logits, labels)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;loss&#34;</span>: loss, <span style="color:#e6db74">&#34;logits&#34;</span>: logits}
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;logits&#34;</span>: logits}
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>config <span style="color:#f92672">=</span> AutoConfig<span style="color:#f92672">.</span>from_pretrained(model_name_or_path, num_labels<span style="color:#f92672">=</span>num_labels)
+</span></span><span style="display:flex;"><span>tokenizer <span style="color:#f92672">=</span> AutoTokenizer<span style="color:#f92672">.</span>from_pretrained(model_name_or_path)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> CustomModel<span style="color:#f92672">.</span>from_pretrained(<span style="color:#e6db74">&#39;pretrained_model&#39;</span>, config)
+</span></span></code></pre></div>
 
 <h2 class="relative group">Basic 
     <div id="basic" class="anchor"></div>

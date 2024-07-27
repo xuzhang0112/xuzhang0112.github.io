@@ -1039,11 +1039,12 @@ Key # 1.一道简单的证明，忘了
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cheat_sheet/python/</guid>
-      <description>Data Processing # Jupter Notebook # 模块自动重载，否则每次修改需要重启kernel
+      <description>Data Processing # Jupter Notebook # 在cell中执行shell
+!pwd #单条shell命令 %%bash #整个cell作为shell脚本 模块自动重载，否则每次修改需要重启kernel
 %load_ext autoreload %autoreload 2 #每执行一个cell都会重载所有模块 Pandas # 菜鸟教程yyds
 Dataframe的创建
 # 从外部读取 read_csv() read_excel() # 从可迭代对象创建，每一项都是一行 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[&amp;#39;c1&amp;#39;,&amp;#39;c2&amp;#39;]) #列表的每个列表代表一行 Dataframe的索引
-df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[idx1,idx2]][[column_name1,colunmn_name2]] #索引多行多列 df.loc[[idx1,idx2],[column_name1,colunmn_name2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = &amp;#39;&amp;#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] + df[b] df.loc[:,c] = df[a] + df[b] # 新版本的赋值，更建议的写法是使用.loc # 对某列应用函数，创造新列 df[c] = df[a].apply(func) # 根据某一列来筛选表格 df.</description>
+df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[idx1,idx2]][[column_name1,colunmn_name2]] #索引多行多列 df.loc[[idx1,idx2],[column_name1,colunmn_name2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = &amp;#39;&amp;#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] + df[b] df.loc[:,c] = df[a] + df[b] # 新版本的赋值，更建议的写法是使用.loc # 对某列应用函数，创造新列 df[c] = df[a].</description>
       
     </item>
     

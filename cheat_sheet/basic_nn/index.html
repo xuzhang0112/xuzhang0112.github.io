@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Effective Convolutional Attention Network for Multi-label Clinical Document Classification &middot; Xu Zhang&#39;s Blog</title>
-  <meta name="title" content="Effective Convolutional Attention Network for Multi-label Clinical Document Classification &middot; Xu Zhang&#39;s Blog" />
+  <title>Basic Nerual Networks &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="Basic Nerual Networks &middot; Xu Zhang&#39;s Blog" />
   
   
+  <meta name="keywords" content="Survey, " />
   
   
-  
-  <link rel="canonical" href="https://xuzhang0112.github.io/paper_reading/emnlp/effective-convolutional-attention-network-for-multi-label-clinical-document-classification/" />
+  <link rel="canonical" href="https://xuzhang0112.github.io/cheat_sheet/basic_nn/" />
   
   
   
@@ -60,29 +60,33 @@
   
   
   
-  <meta property="og:title" content="Effective Convolutional Attention Network for Multi-label Clinical Document Classification" />
-<meta property="og:description" content="key idea # Backbone:CNN&#43;多尺度 通过Conv1d聚合信息的同时，用SE模块进行一定的增强 Label Attention，多标签分类的常用做法，用attention为每一个标签聚合文本特征，对每一个标签的概率进行sigmoid激活 每个标签独立计算概率，但都要考虑所有类别的标签聚合到的特征$$V\in R^{N_l\times D_{conv}}$$ 在训练初期使用bce loss，后期切换到focal loss，以防止实验早期无法拟合常见病（罕见病1-2%左右） 可解释性探讨 Res-SE模块 # SE模块，通过token所在的句子来判断这个token的重要性，并进行权重增强" />
+  <meta property="og:title" content="Basic Nerual Networks" />
+<meta property="og:description" content="所有类型的神经网络都可以看成是线性变换&#43;交互。线性变换是不变的，即对每一个像素/token/节点的特征向量进行相同的Linear&#43;Activation；交互则取决于具体的任务：CNN的交互是相邻的像素点加权平均，RNN的交互是下一个token依赖上一个token，Transformer的交互是token与token之间的注意力加权平均，GNN的交互是一阶邻域内节点的加权平均。大部分模型结构层面的优化也是根据任务场景来设计新的交互方式。
+CNN # Series Model Time Consumption UNet UNet 2014 跳跃连接，精细分割 RCNN RCNN 2013 用CNN做Dectection，再用CNN做Classification 40-50s Fast-RCNN 2015 使用同一个CNN计算bounding box和Label 2s Faster-RCNN 2015 去除了Selective Search 0.2s Mask-RCNN 支持Instance Segmentation YOLO Yolo v1 2015 用回归问题统一了Bounding Box的坐标预测和类别预测 Yolo v2 2016 支持不同输入尺寸 Yolo v3 2018 支持多标签；引入多尺度； Yolo v4, v5, v6 2020 2021 Yolo v6, v7 2022 Yolo v8 2023 RNN # 感觉已经G了，不想写了，随便写点吧
+Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。 Mamba 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba Transformer # 注意力机制：计算每个向量（Q）与其他向量（K, V）的相关性，用加权和取代原来的向量" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://xuzhang0112.github.io/paper_reading/emnlp/effective-convolutional-attention-network-for-multi-label-clinical-document-classification/" /><meta property="article:section" content="paper_reading" />
+<meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/basic_nn/" /><meta property="article:section" content="cheat_sheet" />
 
 
 
 
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Effective Convolutional Attention Network for Multi-label Clinical Document Classification"/>
-<meta name="twitter:description" content="key idea # Backbone:CNN&#43;多尺度 通过Conv1d聚合信息的同时，用SE模块进行一定的增强 Label Attention，多标签分类的常用做法，用attention为每一个标签聚合文本特征，对每一个标签的概率进行sigmoid激活 每个标签独立计算概率，但都要考虑所有类别的标签聚合到的特征$$V\in R^{N_l\times D_{conv}}$$ 在训练初期使用bce loss，后期切换到focal loss，以防止实验早期无法拟合常见病（罕见病1-2%左右） 可解释性探讨 Res-SE模块 # SE模块，通过token所在的句子来判断这个token的重要性，并进行权重增强"/>
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Basic Nerual Networks"/>
+<meta name="twitter:description" content="所有类型的神经网络都可以看成是线性变换&#43;交互。线性变换是不变的，即对每一个像素/token/节点的特征向量进行相同的Linear&#43;Activation；交互则取决于具体的任务：CNN的交互是相邻的像素点加权平均，RNN的交互是下一个token依赖上一个token，Transformer的交互是token与token之间的注意力加权平均，GNN的交互是一阶邻域内节点的加权平均。大部分模型结构层面的优化也是根据任务场景来设计新的交互方式。
+CNN # Series Model Time Consumption UNet UNet 2014 跳跃连接，精细分割 RCNN RCNN 2013 用CNN做Dectection，再用CNN做Classification 40-50s Fast-RCNN 2015 使用同一个CNN计算bounding box和Label 2s Faster-RCNN 2015 去除了Selective Search 0.2s Mask-RCNN 支持Instance Segmentation YOLO Yolo v1 2015 用回归问题统一了Bounding Box的坐标预测和类别预测 Yolo v2 2016 支持不同输入尺寸 Yolo v3 2018 支持多标签；引入多尺度； Yolo v4, v5, v6 2020 2021 Yolo v6, v7 2022 Yolo v8 2023 RNN # 感觉已经G了，不想写了，随便写点吧
+Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。 Mamba 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba Transformer # 注意力机制：计算每个向量（Q）与其他向量（K, V）的相关性，用加权和取代原来的向量"/>
 
   
   <script type="application/ld+json">
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "PaperReading",
-    "name": "Effective Convolutional Attention Network for Multi-label Clinical Document Classification",
-    "headline": "Effective Convolutional Attention Network for Multi-label Clinical Document Classification",
+    "articleSection": "CheatSheet",
+    "name": "Basic Nerual Networks",
+    "headline": "Basic Nerual Networks",
     
-    "abstract": "key idea # Backbone:CNN\u002b多尺度 通过Conv1d聚合信息的同时，用SE模块进行一定的增强 Label Attention，多标签分类的常用做法，用attention为每一个标签聚合文本特征，对每一个标签的概率进行sigmoid激活 每个标签独立计算概率，但都要考虑所有类别的标签聚合到的特征$$V\\in R^{N_l\\times D_{conv}}$$ 在训练初期使用bce loss，后期切换到focal loss，以防止实验早期无法拟合常见病（罕见病1-2%左右） 可解释性探讨 Res-SE模块 # SE模块，通过token所在的句子来判断这个token的重要性，并进行权重增强",
+    "abstract": "所有类型的神经网络都可以看成是线性变换\u002b交互。线性变换是不变的，即对每一个像素\/token\/节点的特征向量进行相同的Linear\u002bActivation；交互则取决于具体的任务：CNN的交互是相邻的像素点加权平均，RNN的交互是下一个token依赖上一个token，Transformer的交互是token与token之间的注意力加权平均，GNN的交互是一阶邻域内节点的加权平均。大部分模型结构层面的优化也是根据任务场景来设计新的交互方式。\nCNN # Series Model Time Consumption UNet UNet 2014 跳跃连接，精细分割 RCNN RCNN 2013 用CNN做Dectection，再用CNN做Classification 40-50s Fast-RCNN 2015 使用同一个CNN计算bounding box和Label 2s Faster-RCNN 2015 去除了Selective Search 0.2s Mask-RCNN 支持Instance Segmentation YOLO Yolo v1 2015 用回归问题统一了Bounding Box的坐标预测和类别预测 Yolo v2 2016 支持不同输入尺寸 Yolo v3 2018 支持多标签；引入多尺度； Yolo v4, v5, v6 2020 2021 Yolo v6, v7 2022 Yolo v8 2023 RNN # 感觉已经G了，不想写了，随便写点吧\nModel RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。 Mamba 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba Transformer # 注意力机制：计算每个向量（Q）与其他向量（K, V）的相关性，用加权和取代原来的向量",
     "inLanguage": "en",
-    "url" : "https:\/\/xuzhang0112.github.io\/paper_reading\/emnlp\/effective-convolutional-attention-network-for-multi-label-clinical-document-classification\/",
+    "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/basic_nn\/",
     "author" : {
       "@type": "Person",
       "name": "Xu Zhang"
@@ -93,10 +97,10 @@
     
     
     
-    
+    "keywords": ["Survey"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "17"
+    "wordCount": "136"
   }]
   </script>
 
@@ -654,8 +658,6 @@
   
     
   
-    
-  
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
@@ -668,17 +670,8 @@
   <li class="inline ">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/paper_reading/"
-      >PaperReading</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-  
-  <li class="inline ">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/paper_reading/emnlp/"
-      >EMNLP</a
+      href="/cheat_sheet/"
+      >CheatSheet</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -686,8 +679,8 @@
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/paper_reading/emnlp/effective-convolutional-attention-network-for-multi-label-clinical-document-classification/"
-      >Effective Convolutional Attention Network for Multi-label Clinical Document Classification</a
+      href="/cheat_sheet/basic_nn/"
+      >Basic Nerual Networks</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -696,7 +689,7 @@
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Effective Convolutional Attention Network for Multi-label Clinical Document Classification
+      Basic Nerual Networks
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -749,10 +742,14 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/conference/emnlp/&#34;,'_self');">
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/survey/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    EMNLP
+    Survey
   </span>
 </span>
   </span>
@@ -760,20 +757,6 @@
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/year/2021/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2021
-  </span>
-</span>
-  </span>
   
   
   
@@ -806,7 +789,60 @@
   
   <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
     
-    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#cnn">CNN</a></li>
+    <li><a href="#rnn">RNN</a></li>
+    <li><a href="#transformer">Transformer</a>
+      <ul>
+        <li><a href="#bert">BERT</a></li>
+        <li><a href="#vit">VIT</a></li>
+        <li><a href="#gpt">GPT</a></li>
+      </ul>
+    </li>
+    <li><a href="#gnn">GNN</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#cnn">CNN</a></li>
+    <li><a href="#rnn">RNN</a></li>
+    <li><a href="#transformer">Transformer</a>
+      <ul>
+        <li><a href="#bert">BERT</a></li>
+        <li><a href="#vit">VIT</a></li>
+        <li><a href="#gpt">GPT</a></li>
+      </ul>
+    </li>
+    <li><a href="#gnn">GNN</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+   </div>
+      </div>
+      
 
       <div class="min-w-0 min-h-0 max-w-fit">
         
@@ -814,45 +850,355 @@
 
 
         <div class="article-content max-w-prose mb-20">
-          
+          <p>所有类型的神经网络都可以看成是线性变换+交互。线性变换是不变的，即对每一个像素/token/节点的特征向量进行相同的Linear+Activation；交互则取决于具体的任务：CNN的交互是相邻的像素点加权平均，RNN的交互是下一个token依赖上一个token，Transformer的交互是token与token之间的注意力加权平均，GNN的交互是一阶邻域内节点的加权平均。大部分模型结构层面的优化也是根据任务场景来设计新的交互方式。</p>
 
-<h2 class="relative group">key idea 
-    <div id="key-idea" class="anchor"></div>
+
+<h2 class="relative group">CNN 
+    <div id="cnn" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#key-idea" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#cnn" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<ol>
-<li>Backbone:CNN+多尺度
-<ul>
-<li>通过Conv1d聚合信息的同时，用SE模块进行一定的增强</li>
-</ul>
-</li>
-<li>Label Attention，多标签分类的常用做法，用attention为每一个标签聚合文本特征，对每一个标签的概率进行sigmoid激活
-<ul>
-<li>每个标签独立计算概率，但都要考虑所有类别的标签聚合到的特征$$V\in R^{N_l\times D_{conv}}$$</li>
-</ul>
-</li>
-<li>在训练初期使用bce loss，后期切换到focal loss，以防止实验早期无法拟合常见病（罕见病1-2%左右）</li>
-<li>可解释性探讨</li>
-</ol>
+<table>
+<thead>
+<tr>
+<th>Series</th>
+<th>Model</th>
+<th></th>
+<th></th>
+<th>Time Consumption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UNet</td>
+<td>UNet</td>
+<td>2014</td>
+<td>跳跃连接，精细分割</td>
+<td></td>
+</tr>
+<tr>
+<td>RCNN</td>
+<td>RCNN</td>
+<td>2013</td>
+<td>用CNN做Dectection，再用CNN做Classification</td>
+<td>40-50s</td>
+</tr>
+<tr>
+<td></td>
+<td>Fast-RCNN</td>
+<td>2015</td>
+<td>使用同一个CNN计算bounding box和Label</td>
+<td>2s</td>
+</tr>
+<tr>
+<td></td>
+<td>Faster-RCNN</td>
+<td>2015</td>
+<td>去除了Selective Search</td>
+<td>0.2s</td>
+</tr>
+<tr>
+<td></td>
+<td>Mask-RCNN</td>
+<td></td>
+<td>支持Instance Segmentation</td>
+<td></td>
+</tr>
+<tr>
+<td>YOLO</td>
+<td>Yolo v1</td>
+<td>2015</td>
+<td>用回归问题统一了Bounding Box的坐标预测和类别预测</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Yolo v2</td>
+<td>2016</td>
+<td>支持不同输入尺寸</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Yolo v3</td>
+<td>2018</td>
+<td>支持多标签；引入多尺度；</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Yolo v4, v5, v6</td>
+<td>2020</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>2021</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Yolo v6, v7</td>
+<td>2022</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Yolo v8</td>
+<td>2023</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
-<h2 class="relative group">Res-SE模块 
-    <div id="res-se%E6%A8%A1%E5%9D%97" class="anchor"></div>
+<h2 class="relative group">RNN 
+    <div id="rnn" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#res-se%E6%A8%A1%E5%9D%97" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#rnn" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p>SE模块，通过token所在的句子来判断这个token的重要性，并进行权重增强</p>
+<p>感觉已经G了，不想写了，随便写点吧</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RNN</td>
+<td>t时刻的输出与t时刻的输入和t-1时刻的隐状态有关</td>
+<td></td>
+</tr>
+<tr>
+<td>LSTM</td>
+<td>设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。</td>
+<td></td>
+</tr>
+<tr>
+<td>Mamba</td>
+<td><a href="https://blog.csdn.net/v_JULY_v/article/details/134923301"   target="_blank">
+    一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 class="relative group">Transformer 
+    <div id="transformer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#transformer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/7.PNG" alt="7" style="zoom:50%;" />
+<p>注意力机制：计算每个向量（Q）与其他向量（K, V）的相关性，<strong>用加权和取代原来的向量</strong></p>
+<p>多头：将c维向量拆成n个c/n维向量，分别使用注意力机制，然后再拼接回</p>
+<table>
+<thead>
+<tr>
+<th>多头注意力的使用方式</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自注意力</td>
+<td>Encoder</td>
+<td>第n个token是Q，当前Encoder层输入的所有token是K和V</td>
+</tr>
+<tr>
+<td></td>
+<td>Decoder</td>
+<td>第n个token是Q，当前Decoder层输出的前n-1个token是K和V</td>
+</tr>
+<tr>
+<td>交叉注意力</td>
+<td>Decoder</td>
+<td>第n个token是Q，最后一层Encoder输出的所有token是K和V</td>
+</tr>
+</tbody>
+</table>
+<p>Transformer的计算并行</p>
+<p>高度并行：Encoder完全并行，Decoder高度并行（训练时依靠Teacher Forcing并行，测试时串行）</p>
+
+
+<h3 class="relative group">BERT 
+    <div id="bert" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bert" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>结构：Transformer Encoder</p>
+<p>预训练：完形填空</p>
+<table>
+<thead>
+<tr>
+<th>BERT变体</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Roberta</td>
+<td>字节对编码(BPE)；动态掩码；去除NSP；大bs和大lr；10倍规模的数据集；</td>
+<td></td>
+</tr>
+<tr>
+<td>Albert</td>
+<td>Embedding低秩矩阵分解；NSP改成SOP；跨层attention参数共享；</td>
+<td></td>
+</tr>
+<tr>
+<td>ERNIE (THU)</td>
+<td>设计Aggregator来使文本和实体进行充分交互；使文本在映射后可以预测实体；</td>
+<td></td>
+</tr>
+<tr>
+<td>ERNIE1.0 (Baidu)</td>
+<td>在MLM阶段额外进行phrase-level和entity-level的mask</td>
+<td></td>
+</tr>
+<tr>
+<td>ERNIE2.0 (Baidu)</td>
+<td>持续多任务学习，渐进地增加更复杂的任务</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">VIT 
+    <div id="vit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>将图片拆成patch，每个patch通过reshape和MLP转化为词向量，送入Tansformer的encoder</p>
+<p>需要预训练，<strong>大数据</strong>预训练情况下优于ResNet</p>
+
+
+<h3 class="relative group">GPT 
+    <div id="gpt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gpt" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>模型结构：Transformer Decoder</p>
+<p>学习方式：Pretraining（Next Token Prediction）+ Finetuning (Supervised)</p>
+<table>
+<thead>
+<tr>
+<th>GPT变体</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-2</td>
+<td>Pretraining+Zero-Shot</td>
+<td>在9个任务上超过有监督SOTA；在摘要、翻译、问答等任务上不如无监督模型</td>
+</tr>
+<tr>
+<td>GPT-3</td>
+<td>Pretraining+Few-Shot</td>
+<td>超过了有监督BERT，尚未超过有监督SOTA</td>
+</tr>
+<tr>
+<td>GPT3.5：InsturctGPT</td>
+<td>GPT3+SFT+RM+PPO</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 class="relative group">GNN 
+    <div id="gnn" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gnn" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>本质：对节点特征做线性变换，然后在邻域内进行聚合</p>
+<p>GNN的层数：一般取2或3（六度空间理论）</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/_.png" alt="_" />
+    
+  </figure>
+
+</p>
+<table>
+<thead>
+<tr>
+<th>GNN</th>
+<th>聚合方式</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GCN</td>
+<td>邻域内平均</td>
+<td></td>
+</tr>
+<tr>
+<td>GAT</td>
+<td>注意力机制</td>
+<td></td>
+</tr>
+<tr>
+<td>GraphSAGE</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>通常情况下，每次前向传播是将采样的子图作为一个Batch，以当前子图上所有含有标签的节点/边作为监督信号计算Loss并进行反向传播。</p>
 
         </div>
         
@@ -869,8 +1215,8 @@
         
         
       <script>
-        var oid = "views_paper_reading\/emnlp\/Effective Convolutional Attention Network for Multi-label Clinical Document Classification.md"
-        var oid_likes = "likes_paper_reading\/emnlp\/Effective Convolutional Attention Network for Multi-label Clinical Document Classification.md"
+        var oid = "views_cheat_sheet\/basic_nn.md"
+        var oid_likes = "likes_cheat_sheet\/basic_nn.md"
       </script>
       
       
@@ -890,7 +1236,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/paper_reading/emnlp/hpt-hierarchy-aware-prompt-tuning-for-hierarchical-text-classification/">
+            <a class="flex group mr-3" href="/cheat_sheet/cli/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -902,7 +1248,7 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >HPT: Hierarchy-aware Prompt Tuning for Hierarchical Text Classification</span
+                  >CLI</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   

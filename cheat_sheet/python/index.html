@@ -106,7 +106,7 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "666"
+    "wordCount": "699"
   }]
   </script>
 
@@ -259,6 +259,13 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
           
           <p class="text-sm font-sm" title="Course">
             Course
+          </p>
+        </a>
+        
+        <a href="/cheat_sheet/basic_nn/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Basic Nerual Networks">
+            Neural Networks
           </p>
         </a>
         
@@ -529,6 +536,15 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
         
         <p class="text-sm font-small" title="Course">
             Course
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/cheat_sheet/basic_nn/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Basic Nerual Networks">
+            Neural Networks
         </p>
     </a>
 </li>
@@ -1165,10 +1181,10 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
 <p><code>AutoTokenizer</code>通过<code>from_pretrained</code>与PLM保持一致</p>
 <p><code>CustomModel</code>则需要满足：</p>
 <ul>
-<li>继承自<code>PreTrainedModel</code></li>
-<li>在初始化时，定义PLM的结构</li>
-<li><code>init_weights</code>令非预训练参数按要求初始化</li>
-<li><code>from_pretrained</code>导入预训练权重</li>
+<li>继承自PLM对应的<code>PreTrainedModel</code>，里面会有初始化方法，否则需要自己写权重初始化</li>
+<li>在<code>__init__</code>中定义PLM的结构、<code>init_weights</code>初始化</li>
+<li>在<code>forward</code>中调用PLM进行计算</li>
+<li>在微调之前，<code>from_pretrained</code>导入预训练权重</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomModel</span>(PreTrainedModel):
 </span></span><span style="display:flex;"><span>
@@ -1421,10 +1437,32 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
     </span>        
     
 </h3>
-<p><em><strong>函数签名</strong></em></p>
+
+
+<h4 class="relative group">函数签名 
+    <div id="%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Plain" data-lang="Plain"><span style="display:flex;"><span>def f(x: int, b: float):
 </span></span><span style="display:flex;"><span>    pass
-</span></span></code></pre></div><p><em><strong>参数组合</strong></em></p>
+</span></span></code></pre></div>
+
+<h4 class="relative group">参数组合 
+    <div id="%E5%8F%82%E6%95%B0%E7%BB%84%E5%90%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%82%E6%95%B0%E7%BB%84%E5%90%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 <p>定义函数时，可使用<em><strong>必选参数、默认参数、可变参数、关键字参数和命名关键字参数</strong></em>。</p>
 <p>这5种参数都可以组合使用，但<em><strong>必须按顺序</strong></em>使用。</p>
 <p>有多个默认参数时，调用的时候，既可以按顺序提供默认参数，也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。</p>
@@ -1436,12 +1474,63 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
 </span></span></code></pre></div><p>在函数调用的时候，必须先按顺序传入，再按参数名传入。</p>
 <p>由于Python解释器会按上述顺序解析5种参数，因此，如果要传入可变参数，必须先传入默认参数。</p>
-<p><em><strong>tuple</strong></em><em><strong>和dict的解包</strong></em></p>
+
+
+<h4 class="relative group">函数传参 
+    <div id="%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%BD%E6%95%B0%E4%BC%A0%E5%8F%82" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><strong>tuple和dict的解包</strong></p>
 <p>对于任意函数，都可以通过类似<code>func(*args, **kw)</code>的形式调用它，无论它的参数是如何定义的。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>args <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>)
 </span></span><span style="display:flex;"><span>kw <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;d&#39;</span>: <span style="color:#ae81ff">99</span>, <span style="color:#e6db74">&#39;x&#39;</span>: <span style="color:#e6db74">&#39;#&#39;</span>}
 </span></span><span style="display:flex;"><span>f(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw)
 </span></span></code></pre></div>
+
+<h4 class="relative group">装饰器 
+    <div id="%E8%A3%85%E9%A5%B0%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A3%85%E9%A5%B0%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>装饰器定义复杂，使用简单</p>
+<p>定义装饰器<code>log</code>，使得装饰后的函数在每次调用时打印函数名称，其中<code>@functools.wraps(func)</code>可以保持装饰后函数的<code>__name__</code>属性不变</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> functools
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">log</span>(func):
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@functools.wraps</span>(func)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">wrapper</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;call </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">():&#39;</span> <span style="color:#f92672">%</span> func<span style="color:#f92672">.</span>__name__)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> func(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> wrapper
+</span></span></code></pre></div><p>使用装饰器只需要在需要装饰的函数定义前加<code>@log</code>即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">@log</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_func</span>(<span style="color:#f92672">*</span>args,<span style="color:#f92672">**</span>kw):
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div>
+
+<h4 class="relative group">匿名函数和偏函数 
+    <div id="%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E5%81%8F%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E5%81%8F%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>lambda在传参时传的是变量；partial在传参时传的是对象；</p>
+
 
 <h3 class="relative group">迭代器 
     <div id="%E8%BF%AD%E4%BB%A3%E5%99%A8" class="anchor"></div>
@@ -1453,7 +1542,7 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
     </span>        
     
 </h3>
-<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407191834521.png" alt="image-20240719183328055" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407191834521.png" alt="image-20240719183328055" style="zoom: 25%;" />
 <table>
 <thead>
 <tr>
@@ -1612,11 +1701,11 @@ df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_n
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/cheat_sheet/blog/">
+            <a class="flex text-right group ml-3" href="/cheat_sheet/cli/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Hugo Blog</span
+                  >CLI</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   

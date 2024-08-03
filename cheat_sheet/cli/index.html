@@ -106,7 +106,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "418"
+    "wordCount": "541"
   }]
   </script>
 
@@ -259,6 +259,13 @@
           
           <p class="text-sm font-sm" title="Course">
             Course
+          </p>
+        </a>
+        
+        <a href="/cheat_sheet/basic_nn/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Basic Nerual Networks">
+            Neural Networks
           </p>
         </a>
         
@@ -533,6 +540,15 @@
     </a>
 </li>
 
+<li class="mt-1">
+    <a href="/cheat_sheet/basic_nn/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Basic Nerual Networks">
+            Neural Networks
+        </p>
+    </a>
+</li>
+
 <li class="mb-2"></li>
 
 
@@ -797,11 +813,13 @@
     </li>
     <li><a href="#常用软件">常用软件</a>
       <ul>
+        <li><a href="#tmux">Tmux</a></li>
         <li><a href="#vim">VIM</a></li>
         <li><a href="#cuda">CUDA</a></li>
         <li><a href="#conda">Conda</a></li>
         <li><a href="#git">Git</a></li>
         <li><a href="#gdown">GDown</a></li>
+        <li><a href="#hugo">Hugo</a></li>
       </ul>
     </li>
   </ul>
@@ -832,11 +850,13 @@
     </li>
     <li><a href="#常用软件">常用软件</a>
       <ul>
+        <li><a href="#tmux">Tmux</a></li>
         <li><a href="#vim">VIM</a></li>
         <li><a href="#cuda">CUDA</a></li>
         <li><a href="#conda">Conda</a></li>
         <li><a href="#git">Git</a></li>
         <li><a href="#gdown">GDown</a></li>
+        <li><a href="#hugo">Hugo</a></li>
       </ul>
     </li>
   </ul>
@@ -1347,6 +1367,78 @@
 </h2>
 
 
+<h3 class="relative group">Tmux 
+    <div id="tmux" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tmux" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html"   target="_blank">
+    Tmux 使用教程</a></p>
+<p>将会话（Section）和窗口（Terminal Window）解绑</p>
+<ul>
+<li>会话可以随时解绑（不随窗口的关闭而终止）和重新接入</li>
+<li>可以同时发起多个会话，并进行任意的垂直和水平拆分</li>
+</ul>
+
+
+<h4 class="relative group">安装 
+    <div id="%E5%AE%89%E8%A3%85" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%89%E8%A3%85" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Linux</span>
+</span></span><span style="display:flex;"><span>sudo apt-get install tmux
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Mac</span>
+</span></span><span style="display:flex;"><span>brew install tmux
+</span></span></code></pre></div>
+
+<h4 class="relative group">使用 
+    <div id="%E4%BD%BF%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BD%BF%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tmux new -s &lt;session-name&gt; <span style="color:#75715e">#新建会话</span>
+</span></span><span style="display:flex;"><span>tmux detach <span style="color:#75715e"># 分离会话</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tmux ls <span style="color:#75715e"># 查看所有会话</span>
+</span></span><span style="display:flex;"><span>tmux attach -t <span style="color:#ae81ff">0</span> <span style="color:#75715e">#接入会话</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tmux rename-session -t <span style="color:#ae81ff">0</span> &lt;new-name&gt; <span style="color:#75715e"># 重命名会话</span>
+</span></span><span style="display:flex;"><span>tmux kill-session -t &lt;session-name&gt; <span style="color:#75715e"># 杀死会话</span>
+</span></span></code></pre></div>
+
+<h4 class="relative group">快捷键 
+    <div id="%E5%BF%AB%E6%8D%B7%E9%94%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><code>Ctrl+b</code>是前缀键，用于表示使用快捷键</p>
+<pre tabindex="0"><code>Ctrl+b d：分离当前会话。
+Ctrl+b s：列出所有会话。
+Ctrl+b $：重命名当前会话
+</code></pre>
+
 <h3 class="relative group">VIM 
     <div id="vim" class="anchor"></div>
     
@@ -1414,15 +1506,33 @@
     </span>        
     
 </h3>
-<ul>
-<li>安装与配置</li>
-</ul>
+
+
+<h4 class="relative group">安装与配置 
+    <div id="%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sh Miniconda3-latest-Linux-x86_64.sh <span style="color:#75715e"># 把安装脚本上传后再运行</span>
 </span></span><span style="display:flex;"><span>conda config --set auto_activate_base true <span style="color:#75715e"># 自动激活conda环境</span>
 </span></span><span style="display:flex;"><span>pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple <span style="color:#75715e">#pip换源就够了，从来不用conda</span>
-</span></span></code></pre></div><ul>
-<li>虚拟环境</li>
-</ul>
+</span></span></code></pre></div>
+
+<h4 class="relative group">虚拟环境 
+    <div id="%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
 <p>anyway，本人只用base</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>conda create -n env_name python<span style="color:#f92672">=</span>3.9 <span style="color:#75715e">#新建</span>
 </span></span><span style="display:flex;"><span>conda activate env <span style="color:#75715e"># 激活</span>
@@ -1473,6 +1583,107 @@
 <p><a href="https://cloud.tencent.com/developer/ask/sof/108261926"   target="_blank">
     Gdown下载权限错误</a></p>
 
+
+<h3 class="relative group">Hugo 
+    <div id="hugo" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hugo" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://gohugo.io/documentation/"   target="_blank">
+    Hugo官方文档</a></p>
+
+
+<h4 class="relative group">部署 
+    <div id="%E9%83%A8%E7%BD%B2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%83%A8%E7%BD%B2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>将Hugo服务器部署到局域网</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>hugo server --bind <span style="color:#e6db74">&#34;0.0.0.0&#34;</span> <span style="color:#75715e"># 将hugo服务器端口向局域网内所有ip开放</span>
+</span></span><span style="display:flex;"><span>ifconfig | grep <span style="color:#ae81ff">192</span> <span style="color:#75715e"># 查看本机在局域网的ip</span>
+</span></span></code></pre></div><p><a href="https://simumis.com/posts/deploy-to-github/"   target="_blank">
+    将静态网站部署到Github Pages</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>hugo <span style="color:#f92672">&amp;&amp;</span> cd public <span style="color:#f92672">&amp;&amp;</span> git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#e6db74">&#39;update&#39;</span> <span style="color:#f92672">&amp;&amp;</span> git push <span style="color:#f92672">&amp;&amp;</span> cd ..
+</span></span></code></pre></div>
+
+<h4 class="relative group">主题 
+    <div id="%E4%B8%BB%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th>Theme</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-installation/"   target="_blank">
+    PaperMod</a></td>
+<td>配置简单，但功能较少</td>
+</tr>
+<tr>
+<td><a href="https://blowfish.page/docs/"   target="_blank">
+    Blowfish</a></td>
+<td>推荐</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">定制化功能 
+    <div id="%E5%AE%9A%E5%88%B6%E5%8C%96%E5%8A%9F%E8%83%BD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%9A%E5%88%B6%E5%8C%96%E5%8A%9F%E8%83%BD" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>公式渲染</td>
+<td>在layouts/partials中重写主题的某些文件，以blowfish为例，需要在vendor.html中重写katex部分的js脚本</td>
+</tr>
+<tr>
+<td>社交图标</td>
+<td><a href="https://www.iconfont.cn/"   target="_blank">
+    Social Icons SVG</a></td>
+</tr>
+<tr>
+<td>站内搜索</td>
+<td><a href="https://gohugo.io/tools/search/"   target="_blank">
+    Search Tools</a><br/><a href="https://www.beizigen.com/post/hugo-implements-simple-on-site-search/"   target="_blank">
+    原理</a></td>
+</tr>
+</tbody>
+</table>
+
         </div>
         
         
@@ -1509,7 +1720,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/cheat_sheet/blog/">
+            <a class="flex group mr-3" href="/cheat_sheet/python/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1521,7 +1732,7 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Hugo Blog</span
+                  >Python</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1531,6 +1742,26 @@
           
         </span>
         <span>
+          
+            <a class="flex text-right group ml-3" href="/cheat_sheet/basic_nn/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Basic Nerual Networks</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>

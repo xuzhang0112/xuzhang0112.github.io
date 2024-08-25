@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Mon, 22 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/medical-graph-rag-towards-safe-medical-large-language-model-via-graph-retrieval-augmented-generation/</link>
+      <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/medical-graph-rag-towards-safe-medical-large-language-model-via-graph-retrieval-augmented-generation/</guid>
+      <description>[ 2408.04187] Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation (arxiv.org)
+Contributions # fisrt MedRAG; Graph Contruction &amp;amp; Retrival (evidence-based &amp;amp; private data) ; SOTA on QA;
+Method # Layer Inner Relationship Source 0 Chunk-Chunk 1 Entity-Entity MIMIC4 2 Entity-Entity MedC-K 3 Entity-Entity UMLS 本质上是构建了一个以Report Chunk Meta Graph为基本单位的Graph，通过层级链接来为每一个Meta Graph生成通用语言的描述，并添加tag。
+在检索时，基于问题的Query来检索相应的Meta-graph，并进一步检索相应的Entity。
+Experiments # Model Size Open-sourced MedQA MedMCQA PubMedQA LLaMA2 13B yes 42.7 37.4 68.0 LLaMA2-MedGraphRAG 13B yes 65.</description>
+      
+    </item>
+    
     <item>
       <title>HyperCore: Hyperbolic and Co-graph Representation for Automatic ICD Coding</title>
       <link>https://xuzhang0112.github.io/paper_reading/acl/hypercore/</link>
@@ -488,9 +502,9 @@ PadChest # 160,000+ images from 67,000 patients, from 2009 to 2017 reports label
       <description>基本命令 # 命令=可执行文件/别名+文件路径
 用&amp;quot;&amp;amp;&amp;amp;&amp;ldquo;连接：多条命令依次执行，报错则终止
 用“||”连接：多条命令依次执行，任意一条命令成功，则后续命令不执行
-文件路径 # 备注 绝对路径 /data/xuzhang/&amp;hellip; 相对路径 用户根目录下~/... 当前目录下./
-上一级目录下../
-上上一级目录下../../ 相对路径是相对于当前工作路径！！！可执行文件的调用export设置环境变量PATHalias设置别名在当前文件夹下使用./ 文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -sh dir 查看dir的磁盘占用情况 du -h dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件/文件夹 mv dir1 dir2 mv file1 dir2 移动文件/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 # 压缩 解压 zip &amp;amp; unzip gzip &amp;amp; gunzip gunzip -r dir 解压文件夹下所有.</description>
+文件路径 # 备注 绝对路径 /data/xuzhang/&amp;hellip; 相对路径 ~/... 用户根目录 ./ 当前目录 ../ 上一级目录 ../../ 上上一级目录 相对路径是相对于当前工作路径，可通过pwd查看
+当调用任何一条命令时，系统依次遍历PATH中的路径，查找是否存在对应的可执行文件。用户既可以通过export来将新的路径添加到环境变量PATH中，也可以通过alias来为对应的路径设置别名，从而快速调用。
+文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -sh dir 查看dir的磁盘占用情况 du -h dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件/文件夹 mv dir1 dir2 mv file1 dir2 移动文件/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 # 压缩 解压 zip &amp;amp; unzip gzip &amp;amp; gunzip gunzip -r dir 解压文件夹下所有.</description>
       
     </item>
     

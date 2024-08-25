@@ -64,9 +64,9 @@
 <meta property="og:description" content="基本命令 # 命令=可执行文件/别名&#43;文件路径
 用&quot;&amp;&amp;&ldquo;连接：多条命令依次执行，报错则终止
 用“||”连接：多条命令依次执行，任意一条命令成功，则后续命令不执行
-文件路径 # 备注 绝对路径 /data/xuzhang/&hellip; 相对路径 用户根目录下~/... 当前目录下./
-上一级目录下../
-上上一级目录下../../ 相对路径是相对于当前工作路径！！！可执行文件的调用export设置环境变量PATHalias设置别名在当前文件夹下使用./ 文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -sh dir 查看dir的磁盘占用情况 du -h dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件/文件夹 mv dir1 dir2 mv file1 dir2 移动文件/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 # 压缩 解压 zip &amp; unzip gzip &amp; gunzip gunzip -r dir 解压文件夹下所有." />
+文件路径 # 备注 绝对路径 /data/xuzhang/&hellip; 相对路径 ~/... 用户根目录 ./ 当前目录 ../ 上一级目录 ../../ 上上一级目录 相对路径是相对于当前工作路径，可通过pwd查看
+当调用任何一条命令时，系统依次遍历PATH中的路径，查找是否存在对应的可执行文件。用户既可以通过export来将新的路径添加到环境变量PATH中，也可以通过alias来为对应的路径设置别名，从而快速调用。
+文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -sh dir 查看dir的磁盘占用情况 du -h dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件/文件夹 mv dir1 dir2 mv file1 dir2 移动文件/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 # 压缩 解压 zip &amp; unzip gzip &amp; gunzip gunzip -r dir 解压文件夹下所有." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xuzhang0112.github.io/cheat_sheet/cli/" /><meta property="article:section" content="cheat_sheet" />
 
@@ -77,9 +77,9 @@
 <meta name="twitter:description" content="基本命令 # 命令=可执行文件/别名&#43;文件路径
 用&quot;&amp;&amp;&ldquo;连接：多条命令依次执行，报错则终止
 用“||”连接：多条命令依次执行，任意一条命令成功，则后续命令不执行
-文件路径 # 备注 绝对路径 /data/xuzhang/&hellip; 相对路径 用户根目录下~/... 当前目录下./
-上一级目录下../
-上上一级目录下../../ 相对路径是相对于当前工作路径！！！可执行文件的调用export设置环境变量PATHalias设置别名在当前文件夹下使用./ 文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -sh dir 查看dir的磁盘占用情况 du -h dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件/文件夹 mv dir1 dir2 mv file1 dir2 移动文件/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 # 压缩 解压 zip &amp; unzip gzip &amp; gunzip gunzip -r dir 解压文件夹下所有."/>
+文件路径 # 备注 绝对路径 /data/xuzhang/&hellip; 相对路径 ~/... 用户根目录 ./ 当前目录 ../ 上一级目录 ../../ 上上一级目录 相对路径是相对于当前工作路径，可通过pwd查看
+当调用任何一条命令时，系统依次遍历PATH中的路径，查找是否存在对应的可执行文件。用户既可以通过export来将新的路径添加到环境变量PATH中，也可以通过alias来为对应的路径设置别名，从而快速调用。
+文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -sh dir 查看dir的磁盘占用情况 du -h dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件/文件夹 mv dir1 dir2 mv file1 dir2 移动文件/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 # 压缩 解压 zip &amp; unzip gzip &amp; gunzip gunzip -r dir 解压文件夹下所有."/>
 
   
   <script type="application/ld+json">
@@ -90,7 +90,7 @@
     "name": "CLI",
     "headline": "CLI",
     
-    "abstract": "基本命令 # 命令=可执行文件\/别名\u002b文件路径\n用\u0026quot;\u0026amp;\u0026amp;\u0026ldquo;连接：多条命令依次执行，报错则终止\n用“||”连接：多条命令依次执行，任意一条命令成功，则后续命令不执行\n文件路径 # 备注 绝对路径 \/data\/xuzhang\/\u0026hellip; 相对路径 用户根目录下~\/... 当前目录下.\/\n上一级目录下..\/\n上上一级目录下..\/..\/ 相对路径是相对于当前工作路径！！！可执行文件的调用export设置环境变量PATHalias设置别名在当前文件夹下使用.\/ 文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -sh dir 查看dir的磁盘占用情况 du -h dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件\/文件夹 mv dir1 dir2 mv file1 dir2 移动文件\/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1\u0060\u0060rm -rf dir1 压缩解压 # 压缩 解压 zip \u0026amp; unzip gzip \u0026amp; gunzip gunzip -r dir 解压文件夹下所有.",
+    "abstract": "基本命令 # 命令=可执行文件\/别名\u002b文件路径\n用\u0026quot;\u0026amp;\u0026amp;\u0026ldquo;连接：多条命令依次执行，报错则终止\n用“||”连接：多条命令依次执行，任意一条命令成功，则后续命令不执行\n文件路径 # 备注 绝对路径 \/data\/xuzhang\/\u0026hellip; 相对路径 ~\/... 用户根目录 .\/ 当前目录 ..\/ 上一级目录 ..\/..\/ 上上一级目录 相对路径是相对于当前工作路径，可通过pwd查看\n当调用任何一条命令时，系统依次遍历PATH中的路径，查找是否存在对应的可执行文件。用户既可以通过export来将新的路径添加到环境变量PATH中，也可以通过alias来为对应的路径设置别名，从而快速调用。\n文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -sh dir 查看dir的磁盘占用情况 du -h dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件\/文件夹 mv dir1 dir2 mv file1 dir2 移动文件\/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1\u0060\u0060rm -rf dir1 压缩解压 # 压缩 解压 zip \u0026amp; unzip gzip \u0026amp; gunzip gunzip -r dir 解压文件夹下所有.",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/cheat_sheet\/cli\/",
     "author" : {
@@ -106,7 +106,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "541"
+    "wordCount": "563"
   }]
   </script>
 
@@ -905,23 +905,40 @@
 <thead>
 <tr>
 <th style="text-align:right"></th>
-<th></th>
+<th style="text-align:left"></th>
 <th>备注</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:right">绝对路径</td>
-<td>/data/xuzhang/&hellip;</td>
+<td style="text-align:left">/data/xuzhang/&hellip;</td>
 <td></td>
 </tr>
 <tr>
 <td style="text-align:right">相对路径</td>
-<td>用户根目录下<code>~/...</code> <br />当前目录下<code>./</code><br />上一级目录下<code>../</code><br />上上一级目录下<code>../../</code></td>
-<td>相对路径是相对于当前<em><strong>工作路径</strong></em>！！！可执行文件的调用export设置环境变量PATHalias设置别名在当前文件夹下使用<code>./</code></td>
+<td style="text-align:left"><code>~/...</code></td>
+<td>用户根目录</td>
+</tr>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:left"><code>./</code></td>
+<td>当前目录</td>
+</tr>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:left"><code>../</code></td>
+<td>上一级目录</td>
+</tr>
+<tr>
+<td style="text-align:right"></td>
+<td style="text-align:left"><code>../../</code></td>
+<td>上上一级目录</td>
 </tr>
 </tbody>
 </table>
+<p>相对路径是相对于当前<em><strong>工作路径</strong></em>，可通过<code>pwd</code>查看</p>
+<p>当调用任何一条命令时，系统依次遍历<code>PATH</code>中的路径，查找是否存在对应的可执行文件。用户既可以通过<code>export</code>来将新的路径添加到环境变量PATH中，也可以通过<code>alias</code>来为对应的路径设置别名，从而快速调用。</p>
 
 
 <h3 class="relative group">文件管理 
@@ -1056,8 +1073,13 @@
 <tbody>
 <tr>
 <td>查看</td>
-<td><code>cat file1``cat file1 file2</code></td>
+<td><code>cat file1</code></td>
 <td>本义是“concatenate and print files”，连接和查看多个文件内容，实际多用于查看单个文件内容</td>
+</tr>
+<tr>
+<td></td>
+<td><code>cat file1 file2</code></td>
+<td></td>
 </tr>
 <tr>
 <td></td>
@@ -1198,9 +1220,18 @@
 </tr>
 <tr>
 <td>端口号</td>
-<td><code>netstat -tuln</code>查看占用情况`netstat -tuln</td>
-<td>grep 6006<code>指定端口占用情况</code>ssh -L 8008:127.0.0.1:8008 <a href="mailto:xuzhang@172.16.120.1"  >
-    xuzhang@172.16.120.1</a>`重映射</td>
+<td><code>netstat -tuln</code></td>
+<td>查看占用情况</td>
+</tr>
+<tr>
+<td></td>
+<td>`netstat -tuln</td>
+<td>grep 6006`</td>
+</tr>
+<tr>
+<td></td>
+<td><code>ssh -L 8008:127.0.0.1:8008 xuzhang@172.16.120.1</code></td>
+<td>重映射</td>
 </tr>
 </tbody>
 </table>
@@ -1303,11 +1334,6 @@
 <td><code>CUDA_VISIBLE_DEVICES=1,3 python train.py</code></td>
 <td>仅对子进程有效</td>
 </tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
 
@@ -1403,17 +1429,18 @@
 </span></span><span style="display:flex;"><span>brew install tmux
 </span></span></code></pre></div>
 
-<h4 class="relative group">使用 
-    <div id="%E4%BD%BF%E7%94%A8" class="anchor"></div>
+<h4 class="relative group">CLI使用 
+    <div id="cli%E4%BD%BF%E7%94%A8" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%BD%BF%E7%94%A8" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#cli%E4%BD%BF%E7%94%A8" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tmux new -s &lt;session-name&gt; <span style="color:#75715e">#新建会话</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tmux <span style="color:#75715e">#新建会话</span>
+</span></span><span style="display:flex;"><span>tmux new -s &lt;session-name&gt; <span style="color:#75715e">#新建会话</span>
 </span></span><span style="display:flex;"><span>tmux detach <span style="color:#75715e"># 分离会话</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>tmux ls <span style="color:#75715e"># 查看所有会话</span>
@@ -1434,10 +1461,53 @@
     
 </h4>
 <p><code>Ctrl+b</code>是前缀键，用于表示使用快捷键</p>
-<pre tabindex="0"><code>Ctrl+b d：分离当前会话。
-Ctrl+b s：列出所有会话。
-Ctrl+b $：重命名当前会话
-</code></pre>
+<table>
+<thead>
+<tr>
+<th><code>Ctrl+b+</code></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>d</td>
+<td>detatch</td>
+<td>分离当前会话</td>
+</tr>
+<tr>
+<td>s</td>
+<td></td>
+<td>列出所有会话</td>
+</tr>
+<tr>
+<td>$</td>
+<td></td>
+<td>重命名当前会话</td>
+</tr>
+<tr>
+<td>%</td>
+<td></td>
+<td>左右分屏（百分号的左和右）</td>
+</tr>
+<tr>
+<td>&quot;&rdquo;</td>
+<td></td>
+<td>上下分屏（上引号和下引号）</td>
+</tr>
+<tr>
+<td>o</td>
+<td></td>
+<td>切换分屏</td>
+</tr>
+<tr>
+<td>x</td>
+<td></td>
+<td>关闭分屏窗口</td>
+</tr>
+</tbody>
+</table>
+
 
 <h3 class="relative group">VIM 
     <div id="vim" class="anchor"></div>

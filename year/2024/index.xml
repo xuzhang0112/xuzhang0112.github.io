@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Wed, 03 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/year/2024/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/year/2024/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation</title>
+      <link>https://xuzhang0112.github.io/paper_reading/arxiv/medical-graph-rag-towards-safe-medical-large-language-model-via-graph-retrieval-augmented-generation/</link>
+      <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/medical-graph-rag-towards-safe-medical-large-language-model-via-graph-retrieval-augmented-generation/</guid>
+      <description>[ 2408.04187] Medical Graph RAG: Towards Safe Medical Large Language Model via Graph Retrieval-Augmented Generation (arxiv.org)
+Contributions # fisrt MedRAG; Graph Contruction &amp;amp; Retrival (evidence-based &amp;amp; private data) ; SOTA on QA;
+Method # Layer Inner Relationship Source 0 Chunk-Chunk 1 Entity-Entity MIMIC4 2 Entity-Entity MedC-K 3 Entity-Entity UMLS 本质上是构建了一个以Report Chunk Meta Graph为基本单位的Graph，通过层级链接来为每一个Meta Graph生成通用语言的描述，并添加tag。
+在检索时，基于问题的Query来检索相应的Meta-graph，并进一步检索相应的Entity。
+Experiments # Model Size Open-sourced MedQA MedMCQA PubMedQA LLaMA2 13B yes 42.7 37.4 68.0 LLaMA2-MedGraphRAG 13B yes 65.</description>
+      
+    </item>
+    
     <item>
       <title>TocBERT: Medical Document Structure Extraction Using Bidirectional Transformers</title>
       <link>https://xuzhang0112.github.io/paper_reading/arxiv/tocbert-medical-document-structure-extraction-using-bidirectional-transformers/</link>

@@ -100,7 +100,7 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
     "keywords": ["Survey"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "136"
+    "wordCount": "126"
   }]
   </script>
 
@@ -804,13 +804,7 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
   <ul>
     <li><a href="#cnn">CNN</a></li>
     <li><a href="#rnn">RNN</a></li>
-    <li><a href="#transformer">Transformer</a>
-      <ul>
-        <li><a href="#bert">BERT</a></li>
-        <li><a href="#vit">VIT</a></li>
-        <li><a href="#gpt">GPT</a></li>
-      </ul>
-    </li>
+    <li><a href="#transformer">Transformer</a></li>
     <li><a href="#gnn">GNN</a></li>
   </ul>
 </nav>
@@ -827,13 +821,7 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
   <ul>
     <li><a href="#cnn">CNN</a></li>
     <li><a href="#rnn">RNN</a></li>
-    <li><a href="#transformer">Transformer</a>
-      <ul>
-        <li><a href="#bert">BERT</a></li>
-        <li><a href="#vit">VIT</a></li>
-        <li><a href="#gpt">GPT</a></li>
-      </ul>
-    </li>
+    <li><a href="#transformer">Transformer</a></li>
     <li><a href="#gnn">GNN</a></li>
   </ul>
 </nav>
@@ -1021,6 +1009,7 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
 <th>多头注意力的使用方式</th>
 <th></th>
 <th></th>
+<th>并行计算</th>
 </tr>
 </thead>
 <tbody>
@@ -1028,121 +1017,84 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
 <td>自注意力</td>
 <td>Encoder</td>
 <td>第n个token是Q，当前Encoder层输入的所有token是K和V</td>
+<td>完全并行</td>
 </tr>
 <tr>
 <td></td>
 <td>Decoder</td>
 <td>第n个token是Q，当前Decoder层输出的前n-1个token是K和V</td>
+<td>高度并行（Teacher Forcing）</td>
 </tr>
 <tr>
 <td>交叉注意力</td>
 <td>Decoder</td>
 <td>第n个token是Q，最后一层Encoder输出的所有token是K和V</td>
+<td>高度并行（Teacher Forcing）</td>
 </tr>
 </tbody>
 </table>
-<p>Transformer的计算并行</p>
-<p>高度并行：Encoder完全并行，Decoder高度并行（训练时依靠Teacher Forcing并行，测试时串行）</p>
-
-
-<h3 class="relative group">BERT 
-    <div id="bert" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#bert" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>结构：Transformer Encoder</p>
-<p>预训练：完形填空</p>
 <table>
 <thead>
 <tr>
-<th>BERT变体</th>
+<th>Series</th>
+<th>Model</th>
 <th></th>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>BERT</td>
 <td>Roberta</td>
 <td>字节对编码(BPE)；动态掩码；去除NSP；大bs和大lr；10倍规模的数据集；</td>
 <td></td>
 </tr>
 <tr>
+<td></td>
 <td>Albert</td>
 <td>Embedding低秩矩阵分解；NSP改成SOP；跨层attention参数共享；</td>
 <td></td>
 </tr>
 <tr>
+<td></td>
 <td>ERNIE (THU)</td>
 <td>设计Aggregator来使文本和实体进行充分交互；使文本在映射后可以预测实体；</td>
 <td></td>
 </tr>
 <tr>
+<td></td>
 <td>ERNIE1.0 (Baidu)</td>
 <td>在MLM阶段额外进行phrase-level和entity-level的mask</td>
 <td></td>
 </tr>
 <tr>
+<td></td>
 <td>ERNIE2.0 (Baidu)</td>
 <td>持续多任务学习，渐进地增加更复杂的任务</td>
 <td></td>
 </tr>
-</tbody>
-</table>
-
-
-<h3 class="relative group">VIT 
-    <div id="vit" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#vit" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>将图片拆成patch，每个patch通过reshape和MLP转化为词向量，送入Tansformer的encoder</p>
-<p>需要预训练，<strong>大数据</strong>预训练情况下优于ResNet</p>
-
-
-<h3 class="relative group">GPT 
-    <div id="gpt" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#gpt" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>模型结构：Transformer Decoder</p>
-<p>学习方式：Pretraining（Next Token Prediction）+ Finetuning (Supervised)</p>
-<table>
-<thead>
 <tr>
-<th>GPT变体</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
+<td>GPT</td>
 <td>GPT-2</td>
 <td>Pretraining+Zero-Shot</td>
 <td>在9个任务上超过有监督SOTA；在摘要、翻译、问答等任务上不如无监督模型</td>
 </tr>
 <tr>
+<td></td>
 <td>GPT-3</td>
 <td>Pretraining+Few-Shot</td>
 <td>超过了有监督BERT，尚未超过有监督SOTA</td>
 </tr>
 <tr>
+<td></td>
 <td>GPT3.5：InsturctGPT</td>
 <td>GPT3+SFT+RM+PPO</td>
+<td></td>
+</tr>
+<tr>
+<td>VIT</td>
+<td></td>
+<td>将图片拆成patch，每个patch通过reshape和MLP转化为词向量，送入Tansformer的encoder</td>
 <td></td>
 </tr>
 </tbody>
@@ -1182,18 +1134,21 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
 </thead>
 <tbody>
 <tr>
-<td>GCN</td>
+<td><a href="https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.GCNConv.html#torch_geometric.nn.conv.GCNConv"   target="_blank">
+    GCN</a></td>
 <td>邻域内平均</td>
 <td></td>
 </tr>
 <tr>
-<td>GAT</td>
-<td>注意力机制</td>
+<td><a href="https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.GATConv.html#torch_geometric.nn.conv.GATConv"   target="_blank">
+    GAT</a></td>
+<td>邻域注意力加权</td>
 <td></td>
 </tr>
 <tr>
-<td>GraphSAGE</td>
-<td></td>
+<td><a href="https://pytorch-geometric.readthedocs.io/en/latest/generated/torch_geometric.nn.conv.SAGEConv.html#torch_geometric.nn.conv.SAGEConv"   target="_blank">
+    GraphSAGE</a></td>
+<td>邻域，区分自身和邻居</td>
 <td></td>
 </tr>
 </tbody>

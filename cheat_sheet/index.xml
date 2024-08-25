@@ -29,9 +29,9 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
       <description>基本命令 # 命令=可执行文件/别名+文件路径
 用&amp;quot;&amp;amp;&amp;amp;&amp;ldquo;连接：多条命令依次执行，报错则终止
 用“||”连接：多条命令依次执行，任意一条命令成功，则后续命令不执行
-文件路径 # 备注 绝对路径 /data/xuzhang/&amp;hellip; 相对路径 用户根目录下~/... 当前目录下./
-上一级目录下../
-上上一级目录下../../ 相对路径是相对于当前工作路径！！！可执行文件的调用export设置环境变量PATHalias设置别名在当前文件夹下使用./ 文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -sh dir 查看dir的磁盘占用情况 du -h dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件/文件夹 mv dir1 dir2 mv file1 dir2 移动文件/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 # 压缩 解压 zip &amp;amp; unzip gzip &amp;amp; gunzip gunzip -r dir 解压文件夹下所有.</description>
+文件路径 # 备注 绝对路径 /data/xuzhang/&amp;hellip; 相对路径 ~/... 用户根目录 ./ 当前目录 ../ 上一级目录 ../../ 上上一级目录 相对路径是相对于当前工作路径，可通过pwd查看
+当调用任何一条命令时，系统依次遍历PATH中的路径，查找是否存在对应的可执行文件。用户既可以通过export来将新的路径添加到环境变量PATH中，也可以通过alias来为对应的路径设置别名，从而快速调用。
+文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -sh dir 查看dir的磁盘占用情况 du -h dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件/文件夹 mv dir1 dir2 mv file1 dir2 移动文件/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 # 压缩 解压 zip &amp;amp; unzip gzip &amp;amp; gunzip gunzip -r dir 解压文件夹下所有.</description>
       
     </item>
     

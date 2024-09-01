@@ -106,7 +106,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "563"
+    "wordCount": "642"
   }]
   </script>
 
@@ -1620,23 +1620,85 @@
     </span>        
     
 </h3>
-<p>本人git小白，在此记录自己使用的一些工作流（低情商：只会这么多）</p>
-<p>初始化，一般是本地或者克隆他人的仓库</p>
+<p><a href="https://www.runoob.com/git/git-basic-operations.html"   target="_blank">
+    Git 基本操作 | 菜鸟教程 (runoob.com)</a></p>
+
+
+<h4 class="relative group">初始化 
+    <div id="%E5%88%9D%E5%A7%8B%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%9D%E5%A7%8B%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>基本配置</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git config --global user.name <span style="color:#f92672">[</span>name<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>git config --global user.email <span style="color:#f92672">[</span>email<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>从本地仓库初始化</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git init <span style="color:#75715e"># 创建git仓库</span>
-</span></span><span style="display:flex;"><span>git clone <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span> <span style="color:#75715e"># 复制仓库  </span>
 </span></span><span style="display:flex;"><span>touch .gitignore <span style="color:#75715e"># 修改.gitignore文件在其中写入需要忽略的文件和目录</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#“/”表示从.gitignore所在的根目录开始匹配末尾的&#34;/&#34;表示匹配目录而不是文件</span>
-</span></span></code></pre></div><p>本地</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#e6db74">&#39;update&#39;</span>
-</span></span></code></pre></div><p>远程仓库</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git remote add origin <span style="color:#f92672">[</span>https://username:password@github.com/repo<span style="color:#f92672">]</span> <span style="color:#75715e">#注意私有仓库的密码是你的token</span>
-</span></span><span style="display:flex;"><span>git push -u origin main <span style="color:#75715e">#第一次需要指定upstream</span>
-</span></span><span style="display:flex;"><span>git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#e6db74">&#39;update&#39;</span> <span style="color:#f92672">&amp;&amp;</span> git push <span style="color:#75715e"># 远程仓库一条龙</span>
-</span></span></code></pre></div><p>合并</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git add . <span style="color:#f92672">&amp;&amp;</span> git commit <span style="color:#75715e">#首先确保本地的修改已经提交</span>
-</span></span><span style="display:flex;"><span>git pull <span style="color:#75715e"># 然后拉取远程仓库中的修改</span>
-</span></span><span style="display:flex;"><span>git config pull.rebase true <span style="color:#75715e"># 可以配置一下，比较省事</span>
-</span></span><span style="display:flex;"><span>git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#e6db74">&#39;update&#39;</span> <span style="color:#f92672">&amp;&amp;</span> git push <span style="color:#75715e"># 对修改过目之后，即可远程仓库一条龙，进行覆盖</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;/&#34;开头，从.gitignore所在目录开始匹配</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;/&#34;结尾，只匹配目录，不匹配文件</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;/../&#34;匹配多级目录</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *.filetype，忽略指定类型的文件</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># !filetype，不忽略指定类型的文件（如果文件夹已经被忽略，则文件必然被忽略）</span>
+</span></span></code></pre></div><p>克隆远程仓库</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span> <span style="color:#75715e"># 复制仓库  </span>
+</span></span></code></pre></div>
+
+<h4 class="relative group">分支管理 
+    <div id="%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>查看分支</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SH" data-lang="SH"><span style="display:flex;"><span>git branch <span style="color:#75715e"># 查看本地分支</span>
+</span></span><span style="display:flex;"><span>git branch -r <span style="color:#75715e"># 查看远程分支</span>
+</span></span><span style="display:flex;"><span>git branch -a <span style="color:#75715e"># 查看所有分支</span>
+</span></span></code></pre></div><p>切换分支</p>
+<p>如果是创建新分支，则会保持当前文件状态</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git checkout -b &lt;branchname&gt; <span style="color:#75715e"># 创建并切换到分支</span>
+</span></span></code></pre></div><p>如果是切换到已有的分支，则必须先提交，切换到已有分支后，文件会变成目标分支的最后一次提交</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#f92672">[</span>msg<span style="color:#f92672">]</span> <span style="color:#75715e"># 切换分支前，首先提交</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git checkout <span style="color:#f92672">[</span>branchname<span style="color:#f92672">]</span> <span style="color:#75715e"># 切换分支</span>
+</span></span><span style="display:flex;"><span>git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#f92672">[</span>msg<span style="color:#f92672">]</span> <span style="color:#75715e"># 提交分支修改</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git checkout main <span style="color:#75715e"># 切换到主分支</span>
+</span></span><span style="display:flex;"><span>git merge <span style="color:#f92672">[</span>branch_name<span style="color:#f92672">]</span> <span style="color:#75715e"># 合并分支，并手动解决冲突</span>
+</span></span><span style="display:flex;"><span>git add &lt;conflict-file&gt;
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#f92672">[</span>msg<span style="color:#f92672">]</span> <span style="color:#75715e"># 合并与修改应当视为一次新的提交</span>
+</span></span></code></pre></div>
+
+<h4 class="relative group">远程仓库 
+    <div id="%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git remote add <span style="color:#f92672">[</span>origin_name<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>http/ssh<span style="color:#f92672">]</span> <span style="color:#75715e"># 添加远程仓库</span>
+</span></span><span style="display:flex;"><span>git remote -v <span style="color:#75715e"># 查看远程仓库</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git fetch <span style="color:#f92672">&amp;&amp;</span> git merge <span style="color:#f92672">[</span>alias<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>branch<span style="color:#f92672">]</span> <span style="color:#75715e"># 拉取远程仓库，将远程仓库的指定分支合并到当前分支</span>
+</span></span><span style="display:flex;"><span>git pull <span style="color:#f92672">[</span>alias<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>branch<span style="color:#f92672">]</span> <span style="color:#75715e">#将远程仓库的[branch]拉取并合并到当前分支 </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git add &lt;conflict-file&gt; <span style="color:#75715e">#解决冲突</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#f92672">[</span>msg<span style="color:#f92672">]</span> <span style="color:#75715e"># 并提交</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git push -u <span style="color:#f92672">[</span>alias<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>branch<span style="color:#f92672">]</span> <span style="color:#75715e"># 第一次需要指定远程仓库</span>
+</span></span><span style="display:flex;"><span>git push <span style="color:#75715e"># 将[branch]推送到[alias]的[branch]</span>
 </span></span></code></pre></div>
 
 <h3 class="relative group">GDown 

@@ -7,7 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/cvpr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/cvpr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visual Semantic Reasoning for Image-Text Matching</title>
+      <link>https://xuzhang0112.github.io/paper_reading/cvpr/visual-semantic-reasoning-for-image-text-matching/</link>
+      <pubDate>Fri, 06 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/cvpr/visual-semantic-reasoning-for-image-text-matching/</guid>
+      <description>用Backbone是ResNet101的Faster-R-CNN和非极大值抑制提取若干个对象的特征，使用相似度建立边，使用GCN来使对象间产生交互，使用GRU来获取最终的全局表示。
+图文之间的匹配损失是triplet loss，为正样本和负样本之间的距离设置间隔参数，并将mini batch中的难样本作为负样本。 $$ L_M=[\alpha-S(I,C)+S(I,\hat{C})]+[\alpha-S(I,C)+S(\hat{I},C)] $$ 图生文的损失是对数似然损失。</description>
+      
+    </item>
+    
+    <item>
+      <title>Incremental Residual Concept Bottleneck Models</title>
+      <link>https://xuzhang0112.github.io/paper_reading/cvpr/incremental-residual-concept-bottleneck-models/</link>
+      <pubDate>Thu, 05 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/cvpr/incremental-residual-concept-bottleneck-models/</guid>
+      <description>CBM通过构建合理的Concept bank来将任何一幅图像表达为基向量的线性组合，再基于系数向量进行分类，以增强模型的可解释性。
+CBM Model CLIP Zero-shot LP Original CBM 将text embedding映射到concept，再映射到类别 PCBM 无需标注来训练concept classifier，而是用Concept Net构建concpet bank，用相似度来获取concept的系数 PCBM-h 引入残差，弥补concept-classifeir支路的预测错误 Lf-CBM 使用大语言模型来产生概念 LaBo 使用大语言模型，为每个类别产生特定数量的概念 Res-CBM 逐步增加已知概念（从一个超大的Bank中选取，通过分类损失和正则项来学习），减少未知概念 该方法在CBM系列模型中效果较好，但是仍然低于LP。</description>
+      
+    </item>
+    
     <item>
       <title>Label Relation Graphs Enhanced Hierarchical Residual Network for Hierarchical Multi-Granularity Classification</title>
       <link>https://xuzhang0112.github.io/paper_reading/cvpr/label-relation-graphs-enhanced-hierarchical-residual-network-for-hierarchical-multi-granularity-classification/</link>

@@ -106,7 +106,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "642"
+    "wordCount": "651"
   }]
   </script>
 
@@ -255,17 +255,10 @@
           </p>
         </a>
         
-        <a href="/cheat_sheet/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        <a href="/cheat_sheet/alphabet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
           
-          <p class="text-sm font-sm" title="Course">
-            Course
-          </p>
-        </a>
-        
-        <a href="/cheat_sheet/basic_nn/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-          
-          <p class="text-sm font-sm" title="Basic Nerual Networks">
-            Neural Networks
+          <p class="text-sm font-sm" title="Alphabet">
+            Alphabet
           </p>
         </a>
         
@@ -532,19 +525,10 @@
 </li>
 
 <li class="mt-1">
-    <a href="/cheat_sheet/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/cheat_sheet/alphabet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-sm font-small" title="Course">
-            Course
-        </p>
-    </a>
-</li>
-
-<li class="mt-1">
-    <a href="/cheat_sheet/basic_nn/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-sm font-small" title="Basic Nerual Networks">
-            Neural Networks
+        <p class="text-sm font-small" title="Alphabet">
+            Alphabet
         </p>
     </a>
 </li>
@@ -1267,6 +1251,11 @@
 <td>安装软件或编辑用户主目录以外的文件</td>
 </tr>
 <tr>
+<td>修改权限</td>
+<td><code>chmod [num][num][num]</code></td>
+<td>6表示读写，7表示读写和执行；三个数字分别对应用户、用户组、其他用户</td>
+</tr>
+<tr>
 <td>修改密码</td>
 <td><code>passwd</code></td>
 <td></td>
@@ -1274,7 +1263,7 @@
 <tr>
 <td>退出登录</td>
 <td><code>exit</code></td>
-<td></td>
+<td><code>Ctrl+D</code></td>
 </tr>
 <tr>
 <td>关机</td>
@@ -1358,27 +1347,33 @@
 </thead>
 <tbody>
 <tr>
-<td>内网</td>
+<td>建立连接</td>
 <td><code>ssh 用户名@服务器IP</code></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
-<td>免密登录本地生成公钥<code>ssh-keygen -t rsa</code>上传公钥到服务器的授权列表<code>ssh-copy-id -i ~/.ssh/id_rsa.pub 用户名@IP</code></td>
-<td></td>
-</tr>
-<tr>
-<td>外网（跳板机）</td>
-<td>两步登录ssh用户名@跳板机IP -p端口号（端口号为默认值22时可不输入，修改端口号是为了提高安全性）在跳板机上选择要登录的服务器直连服务器<code>ssh xuzhang@xuzhang@172.16.120.1@bacteria.tech -p2222</code></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>本地连接跳板机免密在堡垒机管理网站上传本地公钥跳板机连接服务器免密将服务器密码告知跳板机管理人员，请他代为设置</td>
+<td>断开连接</td>
+<td><code>ctrl+d</code>或<code>exit</code>断开连接</td>
 <td></td>
 </tr>
 </tbody>
 </table>
+<p>内网免密登录</p>
+<ol>
+<li>本地生成公钥<code>ssh-keygen -t rsa</code></li>
+<li>上传公钥到服务器的授权列表
+<ul>
+<li><a href="https://blog.csdn.net/qq_19922839/article/details/117488663"   target="_blank">
+    SSH配置公钥后仍需要输入密码</a></li>
+</ul>
+</li>
+</ol>
+<p>跳板机登录</p>
+<p>方式1：两步登录</p>
+<p>首先通过ssh连接跳板机（如果端口号不是ssh的默认端口22，则需要手动指定），然后在跳板机上选择要登录的服务器</p>
+<p>方式2：一步登录</p>
+<p><code>ssh xuzhang@xuzhang@172.16.120.1@bacteria.tech -p2222</code></p>
+<p>local和跳板机之间的免密是通过跳板机的用户界面设置，跳板机和服务器之间的免密是由跳板机的管理员设置。</p>
 
 
 <h2 class="relative group">常用软件 
@@ -1525,7 +1520,7 @@
 <p>正常模式（Normal-mode)</p>
 <ul>
 <li>狂按<code>&lt;Esc&gt;</code>进入</li>
-<li><code>dd</code>删除一行，<code>p</code>粘贴</li>
+<li><code>dd</code>剪切一行；<code>yy</code>复制一行；<code>p</code>粘贴；<code>u</code>撤销；</li>
 </ul>
 </li>
 <li>

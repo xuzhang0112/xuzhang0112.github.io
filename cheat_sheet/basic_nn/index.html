@@ -100,7 +100,7 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
     "keywords": ["Survey"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "134"
+    "wordCount": "153"
   }]
   </script>
 
@@ -249,17 +249,10 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
           </p>
         </a>
         
-        <a href="/cheat_sheet/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        <a href="/cheat_sheet/alphabet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
           
-          <p class="text-sm font-sm" title="Course">
-            Course
-          </p>
-        </a>
-        
-        <a href="/cheat_sheet/basic_nn/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-          
-          <p class="text-sm font-sm" title="Basic Nerual Networks">
-            Neural Networks
+          <p class="text-sm font-sm" title="Alphabet">
+            Alphabet
           </p>
         </a>
         
@@ -526,19 +519,10 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
 </li>
 
 <li class="mt-1">
-    <a href="/cheat_sheet/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/cheat_sheet/alphabet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-sm font-small" title="Course">
-            Course
-        </p>
-    </a>
-</li>
-
-<li class="mt-1">
-    <a href="/cheat_sheet/basic_nn/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-sm font-small" title="Basic Nerual Networks">
-            Neural Networks
+        <p class="text-sm font-small" title="Alphabet">
+            Alphabet
         </p>
     </a>
 </li>
@@ -1132,8 +1116,39 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
     </span>        
     
 </h2>
-<p>本质：对节点特征做线性变换，然后在邻域内进行聚合</p>
-<p>GNN的层数：一般取2或3（六度空间理论）</p>
+<p>在神经网络兴起之前，主流方法是通过构造合理的度量函数来优化每个实体的表示</p>
+<table>
+<thead>
+<tr>
+<th>KG2E</th>
+<th>度量函数</th>
+<th>建模关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TransE</td>
+<td>平移</td>
+<td>Inversion; Composition</td>
+</tr>
+<tr>
+<td>DisMult</td>
+<td>双线性</td>
+<td>Symmetry;</td>
+</tr>
+<tr>
+<td>CompIEx</td>
+<td>复空间内积/共轭内积</td>
+<td>Symmerty; Antisymmerty</td>
+</tr>
+<tr>
+<td>RotateE</td>
+<td>复空间旋转</td>
+<td>Inversion; Compostition; Symmertry;</td>
+</tr>
+</tbody>
+</table>
+<p>随着神经网络的发展，GNN被提出，通过建模邻域节点的特征，来获取更好的中心节点表示；GNN的层数一般取2或3</p>
 <p>
 
 
@@ -1234,6 +1249,26 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
           
         </span>
         <span>
+          
+            <a class="flex text-right group ml-3" href="/cheat_sheet/alphabet/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Alphabet</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>

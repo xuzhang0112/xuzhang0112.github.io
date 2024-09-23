@@ -3,19 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/survey/knowledge-graph-embedding-a-survey-from-the-perspective-of-representation-spaces/</loc>
+    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
+    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/survey/</loc>
+    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/</loc>
+    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/</loc>
+    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/sigir/2024-09-06-dynamic-modality-interaction-modeling-for-image-text-retrieval/</loc>
+    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/visual-semantic-reasoning-for-image-text-matching/</loc>
+    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/incremental-residual-concept-bottleneck-models/</loc>
+    <lastmod>2024-09-05T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/arxiv/</loc>
     <lastmod>2024-08-25T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/arxiv/medical-graph-rag-towards-safe-medical-large-language-model-via-graph-retrieval-augmented-generation/</loc>
-    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
-    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/</loc>
     <lastmod>2024-08-25T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -44,10 +68,6 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</loc>
-    <lastmod>2024-07-05T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/</loc>
     <lastmod>2024-07-05T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -103,10 +123,6 @@
     <lastmod>2024-05-19T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/</loc>
-    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/cvpr/label-relation-graphs-enhanced-hierarchical-residual-network-for-hierarchical-multi-granularity-classification/</loc>
     <lastmod>2024-05-17T00:00:00+00:00</lastmod>
   </url>
@@ -154,6 +170,9 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/others/all-in-one-multi-task-prompting-for-graph-neural-networks/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/cheat_sheet/alphabet/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/miccai/anaxnet-anatomy-aware-multi-label-finding-classification-in-chest-x-ray/</loc>

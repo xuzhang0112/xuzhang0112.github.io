@@ -9,6 +9,16 @@
     <copyright>© 2024 Xu Zhang</copyright>
     <lastBuildDate>Fri, 28 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/cheat_sheet/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Alphabet</title>
+      <link>https://xuzhang0112.github.io/cheat_sheet/alphabet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/cheat_sheet/alphabet/</guid>
+      <description> 大写 小写 Α α Alpha Β β Beta Γ γ Gamma Δ δ Delte Ε ε Epsilon Ζ ζ zeta Ε η Eta Θ θ Theta Ι ι Iota Κ κ Kappa ∧ λ Lambda Μ μ Mu Ν ν Nu Ξ ξ Xi Ο ο Omicron ∏ π Pi Ρ ρ Rho ∑ σ Sigma Τ τ Tau Υ υ Upsilon Φ φ Phi Χ χ Chi Ψ ψ Psi Ω ω Omega </description>
+      
+    </item>
+    
+    <item>
       <title>Basic Nerual Networks</title>
       <link>https://xuzhang0112.github.io/cheat_sheet/basic_nn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -44,9 +54,7 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
       <description>Data Processing # Jupter Notebook # 在cell中执行shell
 !pwd #单条shell命令 %%bash #整个cell作为shell脚本 模块自动重载，否则每次修改需要重启kernel
 %load_ext autoreload %autoreload 2 #每执行一个cell都会重载所有模块 Pandas # 菜鸟教程yyds
-Dataframe的创建
-# 从外部读取 read_csv() read_excel() # 从可迭代对象创建，每一项都是一行 Dataframe([{column1:a,column2:b},{}]) #列表的每个字典代表一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[&amp;#39;c1&amp;#39;,&amp;#39;c2&amp;#39;]) #列表的每个列表代表一行 Dataframe的索引
-df[column_name]` #根据列名 df.loc[idx] #根据行索引 df.loc[idx, column_name] #根据行索引和列名 df.iloc[idx, column_idx] #根据行索引和列索引 df.loc[[idx1,idx2]][[column_name1,colunmn_name2]] #索引多行多列 df.loc[[idx1,idx2],[column_name1,colunmn_name2]] #索引多行多列 从索引的逻辑中可以看出，pandas是优先考虑列的 事实上，pandas的筛选和赋值大多数也是基于列的 # 创建空列 df[new_column] = &amp;#39;&amp;#39; # 提前考虑好类型：0还是空字符串 # 基于某两列构造新的列 df[c] = df[a] + df[b] df.loc[:,c] = df[a] + df[b] # 新版本的赋值，更建议的写法是使用.loc # 对某列应用函数，创造新列 df[c] = df[a].</description>
+创建Dataframe # # 从外部读取 read_csv() read_excel() # 创建空的DataFrame Dataframe(columns=[column_name1, column_name2]) # 根据列表创建Dataframe，列表的每个元素表示一行，可以用List或Dict表示一行 Dataframe([{column1:a,column2:b},{}]) # 用字典代表一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[&amp;#39;c1&amp;#39;,&amp;#39;c2&amp;#39;]) # 用列表代表一行 创建新的行和列 # # 创建新的列 df[new_column] = constant / df[a]+df[b] / df[a].apply(func) # 老版本的写法 df.loc[:,c] = df[a] + df[b] # 更建议的写法 # 创建新的行 df.loc[len(df)] = Series({column1=x,column2=y,...}) 索引 # # 索引单行单列 df[column_name]` # 索引某一列 df.</description>
       
     </item>
     

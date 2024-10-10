@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CheatSheet on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/knowledge_base/</link>
+    <description>Recent content in CheatSheet on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 Xu Zhang</copyright>
+    <lastBuildDate>Fri, 28 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/knowledge_base/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alphabet</title>
+      <link>https://xuzhang0112.github.io/knowledge_base/alphabet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/knowledge_base/alphabet/</guid>
+      <description> 大写 小写 Α α Alpha Β β Beta Γ γ Gamma Δ δ Delte Ε ε Epsilon Ζ ζ zeta Ε η Eta Θ θ Theta Ι ι Iota Κ κ Kappa ∧ λ Lambda Μ μ Mu Ν ν Nu Ξ ξ Xi Ο ο Omicron ∏ π Pi Ρ ρ Rho ∑ σ Sigma Τ τ Tau Υ υ Upsilon Φ φ Phi Χ χ Chi Ψ ψ Psi Ω ω Omega </description>
+      
+    </item>
+    
+    <item>
+      <title>Basic Nerual Networks</title>
+      <link>https://xuzhang0112.github.io/knowledge_base/basic_nn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/knowledge_base/basic_nn/</guid>
+      <description>Arcitecture # 所有类型的神经网络都可以看成是线性变换+交互。线性变换是不变的，即对每一个像素/token/节点的特征向量进行相同的Linear+Activation；交互则取决于具体的任务：CNN的交互是相邻的像素点加权平均，RNN的交互是下一个token依赖上一个token，Transformer的交互是token与token之间的注意力加权平均，GNN的交互是一阶邻域内节点的加权平均。大部分模型结构层面的优化也是根据任务场景来设计新的交互方式。
+CNN # Series Model Time Consumption UNet UNet 2014 跳跃连接，精细分割 RCNN RCNN 2013 用CNN做Dectection，再用CNN做Classification 40-50s Fast-RCNN 2015 使用同一个CNN计算bounding box和Label 2s Faster-RCNN 2015 去除了Selective Search 0.2s Mask-RCNN 支持Instance Segmentation YOLO Yolo v1 2015 用回归问题统一了Bounding Box的坐标预测和类别预测 Yolo v2 2016 支持不同输入尺寸 Yolo v3 2018 支持多标签；引入多尺度； Yolo v4, v5, v6 2020 2021 Yolo v6, v7 2022 Yolo v8 2023 RNN # 感觉已经G了，不想写了，随便写点吧
+Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。 Mamba 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba Transformer # 注意力机制：计算每个向量（Q）与其他向量（K, V）的相关性，用加权和取代原来的向量</description>
+      
+    </item>
+    
+    <item>
+      <title>CheatSheet</title>
+      <link>https://xuzhang0112.github.io/knowledge_base/cheatsheet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/knowledge_base/cheatsheet/</guid>
+      <description>Mac/Linux OS Command # 命令=可执行文件/别名+文件路径
+用&amp;quot;&amp;amp;&amp;amp;&amp;ldquo;连接：多条命令依次执行，报错则终止
+用“||”连接：多条命令依次执行，任意一条命令成功，则后续命令不执行
+文件路径 # 备注 绝对路径 /data/xuzhang/&amp;hellip; 相对路径 ~/... 用户根目录 ./ 当前目录 ../ 上一级目录 ../../ 上上一级目录 相对路径是相对于当前工作路径，可通过pwd查看
+当调用任何一条命令时，系统依次遍历PATH中的路径，查找是否存在对应的可执行文件。用户既可以通过export来将新的路径添加到环境变量PATH中，也可以通过alias来为对应的路径设置别名，从而快速调用。
+文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -sh dir 查看dir的磁盘占用情况 du -h dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件/文件夹 mv dir1 dir2 mv file1 dir2 移动文件/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 # 压缩 解压 zip &amp;amp; unzip gzip &amp;amp; gunzip gunzip -r dir 解压文件夹下所有.</description>
+      
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://xuzhang0112.github.io/knowledge_base/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/knowledge_base/python/</guid>
+      <description>Data Processing # Jupter Notebook # 在cell中执行shell
+!pwd #单条shell命令 %%bash #整个cell作为shell脚本 模块自动重载，否则每次修改需要重启kernel
+%load_ext autoreload %autoreload 2 #每执行一个cell都会重载所有模块 Pandas # 菜鸟教程yyds
+创建Dataframe # # 从外部读取 read_csv() read_excel() # 创建空的DataFrame Dataframe(columns=[column_name1, column_name2]) # 根据列表创建Dataframe，列表的每个元素表示一行，可以用List或Dict表示一行 Dataframe([{column1:a,column2:b},{}]) # 用字典代表一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[&amp;#39;c1&amp;#39;,&amp;#39;c2&amp;#39;]) # 用列表代表一行 创建新的行和列 # # 创建新的列 df[new_column] = constant / df[a]+df[b] / df[a].apply(func) # 老版本的写法 df.loc[:,c] = df[a] + df[b] # 更建议的写法 # 创建新的行 df.loc[len(df)] = Series({column1=x,column2=y,...}) 索引 # # 索引单行单列 df[column_name]` # 索引某一列 df.</description>
+      
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>https://xuzhang0112.github.io/knowledge_base/visualization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/knowledge_base/visualization/</guid>
+      <description>基于PyQt5的应用开发 # 最简单的应用程序=应用进程+窗口组件 # import PyQt5.QtWidgets as QtWidgets import sys class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&amp;#39;Demo&amp;#39;) self.show() if __name__ == &amp;#34;__main__&amp;#34;: # 创建应用程序进程 app = QtWidgets.QApplication(sys.argv) # 创建主窗口 window = MainWindow(app) # 主程序开始运行 app.exec_() 在主窗口中添加组件 # 添加单个组件 # class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&amp;#39;MainWindow&amp;#39;) self.setCentralWidget(QtWidgets.QPushButton(&amp;#34;Button&amp;#34;)) self.show() 添加多个组件 # from PyQt5.QtWidgets import ( QApplication, QMainWindow, QPushButton, QSlider, QLabel, QCheckBox, QComboBox, QSpinBox, QDoubleSpinBox, QGroupBox, QGridLayout, QFileDialog) import sys from PyQt5.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

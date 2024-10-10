@@ -3,19 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/aaai/</loc>
+    <lastmod>2024-09-26T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/aaai/graph-convolutional-networks-for-text-classification/</loc>
+    <lastmod>2024-09-26T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
+    <lastmod>2024-09-26T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/</loc>
+    <lastmod>2024-09-26T00:00:00+00:00</lastmod>
+  </url>
+  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/knowledge-graph-embedding-a-survey-from-the-perspective-of-representation-spaces/</loc>
     <lastmod>2024-09-10T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
-    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/</loc>
-    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/</loc>
     <lastmod>2024-09-10T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -79,15 +87,15 @@
     <lastmod>2024-07-03T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/biomed/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/course/biomed/</loc>
     <lastmod>2024-06-28T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/</loc>
     <lastmod>2024-06-28T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/course/</loc>
     <lastmod>2024-06-28T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -95,11 +103,11 @@
     <lastmod>2024-06-23T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/course/matrix/</loc>
     <lastmod>2024-06-14T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/pr/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/course/pr/</loc>
     <lastmod>2024-06-14T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -143,15 +151,11 @@
     <lastmod>2024-05-14T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/aaai/improved-graph-contrastive-learning-for-short-text-classification/</loc>
     <lastmod>2024-05-09T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/4/</loc>
-    <lastmod>2024-05-09T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/1/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/aaai/self-paced-unified-representation-learning-for-hierarchical-multi-label-classification/</loc>
     <lastmod>2024-05-09T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -172,7 +176,7 @@
     <loc>https://xuzhang0112.github.io/paper_reading/others/all-in-one-multi-task-prompting-for-graph-neural-networks/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/alphabet/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/alphabet/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/miccai/anaxnet-anatomy-aware-multi-label-finding-classification-in-chest-x-ray/</loc>
@@ -184,22 +188,16 @@
     <loc>https://xuzhang0112.github.io/paper_reading/others/automatic-icd-coding-exploiting-discourse-structure-and-reconciled-code-embeddings/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/basic_nn/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/basic_nn/</loc>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/knowledge_base/cheatsheet/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/chest_xray/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/cli/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/5/</loc>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/survey/learning/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/8/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/acl/20_1/</loc>
@@ -218,9 +216,6 @@
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/acl/enhancing-hierarchical-text-classification-through-knowledge-graph-integration/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/9/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</loc>
@@ -265,16 +260,13 @@
     <loc>https://xuzhang0112.github.io/paper_reading/mia/knowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/7/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/algebra/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/course/algebra/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/miccai/masked-vision-and-language-pre-training-with-unimodal-and-multimodal-contrastive-losses-for-medical-visual-question-answ/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/mic/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/course/mic/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/acl/medical-knowledge-enhanced-prompt-learning-for-diagnosis-classification-from-clinical-text/</loc>
@@ -307,16 +299,13 @@
     <loc>https://xuzhang0112.github.io/paper_reading/others/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/prob/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/course/prob/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/python/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/python/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/course/eng/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/6/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/course/eng/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/emnlp/text2tree-aligning-text-representation-to-the-label-tree-hierarchy-for-imbalanced-medical-classification/</loc>
@@ -325,24 +314,15 @@
     <loc>https://xuzhang0112.github.io/paper_reading/tmi/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/3/</loc>
-  </url>
-  <url>
     <loc>https://xuzhang0112.github.io/paper_reading/others/towards-automatic-icd-coding-via-knowledge-enhanced-multi-task-learning/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/nips/towards-semi-structured-automatic-icd-coding-via-tree-based-contrastive-learning/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/visualization/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/cheat_sheet/vscode/</loc>
+    <loc>https://xuzhang0112.github.io/knowledge_base/visualization/</loc>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/2/</loc>
   </url>
 </urlset>

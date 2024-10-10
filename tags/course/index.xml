@@ -10,10 +10,10 @@
     <lastBuildDate>Fri, 28 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/course/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Biomed</title>
-      <link>https://xuzhang0112.github.io/cheat_sheet/course/biomed/</link>
+      <link>https://xuzhang0112.github.io/knowledge_base/course/biomed/</link>
       <pubDate>Fri, 28 Jun 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/cheat_sheet/course/biomed/</guid>
+      <guid>https://xuzhang0112.github.io/knowledge_base/course/biomed/</guid>
       <description>结构生物化学 # 生物大分子 # 生命体的元素组成和化学组成 # 生命体的元素组成 ：C、H、O和N四种元素，是组成生命体最基本的元素，约占了生物体总质量的99%以上
 生物体的化学组成：水、无机物及有机小分子、生物大分子
 生物大分子的组成 # 生物分子/构件分子 生物大分子 氨基酸 蛋白质 核苷酸 核酸 单糖 多糖 脂肪酸 脂类 生物大分子的构成 # 具有固定结构的单体亚基通过具备有限柔性的共价键连成一体，在非共价相互作用的帮助下形成特定的三维结构，其结构决定了每个大分子的具体功能
@@ -32,10 +32,10 @@
     
     <item>
       <title>Matrix</title>
-      <link>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</link>
+      <link>https://xuzhang0112.github.io/knowledge_base/course/matrix/</link>
       <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/cheat_sheet/course/matrix/</guid>
+      <guid>https://xuzhang0112.github.io/knowledge_base/course/matrix/</guid>
       <description>矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
 inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ Hardmard积、Kronnecker积和矩阵乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
 Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：
@@ -47,10 +47,10 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
     
     <item>
       <title>Pattern Recogniton</title>
-      <link>https://xuzhang0112.github.io/cheat_sheet/course/pr/</link>
+      <link>https://xuzhang0112.github.io/knowledge_base/course/pr/</link>
       <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/cheat_sheet/course/pr/</guid>
+      <guid>https://xuzhang0112.github.io/knowledge_base/course/pr/</guid>
       <description>相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别
 平均样本法 样本到每个类别的各样本平均值的距离 平均距离法 样本到每个类别的各个样本的距离的平均值 最近邻法 样本最近的样本 距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦
 线性分类器 # n维线性分类器可以表达为超平面$w^Tx+b=0$ 如果将样本X的第n+1维设为1，则超平面可以简化为$w^Tx=0$ 若样本集线性可分，则存在分类器使得所有样本满足$\begin{cases}w^Tx&amp;gt;0\quad if\ x\in w_1\newline w^Tx&amp;lt;0\quad if\ x\in w_2\end{cases}$
@@ -70,10 +70,10 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器+阶跃函数
     
     <item>
       <title>Linear Algebra</title>
-      <link>https://xuzhang0112.github.io/cheat_sheet/course/algebra/</link>
+      <link>https://xuzhang0112.github.io/knowledge_base/course/algebra/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/cheat_sheet/course/algebra/</guid>
+      <guid>https://xuzhang0112.github.io/knowledge_base/course/algebra/</guid>
       <description>作业1 # 线性空间 # 数域：对加减乘除封闭
 常微分方程的通解：特征方程，指数函数
 线性空间：对加法&amp;amp;数乘封闭+8条
@@ -122,10 +122,10 @@ Key # 1.判断线性空间
     
     <item>
       <title>Medical Image Computing</title>
-      <link>https://xuzhang0112.github.io/cheat_sheet/course/mic/</link>
+      <link>https://xuzhang0112.github.io/knowledge_base/course/mic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/cheat_sheet/course/mic/</guid>
+      <guid>https://xuzhang0112.github.io/knowledge_base/course/mic/</guid>
       <description>CT Reconstruction # Analytical CT reconstruction # Radon Transform
 数学形式化描述
 $$ p(s,\theta)=\int^\infty_{-\infty}\int^\infty_{-\infty}f(x,y)\delta(xcos\theta+ysin\theta-s)dxdy $$
@@ -136,10 +136,10 @@ from skimage.transform import warp theta = np.arange(180) # pad padded_image = n
     
     <item>
       <title>Probability</title>
-      <link>https://xuzhang0112.github.io/cheat_sheet/course/prob/</link>
+      <link>https://xuzhang0112.github.io/knowledge_base/course/prob/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/cheat_sheet/course/prob/</guid>
+      <guid>https://xuzhang0112.github.io/knowledge_base/course/prob/</guid>
       <description>作业要点 # 作业1
 几何分布：概率为p的事件首次发生时的次数，期望=1/p
 协方差的计算公式推导：定义+期望的性质

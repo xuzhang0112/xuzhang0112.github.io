@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Fri, 06 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/year/2019/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/year/2019/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graph Convolutional Networks for Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/graph-convolutional-networks-for-text-classification/</link>
+      <pubDate>Thu, 26 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/graph-convolutional-networks-for-text-classification/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>Visual Semantic Reasoning for Image-Text Matching</title>
       <link>https://xuzhang0112.github.io/paper_reading/cvpr/visual-semantic-reasoning-for-image-text-matching/</link>

@@ -1,0 +1,2938 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Matrix &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="Matrix &middot; Xu Zhang&#39;s Blog" />
+  
+  
+  <meta name="keywords" content="Course, " />
+  
+  
+  <link rel="canonical" href="https://xuzhang0112.github.io/knowledge_base/course/matrix/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.ac59a1b8eaafef739c129d12787ac29f6a420bcb348c7aeec8949a8d0b7d6c2023766c169d14b9031b751504eb3c976efe786fec135b340a49868acd8caa4127.css"
+    integrity="sha512-rFmhuOqv73OcEp0SeHrCn2pCC8s0jHruyJSajQt9bCAjdmwWnRS5Axt1FQTrPJdu/nhv7BNbNApJhorNjKpBJw==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
+    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Matrix" />
+<meta property="og:description" content="矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
+inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ Hardmard积、Kronnecker积和矩阵乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
+Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：
+A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 直和 # 矩阵的直和定义如下：
+$$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
+逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuzhang0112.github.io/knowledge_base/course/matrix/" /><meta property="article:section" content="knowledge_base" />
+<meta property="article:published_time" content="2024-06-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-14T00:00:00+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Matrix"/>
+<meta name="twitter:description" content="矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
+inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ Hardmard积、Kronnecker积和矩阵乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
+Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：
+A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 直和 # 矩阵的直和定义如下：
+$$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
+逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆"/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "CheatSheet",
+    "name": "Matrix",
+    "headline": "Matrix",
+    
+    "abstract": "矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：\ninner product $\\sum a_ib_i$ $a\\odot b$ Outer product $ab^T$ $a\\otimes b$ Hardmard积、Kronnecker积和矩阵乘法 # 若矩阵$A\\in R^{m\\times n},B\\in R^{m\\times n}$，则它的哈达玛积、克罗内亚积如下：\nHardmard Product 逐元素相乘 $A\\circ B \\in R^{m\\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\\otimes B \\in R^{m^2\\times n^2}$ Matrix Product 矩阵乘法 $A\\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：\nA、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A\u002bB)(A-B)$满足交换律 $(A\u002bB)^m$可使用二项式定理展开 直和 # 矩阵的直和定义如下：\n$$A\\oplus B=\\begin{bmatrix}A\\quad O\\newline O\\quad B\\end{bmatrix}$$\n逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆",
+    "inLanguage": "en",
+    "url" : "https:\/\/xuzhang0112.github.io\/knowledge_base\/course\/matrix\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Xu Zhang"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-06-14T00:00:00\u002b00:00",
+    "datePublished": "2024-06-14T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-06-14T00:00:00\u002b00:00",
+    
+    "keywords": ["Course"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "816"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Xu Zhang" />
+  
+  
+  
+  <link href="https://www.zhihu.com/people/zhang-xu-20-31-39" rel="me" />
+  
+  
+  <link href="https://space.bilibili.com/456489591" rel="me" />
+  
+  
+  <link href="https://github.com/xuzhang0112" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+    integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+    integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+    integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk"
+    crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            
+            
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true },
+            ],
+            
+            throwOnError: false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Xu Zhang&rsquo;s Blog</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  href="/knowledge_base/"   class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="CheatSheet">
+      Knowledge Base
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/knowledge_base/cheatsheet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="CheatSheet">
+            Cheat Sheet
+          </p>
+        </a>
+        
+        <a href="/knowledge_base/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Python">
+            Python
+          </p>
+        </a>
+        
+        <a href="/knowledge_base/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Course">
+            Course
+          </p>
+        </a>
+        
+        <a href="/knowledge_base/alphabet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Alphabet">
+            Alphabet
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Papers
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/conference/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Conference">
+            Conference
+          </p>
+        </a>
+        
+        <a href="/year/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Year">
+            Year
+          </p>
+        </a>
+        
+        <a href="/paper_reading/survey/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Survey">
+            Survey
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Tags">
+        Tags
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="CheatSheet">
+            Knowledge Base
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/knowledge_base/cheatsheet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="CheatSheet">
+            Cheat Sheet
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/knowledge_base/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Python">
+            Python
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/knowledge_base/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Course">
+            Course
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/knowledge_base/alphabet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Alphabet">
+            Alphabet
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Papers
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/conference/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Conference">
+            Conference
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/year/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Year">
+            Year
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/paper_reading/survey/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Survey">
+            Survey
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Tags">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/knowledge_base/"
+      >CheatSheet</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/knowledge_base/course/"
+      >Course</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/knowledge_base/course/matrix/"
+      >Matrix</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Matrix
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/course/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Course
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#矩阵的基本概念">矩阵的基本概念</a>
+      <ul>
+        <li><a href="#矩阵的基本运算">矩阵的基本运算</a></li>
+        <li><a href="#秩行列式迹">秩、行列式、迹</a></li>
+        <li><a href="#范数">范数</a></li>
+        <li><a href="#随机向量">随机向量</a></li>
+        <li><a href="#特殊矩阵">特殊矩阵</a></li>
+      </ul>
+    </li>
+    <li><a href="#矩阵函数与优化">矩阵函数与优化</a>
+      <ul>
+        <li><a href="#矩阵函数">矩阵函数</a></li>
+        <li><a href="#矩阵的求导与微分">矩阵的求导与微分</a></li>
+        <li><a href="#无约束带约束的优化问题">无约束/带约束的优化问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#矩阵分解">矩阵分解</a>
+      <ul>
+        <li><a href="#特征值和特征向量">特征值和特征向量</a></li>
+        <li><a href="#特征值分解evd">特征值分解（EVD）</a></li>
+        <li><a href="#奇异值分解svd">奇异值分解（SVD)</a></li>
+        <li><a href="#jordan标准形">Jordan标准形</a></li>
+      </ul>
+    </li>
+    <li><a href="#特征分析">特征分析</a>
+      <ul>
+        <li><a href="#cayleyhamilton定理">Cayley–Hamilton定理</a></li>
+        <li><a href="#rayleigh商">Rayleigh商</a></li>
+      </ul>
+    </li>
+    <li><a href="#线性方程">线性方程</a>
+      <ul>
+        <li><a href="#线性方程组axb的解">线性方程组$AX=b$​​的解</a></li>
+        <li><a href="#最小二乘">最小二乘</a></li>
+      </ul>
+    </li>
+    <li><a href="#线性空间">线性空间</a>
+      <ul>
+        <li><a href="#维数">维数</a></li>
+        <li><a href="#子空间">子空间</a></li>
+        <li><a href="#投影矩阵">投影矩阵</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#矩阵的基本概念">矩阵的基本概念</a>
+      <ul>
+        <li><a href="#矩阵的基本运算">矩阵的基本运算</a></li>
+        <li><a href="#秩行列式迹">秩、行列式、迹</a></li>
+        <li><a href="#范数">范数</a></li>
+        <li><a href="#随机向量">随机向量</a></li>
+        <li><a href="#特殊矩阵">特殊矩阵</a></li>
+      </ul>
+    </li>
+    <li><a href="#矩阵函数与优化">矩阵函数与优化</a>
+      <ul>
+        <li><a href="#矩阵函数">矩阵函数</a></li>
+        <li><a href="#矩阵的求导与微分">矩阵的求导与微分</a></li>
+        <li><a href="#无约束带约束的优化问题">无约束/带约束的优化问题</a></li>
+      </ul>
+    </li>
+    <li><a href="#矩阵分解">矩阵分解</a>
+      <ul>
+        <li><a href="#特征值和特征向量">特征值和特征向量</a></li>
+        <li><a href="#特征值分解evd">特征值分解（EVD）</a></li>
+        <li><a href="#奇异值分解svd">奇异值分解（SVD)</a></li>
+        <li><a href="#jordan标准形">Jordan标准形</a></li>
+      </ul>
+    </li>
+    <li><a href="#特征分析">特征分析</a>
+      <ul>
+        <li><a href="#cayleyhamilton定理">Cayley–Hamilton定理</a></li>
+        <li><a href="#rayleigh商">Rayleigh商</a></li>
+      </ul>
+    </li>
+    <li><a href="#线性方程">线性方程</a>
+      <ul>
+        <li><a href="#线性方程组axb的解">线性方程组$AX=b$​​的解</a></li>
+        <li><a href="#最小二乘">最小二乘</a></li>
+      </ul>
+    </li>
+    <li><a href="#线性空间">线性空间</a>
+      <ul>
+        <li><a href="#维数">维数</a></li>
+        <li><a href="#子空间">子空间</a></li>
+        <li><a href="#投影矩阵">投影矩阵</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h2 class="relative group">矩阵的基本概念 
+    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">矩阵的基本运算 
+    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>若向量$a,b$，则它的内积、外积定义如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inner product</td>
+<td>$\sum a_ib_i$</td>
+<td>$a\odot b$</td>
+</tr>
+<tr>
+<td>Outer product</td>
+<td>$ab^T$</td>
+<td>$a\otimes b$</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">Hardmard积、Kronnecker积和矩阵乘法 
+    <div id="hardmard%E7%A7%AFkronnecker%E7%A7%AF%E5%92%8C%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hardmard%E7%A7%AFkronnecker%E7%A7%AF%E5%92%8C%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardmard Product</td>
+<td>逐元素相乘</td>
+<td>$A\circ B \in R^{m\times n}$</td>
+</tr>
+<tr>
+<td>Kronnecker Product</td>
+<td>矩阵A每个元素乘以矩阵B</td>
+<td>$A\otimes B \in R^{m^2\times n^2}$</td>
+</tr>
+<tr>
+<td>Matrix Product</td>
+<td>矩阵乘法</td>
+<td>$A\cdot B$ or $AB$</td>
+</tr>
+</tbody>
+</table>
+<p>矩阵乘法一般情况下不满足交换律，但也有例外：</p>
+<ul>
+<li>A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​</li>
+<li>A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$</li>
+<li>当$AB=BA$时
+<ul>
+<li>$(A+B)(A-B)$满足交换律</li>
+<li>$(A+B)^m$可使用二项式定理展开</li>
+</ul>
+</li>
+</ul>
+
+
+<h4 class="relative group">直和 
+    <div id="%E7%9B%B4%E5%92%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9B%B4%E5%92%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>矩阵的直和定义如下：</p>
+<p>$$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$</p>
+
+
+<h4 class="relative group">逆矩阵 
+    <div id="%E9%80%86%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%86%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>求解思路：
+<ol>
+<li>直接求逆，推导出逆矩阵</li>
+<li>构造$AA^{-1}=I$（一般移项后对A作因式分解）</li>
+</ol>
+</li>
+<li>特殊构造
+<ol>
+<li>当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​</li>
+<li>当A正交时，注意$A^{-1}=A^T$​</li>
+</ol>
+</li>
+</ul>
+
+
+<h4 class="relative group">广义逆 
+    <div id="%E5%B9%BF%E4%B9%89%E9%80%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B9%BF%E4%B9%89%E9%80%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>左逆和右逆</td>
+<td>左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$</td>
+<td></td>
+</tr>
+<tr>
+<td>左伪逆和右伪逆</td>
+<td>列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$</td>
+<td>列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆</td>
+</tr>
+<tr>
+<td>M-P广义逆</td>
+<td>若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆<br />特别地，若$AA^-A=A$，则称$A^-$是$A$的广义逆矩阵<br />$A^{-1},L,R$都是A的广义逆矩阵</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">秩、行列式、迹 
+    <div id="%E7%A7%A9%E8%A1%8C%E5%88%97%E5%BC%8F%E8%BF%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%A7%A9%E8%A1%8C%E5%88%97%E5%BC%8F%E8%BF%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">秩 
+    <div id="%E7%A7%A9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%A7%A9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>线性映射定义</p>
+<p>考虑线性映射$f_A:F^n\rightarrow F^m$在某一组基下的表示$x\rightarrow Ax$，则$A$的秩定义为$f_A$的象空间的维度，而核空间的维度则定义为$n-r(A)$​</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>性质</th>
+<th>证明/推论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>$r(AB)\le\min(r(A),r(B))$</td>
+<td>考虑矩阵的线性映射，一方面，$ABx$将$Bx$投射到$A$的象空间，因此$r(AB)\le r(A)$；另一方面，$ABx$是$Bx$基向量的线性组合，因此$r(AB)\le r(B)$<br />若A满秩，则$r(AB)=r(B)$</td>
+</tr>
+<tr>
+<td></td>
+<td>$r(A)+r(B)-n\le r(AB)$</td>
+<td>Frobeinus不等式$r(AB)+r(BC)\le r(B)+r(ABC)$</td>
+</tr>
+<tr>
+<td></td>
+<td>$r(A+B)\le r(A)+r(B)$</td>
+<td>秩为k的矩阵可以分解为k个秩1矩阵的和</td>
+</tr>
+<tr>
+<td></td>
+<td>$r(A^TA)=r(AA^T)=r(A)=r(A^T)$</td>
+<td>转置不变性</td>
+</tr>
+</tbody>
+</table>
+<p><strong>含参矩阵：根据矩阵的秩，确定参数的范围</strong></p>
+<ul>
+<li>
+<p>秩为1，则每一行线性相关，即系数成比例（可据此推导出系数关系）</p>
+</li>
+<li>
+<p>矩阵满秩/秩的分类讨论（$\alpha,\beta$）</p>
+<blockquote>
+<p>将向量组排列成矩阵，用每一行消去一个维度（注意消去不含参的维度），保证剩下的两行线性无关/相关</p>
+</blockquote>
+</li>
+</ul>
+
+
+<h4 class="relative group">行列式 
+    <div id="%E8%A1%8C%E5%88%97%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A1%8C%E5%88%97%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>拉普拉斯展开：行列式可以按某一行或列展开为元素与其代数余子式的乘积和，即$|B|=\sum_j b_{ij}C_{ij}$，其中代数余子式$C_{ij} = (−1)^{i + j}M_{ij}$​</p>
+<blockquote>
+<p>$$
+考虑矩阵B=
+\begin{bmatrix}
+1\quad2\quad3\newline
+4\quad5\quad6\newline
+7\quad8\quad9\newline
+\end{bmatrix}
+\newline
+它的行列式|B|=
+1\cdot
+\begin{vmatrix}
+5\quad6\newline
+8\quad9\newline
+\end{vmatrix}
+-2\cdot
+\begin{vmatrix}
+4\quad6\newline
+7\quad9\newline
+\end{vmatrix}
++3\cdot
+\begin{vmatrix}
+4\quad5\newline
+7\quad8\newline
+\end{vmatrix}
+$$</p>
+</blockquote>
+
+
+<h4 class="relative group">迹 
+    <div id="%E8%BF%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>性质</th>
+<th>推论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>线性性质</td>
+<td>$tr(A+B)=tr(A)+tr(B)$</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>$tr(r\cdot A)=r\cdot tr(A)$</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>$tr(A)=tr(A^T)$</td>
+<td></td>
+</tr>
+<tr>
+<td>矩阵乘积</td>
+<td>若交换后乘积仍然存在，则有$tr(AB)=tr(BA)$</td>
+<td>$tr(ABC)=tr(BCA)=tr(CAB)\ne tr(ACB)$</td>
+</tr>
+<tr>
+<td></td>
+<td>$tr(AB)=\sum_{ij}a_{ij}b_{ji}$</td>
+<td>$tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)$</td>
+</tr>
+<tr>
+<td>相似不变性</td>
+<td>$tr(B)=tr(PAP^{-1})=tr(A)$</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>$tr(XX^T)=\sum |x_{ij}|^2$，多天线发射信号矩阵的功率</li>
+</ul>
+
+
+<h3 class="relative group">范数 
+    <div id="%E8%8C%83%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%8C%83%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">向量范数 
+    <div id="%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>向量的p范数$||x||_p=(\sum_i |x_i|^p)^{1/p}$​</p>
+<p>特别地，当$p\rightarrow\infty$时，称为无穷范数，返回向量的最大元素$max(x_i)$</p>
+
+
+<h4 class="relative group">矩阵范数 
+    <div id="%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><a href="https://zh.wikipedia.org/wiki/%e7%9f%a9%e9%99%a3%e7%af%84%e6%95%b8#p-%e8%8c%83%e6%95%b0%e8%af%b1%e5%af%bc%e7%9a%84%e7%9f%a9%e9%98%b5%e8%8c%83%e6%95%b0"   target="_blank">
+    矩阵范数 - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
+<p>矩阵的元素范数和诱导范数都可以记为也记为$A||_p$</p>
+
+
+<h4 class="relative group">矩阵的元素范数 
+    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%83%E7%B4%A0%E8%8C%83%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%83%E7%B4%A0%E8%8C%83%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>矩阵的元素范数也称为$L_p$范数，$||A||_p = ( \sum |aij|^p   )^{1/p}$</p>
+<p>特别地，$L_2$范数也被称为Frobenius范数，记为$||A||_F$</p>
+<p>当$p\rightarrow\infty$时，称为极大值范数，返回矩阵的最大元素$max(a_{ij})$</p>
+
+
+<h4 class="relative group">范数的性质 
+    <div id="%E8%8C%83%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%8C%83%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>矩阵范数</th>
+<th>向量范数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>三角不等式</td>
+<td>$||A+B||\le||A||+||B||$</td>
+<td>$||u+v||\le||u||+||v||$</td>
+</tr>
+<tr>
+<td>Cauchy不等式</td>
+<td>$||AB||\le||A||\cdot||B||$</td>
+<td>$||uv||\le||u||\cdot||v||$</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">矩阵的诱导范数 
+    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E8%AF%B1%E5%AF%BC%E8%8C%83%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E8%AF%B1%E5%AF%BC%E8%8C%83%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>向量$x$的p范数的缩放倍率的最大值，有$||A||_p=\max{\frac{||Ax||_p}{||x||_p}}$</p>
+<p>特别地，诱导2范数是矩阵A的最大奇异值。</p>
+
+
+<h3 class="relative group">随机向量 
+    <div id="%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自相关矩阵</td>
+<td>$R_x=E[(x(\xi)x^H(\xi))]$</td>
+<td></td>
+</tr>
+<tr>
+<td>互相关矩阵</td>
+<td>$R_{xy}=E[(x(\xi)y^H(\xi))]$</td>
+<td></td>
+</tr>
+<tr>
+<td>自协方差矩阵</td>
+<td>$C_x=E([x(\xi)-\mu][x(\xi)-\mu]^T)$</td>
+<td>$C_x=R_x-\mu_x\mu_x^T$</td>
+</tr>
+<tr>
+<td>互协方差矩阵</td>
+<td>$C_x=E([x(\xi)-\mu_x][y(\xi)-\mu_y]^T)$</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">高斯随机向量 
+    <div id="%E9%AB%98%E6%96%AF%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%AB%98%E6%96%AF%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>设高斯随机向量$x(t)=[x_1(t),\dots,x_N(t)]^T$服从多维正态分布$N(\mu,C_x)$，均值向量$\mu=[\mu_1,\dots,\mu_N]^T$若各个维度独立，则有协方差矩阵$C_x=diag{\sigma_1^2,\dots,\sigma_N^2}$，概率密度函数$f(x)=\frac{1}{(2\pi)^{N/2}det(C_x)^{1/2}}exp(-\frac{1}{2}(x-\mu)^TC_x^{-1}(x-\mu))$​</p>
+
+
+<h4 class="relative group">随机误差向量 
+    <div id="%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE%E5%90%91%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>误差向量的每个维度期望为0，但功率不为0（因为正负相互抵消，平方后累积）</p>
+
+
+<h3 class="relative group">特殊矩阵 
+    <div id="%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">基本矩阵 
+    <div id="%E5%9F%BA%E6%9C%AC%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E6%9C%AC%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>推广</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基本矩阵</td>
+<td>$E_{mn}=e_me_n^T$是第m行第n列的元素为1的矩阵，<br />其中$e_n$是第n个元素为1的单位向量</td>
+<td></td>
+</tr>
+<tr>
+<td>I型基本矩阵</td>
+<td>$E_{(p,q)}$</td>
+<td>互换矩阵<br />选择矩阵<br />置换矩阵</td>
+</tr>
+<tr>
+<td>II型基本矩阵</td>
+<td>$E_{\alpha(p)}$</td>
+<td></td>
+</tr>
+<tr>
+<td>III型基本矩阵</td>
+<td>$E_{(p)+\alpha(q)}$</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">三角阵、对角阵 
+    <div id="%E4%B8%89%E8%A7%92%E9%98%B5%E5%AF%B9%E8%A7%92%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%89%E8%A7%92%E9%98%B5%E5%AF%B9%E8%A7%92%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>逆矩阵</th>
+<th>行列式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上/下三角阵</td>
+<td>上/下三角阵</td>
+<td>$det(A)=\prod_i^Na_{ii}$</td>
+</tr>
+<tr>
+<td>对角阵</td>
+<td>对角阵</td>
+<td>$det(A)=\prod_i^Na_{ii}$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>若矩阵是三角阵，又是酉矩阵，则矩阵是对角阵，且对角线元素的范数（绝对值）为1</li>
+<li>若矩阵是上三角分块酉矩阵，$A=\begin{bmatrix}P\quad B\newline 0\quad Q\end{bmatrix}$，那么P、Q都是酉矩阵，且B=0</li>
+</ul>
+<p>上/下三角阵的和、积仍然是上/下三角阵。</p>
+
+
+<h4 class="relative group">对称、正定、正交、正规 
+    <div id="%E5%AF%B9%E7%A7%B0%E6%AD%A3%E5%AE%9A%E6%AD%A3%E4%BA%A4%E6%AD%A3%E8%A7%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AF%B9%E7%A7%B0%E6%AD%A3%E5%AE%9A%E6%AD%A3%E4%BA%A4%E6%AD%A3%E8%A7%84" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>实空间</th>
+<th>复空间</th>
+<th>常见举例</th>
+<th>性质</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对称矩阵</td>
+<td>$A^T=A$</td>
+<td>$A^H=A$<br />(Hermitian阵)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>正定矩阵</td>
+<td>$x^TAx&gt;0$</td>
+<td>$x^HAx&gt;0$<br />（前提先是对称阵）</td>
+<td>各阶顺序主子式&gt;0（左上角行列式&gt;0）</td>
+<td>特征值是正数</td>
+</tr>
+<tr>
+<td>正交矩阵</td>
+<td>$QQ^T=Q^TQ=I$</td>
+<td>$UU^H=U^HU=I$<br />（酉矩阵）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>正规矩阵</td>
+<td>$A^TA=AA^T$</td>
+<td>$A^HA=AA^H$</td>
+<td></td>
+<td>必可以酉对角化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>正规矩阵</strong></p>
+<ul>
+<li>
+<p>实空间的对称矩阵、斜对称矩阵、正交矩阵是正规的；复空间的Hermitian阵、斜Hermitian阵、酉矩阵是正规矩阵</p>
+</li>
+<li>
+<p>正规矩阵必可以酉对角化</p>
+</li>
+<li>
+<p>若$A$是反对称矩阵，则$I+A,I-A,A-I$​​是非奇异的</p>
+</li>
+</ul>
+<p><strong>正定矩阵</strong></p>
+<ul>
+<li>正定矩阵可以酉对角化，进而分解成n个正定的秩1矩阵的和，也可以开平方根，$B=B^{\frac{1}{2}}(B^{\frac{1}{2}})^H$，且$I=B^{\frac{1}{2}}B^{-\frac{1}{2}}$</li>
+<li>若$A,B$为正定矩阵，则哈达玛积$A<em>B$正定，若$A,B$为半正定矩阵，则哈达玛积$A</em>B$半正定</li>
+<li>若$A$是半正定矩阵，且非奇异，则$A$是正定矩阵</li>
+</ul>
+
+
+<h4 class="relative group">相似与相合 
+    <div id="%E7%9B%B8%E4%BC%BC%E4%B8%8E%E7%9B%B8%E5%90%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9B%B8%E4%BC%BC%E4%B8%8E%E7%9B%B8%E5%90%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>定义</th>
+<th>性质</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>相似矩阵</td>
+<td>$B=S^{-1}AS$</td>
+<td>特征值相同</td>
+</tr>
+<tr>
+<td>相合矩阵</td>
+<td>$B=C^HAC$</td>
+<td>二次型函数相吻合</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">中心化矩阵 
+    <div id="%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>求和矩阵$J_N=\begin{bmatrix}1\quad\dots\quad1\newline\dots\newline1\quad\dots\quad1\newline\end{bmatrix}$，$J_NX$表示将矩阵$X$的每个向量表示为N个向量的和</p>
+<p>中心化矩阵$C_N = I_N - \frac{1}{N}J_N$，$C_NX$​表示矩阵X的每个向量减去这N个向量的均值</p>
+<ul>
+<li>信号直流功率、交流功率的计算</li>
+</ul>
+
+
+<h4 class="relative group">Vandermonde矩阵 
+    <div id="vandermonde%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vandermonde%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+A=
+\begin{bmatrix}
+a_1^0\ a_2^0\ \dots\ a_N^0\newline
+a_1\ a_2\ \dots\ a_N\newline
+\vdots \newline
+a_1^{N-1}\ a_2^{N-1}\ \dots\ a_N^{N-1}\newline
+\end{bmatrix}
+$$</p>
+<p>行列式$det(A)=\prod_{i,j}^N(a_i-a_j)$</p>
+<ul>
+<li>
+<p>多项式插值中，线性方程组的系数矩阵是Vandermonde矩阵；易知，当$a_i\ne a_j$时，范德蒙矩阵是满秩的，存在唯一解</p>
+</li>
+<li>
+<p>P个入射信号、N个阵元的信号响应矩阵是N*P维Vandermonde矩阵，其中阵元的响应强度随距离成指数级上升（0到N-1），而不同的入射信号对应不同的夹角($a_i$)。</p>
+</li>
+<li>
+<p><strong>Fourier矩阵</strong>也是一种特殊的vandermonde矩阵，指数在频率和时间两个方向都递增。DFT可以写成复空间上的内积$y(k)=\sum_{n=0}^{N-1} x(n)e^{-j\frac{2\pi kn}{N}}= &lt;x,f_k&gt; = f_k^H x$，其中$f_k=[1,e^{-j\frac{2\pi k}{N}},\dots,e^{-j\frac{2\pi k(N-1)}{N}}]$</p>
+</li>
+</ul>
+
+
+<h2 class="relative group">矩阵函数与优化 
+    <div id="%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">矩阵函数 
+    <div id="%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>矩阵函数是通过矩阵的加法和乘法来定义的，而对于指数函数和三角函数，则是通过推广标量函数的幂级数展开来定义。</p>
+<p>方法1：当矩阵是幂等矩阵时，可以将幂级数中的累加项合并，并利用指数函数的展开式来化解一系列系数的求和。</p>
+<blockquote>
+<p>$A=\begin{bmatrix}1\quad 1\newline0\quad 0\end{bmatrix},B=\begin{bmatrix}
+1\quad 1\newline0\quad 0\end{bmatrix}$，求$e^A,e^B,e^{A+B}$</p>
+<p>A是幂等阵，$A^2=A$，进而$A^n=A$</p>
+<p>由幂级数展开知$e^A=I+(\frac{1}{1!}+\frac{1}{2!}+\dots)A$
+，再根据$e=(1+\frac{1}{1!}+\frac{1}{2!}+\dots)$进一步化简，得$e^A=I+(e-1)A$</p>
+<p>同理可得$e^B=I+(e-1)B$</p>
+<p>根据幂级数展开$e^{A+B}=I+\sum_i\frac{1}{i!}(A+B)^i$
+因为$A+B=
+\begin{bmatrix}
+2\quad 0\newline
+0\quad 0
+\end{bmatrix}$，所以$(A+B)^k=2^k(A+B)$
+，继而$e^{A+B}=I+\sum_{k=1}\frac{2^k}{k!}(A+B)$
+，根据$e^2=\sum_{k=0}\frac{2^k}{k!}$，化简得$e^{A+B}=I+(e^2-1)(A+B)$</p>
+<ul>
+<li>当矩阵乘法可交换时，指数函数和三角函数才满足一些交换的性质，故$e^{A+B}$不能直接使用幂的乘法</li>
+</ul>
+</blockquote>
+<p>方法2：将矩阵对角化，矩阵的幂级数，即，将对角线上的各个元素代入幂级数的原函数。</p>
+<blockquote>
+<p>如果矩阵可对角化为$P^{-1}AP=\Lambda$​，则有：</p>
+<p>$e^A=Pdiag(e^{\lambda_1},\dots,e^{\lambda_n})P^{-1}$​</p>
+<p>$e^{tA}=Pdiag(e^{\lambda_1t},\dots,e^{\lambda_nt})P^{-1}$​​</p>
+<p>$sinA=Pdiag(sin\lambda_1,\dots,sin{\lambda_n})P^{-1}$​​</p>
+</blockquote>
+
+
+<h3 class="relative group">矩阵的求导与微分 
+    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E6%B1%82%E5%AF%BC%E4%B8%8E%E5%BE%AE%E5%88%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E6%B1%82%E5%AF%BC%E4%B8%8E%E5%BE%AE%E5%88%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>实值函数的自变量和因变量都可以是标量、向量、矩阵。</p>
+<table>
+<thead>
+<tr>
+<th>函数（因变量）</th>
+<th>向量变元$\mathbf{x}\in R^m$</th>
+<th>矩阵变元$X\in R^{m\times n}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标量函数$f\in R$</td>
+<td>$f:R^m\rightarrow R^{m\times n}$</td>
+<td>$f:R^{m\times n}\rightarrow R$</td>
+</tr>
+<tr>
+<td>向量函数$f\in R^p$</td>
+<td>$f(\mathbf{x})\newline f:R^m\rightarrow R^p$</td>
+<td>$f(X)\newline f:R^{m\times n}\rightarrow R^p$</td>
+</tr>
+<tr>
+<td>矩阵函数$f\in R^{p\times q}$</td>
+<td>$F(\mathbf{x})\newline f:R^m\rightarrow R^{p\times q}$</td>
+<td>$F(X)\newline f:R^{m\times n}\rightarrow R^{p\times q}$</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">偏导 
+    <div id="%E5%81%8F%E5%AF%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%81%8F%E5%AF%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+
+<h4 class="relative group">标量函数的偏导 
+    <div id="%E6%A0%87%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%81%8F%E5%AF%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A0%87%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%81%8F%E5%AF%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th>偏导</th>
+<th>对变元的操作</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行向量偏导</td>
+<td>将矩阵X行向量化（先列向量化，再转置）</td>
+<td>$D_{vec^T(X)}f(X)=\frac{\partial f(X)}{\partial vec^T(X)}$</td>
+</tr>
+<tr>
+<td><strong>Jacobian矩阵</strong></td>
+<td>将矩阵X转置</td>
+<td>$D_Xf(X)=\frac{\partial f(X)}{\partial X^T}$</td>
+</tr>
+<tr>
+<td>列向量偏导</td>
+<td>将矩阵X列向量化</td>
+<td>$\nabla_{vec(X)}f(X)=\frac{\partial f(X)}{\partial vec(X)}$</td>
+</tr>
+<tr>
+<td><strong>梯度矩阵</strong></td>
+<td>矩阵X不变</td>
+<td>$\nabla_Xf(X)=\frac{\partial f(X)}{\partial X}$</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">行向量偏导与Jacobian矩阵的关系 
+    <div id="%E8%A1%8C%E5%90%91%E9%87%8F%E5%81%8F%E5%AF%BC%E4%B8%8Ejacobian%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A1%8C%E5%90%91%E9%87%8F%E5%81%8F%E5%AF%BC%E4%B8%8Ejacobian%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%B3%E7%B3%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>行向量偏导$vec^T(X)=[vec(X)]^T$和Jacobian矩阵$X^T$是不同的，行向量偏导实际上并没有对$X$作转置，如果需要将jacobian矩阵转化为行向量偏导的形式，则需要$rvec(X)=vec^T(X^T)$</p>
+
+
+<h4 class="relative group">矩阵/向量函数的Jacobin矩阵和梯度矩阵 
+    <div id="%E7%9F%A9%E9%98%B5%E5%90%91%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84jacobin%E7%9F%A9%E9%98%B5%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%90%91%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84jacobin%E7%9F%A9%E9%98%B5%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>首先向量/矩阵函数列向量化，再<strong>转置</strong>为行向量，然后求偏导，即为矩阵变元函数的<strong>Jacobian矩阵</strong>，记为$D_XF(X)$​</p>
+<p>如果是列向量偏导，则认为不做转置，称为梯度矩阵。</p>
+
+
+<h4 class="relative group">二阶偏导 
+    <div id="%E4%BA%8C%E9%98%B6%E5%81%8F%E5%AF%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BA%8C%E9%98%B6%E5%81%8F%E5%AF%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>标量函数的二阶梯度矩阵称为<strong>Hessian矩阵</strong>，先对标量函数求一阶<strong>梯度矩阵</strong>，然后求解<strong>Jacobian矩阵</strong>。</p>
+
+
+<h4 class="relative group">梯度流 
+    <div id="%E6%A2%AF%E5%BA%A6%E6%B5%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A2%AF%E5%BA%A6%E6%B5%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>梯度的负方向称为<strong>梯度流</strong>，即梯度下降的方向。</p>
+
+
+<h4 class="relative group">矩阵微分的计算 
+    <div id="%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E7%9A%84%E8%AE%A1%E7%AE%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E7%9A%84%E8%AE%A1%E7%AE%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>将标量矩阵函数转化为迹的形式，然后同时利用迹的性质和微分的性质。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>性质</th>
+<th>推论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>$d(UV)=d(U)V+udV$</td>
+<td>$d(UVW)=d(U)VW+Ud(V)W+UVdW$</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>$d(AXB)=Ad(X)B$</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>$d(X^TAX)=d(X)^TAX+X^TAdX$</td>
+</tr>
+<tr>
+<td></td>
+<td>$d(tr(F(X)))=tr(d(F(X)))$</td>
+<td>$d(tr(X))=tr(d(X))$</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>$d(tr(X^TX))=2tr(X^TdX)$</td>
+</tr>
+<tr>
+<td></td>
+<td>$d</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+<p>若矩阵微分$df(X)=tr(AdX)$，则雅可比矩阵$D_Xf(X)=\frac{f(X)}{\partial X^T}=A$，转置可得梯度矩阵$\nabla f(X)=\frac{f(X)}{\partial X}=A^T$，</p>
+<p>常见函数的微分和梯度矩阵</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>微分矩阵$df(X)=tr[\frac{\partial f(X)}{\partial dX}^TdX]$</th>
+<th>梯度矩阵$\partial f(X)/\partial X$</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$X$</td>
+<td></td>
+<td>$I$</td>
+<td></td>
+</tr>
+<tr>
+<td>$AX$</td>
+<td></td>
+<td>$A^T$</td>
+<td>注意迹可交换，因此$AX$和$XA$的梯度相同；<br />若$A$和$X$其一取转置，则梯度矩阵相应转置</td>
+</tr>
+<tr>
+<td>$X^2$</td>
+<td></td>
+<td>$2X^T$</td>
+<td></td>
+</tr>
+<tr>
+<td>$X^TX$</td>
+<td></td>
+<td>$2X$</td>
+<td></td>
+</tr>
+<tr>
+<td>$X^TAX$</td>
+<td></td>
+<td>$(A+A^T)X$</td>
+<td></td>
+</tr>
+<tr>
+<td>$XAX^T$</td>
+<td></td>
+<td>$X(A+A^T)$</td>
+<td></td>
+</tr>
+<tr>
+<td>$XAX$</td>
+<td></td>
+<td>$X^TA^T+A^TX^T$</td>
+<td></td>
+</tr>
+<tr>
+<td>$X^{-1}$</td>
+<td></td>
+<td>$(X^{-2})^T$</td>
+<td></td>
+</tr>
+<tr>
+<td>$AX^{-1}$</td>
+<td></td>
+<td>$-(X^{-1}AX^{-1})^{T}$</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">共轭梯度 
+    <div id="%E5%85%B1%E8%BD%AD%E6%A2%AF%E5%BA%A6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%85%B1%E8%BD%AD%E6%A2%AF%E5%BA%A6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>关于复变函数f(z)，下列叙述等价</p>
+<ul>
+<li>f(z)是全纯/复解析函数</li>
+<li>f&rsquo;(z)存在且连续</li>
+<li>f(z)满足Cauchy-Riemann方程</li>
+<li>f(z)的所有导数存在且拥有一个收敛的幂级数</li>
+</ul>
+<p>虽然幂函数、指数函数、对数函数都是复解析函数，但存在一些常用函数不是全纯函数，例如$f(z)=z^*$和$f(z)=Re(z)$。</p>
+<p>如果一个给定的复变函数可以写成$f(z)=f(z,z^<em>)$的形式，
+则可以直接求取其关于$z和z^</em>$的偏导 。</p>
+
+
+<h3 class="relative group">无约束/带约束的优化问题 
+    <div id="%E6%97%A0%E7%BA%A6%E6%9D%9F%E5%B8%A6%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%A0%E7%BA%A6%E6%9D%9F%E5%B8%A6%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">无约束优化 
+    <div id="%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>局部<strong>极小点</strong>的求解可以转化为
+$$
+f&rsquo;(x)=0\newline
+f&rsquo;&rsquo;(x)&gt;0
+$$
+对于矩阵函数，即Jacobin矩阵为0且Hessian矩阵正定。</p>
+<ul>
+<li>判断驻点是否为极大值，则判断$-f(x)$的驻点是否为极小值</li>
+<li>既不是极大值、也不是极小值的驻点，称为鞍点</li>
+</ul>
+
+
+<h4 class="relative group">凸优化 
+    <div id="%E5%87%B8%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%B8%E4%BC%98%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>线性规划</td>
+<td>目标函数等高线是平行线</td>
+<td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406012037696.png" alt="image-20240601203739659" style="zoom: 25%;" /></td>
+</tr>
+<tr>
+<td>线性分式规划</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>二次规划</td>
+<td>目标函数等高线是椭球面</td>
+<td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406012037955.png" alt="image-20240601203752027" style="zoom: 25%;" /></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">等式不等式约束的优化：拉格朗日乘子法 
+    <div id="%E7%AD%89%E5%BC%8F%E4%B8%8D%E7%AD%89%E5%BC%8F%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BC%98%E5%8C%96%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AD%89%E5%BC%8F%E4%B8%8D%E7%AD%89%E5%BC%8F%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BC%98%E5%8C%96%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><a href="https://www.cnblogs.com/bigmonkey/p/9542545.html"   target="_blank">
+    寻找“最好”（4）——不等约束和KKT条件 - 我是8位的 - 博客园 (cnblogs.com)</a></p>
+<p>考虑某个带约束优化问题，含有等式约束和不等式约束
+$$
+\min_x f(x)\newline
+s.t.\quad h_i(x)=0\newline
+\quad g_i(x)\le0
+$$
+联立模板函数和约束条件，有拉格朗日函数
+$$
+L(x,\lambda,\mu)=f(x)+\lambda h(x)+\mu g(x)
+$$</p>
+<p>带约束优化问题的最优解必然满足<strong>KKT条件</strong>，即
+$$
+\begin{cases}
+\nabla_x L=0\newline
+h(x)=0\newline
+\lambda\ne0\newline
+\mu g(x)=0\quad互补松弛条件，不等式约束的极值，边界or无约束\newline
+g(x)\le0\quad原始不等式约束\newline
+\mu\ge0\quad对偶约束\newline
+\end{cases}
+$$
+满足KKT条件的解需要进一步检验，是否为最优</p>
+<p><a href="https://zhuanlan.zhihu.com/p/111882165"   target="_blank">
+    对KKT条件的理解 - 骚动的白米饭的文章 - 知乎</a></p>
+
+
+<h4 class="relative group">梯度下降法 
+    <div id="%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>略</p>
+
+
+<h2 class="relative group">矩阵分解 
+    <div id="%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">特征值和特征向量 
+    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>若$Ax=\lambda x$，则称A存在特征值为$\lambda$的特征向量$x$</p>
+<ul>
+<li>
+<p>阶数为n的矩阵A有n个特征值，特征多项式的次数称为代数重数，特征值对应的特征向量空间的维度称为几何重数。</p>
+</li>
+<li>
+<p>$A-\lambda I$的零空间维度，即$\lambda$对应的特征向量的维度</p>
+<ul>
+<li>若$rank(A-\lambda I)\le n-1$，则$\lambda$​为矩阵A的特征值</li>
+<li>$det(A-\lambda I)=0$是特征方程，可据此解得特征值$\lambda$</li>
+</ul>
+</li>
+<li>
+<p>若矩阵$A$满足$\sum_{j}|a_{ij}&lt;1|$，即每一行的和小于1，则$A$​的每一个特征值的绝对值$|\lambda|&lt;1$</p>
+</li>
+</ul>
+<blockquote>
+<p>考察矩阵A对向量x左乘变行，即每一行的线性组合，矩阵A的每一行是组合系数，而对于最大的元素，其它元素系数和为1的线性组合必然小于该元素，因此特征值必然小于1（不等式放缩）</p>
+</blockquote>
+<p>若矩阵$A$的特征值为$\lambda$，则它的不同运算结果的特征值如下：</p>
+<table>
+<thead>
+<tr>
+<th>矩阵</th>
+<th>特征值</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$A^T,P^{-1}AP$</td>
+<td>${\lambda}$</td>
+<td>转置和相似不改变$A-\lambda I$的秩</td>
+</tr>
+<tr>
+<td>$A^k$</td>
+<td>${\lambda}^k$</td>
+<td></td>
+</tr>
+<tr>
+<td>$A^{-1}$</td>
+<td>$1/\lambda$</td>
+<td></td>
+</tr>
+<tr>
+<td>$A+\sigma^2I$</td>
+<td>$\lambda+\sigma^2$</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>$AA^H$的特征值可通过在$Ax=\lambda x$方程两边同乘以$A$的方式，构造出$AA^H$对特征向量$Ax$的特征值。</li>
+</ul>
+<p>某些特殊矩阵的特征值如下：</p>
+<table>
+<thead>
+<tr>
+<th>矩阵</th>
+<th>特征值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>幂等矩阵</td>
+<td>0或1</td>
+</tr>
+<tr>
+<td>实正交矩阵</td>
+<td>1或-1</td>
+</tr>
+<tr>
+<td>单位阵</td>
+<td>1</td>
+</tr>
+<tr>
+<td>全1阵</td>
+<td>对全1向量的特征值为N，其他特征值全为0</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">特征值与迹、行列式、秩的关系 
+    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E8%BF%B9%E8%A1%8C%E5%88%97%E5%BC%8F%E7%A7%A9%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E8%BF%B9%E8%A1%8C%E5%88%97%E5%BC%8F%E7%A7%A9%E7%9A%84%E5%85%B3%E7%B3%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>推论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迹</td>
+<td>特征值之和</td>
+<td></td>
+</tr>
+<tr>
+<td>行列式</td>
+<td>特征值之积</td>
+<td></td>
+</tr>
+<tr>
+<td>秩</td>
+<td>非零特征值的个数</td>
+<td>若矩阵A存在一个单重特征值0，则秩为n-1</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">广义特征值 
+    <div id="%E5%B9%BF%E4%B9%89%E7%89%B9%E5%BE%81%E5%80%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B9%BF%E4%B9%89%E7%89%B9%E5%BE%81%E5%80%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>若$Ax=\lambda Bx$则称$\lambda,x$是矩阵束$A,B$的广义特征值和特征向量</p>
+<p>矩阵束左乘/右乘非奇异矩阵，不会改变广义特征值和特征向量</p>
+
+
+<h3 class="relative group">特征值分解（EVD） 
+    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3evd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3evd" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>若$A$有**$n$个线性无关的特征向量**，则有$AU=U\Sigma$，其中$U$是特征向量构成的矩阵，因为$U$满秩，所以$U$可逆，有特征值分解$A=U\Sigma U^{-1}$​​</p>
+<p>特别地，矩阵$A$可<strong>酉对角化</strong>的充要条件是$A$是正规矩阵，即$A^HA=A^HA$​，有$A=U\Lambda U^H$</p>
+<ul>
+<li>对称阵（实对称阵、Hermitian阵）、正定阵可以酉对角化</li>
+<li>正定阵的特征值&gt;0</li>
+</ul>
+
+
+<h3 class="relative group">奇异值分解（SVD) 
+    <div id="%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3svd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3svd" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>任意矩阵$A$可以奇异值分解为$A=U\Sigma V^H$，其中$U$的列向量是$AA^H$的特征向量，$V$的列向量是$A^HA$的特征向量，对角线上是矩阵$A$的奇异值，是$AA^H$和$A^HA$​的特征值的非负平方根，通常由大到小排列</p>
+<ul>
+<li>由$AV=U\Sigma$可知$A\overrightarrow{v_i}=\sigma_i\overrightarrow{u_i}$​，奇异值的个数取决于其中维数小的矩阵</li>
+<li>由矩阵乘法的秩1分解视角，$A=\sum_i \lambda_iu_iv_i^H$，其中$\lambda_i$​是非零奇异值</li>
+<li>若矩阵可EVD，则奇异值和特征值等价</li>
+<li><a href="https://www.bilibili.com/video/BV15k4y1p72z/?share_source=copy_web&amp;vd_source=25a43cd801433b3abc43d1a368f146be"   target="_blank">
+    SVD生动动画演示：旋转-拉伸-升降维度-旋转</a></li>
+</ul>
+
+
+<h4 class="relative group">SVD vs EVD 
+    <div id="svd-vs-evd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#svd-vs-evd" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th>SVD</th>
+<th>EVD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>适用于任何$m\times n$矩阵</td>
+<td>只适用于$n\times n$方阵</td>
+</tr>
+<tr>
+<td>奇异值与奇异向量的关系<br />$u_i^HAv_i=\sigma_i$</td>
+<td>特征值与特征向量的关系<br />$Av_i=\lambda_iv_i$</td>
+</tr>
+</tbody>
+</table>
+<p>A的非零奇异值是$A^HA$或$AA^H$的非零特征值的正平方根；</p>
+<p><strong>A的左奇异向量是$AA^H$的特征向量；A的右奇异向量是$A^HA$​的特征向量；</strong></p>
+
+
+<h3 class="relative group">Jordan标准形 
+    <div id="jordan%E6%A0%87%E5%87%86%E5%BD%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#jordan%E6%A0%87%E5%87%86%E5%BD%A2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>任一方阵可块对角化为Jordan标准型，即$J=P^{-1}AP$</p>
+<p>其中$J=\begin{bmatrix} J_1(\lambda_1)\quad \quad \newline \quad J_2(\lambda_2) \quad \newline \quad \quad J_3(\lambda_3)\end{bmatrix}$，而$J_i(\lambda_i)=\begin{bmatrix} \lambda_i\quad1\quad0\newline 0\quad \lambda_i \quad1\newline 0\quad 0\quad \lambda_i\end{bmatrix}$</p>
+
+
+<h2 class="relative group">特征分析 
+    <div id="%E7%89%B9%E5%BE%81%E5%88%86%E6%9E%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%88%86%E6%9E%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Cayley–Hamilton定理 
+    <div id="cayleyhamilton%E5%AE%9A%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cayleyhamilton%E5%AE%9A%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>将矩阵$A$代入其特征多项式$f(\lambda)=0$，即为矩阵$A$​的零化多项式</p>
+<ul>
+<li>
+<p>根据多项式除法，任意矩阵幂可以由矩阵的零次幂到N-1次幂线性组合得到，线性系数可以通过n个特征值的线性方程组联立得到</p>
+</li>
+<li>
+<p>逆矩阵的计算</p>
+</li>
+<li>
+<p>矩阵微分方程的求解</p>
+</li>
+</ul>
+
+
+<h3 class="relative group">Rayleigh商 
+    <div id="rayleigh%E5%95%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rayleigh%E5%95%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://zhuanlan.zhihu.com/p/432080955"   target="_blank">
+    瑞利商和广义瑞利商 - Void的文章 - 知乎</a></p>
+<p>瑞利商$R(A,x)=\frac{x^TAx}{x^Tx}$</p>
+<p>为了简化问题令$X^xx=1$，求$x^TAx$的条件极值</p>
+<p>构造拉格朗日乘子函数$L(x,\lambda)=x^tAx+\lambda(x^Tx-1)$，对$x$求梯度，令梯度为0，解得极值点$Ax=\lambda x$</p>
+<p>显然，在最大的特征值对应的特征向量处，瑞利商有最大值；在最小的特征值对应的特征向量处，瑞利商有最小值</p>
+<p>根据瑞利商的性质，结合放缩，可推导出以下结论：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>取等</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\lambda_1(A+B)\ge\lambda_1(A)+\lambda_N(B)$</td>
+<td>$A$的最大特征向量是$B$的最小特征向量</td>
+</tr>
+<tr>
+<td>$\lambda_N(A+B)\ge\lambda_N(A)+\lambda_N(B)$</td>
+<td>$A,B$最小特征向量相同</td>
+</tr>
+<tr>
+<td>$\lambda_1(A+B)\le\lambda_1(A)+\lambda_1(B)$</td>
+<td>$A,B$最大特征向量相同</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">广义瑞利商 
+    <div id="%E5%B9%BF%E4%B9%89%E7%91%9E%E5%88%A9%E5%95%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B9%BF%E4%B9%89%E7%91%9E%E5%88%A9%E5%95%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>考虑广义特征值$Ax=\lambda Bx$，则有广义瑞利商$R(A,B,x)=\frac{x^TAx}{x^TBx}$，可以进一步转化为$B^{-1}A$的瑞利商</p>
+
+
+<h2 class="relative group">线性方程 
+    <div id="%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">线性方程组$AX=b$​​的解 
+    <div id="%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84axb%E7%9A%84%E8%A7%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84axb%E7%9A%84%E8%A7%A3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>假设线性方程组$AX=b$有m个方程、n个未知数，即系数矩阵$A\in C^{m\times n}$，则解的情况为：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>独立方程个数</th>
+<th>增广矩阵和系数矩阵的关系</th>
+<th>系数矩阵</th>
+<th>线性空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有唯一解</td>
+<td>适定方程</td>
+<td>$r(A|b)=r(A)$</td>
+<td>$r(A)=m=n$</td>
+<td>$b\in Col(A)$</td>
+</tr>
+<tr>
+<td>有无穷多解</td>
+<td>欠定方程</td>
+<td>$r(A|b)=r(A)$</td>
+<td></td>
+<td>$b\in Col(A)$</td>
+</tr>
+<tr>
+<td>无解</td>
+<td>超定方程</td>
+<td>$r(A|b)&gt;r(A)$</td>
+<td></td>
+<td>$b\notin Col(A)$</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">最小二乘 
+    <div id="%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>对于超定方程，可使用最小二乘法求取近似解</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>代价函数</th>
+<th>优化视角</th>
+<th>投影视角</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通最小二乘</td>
+<td>$(Ax-b)^T(Ax-b)$</td>
+<td>认为观测量$b$含噪，最小化$e$</td>
+<td>考察方程$Ax=b$的近似解，即$b$在$A$的列空间的投影$p=Pb=A\hat{x}$，投影$p$是$A$的列向量的线性组合$b$去除投影分量后与$A$的列空间垂直，即$A^T(A\hat{x}-b)=0$，解得$A\hat{x}=A(A^TA)^{-1}A^Tb$投影矩阵$P=A(A^TA)^{-1}A^T$满足最小二乘的近似解$\hat{x}=(A^TA)^{-1}A^Tb$</td>
+</tr>
+<tr>
+<td>数据最小二乘</td>
+<td>$\frac{(Ax-b)^T(Ax-b)}{x^Tx}$</td>
+<td>认为原始数据$A$含噪，最小化$E$</td>
+<td></td>
+</tr>
+<tr>
+<td>总体最小二乘</td>
+<td>$\frac{\begin{bmatrix}x\newline-1\end{bmatrix}^T[A,b]^T[A,b]\begin{bmatrix}x\newline-1\end{bmatrix}}{1+x^Tx}$</td>
+<td>认为总体含噪，即$(A+E)x=b+e$，最小化$[E,e]$的二范数<br />设增广数据矩阵为$A$，则总体最小二乘的解向量是$A$最小的奇异值对应的右奇异向量，或者$A^TA$的最小特征值对应的特征向量</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 class="relative group">线性空间 
+    <div id="%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>在集合$V$和数域$K$上定义加法和数乘运算，若满足8条基本性质，则称集合$V$是$K$上的线性空间</p>
+<ul>
+<li>如果没有定义新的加法和数乘，则只需满足对加法和数乘封闭</li>
+<li>线性变换：满足线性性质，即齐次性和可加性</li>
+</ul>
+
+
+<h3 class="relative group">维数 
+    <div id="%E7%BB%B4%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BB%B4%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>线性空间中向量构成的极大无关组的向量个数是该空间的<strong>维数</strong></p>
+<p>维数公式：$dim(S_1+S_2)=dim(S_1)+dim(S_2)-dim(S_1 \cap S_2)$</p>
+<ul>
+<li>和空间的维数可以求解矩阵的秩，基向量可以消去任意若干直至等于秩</li>
+<li>交空间的维数可以用维数公式，基向量的求解方式为：将交空间的向量用两个空间的向量分别表示，得到线性方程组，将交空间的向量用某一个空间的系数和基向量表示出来，再合并系数即可。</li>
+</ul>
+
+
+<h3 class="relative group">子空间 
+    <div id="%E5%AD%90%E7%A9%BA%E9%97%B4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AD%90%E7%A9%BA%E9%97%B4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>线性空间的子集，若封闭，则称为<strong>子空间</strong>，即$\forall v_1,v_2 \in V, \exists \lambda_1,\lambda_2, \lambda_1v_1+\lambda_2v_2 \in V$</p>
+
+
+<h4 class="relative group">列空间、行空间、零空间 
+    <div id="%E5%88%97%E7%A9%BA%E9%97%B4%E8%A1%8C%E7%A9%BA%E9%97%B4%E9%9B%B6%E7%A9%BA%E9%97%B4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%97%E7%A9%BA%E9%97%B4%E8%A1%8C%E7%A9%BA%E9%97%B4%E9%9B%B6%E7%A9%BA%E9%97%B4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>设矩阵$A\in R^{M\times N}$，则相应地有下列子空间：</p>
+<table>
+<thead>
+<tr>
+<th>子空间</th>
+<th></th>
+<th>维度</th>
+<th>原空间</th>
+<th>等价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>列空间</td>
+<td>$Col(A)$</td>
+<td>$R^m$</td>
+<td>$R^M$</td>
+<td>$Row(A^H)$</td>
+</tr>
+<tr>
+<td>行空间</td>
+<td>$Row(A)$</td>
+<td>$R^n$</td>
+<td>$R^N$</td>
+<td>$Col(A^H)$</td>
+</tr>
+<tr>
+<td>零空间</td>
+<td>$Null(A)$</td>
+<td>$R^n$</td>
+<td></td>
+<td>$AX=0$的解空间</td>
+</tr>
+<tr>
+<td></td>
+<td>$Null(A^H)$</td>
+<td>$R^m$</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>若矩阵是非奇异的，则说明$Ax=0$的解空间是零向量空间（只有零解）</p>
+</li>
+<li>
+<p>N维实数空间$R^N$可以分解为矩阵的列空间和零空间的直和，即$R^N=Col(A)\oplus Null(A)$</p>
+</li>
+<li>
+<p>直和：无交子空间的和</p>
+</li>
+</ul>
+<blockquote>
+<p>证明两个子空间的和是直和（无交）</p>
+<p>首先计算两个子空间的和，计算极大无关组的秩，得到和空间的维数，然后根据维数公式计算交空间的维数（为0），证明无交，即为直和</p>
+</blockquote>
+
+
+<h4 class="relative group">不变子空间 
+    <div id="%E4%B8%8D%E5%8F%98%E5%AD%90%E7%A9%BA%E9%97%B4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%8D%E5%8F%98%E5%AD%90%E7%A9%BA%E9%97%B4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>若$Ax=\lambda x$的特征向量张成的子空间称为矩阵$A$​​​的不变子空间，即对A封闭</p>
+
+
+<h3 class="relative group">投影矩阵 
+    <div id="%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>投影矩阵必定是幂等矩阵，有$A^2=A$​，特征值为0和1，相当于只保留若干个方向的分量，其余方向的分量置零</p>
+<p>但是，投影矩阵未必一定是正交投影，特征值为1的特征向量实际上有无穷多个，然而只有一个和投影方向是正交的</p>
+<p>投影矩阵是正交投影矩阵，当且仅当它是对称幂等矩阵</p>
+
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+      <script>
+        var oid = "views_knowledge_base\/course\/matrix.md"
+        var oid_likes = "likes_knowledge_base\/course\/matrix.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/knowledge_base/course/pr/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Pattern Recogniton</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/knowledge_base/course/biomed/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Biomed</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      Xu Zhang
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://xuzhang0112.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

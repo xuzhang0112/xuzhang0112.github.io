@@ -32,11 +32,11 @@ Longformer相比BERT可以接受更长的上下文。 59.9 Text2Tree EMNLP 2023 
     
     <item>
       <title>Basic Nerual Networks</title>
-      <link>https://xuzhang0112.github.io/cheat_sheet/basic_nn/</link>
+      <link>https://xuzhang0112.github.io/knowledge_base/basic_nn/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/cheat_sheet/basic_nn/</guid>
-      <description>所有类型的神经网络都可以看成是线性变换+交互。线性变换是不变的，即对每一个像素/token/节点的特征向量进行相同的Linear+Activation；交互则取决于具体的任务：CNN的交互是相邻的像素点加权平均，RNN的交互是下一个token依赖上一个token，Transformer的交互是token与token之间的注意力加权平均，GNN的交互是一阶邻域内节点的加权平均。大部分模型结构层面的优化也是根据任务场景来设计新的交互方式。
+      <guid>https://xuzhang0112.github.io/knowledge_base/basic_nn/</guid>
+      <description>Arcitecture # 所有类型的神经网络都可以看成是线性变换+交互。线性变换是不变的，即对每一个像素/token/节点的特征向量进行相同的Linear+Activation；交互则取决于具体的任务：CNN的交互是相邻的像素点加权平均，RNN的交互是下一个token依赖上一个token，Transformer的交互是token与token之间的注意力加权平均，GNN的交互是一阶邻域内节点的加权平均。大部分模型结构层面的优化也是根据任务场景来设计新的交互方式。
 CNN # Series Model Time Consumption UNet UNet 2014 跳跃连接，精细分割 RCNN RCNN 2013 用CNN做Dectection，再用CNN做Classification 40-50s Fast-RCNN 2015 使用同一个CNN计算bounding box和Label 2s Faster-RCNN 2015 去除了Selective Search 0.2s Mask-RCNN 支持Instance Segmentation YOLO Yolo v1 2015 用回归问题统一了Bounding Box的坐标预测和类别预测 Yolo v2 2016 支持不同输入尺寸 Yolo v3 2018 支持多标签；引入多尺度； Yolo v4, v5, v6 2020 2021 Yolo v6, v7 2022 Yolo v8 2023 RNN # 感觉已经G了，不想写了，随便写点吧
 Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。 Mamba 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba Transformer # 注意力机制：计算每个向量（Q）与其他向量（K, V）的相关性，用加权和取代原来的向量</description>
       

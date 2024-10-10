@@ -7,13 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Thu, 09 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/aaai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/paper_reading/aaai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graph Convolutional Networks for Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/graph-convolutional-networks-for-text-classification/</link>
+      <pubDate>Thu, 26 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/graph-convolutional-networks-for-text-classification/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>Improved Graph Contrastive Learning for Short Text Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/aaai/4/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/improved-graph-contrastive-learning-for-short-text-classification/</link>
       <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/aaai/4/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/improved-graph-contrastive-learning-for-short-text-classification/</guid>
       <description>从语料库中构建3种类型的图，单词、实体、词性。
 Word Graph采用GloVe word vectors作为节点嵌入，PMI作为边权重；
 Entity Graph采用TransE获取节点嵌入，cosine similarity作为边权重；
@@ -30,10 +40,10 @@ $$ Z_{aug}=Z_{w,r}||Z_{e,r}||Z_{p,r} $$
     
     <item>
       <title>Self-Paced Unified Representation Learning for Hierarchical Multi-Label Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/aaai/1/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/self-paced-unified-representation-learning-for-hierarchical-multi-label-classification/</link>
       <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/aaai/1/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/self-paced-unified-representation-learning-for-hierarchical-multi-label-classification/</guid>
       <description>Code
 图同构：问题最初的定义是只考虑拓扑关系，不考虑节点信息（可以用GNN）
 Self-paced Learning：（基于Loss）自适应地动态衡量样本学习难度
@@ -46,66 +56,6 @@ $$ min\ Loss(Y,X|W, \lambda)= \Sigma_{x \in X} w_xL_x - \lambda \Sigma_{x \in X}
     </item>
     
     <item>
-      <title>Compositional Generalization for Multi-Label Text Classification: A Data-Augmentation Approach</title>
-      <link>https://xuzhang0112.github.io/paper_reading/aaai/5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/aaai/5/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>De-biased Attention Supervision for Text Classification with Causality</title>
-      <link>https://xuzhang0112.github.io/paper_reading/aaai/8/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/aaai/8/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Enhancing Multi-Label Classification via Dynamic Label-Order Learning</title>
-      <link>https://xuzhang0112.github.io/paper_reading/aaai/9/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/aaai/9/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Liberating Seen Classes: Boosting Few-Shot and Zero-Shot Text Classification via Anchor Generation and Classification Reframing</title>
-      <link>https://xuzhang0112.github.io/paper_reading/aaai/7/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/aaai/7/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>TACIT: A Target-Agnostic Feature Disentanglement Framework for Cross-Domain Text Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/aaai/6/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/aaai/6/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Toward Robustness in Multi-Label Classification: A Data Augmentation Strategy against Imbalance and Noise</title>
-      <link>https://xuzhang0112.github.io/paper_reading/aaai/3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/aaai/3/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>When Radiology Report Generation Meets Knowledge Graph</title>
       <link>https://xuzhang0112.github.io/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -113,16 +63,6 @@ $$ min\ Loss(Y,X|W, \lambda)= \Sigma_{x \in X} w_xL_x - \lambda \Sigma_{x \in X}
       <guid>https://xuzhang0112.github.io/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/</guid>
       <description>将图像特征建模成不同解剖结构的Graph，用于下游的多标签分类和报告生成。
 Knowledge Graph Nodes from the same organ are connected Node embedding DenseNet-121 pretrained on CheXpert Attention: 1*1 conv+softmax each class node uses the corresponding channel as spatial attention Training Loss Node Level: binary classification of each node Graph Level: multi-label classification of 14 diseases </description>
-      
-    </item>
-    
-    <item>
-      <title>You Only Read Once: Constituency-Oriented Relational Graph Convolutional Network for Multi-Aspect Multi-Sentiment Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/aaai/2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/aaai/2/</guid>
-      <description> 情感分析不是单一情感倾向的，而是多方面、多情感的(细粒度) 三个公共数据集（MAMS、Rest14 和 Lap14） </description>
       
     </item>
     

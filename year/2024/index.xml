@@ -110,10 +110,10 @@ Instruction: 指导模型执行具体操作或完成任务</description>
     
     <item>
       <title>Improved Graph Contrastive Learning for Short Text Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/aaai/4/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/improved-graph-contrastive-learning-for-short-text-classification/</link>
       <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/aaai/4/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/improved-graph-contrastive-learning-for-short-text-classification/</guid>
       <description>从语料库中构建3种类型的图，单词、实体、词性。
 Word Graph采用GloVe word vectors作为节点嵌入，PMI作为边权重；
 Entity Graph采用TransE获取节点嵌入，cosine similarity作为边权重；
@@ -130,10 +130,10 @@ $$ Z_{aug}=Z_{w,r}||Z_{e,r}||Z_{p,r} $$
     
     <item>
       <title>Self-Paced Unified Representation Learning for Hierarchical Multi-Label Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/aaai/1/</link>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/self-paced-unified-representation-learning-for-hierarchical-multi-label-classification/</link>
       <pubDate>Thu, 09 May 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/aaai/1/</guid>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/self-paced-unified-representation-learning-for-hierarchical-multi-label-classification/</guid>
       <description>Code
 图同构：问题最初的定义是只考虑拓扑关系，不考虑节点信息（可以用GNN）
 Self-paced Learning：（基于Loss）自适应地动态衡量样本学习难度

@@ -7,120 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Xu Zhang</copyright>
-    <atom:link href="https://xuzhang0112.github.io/tags/gnn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/gnn/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Basic Nerual Networks</title>
-      <link>https://xuzhang0112.github.io/paper_reading/survey/basic_nn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Graph Convolutional Networks for Text Classification</title>
+      <link>https://xuzhang0112.github.io/paper_reading/aaai/graph-convolutional-networks-for-text-classification/</link>
+      <pubDate>Thu, 26 Sep 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/paper_reading/survey/basic_nn/</guid>
-      <description>Keyword # 一图胜前言
-CNN # UNet Series # R-CNN Series # Fast R-CNN # Faster R-CNN # 使用Backbone（通常是ResNet）提取特征，得到Feature Map 使用RPN得到若干Bounding Box，分类anchor的有无，回归位置和大小 使用ROI进一步对抑制过的Bounding Box进行细化，进一步回归得到准确的位置和大小，分类得到类别，并抑制 Mask R-CNN [ICCV 2017 Best Paper] # YOLO Series # YOLO V1 # YOLO V3 # RNN # 感觉已经G了，不想写了，随便写点吧
-t时刻的输出与t时刻的输入和t-1时刻的隐状态有关
-Mamba # 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba
-LSTM # 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。
-Transformer # 注意力机制
-自注意力：计算encoder/decoder中每个向量与其他向量的相关性，用加权和取代原来的向量
-交叉注意力：计算decoder中每个向量与encoder输出向量的相关性，用加权和取代decoder中的原向量
-多头：多个注意力的结果拼接起来，再通过线性变换降低维度至输入的维度
-高度并行化
-Encoder完全并行
-Decoder高度并行，t时刻不依赖于t-1时刻的隐状态ht-1，仅依赖前t-1个输出
-在训练阶段可以通过teacher forcing实现并行训练
-BERT # 结构：Transformer的encoder
-预训练：完形填空
-VIT # 将图片拆成patch，视为词向量，送入Tansformer的encoder
-需要预训练，是否优于ResNet取决于预训练数据集的大小
-GPT # 模型结构：Transformer decoder堆叠</description>
-      
-    </item>
-    
-    <item>
-      <title>DKEC: Domain Knowledge Enhanced Multi-Label Classification for Electronic Health Records</title>
-      <link>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2024/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/arxiv/arxiv2024/</guid>
-      <description>key idea # 使用GNN从医学指南中获取疾病的表示，从而指导大模型的输出 使用冻结的预训练编码器（可以是任何模型，当然理论上不如全参数微调） 只训练GNN（HGT），可以作为即插即用的模块，能使得小模型具有和大模型相当的性能 通过年龄特性对某些疾病进行规则筛选 Results in MIMIC III # 数据集的划分和之前的SOTA不太一样，因此无法直接比较</description>
-      
-    </item>
-    
-    <item>
-      <title>Enhancing Hierarchical Text Classification through Knowledge Graph Integration</title>
-      <link>https://xuzhang0112.github.io/paper_reading/acl/23_1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/acl/23_1/</guid>
-      <description>acl 2023 findings
-Code
-key idea # KTE：知识文本编码器，利用ConceptNet查询文本中所有的关键词，将KG Embedding作为附加信息，加到BERT的文本embedding上，以丰富文本表示；对于标签，额外使用一个GNN，来利用标签的层次信息，聚合相邻标签的信息，以丰富标签表示。
-KHLA：采用3种方式来聚合文本的特征，[cls]聚合，可训练的label embedding聚合，编码器获取的label embedding聚合
-KCL：除了BCE Loss之外，使用实体重合率和标签重合率来衡量文本之间的相似度，并施加对应的对比学习损失
-BGC和WOS</description>
-      
-    </item>
-    
-    <item>
-      <title>Graph Neural Network Based Multi-Label Hierarchical Classification for Disease Predictions in General Practice</title>
-      <link>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</guid>
-      <description> key idea # Graph构建，包含病人、症状、疾病三种节点类型，症状和疾病通过TransE初始化，病人取症状的均值 过2层GAT，采用多个二分类的分类器，子类疾病的概率=父类概率×子类概率（涨了0.6个点） architecture # </description>
-      
-    </item>
-    
-    <item>
-      <title>Graph Representation of Chinese EMRs and its Short-text Classification Application</title>
-      <link>https://xuzhang0112.github.io/paper_reading/others/bibm2023/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/others/bibm2023/</guid>
-      <description>key idea # 用TextGCN来做医学短语分类。
-构建出一个大图之后，可以将子图的embedding直接送入GCN进行分类 优点是非常轻量化，节点和关系嵌入都是预先计算好的，2层的GNN几乎没有参数量，效果似乎也还不错 Graph的构建 # 节点嵌入(word2vec) word2vec Word2Vec模型中，主要有Skip-Gram和CBOW两种模型，从直观上理解，Skip-Gram是给定input word来预测上下文。而CBOW是给定上下文，来预测input word。这两种方法都是基于神经网络的无监督词嵌入算法。 关系建立(PMI) PMI（Pointwise Mutual Information，逐点互信息），即共现频率/各自出现的频率</description>
-      
-    </item>
-    
-    <item>
-      <title>HPT: Hierarchy-aware Prompt Tuning for Hierarchical Text Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/emnlp/emnlp2022/</guid>
-      <description>key idea # 指出了层次化分类的基本范式，通过GNN对层次标签进行编码 同时，保留了预训练时的MLM任务，以缓解灾难性遗忘。 提出了ZMLCE Loss Architecture # 结构上的改进
-用GAT构造出每个层级的描述，指导模型作出这一层级的分类；
-在每个层级的分类时，使用这一层级的分类器，在这里，使用了每个类别词的embedding作权重初始化；
-效果还不错，涨了1个点</description>
-      
-    </item>
-    
-    <item>
-      <title>Incorporating Hierarchy into Text Encoder: a Contrastive Learning Approach for Hierarchical Text Classification</title>
-      <link>https://xuzhang0112.github.io/paper_reading/acl/22/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/acl/22/</guid>
-      <description>key idea # 使用GNN获取层次标签的表示，并进一步从文本中抽取和标签相关的特征。 一方面，可以视为数据增强，和原始文本一起，训练分类器；一方面，用于对比学习的正样本，拉进文本与其标签增强表示的距离，拉远和其他文本及其标签增强表示的距离。
-在这篇文章中，Label Embedding仍然只是作为一种文本增强的手段，而不是对比学习的positive anchor，这是否在暗示我们的idea并不可行？</description>
-      
-    </item>
-    
-    <item>
-      <title>Towards Automatic ICD Coding via Knowledge Enhanced Multi-Task Learning</title>
-      <link>https://xuzhang0112.github.io/paper_reading/others/cikm2023/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/others/cikm2023/</guid>
-      <description>key idea # 构建知识图谱 TFIDF筛选实体，UMLS relation table+co-occurance建立关系 多任务训练GAT model # 本文对比了两种不同的多任务范式，多任务共享编码器和设置任务特异性编码器。（公式较为繁琐，但描述的实际上就是下面两张图）
-多任务共享编码器（4层GAT，ICD编码根据第2层输出）
-共享编码器+任务特异性编码器（2层GAT+2层GIAT）
-共享编码器聚合特征
-特异性编码器的中间特征（注意到计算相似度的依据是共享特征而不是特异性特征）
-特异性编码器的最终特征是两个特征的加权和，g是控制因子
-将文本节点送入分类器得到分类结果，并同时优化K个任务、$$N_$$个样本、$$C_k$$个类别。
-details # 使用了4张2080，共计32GB显存
-不同backbone
-多任务的必要性</description>
+      <guid>https://xuzhang0112.github.io/paper_reading/aaai/graph-convolutional-networks-for-text-classification/</guid>
+      <description></description>
       
     </item>
     

@@ -550,12 +550,26 @@ Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/knowledge_base/cheatsheet/</guid>
-      <description>Mac/Linux OS Command # 命令=可执行文件/别名+文件路径
-用&amp;quot;&amp;amp;&amp;amp;&amp;ldquo;连接：多条命令依次执行，报错则终止
-用“||”连接：多条命令依次执行，任意一条命令成功，则后续命令不执行
-文件路径 # 备注 绝对路径 /data/xuzhang/&amp;hellip; 相对路径 ~/... 用户根目录 ./ 当前目录 ../ 上一级目录 ../../ 上上一级目录 相对路径是相对于当前工作路径，可通过pwd查看
-当调用任何一条命令时，系统依次遍历PATH中的路径，查找是否存在对应的可执行文件。用户既可以通过export来将新的路径添加到环境变量PATH中，也可以通过alias来为对应的路径设置别名，从而快速调用。
-文件管理 # 浏览 ls dir 查看dir内的文件（省略则为当前文件夹） du -sh dir 查看dir的磁盘占用情况 du -h dir 查看dir内的磁盘占用情况 查找 find [flags] [path] -name [expression] 在目录层次结构中搜索文件 移动 mv file1 file2 重命名文件/文件夹 mv dir1 dir2 mv file1 dir2 移动文件/文件夹到目标文件夹dir2内部（dir2存在） mv file1 file2 dir2 移动多个文件 拷贝 cp file1 file2 cp -r dir1 dir2 删除 rm file1``rm -rf dir1 压缩解压 # 压缩 解压 zip &amp;amp; unzip gzip &amp;amp; gunzip gunzip -r dir 解压文件夹下所有.</description>
+      <description>Shell # Shell是用户和操作系统之间的媒介，它提供了丰富的接口，以帮助用户使用操作系统。
+Shell命令的基本格式是“命令+参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。
+命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用
+pwd sh *.sh python main.py 当连续执行多条命令时，如果用&amp;quot;&amp;amp;&amp;amp;&amp;ldquo;连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行
+Shell脚本 # 尽管Linux系统中已经实现了大量的Shell脚本供用户调用，但有些时候我们仍然需要自己编写Shell脚本，以实现定制化的需求。
+如果希望shell脚本可以作为可执行文件调用，则需要在第一行指定解释器
+#!/bin/bash 当作为 否则，只需要在调用该脚本时，显式地指定解释器即可；bash和zsh的语法比sh更全
+sh *.sh bash *.sh zsh *.sh 变量的定义和使用 # 变量通过=定义，通过${}调用，通过echo可以将变量输出到控制台
+Shell中有两类特殊的变量，字符串和数组。
+字符串区分单引号和双引号，单引号无视一切转义字符和变量引用，双引号则支持转义字符和变量；多个字符串可以拼接，中间不加空格即可
+数组通过()定义，通过${数组名[下标]}访问，${数组名[@]}可获取数组中全部元素
+${#变量名}可以获取指定变量的长度
+环境变量通常是大写，一般定义在~/.bashrc中，每次启动shell时都会导入；export可以显式环境变量，也可以定义临时的环境变量
+定义环境变量的方式 作用域 写在～/.bash_rc里 全局有效，每次启动shell都会导入 export PATH=$PATH:/data/xuzhang/bin 仅当前shell和子进程有效 CUDA_VISIBLE_DEVICES=1,3 python train.py 仅子进程有效 运算符 # 算数运算符一般通过expr命令或者$(())$来实现，运算符的两边需要有空格，双括号中的变量可以不使用$符号前缀
+逻辑运算符一般通过test命令或者[[]]来实现，中括号和运算符的两边需要有空格，双中括号支持更多的逻辑运算符
+流程控制 # 和其他语言类似，包括分支和循环
+分支包括if和case
+if的结束词是fi，即if倒过来
+if condition1 then command1 elif condition2 then command2 else commandN fi 此外也有case，结束词同样是倒过来esac
+case 变量 in 1) command1 .</description>
       
     </item>
     

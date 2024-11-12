@@ -3,23 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/</loc>
-    <lastmod>2024-09-26T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/graph-convolutional-networks-for-text-classification/</loc>
-    <lastmod>2024-09-26T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/paper_reading/survey/knowledge-graph-embedding-a-survey-from-the-perspective-of-representation-spaces/</loc>
+    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/</loc>
-    <lastmod>2024-09-26T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/</loc>
-    <lastmod>2024-09-26T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/knowledge-graph-embedding-a-survey-from-the-perspective-of-representation-spaces/</loc>
     <lastmod>2024-09-10T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -27,11 +15,11 @@
     <lastmod>2024-09-10T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/</loc>
-    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/</loc>
+    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/sigir/2024-09-06-dynamic-modality-interaction-modeling-for-image-text-retrieval/</loc>
+    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/</loc>
     <lastmod>2024-09-06T00:00:00+00:00</lastmod>
   </url>
   <url>
@@ -149,6 +137,10 @@
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/icml/visiongraph-leveraging-large-multimodal-models-for-graph-theory-problems-in-visual-context/</loc>
     <lastmod>2024-05-14T00:00:00+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://xuzhang0112.github.io/paper_reading/aaai/</loc>
+    <lastmod>2024-05-09T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/paper_reading/aaai/improved-graph-contrastive-learning-for-short-text-classification/</loc>

@@ -14,23 +14,9 @@
       <pubDate>Tue, 10 Sep 2024 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/paper_reading/survey/knowledge-graph-embedding-a-survey-from-the-perspective-of-representation-spaces/</guid>
-      <description> 链式结构：欧式空间
-环式结构：球空间
-层次结构：双曲空间
-解析结构
-欧式 概率 几何结构
-平面 球 双曲面 代数结构
-向量空间 环 组 </description>
-      
-    </item>
-    
-    <item>
-      <title>Dynamic Modality Interaction Modeling for Image-Text Retrieval</title>
-      <link>https://xuzhang0112.github.io/paper_reading/sigir/2024-09-06-dynamic-modality-interaction-modeling-for-image-text-retrieval/</link>
-      <pubDate>Fri, 06 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/paper_reading/sigir/2024-09-06-dynamic-modality-interaction-modeling-for-image-text-retrieval/</guid>
-      <description></description>
+      <description>KG按照不同的组织结构可以分为链式、环式、层次结构。
+不同的结构适合用不同的数学空间去建模，常见的有欧式空间、概率空间、几何结构空间（双曲空间、球空间等），主要是利用对应空间的先验来贴合KG的组织结构。
+不同空间的KG嵌入论文如下，可自行查找，然而KGE疑似已经被GNN取代。</description>
       
     </item>
     

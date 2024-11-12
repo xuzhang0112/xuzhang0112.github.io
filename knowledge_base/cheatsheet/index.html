@@ -134,7 +134,7 @@ case 变量 in 1) command1 ."/>
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "711"
+    "wordCount": "721"
   }]
   </script>
 
@@ -1560,20 +1560,13 @@ esac
     </span>        
     
 </h3>
-
-
-<h4 class="relative group">安装与配置 
-    <div id="%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sh Miniconda3-latest-Linux-x86_64.sh <span style="color:#75715e"># 把安装脚本上传后再运行</span>
-</span></span><span style="display:flex;"><span>conda config --set auto_activate_base true <span style="color:#75715e"># 自动激活conda环境</span>
+<p>选择合适的conda版本，用wget下载并安装，并移除安装包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -p ~/miniconda3
+</span></span><span style="display:flex;"><span>wget <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span> -O ~/miniconda3/miniconda.sh
+</span></span><span style="display:flex;"><span>bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+</span></span><span style="display:flex;"><span>rm ~/miniconda3/miniconda.sh
+</span></span></code></pre></div><p>配置基本的参数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>conda config --set auto_activate_base true <span style="color:#75715e"># 自动激活conda环境</span>
 </span></span><span style="display:flex;"><span>pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple <span style="color:#75715e">#pip换源就够了，从来不用conda</span>
 </span></span></code></pre></div>
 
@@ -1695,8 +1688,8 @@ esac
     </span>        
     
 </h3>
-<p><code>gdown --id [id]</code></p>
-<p><a href="https://cloud.tencent.com/developer/ask/sof/108261926"   target="_blank">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gdown <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p><a href="https://cloud.tencent.com/developer/ask/sof/108261926"   target="_blank">
     Gdown下载权限错误</a></p>
 
 

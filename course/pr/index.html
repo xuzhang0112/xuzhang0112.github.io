@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Pattern Recogniton &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="Pattern Recogniton &middot; Xu Zhang&#39;s Blog" />
+  
+  
+  <meta name="keywords" content="Course, " />
+  
+  
+  <link rel="canonical" href="https://xuzhang0112.github.io/course/pr/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.ac59a1b8eaafef739c129d12787ac29f6a420bcb348c7aeec8949a8d0b7d6c2023766c169d14b9031b751504eb3c976efe786fec135b340a49868acd8caa4127.css"
+    integrity="sha512-rFmhuOqv73OcEp0SeHrCn2pCC8s0jHruyJSajQt9bCAjdmwWnRS5Axt1FQTrPJdu/nhv7BNbNApJhorNjKpBJw==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
+    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Pattern Recogniton" />
+<meta property="og:description" content="相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别
+平均样本法 样本到每个类别的各样本平均值的距离 平均距离法 样本到每个类别的各个样本的距离的平均值 最近邻法 样本最近的样本 距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦
+线性分类器 # n维线性分类器可以表达为超平面$w^Tx&#43;b=0$ 如果将样本X的第n&#43;1维设为1，则超平面可以简化为$w^Tx=0$ 若样本集线性可分，则存在分类器使得所有样本满足$\begin{cases}w^Tx&gt;0\quad if\ x\in w_1\newline w^Tx&lt;0\quad if\ x\in w_2\end{cases}$
+线性分类器的解必然构成解区域，解是不确定的
+多分类问题按照是否线性可分、是否存在不确定区域的解可以分成三种情况
+情况 分类器 总体线性可分 训练n个超平面，分隔每个类和其他所有类 成对线性可分 用$C_n^2$个独立的超平面，将两个类别分开 成对线性可分，且存在没有不确定区域的解 每个类别训练一个判别函数，采用最大值判决
+$G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
+按顺序遍历样本，直到所有样本被正确分类
+若样本$X_i$满足$\begin{cases}W^TX_i&gt;0\quad if X_i\in\omega_1\newline W^TX&lt;0\quad if X_i\in\omega_2\end{cases}$，则说明该样本被正确分类；
+否则：$W=\begin{cases}W&#43;\rho X_i\quad if X_i\in\omega_1\newline W-\rho X_i\quad if X_i\in\omega_2\end{cases}$
+学习率和优化器 # 学习速率$\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。
+常用的梯度下降法有：批量梯度法（BGD）、随机梯度法（SGD）、小批次梯度法（MBGD），分别对应整个数据集、单个样本、一小批样本进行梯度的计算。
+最小平方和，LMSE # 如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。
+如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为 $$ J(w)=||Xw-b||^2 $$ 相应的梯度为 $$ \nabla J(w)=\nabla ||Xw-b||^2 = 2X^T(Xw-b) $$ 相应的更新方式为 $$ w_{k&#43;1}=w_k&#43;\rho_{k&#43;1}X^T(Xw&#43;b) $$ 但是，上述方法需要给定松弛变量，事实上，松弛变量也可以在优化中求解，即H-K算法。 $$ b_{k&#43;1}=b_k-\eta_{k&#43;1}\nabla J(w(k))|b $$" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuzhang0112.github.io/course/pr/" /><meta property="article:section" content="course" />
+<meta property="article:published_time" content="2024-06-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-06-14T00:00:00+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Pattern Recogniton"/>
+<meta name="twitter:description" content="相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别
+平均样本法 样本到每个类别的各样本平均值的距离 平均距离法 样本到每个类别的各个样本的距离的平均值 最近邻法 样本最近的样本 距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦
+线性分类器 # n维线性分类器可以表达为超平面$w^Tx&#43;b=0$ 如果将样本X的第n&#43;1维设为1，则超平面可以简化为$w^Tx=0$ 若样本集线性可分，则存在分类器使得所有样本满足$\begin{cases}w^Tx&gt;0\quad if\ x\in w_1\newline w^Tx&lt;0\quad if\ x\in w_2\end{cases}$
+线性分类器的解必然构成解区域，解是不确定的
+多分类问题按照是否线性可分、是否存在不确定区域的解可以分成三种情况
+情况 分类器 总体线性可分 训练n个超平面，分隔每个类和其他所有类 成对线性可分 用$C_n^2$个独立的超平面，将两个类别分开 成对线性可分，且存在没有不确定区域的解 每个类别训练一个判别函数，采用最大值判决
+$G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
+按顺序遍历样本，直到所有样本被正确分类
+若样本$X_i$满足$\begin{cases}W^TX_i&gt;0\quad if X_i\in\omega_1\newline W^TX&lt;0\quad if X_i\in\omega_2\end{cases}$，则说明该样本被正确分类；
+否则：$W=\begin{cases}W&#43;\rho X_i\quad if X_i\in\omega_1\newline W-\rho X_i\quad if X_i\in\omega_2\end{cases}$
+学习率和优化器 # 学习速率$\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。
+常用的梯度下降法有：批量梯度法（BGD）、随机梯度法（SGD）、小批次梯度法（MBGD），分别对应整个数据集、单个样本、一小批样本进行梯度的计算。
+最小平方和，LMSE # 如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。
+如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为 $$ J(w)=||Xw-b||^2 $$ 相应的梯度为 $$ \nabla J(w)=\nabla ||Xw-b||^2 = 2X^T(Xw-b) $$ 相应的更新方式为 $$ w_{k&#43;1}=w_k&#43;\rho_{k&#43;1}X^T(Xw&#43;b) $$ 但是，上述方法需要给定松弛变量，事实上，松弛变量也可以在优化中求解，即H-K算法。 $$ b_{k&#43;1}=b_k-\eta_{k&#43;1}\nabla J(w(k))|b $$"/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Course",
+    "name": "Pattern Recogniton",
+    "headline": "Pattern Recogniton",
+    
+    "abstract": "相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别\n平均样本法 样本到每个类别的各样本平均值的距离 平均距离法 样本到每个类别的各个样本的距离的平均值 最近邻法 样本最近的样本 距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦\n线性分类器 # n维线性分类器可以表达为超平面$w^Tx\u002bb=0$ 如果将样本X的第n\u002b1维设为1，则超平面可以简化为$w^Tx=0$ 若样本集线性可分，则存在分类器使得所有样本满足$\\begin{cases}w^Tx\u0026gt;0\\quad if\\ x\\in w_1\\newline w^Tx\u0026lt;0\\quad if\\ x\\in w_2\\end{cases}$\n线性分类器的解必然构成解区域，解是不确定的\n多分类问题按照是否线性可分、是否存在不确定区域的解可以分成三种情况\n情况 分类器 总体线性可分 训练n个超平面，分隔每个类和其他所有类 成对线性可分 用$C_n^2$个独立的超平面，将两个类别分开 成对线性可分，且存在没有不确定区域的解 每个类别训练一个判别函数，采用最大值判决\n$G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器\u002b阶跃函数\n按顺序遍历样本，直到所有样本被正确分类\n若样本$X_i$满足$\\begin{cases}W^TX_i\u0026gt;0\\quad if X_i\\in\\omega_1\\newline W^TX\u0026lt;0\\quad if X_i\\in\\omega_2\\end{cases}$，则说明该样本被正确分类；\n否则：$W=\\begin{cases}W\u002b\\rho X_i\\quad if X_i\\in\\omega_1\\newline W-\\rho X_i\\quad if X_i\\in\\omega_2\\end{cases}$\n学习率和优化器 # 学习速率$\\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。\n常用的梯度下降法有：批量梯度法（BGD）、随机梯度法（SGD）、小批次梯度法（MBGD），分别对应整个数据集、单个样本、一小批样本进行梯度的计算。\n最小平方和，LMSE # 如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。\n如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为 $$ J(w)=||Xw-b||^2 $$ 相应的梯度为 $$ \\nabla J(w)=\\nabla ||Xw-b||^2 = 2X^T(Xw-b) $$ 相应的更新方式为 $$ w_{k\u002b1}=w_k\u002b\\rho_{k\u002b1}X^T(Xw\u002bb) $$ 但是，上述方法需要给定松弛变量，事实上，松弛变量也可以在优化中求解，即H-K算法。 $$ b_{k\u002b1}=b_k-\\eta_{k\u002b1}\\nabla J(w(k))|b $$",
+    "inLanguage": "en",
+    "url" : "https:\/\/xuzhang0112.github.io\/course\/pr\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Xu Zhang"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-06-14T00:00:00\u002b00:00",
+    "datePublished": "2024-06-14T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-06-14T00:00:00\u002b00:00",
+    
+    "keywords": ["Course"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "388"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Xu Zhang" />
+  
+  
+  
+  <link href="https://www.zhihu.com/people/zhang-xu-20-31-39" rel="me" />
+  
+  
+  <link href="https://space.bilibili.com/456489591" rel="me" />
+  
+  
+  <link href="https://github.com/xuzhang0112" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+    integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+    integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+    integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk"
+    crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            
+            
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true },
+            ],
+            
+            throwOnError: false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Xu Zhang&rsquo;s Blog</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  href="/software/"   class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Software">
+      Software
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/software/cheatsheet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="CheatSheet">
+            Cheat Sheet
+          </p>
+        </a>
+        
+        <a href="/software/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Python">
+            Python
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  href="/research/"   class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Research">
+      AI Research
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/research/basic_knowledge/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Deep Learning">
+            Deep Learning
+          </p>
+        </a>
+        
+        <a href="/research/med_nlp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Medical NLP">
+            Medical NLP
+          </p>
+        </a>
+        
+        <a href="/research/med_mm/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Medical Multimodal">
+            Medical Multimodal
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/cv/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        About Me
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Software">
+            Software
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/software/cheatsheet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="CheatSheet">
+            Cheat Sheet
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/software/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Python">
+            Python
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Research">
+            AI Research
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/research/basic_knowledge/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Deep Learning">
+            Deep Learning
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/research/med_nlp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Medical NLP">
+            Medical NLP
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/research/med_mm/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Medical Multimodal">
+            Medical Multimodal
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/cv/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            About Me
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/course/"
+      >Course</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/course/pr/"
+      >Pattern Recogniton</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Pattern Recogniton
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/course/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Course
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#相似性度量">相似性度量</a>
+      <ul>
+        <li><a href="#最小距离分类器">最小距离分类器</a></li>
+      </ul>
+    </li>
+    <li><a href="#线性分类器">线性分类器</a>
+      <ul>
+        <li><a href="#感知器">感知器</a></li>
+        <li><a href="#最小平方和lmse">最小平方和，LMSE</a></li>
+        <li><a href="#svm">SVM</a></li>
+        <li><a href="#fisher线性判别lda">Fisher线性判别，LDA</a></li>
+      </ul>
+    </li>
+    <li><a href="#非线性分类器">非线性分类器</a>
+      <ul>
+        <li><a href="#势函数法">势函数法</a></li>
+        <li><a href="#非线性svm">非线性SVM</a></li>
+      </ul>
+    </li>
+    <li><a href="#贝叶斯分类器">贝叶斯分类器</a>
+      <ul>
+        <li><a href="#贝叶斯判别器">贝叶斯判别器</a></li>
+        <li><a href="#类条件概率密度的估计">类条件概率密度的估计</a></li>
+      </ul>
+    </li>
+    <li><a href="#聚类">聚类</a>
+      <ul>
+        <li><a href="#增类聚类最大最小距离">增类聚类：最大最小距离</a></li>
+        <li><a href="#减类聚类层次聚类">减类聚类：层次聚类</a></li>
+        <li><a href="#动态聚类c均值聚类k-means">动态聚类：C均值聚类(k-means)</a></li>
+        <li><a href="#近邻函数聚类">近邻函数聚类</a></li>
+        <li><a href="#最小生成树聚类">最小生成树聚类</a></li>
+      </ul>
+    </li>
+    <li><a href="#句法分析">句法分析</a>
+      <ul>
+        <li></li>
+        <li><a href="#句法识别">句法识别</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#相似性度量">相似性度量</a>
+      <ul>
+        <li><a href="#最小距离分类器">最小距离分类器</a></li>
+      </ul>
+    </li>
+    <li><a href="#线性分类器">线性分类器</a>
+      <ul>
+        <li><a href="#感知器">感知器</a></li>
+        <li><a href="#最小平方和lmse">最小平方和，LMSE</a></li>
+        <li><a href="#svm">SVM</a></li>
+        <li><a href="#fisher线性判别lda">Fisher线性判别，LDA</a></li>
+      </ul>
+    </li>
+    <li><a href="#非线性分类器">非线性分类器</a>
+      <ul>
+        <li><a href="#势函数法">势函数法</a></li>
+        <li><a href="#非线性svm">非线性SVM</a></li>
+      </ul>
+    </li>
+    <li><a href="#贝叶斯分类器">贝叶斯分类器</a>
+      <ul>
+        <li><a href="#贝叶斯判别器">贝叶斯判别器</a></li>
+        <li><a href="#类条件概率密度的估计">类条件概率密度的估计</a></li>
+      </ul>
+    </li>
+    <li><a href="#聚类">聚类</a>
+      <ul>
+        <li><a href="#增类聚类最大最小距离">增类聚类：最大最小距离</a></li>
+        <li><a href="#减类聚类层次聚类">减类聚类：层次聚类</a></li>
+        <li><a href="#动态聚类c均值聚类k-means">动态聚类：C均值聚类(k-means)</a></li>
+        <li><a href="#近邻函数聚类">近邻函数聚类</a></li>
+        <li><a href="#最小生成树聚类">最小生成树聚类</a></li>
+      </ul>
+    </li>
+    <li><a href="#句法分析">句法分析</a>
+      <ul>
+        <li></li>
+        <li><a href="#句法识别">句法识别</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h2 class="relative group">相似性度量 
+    <div id="%E7%9B%B8%E4%BC%BC%E6%80%A7%E5%BA%A6%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9B%B8%E4%BC%BC%E6%80%A7%E5%BA%A6%E9%87%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">最小距离分类器 
+    <div id="%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB%E5%88%86%E7%B1%BB%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB%E5%88%86%E7%B1%BB%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>将样本归入距离最近的类别</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平均样本法</td>
+<td>样本到每个类别的各样本平均值的距离</td>
+</tr>
+<tr>
+<td>平均距离法</td>
+<td>样本到每个类别的各个样本的距离的平均值</td>
+</tr>
+<tr>
+<td>最近邻法</td>
+<td>样本最近的样本</td>
+</tr>
+</tbody>
+</table>
+<p>距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦</p>
+
+
+<h2 class="relative group">线性分类器 
+    <div id="%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>n维线性分类器可以表达为超平面$w^Tx+b=0$
+如果<strong>将样本X的第n+1维设为1</strong>，则超平面可以简化为$w^Tx=0$
+若样本集线性可分，则存在分类器使得所有样本满足$\begin{cases}w^Tx&gt;0\quad if\ x\in w_1\newline
+w^Tx&lt;0\quad if\ x\in w_2\end{cases}$</p>
+<p>线性分类器的解必然构成解区域，解是不确定的</p>
+<p>多分类问题按照<strong>是否线性可分、是否存在不确定区域的解</strong>可以分成三种情况</p>
+<table>
+<thead>
+<tr>
+<th>情况</th>
+<th>分类器</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>总体线性可分</td>
+<td>训练n个超平面，分隔每个类和其他所有类</td>
+<td></td>
+</tr>
+<tr>
+<td>成对线性可分</td>
+<td>用$C_n^2$个独立的超平面，将两个类别分开</td>
+<td></td>
+</tr>
+<tr>
+<td>成对线性可分，且存在没有不确定区域的解</td>
+<td>每个类别训练一个判别函数，采用最大值判决<br />$G_{ij}(X)=g_i(X)-g_j(X)$</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">感知器 
+    <div id="%E6%84%9F%E7%9F%A5%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%84%9F%E7%9F%A5%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>线性分类器+阶跃函数</p>
+<blockquote>
+<p>按顺序遍历样本，直到所有样本被正确分类</p>
+<p>若样本$X_i$满足$\begin{cases}W^TX_i&gt;0\quad if X_i\in\omega_1\newline W^TX&lt;0\quad if X_i\in\omega_2\end{cases}$，则说明该样本被正确分类；</p>
+<p>否则：$W=\begin{cases}W+\rho X_i\quad if X_i\in\omega_1\newline W-\rho X_i\quad if X_i\in\omega_2\end{cases}$</p>
+</blockquote>
+
+
+<h4 class="relative group">学习率和优化器 
+    <div id="%E5%AD%A6%E4%B9%A0%E7%8E%87%E5%92%8C%E4%BC%98%E5%8C%96%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AD%A6%E4%B9%A0%E7%8E%87%E5%92%8C%E4%BC%98%E5%8C%96%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>学习速率$\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。</p>
+<p>常用的梯度下降法有：批量梯度法（BGD）、随机梯度法（SGD）、小批次梯度法（MBGD），分别对应整个数据集、单个样本、一小批样本进行梯度的计算。</p>
+
+
+<h3 class="relative group">最小平方和，LMSE 
+    <div id="%E6%9C%80%E5%B0%8F%E5%B9%B3%E6%96%B9%E5%92%8Clmse" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9C%80%E5%B0%8F%E5%B9%B3%E6%96%B9%E5%92%8Clmse" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。</p>
+<p>如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为
+$$
+J(w)=||Xw-b||^2
+$$
+相应的梯度为
+$$
+\nabla J(w)=\nabla ||Xw-b||^2 = 2X^T(Xw-b)
+$$
+相应的更新方式为
+$$
+w_{k+1}=w_k+\rho_{k+1}X^T(Xw+b)
+$$
+但是，上述方法需要给定松弛变量，事实上，松弛变量也可以在优化中求解，即<strong>H-K算法</strong>。
+$$
+b_{k+1}=b_k-\eta_{k+1}\nabla J(w(k))|b
+$$</p>
+<p>$$
+\nabla J(w(k))|_b = -2(Xw(k)-b) = -2e(k)
+$$</p>
+<p>$$
+b_{k+1}=b_k+2\eta_{k+1}e_k
+$$</p>
+<p>为保证b&gt;0，使其单调递增，
+$$
+b_{k+1}=b_k+\eta_{k+1}(e_k+|e_k|)
+$$</p>
+<p>而对于w，直接令偏导数为0，
+$$
+\nabla J(w(k))|_w = 2X^T(Xw-b)=0
+$$</p>
+<p>解得
+$$
+w_{k+1}=(X^TX)^{-1}X^Tb_{k+1}
+=w_k+\eta_{k+1}(X^TX)^{-1}X^T|e_k|
+$$</p>
+<p>若训练集线性可分，则误差向量e可以优化至0；反之，当误差向量&lt;0，说明样本集线性不可分。</p>
+</blockquote>
+
+
+<h3 class="relative group">SVM 
+    <div id="svm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#svm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>寻找一个<strong>最优分类超平面</strong>，到两类中最靠近的样本点的距离同时达到最大</p>
+<blockquote>
+<p>边界上的样本点称为支持向量，支持向量到超平面的距离可通过点到直线的距离公式求得，
+$$
+r = \frac{G(x)}{||w||}
+$$
+进而有优化式
+$$
+\max d = \max 2r = \max \frac{2|G_{ij}(x_s)|}{||w||}
+$$
+由于直线的系数w可以等比例地放大或缩小，不妨令分子为1，则有
+$$
+\min||w||
+$$
+等价于
+$$
+\min \frac{1}{2}||w||^2
+$$
+支持向量是距离超平面最近的点，其他向量到超平面的距离必须更大，则有不等式
+$$
+G_{ij}(x)=w^Tx_i+w_0\ge1\newline
+或者\newline
+G_{ij}(x)=w^Tx_i+w_0\le-1
+$$
+合并为
+$$
+sgn(G_{ij}(x_i))(w^Tx_i+w0)\ge1
+$$</p>
+<p>使用拉格朗日乘子法，不等式约束可转化为
+$$
+\min_{||w||}\max_{\alpha}L(w,w_0,\alpha)=\frac{1}{2}||w||^2-\sum_i^l \alpha_isgn(G_{ij}(x_i))(w^Tx_i+w_0-1)
+$$
+最优化问题的解必满足<strong>KKT条件</strong>
+$$
+\begin{cases}
+\alpha_i\ge0\newline
+sgn(G_{ij}(x_i))(w^Tx_i+w0)\ge1\newline
+\sum\alpha_isgn(G_{ij}(x_i))(w^Tx_i+w0-1)=0
+\end{cases}
+$$
+权向量是支持向量的线性组合
+$$
+w=\sum_i sgn(G_{ij}(x_i))\alpha_ix_i
+$$
+偏置量$w_0$​可代入任意一个支持向量求得。</p>
+</blockquote>
+
+
+<h3 class="relative group">Fisher线性判别，LDA 
+    <div id="fisher%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%ABlda" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fisher%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%ABlda" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>将样本点投影到一条直线上，使得投影后的类间距离尽可能大，类内距离尽可能小。</p>
+<p>类内离散度矩阵$S_i=\sum_{x_k\in w_i} (x_k-\mu_i)(x_k-\mu_i)^T$，它刻画了样本偏离均值的差异程度；总的类内离散度矩阵$S_w=\sum_i S_i$，它刻画了两类样本偏离各自均值的总的差异程度</p>
+<p>当样本数足够多时，$S_w$非奇异，最优投影直线的方向存在解析解$w^*=S_w^{-1}(m_1-m_2)$</p>
+
+
+<h2 class="relative group">非线性分类器 
+    <div id="%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">势函数法 
+    <div id="%E5%8A%BF%E5%87%BD%E6%95%B0%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8A%BF%E5%87%BD%E6%95%B0%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>定义位势函数$K(X)=\sum \lambda_iK(X,X_i)$​，使得正样本的位势&gt;0，负样本的位势&lt;0</p>
+<p>其中$K(X,X_i)$​是单个样本点的位势，在样本点处有极大值，单调递减，在无穷处趋于0</p>
+<p>位势函数本质上是样本点位势的加权和，但每个样本点的权重是不同的，需要在迭代中更新</p>
+<blockquote>
+<p>按顺序遍历样本，直到所有样本满足：正样本的位势&gt;0，负样本的位势&lt;0</p>
+<p>若样本$X_i$满足$\begin{cases}K_A(X_i)&gt;0\quad if X_i\in\omega_1\newline K_A(X_i)&lt;0\quad if X_i\in\omega_2\end{cases}$，则$K_A(X)$不变；</p>
+<p>否则：$K_A=\begin{cases}K_A(X)+K(X,X_i)\quad if X_i\in\omega_1\newline K_A(X)-K(X,X_i)\quad if X_i\in\omega_2\end{cases}$</p>
+</blockquote>
+
+
+<h3 class="relative group">非线性SVM 
+    <div id="%E9%9D%9E%E7%BA%BF%E6%80%A7svm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7svm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>软间隔：对于异常点，设置松弛变量，允许异常点在一定程度内的存在，以防止无解</p>
+<p>核函数：将样本点映射到高维空间，进行线性可分的求解</p>
+
+
+<h2 class="relative group">贝叶斯分类器 
+    <div id="%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$P(w_i)$先验概率：类别的先验</p>
+<p>$P(x|w_i)$​类条件概率：每个类别内样本的分布</p>
+<p>根据先验概率和类条件概率，可以计算后验概率
+$$
+P(w_i|x)=\frac{P(x|w_i)P(w_i)}{\sum_j P(x|w_j)P(w_j)}
+$$</p>
+
+
+<h3 class="relative group">贝叶斯判别器 
+    <div id="%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%A4%E5%88%AB%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%A4%E5%88%AB%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+<thead>
+<tr>
+<th>判别准则</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>最大后验概率/最小错误概率判决</td>
+<td>$g_i(X)=P(\omega_i|X)$</td>
+<td>概率越大，值越大</td>
+</tr>
+<tr>
+<td>最小风险判决</td>
+<td>$g_i(X)=-R(\alpha_i|X)=-\sum_i R(\alpha_i|w_i)$</td>
+<td>风险越小，值越大（风险：误判成其它类的风险之和）</td>
+</tr>
+<tr>
+<td>Neyman-Pearson判决</td>
+<td></td>
+<td>调整判决阈值，使一类错误率不变。另一类错误率减小，可使用拉格朗日方法求解</td>
+</tr>
+<tr>
+<td>最小最大判决</td>
+<td></td>
+<td>使风险最大的判决可能性最小（保守，最坏情况下结果最好，其他情况下结果可用）</td>
+</tr>
+</tbody>
+</table>
+<p>最小错误概率本质上是最小风险的在<strong>正确风险为0、错误风险为1</strong>的一种特例</p>
+
+
+<h3 class="relative group">类条件概率密度的估计 
+    <div id="%E7%B1%BB%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E7%9A%84%E4%BC%B0%E8%AE%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%B1%BB%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E7%9A%84%E4%BC%B0%E8%AE%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">参数估计 
+    <div id="%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>如果知道类间概率服从何种分布，则可以估计相应的分布参数。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>极大似然估计</td>
+<td>$\max_\theta P(X|\theta)$，<br />其中第i类样本的似然函数$p(X_i|\theta_i)=\prod_k^Np(x_k|\theta_i)$</td>
+<td>调整$\theta$，使取得样本集$X$的概率最大</td>
+</tr>
+<tr>
+<td>贝叶斯估计</td>
+<td>设待估参数的先验概率为$P(\theta_i)$，则后验概率为$p(\theta_i|X_i)=\frac{p(X_i|\theta_i)P(\theta_i)}{\int_{\theta_i}p(X_i|\theta_i)P(\theta_i)d\theta}$</td>
+<td>利用贝叶斯公式，根据样本集的概率分布，反推参数$\theta$的后验概率，然后计算$\theta$的数学期望</td>
+</tr>
+</tbody>
+</table>
+<p><strong>朴素贝叶斯</strong>认为样本的各个维度独立，故似然概率可以表达为
+$$
+P(x|w)=\prod_j P(x_j|w)
+$$</p>
+
+
+<h4 class="relative group">非参数估计 
+    <div id="%E9%9D%9E%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%9D%9E%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>包括Parzen窗估计法和k近邻估计法。</p>
+
+
+<h2 class="relative group">聚类 
+    <div id="%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>聚类定义：不知道每个类别的具体分布</p>
+<p>聚类准则：类间距离大，类内距离小</p>
+<table>
+<thead>
+<tr>
+<th>离散度矩阵</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>类内离散度矩阵</td>
+<td>$S_j=\frac{1}{N_j}\sum_{x_k\in w_j} (x_k-m_j)(x_k-m_j)^T$</td>
+<td></td>
+</tr>
+<tr>
+<td>总的类内离散度矩阵</td>
+<td>$S_w=\sum_j P_j S_j$</td>
+<td>within</td>
+</tr>
+<tr>
+<td>类间离散度矩阵</td>
+<td>$S_b=\sum_j P_j(m_j-m)(m_j-m)^T$</td>
+<td>between</td>
+</tr>
+<tr>
+<td>总的离散度矩阵</td>
+<td>$S_t=\frac{1}{N}\sum_k (x_k-m)(x_k-m)^T$</td>
+<td>total</td>
+</tr>
+</tbody>
+</table>
+<p>三个离散度矩阵满足$S_t=S_w+S_b$</p>
+<table>
+<thead>
+<tr>
+<th>聚类准则函数</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>误差平方和</td>
+<td>$J_e=\sum_j^C \sum_i^{N_j} ||x-m_j||^2$</td>
+<td></td>
+</tr>
+<tr>
+<td>加权平方和</td>
+<td>$J_l=\sum_j^C P_jD_j$其中$D_j=E(||x-m_j||^2)$</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">增类聚类：最大最小距离 
+    <div id="%E5%A2%9E%E7%B1%BB%E8%81%9A%E7%B1%BB%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A2%9E%E7%B1%BB%E8%81%9A%E7%B1%BB%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>最大最小距离：先计算每个点到最近的聚类中心的距离（最小），然后选择其中距离最远的点（最大）</p>
+<blockquote>
+<p>先指定一个聚类中心，相距最远的作为另一个聚类中心</p>
+<p>不断迭代，增加新的聚类中心，直至样本点的最大最小距离＜阈值</p>
+</blockquote>
+
+
+<h3 class="relative group">减类聚类：层次聚类 
+    <div id="%E5%87%8F%E7%B1%BB%E8%81%9A%E7%B1%BB%E5%B1%82%E6%AC%A1%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%8F%E7%B1%BB%E8%81%9A%E7%B1%BB%E5%B1%82%E6%AC%A1%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>不断合并距离最近的两个类，第K次合并时的类别数$C=N-K+1$​</p>
+<blockquote>
+<p>初始情况，每个样本各成一类；</p>
+<p>计算类间距离，合并距离最小的两个类；（新的类间距离取决于类内样本的均值）</p>
+<p>继续合并类，直至类间距离大于阈值或者类别数k满足要求；</p>
+</blockquote>
+
+
+<h3 class="relative group">动态聚类：C均值聚类(k-means) 
+    <div id="%E5%8A%A8%E6%80%81%E8%81%9A%E7%B1%BBc%E5%9D%87%E5%80%BC%E8%81%9A%E7%B1%BBk-means" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8A%A8%E6%80%81%E8%81%9A%E7%B1%BBc%E5%9D%87%E5%80%BC%E8%81%9A%E7%B1%BBk-means" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>优化准则函数$J_e$，使得类内误差平方和最小</p>
+<blockquote>
+<p>设定k个聚类中心</p>
+<p>每个样本进行分类，使得类内误差平方和最小（实际就是KNN），从而<strong>更新聚类中心</strong></p>
+<p>不断地迭代（分类+更新中心），直至聚类中心不再被更新</p>
+</blockquote>
+<ul>
+<li>
+<p>初始聚类中心和类别数会影响收敛速度和边界样本的类别归属（但总是收敛的）</p>
+</li>
+<li>
+<p>可以选择几何意义明确的点作为聚类中心。</p>
+</li>
+<li>
+<p>准则函数实质上是MSE，可以选择MSE曲线的拐点作为最佳类别数k。</p>
+</li>
+</ul>
+
+
+<h3 class="relative group">近邻函数聚类 
+    <div id="%E8%BF%91%E9%82%BB%E5%87%BD%E6%95%B0%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%91%E9%82%BB%E5%87%BD%E6%95%B0%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>近邻函数：每个样本点到其他样本点的距离</p>
+<blockquote>
+<p>计算距离矩阵D</p>
+<p>计算近邻系数矩阵$M=[m_{ij}]$，$X_i$是$X_j$的第$m_{ij}$个近邻</p>
+<p>计算近邻函数值矩阵$A=[a_{ij}],a_{ij}=\begin{cases}m_{ij}+m_{ji}-2,i\ne j\newline2N,i=j\end{cases}$​</p>
+<p>找出每行的最小元素，将距离最近的样本点连起来，形成初始聚类</p>
+<p>对于每个类别，寻找与之距离最近的类别，若类间距离(min)&lt;类内距离(max,min)，则合并两个类别；不断迭代，直至无法合并</p>
+</blockquote>
+
+
+<h3 class="relative group">最小生成树聚类 
+    <div id="%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>先构建出最小生成树</p>
+<p>然后找到权值最大的一条边，将样本集分为两个子集，递归地进行，直至最大边小于阈值</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>最小生成树算法</th>
+<th></th>
+<th>适用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prim</td>
+<td>先找到最小边，然后依次向外扩展最小的边，且不能构成环路，直至连通</td>
+<td>节点少</td>
+</tr>
+<tr>
+<td>Kruskal</td>
+<td>依次寻找最小的边，且不能构成环路，直至连通</td>
+<td>边少</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 class="relative group">句法分析 
+    <div id="%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><strong>文法</strong>：根据一定规则产生样本</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>符号</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>终止符</td>
+<td>$V_T$$V_T=\set{a,b,c}$</td>
+<td>Terminal</td>
+</tr>
+<tr>
+<td>非终止符</td>
+<td>$V_N=\set{S,A,B,C}$</td>
+<td>Nonterminal</td>
+</tr>
+<tr>
+<td>起始符</td>
+<td>$S$，一类特殊的非终止符</td>
+<td></td>
+</tr>
+<tr>
+<td>产生式</td>
+<td>$\alpha\rightarrow\beta,\alpha\in V^+,\beta \in V^*$</td>
+<td>Parse</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">4种基本文法与自动机 
+    <div id="4%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9C%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9C%BA" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th></th>
+<th>文法</th>
+<th>限制</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0型文法</td>
+<td>无约束文法</td>
+<td>$\alpha\rightarrow\beta$</td>
+<td>无</td>
+<td>递归特性，可以产生一切类型的样本</td>
+<td>图灵机</td>
+</tr>
+<tr>
+<td>1型文法</td>
+<td>上下文有关</td>
+<td>$\alpha_1A\alpha_2\rightarrow\alpha_1B\alpha_2$</td>
+<td>考虑上下文，但上下文也可以为空<br />单个非终止符</td>
+<td>上下文也可以是空句</td>
+<td>线性界限自动机</td>
+</tr>
+<tr>
+<td>2型文法</td>
+<td>上下文无关</td>
+<td>$A\rightarrow\beta$</td>
+<td>单个非终止符</td>
+<td>最左推导/最右推导（从最左/最优的非终止符开始推导）</td>
+<td>下推自动机</td>
+</tr>
+<tr>
+<td>3型文法</td>
+<td>正则</td>
+<td>$A\rightarrow a$<br />$A\rightarrow aB$</td>
+<td>左：单个非终止符<br />右：单个终止符/单个终止符+单个非终止符</td>
+<td>可以用状态图表示</td>
+<td>有限状态自动机</td>
+</tr>
+</tbody>
+</table>
+<p>4种文法的关系：限制逐渐增加，范围逐渐缩小</p>
+<p><a href="https://blog.csdn.net/Jane_96/article/details/80029708"   target="_blank">
+    编译原理之文法的分类和判别-CSDN博客</a></p>
+
+
+<h3 class="relative group">句法识别 
+    <div id="%E5%8F%A5%E6%B3%95%E8%AF%86%E5%88%AB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%A5%E6%B3%95%E8%AF%86%E5%88%AB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>句法识别方法：样本是否能被模式类的文法生成</p>
+<p>$模式类\omega_i对应的文法是G_i，如果x\in L(G_i)，那么则判定x\in w_i$</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>参考匹配法</td>
+<td>每个模式类根据对应的文法生成对应的参考列，将样本与每一列的参考列逐个比对</td>
+<td></td>
+</tr>
+<tr>
+<td>状态图法</td>
+<td>对于正则文法，若能找到状态图中的通路，则属于模式类</td>
+<td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202405240237497.png" alt="image-20240524023750867" style="zoom: 33%;" /></td>
+</tr>
+<tr>
+<td>填充树法</td>
+<td>对于上下文无关文法，在每一步时考虑所有可能得文法，直到产生样本或无法产生样本为止（本质上是穷举）</td>
+<td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202405240242713.png" alt="image-20240524024203703" style="zoom:33%;" /></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+      <script>
+        var oid = "views_course\/pr.md"
+        var oid_likes = "likes_course\/pr.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/course/algebra/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Linear Algebra</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/course/matrix/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Matrix</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Xu Zhang
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://xuzhang0112.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Visualization &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="Visualization &middot; Xu Zhang&#39;s Blog" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://xuzhang0112.github.io/software/visualization/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.ac59a1b8eaafef739c129d12787ac29f6a420bcb348c7aeec8949a8d0b7d6c2023766c169d14b9031b751504eb3c976efe786fec135b340a49868acd8caa4127.css"
+    integrity="sha512-rFmhuOqv73OcEp0SeHrCn2pCC8s0jHruyJSajQt9bCAjdmwWnRS5Axt1FQTrPJdu/nhv7BNbNApJhorNjKpBJw==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
+    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Visualization" />
+<meta property="og:description" content="基于PyQt5的应用开发 # 最简单的应用程序=应用进程&#43;窗口组件 # import PyQt5.QtWidgets as QtWidgets import sys class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&#39;Demo&#39;) self.show() if __name__ == &#34;__main__&#34;: # 创建应用程序进程 app = QtWidgets.QApplication(sys.argv) # 创建主窗口 window = MainWindow(app) # 主程序开始运行 app.exec_() 在主窗口中添加组件 # 添加单个组件 # class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&#39;MainWindow&#39;) self.setCentralWidget(QtWidgets.QPushButton(&#34;Button&#34;)) self.show() 添加多个组件 # from PyQt5.QtWidgets import ( QApplication, QMainWindow, QPushButton, QSlider, QLabel, QCheckBox, QComboBox, QSpinBox, QDoubleSpinBox, QGroupBox, QGridLayout, QFileDialog) import sys from PyQt5." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuzhang0112.github.io/software/visualization/" /><meta property="article:section" content="software" />
+
+
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Visualization"/>
+<meta name="twitter:description" content="基于PyQt5的应用开发 # 最简单的应用程序=应用进程&#43;窗口组件 # import PyQt5.QtWidgets as QtWidgets import sys class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&#39;Demo&#39;) self.show() if __name__ == &#34;__main__&#34;: # 创建应用程序进程 app = QtWidgets.QApplication(sys.argv) # 创建主窗口 window = MainWindow(app) # 主程序开始运行 app.exec_() 在主窗口中添加组件 # 添加单个组件 # class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&#39;MainWindow&#39;) self.setCentralWidget(QtWidgets.QPushButton(&#34;Button&#34;)) self.show() 添加多个组件 # from PyQt5.QtWidgets import ( QApplication, QMainWindow, QPushButton, QSlider, QLabel, QCheckBox, QComboBox, QSpinBox, QDoubleSpinBox, QGroupBox, QGridLayout, QFileDialog) import sys from PyQt5."/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Software",
+    "name": "Visualization",
+    "headline": "Visualization",
+    
+    "abstract": "基于PyQt5的应用开发 # 最简单的应用程序=应用进程\u002b窗口组件 # import PyQt5.QtWidgets as QtWidgets import sys class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(\u0026#39;Demo\u0026#39;) self.show() if __name__ == \u0026#34;__main__\u0026#34;: # 创建应用程序进程 app = QtWidgets.QApplication(sys.argv) # 创建主窗口 window = MainWindow(app) # 主程序开始运行 app.exec_() 在主窗口中添加组件 # 添加单个组件 # class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(\u0026#39;MainWindow\u0026#39;) self.setCentralWidget(QtWidgets.QPushButton(\u0026#34;Button\u0026#34;)) self.show() 添加多个组件 # from PyQt5.QtWidgets import ( QApplication, QMainWindow, QPushButton, QSlider, QLabel, QCheckBox, QComboBox, QSpinBox, QDoubleSpinBox, QGroupBox, QGridLayout, QFileDialog) import sys from PyQt5.",
+    "inLanguage": "en",
+    "url" : "https:\/\/xuzhang0112.github.io\/software\/visualization\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Xu Zhang"
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1171"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Xu Zhang" />
+  
+  
+  
+  <link href="https://www.zhihu.com/people/zhang-xu-20-31-39" rel="me" />
+  
+  
+  <link href="https://space.bilibili.com/456489591" rel="me" />
+  
+  
+  <link href="https://github.com/xuzhang0112" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+    integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+    integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+    integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk"
+    crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            
+            
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true },
+            ],
+            
+            throwOnError: false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Xu Zhang&rsquo;s Blog</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  href="/software/"   class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Software">
+      Software
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/software/cheatsheet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="CheatSheet">
+            Cheat Sheet
+          </p>
+        </a>
+        
+        <a href="/software/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Python">
+            Python
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  href="/research/"   class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Research">
+      AI Research
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/research/basic_knowledge/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Deep Learning">
+            Deep Learning
+          </p>
+        </a>
+        
+        <a href="/research/med_nlp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Medical NLP">
+            Medical NLP
+          </p>
+        </a>
+        
+        <a href="/research/med_mm/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Medical Multimodal">
+            Medical Multimodal
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/cv/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        About Me
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Software">
+            Software
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/software/cheatsheet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="CheatSheet">
+            Cheat Sheet
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/software/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Python">
+            Python
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Research">
+            AI Research
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/research/basic_knowledge/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Deep Learning">
+            Deep Learning
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/research/med_nlp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Medical NLP">
+            Medical NLP
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/research/med_mm/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Medical Multimodal">
+            Medical Multimodal
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/cv/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            About Me
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/software/"
+      >Software</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/software/visualization/"
+      >Visualization</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Visualization
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#最简单的应用程序应用进程窗口组件">最简单的应用程序=应用进程+窗口组件</a></li>
+    <li><a href="#在主窗口中添加组件">在主窗口中添加组件</a>
+      <ul>
+        <li><a href="#添加单个组件">添加单个组件</a></li>
+        <li><a href="#添加多个组件">添加多个组件</a></li>
+      </ul>
+    </li>
+    <li><a href="#自定义你的组件">自定义你的组件</a>
+      <ul>
+        <li><a href="#自定义按钮">自定义按钮</a></li>
+        <li><a href="#自定义微调框">自定义微调框</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#基于2d-slice的可视化">基于2D Slice的可视化</a></li>
+    <li><a href="#基于3d-surface-rendering的可视化">基于3D Surface Rendering的可视化</a>
+      <ul>
+        <li><a href="#使用vtkcontourfilter提取等值面">使用vtkContourFilter提取等值面</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#在主窗口中添加可视化组件">在主窗口中添加可视化组件</a>
+      <ul>
+        <li><a href="#添加可视化组件">添加可视化组件</a></li>
+        <li><a href="#自定义可视化管线和可视化组件">自定义可视化管线和可视化组件</a></li>
+      </ul>
+    </li>
+    <li><a href="#在主窗口中添加控制组件">在主窗口中添加控制组件</a></li>
+    <li><a href="#组件交互">组件交互</a>
+      <ul>
+        <li><a href="#选择文件并可视化">选择文件并可视化</a></li>
+        <li><a href="#通过滑动条控制2d切片在3d图像中对应的范围">通过滑动条，控制2D切片在3D图像中对应的范围</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#最简单的应用程序应用进程窗口组件">最简单的应用程序=应用进程+窗口组件</a></li>
+    <li><a href="#在主窗口中添加组件">在主窗口中添加组件</a>
+      <ul>
+        <li><a href="#添加单个组件">添加单个组件</a></li>
+        <li><a href="#添加多个组件">添加多个组件</a></li>
+      </ul>
+    </li>
+    <li><a href="#自定义你的组件">自定义你的组件</a>
+      <ul>
+        <li><a href="#自定义按钮">自定义按钮</a></li>
+        <li><a href="#自定义微调框">自定义微调框</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#基于2d-slice的可视化">基于2D Slice的可视化</a></li>
+    <li><a href="#基于3d-surface-rendering的可视化">基于3D Surface Rendering的可视化</a>
+      <ul>
+        <li><a href="#使用vtkcontourfilter提取等值面">使用vtkContourFilter提取等值面</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#在主窗口中添加可视化组件">在主窗口中添加可视化组件</a>
+      <ul>
+        <li><a href="#添加可视化组件">添加可视化组件</a></li>
+        <li><a href="#自定义可视化管线和可视化组件">自定义可视化管线和可视化组件</a></li>
+      </ul>
+    </li>
+    <li><a href="#在主窗口中添加控制组件">在主窗口中添加控制组件</a></li>
+    <li><a href="#组件交互">组件交互</a>
+      <ul>
+        <li><a href="#选择文件并可视化">选择文件并可视化</a></li>
+        <li><a href="#通过滑动条控制2d切片在3d图像中对应的范围">通过滑动条，控制2D切片在3D图像中对应的范围</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h1 class="relative group">基于PyQt5的应用开发 
+    <div id="%E5%9F%BA%E4%BA%8Epyqt5%E7%9A%84%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E4%BA%8Epyqt5%E7%9A%84%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">最简单的应用程序=应用进程+窗口组件 
+    <div id="%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BA%94%E7%94%A8%E8%BF%9B%E7%A8%8B%E7%AA%97%E5%8F%A3%E7%BB%84%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%BA%94%E7%94%A8%E8%BF%9B%E7%A8%8B%E7%AA%97%E5%8F%A3%E7%BB%84%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> PyQt5.QtWidgets <span style="color:#66d9ef">as</span> QtWidgets
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainWindow</span>(QtWidgets<span style="color:#f92672">.</span>QMainWindow, QtWidgets<span style="color:#f92672">.</span>QApplication):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, app):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>app <span style="color:#f92672">=</span> app
+</span></span><span style="display:flex;"><span>        QtWidgets<span style="color:#f92672">.</span>QMainWindow<span style="color:#f92672">.</span>__init__(self)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setWindowTitle(<span style="color:#e6db74">&#39;Demo&#39;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 创建应用程序进程</span>
+</span></span><span style="display:flex;"><span>    app <span style="color:#f92672">=</span> QtWidgets<span style="color:#f92672">.</span>QApplication(sys<span style="color:#f92672">.</span>argv)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 创建主窗口</span>
+</span></span><span style="display:flex;"><span>    window <span style="color:#f92672">=</span> MainWindow(app)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 主程序开始运行</span>
+</span></span><span style="display:flex;"><span>    app<span style="color:#f92672">.</span>exec_()
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/0.png" alt="0" style="zoom: 50%;" />
+
+
+<h2 class="relative group">在主窗口中添加组件 
+    <div id="%E5%9C%A8%E4%B8%BB%E7%AA%97%E5%8F%A3%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%BB%84%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9C%A8%E4%B8%BB%E7%AA%97%E5%8F%A3%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%BB%84%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">添加单个组件 
+    <div id="%E6%B7%BB%E5%8A%A0%E5%8D%95%E4%B8%AA%E7%BB%84%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B7%BB%E5%8A%A0%E5%8D%95%E4%B8%AA%E7%BB%84%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainWindow</span>(QtWidgets<span style="color:#f92672">.</span>QMainWindow, QtWidgets<span style="color:#f92672">.</span>QApplication):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, app):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>app <span style="color:#f92672">=</span> app
+</span></span><span style="display:flex;"><span>        QtWidgets<span style="color:#f92672">.</span>QMainWindow<span style="color:#f92672">.</span>__init__(self)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setWindowTitle(<span style="color:#e6db74">&#39;MainWindow&#39;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(QtWidgets<span style="color:#f92672">.</span>QPushButton(<span style="color:#e6db74">&#34;Button&#34;</span>))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/1.png" alt="1" style="zoom:50%;" />
+
+
+<h3 class="relative group">添加多个组件 
+    <div id="%E6%B7%BB%E5%8A%A0%E5%A4%9A%E4%B8%AA%E7%BB%84%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B7%BB%E5%8A%A0%E5%A4%9A%E4%B8%AA%E7%BB%84%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> PyQt5.QtWidgets <span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    QApplication, QMainWindow,
+</span></span><span style="display:flex;"><span>    QPushButton, QSlider, QLabel, QCheckBox, QComboBox, QSpinBox, QDoubleSpinBox,
+</span></span><span style="display:flex;"><span>    QGroupBox, QGridLayout,
+</span></span><span style="display:flex;"><span>    QFileDialog)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> PyQt5.QtCore <span style="color:#f92672">import</span> Qt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainWindow</span>(QMainWindow, QApplication):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, app):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>app <span style="color:#f92672">=</span> app
+</span></span><span style="display:flex;"><span>        QMainWindow<span style="color:#f92672">.</span>__init__(self)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setWindowTitle(<span style="color:#e6db74">&#39;MainWindow&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># define a groupbox</span>
+</span></span><span style="display:flex;"><span>        box <span style="color:#f92672">=</span> QGroupBox()
+</span></span><span style="display:flex;"><span>        layout <span style="color:#f92672">=</span> QGridLayout()
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;Text&#34;</span>), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QPushButton(<span style="color:#e6db74">&#34;Press&#34;</span>), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QCheckBox(<span style="color:#e6db74">&#34;Tick&#34;</span>), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QComboBox(), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QSpinBox(), <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QDoubleSpinBox(), <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QSlider(Qt<span style="color:#f92672">.</span>Horizontal), <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addLayout(QGridLayout(), <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>        box<span style="color:#f92672">.</span>setLayout(layout)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(box)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/2.png" alt="2" style="zoom:50%;" />
+
+
+<h2 class="relative group">自定义你的组件 
+    <div id="%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BD%A0%E7%9A%84%E7%BB%84%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BD%A0%E7%9A%84%E7%BB%84%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">自定义按钮 
+    <div id="%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%89%E9%92%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%89%E9%92%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">将按钮变成文件选择键 
+    <div id="%E5%B0%86%E6%8C%89%E9%92%AE%E5%8F%98%E6%88%90%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9%E9%94%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B0%86%E6%8C%89%E9%92%AE%E5%8F%98%E6%88%90%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9%E9%94%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SelectButton</span>(QPushButton):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, name):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(name)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>clicked<span style="color:#f92672">.</span>connect(self<span style="color:#f92672">.</span>select_file)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">select_file</span>(self):  <span style="color:#75715e"># 选择nii.gz图像文件</span>
+</span></span><span style="display:flex;"><span>        filename <span style="color:#f92672">=</span> QFileDialog<span style="color:#f92672">.</span>getOpenFileName(
+</span></span><span style="display:flex;"><span>            self, <span style="color:#e6db74">&#39;Open file&#39;</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> filename
+</span></span></code></pre></div>
+
+<h4 class="relative group">将按钮变成调色板 
+    <div id="%E5%B0%86%E6%8C%89%E9%92%AE%E5%8F%98%E6%88%90%E8%B0%83%E8%89%B2%E6%9D%BF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B0%86%E6%8C%89%E9%92%AE%E5%8F%98%E6%88%90%E8%B0%83%E8%89%B2%E6%9D%BF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ColorButton</span>(QPushButton):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, color):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>color <span style="color:#f92672">=</span> color
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setFixedSize(<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>)
+</span></span><span style="display:flex;"><span>        rgb <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>color
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setStyleSheet(
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;background-color: rgb(</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">)&#34;</span><span style="color:#f92672">.</span>format(rgb[<span style="color:#ae81ff">0</span>], rgb[<span style="color:#ae81ff">1</span>], rgb[<span style="color:#ae81ff">2</span>]))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>clicked<span style="color:#f92672">.</span>connect(<span style="color:#66d9ef">lambda</span>: self<span style="color:#f92672">.</span>color_vc())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">color_vc</span>(self):  <span style="color:#75715e"># 改变颜色</span>
+</span></span><span style="display:flex;"><span>        color <span style="color:#f92672">=</span> QColorDialog<span style="color:#f92672">.</span>getColor()  <span style="color:#75715e"># 获取调色板,并返回选择的颜色</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> color<span style="color:#f92672">.</span>isValid():
+</span></span><span style="display:flex;"><span>            rgb <span style="color:#f92672">=</span> color<span style="color:#f92672">.</span>getRgb()[:<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>color <span style="color:#f92672">=</span> rgb
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># 使按钮的颜色变成选择的颜色，以此展示已经选择的颜色</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>setStyleSheet(
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;background-color: rgb(</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">)&#34;</span><span style="color:#f92672">.</span>format(rgb[<span style="color:#ae81ff">0</span>], rgb[<span style="color:#ae81ff">1</span>], rgb[<span style="color:#ae81ff">2</span>]))
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/3.png" alt="3" style="zoom:50%;" />
+
+
+<h3 class="relative group">自定义微调框 
+    <div id="%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BE%AE%E8%B0%83%E6%A1%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BE%AE%E8%B0%83%E6%A1%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">设置最小值，最大值，步长，默认值 
+    <div id="%E8%AE%BE%E7%BD%AE%E6%9C%80%E5%B0%8F%E5%80%BC%E6%9C%80%E5%A4%A7%E5%80%BC%E6%AD%A5%E9%95%BF%E9%BB%98%E8%AE%A4%E5%80%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AE%BE%E7%BD%AE%E6%9C%80%E5%B0%8F%E5%80%BC%E6%9C%80%E5%A4%A7%E5%80%BC%E6%AD%A5%E9%95%BF%E9%BB%98%E8%AE%A4%E5%80%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpinBox</span>(QDoubleSpinBox):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, min_value, max_value, step, default_value, value_changed_func<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setMaximum(max_value)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setMinimum(min_value)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setSingleStep(step)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setValue(default_value)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> value_changed_func:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>valueChanged<span style="color:#f92672">.</span>connect(value_changed_func)
+</span></span></code></pre></div>
+
+<h1 class="relative group">基于VTK的三维医学图像可视化 
+    <div id="%E5%9F%BA%E4%BA%8Evtk%E7%9A%84%E4%B8%89%E7%BB%B4%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%8F%AF%E8%A7%86%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E4%BA%8Evtk%E7%9A%84%E4%B8%89%E7%BB%B4%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%8F%AF%E8%A7%86%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">基于2D Slice的可视化 
+    <div id="%E5%9F%BA%E4%BA%8E2d-slice%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E4%BA%8E2d-slice%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> vtk
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>image <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkNIFTIImageReader()
+</span></span><span style="display:flex;"><span>image<span style="color:#f92672">.</span>SetFileName(<span style="color:#e6db74">&#39;./CT_image.nii.gz&#39;</span>)
+</span></span><span style="display:flex;"><span>image<span style="color:#f92672">.</span>Update()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lut <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkLookupTable()
+</span></span><span style="display:flex;"><span>lut<span style="color:#f92672">.</span>SetTableRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">255</span>)
+</span></span><span style="display:flex;"><span>lut<span style="color:#f92672">.</span>SetSaturationRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>lut<span style="color:#f92672">.</span>SetHueRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>lut<span style="color:#f92672">.</span>SetValueRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>lut<span style="color:#f92672">.</span>Build()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>color_mapper <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkImageMapToColors()
+</span></span><span style="display:flex;"><span>color_mapper<span style="color:#f92672">.</span>SetInputConnection(image<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>color_mapper<span style="color:#f92672">.</span>SetLookupTable(lut)
+</span></span><span style="display:flex;"><span>color_mapper<span style="color:#f92672">.</span>Update()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>actor <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkImageActor()
+</span></span><span style="display:flex;"><span>actor<span style="color:#f92672">.</span>GetMapper()<span style="color:#f92672">.</span>SetInputConnection(color_mapper<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>renderer <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkRenderer()
+</span></span><span style="display:flex;"><span>renderer<span style="color:#f92672">.</span>AddActor(actor)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>render_window <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkRenderWindow()
+</span></span><span style="display:flex;"><span>render_window<span style="color:#f92672">.</span>AddRenderer(renderer)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>interactor <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkRenderWindowInteractor()
+</span></span><span style="display:flex;"><span>interactor<span style="color:#f92672">.</span>SetRenderWindow(render_window)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>interactor<span style="color:#f92672">.</span>Start()
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/4.png" alt="4" style="zoom:50%;" />
+
+
+<h2 class="relative group">基于3D Surface Rendering的可视化 
+    <div id="%E5%9F%BA%E4%BA%8E3d-surface-rendering%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E4%BA%8E3d-surface-rendering%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> vtk
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>reader <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkNIFTIImageReader()
+</span></span><span style="display:flex;"><span>reader<span style="color:#f92672">.</span>SetFileNameSliceOffset(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>reader<span style="color:#f92672">.</span>SetDataByteOrderToBigEndian()
+</span></span><span style="display:flex;"><span>reader<span style="color:#f92672">.</span>SetFileName(<span style="color:#e6db74">&#39;./PET_label.nii.gz&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>extractor <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkDiscreteMarchingCubes()
+</span></span><span style="display:flex;"><span>extractor<span style="color:#f92672">.</span>SetInputConnection(reader<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>extractor<span style="color:#f92672">.</span>SetValue(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)  <span style="color:#75715e"># 设置提取的等值面</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>reducer <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkDecimatePro()
+</span></span><span style="display:flex;"><span>reducer<span style="color:#f92672">.</span>SetInputConnection(extractor<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>reducer<span style="color:#f92672">.</span>SetTargetReduction(<span style="color:#ae81ff">0.5</span>)  <span style="color:#75715e"># magic number</span>
+</span></span><span style="display:flex;"><span>reducer<span style="color:#f92672">.</span>PreserveTopologyOn()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>smoother <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkSmoothPolyDataFilter()
+</span></span><span style="display:flex;"><span>smoother<span style="color:#f92672">.</span>SetInputConnection(reducer<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>smoother<span style="color:#f92672">.</span>SetNumberOfIterations(<span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>normals <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkPolyDataNormals()
+</span></span><span style="display:flex;"><span>normals<span style="color:#f92672">.</span>SetInputConnection(smoother<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>normals<span style="color:#f92672">.</span>SetFeatureAngle(<span style="color:#ae81ff">60.0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mapper <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkPolyDataMapper()
+</span></span><span style="display:flex;"><span>mapper<span style="color:#f92672">.</span>SetInputConnection(normals<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>mapper<span style="color:#f92672">.</span>ScalarVisibilityOff()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>prop <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkProperty()
+</span></span><span style="display:flex;"><span>prop<span style="color:#f92672">.</span>SetColor((<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>prop<span style="color:#f92672">.</span>SetOpacity(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>actor <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkActor()
+</span></span><span style="display:flex;"><span>actor<span style="color:#f92672">.</span>SetMapper(mapper)
+</span></span><span style="display:flex;"><span>actor<span style="color:#f92672">.</span>SetProperty(prop)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>renderer <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkRenderer()
+</span></span><span style="display:flex;"><span>renderer<span style="color:#f92672">.</span>AddActor(actor)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>render_window <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkRenderWindow()
+</span></span><span style="display:flex;"><span>render_window<span style="color:#f92672">.</span>AddRenderer(renderer)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>interactor <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkRenderWindowInteractor()
+</span></span><span style="display:flex;"><span>interactor<span style="color:#f92672">.</span>SetRenderWindow(render_window)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>interactor<span style="color:#f92672">.</span>Start()
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/5.png" alt="5" style="zoom:50%;" />
+
+
+<h3 class="relative group">使用vtkContourFilter提取等值面 
+    <div id="%E4%BD%BF%E7%94%A8vtkcontourfilter%E6%8F%90%E5%8F%96%E7%AD%89%E5%80%BC%E9%9D%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BD%BF%E7%94%A8vtkcontourfilter%E6%8F%90%E5%8F%96%E7%AD%89%E5%80%BC%E9%9D%A2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>设置等值线</p>
+<ul>
+<li>SetValue(…)设置一条等值线值</li>
+<li>GenerateValues(…)产生n条在区间内线性分布的等值线</li>
+</ul>
+<p>两者结合使用举例</p>
+<ul>
+<li>首先调用GenerateValues(3, 100, 300)产生3条等值线，分别为100、200、300；然后调用SetValue(0, 125)，则最终效果为共有3条等值线，分别为125、200、300；如果改为调用SetValue(3, 400)，则最终效果为共有4条等值线，分别为100、200、300、400。</li>
+<li>SetValue一般用于覆盖某一条已经存在的等值线，或者增加一条等值线；GenerateValues一般重新设置等值线的条数。</li>
+</ul>
+
+
+<h1 class="relative group">基于PyQt5和VTK的医学图像可视化应用程序 
+    <div id="%E5%9F%BA%E4%BA%8Epyqt5%E5%92%8Cvtk%E7%9A%84%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E4%BA%8Epyqt5%E5%92%8Cvtk%E7%9A%84%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">在主窗口中添加可视化组件 
+    <div id="%E5%9C%A8%E4%B8%BB%E7%AA%97%E5%8F%A3%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%84%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9C%A8%E4%B8%BB%E7%AA%97%E5%8F%A3%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%84%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">添加可视化组件 
+    <div id="%E6%B7%BB%E5%8A%A0%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%84%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B7%BB%E5%8A%A0%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%84%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainWindow</span>(QMainWindow, QApplication):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, app):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>app <span style="color:#f92672">=</span> app
+</span></span><span style="display:flex;"><span>        QMainWindow<span style="color:#f92672">.</span>__init__(self)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setWindowTitle(<span style="color:#e6db74">&#39;MainWindow&#39;</span>)
+</span></span><span style="display:flex;"><span>        box <span style="color:#f92672">=</span> QGroupBox()
+</span></span><span style="display:flex;"><span>        layout <span style="color:#f92672">=</span> QGridLayout()
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addLayout(QGridLayout(), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        vtk_interactor <span style="color:#f92672">=</span> QVTKRenderWindowInteractor()
+</span></span><span style="display:flex;"><span>        vtk_interactor<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>        vtk_interactor<span style="color:#f92672">.</span>Initialize()
+</span></span><span style="display:flex;"><span>        vtk_interactor<span style="color:#f92672">.</span>Start()
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(vtk_interactor, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        box<span style="color:#f92672">.</span>setLayout(layout)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(box)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/6.png" alt="6" style="zoom:33%;" />
+
+
+<h3 class="relative group">自定义可视化管线和可视化组件 
+    <div id="%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%AF%E8%A7%86%E5%8C%96%E7%AE%A1%E7%BA%BF%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%84%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%AF%E8%A7%86%E5%8C%96%E7%AE%A1%E7%BA%BF%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96%E7%BB%84%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VisualizationPipeline</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        reader <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkNIFTIImageReader()
+</span></span><span style="display:flex;"><span>        reader<span style="color:#f92672">.</span>SetFileName(<span style="color:#e6db74">&#39;./CT_image.nii.gz&#39;</span>)
+</span></span><span style="display:flex;"><span>        reader<span style="color:#f92672">.</span>Update()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        lut <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkLookupTable()
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>SetTableRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">255</span>)
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>SetSaturationRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>SetHueRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>SetValueRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>Build()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        color_mapper <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkImageMapToColors()
+</span></span><span style="display:flex;"><span>        color_mapper<span style="color:#f92672">.</span>SetInputConnection(reader<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>        color_mapper<span style="color:#f92672">.</span>SetLookupTable(lut)
+</span></span><span style="display:flex;"><span>        color_mapper<span style="color:#f92672">.</span>Update()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        actor <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkImageActor()
+</span></span><span style="display:flex;"><span>        actor<span style="color:#f92672">.</span>GetMapper()<span style="color:#f92672">.</span>SetInputConnection(color_mapper<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>actor <span style="color:#f92672">=</span> actor
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VisualizationWindow</span>(QVTKRenderWindowInteractor):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>render_window <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>GetRenderWindow()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>renderer <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkRenderer()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>render_window<span style="color:#f92672">.</span>AddRenderer(self<span style="color:#f92672">.</span>renderer)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>actor <span style="color:#f92672">=</span> VisualizationPipeline()<span style="color:#f92672">.</span>actor
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>AddActor(self<span style="color:#f92672">.</span>actor)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>SetInteractorStyle(vtk<span style="color:#f92672">.</span>vtkInteractorStyleTrackballCamera())
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>Initialize()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>Start()
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainWindow</span>(QMainWindow, QApplication):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, app):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>app <span style="color:#f92672">=</span> app
+</span></span><span style="display:flex;"><span>        QMainWindow<span style="color:#f92672">.</span>__init__(self)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setWindowTitle(<span style="color:#e6db74">&#39;MainWindow&#39;</span>)
+</span></span><span style="display:flex;"><span>        box <span style="color:#f92672">=</span> QGroupBox()
+</span></span><span style="display:flex;"><span>        layout <span style="color:#f92672">=</span> QGridLayout()
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(VisualizationWindow(), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        box<span style="color:#f92672">.</span>setLayout(layout)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(box)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/7.png" alt="7" style="zoom:33%;" />
+
+
+<h2 class="relative group">在主窗口中添加控制组件 
+    <div id="%E5%9C%A8%E4%B8%BB%E7%AA%97%E5%8F%A3%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%8E%A7%E5%88%B6%E7%BB%84%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9C%A8%E4%B8%BB%E7%AA%97%E5%8F%A3%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%8E%A7%E5%88%B6%E7%BB%84%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ControlBox</span>(QGroupBox):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        layout <span style="color:#f92672">=</span> QGridLayout()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setLayout(layout)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;FIle&#34;</span>), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(SelectButton(<span style="color:#e6db74">&#34;Select File&#34;</span>), <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;x&#34;</span>), <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(Slider(), <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;y&#34;</span>), <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(Slider(), <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;z&#34;</span>), <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(Slider(), <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainWindow</span>(QMainWindow, QApplication):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, app):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>app <span style="color:#f92672">=</span> app
+</span></span><span style="display:flex;"><span>        QMainWindow<span style="color:#f92672">.</span>__init__(self)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setWindowTitle(<span style="color:#e6db74">&#39;MainWindow&#39;</span>)
+</span></span><span style="display:flex;"><span>        box <span style="color:#f92672">=</span> QGroupBox()
+</span></span><span style="display:flex;"><span>        layout <span style="color:#f92672">=</span> QGridLayout()
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(ControlBox(), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        vtk_interactor <span style="color:#f92672">=</span> QVTKRenderWindowInteractor()
+</span></span><span style="display:flex;"><span>        vtk_interactor<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>        vtk_interactor<span style="color:#f92672">.</span>Initialize()
+</span></span><span style="display:flex;"><span>        vtk_interactor<span style="color:#f92672">.</span>Start()
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(vtk_interactor, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        box<span style="color:#f92672">.</span>setLayout(layout)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(box)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/8.png" alt="8" style="zoom: 50%;" />
+
+
+<h2 class="relative group">组件交互 
+    <div id="%E7%BB%84%E4%BB%B6%E4%BA%A4%E4%BA%92" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BB%84%E4%BB%B6%E4%BA%A4%E4%BA%92" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>在这个简单的应用中，有三个组件在交互：前端的控制组件ControlBox、可视化窗口VisualizationWindow，后端的可视化管线VisualizationPipeline。</p>
+<p>在交互过程中，用户可以看到的，是左侧的ControlBox和右侧的VisualizationWindow，而真正进行一系列渲染操作的，是后端的可视化管线VisualizationPipeline。</p>
+<p>在这里，我们通过PyQt5的信号与槽机制，来实现三个组件之间的交互。</p>
+
+
+<h3 class="relative group">选择文件并可视化 
+    <div id="%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E5%8F%AF%E8%A7%86%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E5%8F%AF%E8%A7%86%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SelectButton</span>(QPushButton):
+</span></span><span style="display:flex;"><span>    filename <span style="color:#f92672">=</span> pyqtSignal(str)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, name):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(name)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>clicked<span style="color:#f92672">.</span>connect(self<span style="color:#f92672">.</span>select_file)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">select_file</span>(self):  <span style="color:#75715e"># 选择图像文件</span>
+</span></span><span style="display:flex;"><span>        filename <span style="color:#f92672">=</span> QFileDialog<span style="color:#f92672">.</span>getOpenFileName(
+</span></span><span style="display:flex;"><span>            self, <span style="color:#e6db74">&#39;Open file&#39;</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>filename<span style="color:#f92672">.</span>emit(filename)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ControlBox</span>(QGroupBox):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        layout <span style="color:#f92672">=</span> QGridLayout()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setLayout(layout)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;FIle&#34;</span>), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        filename <span style="color:#f92672">=</span> QLabel(<span style="color:#e6db74">&#34;------&#34;</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(filename, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>select_button <span style="color:#f92672">=</span> SelectButton(<span style="color:#e6db74">&#34;Select File&#34;</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(self<span style="color:#f92672">.</span>select_button, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;axial&#34;</span>), <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>axis_slider <span style="color:#f92672">=</span> Slider(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">54</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(self<span style="color:#f92672">.</span>axis_slider, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;coronal&#34;</span>), <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>coronal_slider <span style="color:#f92672">=</span> Slider(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">511</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(self<span style="color:#f92672">.</span>coronal_slider, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;saggital&#34;</span>), <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>saggital_slider <span style="color:#f92672">=</span> Slider(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">511</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(self<span style="color:#f92672">.</span>saggital_slider, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>select_button<span style="color:#f92672">.</span>filename<span style="color:#f92672">.</span>connect(
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">lambda</span> path: filename<span style="color:#f92672">.</span>setText(path<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;/&#39;</span>)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VisualizationPipeline</span>(QWidget):
+</span></span><span style="display:flex;"><span>    render <span style="color:#f92672">=</span> pyqtSignal(int)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        reader <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkNIFTIImageReader()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>reader <span style="color:#f92672">=</span> reader
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        lut <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkLookupTable()
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>SetTableRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">255</span>)
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>SetSaturationRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>SetHueRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>SetValueRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>Build()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        color_mapper <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkImageMapToColors()
+</span></span><span style="display:flex;"><span>        color_mapper<span style="color:#f92672">.</span>SetInputConnection(reader<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>        color_mapper<span style="color:#f92672">.</span>SetLookupTable(lut)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>color_mapper <span style="color:#f92672">=</span> color_mapper
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        actor <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkImageActor()
+</span></span><span style="display:flex;"><span>        actor<span style="color:#f92672">.</span>GetMapper()<span style="color:#f92672">.</span>SetInputConnection(color_mapper<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>actor <span style="color:#f92672">=</span> actor
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_filename</span>(self, filename):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>reader<span style="color:#f92672">.</span>SetFileName(filename)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>reader<span style="color:#f92672">.</span>Update()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>color_mapper<span style="color:#f92672">.</span>Update()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VisualizationWindow</span>(QVTKRenderWindowInteractor):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>view <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>render_window <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>GetRenderWindow()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>renderer <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkRenderer()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>render_window<span style="color:#f92672">.</span>AddRenderer(self<span style="color:#f92672">.</span>renderer)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>SetInteractorStyle(vtk<span style="color:#f92672">.</span>vtkInteractorStyleTrackballCamera())
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>Initialize()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>Start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_actor</span>(self, actor):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>AddActor(actor)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>set_view(self<span style="color:#f92672">.</span>view)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_view</span>(self, view):  <span style="color:#75715e"># 根据view信号，设置相机vtkCamera的位置和角度</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>view <span style="color:#f92672">=</span> view
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>ResetCamera()
+</span></span><span style="display:flex;"><span>        fp <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>GetFocalPoint()
+</span></span><span style="display:flex;"><span>        p <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>GetPosition()
+</span></span><span style="display:flex;"><span>        dist <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt((p[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> fp[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (p[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> fp[<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>                         <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (p[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">-</span> fp[<span style="color:#ae81ff">2</span>]) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>view <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>SetPosition(
+</span></span><span style="display:flex;"><span>                fp[<span style="color:#ae81ff">0</span>], fp[<span style="color:#ae81ff">1</span>], fp[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> dist)
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>SetViewUp(<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> self<span style="color:#f92672">.</span>view <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>SetPosition(
+</span></span><span style="display:flex;"><span>                fp[<span style="color:#ae81ff">0</span>], fp[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> dist, fp[<span style="color:#ae81ff">2</span>])
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>SetViewUp(<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1.0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> self<span style="color:#f92672">.</span>view <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>SetPosition(
+</span></span><span style="display:flex;"><span>                fp[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> dist, fp[<span style="color:#ae81ff">1</span>], fp[<span style="color:#ae81ff">2</span>])
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>SetViewUp(<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1.0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>Zoom(<span style="color:#ae81ff">1.8</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>render_window<span style="color:#f92672">.</span>Render()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainWindow</span>(QMainWindow, QApplication):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, app):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>app <span style="color:#f92672">=</span> app
+</span></span><span style="display:flex;"><span>        QMainWindow<span style="color:#f92672">.</span>__init__(self)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setWindowTitle(<span style="color:#e6db74">&#39;MainWindow&#39;</span>)
+</span></span><span style="display:flex;"><span>        box <span style="color:#f92672">=</span> QGroupBox()
+</span></span><span style="display:flex;"><span>        layout <span style="color:#f92672">=</span> QGridLayout()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>control_box <span style="color:#f92672">=</span> ControlBox()
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(self<span style="color:#f92672">.</span>control_box, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>vtk_pipeline <span style="color:#f92672">=</span> VisualizationPipeline()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>visualization_window <span style="color:#f92672">=</span> VisualizationWindow()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>control_box<span style="color:#f92672">.</span>select_button<span style="color:#f92672">.</span>filename<span style="color:#f92672">.</span>connect(
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>vtk_pipeline<span style="color:#f92672">.</span>set_filename)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>control_box<span style="color:#f92672">.</span>select_button<span style="color:#f92672">.</span>filename<span style="color:#f92672">.</span>connect(
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">lambda</span>: self<span style="color:#f92672">.</span>visualization_window<span style="color:#f92672">.</span>add_actor(self<span style="color:#f92672">.</span>vtk_pipeline<span style="color:#f92672">.</span>actor))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>vtk_pipeline<span style="color:#f92672">.</span>render<span style="color:#f92672">.</span>connect(self<span style="color:#f92672">.</span>visualization_window<span style="color:#f92672">.</span>set_view)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(self<span style="color:#f92672">.</span>visualization_window, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        box<span style="color:#f92672">.</span>setLayout(layout)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(box)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/8.png" style="zoom:50%;" />
+
+
+<h3 class="relative group">通过滑动条，控制2D切片在3D图像中对应的范围 
+    <div id="%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E6%9D%A1%E6%8E%A7%E5%88%B62d%E5%88%87%E7%89%87%E5%9C%A83d%E5%9B%BE%E5%83%8F%E4%B8%AD%E5%AF%B9%E5%BA%94%E7%9A%84%E8%8C%83%E5%9B%B4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%9A%E8%BF%87%E6%BB%91%E5%8A%A8%E6%9D%A1%E6%8E%A7%E5%88%B62d%E5%88%87%E7%89%87%E5%9C%A83d%E5%9B%BE%E5%83%8F%E4%B8%AD%E5%AF%B9%E5%BA%94%E7%9A%84%E8%8C%83%E5%9B%B4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Slider</span>(QSlider):
+</span></span><span style="display:flex;"><span>    pos <span style="color:#f92672">=</span> pyqtSignal(int)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, min, max, orientation<span style="color:#f92672">=</span>Qt<span style="color:#f92672">.</span>Horizontal):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(orientation)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>valueChanged<span style="color:#f92672">.</span>connect(self<span style="color:#f92672">.</span>value_changed)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setMinimum(min)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setMaximum(max)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">value_changed</span>(self):
+</span></span><span style="display:flex;"><span>        pos <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>value()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>pos<span style="color:#f92672">.</span>emit(pos)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpinBox</span>(QDoubleSpinBox):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, min_value, max_value, step, default_value, value_changed_func<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setMaximum(max_value)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setMinimum(min_value)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setSingleStep(step)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setValue(default_value)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> value_changed_func:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>valueChanged<span style="color:#f92672">.</span>connect(value_changed_func)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VisualizationPipeline</span>(QWidget):
+</span></span><span style="display:flex;"><span>    render <span style="color:#f92672">=</span> pyqtSignal(int)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        reader <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkNIFTIImageReader()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>reader <span style="color:#f92672">=</span> reader
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        lut <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkLookupTable()
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>SetTableRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">255</span>)
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>SetSaturationRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>SetHueRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>SetValueRange(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        lut<span style="color:#f92672">.</span>Build()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        color_mapper <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkImageMapToColors()
+</span></span><span style="display:flex;"><span>        color_mapper<span style="color:#f92672">.</span>SetInputConnection(reader<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>        color_mapper<span style="color:#f92672">.</span>SetLookupTable(lut)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>color_mapper <span style="color:#f92672">=</span> color_mapper
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        actor <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkImageActor()
+</span></span><span style="display:flex;"><span>        actor<span style="color:#f92672">.</span>GetMapper()<span style="color:#f92672">.</span>SetInputConnection(color_mapper<span style="color:#f92672">.</span>GetOutputPort())
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>actor <span style="color:#f92672">=</span> actor
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># print(self.actor)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_filename</span>(self, filename):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>reader<span style="color:#f92672">.</span>SetFileName(filename)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>reader<span style="color:#f92672">.</span>Update()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>color_mapper<span style="color:#f92672">.</span>Update()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_slice_range</span>(self, axis, pos):  <span style="color:#75715e"># 修改Slice的显示范围</span>
+</span></span><span style="display:flex;"><span>        x0, x1, y0, y1, z0, z1 <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>reader<span style="color:#f92672">.</span>GetDataExtent()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> axis <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>actor<span style="color:#f92672">.</span>SetDisplayExtent(x0, x1, y0, y1, pos, pos)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> axis <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>actor<span style="color:#f92672">.</span>SetDisplayExtent(x0, x1, pos, pos, z0, z1)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> axis <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>actor<span style="color:#f92672">.</span>SetDisplayExtent(pos, pos, y0, y1, z0, z1)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>render<span style="color:#f92672">.</span>emit(axis)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VisualizationWindow</span>(QVTKRenderWindowInteractor):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>view <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>render_window <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>GetRenderWindow()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>renderer <span style="color:#f92672">=</span> vtk<span style="color:#f92672">.</span>vtkRenderer()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>render_window<span style="color:#f92672">.</span>AddRenderer(self<span style="color:#f92672">.</span>renderer)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>SetInteractorStyle(vtk<span style="color:#f92672">.</span>vtkInteractorStyleTrackballCamera())
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>Initialize()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>Start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_actor</span>(self, actor):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>AddActor(actor)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>set_view(self<span style="color:#f92672">.</span>view)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_view</span>(self, view):  <span style="color:#75715e"># 根据view信号，设置相机vtkCamera的位置和角度</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>view <span style="color:#f92672">=</span> view
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>ResetCamera()
+</span></span><span style="display:flex;"><span>        fp <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>GetFocalPoint()
+</span></span><span style="display:flex;"><span>        p <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>GetPosition()
+</span></span><span style="display:flex;"><span>        dist <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt((p[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> fp[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (p[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> fp[<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>                         <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (p[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">-</span> fp[<span style="color:#ae81ff">2</span>]) <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>view <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>SetPosition(
+</span></span><span style="display:flex;"><span>                fp[<span style="color:#ae81ff">0</span>], fp[<span style="color:#ae81ff">1</span>], fp[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> dist)
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>SetViewUp(<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> self<span style="color:#f92672">.</span>view <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>SetPosition(
+</span></span><span style="display:flex;"><span>                fp[<span style="color:#ae81ff">0</span>], fp[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> dist, fp[<span style="color:#ae81ff">2</span>])
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>SetViewUp(<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1.0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> self<span style="color:#f92672">.</span>view <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>SetPosition(
+</span></span><span style="display:flex;"><span>                fp[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> dist, fp[<span style="color:#ae81ff">1</span>], fp[<span style="color:#ae81ff">2</span>])
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>SetViewUp(<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1.0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>renderer<span style="color:#f92672">.</span>GetActiveCamera()<span style="color:#f92672">.</span>Zoom(<span style="color:#ae81ff">1.8</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>render_window<span style="color:#f92672">.</span>Render()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ControlBox</span>(QGroupBox):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__()
+</span></span><span style="display:flex;"><span>        layout <span style="color:#f92672">=</span> QGridLayout()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setLayout(layout)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;FIle&#34;</span>), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>select_button <span style="color:#f92672">=</span> SelectButton(<span style="color:#e6db74">&#34;Select File&#34;</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(self<span style="color:#f92672">.</span>select_button, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;axial&#34;</span>), <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>axis_slider <span style="color:#f92672">=</span> Slider(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">54</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(self<span style="color:#f92672">.</span>axis_slider, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;coronal&#34;</span>), <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>coronal_slider <span style="color:#f92672">=</span> Slider(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">511</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(self<span style="color:#f92672">.</span>coronal_slider, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(QLabel(<span style="color:#e6db74">&#34;saggital&#34;</span>), <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>saggital_slider <span style="color:#f92672">=</span> Slider(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">511</span>)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(self<span style="color:#f92672">.</span>saggital_slider, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainWindow</span>(QMainWindow, QApplication):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, app):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>app <span style="color:#f92672">=</span> app
+</span></span><span style="display:flex;"><span>        QMainWindow<span style="color:#f92672">.</span>__init__(self)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setWindowTitle(<span style="color:#e6db74">&#39;MainWindow&#39;</span>)
+</span></span><span style="display:flex;"><span>        box <span style="color:#f92672">=</span> QGroupBox()
+</span></span><span style="display:flex;"><span>        layout <span style="color:#f92672">=</span> QGridLayout()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>control_box <span style="color:#f92672">=</span> ControlBox()
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(self<span style="color:#f92672">.</span>control_box, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>vtk_pipeline <span style="color:#f92672">=</span> VisualizationPipeline()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>visualization_window <span style="color:#f92672">=</span> VisualizationWindow()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>control_box<span style="color:#f92672">.</span>select_button<span style="color:#f92672">.</span>filename<span style="color:#f92672">.</span>connect(
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>vtk_pipeline<span style="color:#f92672">.</span>set_filename)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>control_box<span style="color:#f92672">.</span>select_button<span style="color:#f92672">.</span>filename<span style="color:#f92672">.</span>connect(
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">lambda</span>: self<span style="color:#f92672">.</span>visualization_window<span style="color:#f92672">.</span>add_actor(self<span style="color:#f92672">.</span>vtk_pipeline<span style="color:#f92672">.</span>actor))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>control_box<span style="color:#f92672">.</span>axis_slider<span style="color:#f92672">.</span>pos<span style="color:#f92672">.</span>connect(
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">lambda</span> pos: self<span style="color:#f92672">.</span>vtk_pipeline<span style="color:#f92672">.</span>set_slice_range(<span style="color:#ae81ff">0</span>, pos))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>control_box<span style="color:#f92672">.</span>coronal_slider<span style="color:#f92672">.</span>pos<span style="color:#f92672">.</span>connect(
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">lambda</span> pos: self<span style="color:#f92672">.</span>vtk_pipeline<span style="color:#f92672">.</span>set_slice_range(<span style="color:#ae81ff">1</span>, pos))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>control_box<span style="color:#f92672">.</span>saggital_slider<span style="color:#f92672">.</span>pos<span style="color:#f92672">.</span>connect(
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">lambda</span> pos: self<span style="color:#f92672">.</span>vtk_pipeline<span style="color:#f92672">.</span>set_slice_range(<span style="color:#ae81ff">2</span>, pos))
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>vtk_pipeline<span style="color:#f92672">.</span>render<span style="color:#f92672">.</span>connect(self<span style="color:#f92672">.</span>visualization_window<span style="color:#f92672">.</span>set_view)
+</span></span><span style="display:flex;"><span>        layout<span style="color:#f92672">.</span>addWidget(self<span style="color:#f92672">.</span>visualization_window, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>        box<span style="color:#f92672">.</span>setLayout(layout)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>setCentralWidget(box)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/10.png" alt="10" style="zoom:50%;" />
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+      <script>
+        var oid = "views_software\/visualization.md"
+        var oid_likes = "likes_software\/visualization.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/software/latex/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Latex</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Xu Zhang
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://xuzhang0112.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

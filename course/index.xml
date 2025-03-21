@@ -1,55 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Xu Zhang&#39;s Blog</title>
-    <link>https://xuzhang0112.github.io/</link>
-    <description>Recent content on Xu Zhang&#39;s Blog</description>
+    <title>Course on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/course/</link>
+    <description>Recent content in Course on Xu Zhang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Xu Zhang</copyright>
-    <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CheatSheet</title>
-      <link>https://xuzhang0112.github.io/software/cheatsheet/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/software/cheatsheet/</guid>
-      <description>Shell # Shell是用户和操作系统之间的媒介，它提供了丰富的接口，以帮助用户使用操作系统。
-Shell命令的基本格式是“命令+参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。
-命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用
-pwd sh *.sh python main.py 当连续执行多条命令时，如果用&amp;quot;&amp;amp;&amp;amp;&amp;ldquo;连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行
-配置默认启动脚本 # 用户使用终端登录Linux服务器时，通常只会默认执行~/.bash_profile.sh，而conda的自启动一般写在~/.bashrc中，所以一般会在~/.bash_profile.sh同时运行~/.bashrc
-if [ -f ~/.bashrc ]; then source ~/.bashrc fi 每当重新打开一个新的终端时，则会执行~/.bashrc
-conda自启动
-# &amp;gt;&amp;gt;&amp;gt; conda init &amp;gt;&amp;gt;&amp;gt; # !! Contents within this block are managed by &amp;#39;conda init&amp;#39; !! __conda_setup=&amp;#34;$(CONDA_REPORT_ERRORS=false &amp;#39;/data/shaozhisun/anaconda3/bin/conda&amp;#39; shell.bash hook 2&amp;gt; /dev/null)&amp;#34; if [ $? -eq 0 ]; then \eval &amp;#34;$__conda_setup&amp;#34; else if [ -f &amp;#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&amp;#34; ]; then . &amp;#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&amp;#34; CONDA_CHANGEPS1=false conda activate base else export PATH=&amp;#34;/data/shaozhisun/anaconda3/bin:$PATH&amp;#34; fi fi unset __conda_setup Shell脚本 # 尽管Linux系统中已经实现了大量的Shell脚本供用户调用，但有些时候我们仍然需要自己编写Shell脚本，以实现定制化的需求。</description>
-      
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://xuzhang0112.github.io/software/python/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/software/python/</guid>
-      <description>Data Processing # Jupter Notebook # 在cell中执行shell
-!pwd #单条shell命令 %%bash #整个cell作为shell脚本 模块自动重载，否则每次修改需要重启kernel
-%load_ext autoreload %autoreload 2 #每执行一个cell都会重载所有模块 Pandas # 菜鸟教程yyds
-创建Dataframe # # 从外部读取 read_csv() read_excel() # 创建空的DataFrame Dataframe(columns=[column_name1, column_name2]) # 根据可迭代对象创建DataFrame Dataframe([{column1:a,column2:b},{}]) # 每个元素是一个Dict，表示一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[&amp;#39;c1&amp;#39;,&amp;#39;c2&amp;#39;]) # 每个元素是一个List，代表一行 # 根据Dict创建DataFrame Dataframe.from_dict({column1:[...],column2:[...]}) #字典的key表示某一列 Dataframe.from_dict({index1:[c1,c2,c3], index2:[c1,c2,c3], ...}) #字典的key表示某一行的索引 添加新的行/列 # # 创建新的列 df[new_column] = constant / df[a]+df[b] / df[a].apply(func) # 老版本的写法 df.loc[:,c] = df[a] + df[b] # 更建议的写法 # 创建新的行 df.loc[len(df)] = Series({column1=x,column2=y,.</description>
-      
-    </item>
-    
-    <item>
-      <title>Medical NLP</title>
-      <link>https://xuzhang0112.github.io/research/med_nlp/</link>
-      <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/research/med_nlp/</guid>
-      <description>SOTA # ICD coding # 某篇ACL里提到，在该数据集上BERT不如LSTM，这下直接回到1997了
-Model Innovation miF1 miAUC CAML NAACL 2018 开山之作，Baseline，CNN+Label Attention 53.9 98.6 LAAT IJCAI 2020 LSTM; 用attention计算不同层级的标签表示；上一级的得分被拼接到下一级用于预测； 57.5 98.8 RAC MLHC 2021 Convolved embdding+self attention编码文本，然后与code attention交互（最接近BERT的一个工作） EffectiveCAN EMNLP 2021 CNN+多尺度+label attention 58.9 98.8 MSMN ACL 2022 short LSTM；在计算Label attention时，考虑了Label的多个同义词，以更好地捕获Label-wise上下文。 58.4 99.2 [Hierarchical BERT]( 2204.09600 (arxiv.org)) Arxiv 2022 先用BERT得到句子级别的表示，然后用Transformer得到整篇文档级别的表示 57.6 MSMN+ KEPTLongformer EMNLP 2022 首先用UMLS上的同义词对Clinical Longformer进行对比学习预训练（先进行完形填空），来获得一个知识注入的文本编码器；将label描述和文本共同输入Longformer，以进行充分的交互，但由于计算量过大，所以需要先用别的方法产生一个初始的分类结果。
-Longformer相比BERT可以接受更长的上下文。 59.9 Text2Tree EMNLP 2023 HCDD Arxiv 2024 层次结构+对比学习 [MRR]( 2405.</description>
-      
-    </item>
-    
+    <lastBuildDate>Fri, 28 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/course/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Biomed</title>
       <link>https://xuzhang0112.github.io/course/biomed/</link>
@@ -69,20 +27,6 @@ Longformer相比BERT可以接受更长的上下文。 59.9 Text2Tree EMNLP 2023 
 氨基酸的排列顺序称为蛋白质的一级结构，一级结构决定高级结构 弱相互作用是生物大分子高级结构形成的基础，包括氢键，静电和疏水互作等 主链氨基酸之间形成稳定的氢键，使蛋白质形成二级结构 主链和侧链氨基酸间的多种弱相互作用，使得蛋白质进一步形成三级结构 疏水的氨基酸互作形成疏水核心，亲水的氨基酸形成亲水表层，使得蛋白质在水溶液中折叠 侧链的大小，极性，带电性质等使得蛋白质折叠后的表面具备相互作用或者酶反应口袋， 促使其具备生物学功能 蛋白质的多条肽链之间相互作用，使蛋白质形成四级结构 蛋白质通过一级，二级，三级和四级结构的层次折叠，形成高级构象。 酶
 酶是在生物体内起催化剂作用的蛋白质或RNA。 酶以有序的顺序作用，催化数以百计的逐步反应，降解营养分子，保存和转化化学能，并能从简单的前体合成生物大分子 酶具有非凡的催化能力，通常远远大于合成或无机催化剂 酶对底物具有高度的专一性，能极大地促进化学反应 在温度和pH非常温和的条件下在水溶液中发挥作用，很少有非生物催化剂具有这些性质 酶的活性中心
 酶的活性中心含有催化残基和结合残基 活性中心是三维的并且有裂隙 由多种弱相互作用来实现与底物的结合 特异性结合依赖活性中心的结构 参与结合底物或催化反应的基团有时被称为酶的活性位点；活性位点只占酶的极少的部位 核酸 # 核酸是由多个核苷酸缩合而成的生物大分子</description>
-      
-    </item>
-    
-    <item>
-      <title>Medical Image Computing</title>
-      <link>https://xuzhang0112.github.io/research/med_img/</link>
-      <pubDate>Fri, 28 Jun 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/research/med_img/</guid>
-      <description>CT Reconstruction # Analytical CT reconstruction # Radon Transform
-数学形式化描述
-$$ p(s,\theta)=\int^\infty_{-\infty}\int^\infty_{-\infty}f(x,y)\delta(xcos\theta+ysin\theta-s)dxdy $$
-$s,\theta$确定时，相当于仅在直线$xcos\theta+ysin\theta-s=$上作积分 代码实现
-from skimage.transform import warp theta = np.arange(180) # pad padded_image = np.pad(image, pad_width, mode=&amp;#39;constant&amp;#39;, constant_values=0) center = padded_image.shape[0] // 2 # 旋转+投影 radon_image = np.zeros((padded_image.shape[0], len(theta)), dtype=image.dtype) for i, angle in enumerate(np.deg2rad(theta)): cos_a, sin_a = np.cos(angle), np.sin(angle) R = np.array([[cos_a, sin_a, -center * (cos_a + sin_a - 1)], [-sin_a, cos_a, -center * (cos_a - sin_a - 1)], [0, 0, 1]]) rotated = warp(padded_image, R, clip=False) radon_image[:, i] = rotated.</description>
       
     </item>
     
@@ -121,68 +65,6 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器+阶跃函数
 常用的梯度下降法有：批量梯度法（BGD）、随机梯度法（SGD）、小批次梯度法（MBGD），分别对应整个数据集、单个样本、一小批样本进行梯度的计算。
 最小平方和，LMSE # 如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。
 如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为 $$ J(w)=||Xw-b||^2 $$ 相应的梯度为 $$ \nabla J(w)=\nabla ||Xw-b||^2 = 2X^T(Xw-b) $$ 相应的更新方式为 $$ w_{k+1}=w_k+\rho_{k+1}X^T(Xw+b) $$ 但是，上述方法需要给定松弛变量，事实上，松弛变量也可以在优化中求解，即H-K算法。 $$ b_{k+1}=b_k-\eta_{k+1}\nabla J(w(k))|b $$</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://xuzhang0112.github.io/cv/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/cv/</guid>
-      <description>About Me # I am a PhD student of the University of Science and Technology of China ( USTC) supervised by Prof. S. Kevin Zhou. And I focus on Medical Image Processing, Medical Language Processing and Medical Multimodal Processing. I received my bachelor’s degree from Soochow University ( SCU) in 2023. My bachelor’s tutor is Prof. Dehui Xiang.</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://xuzhang0112.github.io/research/ai4research/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/research/ai4research/</guid>
-      <description>AI Research
-SurveyX</description>
-      
-    </item>
-    
-    <item>
-      <title>Deep Learning</title>
-      <link>https://xuzhang0112.github.io/research/basic_knowledge/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/research/basic_knowledge/</guid>
-      <description>Arcitecture # 所有类型的神经网络都可以看成是线性变换+交互。线性变换是不变的，即对每一个像素/token/节点的特征向量进行相同的Linear+Activation；交互则取决于具体的任务：CNN的交互是相邻的像素点加权平均，RNN的交互是下一个token依赖上一个token，Transformer的交互是token与token之间的注意力加权平均，GNN的交互是一阶邻域内节点的加权平均。大部分模型结构层面的优化也是根据任务场景来设计新的交互方式。
-CNN # Series Model Time Consumption UNet UNet 2014 跳跃连接，精细分割 RCNN RCNN 2013 用CNN做Dectection，再用CNN做Classification 40-50s Fast-RCNN 2015 使用同一个CNN计算bounding box和Label 2s Faster-RCNN 2015 去除了Selective Search 0.2s Mask-RCNN 支持Instance Segmentation YOLO Yolo v1 2015 用回归问题统一了Bounding Box的坐标预测和类别预测 Yolo v2 2016 支持不同输入尺寸 Yolo v3 2018 支持多标签；引入多尺度； Yolo v4, v5, v6 2020 2021 Yolo v6, v7 2022 Yolo v8 2023 RNN # 感觉已经G了，不想写了，随便写点吧
-Model RNN t时刻的输出与t时刻的输入和t-1时刻的隐状态有关 LSTM 设置遗忘门、输入门和输出门，输出是记忆和输入的加权和，以达到选择性遗忘和选择性输入的目的。 Mamba 一文通透想颠覆Transformer的Mamba：从SSM、HiPPO、S4到Mamba Transformer # 注意力机制：计算每个向量（Q）与其他向量（K, V）的相关性，用加权和取代原来的向量</description>
-      
-    </item>
-    
-    <item>
-      <title>KG for LLM</title>
-      <link>https://xuzhang0112.github.io/research/kg4llm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/research/kg4llm/</guid>
-      <description>Introduction &amp;amp; Background # LLM和KG各有利弊：LLM富含通用知识、擅长语言处理、具有泛化性；KG具有结构化的精确知识，可解释性强，知识专业性强，可演化；
-LLM # Encoder-only、Decoder-only、Encoder-Decoder的LLM发展路线图
-Encoder和Decoder之间的异同，以及Self-Attention的内部结构
-KG # 各种类型的KG，包括百科全书、常识、领域知识和多模态的知识图谱
-LLM与KG的结合 # LLM和KG交互的3种方式：KG增强LLM，LLM增强KG，两者协同
-目前LLM和KG的结合应用较少，知名的有ERNIE3.0、Bard和Doctor.ai
-重点在于如何将LLM与KG结合，一些可能的技术手段有Prompt工程、GNN、神经符号推理、表征学习、上下文学习、少样本学习。
-KG-ENHANCED LLMS # KG-enhanced LLM Pre-training # Integrating KGs into Training Objective # 增强KG实体 # Method GLM 基于KG来计算mask概率，n-hop的实体被赋予更高的mask概率 E-BERT 基于token和entity的loss大小来动态调整各自的权重 SKEP 基于PMI来挖掘表达情感倾向的词语，然后赋予这些词语更高的概率 利用KG和文本之间的连接 # Method ERNIE 对齐文本token和KG实体 KALM 整合实体嵌入，预测实体 KEPLER 同时训练KG嵌入和Mask token预测 Deterministic LLM 遮盖事实性关系的决定性token，并设置相应的预测任务和对比任务 WKLM 替换同类型的实体，让LLM鉴别是否被替换 ERNIE：将对齐文本和KG作为训练目标
-Integrating KGs into LLM Inputs # Method ERNIE3.0 将KG三元组与句子拼接，同时预测masked token和三元组中的relation；会引入Knowledge Noise K-BERT 引入visible matrix，仅句子中的实体token与三元组有交互 COLAKE 将输入token建立成子图，从而拼接相应的KG子图 DkLLM 检测长尾实体，用pseudo token替代 Dict-BERT 将长尾实体用字典中的定义描述替换，并将长尾概念与描述对齐 Colake：输入文本子图拼接KG子图</description>
-      
-    </item>
-    
-    <item>
-      <title>Latex</title>
-      <link>https://xuzhang0112.github.io/software/latex/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/software/latex/</guid>
-      <description> 图表 # figure*,table*表示双栏
-公式 # ALphabet # 大写 小写 Α α Alpha Β β Beta Γ γ Gamma Δ δ Delte Ε ε Epsilon Ζ ζ zeta Ε η Eta Θ θ Theta Ι ι Iota Κ κ Kappa ∧ λ Lambda Μ μ Mu Ν ν Nu Ξ ξ Xi Ο ο Omicron ∏ π Pi Ρ ρ Rho ∑ σ Sigma Τ τ Tau Υ υ Upsilon Φ φ Phi Χ χ Chi Ψ ψ Psi Ω ω Omega </description>
       
     </item>
     
@@ -232,23 +114,6 @@ CR分解：寻找PAQ满足标准形，然后将标准形拆成两个矩阵的乘
 诱导范数：线性变换对向量的最大伸缩比例；
 条件数：最大奇异值和最小奇异值的比值；反映了Ax=b的解空间对b的扰动的稳定性；
 Key # 1.</description>
-      
-    </item>
-    
-    <item>
-      <title>Medical Multimodal</title>
-      <link>https://xuzhang0112.github.io/research/med_mm/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/research/med_mm/</guid>
-      <description>Dataset # MIMIC-CXR # 377,110 images, 227,835 reports
-NIH-CXR # 112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases
-The labels are expected to be &amp;gt;90% accurate and suitable for weakly-supervised learning
-CheXpert # 224,316 images of 65,240 patients, labels of 14 diseases: positive, negative, uncertain
-Train: all labeled by CheXpert Labeler
-Validation: 200, labeled by experts
-Test: 500, labeled by experts
-PadChest # 160,000+ images from 67,000 patients, from 2009 to 2017 reports labeled with 174 different radiographic findings, 19 differential diagnoses and 104 anatomic locations 27% were manually annotated and the remaining set was labeled by RNN (0.</description>
       
     </item>
     
@@ -303,16 +168,6 @@ Object/Phenomenon &amp;amp; Origin (Why) &amp;amp; Feature (Why) &amp;amp; Relat
 详略得当地扫一遍（一段话最好全看）+有意识的分层（每层用关键词概括，确保看懂）
 首尾句 观点句：跳过例子，找观点（人名/地名/数字等都不重要，简写即可） 逻辑关系 转折：but/ yet/ however/ nevertheless/ nonetheless/ rather/ on the other hand 递进：furthermore/ moreover/ above all 强调：chiefly/ mainly/ in a large part/ basically/ fundamentally/ more specifically 并列：also/ Along with &amp;hellip; is &amp;hellip;（重要的过渡句，暗示分层） 单句话抓主干：主系表，主谓宾，去修饰 系动词：be/ seem/ look/ get/ feel/ become/ appear/ symbolize/ represent/ refer to
 情感态度词： love/ like / care/ distaste</description>
-      
-    </item>
-    
-    <item>
-      <title>Visualization</title>
-      <link>https://xuzhang0112.github.io/software/visualization/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/software/visualization/</guid>
-      <description>基于PyQt5的应用开发 # 最简单的应用程序=应用进程+窗口组件 # import PyQt5.QtWidgets as QtWidgets import sys class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&amp;#39;Demo&amp;#39;) self.show() if __name__ == &amp;#34;__main__&amp;#34;: # 创建应用程序进程 app = QtWidgets.QApplication(sys.argv) # 创建主窗口 window = MainWindow(app) # 主程序开始运行 app.exec_() 在主窗口中添加组件 # 添加单个组件 # class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&amp;#39;MainWindow&amp;#39;) self.setCentralWidget(QtWidgets.QPushButton(&amp;#34;Button&amp;#34;)) self.show() 添加多个组件 # from PyQt5.QtWidgets import ( QApplication, QMainWindow, QPushButton, QSlider, QLabel, QCheckBox, QComboBox, QSpinBox, QDoubleSpinBox, QGroupBox, QGridLayout, QFileDialog) import sys from PyQt5.</description>
       
     </item>
     

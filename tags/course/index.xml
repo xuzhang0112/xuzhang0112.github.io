@@ -6,36 +6,14 @@
     <description>Recent content in Course on Xu Zhang&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2024 Xu Zhang</copyright>
-    <lastBuildDate>Fri, 28 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/course/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Biomed</title>
-      <link>https://xuzhang0112.github.io/knowledge_base/course/biomed/</link>
-      <pubDate>Fri, 28 Jun 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/knowledge_base/course/biomed/</guid>
-      <description>结构生物化学 # 生物大分子 # 生命体的元素组成和化学组成 # 生命体的元素组成 ：C、H、O和N四种元素，是组成生命体最基本的元素，约占了生物体总质量的99%以上
-生物体的化学组成：水、无机物及有机小分子、生物大分子
-生物大分子的组成 # 生物分子/构件分子 生物大分子 氨基酸 蛋白质 核苷酸 核酸 单糖 多糖 脂肪酸 脂类 生物大分子的构成 # 具有固定结构的单体亚基通过具备有限柔性的共价键连成一体，在非共价相互作用的帮助下形成特定的三维结构，其结构决定了每个大分子的具体功能
-生物大分子三维结构形成的关键作用力 # 弱相互作用是生物大分子高级结构，相互作用和功能的基础。
-弱相互作用包括：氢键，静电互作，疏水互作和范德华互作
-蛋白质 # 蛋白质是由许多氨基酸通过肽键相连形成的大分子含氮化合物。
-蛋白质结构 一级结构 氨基酸排列顺序 每个位置有20种氨基酸的选择，20n次方的序列多样性决定了其功能的多样性
-一级结构决定高级结构 二级结构 多肽链主链原子的局部空间排布，不包括侧链的构象 α－螺旋、β－折叠、β－转角和无规卷曲四种 三级结构 一条多肽链的三维结构 具备三级结构的蛋白质一般都是球蛋白
-球蛋白的疏水性氨基酸大多埋藏在分子内部，形成一个致密的疏水核，这对稳定蛋白质的构象有十分重要的作用
-亲水性氨基酸侧链都分布在蛋白质的表面，它们与水接触并强烈水化，形成亲水的分子外壳，从而使球蛋白可溶于水 按照自己的理解阐述蛋白质如何从其一级结构折叠成具有特定的生物学功能的高级结构。
-氨基酸的排列顺序称为蛋白质的一级结构，一级结构决定高级结构 弱相互作用是生物大分子高级结构形成的基础，包括氢键，静电和疏水互作等 主链氨基酸之间形成稳定的氢键，使蛋白质形成二级结构 主链和侧链氨基酸间的多种弱相互作用，使得蛋白质进一步形成三级结构 疏水的氨基酸互作形成疏水核心，亲水的氨基酸形成亲水表层，使得蛋白质在水溶液中折叠 侧链的大小，极性，带电性质等使得蛋白质折叠后的表面具备相互作用或者酶反应口袋， 促使其具备生物学功能 蛋白质的多条肽链之间相互作用，使蛋白质形成四级结构 蛋白质通过一级，二级，三级和四级结构的层次折叠，形成高级构象。 酶
-酶是在生物体内起催化剂作用的蛋白质或RNA。 酶以有序的顺序作用，催化数以百计的逐步反应，降解营养分子，保存和转化化学能，并能从简单的前体合成生物大分子 酶具有非凡的催化能力，通常远远大于合成或无机催化剂 酶对底物具有高度的专一性，能极大地促进化学反应 在温度和pH非常温和的条件下在水溶液中发挥作用，很少有非生物催化剂具有这些性质 酶的活性中心
-酶的活性中心含有催化残基和结合残基 活性中心是三维的并且有裂隙 由多种弱相互作用来实现与底物的结合 特异性结合依赖活性中心的结构 参与结合底物或催化反应的基团有时被称为酶的活性位点；活性位点只占酶的极少的部位 核酸 # 核酸是由多个核苷酸缩合而成的生物大分子</description>
-      
-    </item>
-    
+    <copyright>© 2025 Xu Zhang</copyright>
+    <lastBuildDate>Fri, 14 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/course/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Matrix</title>
-      <link>https://xuzhang0112.github.io/knowledge_base/course/matrix/</link>
+      <link>https://xuzhang0112.github.io/course/matrix/</link>
       <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/knowledge_base/course/matrix/</guid>
+      <guid>https://xuzhang0112.github.io/course/matrix/</guid>
       <description>矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
 inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ Hardmard积、Kronnecker积和矩阵乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
 Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：
@@ -47,10 +25,10 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
     
     <item>
       <title>Pattern Recogniton</title>
-      <link>https://xuzhang0112.github.io/knowledge_base/course/pr/</link>
+      <link>https://xuzhang0112.github.io/course/pr/</link>
       <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/knowledge_base/course/pr/</guid>
+      <guid>https://xuzhang0112.github.io/course/pr/</guid>
       <description>相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别
 平均样本法 样本到每个类别的各样本平均值的距离 平均距离法 样本到每个类别的各个样本的距离的平均值 最近邻法 样本最近的样本 距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦
 线性分类器 # n维线性分类器可以表达为超平面$w^Tx+b=0$ 如果将样本X的第n+1维设为1，则超平面可以简化为$w^Tx=0$ 若样本集线性可分，则存在分类器使得所有样本满足$\begin{cases}w^Tx&amp;gt;0\quad if\ x\in w_1\newline w^Tx&amp;lt;0\quad if\ x\in w_2\end{cases}$
@@ -69,77 +47,11 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器+阶跃函数
     </item>
     
     <item>
-      <title>Linear Algebra</title>
-      <link>https://xuzhang0112.github.io/knowledge_base/course/algebra/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/knowledge_base/course/algebra/</guid>
-      <description>作业1 # 线性空间 # 数域：对加减乘除封闭
-常微分方程的通解：特征方程，指数函数
-线性空间：对加法&amp;amp;数乘封闭+8条
-基：线性无关+表出整个空间
-柯西不等式：根据内积半正定得到不等式，然后再根据结论构造；
-施密特正交化：范数由区间上的内积定义，而不是本身的模长；奇函数/偶函数在对称区间上积分的性质；减去在标准正交基上的分量+单位化；
-作业2 # 格拉姆矩阵：向量的内积；对角线上是范数的平方；注意非标准正交基的内积不为1；
-傅里叶变换 # 傅立叶变换：向量和不同正交基在酉空间上的内积结果；变换后的内积与原始内积的比值等于基向量的内积；
-帕萨瓦尔定理：时空域和频域的概率密度函数的范数相等；
-时域/频域概率密度函数的期望和方差：一阶矩和二阶矩，三角函数相关的微积分（三角恒等式，三角换元，点火公式考虑平方时的特殊情况pi/4）
-二维傅立叶变换：频域每一个点的基向量沿着二维空间的两个方向变化；而CT重建时是投影后再作一维傅立叶变换，本质上只有沿着一个方向变换的基向量，所以在频域只是过中心的直线（因为基向量只沿着一个方向变化，而不是两个）；
-作业3 # 子空间：对加法和数乘封闭+属于原线性空间；
-对角阵：对每一个基向量分别乘以一个系数（左乘变行/右乘变列，本质是分块矩阵乘法）
-若矩阵左乘对角阵和右乘对角阵相等，则该矩阵也是对角阵
-解空间的维度=n-系数矩阵的秩
-直和：和+线性无关；两个空间相等的充要条件是相互包含；
-相抵标准型：先行变换，再列变换；PAQ，行变换倒序，列变换正序；初等变换矩阵本质上还是对行和列的线性组合，可以视情况合并（例如所有列依次调换）；
-广义加号逆 # 已经掌握了流畅的推导！
-根据投影的正则方程$C^TAx=C^Tb$可得b在A的列空间的投影$\hat{b}=C(C^TC)C^Tb$
-同时最优最小二乘解$x^*$属于A的行空间，所以可以表达为$\bar{x}=A^Ty=R^T\bar{y}$
-进一步代入$CRR^Ty=C(C^TC)C^Tb$，解得$\bar{x}=R^T(RR^T)^{-1}(C^TC)^{-1}C^T$
-（关键在于凑可逆阵，行满秩乘以列满秩必可逆，即$C^TC和RR^T$可逆）
-CR分解：寻找PAQ满足标准形，然后将标准形拆成两个矩阵的乘积；本质是秩1矩阵的和；
-子空间的和：基向量的和；
-反证法：若a属于A空间+b不属于A空间,则a+b必不属于A空间（否则可以倒推出b属于A空间）
-作业4 # 二范数/四范数：最小值考虑one-hot（最小值为1）；最大值考虑柯西不等式（全1向量）；
-线性映射 # 线性变换：考虑基变换时，不同的基对应不同的矩阵；不同基下的线性变换矩阵公式$$B=P^{-1}AP$$其中P是A的基到B的基的过渡矩阵；到平凡基的过渡矩阵即现有基的逆矩阵；线性变换和矩阵同构，可以加法、数乘、乘法；
-不同特征值的特征向量线性无关：1.两个特征值，反证法，若线性相关，则属于相同的特征值；2.多个特征值，数学归纳法，若前i+1个特征值的特征向量线性相关则推出前i个特征值的特征向量线性相关；
-秩1矩阵的相似对角化：考虑非零特征值和零特征值的特征子空间，非零特征值取决于是否正交，零特征值的特征子空间维数是n-1
-核空间与象空间：核空间外的基经过线性变换后构成象空间（假设线性相关，则有核空间外的基的线性组合经过线性变换后落入核空间，反证出线性无关+象空间的每个向量可以由这组基表达，即该组基能张成整个象空间），注意线性变换对基和向量的不同作用
-考虑线性变换对空间中向量的作用$\beta=\phi\alpha$，若满足$\alpha = (\epsilon_1,\epsilon_2,\epsilon_3,&amp;hellip;)x$，则对基的作用表现为$\phi(\epsilon_1,\epsilon_2,\epsilon_3,&amp;hellip;)=(\epsilon_1,\epsilon_2,\epsilon_3,&amp;hellip;)A$，注意$\phi$可以和后面的任意项结合，$（\phi(\epsilon_1,\epsilon_2,\epsilon_3,&amp;hellip;)x=\phi((\epsilon_1,\epsilon_2,\epsilon_3,&amp;hellip;)x)=(\epsilon_1,\epsilon_2,\epsilon_3,&amp;hellip;)xA$，对坐标的作用表现为$y=Ax$
-幂等变换：根据特征多项式得到特征值0和1；根据特征值的矩阵方程得到特征空间的维度&amp;gt;=n，（A是（A-I）X=0的解）进而=n。
-虚特征值的特征向量必为虚特征向量，设未知数，由特征方程推导即可；
-作业5 # 正交矩阵：一般是根据定义的矩阵方程，作转置/同乘转置/共轭/两式相乘等操作，注意向量内积的结果是标量；所有复特征值的模为1，模的平方=本身乘以共轭；行列式=实特征值的乘积；互异特征值的特征向量在酉空间正交；同一复特征值的特征向量在实空间的内积为0；
-奇异值分解 # 本质是$A^T$是半正定实对称矩阵，可以正交相似对角化；注意V是正交矩阵；并对AV作单位化处理；对于相似对角化，特征值即奇异值；
-诱导范数：线性变换对向量的最大伸缩比例；
-条件数：最大奇异值和最小奇异值的比值；反映了Ax=b的解空间对b的扰动的稳定性；
-Key # 1.判断线性空间
-2.判断卷积/微分是否线性移不变系统，判断高通低通
-3.不同基下的线性变换矩阵
-4.反对称矩阵的复特征值和复特征向量的讨论（内积满足的关系）
-5.幂等矩阵的解空间与列空间，证明解空间和列空间的和构成整个空间，证明是直和，分别讨论特征向量的维数
-6.I-ae1e1T的特征值、特征子空间，奇异值分解，最优秩1分解（F范数结论）</description>
-      
-    </item>
-    
-    <item>
-      <title>Medical Image Computing</title>
-      <link>https://xuzhang0112.github.io/knowledge_base/course/mic/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/knowledge_base/course/mic/</guid>
-      <description>CT Reconstruction # Analytical CT reconstruction # Radon Transform
-数学形式化描述
-$$ p(s,\theta)=\int^\infty_{-\infty}\int^\infty_{-\infty}f(x,y)\delta(xcos\theta+ysin\theta-s)dxdy $$
-$s,\theta$确定时，相当于仅在直线$xcos\theta+ysin\theta-s=$上作积分 代码实现
-from skimage.transform import warp theta = np.arange(180) # pad padded_image = np.pad(image, pad_width, mode=&amp;#39;constant&amp;#39;, constant_values=0) center = padded_image.shape[0] // 2 # 旋转+投影 radon_image = np.zeros((padded_image.shape[0], len(theta)), dtype=image.dtype) for i, angle in enumerate(np.deg2rad(theta)): cos_a, sin_a = np.cos(angle), np.sin(angle) R = np.array([[cos_a, sin_a, -center * (cos_a + sin_a - 1)], [-sin_a, cos_a, -center * (cos_a - sin_a - 1)], [0, 0, 1]]) rotated = warp(padded_image, R, clip=False) radon_image[:, i] = rotated.</description>
-      
-    </item>
-    
-    <item>
       <title>Probability</title>
-      <link>https://xuzhang0112.github.io/knowledge_base/course/prob/</link>
+      <link>https://xuzhang0112.github.io/course/prob/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://xuzhang0112.github.io/knowledge_base/course/prob/</guid>
+      <guid>https://xuzhang0112.github.io/course/prob/</guid>
       <description>作业要点 # 作业1
 几何分布：概率为p的事件首次发生时的次数，期望=1/p
 协方差的计算公式推导：定义+期望的性质

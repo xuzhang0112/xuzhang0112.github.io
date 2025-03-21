@@ -3,318 +3,77 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/knowledge-graph-embedding-a-survey-from-the-perspective-of-representation-spaces/</loc>
-    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/software/cheatsheet/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/</loc>
-    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/software/python/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/</loc>
-    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/software/</loc>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url>
   <url>
     <loc>https://xuzhang0112.github.io/</loc>
-    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-10T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/</loc>
-    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/visual-semantic-reasoning-for-image-text-matching/</loc>
-    <lastmod>2024-09-06T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/incremental-residual-concept-bottleneck-models/</loc>
-    <lastmod>2024-09-05T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/</loc>
-    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/medical-graph-rag-towards-safe-medical-large-language-model-via-graph-retrieval-augmented-generation/</loc>
-    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/acl/</loc>
-    <lastmod>2024-07-22T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/acl/hypercore/</loc>
-    <lastmod>2024-07-22T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nips/graphadapter-tuning-vision-language-models-with-dual-knowledge-graph/</loc>
-    <lastmod>2024-07-07T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nips/</loc>
-    <lastmod>2024-07-07T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/cikm/</loc>
+    <loc>https://xuzhang0112.github.io/research/med_nlp/</loc>
     <lastmod>2024-07-05T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/cikm/ehr-coding-with-multi-scale-feature-attention-and-structured-knowledge-graph-propagation/</loc>
+    <loc>https://xuzhang0112.github.io/research/</loc>
     <lastmod>2024-07-05T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/med_nlp/</loc>
-    <lastmod>2024-07-05T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/unifying-large-language-models-and-knowledge-graphs-a-roadmap/</loc>
-    <lastmod>2024-07-04T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/tocbert-medical-document-structure-extraction-using-bidirectional-transformers/</loc>
-    <lastmod>2024-07-03T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/course/biomed/</loc>
+    <loc>https://xuzhang0112.github.io/course/biomed/</loc>
     <lastmod>2024-06-28T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/</loc>
+    <loc>https://xuzhang0112.github.io/course/</loc>
     <lastmod>2024-06-28T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/course/</loc>
+    <loc>https://xuzhang0112.github.io/research/med_img/</loc>
     <lastmod>2024-06-28T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/hierarchical-classificaiton/</loc>
-    <lastmod>2024-06-23T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/course/matrix/</loc>
+    <loc>https://xuzhang0112.github.io/course/matrix/</loc>
     <lastmod>2024-06-14T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/course/pr/</loc>
+    <loc>https://xuzhang0112.github.io/course/pr/</loc>
     <lastmod>2024-06-14T00:00:00+00:00</lastmod>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/emerge-integrating-rag-for-improved-multimodal-ehr-predictive-modeling/</loc>
-    <lastmod>2024-06-06T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/cv/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/iclr/graphcare-enhancing-healthcare-predictions-with-open-world-personalized-knowledge-graphs/</loc>
-    <lastmod>2024-06-06T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/research/ai4research/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/iclr/</loc>
-    <lastmod>2024-06-06T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/research/basic_knowledge/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/acl/incorporating-hierarchy-into-text-encoder-a-contrastive-learning-approach-for-hierarchical-text-classification/</loc>
-    <lastmod>2024-05-25T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/research/kg4llm/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nips/automated-clinical-coding-using-off-the-shelf-large-language-models/</loc>
-    <lastmod>2024-05-19T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/software/latex/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/label-relation-graphs-enhanced-hierarchical-residual-network-for-hierarchical-multi-granularity-classification/</loc>
-    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/course/algebra/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/eccv/</loc>
-    <lastmod>2024-05-16T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/research/med_mm/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/eccv/large-scale-object-classification-using-label-relation-graphs/</loc>
-    <lastmod>2024-05-16T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/course/prob/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/icml/</loc>
-    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
+    <loc>https://xuzhang0112.github.io/course/tofel/</loc>
   </url>
   <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/icml/visiongraph-leveraging-large-multimodal-models-for-graph-theory-problems-in-visual-context/</loc>
-    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/</loc>
-    <lastmod>2024-05-09T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/improved-graph-contrastive-learning-for-short-text-classification/</loc>
-    <lastmod>2024-05-09T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/self-paced-unified-representation-learning-for-hierarchical-multi-label-classification/</loc>
-    <lastmod>2024-05-09T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/a-novel-icd-coding-framework-based-on-associated-and-hierarchical-code-description-distillation/</loc>
-    <lastmod>2024-05-01T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nips/evidential-deep-learning/</loc>
-    <lastmod>2024-04-30T00:00:00+00:00</lastmod>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nips/achieving-cross-modal-generalization-with-multimodal-unified-representation/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/miccai/agxnet-anatomy-guided-weakly-supervised-abnormality-localization-in-chest-x-rays/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/all-in-one-multi-task-prompting-for-graph-neural-networks/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/alphabet/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/miccai/anaxnet-anatomy-aware-multi-label-finding-classification-in-chest-x-ray/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/miccai/auto-encoding-knowledge-graph-for-unsupervised-medical-report-generation/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/automatic-icd-coding-exploiting-discourse-structure-and-reconciled-code-embeddings/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/basic_nn/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/cheatsheet/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/chest_xray/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/survey/learning/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/acl/20_1/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/dkec-domain-knowledge-enhanced-multi-label-classification-for-electronic-health-records/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/dynamic-graph-enhanced-contrastive-learning-for-chest-x-ray-report-generation/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/effective-convolutional-attention-network-for-multi-label-clinical-document-classification/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/acl/enhancing-hierarchical-text-classification-through-knowledge-graph-integration/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/medinfo2023/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/graph-representation-of-chinese-emrs-and-its-short-text-classification-application/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/graphgpt-graph-instruction-tuning-for-large-language-models/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/tmi/1/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/histopathology-whole-slide-image-analysis-with-heterogeneous-graph-representation-learning/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/ccl2019/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/hpt-hierarchy-aware-prompt-tuning-for-hierarchical-text-classification/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/hybrid-transformer-with-multi-level-fusion-for-multimodal-knowledge-graph-completion/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/iccv/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nature/kad-knowledge-enhanced-visual-language-pre-training-on-chest-radiology-images/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/kg-mtt-bert-knowledge-graph-enhanced-bert-for-multi-type-medical-text-classification/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/kiut-knowledge-injected-u-transformer-for-radiology-report-generation/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/knowledge-injected-prompt-based-fine-tuning-for-multi-label-few-shot-icd-coding/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/mia/knowledge-matters-chest-radiology-report-generation-with-general-and-specific-knowledge/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/course/algebra/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/miccai/masked-vision-and-language-pre-training-with-unimodal-and-multimodal-contrastive-losses-for-medical-visual-question-answ/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/course/mic/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/acl/medical-knowledge-enhanced-prompt-learning-for-diagnosis-classification-from-clinical-text/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/iccv/medklip-medical-knowledge-enhanced-language-image-pre-training/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/mia/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/miccai/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/mkvse-multimodal-knowledge-enhanced-visual-semantic-embedding-for-image-text-retrieval/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/cvpr/mukea-multimodal-knowledge-extraction-and-accumulation-for-knowledge-based-visual-question-answering/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/arxiv/multi-stage-retrieve-and-re-rank-model-for-automatic-medical-coding/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nature/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nips/open-visual-knowledge-extraction-via-relation-oriented-multimodality-model-prompting/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/course/prob/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/python/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/course/eng/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/emnlp/text2tree-aligning-text-representation-to-the-label-tree-hierarchy-for-imbalanced-medical-classification/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/tmi/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/others/towards-automatic-icd-coding-via-knowledge-enhanced-multi-task-learning/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/nips/towards-semi-structured-automatic-icd-coding-via-tree-based-contrastive-learning/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/knowledge_base/visualization/</loc>
-  </url>
-  <url>
-    <loc>https://xuzhang0112.github.io/paper_reading/aaai/when-radiology-report-generation-meets-knowledge-graph/</loc>
+    <loc>https://xuzhang0112.github.io/software/visualization/</loc>
   </url>
 </urlset>

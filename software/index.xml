@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/software/</link>
+    <description>Recent content in Software on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Xu Zhang</copyright>
+    <lastBuildDate>Mon, 10 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/software/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CheatSheet</title>
+      <link>https://xuzhang0112.github.io/software/cheatsheet/</link>
+      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/software/cheatsheet/</guid>
+      <description>Shell # Shell是用户和操作系统之间的媒介，它提供了丰富的接口，以帮助用户使用操作系统。
+Shell命令的基本格式是“命令+参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。
+命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用
+pwd sh *.sh python main.py 当连续执行多条命令时，如果用&amp;quot;&amp;amp;&amp;amp;&amp;ldquo;连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行
+配置默认启动脚本 # 用户使用终端登录Linux服务器时，通常只会默认执行~/.bash_profile.sh，而conda的自启动一般写在~/.bashrc中，所以一般会在~/.bash_profile.sh同时运行~/.bashrc
+if [ -f ~/.bashrc ]; then source ~/.bashrc fi 每当重新打开一个新的终端时，则会执行~/.bashrc
+conda自启动
+# &amp;gt;&amp;gt;&amp;gt; conda init &amp;gt;&amp;gt;&amp;gt; # !! Contents within this block are managed by &amp;#39;conda init&amp;#39; !! __conda_setup=&amp;#34;$(CONDA_REPORT_ERRORS=false &amp;#39;/data/shaozhisun/anaconda3/bin/conda&amp;#39; shell.bash hook 2&amp;gt; /dev/null)&amp;#34; if [ $? -eq 0 ]; then \eval &amp;#34;$__conda_setup&amp;#34; else if [ -f &amp;#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&amp;#34; ]; then . &amp;#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&amp;#34; CONDA_CHANGEPS1=false conda activate base else export PATH=&amp;#34;/data/shaozhisun/anaconda3/bin:$PATH&amp;#34; fi fi unset __conda_setup Shell脚本 # 尽管Linux系统中已经实现了大量的Shell脚本供用户调用，但有些时候我们仍然需要自己编写Shell脚本，以实现定制化的需求。</description>
+      
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://xuzhang0112.github.io/software/python/</link>
+      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/software/python/</guid>
+      <description>Data Processing # Jupter Notebook # 在cell中执行shell
+!pwd #单条shell命令 %%bash #整个cell作为shell脚本 模块自动重载，否则每次修改需要重启kernel
+%load_ext autoreload %autoreload 2 #每执行一个cell都会重载所有模块 Pandas # 菜鸟教程yyds
+创建Dataframe # # 从外部读取 read_csv() read_excel() # 创建空的DataFrame Dataframe(columns=[column_name1, column_name2]) # 根据可迭代对象创建DataFrame Dataframe([{column1:a,column2:b},{}]) # 每个元素是一个Dict，表示一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[&amp;#39;c1&amp;#39;,&amp;#39;c2&amp;#39;]) # 每个元素是一个List，代表一行 # 根据Dict创建DataFrame Dataframe.from_dict({column1:[...],column2:[...]}) #字典的key表示某一列 Dataframe.from_dict({index1:[c1,c2,c3], index2:[c1,c2,c3], ...}) #字典的key表示某一行的索引 添加新的行/列 # # 创建新的列 df[new_column] = constant / df[a]+df[b] / df[a].apply(func) # 老版本的写法 df.loc[:,c] = df[a] + df[b] # 更建议的写法 # 创建新的行 df.loc[len(df)] = Series({column1=x,column2=y,.</description>
+      
+    </item>
+    
+    <item>
+      <title>Latex</title>
+      <link>https://xuzhang0112.github.io/software/latex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/software/latex/</guid>
+      <description> 图表 # figure*,table*表示双栏
+公式 # ALphabet # 大写 小写 Α α Alpha Β β Beta Γ γ Gamma Δ δ Delte Ε ε Epsilon Ζ ζ zeta Ε η Eta Θ θ Theta Ι ι Iota Κ κ Kappa ∧ λ Lambda Μ μ Mu Ν ν Nu Ξ ξ Xi Ο ο Omicron ∏ π Pi Ρ ρ Rho ∑ σ Sigma Τ τ Tau Υ υ Upsilon Φ φ Phi Χ χ Chi Ψ ψ Psi Ω ω Omega </description>
+      
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>https://xuzhang0112.github.io/software/visualization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/software/visualization/</guid>
+      <description>基于PyQt5的应用开发 # 最简单的应用程序=应用进程+窗口组件 # import PyQt5.QtWidgets as QtWidgets import sys class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&amp;#39;Demo&amp;#39;) self.show() if __name__ == &amp;#34;__main__&amp;#34;: # 创建应用程序进程 app = QtWidgets.QApplication(sys.argv) # 创建主窗口 window = MainWindow(app) # 主程序开始运行 app.exec_() 在主窗口中添加组件 # 添加单个组件 # class MainWindow(QtWidgets.QMainWindow, QtWidgets.QApplication): def __init__(self, app): self.app = app QtWidgets.QMainWindow.__init__(self) self.setWindowTitle(&amp;#39;MainWindow&amp;#39;) self.setCentralWidget(QtWidgets.QPushButton(&amp;#34;Button&amp;#34;)) self.show() 添加多个组件 # from PyQt5.QtWidgets import ( QApplication, QMainWindow, QPushButton, QSlider, QLabel, QCheckBox, QComboBox, QSpinBox, QDoubleSpinBox, QGroupBox, QGridLayout, QFileDialog) import sys from PyQt5.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

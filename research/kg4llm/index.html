@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>KG for LLM &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="KG for LLM &middot; Xu Zhang&#39;s Blog" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://xuzhang0112.github.io/research/kg4llm/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.ac59a1b8eaafef739c129d12787ac29f6a420bcb348c7aeec8949a8d0b7d6c2023766c169d14b9031b751504eb3c976efe786fec135b340a49868acd8caa4127.css"
+    integrity="sha512-rFmhuOqv73OcEp0SeHrCn2pCC8s0jHruyJSajQt9bCAjdmwWnRS5Axt1FQTrPJdu/nhv7BNbNApJhorNjKpBJw==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
+    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="KG for LLM" />
+<meta property="og:description" content="Introduction &amp; Background # LLM和KG各有利弊：LLM富含通用知识、擅长语言处理、具有泛化性；KG具有结构化的精确知识，可解释性强，知识专业性强，可演化；
+LLM # Encoder-only、Decoder-only、Encoder-Decoder的LLM发展路线图
+Encoder和Decoder之间的异同，以及Self-Attention的内部结构
+KG # 各种类型的KG，包括百科全书、常识、领域知识和多模态的知识图谱
+LLM与KG的结合 # LLM和KG交互的3种方式：KG增强LLM，LLM增强KG，两者协同
+目前LLM和KG的结合应用较少，知名的有ERNIE3.0、Bard和Doctor.ai
+重点在于如何将LLM与KG结合，一些可能的技术手段有Prompt工程、GNN、神经符号推理、表征学习、上下文学习、少样本学习。
+KG-ENHANCED LLMS # KG-enhanced LLM Pre-training # Integrating KGs into Training Objective # 增强KG实体 # Method GLM 基于KG来计算mask概率，n-hop的实体被赋予更高的mask概率 E-BERT 基于token和entity的loss大小来动态调整各自的权重 SKEP 基于PMI来挖掘表达情感倾向的词语，然后赋予这些词语更高的概率 利用KG和文本之间的连接 # Method ERNIE 对齐文本token和KG实体 KALM 整合实体嵌入，预测实体 KEPLER 同时训练KG嵌入和Mask token预测 Deterministic LLM 遮盖事实性关系的决定性token，并设置相应的预测任务和对比任务 WKLM 替换同类型的实体，让LLM鉴别是否被替换 ERNIE：将对齐文本和KG作为训练目标
+Integrating KGs into LLM Inputs # Method ERNIE3.0 将KG三元组与句子拼接，同时预测masked token和三元组中的relation；会引入Knowledge Noise K-BERT 引入visible matrix，仅句子中的实体token与三元组有交互 COLAKE 将输入token建立成子图，从而拼接相应的KG子图 DkLLM 检测长尾实体，用pseudo token替代 Dict-BERT 将长尾实体用字典中的定义描述替换，并将长尾概念与描述对齐 Colake：输入文本子图拼接KG子图" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuzhang0112.github.io/research/kg4llm/" /><meta property="article:section" content="research" />
+
+
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="KG for LLM"/>
+<meta name="twitter:description" content="Introduction &amp; Background # LLM和KG各有利弊：LLM富含通用知识、擅长语言处理、具有泛化性；KG具有结构化的精确知识，可解释性强，知识专业性强，可演化；
+LLM # Encoder-only、Decoder-only、Encoder-Decoder的LLM发展路线图
+Encoder和Decoder之间的异同，以及Self-Attention的内部结构
+KG # 各种类型的KG，包括百科全书、常识、领域知识和多模态的知识图谱
+LLM与KG的结合 # LLM和KG交互的3种方式：KG增强LLM，LLM增强KG，两者协同
+目前LLM和KG的结合应用较少，知名的有ERNIE3.0、Bard和Doctor.ai
+重点在于如何将LLM与KG结合，一些可能的技术手段有Prompt工程、GNN、神经符号推理、表征学习、上下文学习、少样本学习。
+KG-ENHANCED LLMS # KG-enhanced LLM Pre-training # Integrating KGs into Training Objective # 增强KG实体 # Method GLM 基于KG来计算mask概率，n-hop的实体被赋予更高的mask概率 E-BERT 基于token和entity的loss大小来动态调整各自的权重 SKEP 基于PMI来挖掘表达情感倾向的词语，然后赋予这些词语更高的概率 利用KG和文本之间的连接 # Method ERNIE 对齐文本token和KG实体 KALM 整合实体嵌入，预测实体 KEPLER 同时训练KG嵌入和Mask token预测 Deterministic LLM 遮盖事实性关系的决定性token，并设置相应的预测任务和对比任务 WKLM 替换同类型的实体，让LLM鉴别是否被替换 ERNIE：将对齐文本和KG作为训练目标
+Integrating KGs into LLM Inputs # Method ERNIE3.0 将KG三元组与句子拼接，同时预测masked token和三元组中的relation；会引入Knowledge Noise K-BERT 引入visible matrix，仅句子中的实体token与三元组有交互 COLAKE 将输入token建立成子图，从而拼接相应的KG子图 DkLLM 检测长尾实体，用pseudo token替代 Dict-BERT 将长尾实体用字典中的定义描述替换，并将长尾概念与描述对齐 Colake：输入文本子图拼接KG子图"/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Research",
+    "name": "KG for LLM",
+    "headline": "KG for LLM",
+    
+    "abstract": "Introduction \u0026amp; Background # LLM和KG各有利弊：LLM富含通用知识、擅长语言处理、具有泛化性；KG具有结构化的精确知识，可解释性强，知识专业性强，可演化；\nLLM # Encoder-only、Decoder-only、Encoder-Decoder的LLM发展路线图\nEncoder和Decoder之间的异同，以及Self-Attention的内部结构\nKG # 各种类型的KG，包括百科全书、常识、领域知识和多模态的知识图谱\nLLM与KG的结合 # LLM和KG交互的3种方式：KG增强LLM，LLM增强KG，两者协同\n目前LLM和KG的结合应用较少，知名的有ERNIE3.0、Bard和Doctor.ai\n重点在于如何将LLM与KG结合，一些可能的技术手段有Prompt工程、GNN、神经符号推理、表征学习、上下文学习、少样本学习。\nKG-ENHANCED LLMS # KG-enhanced LLM Pre-training # Integrating KGs into Training Objective # 增强KG实体 # Method GLM 基于KG来计算mask概率，n-hop的实体被赋予更高的mask概率 E-BERT 基于token和entity的loss大小来动态调整各自的权重 SKEP 基于PMI来挖掘表达情感倾向的词语，然后赋予这些词语更高的概率 利用KG和文本之间的连接 # Method ERNIE 对齐文本token和KG实体 KALM 整合实体嵌入，预测实体 KEPLER 同时训练KG嵌入和Mask token预测 Deterministic LLM 遮盖事实性关系的决定性token，并设置相应的预测任务和对比任务 WKLM 替换同类型的实体，让LLM鉴别是否被替换 ERNIE：将对齐文本和KG作为训练目标\nIntegrating KGs into LLM Inputs # Method ERNIE3.0 将KG三元组与句子拼接，同时预测masked token和三元组中的relation；会引入Knowledge Noise K-BERT 引入visible matrix，仅句子中的实体token与三元组有交互 COLAKE 将输入token建立成子图，从而拼接相应的KG子图 DkLLM 检测长尾实体，用pseudo token替代 Dict-BERT 将长尾实体用字典中的定义描述替换，并将长尾概念与描述对齐 Colake：输入文本子图拼接KG子图",
+    "inLanguage": "en",
+    "url" : "https:\/\/xuzhang0112.github.io\/research\/kg4llm\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Xu Zhang"
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "243"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Xu Zhang" />
+  
+  
+  
+  <link href="https://www.zhihu.com/people/zhang-xu-20-31-39" rel="me" />
+  
+  
+  <link href="https://space.bilibili.com/456489591" rel="me" />
+  
+  
+  <link href="https://github.com/xuzhang0112" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+    integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+    integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+    integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk"
+    crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            
+            
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true },
+            ],
+            
+            throwOnError: false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Xu Zhang&rsquo;s Blog</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  href="/software/"   class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Software">
+      Software
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/software/cheatsheet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="CheatSheet">
+            Cheat Sheet
+          </p>
+        </a>
+        
+        <a href="/software/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Python">
+            Python
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  href="/research/"   class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="Research">
+      AI Research
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/research/basic_knowledge/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Deep Learning">
+            Deep Learning
+          </p>
+        </a>
+        
+        <a href="/research/med_nlp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Medical NLP">
+            Medical NLP
+          </p>
+        </a>
+        
+        <a href="/research/med_mm/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Medical Multimodal">
+            Medical Multimodal
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/cv/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        About Me
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Software">
+            Software
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/software/cheatsheet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="CheatSheet">
+            Cheat Sheet
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/software/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Python">
+            Python
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+                    
+
+                     
+  <li class="mt-1">
+    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Research">
+            AI Research
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/research/basic_knowledge/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Deep Learning">
+            Deep Learning
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/research/med_nlp/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Medical NLP">
+            Medical NLP
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/research/med_mm/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Medical Multimodal">
+            Medical Multimodal
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/cv/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            About Me
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/research/"
+      >Research</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/research/kg4llm/"
+      >KG for LLM</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      KG for LLM
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction--background">Introduction &amp; Background</a>
+      <ul>
+        <li><a href="#llm">LLM</a></li>
+        <li><a href="#kg">KG</a></li>
+        <li><a href="#llm与kg的结合">LLM与KG的结合</a></li>
+      </ul>
+    </li>
+    <li><a href="#kg-enhanced-llms">KG-ENHANCED LLMS</a>
+      <ul>
+        <li><a href="#kg-enhanced-llm-pre-training">KG-enhanced LLM Pre-training</a></li>
+        <li><a href="#kg-enhanced-llm-inference">KG-enhanced LLM Inference</a></li>
+      </ul>
+    </li>
+    <li><a href="#llm-augmented-kgs">LLM-AUGMENTED KGS</a>
+      <ul>
+        <li><a href="#llm-augmented-kg-embedding">LLM-augmented KG Embedding</a></li>
+        <li><a href="#llm-augmented-kg-completion">LLM-augmented KG Completion</a></li>
+        <li><a href="#llm-augmented-kg-construction">LLM-augmented KG Construction</a></li>
+        <li><a href="#llm-augmented-kg-to-text-generation">LLM-augmented KG-to-text Generation</a></li>
+        <li><a href="#llm-augmented-kg-question-answering">LLM-augmented KG Question Answering</a></li>
+      </ul>
+    </li>
+    <li><a href="#synergized-llms--kgs">SYNERGIZED LLMS + KGS</a>
+      <ul>
+        <li><a href="#synergized-knowledge-representation">Synergized Knowledge Representation</a></li>
+        <li><a href="#synergized-reasoning">Synergized Reasoning</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction--background">Introduction &amp; Background</a>
+      <ul>
+        <li><a href="#llm">LLM</a></li>
+        <li><a href="#kg">KG</a></li>
+        <li><a href="#llm与kg的结合">LLM与KG的结合</a></li>
+      </ul>
+    </li>
+    <li><a href="#kg-enhanced-llms">KG-ENHANCED LLMS</a>
+      <ul>
+        <li><a href="#kg-enhanced-llm-pre-training">KG-enhanced LLM Pre-training</a></li>
+        <li><a href="#kg-enhanced-llm-inference">KG-enhanced LLM Inference</a></li>
+      </ul>
+    </li>
+    <li><a href="#llm-augmented-kgs">LLM-AUGMENTED KGS</a>
+      <ul>
+        <li><a href="#llm-augmented-kg-embedding">LLM-augmented KG Embedding</a></li>
+        <li><a href="#llm-augmented-kg-completion">LLM-augmented KG Completion</a></li>
+        <li><a href="#llm-augmented-kg-construction">LLM-augmented KG Construction</a></li>
+        <li><a href="#llm-augmented-kg-to-text-generation">LLM-augmented KG-to-text Generation</a></li>
+        <li><a href="#llm-augmented-kg-question-answering">LLM-augmented KG Question Answering</a></li>
+      </ul>
+    </li>
+    <li><a href="#synergized-llms--kgs">SYNERGIZED LLMS + KGS</a>
+      <ul>
+        <li><a href="#synergized-knowledge-representation">Synergized Knowledge Representation</a></li>
+        <li><a href="#synergized-reasoning">Synergized Reasoning</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h2 class="relative group">Introduction &amp; Background 
+    <div id="introduction--background" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#introduction--background" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>LLM和KG各有利弊：LLM富含通用知识、擅长语言处理、具有泛化性；KG具有结构化的精确知识，可解释性强，知识专业性强，可演化；</p>
+
+
+<h3 class="relative group">LLM 
+    <div id="llm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407041722595.png" alt="image-20240704172235679" />
+    
+  </figure>
+
+</p>
+<p>Encoder-only、Decoder-only、Encoder-Decoder的LLM发展路线图</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407041727026.png" alt="image-20240704172732196" />
+    
+  </figure>
+
+</p>
+<p>Encoder和Decoder之间的异同，以及Self-Attention的内部结构</p>
+
+
+<h3 class="relative group">KG 
+    <div id="kg" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kg" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407041730828.png" alt="image-20240704173050791" />
+    
+  </figure>
+
+</p>
+<p>各种类型的KG，包括百科全书、常识、领域知识和多模态的知识图谱</p>
+
+
+<h3 class="relative group">LLM与KG的结合 
+    <div id="llm%E4%B8%8Ekg%E7%9A%84%E7%BB%93%E5%90%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llm%E4%B8%8Ekg%E7%9A%84%E7%BB%93%E5%90%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407041732894.png" alt="image-20240704173249398" />
+    
+  </figure>
+
+</p>
+<p>LLM和KG交互的3种方式：KG增强LLM，LLM增强KG，两者协同</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407042314893.png" alt="image-20240704173432357" />
+    
+  </figure>
+
+</p>
+<p>目前LLM和KG的结合应用较少，知名的有ERNIE3.0、Bard和Doctor.ai</p>
+<p>重点在于如何将LLM与KG结合，一些可能的技术手段有Prompt工程、GNN、神经符号推理、表征学习、上下文学习、少样本学习。</p>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407041759399.png" alt="image-20240704175915996" />
+    
+  </figure>
+
+</p>
+
+
+<h2 class="relative group">KG-ENHANCED LLMS 
+    <div id="kg-enhanced-llms" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kg-enhanced-llms" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">KG-enhanced LLM Pre-training 
+    <div id="kg-enhanced-llm-pre-training" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kg-enhanced-llm-pre-training" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">Integrating KGs into Training Objective 
+    <div id="integrating-kgs-into-training-objective" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#integrating-kgs-into-training-objective" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+
+<h5 class="relative group">增强KG实体 
+    <div id="%E5%A2%9E%E5%BC%BAkg%E5%AE%9E%E4%BD%93" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A2%9E%E5%BC%BAkg%E5%AE%9E%E4%BD%93" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GLM</td>
+<td>基于KG来计算mask概率，n-hop的实体被赋予更高的mask概率</td>
+</tr>
+<tr>
+<td>E-BERT</td>
+<td>基于token和entity的loss大小来动态调整各自的权重</td>
+</tr>
+<tr>
+<td>SKEP</td>
+<td>基于PMI来挖掘表达情感倾向的词语，然后赋予这些词语更高的概率</td>
+</tr>
+</tbody>
+</table>
+
+
+<h5 class="relative group">利用KG和文本之间的连接 
+    <div id="%E5%88%A9%E7%94%A8kg%E5%92%8C%E6%96%87%E6%9C%AC%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BF%9E%E6%8E%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%A9%E7%94%A8kg%E5%92%8C%E6%96%87%E6%9C%AC%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BF%9E%E6%8E%A5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ERNIE</td>
+<td>对齐文本token和KG实体</td>
+</tr>
+<tr>
+<td>KALM</td>
+<td>整合实体嵌入，预测实体</td>
+</tr>
+<tr>
+<td>KEPLER</td>
+<td>同时训练KG嵌入和Mask token预测</td>
+</tr>
+<tr>
+<td>Deterministic LLM</td>
+<td>遮盖事实性关系的决定性token，并设置相应的预测任务和对比任务</td>
+</tr>
+<tr>
+<td>WKLM</td>
+<td>替换同类型的实体，让LLM鉴别是否被替换</td>
+</tr>
+</tbody>
+</table>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407041840990.png" alt="image-20240704184012226" />
+    
+  </figure>
+
+</p>
+<p>ERNIE：将对齐文本和KG作为训练目标</p>
+
+
+<h4 class="relative group">Integrating KGs into LLM Inputs 
+    <div id="integrating-kgs-into-llm-inputs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#integrating-kgs-into-llm-inputs" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ERNIE3.0</td>
+<td>将KG三元组与句子拼接，同时预测masked token和三元组中的relation；会引入Knowledge Noise</td>
+</tr>
+<tr>
+<td>K-BERT</td>
+<td>引入visible matrix，仅句子中的实体token与三元组有交互</td>
+</tr>
+<tr>
+<td>COLAKE</td>
+<td>将输入token建立成子图，从而拼接相应的KG子图</td>
+</tr>
+<tr>
+<td>DkLLM</td>
+<td>检测长尾实体，用pseudo token替代</td>
+</tr>
+<tr>
+<td>Dict-BERT</td>
+<td>将长尾实体用字典中的定义描述替换，并将长尾概念与描述对齐</td>
+</tr>
+</tbody>
+</table>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407041842853.png" alt="image-20240704184209237"  />
+<p>Colake：输入文本子图拼接KG子图</p>
+
+
+<h4 class="relative group">KG指令微调 
+    <div id="kg%E6%8C%87%E4%BB%A4%E5%BE%AE%E8%B0%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kg%E6%8C%87%E4%BB%A4%E5%BE%AE%E8%B0%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KPPLM</td>
+<td>将结构化KG子图构建成文本prompt，并进一步自监督微调LLM利用这些Prompt</td>
+</tr>
+<tr>
+<td>OntoPrompt</td>
+<td>将KG实体放在LLM的上下文中，并进一步微调</td>
+</tr>
+<tr>
+<td>ChatKBQA</td>
+<td>训练LLM在KG上进行逻辑查询</td>
+</tr>
+<tr>
+<td>RoG</td>
+<td>训练LLM进行规划-检索-推理，在KG上产生可信的推理路径</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">KG-enhanced LLM Inference 
+    <div id="kg-enhanced-llm-inference" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kg-enhanced-llm-inference" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>主要解决LLM无法更新知识的问题，多用于QA。</p>
+
+
+<h4 class="relative group">Retrieval-Augmented Knowledge Fusion 
+    <div id="retrieval-augmented-knowledge-fusion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#retrieval-augmented-knowledge-fusion" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RAG</td>
+<td>用非参数化的模块MIPS检索相关文档，然后编码成隐变量，作为LLM的上下文，做进一步生成</td>
+</tr>
+<tr>
+<td>Story-fragments</td>
+<td>添加额外模块来决定相关的知识实体，并添加到上下文</td>
+</tr>
+<tr>
+<td>EMAT</td>
+<td>将外部知识编码成K-V Cache，加速推理</td>
+</tr>
+<tr>
+<td>REALM</td>
+<td>在预训练阶段，加入知识检索器，训练模型检索和关注语料库中的相关知识</td>
+</tr>
+<tr>
+<td>KGLM</td>
+<td>使用上下文从KG中选择事实</td>
+</tr>
+</tbody>
+</table>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407041844595.png" alt="image-20240704184408363" />
+    
+  </figure>
+
+</p>
+<p>RAGPipeline</p>
+
+
+<h4 class="relative group">KG&rsquo;s Prompting 
+    <div id="kgs-prompting" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kgs-prompting" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Li</td>
+<td>将三元组转化为模板短句</td>
+</tr>
+<tr>
+<td>MindMap</td>
+<td>将图结构转化为思维导图</td>
+</tr>
+<tr>
+<td>ChatRule</td>
+<td>将Relation Path转化为文本Prompt</td>
+</tr>
+<tr>
+<td>Cok</td>
+<td>将三元组序列构成知识链条</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 class="relative group">LLM-AUGMENTED KGS 
+    <div id="llm-augmented-kgs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llm-augmented-kgs" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">LLM-augmented KG Embedding 
+    <div id="llm-augmented-kg-embedding" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llm-augmented-kg-embedding" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">LLMs as Text Encoders 
+    <div id="llms-as-text-encoders" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llms-as-text-encoders" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pretrain-KGE</td>
+<td>将三元组中的文本用LLM编码，并计算KG损失函数</td>
+</tr>
+<tr>
+<td>KEPLER</td>
+<td>统一KG embedding和预训练LM的embedding</td>
+</tr>
+<tr>
+<td>Nayyeri等</td>
+<td>将篇章结构视为图结构，进一步整合文本的嵌入</td>
+</tr>
+<tr>
+<td>Huang等</td>
+<td>多模态KG嵌入</td>
+</tr>
+<tr>
+<td>CoDEx</td>
+<td>提出新的损失函数，度量三元组的可能性</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">LLMs for Joint Text and KG Embedding 
+    <div id="llms-for-joint-text-and-kg-embedding" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llms-for-joint-text-and-kg-embedding" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kNN-KGE</td>
+<td>将实体和关系作为LLM的特殊token</td>
+</tr>
+<tr>
+<td>LMKE</td>
+<td>对比学习方法</td>
+</tr>
+<tr>
+<td>LambdaKG</td>
+<td>添加KG中的1-hop邻居</td>
+</tr>
+</tbody>
+</table>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407242049233.png" alt="image-20240724204931369" />
+    
+  </figure>
+
+</p>
+<p>kNN-KGE</p>
+
+
+<h3 class="relative group">LLM-augmented KG Completion 
+    <div id="llm-augmented-kg-completion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llm-augmented-kg-completion" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">LLM-augmented KG Construction 
+    <div id="llm-augmented-kg-construction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llm-augmented-kg-construction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">LLM-augmented KG-to-text Generation 
+    <div id="llm-augmented-kg-to-text-generation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llm-augmented-kg-to-text-generation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">LLM-augmented KG Question Answering 
+    <div id="llm-augmented-kg-question-answering" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llm-augmented-kg-question-answering" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h2 class="relative group">SYNERGIZED LLMS + KGS 
+    <div id="synergized-llms--kgs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#synergized-llms--kgs" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Synergized Knowledge Representation 
+    <div id="synergized-knowledge-representation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#synergized-knowledge-representation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ERNIE</td>
+<td>文本-KG双编码器</td>
+</tr>
+<tr>
+<td>BERT-MK</td>
+<td>额外引入相邻实体</td>
+</tr>
+<tr>
+<td>Coke-BERT</td>
+<td>基于GNN，利用输入文本滤除无关实体</td>
+</tr>
+<tr>
+<td>JAKET</td>
+<td>在LLM中部融合实体信息</td>
+</tr>
+<tr>
+<td>KEPLER</td>
+<td>用LLM统一KG实体和文本的嵌入</td>
+</tr>
+<tr>
+<td>JointGT</td>
+<td>提出3个预训练任务来对齐KG实体和文本</td>
+</tr>
+<tr>
+<td>DRAGON</td>
+<td>文本-KG交互的自监督预训练，掩码文本恢复+链路预测</td>
+</tr>
+<tr>
+<td>HKLM</td>
+<td>LLM结合KG来学习领域知识</td>
+</tr>
+</tbody>
+</table>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407050039597.png" alt="image-20240705003913991" />
+    
+  </figure>
+
+</p>
+<p>ERNIE：文本-知识图谱双编码器结构</p>
+
+
+<h3 class="relative group">Synergized Reasoning 
+    <div id="synergized-reasoning" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#synergized-reasoning" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">LLM-KG Fusion Reasoning 
+    <div id="llm-kg-fusion-reasoning" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llm-kg-fusion-reasoning" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KagNet</td>
+<td>编码输入KG，增强文本</td>
+</tr>
+<tr>
+<td>MHGRN</td>
+<td>用LLM输出来引导KG推理</td>
+</tr>
+<tr>
+<td>QA-GNN</td>
+<td>将文本嵌入成一个节点，与KG构成图，用GNN处理</td>
+</tr>
+<tr>
+<td>JointLK</td>
+<td>文本和KG之间双向的细粒度注意力交互</td>
+</tr>
+<tr>
+<td>GreaseLM</td>
+<td>文本和KG在LLM的每一层发生交互</td>
+</tr>
+</tbody>
+</table>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407050103110.png" alt="image-20240705010327664" />
+    
+  </figure>
+
+</p>
+<p>JointLK：LLM的输出和KG Encoder的输出通过注意力交互，以修剪KG得到答案</p>
+
+
+<h4 class="relative group">LLMs as Agents Reasoning 
+    <div id="llms-as-agents-reasoning" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llms-as-agents-reasoning" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+
+
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407050104591.png" alt="image-20240705010442972" />
+    
+  </figure>
+
+</p>
+<p>LLM在KG中检索到对应的事实路径，以给出正确的答案</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KD-CoT</td>
+<td>迭代检索KG路径，获取事实</td>
+</tr>
+<tr>
+<td>KSL</td>
+<td>LLM检索事实、产生答案</td>
+</tr>
+<tr>
+<td>StructGPT</td>
+<td>LLM调用API获取KG知识</td>
+</tr>
+<tr>
+<td>ThinkonGraph</td>
+<td>LLM进行Beam Search以获取KG知识</td>
+</tr>
+<tr>
+<td>AgentTuning</td>
+<td>数据集，用于LLM的KG推理</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+      <script>
+        var oid = "views_research\/kg4llm.md"
+        var oid_likes = "likes_research\/kg4llm.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/research/med_mm/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Medical Multimodal</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/research/basic_knowledge/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Deep Learning</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Xu Zhang
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://xuzhang0112.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

@@ -8,16 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Course &middot; Xu Zhang&#39;s Blog</title>
-  <meta name="title" content="Course &middot; Xu Zhang&#39;s Blog" />
+  <title>Probability &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="Probability &middot; Xu Zhang&#39;s Blog" />
   
   
+  <meta name="keywords" content="Course, " />
   
   
-  
-  <link rel="canonical" href="https://xuzhang0112.github.io/tags/course/" />
-  
-  <link rel="alternate" type="application/rss+xml" href="/tags/course/index.xml" title="Xu Zhang's Blog" />
+  <link rel="canonical" href="https://xuzhang0112.github.io/course/prob/" />
   
   
   
@@ -62,17 +60,104 @@
   
   
   
-  <meta property="og:title" content="Course" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://xuzhang0112.github.io/tags/course/" />
+  <meta property="og:title" content="Probability" />
+<meta property="og:description" content="作业要点 # 作业1
+几何分布：概率为p的事件首次发生时的次数，期望=1/p
+协方差的计算公式推导：定义&#43;期望的性质
+期望=条件期望的概率加权和
+泊松分布：小概率事件在一段时间内发生的次数，服从泊松分布的随机变量的和服从泊松分布，且$$\lambda=\lambda_1&#43;\lambda_2$$
+X&#43;Y的概率分布：卷积公式，本质上是全概率公式（条件概率）
+贝叶斯公式：后验概率=先验概率&#43;似然概率（后验颠倒）
+作业2
+马尔可夫链：利用含有条件概率的全概率公式
+XY的概率分布：独立则可拆分，并灵活运用方差=二阶矩-一阶矩^2
+多元概率分布之间的转换：利用雅可比行列式（顺序的记忆方法：不同分布都满足概率和为1）
+样本方差的期望：利用期望和方差的性质进行一通推导（期望是线性的，方差不是线性的，虽然可加）
+布朗运动：参考弹珠下落在分隔板上左/右移，借此思考其性质，然后根据定义一通推导就行了
+Matropolis hasting算法：可以采样出任意分布（建议看龙哥博客，因为我现在也忘了）
+作业3
+基于样本的均值和方差估计正态分布的均值和方差
+基于样本最大值估计均匀分布的上界
+估计量的均方误差=偏差的平方&#43;估计量的方差
+区间估计：样本均值服从正态分布，样本方差服从自由度n-1的卡方分布（卡方分布，即多个正态分布的随机变量的平方和的分布）考试考了一道均值和方差都未知时的估计均值，有点坑
+基于区间估计进行假设检验
+作业4
+最大后验估计：基于贝叶斯公式可以获得参数的后验概率，然后将样本代入，即可得到该组样本下待估参数的分布函数，然后取极值点即可
+随机变量的换元：代入计算即可，没什么特别的
+线性回归：b1是相关系数，b0相应减去，基本上就是一通推导得到的，注意利用求和符号的性质
+Key # 1.一道简单的证明，忘了
+2.3个变量的次序统计量的联合概率分布，转化成最大值最小值，注意组合数公式
+3.马尔可夫链（赌徒），需要利用条件期望证明
+4.利用期望和方差的性质计算一堆量
+5.均值和方差都未知的区间估计和假设检验，这道题巨坑
+6.很简单的一道证明题，好像就是代入定义，忘了" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xuzhang0112.github.io/course/prob/" /><meta property="article:section" content="course" />
 
 
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Course"/>
-<meta name="twitter:description" content=""/>
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Probability"/>
+<meta name="twitter:description" content="作业要点 # 作业1
+几何分布：概率为p的事件首次发生时的次数，期望=1/p
+协方差的计算公式推导：定义&#43;期望的性质
+期望=条件期望的概率加权和
+泊松分布：小概率事件在一段时间内发生的次数，服从泊松分布的随机变量的和服从泊松分布，且$$\lambda=\lambda_1&#43;\lambda_2$$
+X&#43;Y的概率分布：卷积公式，本质上是全概率公式（条件概率）
+贝叶斯公式：后验概率=先验概率&#43;似然概率（后验颠倒）
+作业2
+马尔可夫链：利用含有条件概率的全概率公式
+XY的概率分布：独立则可拆分，并灵活运用方差=二阶矩-一阶矩^2
+多元概率分布之间的转换：利用雅可比行列式（顺序的记忆方法：不同分布都满足概率和为1）
+样本方差的期望：利用期望和方差的性质进行一通推导（期望是线性的，方差不是线性的，虽然可加）
+布朗运动：参考弹珠下落在分隔板上左/右移，借此思考其性质，然后根据定义一通推导就行了
+Matropolis hasting算法：可以采样出任意分布（建议看龙哥博客，因为我现在也忘了）
+作业3
+基于样本的均值和方差估计正态分布的均值和方差
+基于样本最大值估计均匀分布的上界
+估计量的均方误差=偏差的平方&#43;估计量的方差
+区间估计：样本均值服从正态分布，样本方差服从自由度n-1的卡方分布（卡方分布，即多个正态分布的随机变量的平方和的分布）考试考了一道均值和方差都未知时的估计均值，有点坑
+基于区间估计进行假设检验
+作业4
+最大后验估计：基于贝叶斯公式可以获得参数的后验概率，然后将样本代入，即可得到该组样本下待估参数的分布函数，然后取极值点即可
+随机变量的换元：代入计算即可，没什么特别的
+线性回归：b1是相关系数，b0相应减去，基本上就是一通推导得到的，注意利用求和符号的性质
+Key # 1.一道简单的证明，忘了
+2.3个变量的次序统计量的联合概率分布，转化成最大值最小值，注意组合数公式
+3.马尔可夫链（赌徒），需要利用条件期望证明
+4.利用期望和方差的性质计算一堆量
+5.均值和方差都未知的区间估计和假设检验，这道题巨坑
+6.很简单的一道证明题，好像就是代入定义，忘了"/>
 
   
-  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Course",
+    "name": "Probability",
+    "headline": "Probability",
+    
+    "abstract": "作业要点 # 作业1\n几何分布：概率为p的事件首次发生时的次数，期望=1\/p\n协方差的计算公式推导：定义\u002b期望的性质\n期望=条件期望的概率加权和\n泊松分布：小概率事件在一段时间内发生的次数，服从泊松分布的随机变量的和服从泊松分布，且$$\\lambda=\\lambda_1\u002b\\lambda_2$$\nX\u002bY的概率分布：卷积公式，本质上是全概率公式（条件概率）\n贝叶斯公式：后验概率=先验概率\u002b似然概率（后验颠倒）\n作业2\n马尔可夫链：利用含有条件概率的全概率公式\nXY的概率分布：独立则可拆分，并灵活运用方差=二阶矩-一阶矩^2\n多元概率分布之间的转换：利用雅可比行列式（顺序的记忆方法：不同分布都满足概率和为1）\n样本方差的期望：利用期望和方差的性质进行一通推导（期望是线性的，方差不是线性的，虽然可加）\n布朗运动：参考弹珠下落在分隔板上左\/右移，借此思考其性质，然后根据定义一通推导就行了\nMatropolis hasting算法：可以采样出任意分布（建议看龙哥博客，因为我现在也忘了）\n作业3\n基于样本的均值和方差估计正态分布的均值和方差\n基于样本最大值估计均匀分布的上界\n估计量的均方误差=偏差的平方\u002b估计量的方差\n区间估计：样本均值服从正态分布，样本方差服从自由度n-1的卡方分布（卡方分布，即多个正态分布的随机变量的平方和的分布）考试考了一道均值和方差都未知时的估计均值，有点坑\n基于区间估计进行假设检验\n作业4\n最大后验估计：基于贝叶斯公式可以获得参数的后验概率，然后将样本代入，即可得到该组样本下待估参数的分布函数，然后取极值点即可\n随机变量的换元：代入计算即可，没什么特别的\n线性回归：b1是相关系数，b0相应减去，基本上就是一通推导得到的，注意利用求和符号的性质\nKey # 1.一道简单的证明，忘了\n2.3个变量的次序统计量的联合概率分布，转化成最大值最小值，注意组合数公式\n3.马尔可夫链（赌徒），需要利用条件期望证明\n4.利用期望和方差的性质计算一堆量\n5.均值和方差都未知的区间估计和假设检验，这道题巨坑\n6.很简单的一道证明题，好像就是代入定义，忘了",
+    "inLanguage": "en",
+    "url" : "https:\/\/xuzhang0112.github.io\/course\/prob\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Xu Zhang"
+    },
+    
+    
+    
+    
+    
+    
+    "keywords": ["Course"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "35"
+  }]
+  </script>
+
 
   
   
@@ -583,363 +668,345 @@
       
 
 
- <header>
+<article>
   
-  <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">Course</h1>
-  <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+
+  <header id="single_header" class="mt-5 max-w-prose">
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
   
   
-</div>
-
-
-  </div>
-  </header>
-
-  <section class="flex flex-col max-w-full mt-0 mb-5 prose dark:prose-invert lg:flex-row">
     
-    <script>
-      var oid = "views_term_Course"
-      var oid_likes = "likes_term_Course"
-    </script>
+  
     
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/course/"
+      >Course</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/course/prob/"
+      >Probability</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
     
-    <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
-  </section>
-
-
-  
-
-  
-  
-  
-
-  
-
-  
-
-  <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-    
-    
-    
-
-  <a href="/course/pr/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/course/pr/">Pattern Recogniton</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/course/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Course
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-    
-    
-
-  <a href="/course/matrix/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/course/matrix/">Matrix</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/course/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Course
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-    
-    
-    
-    
-
-  <a href="/course/prob/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/course/prob/">Probability</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/course/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Course
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-    
-    
-  </section>
-
-  
-
-  
-
-  
-
-  
-
-  
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Probability
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/course/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Course
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#作业要点">作业要点</a></li>
+    <li><a href="#key">Key</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#作业要点">作业要点</a></li>
+    <li><a href="#key">Key</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h2 class="relative group">作业要点 
+    <div id="%E4%BD%9C%E4%B8%9A%E8%A6%81%E7%82%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BD%9C%E4%B8%9A%E8%A6%81%E7%82%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>作业1</p>
+<p>几何分布：概率为p的事件首次发生时的次数，期望=1/p</p>
+<p>协方差的计算公式推导：定义+期望的性质</p>
+<p>期望=条件期望的概率加权和</p>
+<p>泊松分布：小概率事件在一段时间内发生的次数，服从泊松分布的随机变量的和服从泊松分布，且$$\lambda=\lambda_1+\lambda_2$$</p>
+<p>X+Y的概率分布：卷积公式，本质上是全概率公式（条件概率）</p>
+<p>贝叶斯公式：后验概率=先验概率+似然概率（后验颠倒）</p>
+<p>作业2</p>
+<p>马尔可夫链：利用含有条件概率的全概率公式</p>
+<p>XY的概率分布：独立则可拆分，并灵活运用方差=二阶矩-一阶矩^2</p>
+<p>多元概率分布之间的转换：利用雅可比行列式（顺序的记忆方法：不同分布都满足概率和为1）</p>
+<p>样本方差的期望：利用期望和方差的性质进行一通推导（期望是线性的，方差不是线性的，虽然可加）</p>
+<p>布朗运动：参考弹珠下落在分隔板上左/右移，借此思考其性质，然后根据定义一通推导就行了</p>
+<p>Matropolis hasting算法：可以采样出任意分布（建议看龙哥博客，因为我现在也忘了）</p>
+<p>作业3</p>
+<p>基于样本的均值和方差估计正态分布的均值和方差</p>
+<p>基于样本最大值估计均匀分布的上界</p>
+<p>估计量的均方误差=偏差的平方+估计量的方差</p>
+<p>区间估计：样本均值服从正态分布，样本方差服从自由度n-1的卡方分布（卡方分布，即多个正态分布的随机变量的平方和的分布）考试考了一道均值和方差都未知时的估计均值，有点坑</p>
+<p>基于区间估计进行假设检验</p>
+<p>作业4</p>
+<p>最大后验估计：基于贝叶斯公式可以获得参数的后验概率，然后将样本代入，即可得到该组样本下待估参数的分布函数，然后取极值点即可</p>
+<p>随机变量的换元：代入计算即可，没什么特别的</p>
+<p>线性回归：b1是相关系数，b0相应减去，基本上就是一通推导得到的，注意利用求和符号的性质</p>
+
+
+<h2 class="relative group">Key 
+    <div id="key" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#key" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>1.一道简单的证明，忘了</p>
+<p>2.3个变量的次序统计量的联合概率分布，转化成最大值最小值，注意组合数公式</p>
+<p>3.马尔可夫链（赌徒），需要利用条件期望证明</p>
+<p>4.利用期望和方差的性质计算一堆量</p>
+<p>5.均值和方差都未知的区间估计和假设检验，这道题巨坑</p>
+<p>6.很简单的一道证明题，好像就是代入定义，忘了</p>
+
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+      <script>
+        var oid = "views_course\/prob.md"
+        var oid_likes = "likes_course\/prob.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/course/tofel/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Tofel</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/course/algebra/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Linear Algebra</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
     </main><footer id="site-footer" class="py-10 print:hidden">
   
   

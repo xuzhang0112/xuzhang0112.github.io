@@ -110,7 +110,7 @@ conda自启动
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "796"
+    "wordCount": "802"
   }]
   </script>
 
@@ -1532,6 +1532,9 @@ esac
 </span></span><span style="display:flex;"><span>wget <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span> -O ~/miniconda3/miniconda.sh
 </span></span><span style="display:flex;"><span>bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 </span></span><span style="display:flex;"><span>rm ~/miniconda3/miniconda.sh
+</span></span></code></pre></div><p>初始化</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source ~/miniconda3/bin/activate
+</span></span><span style="display:flex;"><span>conda init --all
 </span></span></code></pre></div><p>配置基本的参数</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>conda config --set auto_activate_base true <span style="color:#75715e"># 自动激活conda环境</span>
 </span></span><span style="display:flex;"><span>pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple <span style="color:#75715e">#pip换源就够了，从来不用conda</span>

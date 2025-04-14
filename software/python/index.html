@@ -102,7 +102,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "1275"
+    "wordCount": "1342"
   }]
   </script>
 
@@ -1007,7 +1007,10 @@
 </h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#f92672">.</span>value_counts(column_name)
 </span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>plot()
-</span></span></code></pre></div>
+</span></span></code></pre></div><ul>
+<li>判断某个元素是否属于某一列，必须先将该列转化为可迭代对象</li>
+</ul>
+
 
 <h3 class="relative group">Matplotlib 
     <div id="matplotlib" class="anchor"></div>
@@ -1342,37 +1345,6 @@
 </h3>
 
 
-<h4 class="relative group">Dataset &amp; Dataloader 
-    <div id="dataset--dataloader" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#dataset--dataloader" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<ul>
-<li>
-<p>transform: 一般在Dataset中定义，在返回一个Index的sample时进行处理</p>
-</li>
-<li>
-<p>batch_sampler: 从Dataset中获取一个batch的sample, 其中index的获取取决于采样算法</p>
-</li>
-<li>
-<p>collect_function: 将样本变成Batch</p>
-<ul>
-<li>输入：列表，长度为Batch_size，列表的每个元素是字典，代表一个样本</li>
-<li>输出：字典，每个键值对是一个类型和对应的Tensor，并且已经有了Batch_size这个维度</li>
-</ul>
-</li>
-<li>
-<p><a href="https://mp.weixin.qq.com/s/Uc2LYM6tIOY8KyxB7aQrOw"   target="_blank">
-    PyTorch DataLoader工作原理可视化</a></p>
-</li>
-</ul>
-
-
 <h4 class="relative group">Tensor 
     <div id="tensor" class="anchor"></div>
     
@@ -1383,7 +1355,7 @@
     </span>        
     
 </h4>
-<p>快速创建tensor</p>
+<p>创建tensor</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>tensor()  <span style="color:#75715e">#将其他数据类型（list,array等）转换为张量</span>
 </span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>empty()  
 </span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>zeros()                                                                            
@@ -1405,9 +1377,10 @@
 </span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>utils<span style="color:#f92672">.</span>rnn<span style="color:#f92672">.</span>pad_seq([seq_a, seq_b, <span style="color:#f92672">...</span>], batch_first<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>) <span style="color:#75715e"># 不等长序列补零后拼接</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 索引</span>
-</span></span><span style="display:flex;"><span>tensor[x,y,z] <span style="color:#75715e"># 标量索引</span>
-</span></span><span style="display:flex;"><span>tensor[[x1,x2],y,z] <span style="color:#75715e"># 列表索引</span>
-</span></span><span style="display:flex;"><span>tensor[tensor1,tensor2,tensor3] <span style="color:#75715e"># 张量索引，注意一个张量只能索引一个维度</span>
+</span></span><span style="display:flex;"><span>tensor[x,y,z] <span style="color:#75715e"># 标量索引，索引坐标为(x,y,z)的元素</span>
+</span></span><span style="display:flex;"><span>tensor[[x1,x2],y,z] <span style="color:#75715e"># 列表索引，索引坐标为(x1,y,z)和(x2,y,z)的元素</span>
+</span></span><span style="display:flex;"><span>tensor[tensor1,tensor2,tensor3] <span style="color:#75715e"># 张量索引，索引坐标为(x1,y1,z1),...(xn,yn,zn)的元素，tensor必须是一维张量</span>
+</span></span><span style="display:flex;"><span>(tensor <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>)<span style="color:#f92672">.</span>nonzero(as_tuple<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>) <span style="color:#75715e"># 获取满足条件的索引</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 扩张</span>
 </span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>expand() <span style="color:#75715e">#沿维度扩张n倍</span>
@@ -1490,6 +1463,37 @@
 </table>
 
 
+<h4 class="relative group">Dataset &amp; Dataloader 
+    <div id="dataset--dataloader" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dataset--dataloader" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>
+<p>transform: 一般在Dataset中定义，在返回一个Index的sample时进行处理</p>
+</li>
+<li>
+<p>batch_sampler: 从Dataset中获取一个batch的sample, 其中index的获取取决于采样算法</p>
+</li>
+<li>
+<p>collect_function: 将样本变成Batch</p>
+<ul>
+<li>输入：列表，长度为Batch_size，列表的每个元素是字典，代表一个样本</li>
+<li>输出：字典，每个键值对是一个类型和对应的Tensor，并且已经有了Batch_size这个维度</li>
+</ul>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s/Uc2LYM6tIOY8KyxB7aQrOw"   target="_blank">
+    PyTorch DataLoader工作原理可视化</a></p>
+</li>
+</ul>
+
+
 <h3 class="relative group">🤗 Accelerate 
     <div id="-accelerate" class="anchor"></div>
     
@@ -1534,6 +1538,9 @@
 </span></span><span style="display:flex;"><span>  unwrapped_model <span style="color:#f92672">=</span> accelerator<span style="color:#f92672">.</span>unwrap_model(model)
 </span></span><span style="display:flex;"><span>  unwrapped_model<span style="color:#f92672">.</span>save_pretrained(args<span style="color:#f92672">.</span>output_dir, save_function<span style="color:#f92672">=</span>accelerator<span style="color:#f92672">.</span>save)
 </span></span></code></pre></div><p>基于上述代码修改，可以在命令行使用多卡或者单卡进行模型的训练</p>
+<ul>
+<li>Accelerate和tensor.to(device)不是互斥的，某些情况下仍然需要手动修改device</li>
+</ul>
 <p>多卡</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>accelerate launch --multi_gpu --gpu_ids<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0,1&#34;</span> --num_processes<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> --num_machines<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> main.py
 </span></span></code></pre></div><p>单卡</p>
@@ -1550,19 +1557,9 @@
     </span>        
     
 </h3>
-
-
-<h5 class="relative group">下载PLM 
-    <div id="%E4%B8%8B%E8%BD%BDplm" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%B8%8B%E8%BD%BDplm" aria-label="Anchor">#</a>
-    </span>        
-    
-</h5>
+<p>下载PLM</p>
 <p>指定镜像源，指定需要下载的模型的仓库id，传入自己的huggingface token，即可下载</p>
+<p>服务器上下载失败很可能是因为没有传入token</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> huggingface_hub <span style="color:#f92672">import</span> hf_hub_download
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> huggingface_hub <span style="color:#f92672">import</span> snapshot_download
 </span></span><span style="display:flex;"><span>
@@ -1573,18 +1570,7 @@
 </span></span><span style="display:flex;"><span>    local_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;models/&#34;</span> <span style="color:#f92672">+</span> repo_id<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;/&#34;</span>)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>],
 </span></span><span style="display:flex;"><span>    token<span style="color:#f92672">=</span>token,
 </span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div>
-
-<h5 class="relative group">调用PLM 
-    <div id="%E8%B0%83%E7%94%A8plm" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%B0%83%E7%94%A8plm" aria-label="Anchor">#</a>
-    </span>        
-    
-</h5>
+</span></span></code></pre></div><p>调用PLM</p>
 <p><em><strong>customization &amp; finetuning of PLM</strong></em></p>
 <p>如果不需要调整模型结构，那么仅通过AutoClass三件套<code>AutoConfig</code>、<code>AutoTokenizer</code>和<code>AutoModel</code>，即可调用PLM来实现一系列下游任务</p>
 <pre tabindex="0"><code>model = AutoModelForSequenceClassification.from_pretrained(&#34;google-bert/bert-base-cased&#34;, num_labels=5)
@@ -1746,6 +1732,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>os<span style="color:#f92672">.</span>getcwd(path)  <span style="color:#75715e">#查看工作目录</span>
 </span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>chdir(path)  <span style="color:#75715e">#改变工作目录</span>
 </span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>listdir(path)  <span style="color:#75715e">#浏览工作目录</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>walk(path) <span style="color:#75715e"># 遍历目录</span>
 </span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>mkdir(path)  <span style="color:#75715e">#创建文件夹</span>
 </span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>remove(path)  <span style="color:#75715e">#删除文件</span>
 </span></span></code></pre></div>
@@ -1974,8 +1961,8 @@
     </span>        
     
 </h4>
-<p>装饰器定义复杂，使用简单</p>
-<p>定义装饰器<code>log</code>，使得装饰后的函数在每次调用时打印函数名称，其中<code>@functools.wraps(func)</code>可以保持装饰后函数的<code>__name__</code>属性不变</p>
+<p>装饰器<strong>定义复杂，使用简单</strong></p>
+<p>以定义一个<code>log</code>装饰器为例，其中<code>@functools.wraps(func)</code>可以保持装饰后函数的<code>__name__</code>属性不变</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> functools
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">log</span>(func):
@@ -1984,10 +1971,33 @@
 </span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;call </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">():&#39;</span> <span style="color:#f92672">%</span> func<span style="color:#f92672">.</span>__name__)
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> func(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw)
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> wrapper
-</span></span></code></pre></div><p>使用装饰器只需要在需要装饰的函数定义前加<code>@log</code>即可</p>
+</span></span></code></pre></div><p>使用装饰器只需要在需要装饰的函数定义前加<code>@log</code>，即可使得装饰后的函数在每次调用时打印函数名称</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">@log</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_func</span>(<span style="color:#f92672">*</span>args,<span style="color:#f92672">**</span>kw):
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>常用装饰器</p>
+<p>@dataclass</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">@dataclass</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>:
+</span></span><span style="display:flex;"><span>    x: float
+</span></span><span style="display:flex;"><span>    y: float
+</span></span><span style="display:flex;"><span>    z: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#上下两者等价</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, x: float, y: float, z: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> x
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> y
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> z
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __repr__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Point(x=</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>x<span style="color:#e6db74">}</span><span style="color:#e6db74">, y=</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>y<span style="color:#e6db74">}</span><span style="color:#e6db74">, z=</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>z<span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __eq__(self, other):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(other, Point):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> NotImplemented
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (self<span style="color:#f92672">.</span>x, self<span style="color:#f92672">.</span>y, self<span style="color:#f92672">.</span>z) <span style="color:#f92672">==</span> (other<span style="color:#f92672">.</span>x, other<span style="color:#f92672">.</span>y, other<span style="color:#f92672">.</span>z)
 </span></span></code></pre></div>
 
 <h4 class="relative group">匿名函数和偏函数 

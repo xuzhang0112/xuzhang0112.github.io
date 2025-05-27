@@ -65,6 +65,7 @@
 Shell命令的基本格式是“命令&#43;参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。
 命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用
 pwd sh *.sh python main.py 当连续执行多条命令时，如果用&quot;&amp;&amp;&ldquo;连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行
+在命令结尾加&rdquo;&amp;&quot;，可以使命令挂载到后台执行，从而可以在同一个Shell中并行执行多条命令
 配置默认启动脚本 # 用户使用终端登录Linux服务器时，通常只会默认执行~/.bash_profile.sh，而conda的自启动一般写在~/.bashrc中，所以一般会在~/.bash_profile.sh同时运行~/.bashrc
 if [ -f ~/.bashrc ]; then source ~/.bashrc fi 每当重新打开一个新的终端时，则会执行~/.bashrc
 conda自启动
@@ -80,6 +81,7 @@ conda自启动
 Shell命令的基本格式是“命令&#43;参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。
 命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用
 pwd sh *.sh python main.py 当连续执行多条命令时，如果用&quot;&amp;&amp;&ldquo;连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行
+在命令结尾加&rdquo;&amp;&quot;，可以使命令挂载到后台执行，从而可以在同一个Shell中并行执行多条命令
 配置默认启动脚本 # 用户使用终端登录Linux服务器时，通常只会默认执行~/.bash_profile.sh，而conda的自启动一般写在~/.bashrc中，所以一般会在~/.bash_profile.sh同时运行~/.bashrc
 if [ -f ~/.bashrc ]; then source ~/.bashrc fi 每当重新打开一个新的终端时，则会执行~/.bashrc
 conda自启动
@@ -94,7 +96,7 @@ conda自启动
     "name": "CheatSheet",
     "headline": "CheatSheet",
     
-    "abstract": "Shell # Shell是用户和操作系统之间的媒介，它提供了丰富的接口，以帮助用户使用操作系统。\nShell命令的基本格式是“命令\u002b参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。\n命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用\npwd sh *.sh python main.py 当连续执行多条命令时，如果用\u0026quot;\u0026amp;\u0026amp;\u0026ldquo;连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行\n配置默认启动脚本 # 用户使用终端登录Linux服务器时，通常只会默认执行~\/.bash_profile.sh，而conda的自启动一般写在~\/.bashrc中，所以一般会在~\/.bash_profile.sh同时运行~\/.bashrc\nif [ -f ~\/.bashrc ]; then source ~\/.bashrc fi 每当重新打开一个新的终端时，则会执行~\/.bashrc\nconda自启动\n# \u0026gt;\u0026gt;\u0026gt; conda init \u0026gt;\u0026gt;\u0026gt; # !! Contents within this block are managed by \u0026#39;conda init\u0026#39; !! __conda_setup=\u0026#34;$(CONDA_REPORT_ERRORS=false \u0026#39;\/data\/shaozhisun\/anaconda3\/bin\/conda\u0026#39; shell.bash hook 2\u0026gt; \/dev\/null)\u0026#34; if [ $? -eq 0 ]; then \\eval \u0026#34;$__conda_setup\u0026#34; else if [ -f \u0026#34;\/data\/shaozhisun\/anaconda3\/etc\/profile.d\/conda.sh\u0026#34; ]; then . \u0026#34;\/data\/shaozhisun\/anaconda3\/etc\/profile.d\/conda.sh\u0026#34; CONDA_CHANGEPS1=false conda activate base else export PATH=\u0026#34;\/data\/shaozhisun\/anaconda3\/bin:$PATH\u0026#34; fi fi unset __conda_setup Shell脚本 # 尽管Linux系统中已经实现了大量的Shell脚本供用户调用，但有些时候我们仍然需要自己编写Shell脚本，以实现定制化的需求。",
+    "abstract": "Shell # Shell是用户和操作系统之间的媒介，它提供了丰富的接口，以帮助用户使用操作系统。\nShell命令的基本格式是“命令\u002b参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。\n命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用\npwd sh *.sh python main.py 当连续执行多条命令时，如果用\u0026quot;\u0026amp;\u0026amp;\u0026ldquo;连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行\n在命令结尾加\u0026rdquo;\u0026amp;\u0026quot;，可以使命令挂载到后台执行，从而可以在同一个Shell中并行执行多条命令\n配置默认启动脚本 # 用户使用终端登录Linux服务器时，通常只会默认执行~\/.bash_profile.sh，而conda的自启动一般写在~\/.bashrc中，所以一般会在~\/.bash_profile.sh同时运行~\/.bashrc\nif [ -f ~\/.bashrc ]; then source ~\/.bashrc fi 每当重新打开一个新的终端时，则会执行~\/.bashrc\nconda自启动\n# \u0026gt;\u0026gt;\u0026gt; conda init \u0026gt;\u0026gt;\u0026gt; # !! Contents within this block are managed by \u0026#39;conda init\u0026#39; !! __conda_setup=\u0026#34;$(CONDA_REPORT_ERRORS=false \u0026#39;\/data\/shaozhisun\/anaconda3\/bin\/conda\u0026#39; shell.bash hook 2\u0026gt; \/dev\/null)\u0026#34; if [ $? -eq 0 ]; then \\eval \u0026#34;$__conda_setup\u0026#34; else if [ -f \u0026#34;\/data\/shaozhisun\/anaconda3\/etc\/profile.d\/conda.sh\u0026#34; ]; then . \u0026#34;\/data\/shaozhisun\/anaconda3\/etc\/profile.d\/conda.sh\u0026#34; CONDA_CHANGEPS1=false conda activate base else export PATH=\u0026#34;\/data\/shaozhisun\/anaconda3\/bin:$PATH\u0026#34; fi fi unset __conda_setup Shell脚本 # 尽管Linux系统中已经实现了大量的Shell脚本供用户调用，但有些时候我们仍然需要自己编写Shell脚本，以实现定制化的需求。",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/software\/cheatsheet\/",
     "author" : {
@@ -110,7 +112,7 @@ conda自启动
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "802"
+    "wordCount": "820"
   }]
   </script>
 
@@ -119,6 +121,9 @@ conda自启动
   
   <meta name="author" content="Xu Zhang" />
   
+  
+  
+  <link href="https://scholar.google.com/citations?user=6-NiSKYAAAAJ&amp;hl=zh-CN" rel="me" />
   
   
   <link href="https://www.zhihu.com/people/zhang-xu-20-31-39" rel="me" />
@@ -886,6 +891,7 @@ conda自启动
 </span></span><span style="display:flex;"><span>sh *.sh
 </span></span><span style="display:flex;"><span>python main.py
 </span></span></code></pre></div><p>当连续执行多条命令时，如果用&quot;&amp;&amp;&ldquo;连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行</p>
+<p>在命令结尾加&rdquo;&amp;&quot;，可以使命令挂载到后台执行，从而可以在同一个Shell中并行执行多条命令</p>
 
 
 <h3 class="relative group">配置默认启动脚本 
@@ -1163,6 +1169,7 @@ esac
 <p>不涉及文件内容的查看</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ls dir <span style="color:#75715e"># 查看dir内的文件</span>
 </span></span><span style="display:flex;"><span>du -sh <span style="color:#75715e"># 查看dir的磁盘占用情况</span>
+</span></span><span style="display:flex;"><span>df -h <span style="color:#75715e"># 查看分区情况</span>
 </span></span><span style="display:flex;"><span>find -name filename <span style="color:#75715e"># 搜索</span>
 </span></span></code></pre></div><p>对文件的增删改查</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>touch filename <span style="color:#75715e"># 创建文件</span>
@@ -1188,58 +1195,18 @@ esac
     </span>        
     
 </h3>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>查看</td>
-<td><code>ps</code></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td><code>htop</code></td>
-<td></td>
-</tr>
-<tr>
-<td>结束</td>
-<td><code>kill PID``kill name</code></td>
-<td></td>
-</tr>
-<tr>
-<td>挂载后台</td>
-<td><code>nohup command &amp;</code></td>
-<td></td>
-</tr>
-<tr>
-<td>显卡</td>
-<td><code>gpustat -i</code></td>
-<td>pip安装</td>
-</tr>
-<tr>
-<td>端口号</td>
-<td><code>netstat -tuln</code></td>
-<td>查看占用情况</td>
-</tr>
-<tr>
-<td></td>
-<td>`netstat -tuln</td>
-<td>grep 6006`</td>
-</tr>
-<tr>
-<td></td>
-<td><code>ssh -L 8008:127.0.0.1:8008 xuzhang@172.16.120.1</code></td>
-<td>重映射</td>
-</tr>
-</tbody>
-</table>
-
+<p><a href="https://blog.csdn.net/weixin_47700137/article/details/134363063"   target="_blank">
+    杀死僵尸进程</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ps aux | grep user_id | grep python | grep Rsl <span style="color:#75715e"># 搜索某一用户运行的python进程</span>
+</span></span><span style="display:flex;"><span>kill -9 PID <span style="color:#75715e"># 杀死进程</span>
+</span></span></code></pre></div><p>挂载后台
+<code>nohup command &amp;</code></p>
+<p>显卡占用情况</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gpustat -i <span style="color:#75715e"># 需要pip安装</span>
+</span></span></code></pre></div><p>端口占用情况</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netstat -tuln | grep <span style="color:#ae81ff">6006</span> <span style="color:#75715e"># 查看6006端口的占用情况</span>
+</span></span><span style="display:flex;"><span>ssh -L 8008:127.0.0.1:8008 xuzhang@172.16.120.1 <span style="color:#75715e">#将指定端口映射到某个ip</span>
+</span></span></code></pre></div>
 
 <h3 class="relative group">用户管理 
     <div id="%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86" class="anchor"></div>
@@ -1437,7 +1404,7 @@ esac
 <td>左右分屏（百分号的左和右）</td>
 </tr>
 <tr>
-<td>&quot;&rdquo;</td>
+<td>&quot;&quot;</td>
 <td></td>
 <td>上下分屏（上引号和下引号）</td>
 </tr>
@@ -1554,7 +1521,7 @@ esac
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>conda create -n env_name python<span style="color:#f92672">=</span>3.9 <span style="color:#75715e">#新建</span>
 </span></span><span style="display:flex;"><span>conda activate env <span style="color:#75715e"># 激活</span>
 </span></span><span style="display:flex;"><span>conda deactivate <span style="color:#75715e"># 取消激活</span>
-</span></span><span style="display:flex;"><span>conda remove -n  需要删除的环境名 --all <span style="color:#75715e">#删除</span>
+</span></span><span style="display:flex;"><span>conda remove --name <span style="color:#f92672">[</span>env_name<span style="color:#f92672">]</span> --all <span style="color:#75715e">#删除</span>
 </span></span></code></pre></div>
 
 <h3 class="relative group">Git 
@@ -1977,7 +1944,7 @@ esac
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/software/python/">
+            <a class="flex group mr-3" href="/software/latex/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1989,7 +1956,7 @@ esac
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Python</span
+                  >Latex</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1999,6 +1966,26 @@ esac
           
         </span>
         <span>
+          
+            <a class="flex text-right group ml-3" href="/software/python/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Python</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>

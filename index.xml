@@ -7,7 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Xu Zhang</copyright>
-    <lastBuildDate>Thu, 10 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python</title>
+      <link>https://xuzhang0112.github.io/software/python/</link>
+      <pubDate>Fri, 25 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/software/python/</guid>
+      <description>推荐链接
+廖雪峰的官方网站
+Grammar # Basic Data Class # Tips List 有序，但查找效率非常低 Dict 有序，但并非插入顺序 Set 无序，顺序是随机的 Function # 函数签名 # def f(x: int, b: float): pass 参数组合 # 定义函数时，可使用必选参数、默认参数、可变参数、关键字参数和命名关键字参数。
+这5种参数都可以组合使用，但必须按顺序使用。
+有多个默认参数时，调用的时候，既可以按顺序提供默认参数，也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。
+比如定义一个函数，包含上述若干种参数：
+def f1(a, b, c=0, *args, **kw): pass def f2(a, b, c=0, *, d, **kw): pass 在函数调用的时候，必须先按顺序传入，再按参数名传入。
+由于Python解释器会按上述顺序解析5种参数，因此，如果要传入可变参数，必须先传入默认参数。
+解包 # 对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，无论它的参数是如何定义的。
+tuple用*解包，dic用**解包。
+args = (1, 2, 3, 4) kw = {&amp;#39;d&amp;#39;: 99, &amp;#39;x&amp;#39;: &amp;#39;#&amp;#39;} f(*args, **kw) zip()表示压缩；zip(*)表示解压
+&amp;gt;&amp;gt;&amp;gt; a = [1,2,3] &amp;gt;&amp;gt;&amp;gt; b = [4,5,6] &amp;gt;&amp;gt;&amp;gt; zip(a,b) # 返回一个对象 &amp;lt;zip object at 0x103abc288&amp;gt; &amp;gt;&amp;gt;&amp;gt; list(zipped) # list() 转换为列表 [(1, 4), (2, 5), (3, 6)] &amp;gt;&amp;gt;&amp;gt; a1, a2 = zip(*zip(a,b)) # 与 zip 相反，zip(*) 可理解为解压 &amp;gt;&amp;gt;&amp;gt; list(a1), list(a2) [1, 2, 3], [4, 5, 6] 装饰器 # 装饰器定义复杂，使用简单</description>
+      
+    </item>
+    
     <item>
       <title>Medical NLP</title>
       <link>https://xuzhang0112.github.io/research/med_nlp/</link>
@@ -20,7 +41,10 @@ MIMIC-III Leaderboard
 MIMIC-IV official splits
 UMLS: Quick Start
 Metathesaurus: Terms and codes from many vocabularies, including CPT®, ICD-10-CM, LOINC®, MeSH®, RxNorm, and SNOMED CT® Semantic Network: semantic types &amp;amp; their relationships (semantic relations) SPECIALIST Lexicon and Lexical Tools: NLP tools ICD-10: ICD10官方API
-Metrics: 单标签多分类：precision = recall = micro f1 = accuracy</description>
+Metrics: 单标签多分类：precision = recall = micro f1 = accuracy
+Blogs &amp;amp; Papers:
+LLM for ICD
+KG for ICD</description>
       
     </item>
     
@@ -34,23 +58,11 @@ Metrics: 单标签多分类：precision = recall = micro f1 = accuracy</descript
 Shell命令的基本格式是“命令+参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。
 命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用
 pwd sh *.sh python main.py 当连续执行多条命令时，如果用&amp;quot;&amp;amp;&amp;amp;&amp;ldquo;连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行
+在命令结尾加&amp;rdquo;&amp;amp;&amp;quot;，可以使命令挂载到后台执行，从而可以在同一个Shell中并行执行多条命令
 配置默认启动脚本 # 用户使用终端登录Linux服务器时，通常只会默认执行~/.bash_profile.sh，而conda的自启动一般写在~/.bashrc中，所以一般会在~/.bash_profile.sh同时运行~/.bashrc
 if [ -f ~/.bashrc ]; then source ~/.bashrc fi 每当重新打开一个新的终端时，则会执行~/.bashrc
 conda自启动
 # &amp;gt;&amp;gt;&amp;gt; conda init &amp;gt;&amp;gt;&amp;gt; # !! Contents within this block are managed by &amp;#39;conda init&amp;#39; !! __conda_setup=&amp;#34;$(CONDA_REPORT_ERRORS=false &amp;#39;/data/shaozhisun/anaconda3/bin/conda&amp;#39; shell.bash hook 2&amp;gt; /dev/null)&amp;#34; if [ $? -eq 0 ]; then \eval &amp;#34;$__conda_setup&amp;#34; else if [ -f &amp;#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&amp;#34; ]; then . &amp;#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&amp;#34; CONDA_CHANGEPS1=false conda activate base else export PATH=&amp;#34;/data/shaozhisun/anaconda3/bin:$PATH&amp;#34; fi fi unset __conda_setup Shell脚本 # 尽管Linux系统中已经实现了大量的Shell脚本供用户调用，但有些时候我们仍然需要自己编写Shell脚本，以实现定制化的需求。</description>
-      
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://xuzhang0112.github.io/software/python/</link>
-      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://xuzhang0112.github.io/software/python/</guid>
-      <description>Data Processing # Jupter Notebook # 在cell中执行shell
-!pwd #单条shell命令 %%bash #整个cell作为shell脚本 模块自动重载，否则每次修改需要重启kernel
-%load_ext autoreload %autoreload 2 #每执行一个cell都会重载所有模块 Pandas # 菜鸟教程yyds
-创建Dataframe # # 从外部读取 read_csv() read_excel() # 创建空的DataFrame Dataframe(columns=[column_name1, column_name2]) # 根据可迭代对象创建DataFrame Dataframe([{column1:a,column2:b},{}]) # 每个元素是一个Dict，表示一行 Dataframe([[a,b],[c,d],[e,f]]，columns=[&amp;#39;c1&amp;#39;,&amp;#39;c2&amp;#39;]) # 每个元素是一个List，代表一行 # 根据Dict创建DataFrame Dataframe.from_dict({column1:[...],column2:[...]}) #字典的key表示某一列 Dataframe.from_dict({index1:[c1,c2,c3], index2:[c1,c2,c3], ...}) #字典的key表示某一行的索引 添加新的行/列 # # 创建新的列 df[new_column] = constant / df[a]+df[b] / df[a].apply(func) # 老版本的写法 df.loc[:,c] = df[a] + df[b] # 更建议的写法 # 创建新的行 df.loc[len(df)] = Series({column1=x,column2=y,.</description>
       
     </item>
     
@@ -134,7 +146,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器+阶跃函数
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://xuzhang0112.github.io/cv/</guid>
-      <description>About Me # I am a Master student of the University of Science and Technology of China ( USTC) supervised by Prof. S. Kevin Zhou. And I focus on Medical Image Processing, Medical Language Processing and Medical Multimodal Processing. I received my bachelor’s degree from Soochow University ( SCU) in 2023. My bachelor’s tutor is Prof. Dehui Xiang.</description>
+      <description>About Me # I am a PhD student at Biomedical Engineering School of the University of Science and Technology of China ( USTC) supervised by Prof. S. Kevin Zhou. And I focus on Medical Image Processing, Medical Language Processing and Medical Multimodal Processing. I received my bachelor’s degree from Soochow University ( SCU) in 2023. My bachelor’s tutor is Prof. Dehui Xiang.</description>
       
     </item>
     

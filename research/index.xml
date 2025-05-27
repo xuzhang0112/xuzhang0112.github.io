@@ -20,7 +20,10 @@ MIMIC-III Leaderboard
 MIMIC-IV official splits
 UMLS: Quick Start
 Metathesaurus: Terms and codes from many vocabularies, including CPT®, ICD-10-CM, LOINC®, MeSH®, RxNorm, and SNOMED CT® Semantic Network: semantic types &amp;amp; their relationships (semantic relations) SPECIALIST Lexicon and Lexical Tools: NLP tools ICD-10: ICD10官方API
-Metrics: 单标签多分类：precision = recall = micro f1 = accuracy</description>
+Metrics: 单标签多分类：precision = recall = micro f1 = accuracy
+Blogs &amp;amp; Papers:
+LLM for ICD
+KG for ICD</description>
       
     </item>
     

@@ -26,8 +26,8 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.ac59a1b8eaafef739c129d12787ac29f6a420bcb348c7aeec8949a8d0b7d6c2023766c169d14b9031b751504eb3c976efe786fec135b340a49868acd8caa4127.css"
-    integrity="sha512-rFmhuOqv73OcEp0SeHrCn2pCC8s0jHruyJSajQt9bCAjdmwWnRS5Axt1FQTrPJdu/nhv7BNbNApJhorNjKpBJw==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.5f8f4777872a0d3d0d40b3754a43f54f29ae82af8e7ee8b8cb972495c44f0d770b15cd4194b7a49bc85950ac492768c127b305a57fc92ed77bf7e230fb6530a4.css"
+    integrity="sha512-X49Hd4cqDT0NQLN1SkP1Tymugq&#43;Ofui4y5cklcRPDXcLFc1BlLekm8hZUKxJJ2jBJ7MFpX/JLtd79&#43;Iw&#43;2UwpA==" />
   
   
   <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
@@ -41,11 +41,14 @@
   
   
   
-  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
-    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
   
   
-  <script src="/js/zoom.min.js"></script>
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.165327e9b2a9a8807ad5cb6c943a8f9a52756791c128e2dbfb3623bb42429636adb4bbb076b0447b592cad02914321a6aef0db10b907465de34fda41e2830281.js"
+    integrity="sha512-FlMn6bKpqIB61ctslDqPmlJ1Z5HBKOLb&#43;zYju0JCljattLuwdrBEe1ksrQKRQyGmrvDbELkHRl3jT9pB4oMCgQ==" data-copy="Copy" data-copied="Copied"></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.f592a181a15d2a5b042daa7f746c3721acf9063f8b6acd175d989129865a37d400ae0e85b640f9ad42cd98d1f8ad30931718cf8811abdcc5fcb264400d1a2b0c.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj&#43;Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA=="></script>
   
   
   
@@ -60,39 +63,28 @@
   
   
   
-  <meta property="og:title" content="Python" />
-<meta property="og:description" content="推荐链接
+  
+  <meta property="og:url" content="https://xuzhang0112.github.io/software/python/">
+  <meta property="og:site_name" content="Xu Zhang&#39;s Blog">
+  <meta property="og:title" content="Python">
+  <meta property="og:description" content="推荐链接
 廖雪峰的官方网站
-Grammar # Basic Data Class # Tips List 有序，但查找效率非常低 Dict 有序，但并非插入顺序 Set 无序，顺序是随机的 Function # 函数签名 # def f(x: int, b: float): pass 参数组合 # 定义函数时，可使用必选参数、默认参数、可变参数、关键字参数和命名关键字参数。
-这5种参数都可以组合使用，但必须按顺序使用。
-有多个默认参数时，调用的时候，既可以按顺序提供默认参数，也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。
-比如定义一个函数，包含上述若干种参数：
-def f1(a, b, c=0, *args, **kw): pass def f2(a, b, c=0, *, d, **kw): pass 在函数调用的时候，必须先按顺序传入，再按参数名传入。
-由于Python解释器会按上述顺序解析5种参数，因此，如果要传入可变参数，必须先传入默认参数。
-解包 # 对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，无论它的参数是如何定义的。
-tuple用*解包，dic用**解包。
-args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **kw) zip()表示压缩；zip(*)表示解压
-&gt;&gt;&gt; a = [1,2,3] &gt;&gt;&gt; b = [4,5,6] &gt;&gt;&gt; zip(a,b) # 返回一个对象 &lt;zip object at 0x103abc288&gt; &gt;&gt;&gt; list(zipped) # list() 转换为列表 [(1, 4), (2, 5), (3, 6)] &gt;&gt;&gt; a1, a2 = zip(*zip(a,b)) # 与 zip 相反，zip(*) 可理解为解压 &gt;&gt;&gt; list(a1), list(a2) [1, 2, 3], [4, 5, 6] 装饰器 # 装饰器定义复杂，使用简单" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://xuzhang0112.github.io/software/python/" /><meta property="article:section" content="software" />
-<meta property="article:published_time" content="2025-04-25T00:00:00+00:00" />
-<meta property="article:modified_time" content="2025-04-25T00:00:00+00:00" />
+Grammar # Basic Data Class # Tips List 有序，但查找效率非常低 Dict 有序，但并非插入顺序 Set 无序，顺序是随机的 Function # 函数签名 # def f(x: int, b: float): pass 参数组合 # 定义函数时，可使用必选参数、默认参数、可变参数、关键字参数和命名关键字参数。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="software">
+    <meta property="article:published_time" content="2025-04-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-25T00:00:00+00:00">
 
-
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Python"/>
-<meta name="twitter:description" content="推荐链接
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Python">
+  <meta name="twitter:description" content="推荐链接
 廖雪峰的官方网站
-Grammar # Basic Data Class # Tips List 有序，但查找效率非常低 Dict 有序，但并非插入顺序 Set 无序，顺序是随机的 Function # 函数签名 # def f(x: int, b: float): pass 参数组合 # 定义函数时，可使用必选参数、默认参数、可变参数、关键字参数和命名关键字参数。
-这5种参数都可以组合使用，但必须按顺序使用。
-有多个默认参数时，调用的时候，既可以按顺序提供默认参数，也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。
-比如定义一个函数，包含上述若干种参数：
-def f1(a, b, c=0, *args, **kw): pass def f2(a, b, c=0, *, d, **kw): pass 在函数调用的时候，必须先按顺序传入，再按参数名传入。
-由于Python解释器会按上述顺序解析5种参数，因此，如果要传入可变参数，必须先传入默认参数。
-解包 # 对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，无论它的参数是如何定义的。
-tuple用*解包，dic用**解包。
-args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **kw) zip()表示压缩；zip(*)表示解压
-&gt;&gt;&gt; a = [1,2,3] &gt;&gt;&gt; b = [4,5,6] &gt;&gt;&gt; zip(a,b) # 返回一个对象 &lt;zip object at 0x103abc288&gt; &gt;&gt;&gt; list(zipped) # list() 转换为列表 [(1, 4), (2, 5), (3, 6)] &gt;&gt;&gt; a1, a2 = zip(*zip(a,b)) # 与 zip 相反，zip(*) 可理解为解压 &gt;&gt;&gt; list(a1), list(a2) [1, 2, 3], [4, 5, 6] 装饰器 # 装饰器定义复杂，使用简单"/>
+Grammar # Basic Data Class # Tips List 有序，但查找效率非常低 Dict 有序，但并非插入顺序 Set 无序，顺序是随机的 Function # 函数签名 # def f(x: int, b: float): pass 参数组合 # 定义函数时，可使用必选参数、默认参数、可变参数、关键字参数和命名关键字参数。">
 
+    
+  
   
   <script type="application/ld+json">
   [{
@@ -102,7 +94,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     "name": "Python",
     "headline": "Python",
     
-    "abstract": "推荐链接\n廖雪峰的官方网站\nGrammar # Basic Data Class # Tips List 有序，但查找效率非常低 Dict 有序，但并非插入顺序 Set 无序，顺序是随机的 Function # 函数签名 # def f(x: int, b: float): pass 参数组合 # 定义函数时，可使用必选参数、默认参数、可变参数、关键字参数和命名关键字参数。\n这5种参数都可以组合使用，但必须按顺序使用。\n有多个默认参数时，调用的时候，既可以按顺序提供默认参数，也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。\n比如定义一个函数，包含上述若干种参数：\ndef f1(a, b, c=0, *args, **kw): pass def f2(a, b, c=0, *, d, **kw): pass 在函数调用的时候，必须先按顺序传入，再按参数名传入。\n由于Python解释器会按上述顺序解析5种参数，因此，如果要传入可变参数，必须先传入默认参数。\n解包 # 对于任意函数，都可以通过类似func(*args, **kw)的形式调用它，无论它的参数是如何定义的。\ntuple用*解包，dic用**解包。\nargs = (1, 2, 3, 4) kw = {\u0026#39;d\u0026#39;: 99, \u0026#39;x\u0026#39;: \u0026#39;#\u0026#39;} f(*args, **kw) zip()表示压缩；zip(*)表示解压\n\u0026gt;\u0026gt;\u0026gt; a = [1,2,3] \u0026gt;\u0026gt;\u0026gt; b = [4,5,6] \u0026gt;\u0026gt;\u0026gt; zip(a,b) # 返回一个对象 \u0026lt;zip object at 0x103abc288\u0026gt; \u0026gt;\u0026gt;\u0026gt; list(zipped) # list() 转换为列表 [(1, 4), (2, 5), (3, 6)] \u0026gt;\u0026gt;\u0026gt; a1, a2 = zip(*zip(a,b)) # 与 zip 相反，zip(*) 可理解为解压 \u0026gt;\u0026gt;\u0026gt; list(a1), list(a2) [1, 2, 3], [4, 5, 6] 装饰器 # 装饰器定义复杂，使用简单",
+    "abstract": "\u003cp\u003e推荐链接\u003c\/p\u003e\n\u003cp\u003e\u003ca href=\u0022https:\/\/liaoxuefeng.com\/books\/python\/reg-exp\/index.html\u0022 target=\u0022_blank\u0022\u003e廖雪峰的官方网站\u003c\/a\u003e\u003c\/p\u003e\n\n\u003ch2 class=\u0022relative group\u0022\u003eGrammar \n    \u003cdiv id=\u0022grammar\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#grammar\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\n\u003ch3 class=\u0022relative group\u0022\u003eBasic Data Class \n    \u003cdiv id=\u0022basic-data-class\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#basic-data-class\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n      \u003ctr\u003e\n          \u003cth\u003e\u003c\/th\u003e\n          \u003cth\u003eTips\u003c\/th\u003e\n      \u003c\/tr\u003e\n  \u003c\/thead\u003e\n  \u003ctbody\u003e\n      \u003ctr\u003e\n          \u003ctd\u003eList\u003c\/td\u003e\n          \u003ctd\u003e有序，但查找效率非常低\u003c\/td\u003e\n      \u003c\/tr\u003e\n      \u003ctr\u003e\n          \u003ctd\u003eDict\u003c\/td\u003e\n          \u003ctd\u003e有序，但并非插入顺序\u003c\/td\u003e\n      \u003c\/tr\u003e\n      \u003ctr\u003e\n          \u003ctd\u003eSet\u003c\/td\u003e\n          \u003ctd\u003e无序，顺序是随机的\u003c\/td\u003e\n      \u003c\/tr\u003e\n  \u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\u003ch3 class=\u0022relative group\u0022\u003eFunction \n    \u003cdiv id=\u0022function\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#function\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\n\u003ch4 class=\u0022relative group\u0022\u003e函数签名 \n    \u003cdiv id=\u0022函数签名\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%e5%87%bd%e6%95%b0%e7%ad%be%e5%90%8d\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\u0022\u003e\u003ccode class=\u0022language-Plain\u0022 data-lang=\u0022Plain\u0022\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003edef f(x: int, b: float):\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e    pass\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\n\u003ch4 class=\u0022relative group\u0022\u003e参数组合 \n    \u003cdiv id=\u0022参数组合\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%e5%8f%82%e6%95%b0%e7%bb%84%e5%90%88\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e定义函数时，可使用\u003cem\u003e\u003cstrong\u003e必选参数、默认参数、可变参数、关键字参数和命名关键字参数\u003c\/strong\u003e\u003c\/em\u003e。\u003c\/p\u003e",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/software\/python\/",
     "author" : {
@@ -118,7 +110,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "1417"
+    "wordCount": "1416"
   }]
   </script>
 
@@ -129,16 +121,24 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
   
   
   
+  
   <link href="https://scholar.google.com/citations?user=6-NiSKYAAAAJ&amp;hl=zh-CN" rel="me" />
+  
+  
   
   
   <link href="https://www.zhihu.com/people/zhang-xu-20-31-39" rel="me" />
   
   
+  
+  
   <link href="https://space.bilibili.com/456489591" rel="me" />
   
   
+  
+  
   <link href="https://github.com/xuzhang0112" rel="me" />
+  
   
   
   
@@ -193,6 +193,9 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
   
 
 
+
+  
+  
   
   
   <meta name="theme-color"/>
@@ -200,7 +203,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
   
 </head>
 <body
-  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
@@ -209,7 +212,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
   
   
   <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
-    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
     
     <div class="flex flex-1 items-center justify-between">
         <nav class="flex space-x-3">
@@ -219,7 +222,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
             
 
         </nav>
-        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
 
             
             
@@ -349,6 +352,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </a>
 
 
+
             
             
 
@@ -373,7 +377,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
             
             
             <div
-                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                class=" flex items-center">
                 <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
                     <div class="flex items-center justify-center dark:hidden">
                         
@@ -400,7 +404,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
             
 
         </nav>
-        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
 
             <span></span>
 
@@ -423,7 +427,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 
             
             
-            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
                 <div class="flex items-center justify-center dark:hidden">
                     
 
@@ -449,10 +453,9 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 
         </div>
     </div>
-    <div class="-my-2 -mr-2 md:hidden">
+    <div class="-my-2 md:hidden">
 
-        <label id="menu-button" for="menu-controller" class="block">
-            <input type="checkbox" id="menu-controller" class="hidden" />
+        <label id="menu-button" class="block">
             
             <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
                 
@@ -469,7 +472,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
                 <ul
                     class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
 
-                    <li>
+                    <li id="menu-close-button">
                         <span
                             class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
 
@@ -485,7 +488,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 
                      
   <li class="mt-1">
-    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/software/" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Software">
             Software
@@ -536,11 +539,12 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 
 
 
+
                     
 
                      
   <li class="mt-1">
-    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/research/" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Research">
             AI Research
@@ -600,6 +604,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 
 
 
+
                     
 
                     
@@ -611,6 +616,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
         </p>
     </a>
 </li>
+
 
 
 
@@ -647,7 +653,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
   
     
   
-  <li class="inline hidden">
+  <li class="hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/"
@@ -656,7 +662,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
   </li>
 
   
-  <li class="inline ">
+  <li class="inline">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/software/"
@@ -665,7 +671,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
   </li>
 
   
-  <li class="inline hidden">
+  <li class="hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/software/python/"
@@ -744,6 +750,10 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 
 
 
+
+
+
+
     </div>
 
     
@@ -772,13 +782,13 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
       class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
       <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
 
-         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+         <details open id="TOCView" class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
     Table of Contents
   </summary>
   <div
-    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#grammar">Grammar</a>
@@ -834,7 +844,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     <li><a href="#file-system">File System</a>
       <ul>
         <li><a href="#正则匹配与路径操作">正则匹配与路径操作</a></li>
-        <li><a href="#heading"></a></li>
+        <li></li>
         <li><a href="#工作目录与包管理">工作目录与包管理</a></li>
         <li><a href="#文件的增删改查">文件的增删改查</a></li>
       </ul>
@@ -905,7 +915,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     <li><a href="#file-system">File System</a>
       <ul>
         <li><a href="#正则匹配与路径操作">正则匹配与路径操作</a></li>
-        <li><a href="#heading"></a></li>
+        <li></li>
         <li><a href="#工作目录与包管理">工作目录与包管理</a></li>
         <li><a href="#文件的增删改查">文件的增删改查</a></li>
       </ul>
@@ -915,6 +925,9 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
   </div>
 </details>
 
+<script>
+
+</script>
    </div>
       </div>
       
@@ -926,9 +939,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 
         <div class="article-content max-w-prose mb-20">
           <p>推荐链接</p>
-<p><a href="https://liaoxuefeng.com/books/python/reg-exp/index.html"   target="_blank">
-    廖雪峰的官方网站</a></p>
-
+<p><a href="https://liaoxuefeng.com/books/python/reg-exp/index.html" target="_blank">廖雪峰的官方网站</a></p>
 
 <h2 class="relative group">Grammar 
     <div id="grammar" class="anchor"></div>
@@ -941,7 +952,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     
 </h2>
 
-
 <h3 class="relative group">Basic Data Class 
     <div id="basic-data-class" class="anchor"></div>
     
@@ -953,28 +963,27 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     
 </h3>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>Tips</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>List</td>
-<td>有序，但查找效率非常低</td>
-</tr>
-<tr>
-<td>Dict</td>
-<td>有序，但并非插入顺序</td>
-</tr>
-<tr>
-<td>Set</td>
-<td>无序，顺序是随机的</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Tips</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>List</td>
+          <td>有序，但查找效率非常低</td>
+      </tr>
+      <tr>
+          <td>Dict</td>
+          <td>有序，但并非插入顺序</td>
+      </tr>
+      <tr>
+          <td>Set</td>
+          <td>无序，顺序是随机的</td>
+      </tr>
+  </tbody>
 </table>
-
 
 <h3 class="relative group">Function 
     <div id="function" class="anchor"></div>
@@ -987,28 +996,26 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     
 </h3>
 
-
 <h4 class="relative group">函数签名 
-    <div id="%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D" class="anchor"></div>
+    <div id="函数签名" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%87%BD%E6%95%B0%E7%AD%BE%E5%90%8D" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%87%bd%e6%95%b0%e7%ad%be%e5%90%8d" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Plain" data-lang="Plain"><span style="display:flex;"><span>def f(x: int, b: float):
 </span></span><span style="display:flex;"><span>    pass
 </span></span></code></pre></div>
-
 <h4 class="relative group">参数组合 
-    <div id="%E5%8F%82%E6%95%B0%E7%BB%84%E5%90%88" class="anchor"></div>
+    <div id="参数组合" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%8F%82%E6%95%B0%E7%BB%84%E5%90%88" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%8f%82%e6%95%b0%e7%bb%84%e5%90%88" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
@@ -1024,14 +1031,13 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </span></span></code></pre></div><p>在函数调用的时候，必须先按顺序传入，再按参数名传入。</p>
 <p>由于Python解释器会按上述顺序解析5种参数，因此，如果要传入可变参数，必须先传入默认参数。</p>
 
-
 <h4 class="relative group">解包 
-    <div id="%E8%A7%A3%E5%8C%85" class="anchor"></div>
+    <div id="解包" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%A7%A3%E5%8C%85" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e8%a7%a3%e5%8c%85" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
@@ -1055,14 +1061,13 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </span></span></code></pre></div></li>
 </ul>
 
-
 <h4 class="relative group">装饰器 
-    <div id="%E8%A3%85%E9%A5%B0%E5%99%A8" class="anchor"></div>
+    <div id="装饰器" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%A3%85%E9%A5%B0%E5%99%A8" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e8%a3%85%e9%a5%b0%e5%99%a8" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
@@ -1091,32 +1096,30 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#上下两者等价</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, x: float, y: float, z: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, x: float, y: float, z: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>):
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> x
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> y
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> z
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __repr__(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__repr__</span>(self):
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Point(x=</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>x<span style="color:#e6db74">}</span><span style="color:#e6db74">, y=</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>y<span style="color:#e6db74">}</span><span style="color:#e6db74">, z=</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>z<span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __eq__(self, other):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__eq__</span>(self, other):
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(other, Point):
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> NotImplemented
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (self<span style="color:#f92672">.</span>x, self<span style="color:#f92672">.</span>y, self<span style="color:#f92672">.</span>z) <span style="color:#f92672">==</span> (other<span style="color:#f92672">.</span>x, other<span style="color:#f92672">.</span>y, other<span style="color:#f92672">.</span>z)
 </span></span></code></pre></div>
-
 <h4 class="relative group">匿名函数和偏函数 
-    <div id="%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E5%81%8F%E5%87%BD%E6%95%B0" class="anchor"></div>
+    <div id="匿名函数和偏函数" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E5%92%8C%E5%81%8F%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%8c%bf%e5%90%8d%e5%87%bd%e6%95%b0%e5%92%8c%e5%81%8f%e5%87%bd%e6%95%b0" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>lambda在传参时传的是变量；partial在传参时传的是对象；</p>
-
 
 <h3 class="relative group">Iterator 
     <div id="iterator" class="anchor"></div>
@@ -1130,31 +1133,30 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </h3>
 <img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407191834521.png" alt="image-20240719183328055" style="zoom: 25%;" />
 <table>
-<thead>
-<tr>
-<th>可迭代对象</th>
-<th>定义</th>
-<th>举例</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>一般可迭代对象</td>
-<td>可通过for循环遍历的对象，可通过索引访问</td>
-<td>字符串、列表、字典、集合……</td>
-<td></td>
-</tr>
-<tr>
-<td>迭代器</td>
-<td>惰性遍历，通过next访问下一个</td>
-<td>一般可迭代对象创建的迭代器（使用iter创建）、生成器（使用yield创建）</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>可迭代对象</th>
+          <th>定义</th>
+          <th>举例</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>一般可迭代对象</td>
+          <td>可通过for循环遍历的对象，可通过索引访问</td>
+          <td>字符串、列表、字典、集合……</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>迭代器</td>
+          <td>惰性遍历，通过next访问下一个</td>
+          <td>一般可迭代对象创建的迭代器（使用iter创建）、生成器（使用yield创建）</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>for循环的本质是通过iter方法获取可迭代对象的迭代器</strong></p>
-
 
 <h3 class="relative group">Object 
     <div id="object" class="anchor"></div>
@@ -1195,7 +1197,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </ul>
 </li>
 </ul>
-
 
 <h3 class="relative group">Modules 
     <div id="modules" class="anchor"></div>
@@ -1245,7 +1246,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </li>
 </ul>
 
-
 <h2 class="relative group">NLP 
     <div id="nlp" class="anchor"></div>
     
@@ -1257,7 +1257,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     
 </h2>
 
-
 <h3 class="relative group">spacy 
     <div id="spacy" class="anchor"></div>
     
@@ -1268,9 +1267,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     </span>        
     
 </h3>
-<p><a href="https://allenai.github.io/scispacy/"   target="_blank">
-    第三方：用于生物医学语料的spacy模型</a></p>
-
+<p><a href="https://allenai.github.io/scispacy/" target="_blank">第三方：用于生物医学语料的spacy模型</a></p>
 
 <h2 class="relative group">Web 
     <div id="web" class="anchor"></div>
@@ -1283,7 +1280,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     
 </h2>
 
-
 <h3 class="relative group">FastAPI &amp; Requests 
     <div id="fastapi--requests" class="anchor"></div>
     
@@ -1294,10 +1290,8 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     </span>        
     
 </h3>
-<p><a href="https://www.runoob.com/fastapi/fastapi-tutorial.html"   target="_blank">
-    https://www.runoob.com/fastapi/fastapi-tutorial.html</a></p>
-<p><a href="https://blog.csdn.net/qq_36187610/article/details/131835752"   target="_blank">
-    利用FastAPI构建大模型接口服务</a></p>
+<p><a href="https://www.runoob.com/fastapi/fastapi-tutorial.html" target="_blank">https://www.runoob.com/fastapi/fastapi-tutorial.html</a></p>
+<p><a href="https://blog.csdn.net/qq_36187610/article/details/131835752" target="_blank">利用FastAPI构建大模型接口服务</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Server</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> FastAPI
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pydantic <span style="color:#f92672">import</span> BaseModel
@@ -1322,7 +1316,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;http://0.0.0.0:9898/predict&#34;</span>, json<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;text&#34;</span>: discharge_summary}
 </span></span><span style="display:flex;"><span>    )
 </span></span></code></pre></div>
-
 <h2 class="relative group">Data Processing 
     <div id="data-processing" class="anchor"></div>
     
@@ -1333,7 +1326,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     </span>        
     
 </h2>
-
 
 <h3 class="relative group">Jupter Notebook 
     <div id="jupter-notebook" class="anchor"></div>
@@ -1352,7 +1344,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 <pre tabindex="0"><code>%load_ext autoreload
 %autoreload 2 #每执行一个cell都会重载所有模块
 </code></pre>
-
 <h3 class="relative group">Pandas 
     <div id="pandas" class="anchor"></div>
     
@@ -1363,8 +1354,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     </span>        
     
 </h3>
-<p><a href="https://www.runoob.com/pandas/pandas-dataframe.html"   target="_blank">
-    菜鸟教程yyds</a></p>
+<p><a href="https://www.runoob.com/pandas/pandas-dataframe.html" target="_blank">菜鸟教程yyds</a></p>
 <p>创建Dataframe</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 从外部读取</span>
 </span></span><span style="display:flex;"><span>read_csv() <span style="color:#75715e"># sep:分隔符; header:默认是第一行; names:如果指定则说明没有header;</span>
@@ -1413,7 +1403,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 <li>判断某个元素是否属于某一列，必须先将该列转化为可迭代对象</li>
 </ul>
 
-
 <h3 class="relative group">Matplotlib 
     <div id="matplotlib" class="anchor"></div>
     
@@ -1440,7 +1429,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </span></span><span style="display:flex;"><span>names <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>join(string)
 </span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xticks(range(len(names)), names, fontproperties<span style="color:#f92672">=</span>font, rotation<span style="color:#f92672">=</span><span style="color:#ae81ff">90</span>) <span style="color:#75715e">#横轴</span>
 </span></span></code></pre></div>
-
 <h3 class="relative group">json/yaml 
     <div id="jsonyaml" class="anchor"></div>
     
@@ -1459,9 +1447,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </span></span><span style="display:flex;"><span>    json<span style="color:#f92672">.</span>dump(json_dict, f, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>) <span style="color:#75715e">#写</span>
 </span></span><span style="display:flex;"><span>    
 </span></span></code></pre></div><p>yaml与json的写法是类似的，只是用到的库是yaml</p>
-<p><a href="https://www.bejson.com/validators/yaml_editor/"   target="_blank">
-    yaml校验器</a></p>
-
+<p><a href="https://www.bejson.com/validators/yaml_editor/" target="_blank">yaml校验器</a></p>
 
 <h2 class="relative group">Deep Learning 
     <div id="deep-learning" class="anchor"></div>
@@ -1474,7 +1460,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     
 </h2>
 
-
 <h3 class="relative group">Torch 
     <div id="torch" class="anchor"></div>
     
@@ -1485,7 +1470,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     </span>        
     
 </h3>
-
 
 <h4 class="relative group">Tensor 
     <div id="tensor" class="anchor"></div>
@@ -1552,7 +1536,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 <li>Broadcast机制：维度不等的两个Tensor在进行运算时，从后往前遍历各个维度，若两个Tensor在某一维度不等，且较小的Tensor在该维度的长度为1或不存在时，可以Broadcast至相等维度</li>
 </ul>
 
-
 <h4 class="relative group">Model 
     <div id="model" class="anchor"></div>
     
@@ -1583,28 +1566,27 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </ol>
 <p>常见模块的的参数量和计算量</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">Module</th>
-<th style="text-align:center">参数量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Conv2d</td>
-<td style="text-align:center">$C_{out} \times H_{kernel} \times W_{kernel} \times C_{in}$</td>
-</tr>
-<tr>
-<td style="text-align:center">Linear</td>
-<td style="text-align:center">$C_{out} \times C_{in}$</td>
-</tr>
-<tr>
-<td style="text-align:center">MultiHeadAttention</td>
-<td style="text-align:center">$N_{head} \times (C_{in} \times C_{query} + C_{in} \times C_{key} +C_{in} \times C_{value})$</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">Module</th>
+          <th style="text-align: center">参数量</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Conv2d</td>
+          <td style="text-align: center">$C_{out} \times H_{kernel} \times W_{kernel} \times C_{in}$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Linear</td>
+          <td style="text-align: center">$C_{out} \times C_{in}$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">MultiHeadAttention</td>
+          <td style="text-align: center">$N_{head} \times (C_{in} \times C_{query} + C_{in} \times C_{key} +C_{in} \times C_{value})$</td>
+      </tr>
+  </tbody>
 </table>
-
 
 <h4 class="relative group">Dataset &amp; Dataloader 
     <div id="dataset--dataloader" class="anchor"></div>
@@ -1635,7 +1617,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </li>
 </ul>
 
-
 <h3 class="relative group">PyG: torch_gemotry 
     <div id="pyg-torch_gemotry" class="anchor"></div>
     
@@ -1648,10 +1629,8 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </h3>
 <p>官方文档</p>
 <ul>
-<li><a href="https://pytorch-geometric.readthedocs.io/en/latest/get_started/introduction.html"   target="_blank">
-    Introduction by Example</a></li>
-<li><a href="https://pytorch-geometric.readthedocs.io/en/latest/tutorial/heterogeneous.html"   target="_blank">
-    Heterogeneous Graph Learning</a></li>
+<li><a href="https://pytorch-geometric.readthedocs.io/en/latest/get_started/introduction.html" target="_blank">Introduction by Example</a></li>
+<li><a href="https://pytorch-geometric.readthedocs.io/en/latest/tutorial/heterogeneous.html" target="_blank">Heterogeneous Graph Learning</a></li>
 </ul>
 <p>Installation</p>
 <ol>
@@ -1677,26 +1656,25 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 <p>子图采样</p>
 <p><code>torch_geometric.utils</code>提供了若干用于从大图中进行子图采样的API</p>
 <table>
-<thead>
-<tr>
-<th>API</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>subgraph</td>
-<td>只包含给点节点的子图；自动滤除没有边连接的节点；返回用全局索引表达的边和边属性</td>
-</tr>
-<tr>
-<td>k_hop_subgraph</td>
-<td>会给k-hop节点分配新的局部索引；edge_index是由新的局部索引来表达；edge_mask是按原始边索引的相对位置来排布的，用于筛选这些边对应的特征；</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>API</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>subgraph</td>
+          <td>只包含给点节点的子图；自动滤除没有边连接的节点；返回用全局索引表达的边和边属性</td>
+      </tr>
+      <tr>
+          <td>k_hop_subgraph</td>
+          <td>会给k-hop节点分配新的局部索引；edge_index是由新的局部索引来表达；edge_mask是按原始边索引的相对位置来排布的，用于筛选这些边对应的特征；</td>
+      </tr>
+  </tbody>
 </table>
 <p>GNN设计</p>
 <p>在pyg的设计理念中，边是有向的，消息传递是沿着source节点到target节点，如果是无向边，需要自己设置两条边</p>
-
 
 <h2 class="relative group">Experiemnt 
     <div id="experiemnt" class="anchor"></div>
@@ -1709,7 +1687,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     
 </h2>
 
-
 <h3 class="relative group">TorchMetrics 
     <div id="torchmetrics" class="anchor"></div>
     
@@ -1720,8 +1697,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     </span>        
     
 </h3>
-<p><a href="https://lightning.ai/docs/torchmetrics/stable/pages/quickstart.html"   target="_blank">
-    quick start</a></p>
+<p><a href="https://lightning.ai/docs/torchmetrics/stable/pages/quickstart.html" target="_blank">quick start</a></p>
 <p>预定义指标</p>
 <p>函数式</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> torch
@@ -1757,8 +1733,8 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> torchmetrics <span style="color:#f92672">import</span> Metric
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAccuracy</span>(Metric):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, <span style="color:#f92672">**</span>kwargs):
-</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(<span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span><span style="color:#a6e22e">__init__</span>(<span style="color:#f92672">**</span>kwargs)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>add_state(<span style="color:#e6db74">&#34;correct&#34;</span>, default<span style="color:#f92672">=</span>torch<span style="color:#f92672">.</span>tensor(<span style="color:#ae81ff">0</span>), dist_reduce_fx<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sum&#34;</span>)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>add_state(<span style="color:#e6db74">&#34;total&#34;</span>, default<span style="color:#f92672">=</span>torch<span style="color:#f92672">.</span>tensor(<span style="color:#ae81ff">0</span>), dist_reduce_fx<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sum&#34;</span>)
 </span></span><span style="display:flex;"><span>
@@ -1777,8 +1753,8 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> torchmetrics.utilities <span style="color:#f92672">import</span> dim_zero_cat
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MySpearmanCorrCoef</span>(Metric):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, <span style="color:#f92672">**</span>kwargs):
-</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(<span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span><span style="color:#a6e22e">__init__</span>(<span style="color:#f92672">**</span>kwargs)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>add_state(<span style="color:#e6db74">&#34;preds&#34;</span>, default<span style="color:#f92672">=</span>[], dist_reduce_fx<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cat&#34;</span>)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>add_state(<span style="color:#e6db74">&#34;target&#34;</span>, default<span style="color:#f92672">=</span>[], dist_reduce_fx<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cat&#34;</span>)
 </span></span><span style="display:flex;"><span>
@@ -1801,7 +1777,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </span></span><span style="display:flex;"><span>        corrcoef <span style="color:#f92672">=</span> cov <span style="color:#f92672">/</span> (preds_std <span style="color:#f92672">*</span> target_std <span style="color:#f92672">+</span> eps)
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> torch<span style="color:#f92672">.</span>clamp(corrcoef, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">1.0</span>)
 </span></span></code></pre></div>
-
 <h3 class="relative group">Tensorboard/wandb/Swanlab 
     <div id="tensorboardwandbswanlab" class="anchor"></div>
     
@@ -1820,12 +1795,9 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </span></span></code></pre></div><p>端口映射与浏览器访问</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> ssh -L 16006:127.0.0.1:6006 -p server_port username@server_ip <span style="color:#75715e"># on the local PC</span>
 </span></span><span style="display:flex;"><span> tensorboard --logdir log --port<span style="color:#f92672">=</span><span style="color:#ae81ff">6006</span> <span style="color:#75715e"># on the remote server</span>
-</span></span></code></pre></div><p><a href="https://docs.wandb.ai/guides/"   target="_blank">
-    Wandb</a></p>
-<p><a href="https://docs.swanlab.cn"   target="_blank">
-    <strong>Swanlab</strong></a></p>
+</span></span></code></pre></div><p><a href="https://docs.wandb.ai/guides/" target="_blank">Wandb</a></p>
+<p><a href="https://docs.swanlab.cn" target="_blank"><strong>Swanlab</strong></a></p>
 <p>强烈推荐</p>
-
 
 <h2 class="relative group">AI Infra for LLM 
     <div id="ai-infra-for-llm" class="anchor"></div>
@@ -1837,7 +1809,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     </span>        
     
 </h2>
-
 
 <h3 class="relative group">LLM Download 
     <div id="llm-download" class="anchor"></div>
@@ -1864,10 +1835,8 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 <li>国内访问需要指定镜像源</li>
 <li>部分LLM需要申请，在下载时需要传入huggingface token</li>
 </ul>
-<p><a href="https://modelscope.cn/docs/models/download"   target="_blank">
-    ModelScope</a></p>
+<p><a href="https://modelscope.cn/docs/models/download" target="_blank">ModelScope</a></p>
 <p>国内模型推荐使用该网站，速度较快</p>
-
 
 <h3 class="relative group">Transformers 
     <div id="transformers" class="anchor"></div>
@@ -1885,8 +1854,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 <pre tabindex="0"><code>model = AutoModelForSequenceClassification.from_pretrained(&#34;google-bert/bert-base-cased&#34;, num_labels=5)
 </code></pre><p>如果要实现更加定制化的操作，PLM也可以作为Backbone组件，实现<strong>自定义结构的下游任务模型</strong></p>
 <p><em><strong>Custom Model</strong></em></p>
-<p><a href="https://huggingface.co/docs/transformers/en/custom_models"   target="_blank">
-    创建自己的模型</a></p>
+<p><a href="https://huggingface.co/docs/transformers/en/custom_models" target="_blank">创建自己的模型</a></p>
 <ul>
 <li>继承PLM对应的<code>PreTrainedModel</code>，并传入同一个<code>Config</code></li>
 <li>可以使用<code>init_weights</code>，会根据config的参数来对特定的层做初始化</li>
@@ -1894,8 +1862,8 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomModel</span>(PreTrainedModel):
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, config):
-</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(config)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, config):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span><span style="color:#a6e22e">__init__</span>(config)
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>prtrained_model <span style="color:#f92672">=</span> ResNet(config)
 </span></span><span style="display:flex;"><span>				self<span style="color:#f92672">.</span>classifier <span style="color:#f92672">=</span> Linear(config<span style="color:#f92672">.</span>hidden_size, config<span style="color:#f92672">.</span>num_labels)
 </span></span><span style="display:flex;"><span>				self<span style="color:#f92672">.</span>init_weights()
@@ -1911,7 +1879,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </span></span><span style="display:flex;"><span>tokenizer <span style="color:#f92672">=</span> AutoTokenizer<span style="color:#f92672">.</span>from_pretrained(model_name_or_path)
 </span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> CustomModel<span style="color:#f92672">.</span>from_pretrained(<span style="color:#e6db74">&#39;pretrained_model&#39;</span>, config)
 </span></span></code></pre></div>
-
 <h3 class="relative group">Datasets 
     <div id="datasets" class="anchor"></div>
     
@@ -1922,9 +1889,7 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     </span>        
     
 </h3>
-<p><a href="https://huggingface.co/docs/datasets/v3.5.0/en/loading#python-list-of-dictionaries"   target="_blank">
-    将自己的Dataset封装成datasets库格式</a></p>
-
+<p><a href="https://huggingface.co/docs/datasets/v3.5.0/en/loading#python-list-of-dictionaries" target="_blank">将自己的Dataset封装成datasets库格式</a></p>
 
 <h3 class="relative group">Accelerate 
     <div id="accelerate" class="anchor"></div>
@@ -1977,7 +1942,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>accelerate launch --multi_gpu --gpu_ids<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0,1&#34;</span> --num_processes<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> --num_machines<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> main.py <span style="color:#75715e"># 单机多卡</span>
 </span></span><span style="display:flex;"><span>CUDA_VISIBLE_DEVICES<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> python main.py <span style="color:#75715e"># 单机单卡</span>
 </span></span></code></pre></div>
-
 <h3 class="relative group">VLLM 
     <div id="vllm" class="anchor"></div>
     
@@ -1991,16 +1955,12 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 <p>主要针对Decoder-only的LLM的KV Cache做了加速，对Encoder-only的PLM作用不大</p>
 <p>VLLM支持加速的模型主要分为三种：</p>
 <ol>
-<li>VLLM原生支持，见 <a href="https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/models"   target="_blank">
-    vllm/model_executor/models</a></li>
+<li>VLLM原生支持，见 <a href="https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/models" target="_blank">vllm/model_executor/models</a></li>
 <li>Transformers中的模型部分支持（主要是Decoder-only）</li>
-<li>Pytorch模型：需要人工编写相关代码，见<a href="https://docs.vllm.ai/en/latest/contributing/model/basic.html"   target="_blank">
-    在VLLM中实现基本模型</a></li>
+<li>Pytorch模型：需要人工编写相关代码，见<a href="https://docs.vllm.ai/en/latest/contributing/model/basic.html" target="_blank">在VLLM中实现基本模型</a></li>
 </ol>
 <p>多卡推理</p>
-<p><a href="https://docs.vllm.ai/en/latest/getting_started/examples/data_parallel.html"   target="_blank">
-    Data Parallel</a></p>
-
+<p><a href="https://docs.vllm.ai/en/latest/getting_started/examples/data_parallel.html" target="_blank">Data Parallel</a></p>
 
 <h3 class="relative group">LLaMa Factory 
     <div id="llama-factory" class="anchor"></div>
@@ -2013,7 +1973,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     
 </h3>
 
-
 <h3 class="relative group">VERL 
     <div id="verl" class="anchor"></div>
     
@@ -2025,7 +1984,6 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     
 </h3>
 
-
 <h2 class="relative group">File System 
     <div id="file-system" class="anchor"></div>
     
@@ -2036,22 +1994,19 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
     </span>        
     
 </h2>
-<p><a href="https://cloud.tencent.com/developer/article/2148641"   target="_blank">
-    相关链接</a></p>
-
+<p><a href="https://cloud.tencent.com/developer/article/2148641" target="_blank">相关链接</a></p>
 
 <h3 class="relative group">正则匹配与路径操作 
-    <div id="%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D%E4%B8%8E%E8%B7%AF%E5%BE%84%E6%93%8D%E4%BD%9C" class="anchor"></div>
+    <div id="正则匹配与路径操作" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D%E4%B8%8E%E8%B7%AF%E5%BE%84%E6%93%8D%E4%BD%9C" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%ad%a3%e5%88%99%e5%8c%b9%e9%85%8d%e4%b8%8e%e8%b7%af%e5%be%84%e6%93%8d%e4%bd%9c" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
-<p><a href="https://liaoxuefeng.com/books/python/reg-exp/index.html"   target="_blank">
-    正则</a></p>
+<p><a href="https://liaoxuefeng.com/books/python/reg-exp/index.html" target="_blank">正则</a></p>
 <p>re</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> re
 </span></span><span style="display:flex;"><span>
@@ -2075,73 +2030,72 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </span></span></code></pre></div><p>正则匹配，格式是字符+限定符</p>
 <p>限定符</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>?</td>
-<td>0或1个</td>
-</tr>
-<tr>
-<td>*</td>
-<td>任意个</td>
-</tr>
-<tr>
-<td>+</td>
-<td>1个以上</td>
-</tr>
-<tr>
-<td>{m,n}</td>
-<td>m-n个</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>?</td>
+          <td>0或1个</td>
+      </tr>
+      <tr>
+          <td>*</td>
+          <td>任意个</td>
+      </tr>
+      <tr>
+          <td>+</td>
+          <td>1个以上</td>
+      </tr>
+      <tr>
+          <td>{m,n}</td>
+          <td>m-n个</td>
+      </tr>
+  </tbody>
 </table>
 <p>字符、元字符</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[a-zA-Z0-9][abc]</td>
-<td>小写或大写或数字a或b或c ; 否定:[^a-z]</td>
-</tr>
-<tr>
-<td>a|b|c</td>
-<td>a或b或c</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>单词（英文/数字/下划线）</td>
-</tr>
-<tr>
-<td>\d</td>
-<td>数字</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>空格（包括换行等）</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>边界 e.g.\bword\b</td>
-</tr>
-<tr>
-<td>.</td>
-<td>任意字符</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>[a-zA-Z0-9][abc]</td>
+          <td>小写或大写或数字a或b或c ; 否定:[^a-z]</td>
+      </tr>
+      <tr>
+          <td>a|b|c</td>
+          <td>a或b或c</td>
+      </tr>
+      <tr>
+          <td>\w</td>
+          <td>单词（英文/数字/下划线）</td>
+      </tr>
+      <tr>
+          <td>\d</td>
+          <td>数字</td>
+      </tr>
+      <tr>
+          <td>\s</td>
+          <td>空格（包括换行等）</td>
+      </tr>
+      <tr>
+          <td>\b</td>
+          <td>边界 e.g.\bword\b</td>
+      </tr>
+      <tr>
+          <td>.</td>
+          <td>任意字符</td>
+      </tr>
+  </tbody>
 </table>
 <ul>
-<li><a href="https://regex101.com/"   target="_blank">
-    正则表达式在线测试工具</a></li>
+<li><a href="https://regex101.com/" target="_blank">正则表达式在线测试工具</a></li>
 <li>正则表达式里有转义符&quot;&quot;时，应该在字符串前加“r”</li>
 </ul>
 <p>glob</p>
@@ -2155,26 +2109,24 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p<span style="color:#f92672">.</span>name  <span style="color:#75715e">#获取文件名  </span>
 </span></span><span style="display:flex;"><span>p<span style="color:#f92672">.</span>suffix  <span style="color:#75715e">#获取文件后缀</span>
 </span></span></code></pre></div>
-
 <h3 class="relative group"> 
-    <div id="heading" class="anchor"></div>
+    <div id="" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#heading" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 
-
 <h3 class="relative group">工作目录与包管理 
-    <div id="%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E4%B8%8E%E5%8C%85%E7%AE%A1%E7%90%86" class="anchor"></div>
+    <div id="工作目录与包管理" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E4%B8%8E%E5%8C%85%E7%AE%A1%E7%90%86" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e4%b8%8e%e5%8c%85%e7%ae%a1%e7%90%86" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -2186,14 +2138,13 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 </span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>mkdir(path)  <span style="color:#75715e">#创建文件夹</span>
 </span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>remove(path)  <span style="color:#75715e">#删除文件</span>
 </span></span></code></pre></div>
-
 <h3 class="relative group">文件的增删改查 
-    <div id="%E6%96%87%E4%BB%B6%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5" class="anchor"></div>
+    <div id="文件的增删改查" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%96%87%e4%bb%b6%e7%9a%84%e5%a2%9e%e5%88%a0%e6%94%b9%e6%9f%a5" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -2211,6 +2162,9 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ipdb<span style="color:#f92672">.</span>set_trace()
 </span></span></code></pre></div><p>代码会在执行到断点处时暂停，可通过vscode内置terminal查看各个变量的状态</p>
 
+          
+          
+          
         </div>
         
         
@@ -2225,14 +2179,17 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
       
         
         
+          
+          
+        
       <script>
         var oid = "views_software\/python.md"
         var oid_likes = "likes_software\/python.md"
       </script>
       
       
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
       
-      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
   
     </section>
   <footer class="pt-8 max-w-prose print:hidden">
@@ -2326,10 +2283,11 @@ args = (1, 2, 3, 4) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;} f(*args, **
   </script>
   
   
-  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
-</footer><div
+</footer>
+<div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
   data-url="https://xuzhang0112.github.io/"

@@ -26,8 +26,8 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.ac59a1b8eaafef739c129d12787ac29f6a420bcb348c7aeec8949a8d0b7d6c2023766c169d14b9031b751504eb3c976efe786fec135b340a49868acd8caa4127.css"
-    integrity="sha512-rFmhuOqv73OcEp0SeHrCn2pCC8s0jHruyJSajQt9bCAjdmwWnRS5Axt1FQTrPJdu/nhv7BNbNApJhorNjKpBJw==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.5f8f4777872a0d3d0d40b3754a43f54f29ae82af8e7ee8b8cb972495c44f0d770b15cd4194b7a49bc85950ac492768c127b305a57fc92ed77bf7e230fb6530a4.css"
+    integrity="sha512-X49Hd4cqDT0NQLN1SkP1Tymugq&#43;Ofui4y5cklcRPDXcLFc1BlLekm8hZUKxJJ2jBJ7MFpX/JLtd79&#43;Iw&#43;2UwpA==" />
   
   
   <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
@@ -41,11 +41,14 @@
   
   
   
-  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
-    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
   
   
-  <script src="/js/zoom.min.js"></script>
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.165327e9b2a9a8807ad5cb6c943a8f9a52756791c128e2dbfb3623bb42429636adb4bbb076b0447b592cad02914321a6aef0db10b907465de34fda41e2830281.js"
+    integrity="sha512-FlMn6bKpqIB61ctslDqPmlJ1Z5HBKOLb&#43;zYju0JCljattLuwdrBEe1ksrQKRQyGmrvDbELkHRl3jT9pB4oMCgQ==" data-copy="Copy" data-copied="Copied"></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.f592a181a15d2a5b042daa7f746c3721acf9063f8b6acd175d989129865a37d400ae0e85b640f9ad42cd98d1f8ad30931718cf8811abdcc5fcb264400d1a2b0c.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj&#43;Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA=="></script>
   
   
   
@@ -60,43 +63,37 @@
   
   
   
-  <meta property="og:title" content="Pattern Recogniton" />
-<meta property="og:description" content="相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别
+  
+  <meta property="og:url" content="https://xuzhang0112.github.io/course/pr/">
+  <meta property="og:site_name" content="Xu Zhang&#39;s Blog">
+  <meta property="og:title" content="Pattern Recogniton">
+  <meta property="og:description" content="相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别
 平均样本法 样本到每个类别的各样本平均值的距离 平均距离法 样本到每个类别的各个样本的距离的平均值 最近邻法 样本最近的样本 距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦
 线性分类器 # n维线性分类器可以表达为超平面$w^Tx&#43;b=0$ 如果将样本X的第n&#43;1维设为1，则超平面可以简化为$w^Tx=0$ 若样本集线性可分，则存在分类器使得所有样本满足$\begin{cases}w^Tx&gt;0\quad if\ x\in w_1\newline w^Tx&lt;0\quad if\ x\in w_2\end{cases}$
 线性分类器的解必然构成解区域，解是不确定的
 多分类问题按照是否线性可分、是否存在不确定区域的解可以分成三种情况
 情况 分类器 总体线性可分 训练n个超平面，分隔每个类和其他所有类 成对线性可分 用$C_n^2$个独立的超平面，将两个类别分开 成对线性可分，且存在没有不确定区域的解 每个类别训练一个判别函数，采用最大值判决
-$G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
-按顺序遍历样本，直到所有样本被正确分类
-若样本$X_i$满足$\begin{cases}W^TX_i&gt;0\quad if X_i\in\omega_1\newline W^TX&lt;0\quad if X_i\in\omega_2\end{cases}$，则说明该样本被正确分类；
-否则：$W=\begin{cases}W&#43;\rho X_i\quad if X_i\in\omega_1\newline W-\rho X_i\quad if X_i\in\omega_2\end{cases}$
-学习率和优化器 # 学习速率$\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。
-常用的梯度下降法有：批量梯度法（BGD）、随机梯度法（SGD）、小批次梯度法（MBGD），分别对应整个数据集、单个样本、一小批样本进行梯度的计算。
-最小平方和，LMSE # 如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。
-如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为 $$ J(w)=||Xw-b||^2 $$ 相应的梯度为 $$ \nabla J(w)=\nabla ||Xw-b||^2 = 2X^T(Xw-b) $$ 相应的更新方式为 $$ w_{k&#43;1}=w_k&#43;\rho_{k&#43;1}X^T(Xw&#43;b) $$ 但是，上述方法需要给定松弛变量，事实上，松弛变量也可以在优化中求解，即H-K算法。 $$ b_{k&#43;1}=b_k-\eta_{k&#43;1}\nabla J(w(k))|b $$" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://xuzhang0112.github.io/course/pr/" /><meta property="article:section" content="course" />
-<meta property="article:published_time" content="2024-06-14T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-14T00:00:00+00:00" />
+$G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="course">
+    <meta property="article:published_time" content="2024-06-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-06-14T00:00:00+00:00">
+    <meta property="article:tag" content="Course">
 
-
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Pattern Recogniton"/>
-<meta name="twitter:description" content="相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pattern Recogniton">
+  <meta name="twitter:description" content="相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别
 平均样本法 样本到每个类别的各样本平均值的距离 平均距离法 样本到每个类别的各个样本的距离的平均值 最近邻法 样本最近的样本 距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦
 线性分类器 # n维线性分类器可以表达为超平面$w^Tx&#43;b=0$ 如果将样本X的第n&#43;1维设为1，则超平面可以简化为$w^Tx=0$ 若样本集线性可分，则存在分类器使得所有样本满足$\begin{cases}w^Tx&gt;0\quad if\ x\in w_1\newline w^Tx&lt;0\quad if\ x\in w_2\end{cases}$
 线性分类器的解必然构成解区域，解是不确定的
 多分类问题按照是否线性可分、是否存在不确定区域的解可以分成三种情况
 情况 分类器 总体线性可分 训练n个超平面，分隔每个类和其他所有类 成对线性可分 用$C_n^2$个独立的超平面，将两个类别分开 成对线性可分，且存在没有不确定区域的解 每个类别训练一个判别函数，采用最大值判决
-$G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
-按顺序遍历样本，直到所有样本被正确分类
-若样本$X_i$满足$\begin{cases}W^TX_i&gt;0\quad if X_i\in\omega_1\newline W^TX&lt;0\quad if X_i\in\omega_2\end{cases}$，则说明该样本被正确分类；
-否则：$W=\begin{cases}W&#43;\rho X_i\quad if X_i\in\omega_1\newline W-\rho X_i\quad if X_i\in\omega_2\end{cases}$
-学习率和优化器 # 学习速率$\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。
-常用的梯度下降法有：批量梯度法（BGD）、随机梯度法（SGD）、小批次梯度法（MBGD），分别对应整个数据集、单个样本、一小批样本进行梯度的计算。
-最小平方和，LMSE # 如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。
-如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为 $$ J(w)=||Xw-b||^2 $$ 相应的梯度为 $$ \nabla J(w)=\nabla ||Xw-b||^2 = 2X^T(Xw-b) $$ 相应的更新方式为 $$ w_{k&#43;1}=w_k&#43;\rho_{k&#43;1}X^T(Xw&#43;b) $$ 但是，上述方法需要给定松弛变量，事实上，松弛变量也可以在优化中求解，即H-K算法。 $$ b_{k&#43;1}=b_k-\eta_{k&#43;1}\nabla J(w(k))|b $$"/>
+$G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数">
 
+    
+  
   
   <script type="application/ld+json">
   [{
@@ -106,7 +103,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
     "name": "Pattern Recogniton",
     "headline": "Pattern Recogniton",
     
-    "abstract": "相似性度量 # 最小距离分类器 # 将样本归入距离最近的类别\n平均样本法 样本到每个类别的各样本平均值的距离 平均距离法 样本到每个类别的各个样本的距离的平均值 最近邻法 样本最近的样本 距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦\n线性分类器 # n维线性分类器可以表达为超平面$w^Tx\u002bb=0$ 如果将样本X的第n\u002b1维设为1，则超平面可以简化为$w^Tx=0$ 若样本集线性可分，则存在分类器使得所有样本满足$\\begin{cases}w^Tx\u0026gt;0\\quad if\\ x\\in w_1\\newline w^Tx\u0026lt;0\\quad if\\ x\\in w_2\\end{cases}$\n线性分类器的解必然构成解区域，解是不确定的\n多分类问题按照是否线性可分、是否存在不确定区域的解可以分成三种情况\n情况 分类器 总体线性可分 训练n个超平面，分隔每个类和其他所有类 成对线性可分 用$C_n^2$个独立的超平面，将两个类别分开 成对线性可分，且存在没有不确定区域的解 每个类别训练一个判别函数，采用最大值判决\n$G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器\u002b阶跃函数\n按顺序遍历样本，直到所有样本被正确分类\n若样本$X_i$满足$\\begin{cases}W^TX_i\u0026gt;0\\quad if X_i\\in\\omega_1\\newline W^TX\u0026lt;0\\quad if X_i\\in\\omega_2\\end{cases}$，则说明该样本被正确分类；\n否则：$W=\\begin{cases}W\u002b\\rho X_i\\quad if X_i\\in\\omega_1\\newline W-\\rho X_i\\quad if X_i\\in\\omega_2\\end{cases}$\n学习率和优化器 # 学习速率$\\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。\n常用的梯度下降法有：批量梯度法（BGD）、随机梯度法（SGD）、小批次梯度法（MBGD），分别对应整个数据集、单个样本、一小批样本进行梯度的计算。\n最小平方和，LMSE # 如果引入松弛变量，给每个样本的判别函数值规定一个数值，那么n个样本相当于添加了n个约束（具体取决于秩），当n＞样本维度时，这是一个超定方程，只能转化为最优化问题来求解。\n如果使用最小均方误差（Least Mean Square Error, LMSE）来求解，准则函数为 $$ J(w)=||Xw-b||^2 $$ 相应的梯度为 $$ \\nabla J(w)=\\nabla ||Xw-b||^2 = 2X^T(Xw-b) $$ 相应的更新方式为 $$ w_{k\u002b1}=w_k\u002b\\rho_{k\u002b1}X^T(Xw\u002bb) $$ 但是，上述方法需要给定松弛变量，事实上，松弛变量也可以在优化中求解，即H-K算法。 $$ b_{k\u002b1}=b_k-\\eta_{k\u002b1}\\nabla J(w(k))|b $$",
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003e相似性度量 \n    \u003cdiv id=\u0022相似性度量\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%e7%9b%b8%e4%bc%bc%e6%80%a7%e5%ba%a6%e9%87%8f\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\n\u003ch3 class=\u0022relative group\u0022\u003e最小距离分类器 \n    \u003cdiv id=\u0022最小距离分类器\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%e6%9c%80%e5%b0%8f%e8%b7%9d%e7%a6%bb%e5%88%86%e7%b1%bb%e5%99%a8\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003e将样本归入距离最近的类别\u003c\/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n      \u003ctr\u003e\n          \u003cth\u003e\u003c\/th\u003e\n          \u003cth\u003e\u003c\/th\u003e\n      \u003c\/tr\u003e\n  \u003c\/thead\u003e\n  \u003ctbody\u003e\n      \u003ctr\u003e\n          \u003ctd\u003e平均样本法\u003c\/td\u003e\n          \u003ctd\u003e样本到每个类别的各样本平均值的距离\u003c\/td\u003e\n      \u003c\/tr\u003e\n      \u003ctr\u003e\n          \u003ctd\u003e平均距离法\u003c\/td\u003e\n          \u003ctd\u003e样本到每个类别的各个样本的距离的平均值\u003c\/td\u003e\n      \u003c\/tr\u003e\n      \u003ctr\u003e\n          \u003ctd\u003e最近邻法\u003c\/td\u003e\n          \u003ctd\u003e样本最近的样本\u003c\/td\u003e\n      \u003c\/tr\u003e\n  \u003c\/tbody\u003e\n\u003c\/table\u003e\n\u003cp\u003e距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦\u003c\/p\u003e\n\n\u003ch2 class=\u0022relative group\u0022\u003e线性分类器 \n    \u003cdiv id=\u0022线性分类器\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%e7%ba%bf%e6%80%a7%e5%88%86%e7%b1%bb%e5%99%a8\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cp\u003en维线性分类器可以表达为超平面$w^Tx\u002bb=0$\n如果\u003cstrong\u003e将样本X的第n\u002b1维设为1\u003c\/strong\u003e，则超平面可以简化为$w^Tx=0$\n若样本集线性可分，则存在分类器使得所有样本满足$\\begin{cases}w^Tx\u0026gt;0\\quad if\\ x\\in w_1\\newline\nw^Tx\u0026lt;0\\quad if\\ x\\in w_2\\end{cases}$\u003c\/p\u003e\n\u003cp\u003e线性分类器的解必然构成解区域，解是不确定的\u003c\/p\u003e\n\u003cp\u003e多分类问题按照\u003cstrong\u003e是否线性可分、是否存在不确定区域的解\u003c\/strong\u003e可以分成三种情况\u003c\/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n      \u003ctr\u003e\n          \u003cth\u003e情况\u003c\/th\u003e\n          \u003cth\u003e分类器\u003c\/th\u003e\n          \u003cth\u003e\u003c\/th\u003e\n      \u003c\/tr\u003e\n  \u003c\/thead\u003e\n  \u003ctbody\u003e\n      \u003ctr\u003e\n          \u003ctd\u003e总体线性可分\u003c\/td\u003e\n          \u003ctd\u003e训练n个超平面，分隔每个类和其他所有类\u003c\/td\u003e\n          \u003ctd\u003e\u003c\/td\u003e\n      \u003c\/tr\u003e\n      \u003ctr\u003e\n          \u003ctd\u003e成对线性可分\u003c\/td\u003e\n          \u003ctd\u003e用$C_n^2$个独立的超平面，将两个类别分开\u003c\/td\u003e\n          \u003ctd\u003e\u003c\/td\u003e\n      \u003c\/tr\u003e\n      \u003ctr\u003e\n          \u003ctd\u003e成对线性可分，且存在没有不确定区域的解\u003c\/td\u003e\n          \u003ctd\u003e每个类别训练一个判别函数，采用最大值判决\u003cbr \/\u003e$G_{ij}(X)=g_i(X)-g_j(X)$\u003c\/td\u003e\n          \u003ctd\u003e\u003c\/td\u003e\n      \u003c\/tr\u003e\n  \u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\u003ch3 class=\u0022relative group\u0022\u003e感知器 \n    \u003cdiv id=\u0022感知器\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%e6%84%9f%e7%9f%a5%e5%99%a8\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003e线性分类器\u002b阶跃函数\u003c\/p\u003e",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/course\/pr\/",
     "author" : {
@@ -133,16 +130,24 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
   
   
   
+  
   <link href="https://scholar.google.com/citations?user=6-NiSKYAAAAJ&amp;hl=zh-CN" rel="me" />
+  
+  
   
   
   <link href="https://www.zhihu.com/people/zhang-xu-20-31-39" rel="me" />
   
   
+  
+  
   <link href="https://space.bilibili.com/456489591" rel="me" />
   
   
+  
+  
   <link href="https://github.com/xuzhang0112" rel="me" />
+  
   
   
   
@@ -197,6 +202,9 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
   
 
 
+
+  
+  
   
   
   <meta name="theme-color"/>
@@ -204,7 +212,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
   
 </head>
 <body
-  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
@@ -213,7 +221,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
   
   
   <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
-    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
     
     <div class="flex flex-1 items-center justify-between">
         <nav class="flex space-x-3">
@@ -223,7 +231,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
             
 
         </nav>
-        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
 
             
             
@@ -353,6 +361,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
 </a>
 
 
+
             
             
 
@@ -377,7 +386,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
             
             
             <div
-                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                class=" flex items-center">
                 <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
                     <div class="flex items-center justify-center dark:hidden">
                         
@@ -404,7 +413,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
             
 
         </nav>
-        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
 
             <span></span>
 
@@ -427,7 +436,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
 
             
             
-            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
                 <div class="flex items-center justify-center dark:hidden">
                     
 
@@ -453,10 +462,9 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
 
         </div>
     </div>
-    <div class="-my-2 -mr-2 md:hidden">
+    <div class="-my-2 md:hidden">
 
-        <label id="menu-button" for="menu-controller" class="block">
-            <input type="checkbox" id="menu-controller" class="hidden" />
+        <label id="menu-button" class="block">
             
             <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
                 
@@ -473,7 +481,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
                 <ul
                     class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
 
-                    <li>
+                    <li id="menu-close-button">
                         <span
                             class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
 
@@ -489,7 +497,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
 
                      
   <li class="mt-1">
-    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/software/" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Software">
             Software
@@ -540,11 +548,12 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
 
 
 
+
                     
 
                      
   <li class="mt-1">
-    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/research/" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Research">
             AI Research
@@ -604,6 +613,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
 
 
 
+
                     
 
                     
@@ -615,6 +625,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
         </p>
     </a>
 </li>
+
 
 
 
@@ -651,7 +662,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
   
     
   
-  <li class="inline hidden">
+  <li class="hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/"
@@ -660,7 +671,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
   </li>
 
   
-  <li class="inline ">
+  <li class="inline">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/course/"
@@ -669,7 +680,7 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
   </li>
 
   
-  <li class="inline hidden">
+  <li class="hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/course/pr/"
@@ -739,22 +750,16 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/course/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Course
-  </span>
-</span>
-  </span>
-  
-  
-  
   
   
   
   
   
 </div>
+
+
+
+
 
 
 
@@ -786,13 +791,13 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
       class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
       <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
 
-         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+         <details open id="TOCView" class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
     Table of Contents
   </summary>
   <div
-    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#相似性度量">相似性度量</a>
@@ -893,6 +898,9 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
   </div>
 </details>
 
+<script>
+
+</script>
    </div>
       </div>
       
@@ -904,62 +912,59 @@ $G_{ij}(X)=g_i(X)-g_j(X)$ 感知器 # 线性分类器&#43;阶跃函数
 
         <div class="article-content max-w-prose mb-20">
           
-
 <h2 class="relative group">相似性度量 
-    <div id="%E7%9B%B8%E4%BC%BC%E6%80%A7%E5%BA%A6%E9%87%8F" class="anchor"></div>
+    <div id="相似性度量" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9B%B8%E4%BC%BC%E6%80%A7%E5%BA%A6%E9%87%8F" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9b%b8%e4%bc%bc%e6%80%a7%e5%ba%a6%e9%87%8f" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 
-
 <h3 class="relative group">最小距离分类器 
-    <div id="%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB%E5%88%86%E7%B1%BB%E5%99%A8" class="anchor"></div>
+    <div id="最小距离分类器" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB%E5%88%86%E7%B1%BB%E5%99%A8" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%9c%80%e5%b0%8f%e8%b7%9d%e7%a6%bb%e5%88%86%e7%b1%bb%e5%99%a8" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <p>将样本归入距离最近的类别</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>平均样本法</td>
-<td>样本到每个类别的各样本平均值的距离</td>
-</tr>
-<tr>
-<td>平均距离法</td>
-<td>样本到每个类别的各个样本的距离的平均值</td>
-</tr>
-<tr>
-<td>最近邻法</td>
-<td>样本最近的样本</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>平均样本法</td>
+          <td>样本到每个类别的各样本平均值的距离</td>
+      </tr>
+      <tr>
+          <td>平均距离法</td>
+          <td>样本到每个类别的各个样本的距离的平均值</td>
+      </tr>
+      <tr>
+          <td>最近邻法</td>
+          <td>样本最近的样本</td>
+      </tr>
+  </tbody>
 </table>
 <p>距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦</p>
 
-
 <h2 class="relative group">线性分类器 
-    <div id="%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8" class="anchor"></div>
+    <div id="线性分类器" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%ba%bf%e6%80%a7%e5%88%86%e7%b1%bb%e5%99%a8" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
@@ -970,40 +975,39 @@ w^Tx&lt;0\quad if\ x\in w_2\end{cases}$</p>
 <p>线性分类器的解必然构成解区域，解是不确定的</p>
 <p>多分类问题按照<strong>是否线性可分、是否存在不确定区域的解</strong>可以分成三种情况</p>
 <table>
-<thead>
-<tr>
-<th>情况</th>
-<th>分类器</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>总体线性可分</td>
-<td>训练n个超平面，分隔每个类和其他所有类</td>
-<td></td>
-</tr>
-<tr>
-<td>成对线性可分</td>
-<td>用$C_n^2$个独立的超平面，将两个类别分开</td>
-<td></td>
-</tr>
-<tr>
-<td>成对线性可分，且存在没有不确定区域的解</td>
-<td>每个类别训练一个判别函数，采用最大值判决<br />$G_{ij}(X)=g_i(X)-g_j(X)$</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>情况</th>
+          <th>分类器</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>总体线性可分</td>
+          <td>训练n个超平面，分隔每个类和其他所有类</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>成对线性可分</td>
+          <td>用$C_n^2$个独立的超平面，将两个类别分开</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>成对线性可分，且存在没有不确定区域的解</td>
+          <td>每个类别训练一个判别函数，采用最大值判决<br />$G_{ij}(X)=g_i(X)-g_j(X)$</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h3 class="relative group">感知器 
-    <div id="%E6%84%9F%E7%9F%A5%E5%99%A8" class="anchor"></div>
+    <div id="感知器" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%84%9F%E7%9F%A5%E5%99%A8" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%84%9f%e7%9f%a5%e5%99%a8" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -1011,31 +1015,28 @@ w^Tx&lt;0\quad if\ x\in w_2\end{cases}$</p>
 <blockquote>
 <p>按顺序遍历样本，直到所有样本被正确分类</p>
 <p>若样本$X_i$满足$\begin{cases}W^TX_i&gt;0\quad if X_i\in\omega_1\newline W^TX&lt;0\quad if X_i\in\omega_2\end{cases}$，则说明该样本被正确分类；</p>
-<p>否则：$W=\begin{cases}W+\rho X_i\quad if X_i\in\omega_1\newline W-\rho X_i\quad if X_i\in\omega_2\end{cases}$</p>
-</blockquote>
-
+<p>否则：$W=\begin{cases}W+\rho X_i\quad if X_i\in\omega_1\newline W-\rho X_i\quad if X_i\in\omega_2\end{cases}$</p></blockquote>
 
 <h4 class="relative group">学习率和优化器 
-    <div id="%E5%AD%A6%E4%B9%A0%E7%8E%87%E5%92%8C%E4%BC%98%E5%8C%96%E5%99%A8" class="anchor"></div>
+    <div id="学习率和优化器" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%AD%A6%E4%B9%A0%E7%8E%87%E5%92%8C%E4%BC%98%E5%8C%96%E5%99%A8" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%ad%a6%e4%b9%a0%e7%8e%87%e5%92%8c%e4%bc%98%e5%8c%96%e5%99%a8" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>学习速率$\rho$​有很多设定方法，例如固定值、绝对修正（保证当前的单个训练样本被修正）、部分修正（对绝对修正的速率取0-2之间的调节因子）、变速学习（例如先快后满）、优化学习（令每一步最优，但计算量大）等。</p>
 <p>常用的梯度下降法有：批量梯度法（BGD）、随机梯度法（SGD）、小批次梯度法（MBGD），分别对应整个数据集、单个样本、一小批样本进行梯度的计算。</p>
 
-
 <h3 class="relative group">最小平方和，LMSE 
-    <div id="%E6%9C%80%E5%B0%8F%E5%B9%B3%E6%96%B9%E5%92%8Clmse" class="anchor"></div>
+    <div id="最小平方和lmse" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%9C%80%E5%B0%8F%E5%B9%B3%E6%96%B9%E5%92%8Clmse" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%9c%80%e5%b0%8f%e5%b9%b3%e6%96%b9%e5%92%8clmse" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -1076,9 +1077,7 @@ $$
 w_{k+1}=(X^TX)^{-1}X^Tb_{k+1}
 =w_k+\eta_{k+1}(X^TX)^{-1}X^T|e_k|
 $$</p>
-<p>若训练集线性可分，则误差向量e可以优化至0；反之，当误差向量&lt;0，说明样本集线性不可分。</p>
-</blockquote>
-
+<p>若训练集线性可分，则误差向量e可以优化至0；反之，当误差向量&lt;0，说明样本集线性不可分。</p></blockquote>
 
 <h3 class="relative group">SVM 
     <div id="svm" class="anchor"></div>
@@ -1134,17 +1133,15 @@ $$
 $$
 w=\sum_i sgn(G_{ij}(x_i))\alpha_ix_i
 $$
-偏置量$w_0$​可代入任意一个支持向量求得。</p>
-</blockquote>
-
+偏置量$w_0$​可代入任意一个支持向量求得。</p></blockquote>
 
 <h3 class="relative group">Fisher线性判别，LDA 
-    <div id="fisher%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%ABlda" class="anchor"></div>
+    <div id="fisher线性判别lda" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#fisher%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%ABlda" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#fisher%e7%ba%bf%e6%80%a7%e5%88%a4%e5%88%ablda" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -1152,26 +1149,24 @@ $$
 <p>类内离散度矩阵$S_i=\sum_{x_k\in w_i} (x_k-\mu_i)(x_k-\mu_i)^T$，它刻画了样本偏离均值的差异程度；总的类内离散度矩阵$S_w=\sum_i S_i$，它刻画了两类样本偏离各自均值的总的差异程度</p>
 <p>当样本数足够多时，$S_w$非奇异，最优投影直线的方向存在解析解$w^*=S_w^{-1}(m_1-m_2)$</p>
 
-
 <h2 class="relative group">非线性分类器 
-    <div id="%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8" class="anchor"></div>
+    <div id="非线性分类器" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e9%9d%9e%e7%ba%bf%e6%80%a7%e5%88%86%e7%b1%bb%e5%99%a8" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 
-
 <h3 class="relative group">势函数法 
-    <div id="%E5%8A%BF%E5%87%BD%E6%95%B0%E6%B3%95" class="anchor"></div>
+    <div id="势函数法" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%8A%BF%E5%87%BD%E6%95%B0%E6%B3%95" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%8a%bf%e5%87%bd%e6%95%b0%e6%b3%95" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -1181,31 +1176,28 @@ $$
 <blockquote>
 <p>按顺序遍历样本，直到所有样本满足：正样本的位势&gt;0，负样本的位势&lt;0</p>
 <p>若样本$X_i$满足$\begin{cases}K_A(X_i)&gt;0\quad if X_i\in\omega_1\newline K_A(X_i)&lt;0\quad if X_i\in\omega_2\end{cases}$，则$K_A(X)$不变；</p>
-<p>否则：$K_A=\begin{cases}K_A(X)+K(X,X_i)\quad if X_i\in\omega_1\newline K_A(X)-K(X,X_i)\quad if X_i\in\omega_2\end{cases}$</p>
-</blockquote>
-
+<p>否则：$K_A=\begin{cases}K_A(X)+K(X,X_i)\quad if X_i\in\omega_1\newline K_A(X)-K(X,X_i)\quad if X_i\in\omega_2\end{cases}$</p></blockquote>
 
 <h3 class="relative group">非线性SVM 
-    <div id="%E9%9D%9E%E7%BA%BF%E6%80%A7svm" class="anchor"></div>
+    <div id="非线性svm" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7svm" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e9%9d%9e%e7%ba%bf%e6%80%a7svm" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <p>软间隔：对于异常点，设置松弛变量，允许异常点在一定程度内的存在，以防止无解</p>
 <p>核函数：将样本点映射到高维空间，进行线性可分的求解</p>
 
-
 <h2 class="relative group">贝叶斯分类器 
-    <div id="%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8" class="anchor"></div>
+    <div id="贝叶斯分类器" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e8%b4%9d%e5%8f%b6%e6%96%af%e5%88%86%e7%b1%bb%e5%99%a8" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
@@ -1216,205 +1208,197 @@ $$
 P(w_i|x)=\frac{P(x|w_i)P(w_i)}{\sum_j P(x|w_j)P(w_j)}
 $$</p>
 
-
 <h3 class="relative group">贝叶斯判别器 
-    <div id="%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%A4%E5%88%AB%E5%99%A8" class="anchor"></div>
+    <div id="贝叶斯判别器" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%A4%E5%88%AB%E5%99%A8" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e8%b4%9d%e5%8f%b6%e6%96%af%e5%88%a4%e5%88%ab%e5%99%a8" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <table>
-<thead>
-<tr>
-<th>判别准则</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>最大后验概率/最小错误概率判决</td>
-<td>$g_i(X)=P(\omega_i|X)$</td>
-<td>概率越大，值越大</td>
-</tr>
-<tr>
-<td>最小风险判决</td>
-<td>$g_i(X)=-R(\alpha_i|X)=-\sum_i R(\alpha_i|w_i)$</td>
-<td>风险越小，值越大（风险：误判成其它类的风险之和）</td>
-</tr>
-<tr>
-<td>Neyman-Pearson判决</td>
-<td></td>
-<td>调整判决阈值，使一类错误率不变。另一类错误率减小，可使用拉格朗日方法求解</td>
-</tr>
-<tr>
-<td>最小最大判决</td>
-<td></td>
-<td>使风险最大的判决可能性最小（保守，最坏情况下结果最好，其他情况下结果可用）</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>判别准则</th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>最大后验概率/最小错误概率判决</td>
+          <td>$g_i(X)=P(\omega_i|X)$</td>
+          <td>概率越大，值越大</td>
+      </tr>
+      <tr>
+          <td>最小风险判决</td>
+          <td>$g_i(X)=-R(\alpha_i|X)=-\sum_i R(\alpha_i|w_i)$</td>
+          <td>风险越小，值越大（风险：误判成其它类的风险之和）</td>
+      </tr>
+      <tr>
+          <td>Neyman-Pearson判决</td>
+          <td></td>
+          <td>调整判决阈值，使一类错误率不变。另一类错误率减小，可使用拉格朗日方法求解</td>
+      </tr>
+      <tr>
+          <td>最小最大判决</td>
+          <td></td>
+          <td>使风险最大的判决可能性最小（保守，最坏情况下结果最好，其他情况下结果可用）</td>
+      </tr>
+  </tbody>
 </table>
 <p>最小错误概率本质上是最小风险的在<strong>正确风险为0、错误风险为1</strong>的一种特例</p>
 
-
 <h3 class="relative group">类条件概率密度的估计 
-    <div id="%E7%B1%BB%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E7%9A%84%E4%BC%B0%E8%AE%A1" class="anchor"></div>
+    <div id="类条件概率密度的估计" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%B1%BB%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87%E5%AF%86%E5%BA%A6%E7%9A%84%E4%BC%B0%E8%AE%A1" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%b1%bb%e6%9d%a1%e4%bb%b6%e6%a6%82%e7%8e%87%e5%af%86%e5%ba%a6%e7%9a%84%e4%bc%b0%e8%ae%a1" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 
-
 <h4 class="relative group">参数估计 
-    <div id="%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1" class="anchor"></div>
+    <div id="参数估计" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%8f%82%e6%95%b0%e4%bc%b0%e8%ae%a1" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>如果知道类间概率服从何种分布，则可以估计相应的分布参数。</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>极大似然估计</td>
-<td>$\max_\theta P(X|\theta)$，<br />其中第i类样本的似然函数$p(X_i|\theta_i)=\prod_k^Np(x_k|\theta_i)$</td>
-<td>调整$\theta$，使取得样本集$X$的概率最大</td>
-</tr>
-<tr>
-<td>贝叶斯估计</td>
-<td>设待估参数的先验概率为$P(\theta_i)$，则后验概率为$p(\theta_i|X_i)=\frac{p(X_i|\theta_i)P(\theta_i)}{\int_{\theta_i}p(X_i|\theta_i)P(\theta_i)d\theta}$</td>
-<td>利用贝叶斯公式，根据样本集的概率分布，反推参数$\theta$的后验概率，然后计算$\theta$的数学期望</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>极大似然估计</td>
+          <td>$\max_\theta P(X|\theta)$，<br />其中第i类样本的似然函数$p(X_i|\theta_i)=\prod_k^Np(x_k|\theta_i)$</td>
+          <td>调整$\theta$，使取得样本集$X$的概率最大</td>
+      </tr>
+      <tr>
+          <td>贝叶斯估计</td>
+          <td>设待估参数的先验概率为$P(\theta_i)$，则后验概率为$p(\theta_i|X_i)=\frac{p(X_i|\theta_i)P(\theta_i)}{\int_{\theta_i}p(X_i|\theta_i)P(\theta_i)d\theta}$</td>
+          <td>利用贝叶斯公式，根据样本集的概率分布，反推参数$\theta$的后验概率，然后计算$\theta$的数学期望</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>朴素贝叶斯</strong>认为样本的各个维度独立，故似然概率可以表达为
 $$
 P(x|w)=\prod_j P(x_j|w)
 $$</p>
 
-
 <h4 class="relative group">非参数估计 
-    <div id="%E9%9D%9E%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1" class="anchor"></div>
+    <div id="非参数估计" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E9%9D%9E%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e9%9d%9e%e5%8f%82%e6%95%b0%e4%bc%b0%e8%ae%a1" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>包括Parzen窗估计法和k近邻估计法。</p>
 
-
 <h2 class="relative group">聚类 
-    <div id="%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    <div id="聚类" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e8%81%9a%e7%b1%bb" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <p>聚类定义：不知道每个类别的具体分布</p>
 <p>聚类准则：类间距离大，类内距离小</p>
 <table>
-<thead>
-<tr>
-<th>离散度矩阵</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>类内离散度矩阵</td>
-<td>$S_j=\frac{1}{N_j}\sum_{x_k\in w_j} (x_k-m_j)(x_k-m_j)^T$</td>
-<td></td>
-</tr>
-<tr>
-<td>总的类内离散度矩阵</td>
-<td>$S_w=\sum_j P_j S_j$</td>
-<td>within</td>
-</tr>
-<tr>
-<td>类间离散度矩阵</td>
-<td>$S_b=\sum_j P_j(m_j-m)(m_j-m)^T$</td>
-<td>between</td>
-</tr>
-<tr>
-<td>总的离散度矩阵</td>
-<td>$S_t=\frac{1}{N}\sum_k (x_k-m)(x_k-m)^T$</td>
-<td>total</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>离散度矩阵</th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>类内离散度矩阵</td>
+          <td>$S_j=\frac{1}{N_j}\sum_{x_k\in w_j} (x_k-m_j)(x_k-m_j)^T$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>总的类内离散度矩阵</td>
+          <td>$S_w=\sum_j P_j S_j$</td>
+          <td>within</td>
+      </tr>
+      <tr>
+          <td>类间离散度矩阵</td>
+          <td>$S_b=\sum_j P_j(m_j-m)(m_j-m)^T$</td>
+          <td>between</td>
+      </tr>
+      <tr>
+          <td>总的离散度矩阵</td>
+          <td>$S_t=\frac{1}{N}\sum_k (x_k-m)(x_k-m)^T$</td>
+          <td>total</td>
+      </tr>
+  </tbody>
 </table>
 <p>三个离散度矩阵满足$S_t=S_w+S_b$</p>
 <table>
-<thead>
-<tr>
-<th>聚类准则函数</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>误差平方和</td>
-<td>$J_e=\sum_j^C \sum_i^{N_j} ||x-m_j||^2$</td>
-<td></td>
-</tr>
-<tr>
-<td>加权平方和</td>
-<td>$J_l=\sum_j^C P_jD_j$其中$D_j=E(||x-m_j||^2)$</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>聚类准则函数</th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>误差平方和</td>
+          <td>$J_e=\sum_j^C \sum_i^{N_j} ||x-m_j||^2$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>加权平方和</td>
+          <td>$J_l=\sum_j^C P_jD_j$其中$D_j=E(||x-m_j||^2)$</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h3 class="relative group">增类聚类：最大最小距离 
-    <div id="%E5%A2%9E%E7%B1%BB%E8%81%9A%E7%B1%BB%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB" class="anchor"></div>
+    <div id="增类聚类最大最小距离" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%A2%9E%E7%B1%BB%E8%81%9A%E7%B1%BB%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%a2%9e%e7%b1%bb%e8%81%9a%e7%b1%bb%e6%9c%80%e5%a4%a7%e6%9c%80%e5%b0%8f%e8%b7%9d%e7%a6%bb" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <p>最大最小距离：先计算每个点到最近的聚类中心的距离（最小），然后选择其中距离最远的点（最大）</p>
 <blockquote>
 <p>先指定一个聚类中心，相距最远的作为另一个聚类中心</p>
-<p>不断迭代，增加新的聚类中心，直至样本点的最大最小距离＜阈值</p>
-</blockquote>
-
+<p>不断迭代，增加新的聚类中心，直至样本点的最大最小距离＜阈值</p></blockquote>
 
 <h3 class="relative group">减类聚类：层次聚类 
-    <div id="%E5%87%8F%E7%B1%BB%E8%81%9A%E7%B1%BB%E5%B1%82%E6%AC%A1%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    <div id="减类聚类层次聚类" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%87%8F%E7%B1%BB%E8%81%9A%E7%B1%BB%E5%B1%82%E6%AC%A1%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%87%8f%e7%b1%bb%e8%81%9a%e7%b1%bb%e5%b1%82%e6%ac%a1%e8%81%9a%e7%b1%bb" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -1422,17 +1406,15 @@ $$</p>
 <blockquote>
 <p>初始情况，每个样本各成一类；</p>
 <p>计算类间距离，合并距离最小的两个类；（新的类间距离取决于类内样本的均值）</p>
-<p>继续合并类，直至类间距离大于阈值或者类别数k满足要求；</p>
-</blockquote>
-
+<p>继续合并类，直至类间距离大于阈值或者类别数k满足要求；</p></blockquote>
 
 <h3 class="relative group">动态聚类：C均值聚类(k-means) 
-    <div id="%E5%8A%A8%E6%80%81%E8%81%9A%E7%B1%BBc%E5%9D%87%E5%80%BC%E8%81%9A%E7%B1%BBk-means" class="anchor"></div>
+    <div id="动态聚类c均值聚类k-means" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%8A%A8%E6%80%81%E8%81%9A%E7%B1%BBc%E5%9D%87%E5%80%BC%E8%81%9A%E7%B1%BBk-means" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%8a%a8%e6%80%81%e8%81%9a%e7%b1%bbc%e5%9d%87%e5%80%bc%e8%81%9a%e7%b1%bbk-means" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -1440,8 +1422,7 @@ $$</p>
 <blockquote>
 <p>设定k个聚类中心</p>
 <p>每个样本进行分类，使得类内误差平方和最小（实际就是KNN），从而<strong>更新聚类中心</strong></p>
-<p>不断地迭代（分类+更新中心），直至聚类中心不再被更新</p>
-</blockquote>
+<p>不断地迭代（分类+更新中心），直至聚类中心不再被更新</p></blockquote>
 <ul>
 <li>
 <p>初始聚类中心和类别数会影响收敛速度和边界样本的类别归属（但总是收敛的）</p>
@@ -1454,14 +1435,13 @@ $$</p>
 </li>
 </ul>
 
-
 <h3 class="relative group">近邻函数聚类 
-    <div id="%E8%BF%91%E9%82%BB%E5%87%BD%E6%95%B0%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    <div id="近邻函数聚类" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%BF%91%E9%82%BB%E5%87%BD%E6%95%B0%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e8%bf%91%e9%82%bb%e5%87%bd%e6%95%b0%e8%81%9a%e7%b1%bb" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -1471,191 +1451,187 @@ $$</p>
 <p>计算近邻系数矩阵$M=[m_{ij}]$，$X_i$是$X_j$的第$m_{ij}$个近邻</p>
 <p>计算近邻函数值矩阵$A=[a_{ij}],a_{ij}=\begin{cases}m_{ij}+m_{ji}-2,i\ne j\newline2N,i=j\end{cases}$​</p>
 <p>找出每行的最小元素，将距离最近的样本点连起来，形成初始聚类</p>
-<p>对于每个类别，寻找与之距离最近的类别，若类间距离(min)&lt;类内距离(max,min)，则合并两个类别；不断迭代，直至无法合并</p>
-</blockquote>
-
+<p>对于每个类别，寻找与之距离最近的类别，若类间距离(min)&lt;类内距离(max,min)，则合并两个类别；不断迭代，直至无法合并</p></blockquote>
 
 <h3 class="relative group">最小生成树聚类 
-    <div id="%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E8%81%9A%E7%B1%BB" class="anchor"></div>
+    <div id="最小生成树聚类" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91%E8%81%9A%E7%B1%BB" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%9c%80%e5%b0%8f%e7%94%9f%e6%88%90%e6%a0%91%e8%81%9a%e7%b1%bb" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <blockquote>
 <p>先构建出最小生成树</p>
-<p>然后找到权值最大的一条边，将样本集分为两个子集，递归地进行，直至最大边小于阈值</p>
-</blockquote>
+<p>然后找到权值最大的一条边，将样本集分为两个子集，递归地进行，直至最大边小于阈值</p></blockquote>
 <table>
-<thead>
-<tr>
-<th>最小生成树算法</th>
-<th></th>
-<th>适用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Prim</td>
-<td>先找到最小边，然后依次向外扩展最小的边，且不能构成环路，直至连通</td>
-<td>节点少</td>
-</tr>
-<tr>
-<td>Kruskal</td>
-<td>依次寻找最小的边，且不能构成环路，直至连通</td>
-<td>边少</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>最小生成树算法</th>
+          <th></th>
+          <th>适用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Prim</td>
+          <td>先找到最小边，然后依次向外扩展最小的边，且不能构成环路，直至连通</td>
+          <td>节点少</td>
+      </tr>
+      <tr>
+          <td>Kruskal</td>
+          <td>依次寻找最小的边，且不能构成环路，直至连通</td>
+          <td>边少</td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h2 class="relative group">句法分析 
-    <div id="%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90" class="anchor"></div>
+    <div id="句法分析" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%8F%A5%E6%B3%95%E5%88%86%E6%9E%90" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%8f%a5%e6%b3%95%e5%88%86%e6%9e%90" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <p><strong>文法</strong>：根据一定规则产生样本</p>
 <table>
-<thead>
-<tr>
-<th>类型</th>
-<th>符号</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>终止符</td>
-<td>$V_T$$V_T=\set{a,b,c}$</td>
-<td>Terminal</td>
-</tr>
-<tr>
-<td>非终止符</td>
-<td>$V_N=\set{S,A,B,C}$</td>
-<td>Nonterminal</td>
-</tr>
-<tr>
-<td>起始符</td>
-<td>$S$，一类特殊的非终止符</td>
-<td></td>
-</tr>
-<tr>
-<td>产生式</td>
-<td>$\alpha\rightarrow\beta,\alpha\in V^+,\beta \in V^*$</td>
-<td>Parse</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th>符号</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>终止符</td>
+          <td>$V_T$$V_T=\set{a,b,c}$</td>
+          <td>Terminal</td>
+      </tr>
+      <tr>
+          <td>非终止符</td>
+          <td>$V_N=\set{S,A,B,C}$</td>
+          <td>Nonterminal</td>
+      </tr>
+      <tr>
+          <td>起始符</td>
+          <td>$S$，一类特殊的非终止符</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>产生式</td>
+          <td>$\alpha\rightarrow\beta,\alpha\in V^+,\beta \in V^*$</td>
+          <td>Parse</td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">4种基本文法与自动机 
-    <div id="4%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9C%BA" class="anchor"></div>
+    <div id="4种基本文法与自动机" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#4%E7%A7%8D%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95%E4%B8%8E%E8%87%AA%E5%8A%A8%E6%9C%BA" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#4%e7%a7%8d%e5%9f%ba%e6%9c%ac%e6%96%87%e6%b3%95%e4%b8%8e%e8%87%aa%e5%8a%a8%e6%9c%ba" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <table>
-<thead>
-<tr>
-<th>类型</th>
-<th></th>
-<th>文法</th>
-<th>限制</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0型文法</td>
-<td>无约束文法</td>
-<td>$\alpha\rightarrow\beta$</td>
-<td>无</td>
-<td>递归特性，可以产生一切类型的样本</td>
-<td>图灵机</td>
-</tr>
-<tr>
-<td>1型文法</td>
-<td>上下文有关</td>
-<td>$\alpha_1A\alpha_2\rightarrow\alpha_1B\alpha_2$</td>
-<td>考虑上下文，但上下文也可以为空<br />单个非终止符</td>
-<td>上下文也可以是空句</td>
-<td>线性界限自动机</td>
-</tr>
-<tr>
-<td>2型文法</td>
-<td>上下文无关</td>
-<td>$A\rightarrow\beta$</td>
-<td>单个非终止符</td>
-<td>最左推导/最右推导（从最左/最优的非终止符开始推导）</td>
-<td>下推自动机</td>
-</tr>
-<tr>
-<td>3型文法</td>
-<td>正则</td>
-<td>$A\rightarrow a$<br />$A\rightarrow aB$</td>
-<td>左：单个非终止符<br />右：单个终止符/单个终止符+单个非终止符</td>
-<td>可以用状态图表示</td>
-<td>有限状态自动机</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>类型</th>
+          <th></th>
+          <th>文法</th>
+          <th>限制</th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0型文法</td>
+          <td>无约束文法</td>
+          <td>$\alpha\rightarrow\beta$</td>
+          <td>无</td>
+          <td>递归特性，可以产生一切类型的样本</td>
+          <td>图灵机</td>
+      </tr>
+      <tr>
+          <td>1型文法</td>
+          <td>上下文有关</td>
+          <td>$\alpha_1A\alpha_2\rightarrow\alpha_1B\alpha_2$</td>
+          <td>考虑上下文，但上下文也可以为空<br />单个非终止符</td>
+          <td>上下文也可以是空句</td>
+          <td>线性界限自动机</td>
+      </tr>
+      <tr>
+          <td>2型文法</td>
+          <td>上下文无关</td>
+          <td>$A\rightarrow\beta$</td>
+          <td>单个非终止符</td>
+          <td>最左推导/最右推导（从最左/最优的非终止符开始推导）</td>
+          <td>下推自动机</td>
+      </tr>
+      <tr>
+          <td>3型文法</td>
+          <td>正则</td>
+          <td>$A\rightarrow a$<br />$A\rightarrow aB$</td>
+          <td>左：单个非终止符<br />右：单个终止符/单个终止符+单个非终止符</td>
+          <td>可以用状态图表示</td>
+          <td>有限状态自动机</td>
+      </tr>
+  </tbody>
 </table>
 <p>4种文法的关系：限制逐渐增加，范围逐渐缩小</p>
-<p><a href="https://blog.csdn.net/Jane_96/article/details/80029708"   target="_blank">
-    编译原理之文法的分类和判别-CSDN博客</a></p>
-
+<p><a href="https://blog.csdn.net/Jane_96/article/details/80029708" target="_blank">编译原理之文法的分类和判别-CSDN博客</a></p>
 
 <h3 class="relative group">句法识别 
-    <div id="%E5%8F%A5%E6%B3%95%E8%AF%86%E5%88%AB" class="anchor"></div>
+    <div id="句法识别" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%8F%A5%E6%B3%95%E8%AF%86%E5%88%AB" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%8f%a5%e6%b3%95%e8%af%86%e5%88%ab" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <p>句法识别方法：样本是否能被模式类的文法生成</p>
 <p>$模式类\omega_i对应的文法是G_i，如果x\in L(G_i)，那么则判定x\in w_i$</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>参考匹配法</td>
-<td>每个模式类根据对应的文法生成对应的参考列，将样本与每一列的参考列逐个比对</td>
-<td></td>
-</tr>
-<tr>
-<td>状态图法</td>
-<td>对于正则文法，若能找到状态图中的通路，则属于模式类</td>
-<td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202405240237497.png" alt="image-20240524023750867" style="zoom: 33%;" /></td>
-</tr>
-<tr>
-<td>填充树法</td>
-<td>对于上下文无关文法，在每一步时考虑所有可能得文法，直到产生样本或无法产生样本为止（本质上是穷举）</td>
-<td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202405240242713.png" alt="image-20240524024203703" style="zoom:33%;" /></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>参考匹配法</td>
+          <td>每个模式类根据对应的文法生成对应的参考列，将样本与每一列的参考列逐个比对</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>状态图法</td>
+          <td>对于正则文法，若能找到状态图中的通路，则属于模式类</td>
+          <td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202405240237497.png" alt="image-20240524023750867" style="zoom: 33%;" /></td>
+      </tr>
+      <tr>
+          <td>填充树法</td>
+          <td>对于上下文无关文法，在每一步时考虑所有可能得文法，直到产生样本或无法产生样本为止（本质上是穷举）</td>
+          <td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202405240242713.png" alt="image-20240524024203703" style="zoom:33%;" /></td>
+      </tr>
+  </tbody>
 </table>
 
+          
+          
+          
         </div>
         
         
@@ -1670,14 +1646,17 @@ $$</p>
       
         
         
+          
+          
+        
       <script>
         var oid = "views_course\/pr.md"
         var oid_likes = "likes_course\/pr.md"
       </script>
       
       
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
       
-      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
   
     </section>
   <footer class="pt-8 max-w-prose print:hidden">
@@ -1791,10 +1770,11 @@ $$</p>
   </script>
   
   
-  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
-</footer><div
+</footer>
+<div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
   data-url="https://xuzhang0112.github.io/"

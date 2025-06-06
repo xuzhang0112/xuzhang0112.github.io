@@ -26,8 +26,8 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.ac59a1b8eaafef739c129d12787ac29f6a420bcb348c7aeec8949a8d0b7d6c2023766c169d14b9031b751504eb3c976efe786fec135b340a49868acd8caa4127.css"
-    integrity="sha512-rFmhuOqv73OcEp0SeHrCn2pCC8s0jHruyJSajQt9bCAjdmwWnRS5Axt1FQTrPJdu/nhv7BNbNApJhorNjKpBJw==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.5f8f4777872a0d3d0d40b3754a43f54f29ae82af8e7ee8b8cb972495c44f0d770b15cd4194b7a49bc85950ac492768c127b305a57fc92ed77bf7e230fb6530a4.css"
+    integrity="sha512-X49Hd4cqDT0NQLN1SkP1Tymugq&#43;Ofui4y5cklcRPDXcLFc1BlLekm8hZUKxJJ2jBJ7MFpX/JLtd79&#43;Iw&#43;2UwpA==" />
   
   
   <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
@@ -41,11 +41,14 @@
   
   
   
-  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
-    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
   
   
-  <script src="/js/zoom.min.js"></script>
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.165327e9b2a9a8807ad5cb6c943a8f9a52756791c128e2dbfb3623bb42429636adb4bbb076b0447b592cad02914321a6aef0db10b907465de34fda41e2830281.js"
+    integrity="sha512-FlMn6bKpqIB61ctslDqPmlJ1Z5HBKOLb&#43;zYju0JCljattLuwdrBEe1ksrQKRQyGmrvDbELkHRl3jT9pB4oMCgQ==" data-copy="Copy" data-copied="Copied"></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.f592a181a15d2a5b042daa7f746c3721acf9063f8b6acd175d989129865a37d400ae0e85b640f9ad42cd98d1f8ad30931718cf8811abdcc5fcb264400d1a2b0c.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj&#43;Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA=="></script>
   
   
   
@@ -60,27 +63,29 @@
   
   
   
-  <meta property="og:title" content="Matrix" />
-<meta property="og:description" content="矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
+  
+  <meta property="og:url" content="https://xuzhang0112.github.io/course/matrix/">
+  <meta property="og:site_name" content="Xu Zhang&#39;s Blog">
+  <meta property="og:title" content="Matrix">
+  <meta property="og:description" content="矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
 inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ Hardmard积、Kronnecker积和矩阵乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
-Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：
-A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 直和 # 矩阵的直和定义如下：
-$$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
-逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://xuzhang0112.github.io/course/matrix/" /><meta property="article:section" content="course" />
-<meta property="article:published_time" content="2024-06-14T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-14T00:00:00+00:00" />
+Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="course">
+    <meta property="article:published_time" content="2024-06-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-06-14T00:00:00+00:00">
+    <meta property="article:tag" content="Course">
 
-
-  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Matrix"/>
-<meta name="twitter:description" content="矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Matrix">
+  <meta name="twitter:description" content="矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：
 inner product $\sum a_ib_i$ $a\odot b$ Outer product $ab^T$ $a\otimes b$ Hardmard积、Kronnecker积和矩阵乘法 # 若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：
-Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：
-A、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A&#43;B)(A-B)$满足交换律 $(A&#43;B)^m$可使用二项式定理展开 直和 # 矩阵的直和定义如下：
-$$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
-逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆"/>
+Hardmard Product 逐元素相乘 $A\circ B \in R^{m\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\otimes B \in R^{m^2\times n^2}$ Matrix Product 矩阵乘法 $A\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：">
 
+    
+  
   
   <script type="application/ld+json">
   [{
@@ -90,7 +95,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
     "name": "Matrix",
     "headline": "Matrix",
     
-    "abstract": "矩阵的基本概念 # 矩阵的基本运算 # 若向量$a,b$，则它的内积、外积定义如下：\ninner product $\\sum a_ib_i$ $a\\odot b$ Outer product $ab^T$ $a\\otimes b$ Hardmard积、Kronnecker积和矩阵乘法 # 若矩阵$A\\in R^{m\\times n},B\\in R^{m\\times n}$，则它的哈达玛积、克罗内亚积如下：\nHardmard Product 逐元素相乘 $A\\circ B \\in R^{m\\times n}$ Kronnecker Product 矩阵A每个元素乘以矩阵B $A\\otimes B \\in R^{m^2\\times n^2}$ Matrix Product 矩阵乘法 $A\\cdot B$ or $AB$ 矩阵乘法一般情况下不满足交换律，但也有例外：\nA、B中任一是单位阵、数量阵、零矩阵，或者A、B均为对角阵时，满足$AB=BA$​ A、B互为逆矩阵、正交矩阵、酉矩阵时，满足交换律$AB=BA$ 当$AB=BA$时 $(A\u002bB)(A-B)$满足交换律 $(A\u002bB)^m$可使用二项式定理展开 直和 # 矩阵的直和定义如下：\n$$A\\oplus B=\\begin{bmatrix}A\\quad O\\newline O\\quad B\\end{bmatrix}$$\n逆矩阵 # 求解思路： 直接求逆，推导出逆矩阵 构造$AA^{-1}=I$（一般移项后对A作因式分解） 特殊构造 当A、B可逆时，注意构造$AA^{-1}$和$BB^{-1}$​ 当A正交时，注意$A^{-1}=A^T$​ 广义逆 # 左逆和右逆 左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$ 左伪逆和右伪逆 列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$ 列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆 M-P广义逆 若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆",
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003e矩阵的基本概念 \n    \u003cdiv id=\u0022矩阵的基本概念\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%e7%9f%a9%e9%98%b5%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\n\u003ch3 class=\u0022relative group\u0022\u003e矩阵的基本运算 \n    \u003cdiv id=\u0022矩阵的基本运算\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%e7%9f%a9%e9%98%b5%e7%9a%84%e5%9f%ba%e6%9c%ac%e8%bf%90%e7%ae%97\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003e若向量$a,b$，则它的内积、外积定义如下：\u003c\/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n      \u003ctr\u003e\n          \u003cth\u003e\u003c\/th\u003e\n          \u003cth\u003e\u003c\/th\u003e\n          \u003cth\u003e\u003c\/th\u003e\n      \u003c\/tr\u003e\n  \u003c\/thead\u003e\n  \u003ctbody\u003e\n      \u003ctr\u003e\n          \u003ctd\u003einner product\u003c\/td\u003e\n          \u003ctd\u003e$\\sum a_ib_i$\u003c\/td\u003e\n          \u003ctd\u003e$a\\odot b$\u003c\/td\u003e\n      \u003c\/tr\u003e\n      \u003ctr\u003e\n          \u003ctd\u003eOuter product\u003c\/td\u003e\n          \u003ctd\u003e$ab^T$\u003c\/td\u003e\n          \u003ctd\u003e$a\\otimes b$\u003c\/td\u003e\n      \u003c\/tr\u003e\n  \u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\u003ch4 class=\u0022relative group\u0022\u003eHardmard积、Kronnecker积和矩阵乘法 \n    \u003cdiv id=\u0022hardmard积kronnecker积和矩阵乘法\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#hardmard%e7%a7%afkronnecker%e7%a7%af%e5%92%8c%e7%9f%a9%e9%98%b5%e4%b9%98%e6%b3%95\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e若矩阵$A\\in R^{m\\times n},B\\in R^{m\\times n}$，则它的哈达玛积、克罗内亚积如下：\u003c\/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n      \u003ctr\u003e\n          \u003cth\u003e\u003c\/th\u003e\n          \u003cth\u003e\u003c\/th\u003e\n          \u003cth\u003e\u003c\/th\u003e\n      \u003c\/tr\u003e\n  \u003c\/thead\u003e\n  \u003ctbody\u003e\n      \u003ctr\u003e\n          \u003ctd\u003eHardmard Product\u003c\/td\u003e\n          \u003ctd\u003e逐元素相乘\u003c\/td\u003e\n          \u003ctd\u003e$A\\circ B \\in R^{m\\times n}$\u003c\/td\u003e\n      \u003c\/tr\u003e\n      \u003ctr\u003e\n          \u003ctd\u003eKronnecker Product\u003c\/td\u003e\n          \u003ctd\u003e矩阵A每个元素乘以矩阵B\u003c\/td\u003e\n          \u003ctd\u003e$A\\otimes B \\in R^{m^2\\times n^2}$\u003c\/td\u003e\n      \u003c\/tr\u003e\n      \u003ctr\u003e\n          \u003ctd\u003eMatrix Product\u003c\/td\u003e\n          \u003ctd\u003e矩阵乘法\u003c\/td\u003e\n          \u003ctd\u003e$A\\cdot B$ or $AB$\u003c\/td\u003e\n      \u003c\/tr\u003e\n  \u003c\/tbody\u003e\n\u003c\/table\u003e\n\u003cp\u003e矩阵乘法一般情况下不满足交换律，但也有例外：\u003c\/p\u003e",
     "inLanguage": "en",
     "url" : "https:\/\/xuzhang0112.github.io\/course\/matrix\/",
     "author" : {
@@ -117,16 +122,24 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
   
   
   
+  
   <link href="https://scholar.google.com/citations?user=6-NiSKYAAAAJ&amp;hl=zh-CN" rel="me" />
+  
+  
   
   
   <link href="https://www.zhihu.com/people/zhang-xu-20-31-39" rel="me" />
   
   
+  
+  
   <link href="https://space.bilibili.com/456489591" rel="me" />
   
   
+  
+  
   <link href="https://github.com/xuzhang0112" rel="me" />
+  
   
   
   
@@ -181,6 +194,9 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
   
 
 
+
+  
+  
   
   
   <meta name="theme-color"/>
@@ -188,7 +204,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
   
 </head>
 <body
-  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
       href="#main-content"><span
@@ -197,7 +213,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
   
   
   <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
-    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
     
     <div class="flex flex-1 items-center justify-between">
         <nav class="flex space-x-3">
@@ -207,7 +223,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
             
 
         </nav>
-        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
 
             
             
@@ -337,6 +353,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 </a>
 
 
+
             
             
 
@@ -361,7 +378,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
             
             
             <div
-                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                class=" flex items-center">
                 <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
                     <div class="flex items-center justify-center dark:hidden">
                         
@@ -388,7 +405,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
             
 
         </nav>
-        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
 
             <span></span>
 
@@ -411,7 +428,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 
             
             
-            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
                 <div class="flex items-center justify-center dark:hidden">
                     
 
@@ -437,10 +454,9 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 
         </div>
     </div>
-    <div class="-my-2 -mr-2 md:hidden">
+    <div class="-my-2 md:hidden">
 
-        <label id="menu-button" for="menu-controller" class="block">
-            <input type="checkbox" id="menu-controller" class="hidden" />
+        <label id="menu-button" class="block">
             
             <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
                 
@@ -457,7 +473,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
                 <ul
                     class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
 
-                    <li>
+                    <li id="menu-close-button">
                         <span
                             class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
 
@@ -473,7 +489,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 
                      
   <li class="mt-1">
-    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/software/" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Software">
             Software
@@ -524,11 +540,12 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 
 
 
+
                     
 
                      
   <li class="mt-1">
-    <a class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/research/" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Research">
             AI Research
@@ -588,6 +605,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 
 
 
+
                     
 
                     
@@ -599,6 +617,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
         </p>
     </a>
 </li>
+
 
 
 
@@ -635,7 +654,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
   
     
   
-  <li class="inline hidden">
+  <li class="hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/"
@@ -644,7 +663,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
   </li>
 
   
-  <li class="inline ">
+  <li class="inline">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/course/"
@@ -653,7 +672,7 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
   </li>
 
   
-  <li class="inline hidden">
+  <li class="hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/course/matrix/"
@@ -723,22 +742,16 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/course/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Course
-  </span>
-</span>
-  </span>
-  
-  
-  
   
   
   
   
   
 </div>
+
+
+
+
 
 
 
@@ -770,13 +783,13 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
       class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
       <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
 
-         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+         <details open id="TOCView" class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
   <summary
     class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
     Table of Contents
   </summary>
   <div
-    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
     <li><a href="#矩阵的基本概念">矩阵的基本概念</a>
@@ -883,6 +896,9 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
   </div>
 </details>
 
+<script>
+
+</script>
    </div>
       </div>
       
@@ -894,89 +910,86 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 
         <div class="article-content max-w-prose mb-20">
           
-
 <h2 class="relative group">矩阵的基本概念 
-    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" class="anchor"></div>
+    <div id="矩阵的基本概念" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 
-
 <h3 class="relative group">矩阵的基本运算 
-    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97" class="anchor"></div>
+    <div id="矩阵的基本运算" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e5%9f%ba%e6%9c%ac%e8%bf%90%e7%ae%97" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <p>若向量$a,b$，则它的内积、外积定义如下：</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>inner product</td>
-<td>$\sum a_ib_i$</td>
-<td>$a\odot b$</td>
-</tr>
-<tr>
-<td>Outer product</td>
-<td>$ab^T$</td>
-<td>$a\otimes b$</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>inner product</td>
+          <td>$\sum a_ib_i$</td>
+          <td>$a\odot b$</td>
+      </tr>
+      <tr>
+          <td>Outer product</td>
+          <td>$ab^T$</td>
+          <td>$a\otimes b$</td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">Hardmard积、Kronnecker积和矩阵乘法 
-    <div id="hardmard%E7%A7%AFkronnecker%E7%A7%AF%E5%92%8C%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95" class="anchor"></div>
+    <div id="hardmard积kronnecker积和矩阵乘法" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#hardmard%E7%A7%AFkronnecker%E7%A7%AF%E5%92%8C%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#hardmard%e7%a7%afkronnecker%e7%a7%af%e5%92%8c%e7%9f%a9%e9%98%b5%e4%b9%98%e6%b3%95" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Hardmard Product</td>
-<td>逐元素相乘</td>
-<td>$A\circ B \in R^{m\times n}$</td>
-</tr>
-<tr>
-<td>Kronnecker Product</td>
-<td>矩阵A每个元素乘以矩阵B</td>
-<td>$A\otimes B \in R^{m^2\times n^2}$</td>
-</tr>
-<tr>
-<td>Matrix Product</td>
-<td>矩阵乘法</td>
-<td>$A\cdot B$ or $AB$</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Hardmard Product</td>
+          <td>逐元素相乘</td>
+          <td>$A\circ B \in R^{m\times n}$</td>
+      </tr>
+      <tr>
+          <td>Kronnecker Product</td>
+          <td>矩阵A每个元素乘以矩阵B</td>
+          <td>$A\otimes B \in R^{m^2\times n^2}$</td>
+      </tr>
+      <tr>
+          <td>Matrix Product</td>
+          <td>矩阵乘法</td>
+          <td>$A\cdot B$ or $AB$</td>
+      </tr>
+  </tbody>
 </table>
 <p>矩阵乘法一般情况下不满足交换律，但也有例外：</p>
 <ul>
@@ -990,28 +1003,26 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 </li>
 </ul>
 
-
 <h4 class="relative group">直和 
-    <div id="%E7%9B%B4%E5%92%8C" class="anchor"></div>
+    <div id="直和" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9B%B4%E5%92%8C" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9b%b4%e5%92%8c" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>矩阵的直和定义如下：</p>
 <p>$$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$</p>
 
-
 <h4 class="relative group">逆矩阵 
-    <div id="%E9%80%86%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    <div id="逆矩阵" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E9%80%86%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e9%80%86%e7%9f%a9%e9%98%b5" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
@@ -1030,99 +1041,96 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 </li>
 </ul>
 
-
 <h4 class="relative group">广义逆 
-    <div id="%E5%B9%BF%E4%B9%89%E9%80%86" class="anchor"></div>
+    <div id="广义逆" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%B9%BF%E4%B9%89%E9%80%86" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%b9%bf%e4%b9%89%e9%80%86" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>左逆和右逆</td>
-<td>左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$</td>
-<td></td>
-</tr>
-<tr>
-<td>左伪逆和右伪逆</td>
-<td>列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$</td>
-<td>列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆</td>
-</tr>
-<tr>
-<td>M-P广义逆</td>
-<td>若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆<br />特别地，若$AA^-A=A$，则称$A^-$是$A$的广义逆矩阵<br />$A^{-1},L,R$都是A的广义逆矩阵</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>左逆和右逆</td>
+          <td>左逆矩阵满足$LA=I$；右逆矩阵满足$AR=I$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>左伪逆和右伪逆</td>
+          <td>列满秩矩阵的左伪逆矩阵$L=(A^HA)^{-1}A^H$；行满秩矩阵的右伪逆矩阵$R=A^H(AA^H)^{-1}$</td>
+          <td>列满秩则有$A^HA$可逆；行满秩则有$AA^H$可逆</td>
+      </tr>
+      <tr>
+          <td>M-P广义逆</td>
+          <td>若矩阵G满足$AGA=A或GAG=G或(AG)^T=AG或(GA)^T=GA$，则称矩阵G是加号逆或M-P广义逆<br />特别地，若$AA^-A=A$，则称$A^-$是$A$的广义逆矩阵<br />$A^{-1},L,R$都是A的广义逆矩阵</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h3 class="relative group">秩、行列式、迹 
-    <div id="%E7%A7%A9%E8%A1%8C%E5%88%97%E5%BC%8F%E8%BF%B9" class="anchor"></div>
+    <div id="秩行列式迹" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%A7%A9%E8%A1%8C%E5%88%97%E5%BC%8F%E8%BF%B9" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%a7%a9%e8%a1%8c%e5%88%97%e5%bc%8f%e8%bf%b9" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 
-
 <h4 class="relative group">秩 
-    <div id="%E7%A7%A9" class="anchor"></div>
+    <div id="秩" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%A7%A9" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%a7%a9" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>线性映射定义</p>
 <p>考虑线性映射$f_A:F^n\rightarrow F^m$在某一组基下的表示$x\rightarrow Ax$，则$A$的秩定义为$f_A$的象空间的维度，而核空间的维度则定义为$n-r(A)$​</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>性质</th>
-<th>证明/推论</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>$r(AB)\le\min(r(A),r(B))$</td>
-<td>考虑矩阵的线性映射，一方面，$ABx$将$Bx$投射到$A$的象空间，因此$r(AB)\le r(A)$；另一方面，$ABx$是$Bx$基向量的线性组合，因此$r(AB)\le r(B)$<br />若A满秩，则$r(AB)=r(B)$</td>
-</tr>
-<tr>
-<td></td>
-<td>$r(A)+r(B)-n\le r(AB)$</td>
-<td>Frobeinus不等式$r(AB)+r(BC)\le r(B)+r(ABC)$</td>
-</tr>
-<tr>
-<td></td>
-<td>$r(A+B)\le r(A)+r(B)$</td>
-<td>秩为k的矩阵可以分解为k个秩1矩阵的和</td>
-</tr>
-<tr>
-<td></td>
-<td>$r(A^TA)=r(AA^T)=r(A)=r(A^T)$</td>
-<td>转置不变性</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>性质</th>
+          <th>证明/推论</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td>$r(AB)\le\min(r(A),r(B))$</td>
+          <td>考虑矩阵的线性映射，一方面，$ABx$将$Bx$投射到$A$的象空间，因此$r(AB)\le r(A)$；另一方面，$ABx$是$Bx$基向量的线性组合，因此$r(AB)\le r(B)$<br />若A满秩，则$r(AB)=r(B)$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$r(A)+r(B)-n\le r(AB)$</td>
+          <td>Frobeinus不等式$r(AB)+r(BC)\le r(B)+r(ABC)$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$r(A+B)\le r(A)+r(B)$</td>
+          <td>秩为k的矩阵可以分解为k个秩1矩阵的和</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$r(A^TA)=r(AA^T)=r(A)=r(A^T)$</td>
+          <td>转置不变性</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>含参矩阵：根据矩阵的秩，确定参数的范围</strong></p>
 <ul>
@@ -1132,19 +1140,17 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 <li>
 <p>矩阵满秩/秩的分类讨论（$\alpha,\beta$）</p>
 <blockquote>
-<p>将向量组排列成矩阵，用每一行消去一个维度（注意消去不含参的维度），保证剩下的两行线性无关/相关</p>
-</blockquote>
+<p>将向量组排列成矩阵，用每一行消去一个维度（注意消去不含参的维度），保证剩下的两行线性无关/相关</p></blockquote>
 </li>
 </ul>
 
-
 <h4 class="relative group">行列式 
-    <div id="%E8%A1%8C%E5%88%97%E5%BC%8F" class="anchor"></div>
+    <div id="行列式" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%A1%8C%E5%88%97%E5%BC%8F" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e8%a1%8c%e5%88%97%e5%bc%8f" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
@@ -1174,114 +1180,107 @@ $$A\oplus B=\begin{bmatrix}A\quad O\newline O\quad B\end{bmatrix}$$
 4\quad5\newline
 7\quad8\newline
 \end{vmatrix}
-$$</p>
-</blockquote>
-
+$$</p></blockquote>
 
 <h4 class="relative group">迹 
-    <div id="%E8%BF%B9" class="anchor"></div>
+    <div id="迹" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%BF%B9" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e8%bf%b9" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>性质</th>
-<th>推论</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>线性性质</td>
-<td>$tr(A+B)=tr(A)+tr(B)$</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>$tr(r\cdot A)=r\cdot tr(A)$</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td>$tr(A)=tr(A^T)$</td>
-<td></td>
-</tr>
-<tr>
-<td>矩阵乘积</td>
-<td>若交换后乘积仍然存在，则有$tr(AB)=tr(BA)$</td>
-<td>$tr(ABC)=tr(BCA)=tr(CAB)\ne tr(ACB)$</td>
-</tr>
-<tr>
-<td></td>
-<td>$tr(AB)=\sum_{ij}a_{ij}b_{ji}$</td>
-<td>$tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)$</td>
-</tr>
-<tr>
-<td>相似不变性</td>
-<td>$tr(B)=tr(PAP^{-1})=tr(A)$</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>性质</th>
+          <th>推论</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>线性性质</td>
+          <td>$tr(A+B)=tr(A)+tr(B)$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$tr(r\cdot A)=r\cdot tr(A)$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$tr(A)=tr(A^T)$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>矩阵乘积</td>
+          <td>若交换后乘积仍然存在，则有$tr(AB)=tr(BA)$</td>
+          <td>$tr(ABC)=tr(BCA)=tr(CAB)\ne tr(ACB)$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$tr(AB)=\sum_{ij}a_{ij}b_{ji}$</td>
+          <td>$tr(A^TB)=\sum_{i,j}a_{ij}b_{ij}=vec^T(A)\cdot vec(B)$</td>
+      </tr>
+      <tr>
+          <td>相似不变性</td>
+          <td>$tr(B)=tr(PAP^{-1})=tr(A)$</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li>$tr(XX^T)=\sum |x_{ij}|^2$，多天线发射信号矩阵的功率</li>
 </ul>
 
-
 <h3 class="relative group">范数 
-    <div id="%E8%8C%83%E6%95%B0" class="anchor"></div>
+    <div id="范数" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%8C%83%E6%95%B0" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e8%8c%83%e6%95%b0" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 
-
 <h4 class="relative group">向量范数 
-    <div id="%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0" class="anchor"></div>
+    <div id="向量范数" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%90%91%E9%87%8F%E8%8C%83%E6%95%B0" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%90%91%e9%87%8f%e8%8c%83%e6%95%b0" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>向量的p范数$||x||_p=(\sum_i |x_i|^p)^{1/p}$​</p>
 <p>特别地，当$p\rightarrow\infty$时，称为无穷范数，返回向量的最大元素$max(x_i)$</p>
 
-
 <h4 class="relative group">矩阵范数 
-    <div id="%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0" class="anchor"></div>
+    <div id="矩阵范数" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E8%8C%83%E6%95%B0" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9f%a9%e9%98%b5%e8%8c%83%e6%95%b0" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<p><a href="https://zh.wikipedia.org/wiki/%e7%9f%a9%e9%99%a3%e7%af%84%e6%95%b8#p-%e8%8c%83%e6%95%b0%e8%af%b1%e5%af%bc%e7%9a%84%e7%9f%a9%e9%98%b5%e8%8c%83%e6%95%b0"   target="_blank">
-    矩阵范数 - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%e7%9f%a9%e9%99%a3%e7%af%84%e6%95%b8#p-%e8%8c%83%e6%95%b0%e8%af%b1%e5%af%bc%e7%9a%84%e7%9f%a9%e9%98%b5%e8%8c%83%e6%95%b0" target="_blank">矩阵范数 - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
 <p>矩阵的元素范数和诱导范数都可以记为也记为$A||_p$</p>
 
-
 <h4 class="relative group">矩阵的元素范数 
-    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%83%E7%B4%A0%E8%8C%83%E6%95%B0" class="anchor"></div>
+    <div id="矩阵的元素范数" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%83%E7%B4%A0%E8%8C%83%E6%95%B0" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e5%85%83%e7%b4%a0%e8%8c%83%e6%95%b0" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
@@ -1289,213 +1288,205 @@ $$</p>
 <p>特别地，$L_2$范数也被称为Frobenius范数，记为$||A||_F$</p>
 <p>当$p\rightarrow\infty$时，称为极大值范数，返回矩阵的最大元素$max(a_{ij})$</p>
 
-
 <h4 class="relative group">范数的性质 
-    <div id="%E8%8C%83%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8" class="anchor"></div>
+    <div id="范数的性质" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%8C%83%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e8%8c%83%e6%95%b0%e7%9a%84%e6%80%a7%e8%b4%a8" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>矩阵范数</th>
-<th>向量范数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>三角不等式</td>
-<td>$||A+B||\le||A||+||B||$</td>
-<td>$||u+v||\le||u||+||v||$</td>
-</tr>
-<tr>
-<td>Cauchy不等式</td>
-<td>$||AB||\le||A||\cdot||B||$</td>
-<td>$||uv||\le||u||\cdot||v||$</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>矩阵范数</th>
+          <th>向量范数</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>三角不等式</td>
+          <td>$||A+B||\le||A||+||B||$</td>
+          <td>$||u+v||\le||u||+||v||$</td>
+      </tr>
+      <tr>
+          <td>Cauchy不等式</td>
+          <td>$||AB||\le||A||\cdot||B||$</td>
+          <td>$||uv||\le||u||\cdot||v||$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">矩阵的诱导范数 
-    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E8%AF%B1%E5%AF%BC%E8%8C%83%E6%95%B0" class="anchor"></div>
+    <div id="矩阵的诱导范数" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E8%AF%B1%E5%AF%BC%E8%8C%83%E6%95%B0" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e8%af%b1%e5%af%bc%e8%8c%83%e6%95%b0" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>向量$x$的p范数的缩放倍率的最大值，有$||A||_p=\max{\frac{||Ax||_p}{||x||_p}}$</p>
 <p>特别地，诱导2范数是矩阵A的最大奇异值。</p>
 
-
 <h3 class="relative group">随机向量 
-    <div id="%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F" class="anchor"></div>
+    <div id="随机向量" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e9%9a%8f%e6%9c%ba%e5%90%91%e9%87%8f" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>自相关矩阵</td>
-<td>$R_x=E[(x(\xi)x^H(\xi))]$</td>
-<td></td>
-</tr>
-<tr>
-<td>互相关矩阵</td>
-<td>$R_{xy}=E[(x(\xi)y^H(\xi))]$</td>
-<td></td>
-</tr>
-<tr>
-<td>自协方差矩阵</td>
-<td>$C_x=E([x(\xi)-\mu][x(\xi)-\mu]^T)$</td>
-<td>$C_x=R_x-\mu_x\mu_x^T$</td>
-</tr>
-<tr>
-<td>互协方差矩阵</td>
-<td>$C_x=E([x(\xi)-\mu_x][y(\xi)-\mu_y]^T)$</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>自相关矩阵</td>
+          <td>$R_x=E[(x(\xi)x^H(\xi))]$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>互相关矩阵</td>
+          <td>$R_{xy}=E[(x(\xi)y^H(\xi))]$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>自协方差矩阵</td>
+          <td>$C_x=E([x(\xi)-\mu][x(\xi)-\mu]^T)$</td>
+          <td>$C_x=R_x-\mu_x\mu_x^T$</td>
+      </tr>
+      <tr>
+          <td>互协方差矩阵</td>
+          <td>$C_x=E([x(\xi)-\mu_x][y(\xi)-\mu_y]^T)$</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">高斯随机向量 
-    <div id="%E9%AB%98%E6%96%AF%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F" class="anchor"></div>
+    <div id="高斯随机向量" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E9%AB%98%E6%96%AF%E9%9A%8F%E6%9C%BA%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e9%ab%98%e6%96%af%e9%9a%8f%e6%9c%ba%e5%90%91%e9%87%8f" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>设高斯随机向量$x(t)=[x_1(t),\dots,x_N(t)]^T$服从多维正态分布$N(\mu,C_x)$，均值向量$\mu=[\mu_1,\dots,\mu_N]^T$若各个维度独立，则有协方差矩阵$C_x=diag{\sigma_1^2,\dots,\sigma_N^2}$，概率密度函数$f(x)=\frac{1}{(2\pi)^{N/2}det(C_x)^{1/2}}exp(-\frac{1}{2}(x-\mu)^TC_x^{-1}(x-\mu))$​</p>
 
-
 <h4 class="relative group">随机误差向量 
-    <div id="%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE%E5%90%91%E9%87%8F" class="anchor"></div>
+    <div id="随机误差向量" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E9%9A%8F%E6%9C%BA%E8%AF%AF%E5%B7%AE%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e9%9a%8f%e6%9c%ba%e8%af%af%e5%b7%ae%e5%90%91%e9%87%8f" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>误差向量的每个维度期望为0，但功率不为0（因为正负相互抵消，平方后累积）</p>
 
-
 <h3 class="relative group">特殊矩阵 
-    <div id="%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    <div id="特殊矩阵" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%89%B9%E6%AE%8A%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 
-
 <h4 class="relative group">基本矩阵 
-    <div id="%E5%9F%BA%E6%9C%AC%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    <div id="基本矩阵" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E6%9C%AC%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%9f%ba%e6%9c%ac%e7%9f%a9%e9%98%b5" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th>推广</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>基本矩阵</td>
-<td>$E_{mn}=e_me_n^T$是第m行第n列的元素为1的矩阵，<br />其中$e_n$是第n个元素为1的单位向量</td>
-<td></td>
-</tr>
-<tr>
-<td>I型基本矩阵</td>
-<td>$E_{(p,q)}$</td>
-<td>互换矩阵<br />选择矩阵<br />置换矩阵</td>
-</tr>
-<tr>
-<td>II型基本矩阵</td>
-<td>$E_{\alpha(p)}$</td>
-<td></td>
-</tr>
-<tr>
-<td>III型基本矩阵</td>
-<td>$E_{(p)+\alpha(q)}$</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th>推广</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>基本矩阵</td>
+          <td>$E_{mn}=e_me_n^T$是第m行第n列的元素为1的矩阵，<br />其中$e_n$是第n个元素为1的单位向量</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>I型基本矩阵</td>
+          <td>$E_{(p,q)}$</td>
+          <td>互换矩阵<br />选择矩阵<br />置换矩阵</td>
+      </tr>
+      <tr>
+          <td>II型基本矩阵</td>
+          <td>$E_{\alpha(p)}$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>III型基本矩阵</td>
+          <td>$E_{(p)+\alpha(q)}$</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">三角阵、对角阵 
-    <div id="%E4%B8%89%E8%A7%92%E9%98%B5%E5%AF%B9%E8%A7%92%E9%98%B5" class="anchor"></div>
+    <div id="三角阵对角阵" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%B8%89%E8%A7%92%E9%98%B5%E5%AF%B9%E8%A7%92%E9%98%B5" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e4%b8%89%e8%a7%92%e9%98%b5%e5%af%b9%e8%a7%92%e9%98%b5" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>逆矩阵</th>
-<th>行列式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>上/下三角阵</td>
-<td>上/下三角阵</td>
-<td>$det(A)=\prod_i^Na_{ii}$</td>
-</tr>
-<tr>
-<td>对角阵</td>
-<td>对角阵</td>
-<td>$det(A)=\prod_i^Na_{ii}$</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>逆矩阵</th>
+          <th>行列式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>上/下三角阵</td>
+          <td>上/下三角阵</td>
+          <td>$det(A)=\prod_i^Na_{ii}$</td>
+      </tr>
+      <tr>
+          <td>对角阵</td>
+          <td>对角阵</td>
+          <td>$det(A)=\prod_i^Na_{ii}$</td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li>若矩阵是三角阵，又是酉矩阵，则矩阵是对角阵，且对角线元素的范数（绝对值）为1</li>
@@ -1503,57 +1494,56 @@ $$</p>
 </ul>
 <p>上/下三角阵的和、积仍然是上/下三角阵。</p>
 
-
 <h4 class="relative group">对称、正定、正交、正规 
-    <div id="%E5%AF%B9%E7%A7%B0%E6%AD%A3%E5%AE%9A%E6%AD%A3%E4%BA%A4%E6%AD%A3%E8%A7%84" class="anchor"></div>
+    <div id="对称正定正交正规" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%AF%B9%E7%A7%B0%E6%AD%A3%E5%AE%9A%E6%AD%A3%E4%BA%A4%E6%AD%A3%E8%A7%84" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%af%b9%e7%a7%b0%e6%ad%a3%e5%ae%9a%e6%ad%a3%e4%ba%a4%e6%ad%a3%e8%a7%84" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>实空间</th>
-<th>复空间</th>
-<th>常见举例</th>
-<th>性质</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>对称矩阵</td>
-<td>$A^T=A$</td>
-<td>$A^H=A$<br />(Hermitian阵)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>正定矩阵</td>
-<td>$x^TAx&gt;0$</td>
-<td>$x^HAx&gt;0$<br />（前提先是对称阵）</td>
-<td>各阶顺序主子式&gt;0（左上角行列式&gt;0）</td>
-<td>特征值是正数</td>
-</tr>
-<tr>
-<td>正交矩阵</td>
-<td>$QQ^T=Q^TQ=I$</td>
-<td>$UU^H=U^HU=I$<br />（酉矩阵）</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>正规矩阵</td>
-<td>$A^TA=AA^T$</td>
-<td>$A^HA=AA^H$</td>
-<td></td>
-<td>必可以酉对角化</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>实空间</th>
+          <th>复空间</th>
+          <th>常见举例</th>
+          <th>性质</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>对称矩阵</td>
+          <td>$A^T=A$</td>
+          <td>$A^H=A$<br />(Hermitian阵)</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>正定矩阵</td>
+          <td>$x^TAx&gt;0$</td>
+          <td>$x^HAx&gt;0$<br />（前提先是对称阵）</td>
+          <td>各阶顺序主子式&gt;0（左上角行列式&gt;0）</td>
+          <td>特征值是正数</td>
+      </tr>
+      <tr>
+          <td>正交矩阵</td>
+          <td>$QQ^T=Q^TQ=I$</td>
+          <td>$UU^H=U^HU=I$<br />（酉矩阵）</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>正规矩阵</td>
+          <td>$A^TA=AA^T$</td>
+          <td>$A^HA=AA^H$</td>
+          <td></td>
+          <td>必可以酉对角化</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>正规矩阵</strong></p>
 <ul>
@@ -1574,47 +1564,45 @@ $$</p>
 <li>若$A$是半正定矩阵，且非奇异，则$A$是正定矩阵</li>
 </ul>
 
-
 <h4 class="relative group">相似与相合 
-    <div id="%E7%9B%B8%E4%BC%BC%E4%B8%8E%E7%9B%B8%E5%90%88" class="anchor"></div>
+    <div id="相似与相合" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9B%B8%E4%BC%BC%E4%B8%8E%E7%9B%B8%E5%90%88" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9b%b8%e4%bc%bc%e4%b8%8e%e7%9b%b8%e5%90%88" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>定义</th>
-<th>性质</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>相似矩阵</td>
-<td>$B=S^{-1}AS$</td>
-<td>特征值相同</td>
-</tr>
-<tr>
-<td>相合矩阵</td>
-<td>$B=C^HAC$</td>
-<td>二次型函数相吻合</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>定义</th>
+          <th>性质</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>相似矩阵</td>
+          <td>$B=S^{-1}AS$</td>
+          <td>特征值相同</td>
+      </tr>
+      <tr>
+          <td>相合矩阵</td>
+          <td>$B=C^HAC$</td>
+          <td>二次型函数相吻合</td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">中心化矩阵 
-    <div id="%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    <div id="中心化矩阵" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e4%b8%ad%e5%bf%83%e5%8c%96%e7%9f%a9%e9%98%b5" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
@@ -1624,14 +1612,13 @@ $$</p>
 <li>信号直流功率、交流功率的计算</li>
 </ul>
 
-
 <h4 class="relative group">Vandermonde矩阵 
-    <div id="vandermonde%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    <div id="vandermonde矩阵" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#vandermonde%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#vandermonde%e7%9f%a9%e9%98%b5" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
@@ -1657,26 +1644,24 @@ $$</p>
 </li>
 </ul>
 
-
 <h2 class="relative group">矩阵函数与优化 
-    <div id="%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96" class="anchor"></div>
+    <div id="矩阵函数与优化" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0%E4%B8%8E%E4%BC%98%E5%8C%96" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9f%a9%e9%98%b5%e5%87%bd%e6%95%b0%e4%b8%8e%e4%bc%98%e5%8c%96" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 
-
 <h3 class="relative group">矩阵函数 
-    <div id="%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0" class="anchor"></div>
+    <div id="矩阵函数" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9f%a9%e9%98%b5%e5%87%bd%e6%95%b0" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -1699,293 +1684,282 @@ $$</p>
 ，根据$e^2=\sum_{k=0}\frac{2^k}{k!}$，化简得$e^{A+B}=I+(e^2-1)(A+B)$</p>
 <ul>
 <li>当矩阵乘法可交换时，指数函数和三角函数才满足一些交换的性质，故$e^{A+B}$不能直接使用幂的乘法</li>
-</ul>
-</blockquote>
+</ul></blockquote>
 <p>方法2：将矩阵对角化，矩阵的幂级数，即，将对角线上的各个元素代入幂级数的原函数。</p>
 <blockquote>
 <p>如果矩阵可对角化为$P^{-1}AP=\Lambda$​，则有：</p>
 <p>$e^A=Pdiag(e^{\lambda_1},\dots,e^{\lambda_n})P^{-1}$​</p>
 <p>$e^{tA}=Pdiag(e^{\lambda_1t},\dots,e^{\lambda_nt})P^{-1}$​​</p>
-<p>$sinA=Pdiag(sin\lambda_1,\dots,sin{\lambda_n})P^{-1}$​​</p>
-</blockquote>
-
+<p>$sinA=Pdiag(sin\lambda_1,\dots,sin{\lambda_n})P^{-1}$​​</p></blockquote>
 
 <h3 class="relative group">矩阵的求导与微分 
-    <div id="%E7%9F%A9%E9%98%B5%E7%9A%84%E6%B1%82%E5%AF%BC%E4%B8%8E%E5%BE%AE%E5%88%86" class="anchor"></div>
+    <div id="矩阵的求导与微分" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E6%B1%82%E5%AF%BC%E4%B8%8E%E5%BE%AE%E5%88%86" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e6%b1%82%e5%af%bc%e4%b8%8e%e5%be%ae%e5%88%86" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <p>实值函数的自变量和因变量都可以是标量、向量、矩阵。</p>
 <table>
-<thead>
-<tr>
-<th>函数（因变量）</th>
-<th>向量变元$\mathbf{x}\in R^m$</th>
-<th>矩阵变元$X\in R^{m\times n}$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>标量函数$f\in R$</td>
-<td>$f:R^m\rightarrow R^{m\times n}$</td>
-<td>$f:R^{m\times n}\rightarrow R$</td>
-</tr>
-<tr>
-<td>向量函数$f\in R^p$</td>
-<td>$f(\mathbf{x})\newline f:R^m\rightarrow R^p$</td>
-<td>$f(X)\newline f:R^{m\times n}\rightarrow R^p$</td>
-</tr>
-<tr>
-<td>矩阵函数$f\in R^{p\times q}$</td>
-<td>$F(\mathbf{x})\newline f:R^m\rightarrow R^{p\times q}$</td>
-<td>$F(X)\newline f:R^{m\times n}\rightarrow R^{p\times q}$</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>函数（因变量）</th>
+          <th>向量变元$\mathbf{x}\in R^m$</th>
+          <th>矩阵变元$X\in R^{m\times n}$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>标量函数$f\in R$</td>
+          <td>$f:R^m\rightarrow R^{m\times n}$</td>
+          <td>$f:R^{m\times n}\rightarrow R$</td>
+      </tr>
+      <tr>
+          <td>向量函数$f\in R^p$</td>
+          <td>$f(\mathbf{x})\newline f:R^m\rightarrow R^p$</td>
+          <td>$f(X)\newline f:R^{m\times n}\rightarrow R^p$</td>
+      </tr>
+      <tr>
+          <td>矩阵函数$f\in R^{p\times q}$</td>
+          <td>$F(\mathbf{x})\newline f:R^m\rightarrow R^{p\times q}$</td>
+          <td>$F(X)\newline f:R^{m\times n}\rightarrow R^{p\times q}$</td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">偏导 
-    <div id="%E5%81%8F%E5%AF%BC" class="anchor"></div>
+    <div id="偏导" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%81%8F%E5%AF%BC" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%81%8f%e5%af%bc" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 
-
 <h4 class="relative group">标量函数的偏导 
-    <div id="%E6%A0%87%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%81%8F%E5%AF%BC" class="anchor"></div>
+    <div id="标量函数的偏导" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%A0%87%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E5%81%8F%E5%AF%BC" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%a0%87%e9%87%8f%e5%87%bd%e6%95%b0%e7%9a%84%e5%81%8f%e5%af%bc" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <table>
-<thead>
-<tr>
-<th>偏导</th>
-<th>对变元的操作</th>
-<th>符号</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>行向量偏导</td>
-<td>将矩阵X行向量化（先列向量化，再转置）</td>
-<td>$D_{vec^T(X)}f(X)=\frac{\partial f(X)}{\partial vec^T(X)}$</td>
-</tr>
-<tr>
-<td><strong>Jacobian矩阵</strong></td>
-<td>将矩阵X转置</td>
-<td>$D_Xf(X)=\frac{\partial f(X)}{\partial X^T}$</td>
-</tr>
-<tr>
-<td>列向量偏导</td>
-<td>将矩阵X列向量化</td>
-<td>$\nabla_{vec(X)}f(X)=\frac{\partial f(X)}{\partial vec(X)}$</td>
-</tr>
-<tr>
-<td><strong>梯度矩阵</strong></td>
-<td>矩阵X不变</td>
-<td>$\nabla_Xf(X)=\frac{\partial f(X)}{\partial X}$</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>偏导</th>
+          <th>对变元的操作</th>
+          <th>符号</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>行向量偏导</td>
+          <td>将矩阵X行向量化（先列向量化，再转置）</td>
+          <td>$D_{vec^T(X)}f(X)=\frac{\partial f(X)}{\partial vec^T(X)}$</td>
+      </tr>
+      <tr>
+          <td><strong>Jacobian矩阵</strong></td>
+          <td>将矩阵X转置</td>
+          <td>$D_Xf(X)=\frac{\partial f(X)}{\partial X^T}$</td>
+      </tr>
+      <tr>
+          <td>列向量偏导</td>
+          <td>将矩阵X列向量化</td>
+          <td>$\nabla_{vec(X)}f(X)=\frac{\partial f(X)}{\partial vec(X)}$</td>
+      </tr>
+      <tr>
+          <td><strong>梯度矩阵</strong></td>
+          <td>矩阵X不变</td>
+          <td>$\nabla_Xf(X)=\frac{\partial f(X)}{\partial X}$</td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">行向量偏导与Jacobian矩阵的关系 
-    <div id="%E8%A1%8C%E5%90%91%E9%87%8F%E5%81%8F%E5%AF%BC%E4%B8%8Ejacobian%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor"></div>
+    <div id="行向量偏导与jacobian矩阵的关系" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E8%A1%8C%E5%90%91%E9%87%8F%E5%81%8F%E5%AF%BC%E4%B8%8Ejacobian%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%B3%E7%B3%BB" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e8%a1%8c%e5%90%91%e9%87%8f%e5%81%8f%e5%af%bc%e4%b8%8ejacobian%e7%9f%a9%e9%98%b5%e7%9a%84%e5%85%b3%e7%b3%bb" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>行向量偏导$vec^T(X)=[vec(X)]^T$和Jacobian矩阵$X^T$是不同的，行向量偏导实际上并没有对$X$作转置，如果需要将jacobian矩阵转化为行向量偏导的形式，则需要$rvec(X)=vec^T(X^T)$</p>
 
-
 <h4 class="relative group">矩阵/向量函数的Jacobin矩阵和梯度矩阵 
-    <div id="%E7%9F%A9%E9%98%B5%E5%90%91%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84jacobin%E7%9F%A9%E9%98%B5%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    <div id="矩阵向量函数的jacobin矩阵和梯度矩阵" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%90%91%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84jacobin%E7%9F%A9%E9%98%B5%E5%92%8C%E6%A2%AF%E5%BA%A6%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9f%a9%e9%98%b5%e5%90%91%e9%87%8f%e5%87%bd%e6%95%b0%e7%9a%84jacobin%e7%9f%a9%e9%98%b5%e5%92%8c%e6%a2%af%e5%ba%a6%e7%9f%a9%e9%98%b5" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>首先向量/矩阵函数列向量化，再<strong>转置</strong>为行向量，然后求偏导，即为矩阵变元函数的<strong>Jacobian矩阵</strong>，记为$D_XF(X)$​</p>
 <p>如果是列向量偏导，则认为不做转置，称为梯度矩阵。</p>
 
-
 <h4 class="relative group">二阶偏导 
-    <div id="%E4%BA%8C%E9%98%B6%E5%81%8F%E5%AF%BC" class="anchor"></div>
+    <div id="二阶偏导" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%BA%8C%E9%98%B6%E5%81%8F%E5%AF%BC" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e4%ba%8c%e9%98%b6%e5%81%8f%e5%af%bc" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>标量函数的二阶梯度矩阵称为<strong>Hessian矩阵</strong>，先对标量函数求一阶<strong>梯度矩阵</strong>，然后求解<strong>Jacobian矩阵</strong>。</p>
 
-
 <h4 class="relative group">梯度流 
-    <div id="%E6%A2%AF%E5%BA%A6%E6%B5%81" class="anchor"></div>
+    <div id="梯度流" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%A2%AF%E5%BA%A6%E6%B5%81" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%a2%af%e5%ba%a6%e6%b5%81" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>梯度的负方向称为<strong>梯度流</strong>，即梯度下降的方向。</p>
 
-
 <h4 class="relative group">矩阵微分的计算 
-    <div id="%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E7%9A%84%E8%AE%A1%E7%AE%97" class="anchor"></div>
+    <div id="矩阵微分的计算" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E7%9A%84%E8%AE%A1%E7%AE%97" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9f%a9%e9%98%b5%e5%be%ae%e5%88%86%e7%9a%84%e8%ae%a1%e7%ae%97" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>将标量矩阵函数转化为迹的形式，然后同时利用迹的性质和微分的性质。</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>性质</th>
-<th>推论</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>$d(UV)=d(U)V+udV$</td>
-<td>$d(UVW)=d(U)VW+Ud(V)W+UVdW$</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>$d(AXB)=Ad(X)B$</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>$d(X^TAX)=d(X)^TAX+X^TAdX$</td>
-</tr>
-<tr>
-<td></td>
-<td>$d(tr(F(X)))=tr(d(F(X)))$</td>
-<td>$d(tr(X))=tr(d(X))$</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>$d(tr(X^TX))=2tr(X^TdX)$</td>
-</tr>
-<tr>
-<td></td>
-<td>$d</td>
-<td>X</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>性质</th>
+          <th>推论</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td>$d(UV)=d(U)V+udV$</td>
+          <td>$d(UVW)=d(U)VW+Ud(V)W+UVdW$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>$d(AXB)=Ad(X)B$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>$d(X^TAX)=d(X)^TAX+X^TAdX$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$d(tr(F(X)))=tr(d(F(X)))$</td>
+          <td>$d(tr(X))=tr(d(X))$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>$d(tr(X^TX))=2tr(X^TdX)$</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$d</td>
+          <td>X</td>
+      </tr>
+  </tbody>
 </table>
 <p>若矩阵微分$df(X)=tr(AdX)$，则雅可比矩阵$D_Xf(X)=\frac{f(X)}{\partial X^T}=A$，转置可得梯度矩阵$\nabla f(X)=\frac{f(X)}{\partial X}=A^T$，</p>
 <p>常见函数的微分和梯度矩阵</p>
 <table>
-<thead>
-<tr>
-<th>函数</th>
-<th>微分矩阵$df(X)=tr[\frac{\partial f(X)}{\partial dX}^TdX]$</th>
-<th>梯度矩阵$\partial f(X)/\partial X$</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$X$</td>
-<td></td>
-<td>$I$</td>
-<td></td>
-</tr>
-<tr>
-<td>$AX$</td>
-<td></td>
-<td>$A^T$</td>
-<td>注意迹可交换，因此$AX$和$XA$的梯度相同；<br />若$A$和$X$其一取转置，则梯度矩阵相应转置</td>
-</tr>
-<tr>
-<td>$X^2$</td>
-<td></td>
-<td>$2X^T$</td>
-<td></td>
-</tr>
-<tr>
-<td>$X^TX$</td>
-<td></td>
-<td>$2X$</td>
-<td></td>
-</tr>
-<tr>
-<td>$X^TAX$</td>
-<td></td>
-<td>$(A+A^T)X$</td>
-<td></td>
-</tr>
-<tr>
-<td>$XAX^T$</td>
-<td></td>
-<td>$X(A+A^T)$</td>
-<td></td>
-</tr>
-<tr>
-<td>$XAX$</td>
-<td></td>
-<td>$X^TA^T+A^TX^T$</td>
-<td></td>
-</tr>
-<tr>
-<td>$X^{-1}$</td>
-<td></td>
-<td>$(X^{-2})^T$</td>
-<td></td>
-</tr>
-<tr>
-<td>$AX^{-1}$</td>
-<td></td>
-<td>$-(X^{-1}AX^{-1})^{T}$</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>微分矩阵$df(X)=tr[\frac{\partial f(X)}{\partial dX}^TdX]$</th>
+          <th>梯度矩阵$\partial f(X)/\partial X$</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$X$</td>
+          <td></td>
+          <td>$I$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$AX$</td>
+          <td></td>
+          <td>$A^T$</td>
+          <td>注意迹可交换，因此$AX$和$XA$的梯度相同；<br />若$A$和$X$其一取转置，则梯度矩阵相应转置</td>
+      </tr>
+      <tr>
+          <td>$X^2$</td>
+          <td></td>
+          <td>$2X^T$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$X^TX$</td>
+          <td></td>
+          <td>$2X$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$X^TAX$</td>
+          <td></td>
+          <td>$(A+A^T)X$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$XAX^T$</td>
+          <td></td>
+          <td>$X(A+A^T)$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$XAX$</td>
+          <td></td>
+          <td>$X^TA^T+A^TX^T$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$X^{-1}$</td>
+          <td></td>
+          <td>$(X^{-2})^T$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$AX^{-1}$</td>
+          <td></td>
+          <td>$-(X^{-1}AX^{-1})^{T}$</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">共轭梯度 
-    <div id="%E5%85%B1%E8%BD%AD%E6%A2%AF%E5%BA%A6" class="anchor"></div>
+    <div id="共轭梯度" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%85%B1%E8%BD%AD%E6%A2%AF%E5%BA%A6" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%85%b1%e8%bd%ad%e6%a2%af%e5%ba%a6" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
@@ -2000,26 +1974,24 @@ $$</p>
 <p>如果一个给定的复变函数可以写成$f(z)=f(z,z^<em>)$的形式，
 则可以直接求取其关于$z和z^</em>$的偏导 。</p>
 
-
 <h3 class="relative group">无约束/带约束的优化问题 
-    <div id="%E6%97%A0%E7%BA%A6%E6%9D%9F%E5%B8%A6%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98" class="anchor"></div>
+    <div id="无约束带约束的优化问题" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%97%A0%E7%BA%A6%E6%9D%9F%E5%B8%A6%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%97%a0%e7%ba%a6%e6%9d%9f%e5%b8%a6%e7%ba%a6%e6%9d%9f%e7%9a%84%e4%bc%98%e5%8c%96%e9%97%ae%e9%a2%98" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 
-
 <h4 class="relative group">无约束优化 
-    <div id="%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96" class="anchor"></div>
+    <div id="无约束优化" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%97%A0%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%97%a0%e7%ba%a6%e6%9d%9f%e4%bc%98%e5%8c%96" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
@@ -2034,57 +2006,54 @@ $$
 <li>既不是极大值、也不是极小值的驻点，称为鞍点</li>
 </ul>
 
-
 <h4 class="relative group">凸优化 
-    <div id="%E5%87%B8%E4%BC%98%E5%8C%96" class="anchor"></div>
+    <div id="凸优化" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%87%B8%E4%BC%98%E5%8C%96" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%87%b8%e4%bc%98%e5%8c%96" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>线性规划</td>
-<td>目标函数等高线是平行线</td>
-<td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406012037696.png" alt="image-20240601203739659" style="zoom: 25%;" /></td>
-</tr>
-<tr>
-<td>线性分式规划</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>二次规划</td>
-<td>目标函数等高线是椭球面</td>
-<td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406012037955.png" alt="image-20240601203752027" style="zoom: 25%;" /></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>线性规划</td>
+          <td>目标函数等高线是平行线</td>
+          <td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406012037696.png" alt="image-20240601203739659" style="zoom: 25%;" /></td>
+      </tr>
+      <tr>
+          <td>线性分式规划</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>二次规划</td>
+          <td>目标函数等高线是椭球面</td>
+          <td><img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406012037955.png" alt="image-20240601203752027" style="zoom: 25%;" /></td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">等式不等式约束的优化：拉格朗日乘子法 
-    <div id="%E7%AD%89%E5%BC%8F%E4%B8%8D%E7%AD%89%E5%BC%8F%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BC%98%E5%8C%96%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95" class="anchor"></div>
+    <div id="等式不等式约束的优化拉格朗日乘子法" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%AD%89%E5%BC%8F%E4%B8%8D%E7%AD%89%E5%BC%8F%E7%BA%A6%E6%9D%9F%E7%9A%84%E4%BC%98%E5%8C%96%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E5%AD%90%E6%B3%95" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%ad%89%e5%bc%8f%e4%b8%8d%e7%ad%89%e5%bc%8f%e7%ba%a6%e6%9d%9f%e7%9a%84%e4%bc%98%e5%8c%96%e6%8b%89%e6%a0%bc%e6%9c%97%e6%97%a5%e4%b9%98%e5%ad%90%e6%b3%95" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<p><a href="https://www.cnblogs.com/bigmonkey/p/9542545.html"   target="_blank">
-    寻找“最好”（4）——不等约束和KKT条件 - 我是8位的 - 博客园 (cnblogs.com)</a></p>
+<p><a href="https://www.cnblogs.com/bigmonkey/p/9542545.html" target="_blank">寻找“最好”（4）——不等约束和KKT条件 - 我是8位的 - 博客园 (cnblogs.com)</a></p>
 <p>考虑某个带约束优化问题，含有等式约束和不等式约束
 $$
 \min_x f(x)\newline
@@ -2107,42 +2076,38 @@ g(x)\le0\quad原始不等式约束\newline
 \end{cases}
 $$
 满足KKT条件的解需要进一步检验，是否为最优</p>
-<p><a href="https://zhuanlan.zhihu.com/p/111882165"   target="_blank">
-    对KKT条件的理解 - 骚动的白米饭的文章 - 知乎</a></p>
-
+<p><a href="https://zhuanlan.zhihu.com/p/111882165" target="_blank">对KKT条件的理解 - 骚动的白米饭的文章 - 知乎</a></p>
 
 <h4 class="relative group">梯度下降法 
-    <div id="%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" class="anchor"></div>
+    <div id="梯度下降法" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%a2%af%e5%ba%a6%e4%b8%8b%e9%99%8d%e6%b3%95" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>略</p>
 
-
 <h2 class="relative group">矩阵分解 
-    <div id="%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3" class="anchor"></div>
+    <div id="矩阵分解" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%9f%a9%e9%98%b5%e5%88%86%e8%a7%a3" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 
-
 <h3 class="relative group">特征值和特征向量 
-    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F" class="anchor"></div>
+    <div id="特征值和特征向量" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%89%b9%e5%be%81%e5%80%bc%e5%92%8c%e7%89%b9%e5%be%81%e5%90%91%e9%87%8f" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -2163,131 +2128,127 @@ $$
 </li>
 </ul>
 <blockquote>
-<p>考察矩阵A对向量x左乘变行，即每一行的线性组合，矩阵A的每一行是组合系数，而对于最大的元素，其它元素系数和为1的线性组合必然小于该元素，因此特征值必然小于1（不等式放缩）</p>
-</blockquote>
+<p>考察矩阵A对向量x左乘变行，即每一行的线性组合，矩阵A的每一行是组合系数，而对于最大的元素，其它元素系数和为1的线性组合必然小于该元素，因此特征值必然小于1（不等式放缩）</p></blockquote>
 <p>若矩阵$A$的特征值为$\lambda$，则它的不同运算结果的特征值如下：</p>
 <table>
-<thead>
-<tr>
-<th>矩阵</th>
-<th>特征值</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$A^T,P^{-1}AP$</td>
-<td>${\lambda}$</td>
-<td>转置和相似不改变$A-\lambda I$的秩</td>
-</tr>
-<tr>
-<td>$A^k$</td>
-<td>${\lambda}^k$</td>
-<td></td>
-</tr>
-<tr>
-<td>$A^{-1}$</td>
-<td>$1/\lambda$</td>
-<td></td>
-</tr>
-<tr>
-<td>$A+\sigma^2I$</td>
-<td>$\lambda+\sigma^2$</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>矩阵</th>
+          <th>特征值</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$A^T,P^{-1}AP$</td>
+          <td>${\lambda}$</td>
+          <td>转置和相似不改变$A-\lambda I$的秩</td>
+      </tr>
+      <tr>
+          <td>$A^k$</td>
+          <td>${\lambda}^k$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$A^{-1}$</td>
+          <td>$1/\lambda$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>$A+\sigma^2I$</td>
+          <td>$\lambda+\sigma^2$</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li>$AA^H$的特征值可通过在$Ax=\lambda x$方程两边同乘以$A$的方式，构造出$AA^H$对特征向量$Ax$的特征值。</li>
 </ul>
 <p>某些特殊矩阵的特征值如下：</p>
 <table>
-<thead>
-<tr>
-<th>矩阵</th>
-<th>特征值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>幂等矩阵</td>
-<td>0或1</td>
-</tr>
-<tr>
-<td>实正交矩阵</td>
-<td>1或-1</td>
-</tr>
-<tr>
-<td>单位阵</td>
-<td>1</td>
-</tr>
-<tr>
-<td>全1阵</td>
-<td>对全1向量的特征值为N，其他特征值全为0</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>矩阵</th>
+          <th>特征值</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>幂等矩阵</td>
+          <td>0或1</td>
+      </tr>
+      <tr>
+          <td>实正交矩阵</td>
+          <td>1或-1</td>
+      </tr>
+      <tr>
+          <td>单位阵</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>全1阵</td>
+          <td>对全1向量的特征值为N，其他特征值全为0</td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">特征值与迹、行列式、秩的关系 
-    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E8%BF%B9%E8%A1%8C%E5%88%97%E5%BC%8F%E7%A7%A9%E7%9A%84%E5%85%B3%E7%B3%BB" class="anchor"></div>
+    <div id="特征值与迹行列式秩的关系" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E8%BF%B9%E8%A1%8C%E5%88%97%E5%BC%8F%E7%A7%A9%E7%9A%84%E5%85%B3%E7%B3%BB" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%89%b9%e5%be%81%e5%80%bc%e4%b8%8e%e8%bf%b9%e8%a1%8c%e5%88%97%e5%bc%8f%e7%a7%a9%e7%9a%84%e5%85%b3%e7%b3%bb" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th>推论</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>迹</td>
-<td>特征值之和</td>
-<td></td>
-</tr>
-<tr>
-<td>行列式</td>
-<td>特征值之积</td>
-<td></td>
-</tr>
-<tr>
-<td>秩</td>
-<td>非零特征值的个数</td>
-<td>若矩阵A存在一个单重特征值0，则秩为n-1</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th>推论</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>迹</td>
+          <td>特征值之和</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>行列式</td>
+          <td>特征值之积</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>秩</td>
+          <td>非零特征值的个数</td>
+          <td>若矩阵A存在一个单重特征值0，则秩为n-1</td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">广义特征值 
-    <div id="%E5%B9%BF%E4%B9%89%E7%89%B9%E5%BE%81%E5%80%BC" class="anchor"></div>
+    <div id="广义特征值" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%B9%BF%E4%B9%89%E7%89%B9%E5%BE%81%E5%80%BC" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%b9%bf%e4%b9%89%e7%89%b9%e5%be%81%e5%80%bc" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>若$Ax=\lambda Bx$则称$\lambda,x$是矩阵束$A,B$的广义特征值和特征向量</p>
 <p>矩阵束左乘/右乘非奇异矩阵，不会改变广义特征值和特征向量</p>
 
-
 <h3 class="relative group">特征值分解（EVD） 
-    <div id="%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3evd" class="anchor"></div>
+    <div id="特征值分解evd" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E5%88%86%E8%A7%A3evd" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%89%b9%e5%be%81%e5%80%bc%e5%88%86%e8%a7%a3evd" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -2298,14 +2259,13 @@ $$
 <li>正定阵的特征值&gt;0</li>
 </ul>
 
-
 <h3 class="relative group">奇异值分解（SVD) 
-    <div id="%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3svd" class="anchor"></div>
+    <div id="奇异值分解svd" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3svd" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%a5%87%e5%bc%82%e5%80%bc%e5%88%86%e8%a7%a3svd" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -2314,10 +2274,8 @@ $$
 <li>由$AV=U\Sigma$可知$A\overrightarrow{v_i}=\sigma_i\overrightarrow{u_i}$​，奇异值的个数取决于其中维数小的矩阵</li>
 <li>由矩阵乘法的秩1分解视角，$A=\sum_i \lambda_iu_iv_i^H$，其中$\lambda_i$​是非零奇异值</li>
 <li>若矩阵可EVD，则奇异值和特征值等价</li>
-<li><a href="https://www.bilibili.com/video/BV15k4y1p72z/?share_source=copy_web&amp;vd_source=25a43cd801433b3abc43d1a368f146be"   target="_blank">
-    SVD生动动画演示：旋转-拉伸-升降维度-旋转</a></li>
+<li><a href="https://www.bilibili.com/video/BV15k4y1p72z/?share_source=copy_web&amp;vd_source=25a43cd801433b3abc43d1a368f146be" target="_blank">SVD生动动画演示：旋转-拉伸-升降维度-旋转</a></li>
 </ul>
-
 
 <h4 class="relative group">SVD vs EVD 
     <div id="svd-vs-evd" class="anchor"></div>
@@ -2330,60 +2288,57 @@ $$
     
 </h4>
 <table>
-<thead>
-<tr>
-<th>SVD</th>
-<th>EVD</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>适用于任何$m\times n$矩阵</td>
-<td>只适用于$n\times n$方阵</td>
-</tr>
-<tr>
-<td>奇异值与奇异向量的关系<br />$u_i^HAv_i=\sigma_i$</td>
-<td>特征值与特征向量的关系<br />$Av_i=\lambda_iv_i$</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>SVD</th>
+          <th>EVD</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>适用于任何$m\times n$矩阵</td>
+          <td>只适用于$n\times n$方阵</td>
+      </tr>
+      <tr>
+          <td>奇异值与奇异向量的关系<br />$u_i^HAv_i=\sigma_i$</td>
+          <td>特征值与特征向量的关系<br />$Av_i=\lambda_iv_i$</td>
+      </tr>
+  </tbody>
 </table>
 <p>A的非零奇异值是$A^HA$或$AA^H$的非零特征值的正平方根；</p>
 <p><strong>A的左奇异向量是$AA^H$的特征向量；A的右奇异向量是$A^HA$​的特征向量；</strong></p>
 
-
 <h3 class="relative group">Jordan标准形 
-    <div id="jordan%E6%A0%87%E5%87%86%E5%BD%A2" class="anchor"></div>
+    <div id="jordan标准形" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#jordan%E6%A0%87%E5%87%86%E5%BD%A2" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#jordan%e6%a0%87%e5%87%86%e5%bd%a2" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <p>任一方阵可块对角化为Jordan标准型，即$J=P^{-1}AP$</p>
 <p>其中$J=\begin{bmatrix} J_1(\lambda_1)\quad \quad \newline \quad J_2(\lambda_2) \quad \newline \quad \quad J_3(\lambda_3)\end{bmatrix}$，而$J_i(\lambda_i)=\begin{bmatrix} \lambda_i\quad1\quad0\newline 0\quad \lambda_i \quad1\newline 0\quad 0\quad \lambda_i\end{bmatrix}$</p>
 
-
 <h2 class="relative group">特征分析 
-    <div id="%E7%89%B9%E5%BE%81%E5%88%86%E6%9E%90" class="anchor"></div>
+    <div id="特征分析" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%89%B9%E5%BE%81%E5%88%86%E6%9E%90" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%89%b9%e5%be%81%e5%88%86%e6%9e%90" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 
-
 <h3 class="relative group">Cayley–Hamilton定理 
-    <div id="cayleyhamilton%E5%AE%9A%E7%90%86" class="anchor"></div>
+    <div id="cayleyhamilton定理" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#cayleyhamilton%E5%AE%9A%E7%90%86" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#cayleyhamilton%e5%ae%9a%e7%90%86" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -2400,170 +2355,163 @@ $$
 </li>
 </ul>
 
-
 <h3 class="relative group">Rayleigh商 
-    <div id="rayleigh%E5%95%86" class="anchor"></div>
+    <div id="rayleigh商" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#rayleigh%E5%95%86" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#rayleigh%e5%95%86" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
-<p><a href="https://zhuanlan.zhihu.com/p/432080955"   target="_blank">
-    瑞利商和广义瑞利商 - Void的文章 - 知乎</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/432080955" target="_blank">瑞利商和广义瑞利商 - Void的文章 - 知乎</a></p>
 <p>瑞利商$R(A,x)=\frac{x^TAx}{x^Tx}$</p>
 <p>为了简化问题令$X^xx=1$，求$x^TAx$的条件极值</p>
 <p>构造拉格朗日乘子函数$L(x,\lambda)=x^tAx+\lambda(x^Tx-1)$，对$x$求梯度，令梯度为0，解得极值点$Ax=\lambda x$</p>
 <p>显然，在最大的特征值对应的特征向量处，瑞利商有最大值；在最小的特征值对应的特征向量处，瑞利商有最小值</p>
 <p>根据瑞利商的性质，结合放缩，可推导出以下结论：</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>取等</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\lambda_1(A+B)\ge\lambda_1(A)+\lambda_N(B)$</td>
-<td>$A$的最大特征向量是$B$的最小特征向量</td>
-</tr>
-<tr>
-<td>$\lambda_N(A+B)\ge\lambda_N(A)+\lambda_N(B)$</td>
-<td>$A,B$最小特征向量相同</td>
-</tr>
-<tr>
-<td>$\lambda_1(A+B)\le\lambda_1(A)+\lambda_1(B)$</td>
-<td>$A,B$最大特征向量相同</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>取等</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$\lambda_1(A+B)\ge\lambda_1(A)+\lambda_N(B)$</td>
+          <td>$A$的最大特征向量是$B$的最小特征向量</td>
+      </tr>
+      <tr>
+          <td>$\lambda_N(A+B)\ge\lambda_N(A)+\lambda_N(B)$</td>
+          <td>$A,B$最小特征向量相同</td>
+      </tr>
+      <tr>
+          <td>$\lambda_1(A+B)\le\lambda_1(A)+\lambda_1(B)$</td>
+          <td>$A,B$最大特征向量相同</td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h4 class="relative group">广义瑞利商 
-    <div id="%E5%B9%BF%E4%B9%89%E7%91%9E%E5%88%A9%E5%95%86" class="anchor"></div>
+    <div id="广义瑞利商" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%B9%BF%E4%B9%89%E7%91%9E%E5%88%A9%E5%95%86" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%b9%bf%e4%b9%89%e7%91%9e%e5%88%a9%e5%95%86" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>考虑广义特征值$Ax=\lambda Bx$，则有广义瑞利商$R(A,B,x)=\frac{x^TAx}{x^TBx}$，可以进一步转化为$B^{-1}A$的瑞利商</p>
 
-
 <h2 class="relative group">线性方程 
-    <div id="%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B" class="anchor"></div>
+    <div id="线性方程" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%ba%bf%e6%80%a7%e6%96%b9%e7%a8%8b" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 
-
 <h3 class="relative group">线性方程组$AX=b$​​的解 
-    <div id="%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84axb%E7%9A%84%E8%A7%A3" class="anchor"></div>
+    <div id="线性方程组axb的解" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E7%BB%84axb%E7%9A%84%E8%A7%A3" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%ba%bf%e6%80%a7%e6%96%b9%e7%a8%8b%e7%bb%84axb%e7%9a%84%e8%a7%a3" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <p>假设线性方程组$AX=b$有m个方程、n个未知数，即系数矩阵$A\in C^{m\times n}$，则解的情况为：</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>独立方程个数</th>
-<th>增广矩阵和系数矩阵的关系</th>
-<th>系数矩阵</th>
-<th>线性空间</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>有唯一解</td>
-<td>适定方程</td>
-<td>$r(A|b)=r(A)$</td>
-<td>$r(A)=m=n$</td>
-<td>$b\in Col(A)$</td>
-</tr>
-<tr>
-<td>有无穷多解</td>
-<td>欠定方程</td>
-<td>$r(A|b)=r(A)$</td>
-<td></td>
-<td>$b\in Col(A)$</td>
-</tr>
-<tr>
-<td>无解</td>
-<td>超定方程</td>
-<td>$r(A|b)&gt;r(A)$</td>
-<td></td>
-<td>$b\notin Col(A)$</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>独立方程个数</th>
+          <th>增广矩阵和系数矩阵的关系</th>
+          <th>系数矩阵</th>
+          <th>线性空间</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>有唯一解</td>
+          <td>适定方程</td>
+          <td>$r(A|b)=r(A)$</td>
+          <td>$r(A)=m=n$</td>
+          <td>$b\in Col(A)$</td>
+      </tr>
+      <tr>
+          <td>有无穷多解</td>
+          <td>欠定方程</td>
+          <td>$r(A|b)=r(A)$</td>
+          <td></td>
+          <td>$b\in Col(A)$</td>
+      </tr>
+      <tr>
+          <td>无解</td>
+          <td>超定方程</td>
+          <td>$r(A|b)&gt;r(A)$</td>
+          <td></td>
+          <td>$b\notin Col(A)$</td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h3 class="relative group">最小二乘 
-    <div id="%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98" class="anchor"></div>
+    <div id="最小二乘" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%9c%80%e5%b0%8f%e4%ba%8c%e4%b9%98" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <p>对于超定方程，可使用最小二乘法求取近似解</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>代价函数</th>
-<th>优化视角</th>
-<th>投影视角</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>普通最小二乘</td>
-<td>$(Ax-b)^T(Ax-b)$</td>
-<td>认为观测量$b$含噪，最小化$e$</td>
-<td>考察方程$Ax=b$的近似解，即$b$在$A$的列空间的投影$p=Pb=A\hat{x}$，投影$p$是$A$的列向量的线性组合$b$去除投影分量后与$A$的列空间垂直，即$A^T(A\hat{x}-b)=0$，解得$A\hat{x}=A(A^TA)^{-1}A^Tb$投影矩阵$P=A(A^TA)^{-1}A^T$满足最小二乘的近似解$\hat{x}=(A^TA)^{-1}A^Tb$</td>
-</tr>
-<tr>
-<td>数据最小二乘</td>
-<td>$\frac{(Ax-b)^T(Ax-b)}{x^Tx}$</td>
-<td>认为原始数据$A$含噪，最小化$E$</td>
-<td></td>
-</tr>
-<tr>
-<td>总体最小二乘</td>
-<td>$\frac{\begin{bmatrix}x\newline-1\end{bmatrix}^T[A,b]^T[A,b]\begin{bmatrix}x\newline-1\end{bmatrix}}{1+x^Tx}$</td>
-<td>认为总体含噪，即$(A+E)x=b+e$，最小化$[E,e]$的二范数<br />设增广数据矩阵为$A$，则总体最小二乘的解向量是$A$最小的奇异值对应的右奇异向量，或者$A^TA$的最小特征值对应的特征向量</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>代价函数</th>
+          <th>优化视角</th>
+          <th>投影视角</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>普通最小二乘</td>
+          <td>$(Ax-b)^T(Ax-b)$</td>
+          <td>认为观测量$b$含噪，最小化$e$</td>
+          <td>考察方程$Ax=b$的近似解，即$b$在$A$的列空间的投影$p=Pb=A\hat{x}$，投影$p$是$A$的列向量的线性组合$b$去除投影分量后与$A$的列空间垂直，即$A^T(A\hat{x}-b)=0$，解得$A\hat{x}=A(A^TA)^{-1}A^Tb$投影矩阵$P=A(A^TA)^{-1}A^T$满足最小二乘的近似解$\hat{x}=(A^TA)^{-1}A^Tb$</td>
+      </tr>
+      <tr>
+          <td>数据最小二乘</td>
+          <td>$\frac{(Ax-b)^T(Ax-b)}{x^Tx}$</td>
+          <td>认为原始数据$A$含噪，最小化$E$</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>总体最小二乘</td>
+          <td>$\frac{\begin{bmatrix}x\newline-1\end{bmatrix}^T[A,b]^T[A,b]\begin{bmatrix}x\newline-1\end{bmatrix}}{1+x^Tx}$</td>
+          <td>认为总体含噪，即$(A+E)x=b+e$，最小化$[E,e]$的二范数<br />设增广数据矩阵为$A$，则总体最小二乘的解向量是$A$最小的奇异值对应的右奇异向量，或者$A^TA$的最小特征值对应的特征向量</td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 
-
 <h2 class="relative group">线性空间 
-    <div id="%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4" class="anchor"></div>
+    <div id="线性空间" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%BA%BF%E6%80%A7%E7%A9%BA%E9%97%B4" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%ba%bf%e6%80%a7%e7%a9%ba%e9%97%b4" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
@@ -2573,14 +2521,13 @@ $$
 <li>线性变换：满足线性性质，即齐次性和可加性</li>
 </ul>
 
-
 <h3 class="relative group">维数 
-    <div id="%E7%BB%B4%E6%95%B0" class="anchor"></div>
+    <div id="维数" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E7%BB%B4%E6%95%B0" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e7%bb%b4%e6%95%b0" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -2591,71 +2538,69 @@ $$
 <li>交空间的维数可以用维数公式，基向量的求解方式为：将交空间的向量用两个空间的向量分别表示，得到线性方程组，将交空间的向量用某一个空间的系数和基向量表示出来，再合并系数即可。</li>
 </ul>
 
-
 <h3 class="relative group">子空间 
-    <div id="%E5%AD%90%E7%A9%BA%E9%97%B4" class="anchor"></div>
+    <div id="子空间" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%AD%90%E7%A9%BA%E9%97%B4" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%ad%90%e7%a9%ba%e9%97%b4" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <p>线性空间的子集，若封闭，则称为<strong>子空间</strong>，即$\forall v_1,v_2 \in V, \exists \lambda_1,\lambda_2, \lambda_1v_1+\lambda_2v_2 \in V$</p>
 
-
 <h4 class="relative group">列空间、行空间、零空间 
-    <div id="%E5%88%97%E7%A9%BA%E9%97%B4%E8%A1%8C%E7%A9%BA%E9%97%B4%E9%9B%B6%E7%A9%BA%E9%97%B4" class="anchor"></div>
+    <div id="列空间行空间零空间" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%88%97%E7%A9%BA%E9%97%B4%E8%A1%8C%E7%A9%BA%E9%97%B4%E9%9B%B6%E7%A9%BA%E9%97%B4" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e5%88%97%e7%a9%ba%e9%97%b4%e8%a1%8c%e7%a9%ba%e9%97%b4%e9%9b%b6%e7%a9%ba%e9%97%b4" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>设矩阵$A\in R^{M\times N}$，则相应地有下列子空间：</p>
 <table>
-<thead>
-<tr>
-<th>子空间</th>
-<th></th>
-<th>维度</th>
-<th>原空间</th>
-<th>等价</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>列空间</td>
-<td>$Col(A)$</td>
-<td>$R^m$</td>
-<td>$R^M$</td>
-<td>$Row(A^H)$</td>
-</tr>
-<tr>
-<td>行空间</td>
-<td>$Row(A)$</td>
-<td>$R^n$</td>
-<td>$R^N$</td>
-<td>$Col(A^H)$</td>
-</tr>
-<tr>
-<td>零空间</td>
-<td>$Null(A)$</td>
-<td>$R^n$</td>
-<td></td>
-<td>$AX=0$的解空间</td>
-</tr>
-<tr>
-<td></td>
-<td>$Null(A^H)$</td>
-<td>$R^m$</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>子空间</th>
+          <th></th>
+          <th>维度</th>
+          <th>原空间</th>
+          <th>等价</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>列空间</td>
+          <td>$Col(A)$</td>
+          <td>$R^m$</td>
+          <td>$R^M$</td>
+          <td>$Row(A^H)$</td>
+      </tr>
+      <tr>
+          <td>行空间</td>
+          <td>$Row(A)$</td>
+          <td>$R^n$</td>
+          <td>$R^N$</td>
+          <td>$Col(A^H)$</td>
+      </tr>
+      <tr>
+          <td>零空间</td>
+          <td>$Null(A)$</td>
+          <td>$R^n$</td>
+          <td></td>
+          <td>$AX=0$的解空间</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>$Null(A^H)$</td>
+          <td>$R^m$</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
 </table>
 <ul>
 <li>
@@ -2670,30 +2615,27 @@ $$
 </ul>
 <blockquote>
 <p>证明两个子空间的和是直和（无交）</p>
-<p>首先计算两个子空间的和，计算极大无关组的秩，得到和空间的维数，然后根据维数公式计算交空间的维数（为0），证明无交，即为直和</p>
-</blockquote>
-
+<p>首先计算两个子空间的和，计算极大无关组的秩，得到和空间的维数，然后根据维数公式计算交空间的维数（为0），证明无交，即为直和</p></blockquote>
 
 <h4 class="relative group">不变子空间 
-    <div id="%E4%B8%8D%E5%8F%98%E5%AD%90%E7%A9%BA%E9%97%B4" class="anchor"></div>
+    <div id="不变子空间" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%B8%8D%E5%8F%98%E5%AD%90%E7%A9%BA%E9%97%B4" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e4%b8%8d%e5%8f%98%e5%ad%90%e7%a9%ba%e9%97%b4" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <p>若$Ax=\lambda x$的特征向量张成的子空间称为矩阵$A$​​​的不变子空间，即对A封闭</p>
 
-
 <h3 class="relative group">投影矩阵 
-    <div id="%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    <div id="投影矩阵" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%e6%8a%95%e5%bd%b1%e7%9f%a9%e9%98%b5" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -2701,6 +2643,9 @@ $$
 <p>但是，投影矩阵未必一定是正交投影，特征值为1的特征向量实际上有无穷多个，然而只有一个和投影方向是正交的</p>
 <p>投影矩阵是正交投影矩阵，当且仅当它是对称幂等矩阵</p>
 
+          
+          
+          
         </div>
         
         
@@ -2715,14 +2660,17 @@ $$
       
         
         
+          
+          
+        
       <script>
         var oid = "views_course\/matrix.md"
         var oid_likes = "likes_course\/matrix.md"
       </script>
       
       
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
       
-      <script type="text/javascript" src="/js/page.min.b06a29d42a4ed16787978e2eee1e8c797b7698db2bc14ccee78f5c80ac566fc996190a73ad80a5e987558474b20b96fa38f7d85b405f165ff72b7b163c5ad11b.js" integrity="sha512-sGop1CpO0WeHl44u7h6MeXt2mNsrwUzO549cgKxWb8mWGQpzrYCl6YdVhHSyC5b6OPfYW0BfFl/3K3sWPFrRGw=="></script>
   
     </section>
   <footer class="pt-8 max-w-prose print:hidden">
@@ -2836,10 +2784,11 @@ $$
   </script>
   
   
-  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
-</footer><div
+</footer>
+<div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
   data-url="https://xuzhang0112.github.io/"

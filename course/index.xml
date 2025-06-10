@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Course on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/course/</link>
+    <description>Recent content in Course on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Xu Zhang</copyright>
+    <lastBuildDate>Fri, 28 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/course/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Biomed</title>
+      <link>https://xuzhang0112.github.io/course/biomed/</link>
+      <pubDate>Fri, 28 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/course/biomed/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;结构生物化学 
+    &lt;div id=&#34;结构生物化学&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%bb%93%e6%9e%84%e7%94%9f%e7%89%a9%e5%8c%96%e5%ad%a6&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;生物大分子 
+    &lt;div id=&#34;生物大分子&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%94%9f%e7%89%a9%e5%a4%a7%e5%88%86%e5%ad%90&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;生命体的元素组成和化学组成 
+    &lt;div id=&#34;生命体的元素组成和化学组成&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%94%9f%e5%91%bd%e4%bd%93%e7%9a%84%e5%85%83%e7%b4%a0%e7%bb%84%e6%88%90%e5%92%8c%e5%8c%96%e5%ad%a6%e7%bb%84%e6%88%90&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;生命体的元素组成 ：C、H、O和N四种元素，是组成生命体最基本的元素，约占了生物体总质量的99%以上&lt;/p&gt;
+&lt;p&gt;生物体的化学组成：水、无机物及有机小分子、生物大分子&lt;/p&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;生物大分子的组成 
+    &lt;div id=&#34;生物大分子的组成&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%94%9f%e7%89%a9%e5%a4%a7%e5%88%86%e5%ad%90%e7%9a%84%e7%bb%84%e6%88%90&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;生物分子/构件分子&lt;/th&gt;
+          &lt;th&gt;生物大分子&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;氨基酸&lt;/td&gt;
+          &lt;td&gt;蛋白质&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;核苷酸&lt;/td&gt;
+          &lt;td&gt;核酸&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;单糖&lt;/td&gt;
+          &lt;td&gt;多糖&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;脂肪酸&lt;/td&gt;
+          &lt;td&gt;脂类&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;生物大分子的构成 
+    &lt;div id=&#34;生物大分子的构成&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%94%9f%e7%89%a9%e5%a4%a7%e5%88%86%e5%ad%90%e7%9a%84%e6%9e%84%e6%88%90&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;具有固定结构的&lt;strong&gt;单体亚基&lt;/strong&gt;通过具备有限柔性的&lt;strong&gt;共价键&lt;/strong&gt;连成一体，在&lt;strong&gt;非共价相互作用&lt;/strong&gt;的帮助下形成特定的&lt;strong&gt;三维结构&lt;/strong&gt;，其结构决定了每个大分子的具体功能&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Matrix</title>
+      <link>https://xuzhang0112.github.io/course/matrix/</link>
+      <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/course/matrix/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;矩阵的基本概念 
+    &lt;div id=&#34;矩阵的基本概念&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%9f%a9%e9%98%b5%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;矩阵的基本运算 
+    &lt;div id=&#34;矩阵的基本运算&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%9f%a9%e9%98%b5%e7%9a%84%e5%9f%ba%e6%9c%ac%e8%bf%90%e7%ae%97&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;若向量$a,b$，则它的内积、外积定义如下：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;inner product&lt;/td&gt;
+          &lt;td&gt;$\sum a_ib_i$&lt;/td&gt;
+          &lt;td&gt;$a\odot b$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Outer product&lt;/td&gt;
+          &lt;td&gt;$ab^T$&lt;/td&gt;
+          &lt;td&gt;$a\otimes b$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;Hardmard积、Kronnecker积和矩阵乘法 
+    &lt;div id=&#34;hardmard积kronnecker积和矩阵乘法&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#hardmard%e7%a7%afkronnecker%e7%a7%af%e5%92%8c%e7%9f%a9%e9%98%b5%e4%b9%98%e6%b3%95&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Hardmard Product&lt;/td&gt;
+          &lt;td&gt;逐元素相乘&lt;/td&gt;
+          &lt;td&gt;$A\circ B \in R^{m\times n}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Kronnecker Product&lt;/td&gt;
+          &lt;td&gt;矩阵A每个元素乘以矩阵B&lt;/td&gt;
+          &lt;td&gt;$A\otimes B \in R^{m^2\times n^2}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Matrix Product&lt;/td&gt;
+          &lt;td&gt;矩阵乘法&lt;/td&gt;
+          &lt;td&gt;$A\cdot B$ or $AB$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;矩阵乘法一般情况下不满足交换律，但也有例外：&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Pattern Recogniton</title>
+      <link>https://xuzhang0112.github.io/course/pr/</link>
+      <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/course/pr/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;相似性度量 
+    &lt;div id=&#34;相似性度量&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%9b%b8%e4%bc%bc%e6%80%a7%e5%ba%a6%e9%87%8f&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;最小距离分类器 
+    &lt;div id=&#34;最小距离分类器&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e6%9c%80%e5%b0%8f%e8%b7%9d%e7%a6%bb%e5%88%86%e7%b1%bb%e5%99%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;将样本归入距离最近的类别&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;平均样本法&lt;/td&gt;
+          &lt;td&gt;样本到每个类别的各样本平均值的距离&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;平均距离法&lt;/td&gt;
+          &lt;td&gt;样本到每个类别的各个样本的距离的平均值&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;最近邻法&lt;/td&gt;
+          &lt;td&gt;样本最近的样本&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;线性分类器 
+    &lt;div id=&#34;线性分类器&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%ba%bf%e6%80%a7%e5%88%86%e7%b1%bb%e5%99%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;n维线性分类器可以表达为超平面$w^Tx+b=0$
+如果&lt;strong&gt;将样本X的第n+1维设为1&lt;/strong&gt;，则超平面可以简化为$w^Tx=0$
+若样本集线性可分，则存在分类器使得所有样本满足$\begin{cases}w^Tx&amp;gt;0\quad if\ x\in w_1\newline
+w^Tx&amp;lt;0\quad if\ x\in w_2\end{cases}$&lt;/p&gt;
+&lt;p&gt;线性分类器的解必然构成解区域，解是不确定的&lt;/p&gt;
+&lt;p&gt;多分类问题按照&lt;strong&gt;是否线性可分、是否存在不确定区域的解&lt;/strong&gt;可以分成三种情况&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;情况&lt;/th&gt;
+          &lt;th&gt;分类器&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;总体线性可分&lt;/td&gt;
+          &lt;td&gt;训练n个超平面，分隔每个类和其他所有类&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;成对线性可分&lt;/td&gt;
+          &lt;td&gt;用$C_n^2$个独立的超平面，将两个类别分开&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;成对线性可分，且存在没有不确定区域的解&lt;/td&gt;
+          &lt;td&gt;每个类别训练一个判别函数，采用最大值判决&lt;br /&gt;$G_{ij}(X)=g_i(X)-g_j(X)$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;感知器 
+    &lt;div id=&#34;感知器&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e6%84%9f%e7%9f%a5%e5%99%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;线性分类器+阶跃函数&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Linear Algebra</title>
+      <link>https://xuzhang0112.github.io/course/algebra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/course/algebra/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;作业1 
+    &lt;div id=&#34;作业1&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e4%bd%9c%e4%b8%9a1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;线性空间 
+    &lt;div id=&#34;线性空间&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%ba%bf%e6%80%a7%e7%a9%ba%e9%97%b4&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;数域：对加减乘除封闭&lt;/p&gt;
+&lt;p&gt;常微分方程的通解：特征方程，指数函数&lt;/p&gt;
+&lt;p&gt;线性空间：对加法&amp;amp;数乘封闭+8条&lt;/p&gt;
+&lt;p&gt;基：线性无关+表出整个空间&lt;/p&gt;
+&lt;p&gt;柯西不等式：根据内积半正定得到不等式，然后再根据结论构造；&lt;/p&gt;
+&lt;p&gt;施密特正交化：范数由区间上的内积定义，而不是本身的模长；奇函数/偶函数在对称区间上积分的性质；减去在标准正交基上的分量+单位化；&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;作业2 
+    &lt;div id=&#34;作业2&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e4%bd%9c%e4%b8%9a2&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;格拉姆矩阵：向量的内积；对角线上是范数的平方；注意非标准正交基的内积不为1；&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;傅里叶变换 
+    &lt;div id=&#34;傅里叶变换&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;傅立叶变换：向量和不同正交基在酉空间上的内积结果；变换后的内积与原始内积的比值等于基向量的内积；&lt;/p&gt;
+&lt;p&gt;帕萨瓦尔定理：时空域和频域的概率密度函数的范数相等；&lt;/p&gt;
+&lt;p&gt;时域/频域概率密度函数的期望和方差：一阶矩和二阶矩，三角函数相关的微积分（三角恒等式，三角换元，点火公式考虑平方时的特殊情况pi/4）&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Probability</title>
+      <link>https://xuzhang0112.github.io/course/prob/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/course/prob/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;作业要点 
+    &lt;div id=&#34;作业要点&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e4%bd%9c%e4%b8%9a%e8%a6%81%e7%82%b9&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;作业1&lt;/p&gt;
+&lt;p&gt;几何分布：概率为p的事件首次发生时的次数，期望=1/p&lt;/p&gt;
+&lt;p&gt;协方差的计算公式推导：定义+期望的性质&lt;/p&gt;
+&lt;p&gt;期望=条件期望的概率加权和&lt;/p&gt;
+&lt;p&gt;泊松分布：小概率事件在一段时间内发生的次数，服从泊松分布的随机变量的和服从泊松分布，且$$\lambda=\lambda_1+\lambda_2$$&lt;/p&gt;
+&lt;p&gt;X+Y的概率分布：卷积公式，本质上是全概率公式（条件概率）&lt;/p&gt;
+&lt;p&gt;贝叶斯公式：后验概率=先验概率+似然概率（后验颠倒）&lt;/p&gt;
+&lt;p&gt;作业2&lt;/p&gt;
+&lt;p&gt;马尔可夫链：利用含有条件概率的全概率公式&lt;/p&gt;
+&lt;p&gt;XY的概率分布：独立则可拆分，并灵活运用方差=二阶矩-一阶矩^2&lt;/p&gt;
+&lt;p&gt;多元概率分布之间的转换：利用雅可比行列式（顺序的记忆方法：不同分布都满足概率和为1）&lt;/p&gt;
+&lt;p&gt;样本方差的期望：利用期望和方差的性质进行一通推导（期望是线性的，方差不是线性的，虽然可加）&lt;/p&gt;
+&lt;p&gt;布朗运动：参考弹珠下落在分隔板上左/右移，借此思考其性质，然后根据定义一通推导就行了&lt;/p&gt;
+&lt;p&gt;Matropolis hasting算法：可以采样出任意分布（建议看龙哥博客，因为我现在也忘了）&lt;/p&gt;
+&lt;p&gt;作业3&lt;/p&gt;
+&lt;p&gt;基于样本的均值和方差估计正态分布的均值和方差&lt;/p&gt;
+&lt;p&gt;基于样本最大值估计均匀分布的上界&lt;/p&gt;
+&lt;p&gt;估计量的均方误差=偏差的平方+估计量的方差&lt;/p&gt;
+&lt;p&gt;区间估计：样本均值服从正态分布，样本方差服从自由度n-1的卡方分布（卡方分布，即多个正态分布的随机变量的平方和的分布）考试考了一道均值和方差都未知时的估计均值，有点坑&lt;/p&gt;
+&lt;p&gt;基于区间估计进行假设检验&lt;/p&gt;
+&lt;p&gt;作业4&lt;/p&gt;
+&lt;p&gt;最大后验估计：基于贝叶斯公式可以获得参数的后验概率，然后将样本代入，即可得到该组样本下待估参数的分布函数，然后取极值点即可&lt;/p&gt;
+&lt;p&gt;随机变量的换元：代入计算即可，没什么特别的&lt;/p&gt;
+&lt;p&gt;线性回归：b1是相关系数，b0相应减去，基本上就是一通推导得到的，注意利用求和符号的性质&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Key 
+    &lt;div id=&#34;key&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#key&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;1.一道简单的证明，忘了&lt;/p&gt;
+&lt;p&gt;2.3个变量的次序统计量的联合概率分布，转化成最大值最小值，注意组合数公式&lt;/p&gt;
+&lt;p&gt;3.马尔可夫链（赌徒），需要利用条件期望证明&lt;/p&gt;
+&lt;p&gt;4.利用期望和方差的性质计算一堆量&lt;/p&gt;
+&lt;p&gt;5.均值和方差都未知的区间估计和假设检验，这道题巨坑&lt;/p&gt;
+&lt;p&gt;6.很简单的一道证明题，好像就是代入定义，忘了&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Tofel</title>
+      <link>https://xuzhang0112.github.io/course/tofel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/course/tofel/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;Reading 
+    &lt;div id=&#34;reading&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#reading&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;段落间的逻辑关系&lt;/p&gt;
+&lt;p&gt;Object/Phenomenon &amp;amp; Origin (Why) &amp;amp; Feature (Why) &amp;amp; Relationship &amp;amp; Effects &amp;amp; Discussion (Opinions &amp;amp; Limit)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;段落内的逻辑关系&lt;/p&gt;
+&lt;p&gt;详略得当地扫一遍（一段话最好全看）+有意识的分层（每层用关键词概括，确保看懂）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;首尾句&lt;/li&gt;
+&lt;li&gt;观点句：跳过例子，找观点（人名/地名/数字等都不重要，简写即可）&lt;/li&gt;
+&lt;li&gt;逻辑关系
+&lt;ul&gt;
+&lt;li&gt;转折：but/ yet/ however/ nevertheless/ nonetheless/ rather/ on the other hand&lt;/li&gt;
+&lt;li&gt;递进：furthermore/ moreover/ above all&lt;/li&gt;
+&lt;li&gt;强调：chiefly/ mainly/ in a large part/ basically/ fundamentally/ &lt;strong&gt;more specifically&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;并列：also/ &lt;strong&gt;Along with &amp;hellip; is &amp;hellip;&lt;/strong&gt;（重要的过渡句，暗示分层）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;单句话抓主干：主系表，主谓宾，去修饰&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;系动词：be/ seem/ look/ get/ feel/ become/ appear/ symbolize/ represent/ refer to&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>CheatSheet &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="CheatSheet &middot; Xu Zhang&#39;s Blog" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://xuzhang0112.github.io/software/cheatsheet/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.5f8f4777872a0d3d0d40b3754a43f54f29ae82af8e7ee8b8cb972495c44f0d770b15cd4194b7a49bc85950ac492768c127b305a57fc92ed77bf7e230fb6530a4.css"
+    integrity="sha512-X49Hd4cqDT0NQLN1SkP1Tymugq&#43;Ofui4y5cklcRPDXcLFc1BlLekm8hZUKxJJ2jBJ7MFpX/JLtd79&#43;Iw&#43;2UwpA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.165327e9b2a9a8807ad5cb6c943a8f9a52756791c128e2dbfb3623bb42429636adb4bbb076b0447b592cad02914321a6aef0db10b907465de34fda41e2830281.js"
+    integrity="sha512-FlMn6bKpqIB61ctslDqPmlJ1Z5HBKOLb&#43;zYju0JCljattLuwdrBEe1ksrQKRQyGmrvDbELkHRl3jT9pB4oMCgQ==" data-copy="Copy" data-copied="Copied"></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.f592a181a15d2a5b042daa7f746c3721acf9063f8b6acd175d989129865a37d400ae0e85b640f9ad42cd98d1f8ad30931718cf8811abdcc5fcb264400d1a2b0c.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj&#43;Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://xuzhang0112.github.io/software/cheatsheet/">
+  <meta property="og:site_name" content="Xu Zhang&#39;s Blog">
+  <meta property="og:title" content="CheatSheet">
+  <meta property="og:description" content="Shell # Shell是用户和操作系统之间的媒介，它提供了丰富的接口，以帮助用户使用操作系统。
+Shell命令的基本格式是“命令&#43;参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。
+命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用
+pwd sh *.sh python main.py 当连续执行多条命令时，如果用&#34;&amp;&amp;“连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行
+在命令结尾加”&amp;&#34;，可以使命令挂载到后台执行，从而可以在同一个Shell中并行执行多条命令
+配置默认启动脚本 # 用户使用终端登录Linux服务器时，通常只会默认执行~/.bash_profile.sh，而conda的自启动一般写在~/.bashrc中，所以一般会在~/.bash_profile.sh同时运行~/.bashrc
+if [ -f ~/.bashrc ]; then source ~/.bashrc fi 每当重新打开一个新的终端时，则会执行~/.bashrc
+conda自启动
+# &gt;&gt;&gt; conda init &gt;&gt;&gt; # !! Contents within this block are managed by &#39;conda init&#39; !! __conda_setup=&#34;$(CONDA_REPORT_ERRORS=false &#39;/data/shaozhisun/anaconda3/bin/conda&#39; shell.bash hook 2&gt; /dev/null)&#34; if [ $? -eq 0 ]; then \eval &#34;$__conda_setup&#34; else if [ -f &#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&#34; ]; then . &#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&#34; CONDA_CHANGEPS1=false conda activate base else export PATH=&#34;/data/shaozhisun/anaconda3/bin:$PATH&#34; fi fi unset __conda_setup Oh My ZSH # 配置代码高亮和自动补全插件">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="software">
+    <meta property="article:published_time" content="2025-03-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-10T00:00:00+00:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="CheatSheet">
+  <meta name="twitter:description" content="Shell # Shell是用户和操作系统之间的媒介，它提供了丰富的接口，以帮助用户使用操作系统。
+Shell命令的基本格式是“命令&#43;参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。
+命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用
+pwd sh *.sh python main.py 当连续执行多条命令时，如果用&#34;&amp;&amp;“连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行
+在命令结尾加”&amp;&#34;，可以使命令挂载到后台执行，从而可以在同一个Shell中并行执行多条命令
+配置默认启动脚本 # 用户使用终端登录Linux服务器时，通常只会默认执行~/.bash_profile.sh，而conda的自启动一般写在~/.bashrc中，所以一般会在~/.bash_profile.sh同时运行~/.bashrc
+if [ -f ~/.bashrc ]; then source ~/.bashrc fi 每当重新打开一个新的终端时，则会执行~/.bashrc
+conda自启动
+# &gt;&gt;&gt; conda init &gt;&gt;&gt; # !! Contents within this block are managed by &#39;conda init&#39; !! __conda_setup=&#34;$(CONDA_REPORT_ERRORS=false &#39;/data/shaozhisun/anaconda3/bin/conda&#39; shell.bash hook 2&gt; /dev/null)&#34; if [ $? -eq 0 ]; then \eval &#34;$__conda_setup&#34; else if [ -f &#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&#34; ]; then . &#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&#34; CONDA_CHANGEPS1=false conda activate base else export PATH=&#34;/data/shaozhisun/anaconda3/bin:$PATH&#34; fi fi unset __conda_setup Oh My ZSH # 配置代码高亮和自动补全插件">
+
+    
+  
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Software",
+    "name": "CheatSheet",
+    "headline": "CheatSheet",
+    
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003eShell \n    \u003cdiv id=\u0022shell\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#shell\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cimg src=\u0022https:\/\/raw.githubusercontent.com\/xuzhang0112\/pic-repo\/main\/202410241649045.png\u0022 alt=\u0022image-20241024164920306\u0022 style=\u0022zoom: 25%;\u0022 \/\u003e\n\u003cp\u003eShell是用户和操作系统之间的媒介，它提供了丰富的接口，以帮助用户使用操作系统。\u003c\/p\u003e\n\u003cp\u003eShell命令的基本格式是“命令\u002b参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。\u003c\/p\u003e\n\u003cp\u003e命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用\u003c\/p\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\u0022\u003e\u003ccode class=\u0022language-shell\u0022 data-lang=\u0022shell\u0022\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003epwd\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003esh *.sh\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003epython main.py\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003cp\u003e当连续执行多条命令时，如果用\u0026quot;\u0026amp;\u0026amp;\u0026ldquo;连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行\u003c\/p\u003e\n\u003cp\u003e在命令结尾加\u0026rdquo;\u0026amp;\u0026quot;，可以使命令挂载到后台执行，从而可以在同一个Shell中并行执行多条命令\u003c\/p\u003e\n\n\u003ch3 class=\u0022relative group\u0022\u003e配置默认启动脚本 \n    \u003cdiv id=\u0022配置默认启动脚本\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%e9%85%8d%e7%bd%ae%e9%bb%98%e8%ae%a4%e5%90%af%e5%8a%a8%e8%84%9a%e6%9c%ac\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003e用户使用终端登录Linux服务器时，通常只会默认执行\u003ccode\u003e~\/.bash_profile.sh\u003c\/code\u003e，而conda的自启动一般写在\u003ccode\u003e~\/.bashrc\u003c\/code\u003e中，所以一般会在\u003ccode\u003e~\/.bash_profile.sh\u003c\/code\u003e同时运行\u003ccode\u003e~\/.bashrc\u003c\/code\u003e\u003c\/p\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\u0022\u003e\u003ccode class=\u0022language-sh\u0022 data-lang=\u0022sh\u0022\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#66d9ef\u0022\u003eif\u003c\/span\u003e \u003cspan style=\u0022color:#f92672\u0022\u003e[\u003c\/span\u003e -f ~\/.bashrc \u003cspan style=\u0022color:#f92672\u0022\u003e]\u003c\/span\u003e; \u003cspan style=\u0022color:#66d9ef\u0022\u003ethen\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e    source ~\/.bashrc\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#66d9ef\u0022\u003efi\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003cp\u003e每当重新打开一个新的终端时，则会执行\u003ccode\u003e~\/.bashrc\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003econda自启动\u003c\/p\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\u0022\u003e\u003ccode class=\u0022language-sh\u0022 data-lang=\u0022sh\u0022\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e# \u0026gt;\u0026gt;\u0026gt; conda init \u0026gt;\u0026gt;\u0026gt;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#75715e\u0022\u003e# !! Contents within this block are managed by \u0026#39;conda init\u0026#39; !!\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e__conda_setup\u003cspan style=\u0022color:#f92672\u0022\u003e=\u003c\/span\u003e\u003cspan style=\u0022color:#e6db74\u0022\u003e\u0026#34;\u003c\/span\u003e\u003cspan style=\u0022color:#66d9ef\u0022\u003e$(\u003c\/span\u003eCONDA_REPORT_ERRORS\u003cspan style=\u0022color:#f92672\u0022\u003e=\u003c\/span\u003efalse \u003cspan style=\u0022color:#e6db74\u0022\u003e\u0026#39;\/data\/shaozhisun\/anaconda3\/bin\/conda\u0026#39;\u003c\/span\u003e shell.bash hook 2\u0026gt; \/dev\/null\u003cspan style=\u0022color:#66d9ef\u0022\u003e)\u003c\/span\u003e\u003cspan style=\u0022color:#e6db74\u0022\u003e\u0026#34;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#66d9ef\u0022\u003eif\u003c\/span\u003e \u003cspan style=\u0022color:#f92672\u0022\u003e[\u003c\/span\u003e $? -eq \u003cspan style=\u0022color:#ae81ff\u0022\u003e0\u003c\/span\u003e \u003cspan style=\u0022color:#f92672\u0022\u003e]\u003c\/span\u003e; \u003cspan style=\u0022color:#66d9ef\u0022\u003ethen\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e    \u003cspan style=\u0022color:#ae81ff\u0022\u003e\\e\u003c\/span\u003eval \u003cspan style=\u0022color:#e6db74\u0022\u003e\u0026#34;\u003c\/span\u003e$__conda_setup\u003cspan style=\u0022color:#e6db74\u0022\u003e\u0026#34;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#66d9ef\u0022\u003eelse\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e    \u003cspan style=\u0022color:#66d9ef\u0022\u003eif\u003c\/span\u003e \u003cspan style=\u0022color:#f92672\u0022\u003e[\u003c\/span\u003e -f \u003cspan style=\u0022color:#e6db74\u0022\u003e\u0026#34;\/data\/shaozhisun\/anaconda3\/etc\/profile.d\/conda.sh\u0026#34;\u003c\/span\u003e \u003cspan style=\u0022color:#f92672\u0022\u003e]\u003c\/span\u003e; \u003cspan style=\u0022color:#66d9ef\u0022\u003ethen\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e        . \u003cspan style=\u0022color:#e6db74\u0022\u003e\u0026#34;\/data\/shaozhisun\/anaconda3\/etc\/profile.d\/conda.sh\u0026#34;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e        CONDA_CHANGEPS1\u003cspan style=\u0022color:#f92672\u0022\u003e=\u003c\/span\u003efalse conda activate base\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e    \u003cspan style=\u0022color:#66d9ef\u0022\u003eelse\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e        export PATH\u003cspan style=\u0022color:#f92672\u0022\u003e=\u003c\/span\u003e\u003cspan style=\u0022color:#e6db74\u0022\u003e\u0026#34;\/data\/shaozhisun\/anaconda3\/bin:\u003c\/span\u003e$PATH\u003cspan style=\u0022color:#e6db74\u0022\u003e\u0026#34;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e    \u003cspan style=\u0022color:#66d9ef\u0022\u003efi\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e\u003cspan style=\u0022color:#66d9ef\u0022\u003efi\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003eunset __conda_setup\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\n\u003ch3 class=\u0022relative group\u0022\u003eOh My ZSH \n    \u003cdiv id=\u0022oh-my-zsh\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#oh-my-zsh\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003e\u003ca href=\u0022https:\/\/kirigaya.cn\/blog\/article?seq=66\u0022 target=\u0022_blank\u0022\u003e配置代码高亮和自动补全插件\u003c\/a\u003e\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "https:\/\/xuzhang0112.github.io\/software\/cheatsheet\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Xu Zhang"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-03-10T00:00:00\u002b00:00",
+    "datePublished": "2025-03-10T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-03-10T00:00:00\u002b00:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "827"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Xu Zhang" />
+  
+  
+  
+  
+  <link href="https://scholar.google.com/citations?user=6-NiSKYAAAAJ&amp;hl=zh-CN" rel="me" />
+  
+  
+  
+  
+  <link href="https://www.zhihu.com/people/zhang-xu-20-31-39" rel="me" />
+  
+  
+  
+  
+  <link href="https://space.bilibili.com/456489591" rel="me" />
+  
+  
+  
+  
+  <link href="https://github.com/xuzhang0112" rel="me" />
+  
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+    integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+    integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+    integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk"
+    crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            
+            
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true },
+            ],
+            
+            throwOnError: false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Xu Zhang&rsquo;s Blog</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Tips
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/software/cheatsheet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="CheatSheet">
+            CheatSheet
+          </p>
+        </a>
+        
+        <a href="/software/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Python">
+            Python
+          </p>
+        </a>
+        
+        <a href="/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Course">
+            Course
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/publication/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="📚Publications">
+        Publications
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/cv/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        About Me
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                     
+  <li class="mt-1">
+    <a href="" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Tips
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/software/cheatsheet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="CheatSheet">
+            CheatSheet
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/software/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Python">
+            Python
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Course">
+            Course
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/publication/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="📚Publications">
+            Publications
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/cv/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            About Me
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/software/"
+      >Software</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/software/cheatsheet/"
+      >CheatSheet</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      CheatSheet
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open id="TOCView" class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#shell">Shell</a>
+      <ul>
+        <li><a href="#配置默认启动脚本">配置默认启动脚本</a></li>
+        <li><a href="#oh-my-zsh">Oh My ZSH</a></li>
+        <li><a href="#shell脚本">Shell脚本</a></li>
+        <li><a href="#ssh安全的shell">ssh：安全的shell</a></li>
+      </ul>
+    </li>
+    <li><a href="#maclinux-os">Mac/Linux OS</a>
+      <ul>
+        <li><a href="#文件系统">文件系统</a></li>
+        <li><a href="#进程管理">进程管理</a></li>
+        <li><a href="#用户管理">用户管理</a></li>
+      </ul>
+    </li>
+    <li><a href="#常用软件">常用软件</a>
+      <ul>
+        <li><a href="#zip">Zip</a></li>
+        <li><a href="#tmux">Tmux</a></li>
+        <li><a href="#vim">VIM</a></li>
+        <li><a href="#cuda">CUDA</a></li>
+        <li><a href="#conda">Conda</a></li>
+        <li><a href="#git">Git</a></li>
+        <li><a href="#gdown">GDown</a></li>
+        <li><a href="#hugo">Hugo</a></li>
+        <li><a href="#iterm2">iTerm2</a></li>
+        <li><a href="#vscode">Vscode</a></li>
+        <li><a href="#docker">Docker</a></li>
+      </ul>
+    </li>
+    <li><a href="#网络">网络</a>
+      <ul>
+        <li><a href="#下载">下载</a></li>
+        <li><a href="#内网传输">内网传输</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#shell">Shell</a>
+      <ul>
+        <li><a href="#配置默认启动脚本">配置默认启动脚本</a></li>
+        <li><a href="#oh-my-zsh">Oh My ZSH</a></li>
+        <li><a href="#shell脚本">Shell脚本</a></li>
+        <li><a href="#ssh安全的shell">ssh：安全的shell</a></li>
+      </ul>
+    </li>
+    <li><a href="#maclinux-os">Mac/Linux OS</a>
+      <ul>
+        <li><a href="#文件系统">文件系统</a></li>
+        <li><a href="#进程管理">进程管理</a></li>
+        <li><a href="#用户管理">用户管理</a></li>
+      </ul>
+    </li>
+    <li><a href="#常用软件">常用软件</a>
+      <ul>
+        <li><a href="#zip">Zip</a></li>
+        <li><a href="#tmux">Tmux</a></li>
+        <li><a href="#vim">VIM</a></li>
+        <li><a href="#cuda">CUDA</a></li>
+        <li><a href="#conda">Conda</a></li>
+        <li><a href="#git">Git</a></li>
+        <li><a href="#gdown">GDown</a></li>
+        <li><a href="#hugo">Hugo</a></li>
+        <li><a href="#iterm2">iTerm2</a></li>
+        <li><a href="#vscode">Vscode</a></li>
+        <li><a href="#docker">Docker</a></li>
+      </ul>
+    </li>
+    <li><a href="#网络">网络</a>
+      <ul>
+        <li><a href="#下载">下载</a></li>
+        <li><a href="#内网传输">内网传输</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">Shell 
+    <div id="shell" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#shell" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202410241649045.png" alt="image-20241024164920306" style="zoom: 25%;" />
+<p>Shell是用户和操作系统之间的媒介，它提供了丰富的接口，以帮助用户使用操作系统。</p>
+<p>Shell命令的基本格式是“命令+参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。</p>
+<p>命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pwd
+</span></span><span style="display:flex;"><span>sh *.sh
+</span></span><span style="display:flex;"><span>python main.py
+</span></span></code></pre></div><p>当连续执行多条命令时，如果用&quot;&amp;&amp;&ldquo;连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行</p>
+<p>在命令结尾加&rdquo;&amp;&quot;，可以使命令挂载到后台执行，从而可以在同一个Shell中并行执行多条命令</p>
+
+<h3 class="relative group">配置默认启动脚本 
+    <div id="配置默认启动脚本" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e9%85%8d%e7%bd%ae%e9%bb%98%e8%ae%a4%e5%90%af%e5%8a%a8%e8%84%9a%e6%9c%ac" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>用户使用终端登录Linux服务器时，通常只会默认执行<code>~/.bash_profile.sh</code>，而conda的自启动一般写在<code>~/.bashrc</code>中，所以一般会在<code>~/.bash_profile.sh</code>同时运行<code>~/.bashrc</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -f ~/.bashrc <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    source ~/.bashrc
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>每当重新打开一个新的终端时，则会执行<code>~/.bashrc</code></p>
+<p>conda自启动</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># &gt;&gt;&gt; conda init &gt;&gt;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># !! Contents within this block are managed by &#39;conda init&#39; !!</span>
+</span></span><span style="display:flex;"><span>__conda_setup<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>CONDA_REPORT_ERRORS<span style="color:#f92672">=</span>false <span style="color:#e6db74">&#39;/data/shaozhisun/anaconda3/bin/conda&#39;</span> shell.bash hook 2&gt; /dev/null<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $? -eq <span style="color:#ae81ff">0</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">\e</span>val <span style="color:#e6db74">&#34;</span>$__conda_setup<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -f <span style="color:#e6db74">&#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        . <span style="color:#e6db74">&#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&#34;</span>
+</span></span><span style="display:flex;"><span>        CONDA_CHANGEPS1<span style="color:#f92672">=</span>false conda activate base
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/data/shaozhisun/anaconda3/bin:</span>$PATH<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>unset __conda_setup
+</span></span></code></pre></div>
+<h3 class="relative group">Oh My ZSH 
+    <div id="oh-my-zsh" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#oh-my-zsh" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://kirigaya.cn/blog/article?seq=66" target="_blank">配置代码高亮和自动补全插件</a></p>
+
+<h3 class="relative group">Shell脚本 
+    <div id="shell脚本" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#shell%e8%84%9a%e6%9c%ac" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>尽管Linux系统中已经实现了大量的Shell脚本供用户调用，但有些时候我们仍然需要自己编写Shell脚本，以实现定制化的需求。</p>
+<p>如果希望shell脚本可以作为可执行文件调用，则需要在第一行指定解释器</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash 当作为
+</span></span></span></code></pre></div><p>否则，只需要在调用该脚本时，显式地指定解释器即可；bash和zsh的语法比sh更全</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sh *.sh
+</span></span><span style="display:flex;"><span>bash *.sh
+</span></span><span style="display:flex;"><span>zsh *.sh
+</span></span></code></pre></div>
+<h4 class="relative group">变量的定义和使用 
+    <div id="变量的定义和使用" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e5%8f%98%e9%87%8f%e7%9a%84%e5%ae%9a%e4%b9%89%e5%92%8c%e4%bd%bf%e7%94%a8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>变量通过<code>=</code>定义，通过<code>${}</code>调用，通过<code>echo</code>可以将变量输出到控制台</p>
+<p>Shell中有两类特殊的变量，字符串和数组。</p>
+<p>字符串区分单引号和双引号，单引号无视一切转义字符和变量引用，双引号则支持转义字符和变量；多个字符串可以拼接，中间不加空格即可</p>
+<p>数组通过<code>()</code>定义，通过<code>${数组名[下标]}</code>访问，<code>${数组名[@]}</code>可获取数组中全部元素</p>
+<p>${#变量名}可以获取指定变量的长度</p>
+<p>环境变量通常是大写，一般定义在<code>~/.bashrc</code>中，每次启动shell时都会导入；<code>export</code>可以显式环境变量，也可以定义临时的环境变量</p>
+<table>
+  <thead>
+      <tr>
+          <th>定义环境变量的方式</th>
+          <th>作用域</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>写在～/.bash_rc里</td>
+          <td>全局有效，每次启动shell都会导入</td>
+      </tr>
+      <tr>
+          <td><code>export PATH=$PATH:/data/xuzhang/bin</code></td>
+          <td>仅当前shell和子进程有效</td>
+      </tr>
+      <tr>
+          <td><code>CUDA_VISIBLE_DEVICES=1,3 python train.py</code></td>
+          <td>仅子进程有效</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">运算符 
+    <div id="运算符" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e8%bf%90%e7%ae%97%e7%ac%a6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>算数运算符一般通过<code>expr</code>命令或者<code>$(())$</code>来实现，运算符的两边需要有空格，双括号中的变量可以不使用$符号前缀</p>
+<p>逻辑运算符一般通过<code>test</code>命令或者<code>[[]]</code>来实现，中括号和运算符的两边需要有空格，双中括号支持更多的逻辑运算符</p>
+
+<h4 class="relative group">流程控制 
+    <div id="流程控制" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e6%b5%81%e7%a8%8b%e6%8e%a7%e5%88%b6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>和其他语言类似，包括分支和循环</p>
+<p>分支包括<code>if</code>和<code>case</code></p>
+<p><code>if</code>的结束词是<code>fi</code>，即<code>if</code>倒过来</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> condition1
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>	command1
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> condition2
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>	command2
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>	commandN
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>此外也有<code>case</code>，结束词同样是倒过来<code>esac</code></p>
+<pre tabindex="0"><code>case 变量 in
+	1)
+	command1
+	...
+	commandN
+	;;
+	2)
+	...
+esac
+</code></pre><p>循环包括<code>for</code>和<code>while</code>，两者都支持<code>break</code>和<code>continue</code></p>
+<p>for</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> 变量 in 数组
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>	command
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>while</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> condition
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div>
+<h4 class="relative group">输入输出 
+    <div id="输入输出" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e8%be%93%e5%85%a5%e8%be%93%e5%87%ba" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>输出有<code>echo</code>和<code>printf</code>，其中<code>echo</code>默认不开启转义，需要通过<code>-e</code>开启转义，而<code>printf</code>则支持转义</p>
+<p>两者的输出都可以通过<code>&gt;</code>（覆盖写）或者<code>&gt;&gt;</code>（追加写）重定向到指定的文件</p>
+<p>可以通过反引号来获取指定命令的输出，以字符串的形式返回，</p>
+
+<h3 class="relative group">ssh：安全的shell 
+    <div id="ssh安全的shell" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ssh%e5%ae%89%e5%85%a8%e7%9a%84shell" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>建立连接</td>
+          <td><code>ssh 用户名@服务器IP</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>断开连接</td>
+          <td><code>ctrl+d</code>或<code>exit</code>断开连接</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p>内网免密登录</p>
+<ol>
+<li>本地生成公钥<code>ssh-keygen -t rsa</code></li>
+<li>上传公钥到服务器的授权列表
+<ul>
+<li><a href="https://blog.csdn.net/qq_19922839/article/details/117488663" target="_blank">SSH配置公钥后仍需要输入密码</a></li>
+</ul>
+</li>
+</ol>
+<p>跳板机登录</p>
+<p>方式1：两步登录</p>
+<p>首先通过ssh连接跳板机（如果端口号不是ssh的默认端口22，则需要手动指定），然后在跳板机上选择要登录的服务器</p>
+<p>方式2：一步登录</p>
+<p><code>ssh xuzhang@xuzhang@172.16.120.1@bacteria.tech -p2222</code></p>
+<p>local和跳板机之间的免密是通过跳板机的用户界面设置，跳板机和服务器之间的免密是由跳板机的管理员设置。</p>
+
+<h2 class="relative group">Mac/Linux OS 
+    <div id="maclinux-os" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#maclinux-os" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">文件系统 
+    <div id="文件系统" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>路径分为绝对路径和相对路径，相对路径是相对于当前<em><strong>工作路径</strong></em>，可通过<code>pwd</code>查看</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: right"></th>
+          <th style="text-align: left"></th>
+          <th>备注</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: right">绝对路径</td>
+          <td style="text-align: left">/data/xuzhang/&hellip;</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td style="text-align: right">相对路径</td>
+          <td style="text-align: left"><code>~/...</code></td>
+          <td>用户根目录</td>
+      </tr>
+      <tr>
+          <td style="text-align: right"></td>
+          <td style="text-align: left"><code>./</code></td>
+          <td>当前目录</td>
+      </tr>
+      <tr>
+          <td style="text-align: right"></td>
+          <td style="text-align: left"><code>../</code></td>
+          <td>上一级目录</td>
+      </tr>
+      <tr>
+          <td style="text-align: right"></td>
+          <td style="text-align: left"><code>../../</code></td>
+          <td>上上一级目录</td>
+      </tr>
+  </tbody>
+</table>
+<p>不涉及文件内容的查看</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ls dir <span style="color:#75715e"># 查看dir内的文件</span>
+</span></span><span style="display:flex;"><span>du -sh <span style="color:#75715e"># 查看dir的磁盘占用情况</span>
+</span></span><span style="display:flex;"><span>df -h <span style="color:#75715e"># 查看分区情况</span>
+</span></span><span style="display:flex;"><span>find -name filename <span style="color:#75715e"># 搜索</span>
+</span></span></code></pre></div><p>对文件的增删改查</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>touch filename <span style="color:#75715e"># 创建文件</span>
+</span></span><span style="display:flex;"><span>mv raw_file new_dir/new_file <span style="color:#75715e"># 移动/重命名</span>
+</span></span><span style="display:flex;"><span>cp file1 file2 <span style="color:#75715e"># 复制，文件夹需要-r</span>
+</span></span><span style="display:flex;"><span>rm file/dir <span style="color:#75715e"># 删除</span>
+</span></span><span style="display:flex;"><span>chmod +x filename <span style="color:#75715e"># 修改文件的读写权限r (只读)w (写入)x (执行)</span>
+</span></span></code></pre></div><p>对文件内容的查看和修改</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cat file <span style="color:#75715e"># 本义是“concatenate and print files”，连接和查看多个文件内容，实际多用于查看单个文件内容</span>
+</span></span><span style="display:flex;"><span>head -n <span style="color:#ae81ff">10</span> <span style="color:#75715e"># 前10行</span>
+</span></span><span style="display:flex;"><span>tail -n <span style="color:#ae81ff">10</span> <span style="color:#75715e"># 后10行</span>
+</span></span><span style="display:flex;"><span>grep -c <span style="color:#f92672">[</span>exp<span style="color:#f92672">]</span> <span style="color:#75715e"># 与正则表达式匹配的行，-c返回计数</span>
+</span></span><span style="display:flex;"><span>wc file <span style="color:#75715e"># 字数</span>
+</span></span></code></pre></div>
+<h3 class="relative group">进程管理 
+    <div id="进程管理" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e8%bf%9b%e7%a8%8b%e7%ae%a1%e7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://blog.csdn.net/weixin_47700137/article/details/134363063" target="_blank">杀死僵尸进程</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ps aux | grep user_id | grep python | grep Rsl <span style="color:#75715e"># 搜索某一用户运行的python进程</span>
+</span></span><span style="display:flex;"><span>kill -9 PID <span style="color:#75715e"># 杀死进程</span>
+</span></span></code></pre></div><p>挂载后台
+<code>nohup command &amp;</code></p>
+<p>显卡占用情况</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>gpustat -i <span style="color:#75715e"># 需要pip安装</span>
+</span></span></code></pre></div><p>端口占用情况</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>netstat -tuln | grep <span style="color:#ae81ff">6006</span> <span style="color:#75715e"># 查看6006端口的占用情况</span>
+</span></span><span style="display:flex;"><span>ssh -L 8008:127.0.0.1:8008 xuzhang@172.16.120.1 <span style="color:#75715e">#将指定端口映射到某个ip</span>
+</span></span></code></pre></div>
+<h3 class="relative group">用户管理 
+    <div id="用户管理" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e7%94%a8%e6%88%b7%e7%ae%a1%e7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>用户名</td>
+          <td><code>whoami``echo $USER</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>root权限</td>
+          <td><code>sudo apt install gimp</code> <code>sudo cd /root/</code></td>
+          <td>安装软件或编辑用户主目录以外的文件</td>
+      </tr>
+      <tr>
+          <td>修改权限</td>
+          <td><code>chmod [num][num][num]</code></td>
+          <td>6表示读写，7表示读写和执行；三个数字分别对应用户、用户组、其他用户</td>
+      </tr>
+      <tr>
+          <td>修改密码</td>
+          <td><code>passwd</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>退出登录</td>
+          <td><code>exit</code></td>
+          <td><code>Ctrl+D</code></td>
+      </tr>
+      <tr>
+          <td>关机</td>
+          <td><code>shutdown</code></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+
+<h2 class="relative group">常用软件 
+    <div id="常用软件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e5%b8%b8%e7%94%a8%e8%bd%af%e4%bb%b6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">Zip 
+    <div id="zip" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#zip" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>压缩</th>
+          <th>解压</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>zip &amp; unzip</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>gzip &amp; gunzip</td>
+          <td></td>
+          <td>gunzip -r dir 解压文件夹下所有.gz文件</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">Tmux 
+    <div id="tmux" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tmux" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html" target="_blank">Tmux 使用教程</a></p>
+<p>将会话（Section）和窗口（Terminal Window）解绑</p>
+<ul>
+<li>会话可以随时解绑（不随窗口的关闭而终止）和重新接入</li>
+<li>可以同时发起多个会话，并进行任意的垂直和水平拆分</li>
+</ul>
+
+<h4 class="relative group">安装 
+    <div id="安装" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e5%ae%89%e8%a3%85" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Linux</span>
+</span></span><span style="display:flex;"><span>sudo apt-get install tmux
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Mac</span>
+</span></span><span style="display:flex;"><span>brew install tmux
+</span></span></code></pre></div>
+<h4 class="relative group">CLI使用 
+    <div id="cli使用" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cli%e4%bd%bf%e7%94%a8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tmux <span style="color:#75715e">#新建会话</span>
+</span></span><span style="display:flex;"><span>tmux new -s &lt;session-name&gt; <span style="color:#75715e">#新建会话</span>
+</span></span><span style="display:flex;"><span>tmux detach <span style="color:#75715e"># 分离会话</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tmux ls <span style="color:#75715e"># 查看所有会话</span>
+</span></span><span style="display:flex;"><span>tmux attach -t <span style="color:#ae81ff">0</span> <span style="color:#75715e">#接入会话</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tmux rename-session -t <span style="color:#ae81ff">0</span> &lt;new-name&gt; <span style="color:#75715e"># 重命名会话</span>
+</span></span><span style="display:flex;"><span>tmux kill-session -t &lt;session-name&gt; <span style="color:#75715e"># 杀死会话</span>
+</span></span></code></pre></div>
+<h4 class="relative group">快捷键 
+    <div id="快捷键" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e5%bf%ab%e6%8d%b7%e9%94%ae" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><code>Ctrl+b</code>是前缀键，用于表示使用快捷键</p>
+<table>
+  <thead>
+      <tr>
+          <th><code>Ctrl+b+</code></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>d</td>
+          <td>detatch</td>
+          <td>分离当前会话</td>
+      </tr>
+      <tr>
+          <td>s</td>
+          <td></td>
+          <td>列出所有会话</td>
+      </tr>
+      <tr>
+          <td>$</td>
+          <td></td>
+          <td>重命名当前会话</td>
+      </tr>
+      <tr>
+          <td>%</td>
+          <td></td>
+          <td>左右分屏（百分号的左和右）</td>
+      </tr>
+      <tr>
+          <td>&quot;&quot;</td>
+          <td></td>
+          <td>上下分屏（上引号和下引号）</td>
+      </tr>
+      <tr>
+          <td>o</td>
+          <td></td>
+          <td>切换分屏</td>
+      </tr>
+      <tr>
+          <td>[</td>
+          <td></td>
+          <td>上下滚动(q退出)</td>
+      </tr>
+      <tr>
+          <td>x</td>
+          <td></td>
+          <td>关闭分屏窗口</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">VIM 
+    <div id="vim" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vim" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vim filename <span style="color:#75715e"># 我只会这一条</span>
+</span></span></code></pre></div><ol>
+<li>
+<p>正常模式（Normal-mode)</p>
+<ul>
+<li>狂按<code>&lt;Esc&gt;</code>进入</li>
+<li><code>dd</code>剪切一行；<code>yy</code>复制一行；<code>p</code>粘贴；<code>u</code>撤销；</li>
+</ul>
+</li>
+<li>
+<p>插入模式（Insert-mode)</p>
+<ul>
+<li>按 <code>i</code> 键会进行插入模式，进入编辑状态，通过键盘输入内容。</li>
+</ul>
+</li>
+<li>
+<p>命令模式（Command-mode)</p>
+<ul>
+<li>先切正常模式，然后按<code>：</code>或<code>/</code> 进入</li>
+<li>未编辑，按q退出；编辑后，wq保存退出，q!不保存强制退出</li>
+</ul>
+</li>
+</ol>
+
+<h3 class="relative group">CUDA 
+    <div id="cuda" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cuda" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://chenglu.me/blogs/what-is-cuda" target="_blank">CUDA 是什么 | Chenglu’s Log</a></p>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202406052252187.png" alt="image-20240605225234182" style="zoom:67%;" />
+<p>Driver：可通过<code>nvidia-smi</code>查看显卡的驱动和CUDA驱动版本，驱动版本需要高于Runtime版本</p>
+<p>Runtime: 可通过<code>nvcc -V</code>查看，表示CUDA Toolkit的runtime版本，通过CUDA Toolkit installer安装，见<code>usr/local/cuda/include/cuda.h</code>），一些软件会调用Runtime提供的API</p>
+<p>不同应用对CUDA各个层的依赖要求是不同的</p>
+<ul>
+<li>PyTorch会打包所需要的Runtime依赖，不调用本机的CUDA Toolkit，只需要驱动版本满足要求即可。</li>
+<li>Tensorflow需要安装相应的Library，例如CuDNN，也会对Runtime有要求</li>
+</ul>
+
+<h3 class="relative group">Conda 
+    <div id="conda" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conda" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>选择合适的conda版本，用wget下载并安装，并移除安装包</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir -p ~/miniconda3
+</span></span><span style="display:flex;"><span>wget <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span> -O ~/miniconda3/miniconda.sh
+</span></span><span style="display:flex;"><span>bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+</span></span><span style="display:flex;"><span>rm ~/miniconda3/miniconda.sh
+</span></span></code></pre></div><p>初始化</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source ~/miniconda3/bin/activate
+</span></span><span style="display:flex;"><span>conda init --all
+</span></span></code></pre></div><p>配置基本的参数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>conda config --set auto_activate_base true <span style="color:#75715e"># 自动激活conda环境</span>
+</span></span><span style="display:flex;"><span>pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple <span style="color:#75715e">#pip换源就够了，从来不用conda</span>
+</span></span></code></pre></div>
+<h4 class="relative group">虚拟环境 
+    <div id="虚拟环境" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e8%99%9a%e6%8b%9f%e7%8e%af%e5%a2%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>anyway，本人只用base</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>conda create -n env_name python<span style="color:#f92672">=</span>3.9 <span style="color:#75715e">#新建</span>
+</span></span><span style="display:flex;"><span>conda activate env <span style="color:#75715e"># 激活</span>
+</span></span><span style="display:flex;"><span>conda deactivate <span style="color:#75715e"># 取消激活</span>
+</span></span><span style="display:flex;"><span>conda remove --name <span style="color:#f92672">[</span>env_name<span style="color:#f92672">]</span> --all <span style="color:#75715e">#删除</span>
+</span></span></code></pre></div>
+<h3 class="relative group">Git 
+    <div id="git" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#git" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://www.runoob.com/git/git-basic-operations.html" target="_blank">Git 基本操作 | 菜鸟教程 (runoob.com)</a></p>
+
+<h4 class="relative group">初始化 
+    <div id="初始化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e5%88%9d%e5%a7%8b%e5%8c%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>基本配置</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git config --global user.name <span style="color:#f92672">[</span>name<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>git config --global user.email <span style="color:#f92672">[</span>email<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>从本地仓库初始化</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git init <span style="color:#75715e"># 创建git仓库</span>
+</span></span><span style="display:flex;"><span>touch .gitignore <span style="color:#75715e"># 修改.gitignore文件在其中写入需要忽略的文件和目录</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;/&#34;开头，从.gitignore所在目录开始匹配</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;/&#34;结尾，只匹配目录，不匹配文件</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#34;/../&#34;匹配多级目录</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *.filetype，忽略指定类型的文件</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># !filetype，不忽略指定类型的文件（如果文件夹已经被忽略，则文件必然被忽略）</span>
+</span></span></code></pre></div><ul>
+<li><a href="https://www.toptal.com/developers/gitignore" target="_blank">一键生成gitignore</a></li>
+</ul>
+<p>克隆远程仓库</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git clone <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span> <span style="color:#75715e"># 复制仓库  </span>
+</span></span></code></pre></div>
+<h4 class="relative group">分支管理 
+    <div id="分支管理" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e5%88%86%e6%94%af%e7%ae%a1%e7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>查看分支</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SH" data-lang="SH"><span style="display:flex;"><span>git branch <span style="color:#75715e"># 查看本地分支</span>
+</span></span><span style="display:flex;"><span>git branch -r <span style="color:#75715e"># 查看远程分支</span>
+</span></span><span style="display:flex;"><span>git branch -a <span style="color:#75715e"># 查看所有分支</span>
+</span></span></code></pre></div><p>切换分支</p>
+<p>如果是创建新分支，则会保持当前文件状态</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git checkout -b &lt;branchname&gt; <span style="color:#75715e"># 创建并切换到分支</span>
+</span></span></code></pre></div><p>如果是切换到已有的分支，则必须先提交，切换到已有分支后，文件会变成目标分支的最后一次提交</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#f92672">[</span>msg<span style="color:#f92672">]</span> <span style="color:#75715e"># 切换分支前，首先提交</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git checkout <span style="color:#f92672">[</span>branchname<span style="color:#f92672">]</span> <span style="color:#75715e"># 切换分支</span>
+</span></span><span style="display:flex;"><span>git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#f92672">[</span>msg<span style="color:#f92672">]</span> <span style="color:#75715e"># 提交分支修改</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git checkout main <span style="color:#75715e"># 切换到主分支</span>
+</span></span><span style="display:flex;"><span>git merge <span style="color:#f92672">[</span>branch_name<span style="color:#f92672">]</span> <span style="color:#75715e"># 合并分支，并手动解决冲突</span>
+</span></span><span style="display:flex;"><span>git add &lt;conflict-file&gt;
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#f92672">[</span>msg<span style="color:#f92672">]</span> <span style="color:#75715e"># 合并与修改应当视为一次新的提交</span>
+</span></span></code></pre></div>
+<h4 class="relative group">远程仓库 
+    <div id="远程仓库" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git remote add <span style="color:#f92672">[</span>origin_name<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>http/ssh<span style="color:#f92672">]</span> <span style="color:#75715e"># 添加远程仓库</span>
+</span></span><span style="display:flex;"><span>git remote -v <span style="color:#75715e"># 查看远程仓库</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git fetch <span style="color:#f92672">&amp;&amp;</span> git merge <span style="color:#f92672">[</span>alias<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>branch<span style="color:#f92672">]</span> <span style="color:#75715e"># 拉取远程仓库，将远程仓库的指定分支合并到当前分支</span>
+</span></span><span style="display:flex;"><span>git pull <span style="color:#f92672">[</span>alias<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>branch<span style="color:#f92672">]</span> <span style="color:#75715e">#将远程仓库的[branch]拉取并合并到当前分支 </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git add &lt;conflict-file&gt; <span style="color:#75715e">#解决冲突</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#f92672">[</span>msg<span style="color:#f92672">]</span> <span style="color:#75715e"># 并提交</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git push -u <span style="color:#f92672">[</span>alias<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>branch<span style="color:#f92672">]</span> <span style="color:#75715e"># 第一次需要指定远程仓库</span>
+</span></span><span style="display:flex;"><span>git push <span style="color:#75715e"># 将[branch]推送到[alias]的[branch]</span>
+</span></span></code></pre></div>
+<h4 class="relative group">私有仓库 
+    <div id="私有仓库" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e7%a7%81%e6%9c%89%e4%bb%93%e5%ba%93" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>在deploy key中上传服务器的公钥即可</p>
+
+<h3 class="relative group">GDown 
+    <div id="gdown" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gdown" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gdown <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p><a href="https://cloud.tencent.com/developer/ask/sof/108261926" target="_blank">Gdown下载权限错误</a></p>
+
+<h3 class="relative group">Hugo 
+    <div id="hugo" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hugo" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://gohugo.io/documentation/" target="_blank">Hugo官方文档</a></p>
+
+<h4 class="relative group">部署 
+    <div id="部署" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e9%83%a8%e7%bd%b2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>将Hugo服务器部署到局域网</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>hugo server --bind <span style="color:#e6db74">&#34;0.0.0.0&#34;</span> <span style="color:#75715e"># 将hugo服务器端口向局域网内所有ip开放</span>
+</span></span><span style="display:flex;"><span>ifconfig | grep <span style="color:#ae81ff">192</span> <span style="color:#75715e"># 查看本机在局域网的ip</span>
+</span></span></code></pre></div><p><a href="https://simumis.com/posts/deploy-to-github/" target="_blank">将静态网站部署到Github Pages</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>hugo <span style="color:#f92672">&amp;&amp;</span> cd public <span style="color:#f92672">&amp;&amp;</span> git add . <span style="color:#f92672">&amp;&amp;</span> git commit -m <span style="color:#e6db74">&#39;update&#39;</span> <span style="color:#f92672">&amp;&amp;</span> git push <span style="color:#f92672">&amp;&amp;</span> cd ..
+</span></span></code></pre></div>
+<h4 class="relative group">主题 
+    <div id="主题" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e4%b8%bb%e9%a2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Theme</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://adityatelange.github.io/hugo-PaperMod/posts/papermod/papermod-installation/" target="_blank">PaperMod</a></td>
+          <td>配置简单，但功能较少</td>
+      </tr>
+      <tr>
+          <td><a href="https://blowfish.page/docs/" target="_blank">Blowfish</a></td>
+          <td>推荐</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">定制化功能 
+    <div id="定制化功能" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e5%ae%9a%e5%88%b6%e5%8c%96%e5%8a%9f%e8%83%bd" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>公式渲染</td>
+          <td>在layouts/partials中重写主题的某些文件，以blowfish为例，需要在vendor.html中重写katex部分的js脚本</td>
+      </tr>
+      <tr>
+          <td>社交图标</td>
+          <td><a href="https://www.iconfont.cn/" target="_blank">Social Icons SVG</a></td>
+      </tr>
+      <tr>
+          <td>站内搜索</td>
+          <td><a href="https://gohugo.io/tools/search/" target="_blank">Search Tools</a><br/><a href="https://www.beizigen.com/post/hugo-implements-simple-on-site-search/" target="_blank">原理</a></td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">iTerm2 
+    <div id="iterm2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#iterm2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://medium.com/@kwhsiung/%e5%9c%a8-iterm2-%e4%b8%ad%e6%96%b0%e5%a2%9e%e6%85%a3%e7%94%a8%e7%9a%84%e5%88%aa%e8%a1%8c-%e5%88%aa%e5%ad%97-%e8%b7%b3%e5%ad%97%e7%86%b1%e9%8d%b5-1c9a642aa22f" target="_blank">修改键盘映射</a></p>
+
+<h3 class="relative group">Vscode 
+    <div id="vscode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vscode" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>服务器连接失败</p>
+<p><code>.vscode-sever/bin</code>删除多余文件夹即可</p>
+
+<h4 class="relative group">自用配置 
+    <div id="自用配置" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e8%87%aa%e7%94%a8%e9%85%8d%e7%bd%ae" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Theme</td>
+          <td>One Dark Pro</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Python</td>
+          <td>编译器+格式化（black, pip安装）</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Matlab</td>
+          <td>编译器+gb2312</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Latex</td>
+          <td>xelatex</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">Docker 
+    <div id="docker" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#docker" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="image-20241010144153061" src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202410101442972.png" />
+
+  
+</figure>
+</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Image/镜像</td>
+          <td>通过Dockerfile将需要部署的应用打包成Image</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Container/容器</td>
+          <td>Docker运行在OS上，Contrainer运行在Docker上</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Docker</td>
+          <td>在相应地OS上安装对应的Docker</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Dockerfile</td>
+          <td>配置脚本</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+
+<h2 class="relative group">网络 
+    <div id="网络" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e7%bd%91%e7%bb%9c" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>获取ip</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ifconfig
+</span></span></code></pre></div><p>检查连通性</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ping <span style="color:#f92672">[</span>ip<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>ping <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span>
+</span></span></code></pre></div>
+<h3 class="relative group">下载 
+    <div id="下载" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e4%b8%8b%e8%bd%bd" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>wget <span style="color:#e6db74">``</span>http://www.ipcmen.com/testfile.zip<span style="color:#e6db74">``</span>
+</span></span><span style="display:flex;"><span>wget -O wordpress.zip <span style="color:#f92672">[</span>url<span style="color:#f92672">]</span>
+</span></span></code></pre></div>
+<h3 class="relative group">内网传输 
+    <div id="内网传输" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e5%86%85%e7%bd%91%e4%bc%a0%e8%be%93" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># sftp</span>
+</span></span><span style="display:flex;"><span>sftp user@ip
+</span></span><span style="display:flex;"><span>put 文件名
+</span></span><span style="display:flex;"><span>get 文件名
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># scp</span>
+</span></span><span style="display:flex;"><span>scp src/... tgt/...
+</span></span></code></pre></div>
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_software\/cheatsheet.md"
+        var oid_likes = "likes_software\/cheatsheet.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/software/latex/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Latex</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/software/python/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Python</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Xu Zhang
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://xuzhang0112.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

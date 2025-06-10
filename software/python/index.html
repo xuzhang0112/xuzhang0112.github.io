@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Python &middot; Xu Zhang&#39;s Blog</title>
+  <meta name="title" content="Python &middot; Xu Zhang&#39;s Blog" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://xuzhang0112.github.io/software/python/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.5f8f4777872a0d3d0d40b3754a43f54f29ae82af8e7ee8b8cb972495c44f0d770b15cd4194b7a49bc85950ac492768c127b305a57fc92ed77bf7e230fb6530a4.css"
+    integrity="sha512-X49Hd4cqDT0NQLN1SkP1Tymugq&#43;Ofui4y5cklcRPDXcLFc1BlLekm8hZUKxJJ2jBJ7MFpX/JLtd79&#43;Iw&#43;2UwpA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.165327e9b2a9a8807ad5cb6c943a8f9a52756791c128e2dbfb3623bb42429636adb4bbb076b0447b592cad02914321a6aef0db10b907465de34fda41e2830281.js"
+    integrity="sha512-FlMn6bKpqIB61ctslDqPmlJ1Z5HBKOLb&#43;zYju0JCljattLuwdrBEe1ksrQKRQyGmrvDbELkHRl3jT9pB4oMCgQ==" data-copy="Copy" data-copied="Copied"></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.f592a181a15d2a5b042daa7f746c3721acf9063f8b6acd175d989129865a37d400ae0e85b640f9ad42cd98d1f8ad30931718cf8811abdcc5fcb264400d1a2b0c.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj&#43;Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://xuzhang0112.github.io/software/python/">
+  <meta property="og:site_name" content="Xu Zhang&#39;s Blog">
+  <meta property="og:title" content="Python">
+  <meta property="og:description" content="推荐链接
+廖雪峰的官方网站
+Grammar # Basic Data Class # Tips List 有序，但查找效率非常低 Dict 有序，但并非插入顺序 Set 无序，顺序是随机的 Function # 函数签名 # def f(x: int, b: float): pass 参数组合 # 定义函数时，可使用必选参数、默认参数、可变参数、关键字参数和命名关键字参数。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="software">
+    <meta property="article:published_time" content="2025-04-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-25T00:00:00+00:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Python">
+  <meta name="twitter:description" content="推荐链接
+廖雪峰的官方网站
+Grammar # Basic Data Class # Tips List 有序，但查找效率非常低 Dict 有序，但并非插入顺序 Set 无序，顺序是随机的 Function # 函数签名 # def f(x: int, b: float): pass 参数组合 # 定义函数时，可使用必选参数、默认参数、可变参数、关键字参数和命名关键字参数。">
+
+    
+  
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Software",
+    "name": "Python",
+    "headline": "Python",
+    
+    "abstract": "\u003cp\u003e推荐链接\u003c\/p\u003e\n\u003cp\u003e\u003ca href=\u0022https:\/\/liaoxuefeng.com\/books\/python\/reg-exp\/index.html\u0022 target=\u0022_blank\u0022\u003e廖雪峰的官方网站\u003c\/a\u003e\u003c\/p\u003e\n\n\u003ch2 class=\u0022relative group\u0022\u003eGrammar \n    \u003cdiv id=\u0022grammar\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#grammar\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\n\u003ch3 class=\u0022relative group\u0022\u003eBasic Data Class \n    \u003cdiv id=\u0022basic-data-class\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#basic-data-class\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n      \u003ctr\u003e\n          \u003cth\u003e\u003c\/th\u003e\n          \u003cth\u003eTips\u003c\/th\u003e\n      \u003c\/tr\u003e\n  \u003c\/thead\u003e\n  \u003ctbody\u003e\n      \u003ctr\u003e\n          \u003ctd\u003eList\u003c\/td\u003e\n          \u003ctd\u003e有序，但查找效率非常低\u003c\/td\u003e\n      \u003c\/tr\u003e\n      \u003ctr\u003e\n          \u003ctd\u003eDict\u003c\/td\u003e\n          \u003ctd\u003e有序，但并非插入顺序\u003c\/td\u003e\n      \u003c\/tr\u003e\n      \u003ctr\u003e\n          \u003ctd\u003eSet\u003c\/td\u003e\n          \u003ctd\u003e无序，顺序是随机的\u003c\/td\u003e\n      \u003c\/tr\u003e\n  \u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\u003ch3 class=\u0022relative group\u0022\u003eFunction \n    \u003cdiv id=\u0022function\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#function\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\n\u003ch4 class=\u0022relative group\u0022\u003e函数签名 \n    \u003cdiv id=\u0022函数签名\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%e5%87%bd%e6%95%b0%e7%ad%be%e5%90%8d\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 style=\u0022color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\u0022\u003e\u003ccode class=\u0022language-Plain\u0022 data-lang=\u0022Plain\u0022\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003edef f(x: int, b: float):\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan style=\u0022display:flex;\u0022\u003e\u003cspan\u003e    pass\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\n\u003ch4 class=\u0022relative group\u0022\u003e参数组合 \n    \u003cdiv id=\u0022参数组合\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%e5%8f%82%e6%95%b0%e7%bb%84%e5%90%88\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e定义函数时，可使用\u003cem\u003e\u003cstrong\u003e必选参数、默认参数、可变参数、关键字参数和命名关键字参数\u003c\/strong\u003e\u003c\/em\u003e。\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "https:\/\/xuzhang0112.github.io\/software\/python\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Xu Zhang"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-04-25T00:00:00\u002b00:00",
+    "datePublished": "2025-04-25T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-04-25T00:00:00\u002b00:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1416"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Xu Zhang" />
+  
+  
+  
+  
+  <link href="https://scholar.google.com/citations?user=6-NiSKYAAAAJ&amp;hl=zh-CN" rel="me" />
+  
+  
+  
+  
+  <link href="https://www.zhihu.com/people/zhang-xu-20-31-39" rel="me" />
+  
+  
+  
+  
+  <link href="https://space.bilibili.com/456489591" rel="me" />
+  
+  
+  
+  
+  <link href="https://github.com/xuzhang0112" rel="me" />
+  
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css"
+    integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"
+    integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd"
+    crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+    integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk"
+    crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            
+            
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true },
+            ],
+            
+            throwOnError: false
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Xu Zhang&rsquo;s Blog</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+             
+  <div>
+  <div class="cursor-pointer flex items-center nested-menu">
+    
+    <a  class="text-base font-medium text-gray-500 hover:text-primary-600 dark:hover:text-primary-400" title="">
+      Tips
+    </a>
+    <span>
+      
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+    </span>
+  </div>
+  <div class="absolute menuhide">
+    <div class="pt-2 p-5 mt-2 rounded-xl backdrop-blur shadow-2xl">
+      <div class="flex flex-col space-y-3">
+        
+        <a href="/software/cheatsheet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="CheatSheet">
+            CheatSheet
+          </p>
+        </a>
+        
+        <a href="/software/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Python">
+            Python
+          </p>
+        </a>
+        
+        <a href="/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+          
+          <p class="text-sm font-sm" title="Course">
+            Course
+          </p>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+            
+            
+  <a href="/publication/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="📚Publications">
+        Publications
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/cv/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        About Me
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                     
+  <li class="mt-1">
+    <a href="" class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Tips
+        </p>
+        <span>
+            
+
+  <span class="relative block icon">
+    <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 20 20"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path
+    fill-rule="evenodd"
+    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+    clip-rule="evenodd"
+  />
+</svg>
+
+  </span>
+
+
+        </span>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/software/cheatsheet/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="CheatSheet">
+            CheatSheet
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/software/python/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Python">
+            Python
+        </p>
+    </a>
+</li>
+
+<li class="mt-1">
+    <a href="/course/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-sm font-small" title="Course">
+            Course
+        </p>
+    </a>
+</li>
+
+<li class="mb-2"></li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/publication/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="📚Publications">
+            Publications
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/cv/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            About Me
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Xu Zhang&#39;s Blog</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/software/"
+      >Software</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/software/python/"
+      >Python</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Python
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open id="TOCView" class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#grammar">Grammar</a>
+      <ul>
+        <li><a href="#basic-data-class">Basic Data Class</a></li>
+        <li><a href="#function">Function</a></li>
+        <li><a href="#iterator">Iterator</a></li>
+        <li><a href="#object">Object</a></li>
+        <li><a href="#modules">Modules</a></li>
+      </ul>
+    </li>
+    <li><a href="#nlp">NLP</a>
+      <ul>
+        <li><a href="#spacy">spacy</a></li>
+      </ul>
+    </li>
+    <li><a href="#web">Web</a>
+      <ul>
+        <li><a href="#fastapi--requests">FastAPI &amp; Requests</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-processing">Data Processing</a>
+      <ul>
+        <li><a href="#jupter-notebook">Jupter Notebook</a></li>
+        <li><a href="#pandas">Pandas</a></li>
+        <li><a href="#matplotlib">Matplotlib</a></li>
+        <li><a href="#jsonyaml">json/yaml</a></li>
+      </ul>
+    </li>
+    <li><a href="#deep-learning">Deep Learning</a>
+      <ul>
+        <li><a href="#torch">Torch</a></li>
+        <li><a href="#pyg-torch_gemotry">PyG: torch_gemotry</a></li>
+      </ul>
+    </li>
+    <li><a href="#experiemnt">Experiemnt</a>
+      <ul>
+        <li><a href="#torchmetrics">TorchMetrics</a></li>
+        <li><a href="#tensorboardwandbswanlab">Tensorboard/wandb/Swanlab</a></li>
+      </ul>
+    </li>
+    <li><a href="#ai-infra-for-llm">AI Infra for LLM</a>
+      <ul>
+        <li><a href="#llm-download">LLM Download</a></li>
+        <li><a href="#transformers">Transformers</a></li>
+        <li><a href="#datasets">Datasets</a></li>
+        <li><a href="#accelerate">Accelerate</a></li>
+        <li><a href="#vllm">VLLM</a></li>
+        <li><a href="#llama-factory">LLaMa Factory</a></li>
+        <li><a href="#verl">VERL</a></li>
+      </ul>
+    </li>
+    <li><a href="#file-system">File System</a>
+      <ul>
+        <li><a href="#正则匹配与路径操作">正则匹配与路径操作</a></li>
+        <li></li>
+        <li><a href="#工作目录与包管理">工作目录与包管理</a></li>
+        <li><a href="#文件的增删改查">文件的增删改查</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#grammar">Grammar</a>
+      <ul>
+        <li><a href="#basic-data-class">Basic Data Class</a></li>
+        <li><a href="#function">Function</a></li>
+        <li><a href="#iterator">Iterator</a></li>
+        <li><a href="#object">Object</a></li>
+        <li><a href="#modules">Modules</a></li>
+      </ul>
+    </li>
+    <li><a href="#nlp">NLP</a>
+      <ul>
+        <li><a href="#spacy">spacy</a></li>
+      </ul>
+    </li>
+    <li><a href="#web">Web</a>
+      <ul>
+        <li><a href="#fastapi--requests">FastAPI &amp; Requests</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-processing">Data Processing</a>
+      <ul>
+        <li><a href="#jupter-notebook">Jupter Notebook</a></li>
+        <li><a href="#pandas">Pandas</a></li>
+        <li><a href="#matplotlib">Matplotlib</a></li>
+        <li><a href="#jsonyaml">json/yaml</a></li>
+      </ul>
+    </li>
+    <li><a href="#deep-learning">Deep Learning</a>
+      <ul>
+        <li><a href="#torch">Torch</a></li>
+        <li><a href="#pyg-torch_gemotry">PyG: torch_gemotry</a></li>
+      </ul>
+    </li>
+    <li><a href="#experiemnt">Experiemnt</a>
+      <ul>
+        <li><a href="#torchmetrics">TorchMetrics</a></li>
+        <li><a href="#tensorboardwandbswanlab">Tensorboard/wandb/Swanlab</a></li>
+      </ul>
+    </li>
+    <li><a href="#ai-infra-for-llm">AI Infra for LLM</a>
+      <ul>
+        <li><a href="#llm-download">LLM Download</a></li>
+        <li><a href="#transformers">Transformers</a></li>
+        <li><a href="#datasets">Datasets</a></li>
+        <li><a href="#accelerate">Accelerate</a></li>
+        <li><a href="#vllm">VLLM</a></li>
+        <li><a href="#llama-factory">LLaMa Factory</a></li>
+        <li><a href="#verl">VERL</a></li>
+      </ul>
+    </li>
+    <li><a href="#file-system">File System</a>
+      <ul>
+        <li><a href="#正则匹配与路径操作">正则匹配与路径操作</a></li>
+        <li></li>
+        <li><a href="#工作目录与包管理">工作目录与包管理</a></li>
+        <li><a href="#文件的增删改查">文件的增删改查</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>推荐链接</p>
+<p><a href="https://liaoxuefeng.com/books/python/reg-exp/index.html" target="_blank">廖雪峰的官方网站</a></p>
+
+<h2 class="relative group">Grammar 
+    <div id="grammar" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#grammar" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">Basic Data Class 
+    <div id="basic-data-class" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#basic-data-class" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Tips</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>List</td>
+          <td>有序，但查找效率非常低</td>
+      </tr>
+      <tr>
+          <td>Dict</td>
+          <td>有序，但并非插入顺序</td>
+      </tr>
+      <tr>
+          <td>Set</td>
+          <td>无序，顺序是随机的</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">Function 
+    <div id="function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">函数签名 
+    <div id="函数签名" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e5%87%bd%e6%95%b0%e7%ad%be%e5%90%8d" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Plain" data-lang="Plain"><span style="display:flex;"><span>def f(x: int, b: float):
+</span></span><span style="display:flex;"><span>    pass
+</span></span></code></pre></div>
+<h4 class="relative group">参数组合 
+    <div id="参数组合" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e5%8f%82%e6%95%b0%e7%bb%84%e5%90%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>定义函数时，可使用<em><strong>必选参数、默认参数、可变参数、关键字参数和命名关键字参数</strong></em>。</p>
+<p>这5种参数都可以组合使用，但<em><strong>必须按顺序</strong></em>使用。</p>
+<p>有多个默认参数时，调用的时候，既可以按顺序提供默认参数，也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。</p>
+<p>比如定义一个函数，包含上述若干种参数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f1</span>(a, b, c<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, <span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f2</span>(a, b, c<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, <span style="color:#f92672">*</span>, d, <span style="color:#f92672">**</span>kw):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>在函数调用的时候，必须先按顺序传入，再按参数名传入。</p>
+<p>由于Python解释器会按上述顺序解析5种参数，因此，如果要传入可变参数，必须先传入默认参数。</p>
+
+<h4 class="relative group">解包 
+    <div id="解包" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e8%a7%a3%e5%8c%85" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>对于任意函数，都可以通过类似<code>func(*args, **kw)</code>的形式调用它，无论它的参数是如何定义的。</p>
+<p>tuple用<code>*</code>解包，dic用<code>**</code>解包。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>args <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>kw <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;d&#39;</span>: <span style="color:#ae81ff">99</span>, <span style="color:#e6db74">&#39;x&#39;</span>: <span style="color:#e6db74">&#39;#&#39;</span>}
+</span></span><span style="display:flex;"><span>f(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw)
+</span></span></code></pre></div><ul>
+<li>
+<p><code>zip()</code>表示压缩；<code>zip(*)</code>表示解压</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> b <span style="color:#f92672">=</span> [<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> zip(a,b)     <span style="color:#75715e"># 返回一个对象</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>zip object at <span style="color:#ae81ff">0x103abc288</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> list(zipped)  <span style="color:#75715e"># list() 转换为列表</span>
+</span></span><span style="display:flex;"><span>[(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>), (<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>), (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">6</span>)]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a1, a2 <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>zip(a,b))  <span style="color:#75715e"># 与 zip 相反，zip(*) 可理解为解压</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> list(a1), list(a2)
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>], [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>]
+</span></span></code></pre></div></li>
+</ul>
+
+<h4 class="relative group">装饰器 
+    <div id="装饰器" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e8%a3%85%e9%a5%b0%e5%99%a8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>装饰器<strong>定义复杂，使用简单</strong></p>
+<p>以定义一个<code>log</code>装饰器为例，其中<code>@functools.wraps(func)</code>可以保持装饰后函数的<code>__name__</code>属性不变</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> functools
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">log</span>(func):
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@functools.wraps</span>(func)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">wrapper</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw):
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#39;call </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">():&#39;</span> <span style="color:#f92672">%</span> func<span style="color:#f92672">.</span>__name__)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> func(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> wrapper
+</span></span></code></pre></div><p>使用装饰器只需要在需要装饰的函数定义前加<code>@log</code>，即可使得装饰后的函数在每次调用时打印函数名称</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">@log</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_func</span>(<span style="color:#f92672">*</span>args,<span style="color:#f92672">**</span>kw):
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">pass</span>
+</span></span></code></pre></div><p>常用装饰器</p>
+<p>@dataclass</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">@dataclass</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>:
+</span></span><span style="display:flex;"><span>    x: float
+</span></span><span style="display:flex;"><span>    y: float
+</span></span><span style="display:flex;"><span>    z: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#上下两者等价</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, x: float, y: float, z: float <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> x
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>y <span style="color:#f92672">=</span> y
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>z <span style="color:#f92672">=</span> z
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__repr__</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Point(x=</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>x<span style="color:#e6db74">}</span><span style="color:#e6db74">, y=</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>y<span style="color:#e6db74">}</span><span style="color:#e6db74">, z=</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>z<span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__eq__</span>(self, other):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(other, Point):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> NotImplemented
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (self<span style="color:#f92672">.</span>x, self<span style="color:#f92672">.</span>y, self<span style="color:#f92672">.</span>z) <span style="color:#f92672">==</span> (other<span style="color:#f92672">.</span>x, other<span style="color:#f92672">.</span>y, other<span style="color:#f92672">.</span>z)
+</span></span></code></pre></div>
+<h4 class="relative group">匿名函数和偏函数 
+    <div id="匿名函数和偏函数" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e5%8c%bf%e5%90%8d%e5%87%bd%e6%95%b0%e5%92%8c%e5%81%8f%e5%87%bd%e6%95%b0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>lambda在传参时传的是变量；partial在传参时传的是对象；</p>
+
+<h3 class="relative group">Iterator 
+    <div id="iterator" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#iterator" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<img src="https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407191834521.png" alt="image-20240719183328055" style="zoom: 25%;" />
+<table>
+  <thead>
+      <tr>
+          <th>可迭代对象</th>
+          <th>定义</th>
+          <th>举例</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>一般可迭代对象</td>
+          <td>可通过for循环遍历的对象，可通过索引访问</td>
+          <td>字符串、列表、字典、集合……</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>迭代器</td>
+          <td>惰性遍历，通过next访问下一个</td>
+          <td>一般可迭代对象创建的迭代器（使用iter创建）、生成器（使用yield创建）</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>for循环的本质是通过iter方法获取可迭代对象的迭代器</strong></p>
+
+<h3 class="relative group">Object 
+    <div id="object" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#object" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><em><strong>静态变量</strong></em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Plain" data-lang="Plain"><span style="display:flex;"><span>Class A:
+</span></span><span style="display:flex;"><span>    a: List[int]
+</span></span><span style="display:flex;"><span>    b: Dict[float] | str
+</span></span></code></pre></div><p><em><strong>方法</strong></em></p>
+<ul>
+<li>内置方法</li>
+<li>实例方法
+<ul>
+<li>实例方法最少也要包含一个 self 参数，调用时Python会自动将对象传给self参数</li>
+<li>实例方法一般由对象直接调用，也支持使用类名调用实例方法，但此方式需要手动给 self 参数传值</li>
+</ul>
+</li>
+<li>类方法
+<ul>
+<li>类方法需要使用<code>＠classmethod</code>修饰符进行修饰</li>
+<li>类方法至少要包含一个参数，通常将其命名为 cls，调用时Python 会自动将类本身传给 cls 参数</li>
+<li>类方法推荐使用类名直接调用，当然也可以使用实例对象来调用（不推荐）</li>
+</ul>
+</li>
+<li>静态方法
+<ul>
+<li>静态方法需要使用<code>＠staticmethod</code>修饰</li>
+<li>相当于函数，唯一的区别是静态方法定义在类命名空间中，而函数定义在程序的全局命名空间中</li>
+<li>既没有类似 self、cls 这样的特殊参数，也无法调用任何类属性和类方法</li>
+<li>既可以由类调用，也可以由对象调用</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">Modules 
+    <div id="modules" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#modules" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><em><strong>换镜像源</strong></em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pip config set global.index-url  https://pypi.mirrors.ustc.edu.cn/simple  <span style="color:#75715e"># 永久切换</span>
+</span></span></code></pre></div><p><em><strong>安装第三方库</strong></em></p>
+<p>普通安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>pip install package <span style="color:#75715e"># 安装到python安装目录(可修改)</span>
+</span></span><span style="display:flex;"><span>pip install package -e <span style="color:#75715e"># 安装到工作目录，便于修改</span>
+</span></span><span style="display:flex;"><span>pip install -i <span style="color:#e6db74">``</span>https://pypi.mirrors.ustc.edu.cn/simple<span style="color:#e6db74">``</span>  matplotlib <span style="color:#75715e"># 临时指定镜像</span>
+</span></span><span style="display:flex;"><span>pip install -r requirements.txt <span style="color:#75715e"># 批量安装</span>
+</span></span></code></pre></div><ul>
+<li>有些库在导入时和安装时的名称是不一样的，例如hydra和hydra-core，sklearn和scikit-learn等</li>
+<li>有些库没有被pypi收录，只能在GitHub上下载和安装，例如GroundingDINO</li>
+<li>有些库无法安装是因为操作系统的一些底层库版本太老，例如gcc和libstdcxx-ng，CUDA版本过老等，如果没有sudo权限，可以通过conda安装一些依赖库</li>
+</ul>
+<p><em><strong>导入第三方库</strong></em></p>
+<ul>
+<li>
+<p>绝对导入：沿着<code>sys.path</code>搜索Module，首先是被执行的python文件所在的目录，注意不是工作目录，其次是Python包的安装路径</p>
+<ul>
+<li>
+<p><code>import A.B</code>或<code>from A import B</code></p>
+</li>
+<li>
+<p><code>sys.path.append() ## NOQA: E402</code> 将项目目录暂时添加到环境变量PYTHONPATH中</p>
+</li>
+</ul>
+</li>
+<li>
+<p>相对导入：仅限于package内部</p>
+<ul>
+<li>通过<code>__init__.py</code>中的<code>from . import A</code>或<code>from ..A import B</code>实现</li>
+<li>使用相对导入的程序无法作为主程序执行，只能用作package的入口</li>
+</ul>
+</li>
+<li>
+<p>文件和文件夹在作为Module时是同一层级的，使用<code>from A import *</code>时都是导入其下所有的对象</p>
+</li>
+</ul>
+
+<h2 class="relative group">NLP 
+    <div id="nlp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#nlp" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">spacy 
+    <div id="spacy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#spacy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://allenai.github.io/scispacy/" target="_blank">第三方：用于生物医学语料的spacy模型</a></p>
+
+<h2 class="relative group">Web 
+    <div id="web" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#web" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">FastAPI &amp; Requests 
+    <div id="fastapi--requests" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fastapi--requests" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://www.runoob.com/fastapi/fastapi-tutorial.html" target="_blank">https://www.runoob.com/fastapi/fastapi-tutorial.html</a></p>
+<p><a href="https://blog.csdn.net/qq_36187610/article/details/131835752" target="_blank">利用FastAPI构建大模型接口服务</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Server</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> FastAPI
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> pydantic <span style="color:#f92672">import</span> BaseModel
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> uvicorn
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#f92672">=</span> FastAPI()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Item</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    text: str
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.post</span>(<span style="color:#e6db74">&#34;/predict&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">infer</span>(item: Item):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;pred&#34;</span>:<span style="color:#f92672">...</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>uvicorn<span style="color:#f92672">.</span>run(app, host<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.0.0.0&#34;</span>, port<span style="color:#f92672">=</span><span style="color:#ae81ff">9898</span>, workers<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Client</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>requests<span style="color:#f92672">.</span>post(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;http://0.0.0.0:9898/predict&#34;</span>, json<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;text&#34;</span>: discharge_summary}
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div>
+<h2 class="relative group">Data Processing 
+    <div id="data-processing" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#data-processing" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">Jupter Notebook 
+    <div id="jupter-notebook" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#jupter-notebook" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>在cell中执行shell</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>!pwd <span style="color:#75715e">#单条shell命令</span>
+</span></span><span style="display:flex;"><span>%%bash <span style="color:#75715e">#整个cell作为shell脚本</span>
+</span></span></code></pre></div><p>模块自动重载，否则每次修改需要重启kernel</p>
+<pre tabindex="0"><code>%load_ext autoreload
+%autoreload 2 #每执行一个cell都会重载所有模块
+</code></pre>
+<h3 class="relative group">Pandas 
+    <div id="pandas" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pandas" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://www.runoob.com/pandas/pandas-dataframe.html" target="_blank">菜鸟教程yyds</a></p>
+<p>创建Dataframe</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 从外部读取</span>
+</span></span><span style="display:flex;"><span>read_csv() <span style="color:#75715e"># sep:分隔符; header:默认是第一行; names:如果指定则说明没有header;</span>
+</span></span><span style="display:flex;"><span>read_excel()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建空的DataFrame</span>
+</span></span><span style="display:flex;"><span>Dataframe(columns<span style="color:#f92672">=</span>[column_name1, column_name2])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 根据可迭代对象创建DataFrame</span>
+</span></span><span style="display:flex;"><span>Dataframe([{column1:a,column2:b},{}])  <span style="color:#75715e"># 每个元素是一个Dict，表示一行</span>
+</span></span><span style="display:flex;"><span>Dataframe([[a,b],[c,d],[e,f]]<span style="color:#960050;background-color:#1e0010">，</span>columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;c1&#39;</span>,<span style="color:#e6db74">&#39;c2&#39;</span>])  <span style="color:#75715e"># 每个元素是一个List，代表一行</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 根据Dict创建DataFrame</span>
+</span></span><span style="display:flex;"><span>Dataframe<span style="color:#f92672">.</span>from_dict({column1:[<span style="color:#f92672">...</span>],column2:[<span style="color:#f92672">...</span>]}) <span style="color:#75715e">#字典的key表示某一列</span>
+</span></span><span style="display:flex;"><span>Dataframe<span style="color:#f92672">.</span>from_dict({index1:[c1,c2,c3], index2:[c1,c2,c3], <span style="color:#f92672">...</span>}) <span style="color:#75715e">#字典的key表示某一行的索引</span>
+</span></span></code></pre></div><p>添加新的行/列</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 创建新的列</span>
+</span></span><span style="display:flex;"><span>df[new_column] <span style="color:#f92672">=</span> constant <span style="color:#f92672">/</span> df[a]<span style="color:#f92672">+</span>df[b] <span style="color:#f92672">/</span> df[a]<span style="color:#f92672">.</span>apply(func) <span style="color:#75715e"># 老版本的写法</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>loc[:,c] <span style="color:#f92672">=</span> df[a] <span style="color:#f92672">+</span> df[b] <span style="color:#75715e"># 更建议的写法</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 创建新的行</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>loc[len(df)] <span style="color:#f92672">=</span> Series({column1<span style="color:#f92672">=</span>x,column2<span style="color:#f92672">=</span>y,<span style="color:#f92672">...</span>})
+</span></span></code></pre></div><p>筛选行/列/元素</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 索引单行单列</span>
+</span></span><span style="display:flex;"><span>df[column_name]<span style="color:#960050;background-color:#1e0010">`</span>  <span style="color:#75715e"># 索引某一列</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>loc[idx]  <span style="color:#75715e"># 索引某一行</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 索引单一元素</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>loc[idx, column_name]  <span style="color:#75715e"># 索引某个元素</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>iloc[idx, column_idx]  <span style="color:#75715e"># </span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>loc[bool_index]<span style="color:#f92672">.</span>values <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 索引多行多列</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>loc[[idx1,idx2]][[column_name1,colunmn_name2]] <span style="color:#75715e">#索引多行多列</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>loc[[idx1,idx2],[column_name1,colunmn_name2]] <span style="color:#75715e">#索引多行多列</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 按条件筛选</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>loc[df[a] <span style="color:#f92672">==</span> df[b],:] <span style="color:#75715e"># 按列筛选的结果，本质上是一种行索引</span>
+</span></span></code></pre></div><p>更改索引列</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[new_column_list] <span style="color:#75715e"># 重排column</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>reset_index(names<span style="color:#f92672">=</span>[]) <span style="color:#75715e"># 生成新的索引列，原索引列重命名</span>
+</span></span></code></pre></div><p>统计分析</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#f92672">.</span>value_counts(column_name)
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>plot()
+</span></span></code></pre></div><ul>
+<li>判断某个元素是否属于某一列，必须先将该列转化为可迭代对象</li>
+</ul>
+
+<h3 class="relative group">Matplotlib 
+    <div id="matplotlib" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#matplotlib" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>常用工作流</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>pca() <span style="color:#75715e">#清空画布</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot() <span style="color:#75715e">#画折线</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show() <span style="color:#75715e">#显示图片（ssh时不可用）</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>savefig(save_path) <span style="color:#75715e">#保存图片</span>
+</span></span></code></pre></div><p>柱状图/散点图</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>bar(bins1,height<span style="color:#f92672">=</span>hist1) <span style="color:#75715e"># 柱状图</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(x,y,size,color) <span style="color:#75715e"># 散点图</span>
+</span></span></code></pre></div><p>显示中文字体</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> matplotlib.font_manager <span style="color:#f92672">import</span> FontProperties
+</span></span><span style="display:flex;"><span>font <span style="color:#f92672">=</span> FontProperties(fname<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;../PingFang.ttc&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>) <span style="color:#75715e">#配置本地字体</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(title, fontproperties<span style="color:#f92672">=</span>font) <span style="color:#75715e">#标题</span>
+</span></span><span style="display:flex;"><span>names <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>join(string)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xticks(range(len(names)), names, fontproperties<span style="color:#f92672">=</span>font, rotation<span style="color:#f92672">=</span><span style="color:#ae81ff">90</span>) <span style="color:#75715e">#横轴</span>
+</span></span></code></pre></div>
+<h3 class="relative group">json/yaml 
+    <div id="jsonyaml" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#jsonyaml" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>以json为例，其读写文件需要使用文件句柄</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(filename,<span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> f: 
+</span></span><span style="display:flex;"><span>    json_dict <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>load(f) <span style="color:#75715e">#读</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(filename,<span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>    json<span style="color:#f92672">.</span>dump(json_dict, f, ensure_ascii<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>) <span style="color:#75715e">#写</span>
+</span></span><span style="display:flex;"><span>    
+</span></span></code></pre></div><p>yaml与json的写法是类似的，只是用到的库是yaml</p>
+<p><a href="https://www.bejson.com/validators/yaml_editor/" target="_blank">yaml校验器</a></p>
+
+<h2 class="relative group">Deep Learning 
+    <div id="deep-learning" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#deep-learning" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">Torch 
+    <div id="torch" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#torch" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">Tensor 
+    <div id="tensor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tensor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>创建tensor</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>tensor()  <span style="color:#75715e">#将其他数据类型（list,array等）转换为张量</span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>empty()  
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>zeros()                                                                            
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>ones()                                                                              
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>rand()    <span style="color:#75715e"># 均匀分布, 0-1之间</span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>randn()   <span style="color:#75715e"># 正态分布, 均值为0, 方差为1</span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>normal()  <span style="color:#75715e"># 可指定均值和方差的正态分布</span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>_()
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>randint() <span style="color:#75715e"># 需要指定上下界                                                            </span>
+</span></span></code></pre></div><ul>
+<li>创建tensor时，需要指定size和dtype</li>
+<li>一般size=(x, y, z), dtype=torch.xx</li>
+<li>float=float32; double=float64; int=int32; long=int64</li>
+</ul>
+<p>操作tensor</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#拼接</span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>cat([tensor,<span style="color:#f92672">...</span>], dim<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>) <span style="color:#75715e"># 在现有的维度上堆叠</span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>stack([tensor,<span style="color:#f92672">...</span>], dim<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>) <span style="color:#75715e"># 创建一个新的维度，在上面堆叠</span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>utils<span style="color:#f92672">.</span>rnn<span style="color:#f92672">.</span>pad_seq([seq_a, seq_b, <span style="color:#f92672">...</span>], batch_first<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>) <span style="color:#75715e"># 不等长序列补零后拼接</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 索引</span>
+</span></span><span style="display:flex;"><span>tensor[x,y,z] <span style="color:#75715e"># 标量索引，索引坐标为(x,y,z)的元素</span>
+</span></span><span style="display:flex;"><span>tensor[[x1,x2],y,z] <span style="color:#75715e"># 列表索引，索引坐标为(x1,y,z)和(x2,y,z)的元素</span>
+</span></span><span style="display:flex;"><span>tensor[tensor1,tensor2,tensor3] <span style="color:#75715e"># 张量索引，索引坐标为(x1,y1,z1),...(xn,yn,zn)的元素，tensor必须是一维张量</span>
+</span></span><span style="display:flex;"><span>(tensor <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>)<span style="color:#f92672">.</span>nonzero(as_tuple<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>) <span style="color:#75715e"># 获取满足条件的索引</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 扩张</span>
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>expand() <span style="color:#75715e">#沿维度扩张n倍</span>
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>repeat(n1, n2) <span style="color:#75715e"># repeat的维度必须&gt;=原始维度，并且原始的tensor会置于最后</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">x = randn(dim1,dim2)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">x.repeat(n1,n2)返回(n1*dim1,n2*dim2)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">x.repeat(n1,n2,1,1)返回(n1,n2,dim1,dim2)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 转置</span>
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>permute(dim1, dim2, dim3, <span style="color:#960050;background-color:#1e0010">…</span>)
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>transpose(dim1, dim2) <span style="color:#75715e">#只能二维</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#变形</span>
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>view(dim1,dim2,dim3,<span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>reshape(dim1,dim2,dim3,<span style="color:#f92672">...</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#计算</span>
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>norm(dim, keep_dim<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>) <span style="color:#75715e">#沿指定维度求范数</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 复制+去除梯度</span>
+</span></span><span style="display:flex;"><span>tensor<span style="color:#f92672">.</span>clone()<span style="color:#f92672">.</span>detatch()
+</span></span></code></pre></div><ul>
+<li>交换维度：permute可以对任意高维矩阵进行转置，transpose只能在两个维度之间转换，其他维度保持不变。</li>
+<li>Tensor重排: view更快，reshape分配新的内存，更慢但更通用</li>
+<li>Broadcast机制：维度不等的两个Tensor在进行运算时，从后往前遍历各个维度，若两个Tensor在某一维度不等，且较小的Tensor在该维度的长度为1或不存在时，可以Broadcast至相等维度</li>
+</ul>
+
+<h4 class="relative group">Model 
+    <div id="model" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#model" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>注册参数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="color:#f92672">.</span>register_buffer(name, tensor)
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>register_parameter(name, tensor)
+</span></span><span style="display:flex;"><span>nn<span style="color:#f92672">.</span>Parameter()
+</span></span></code></pre></div><p>模型遍历</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model<span style="color:#f92672">.</span>modules()  <span style="color:#75715e">#遍历model的所有子层，类比DFS搜索，有重复。</span>
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>children()  <span style="color:#75715e">#遍历model的所有浅层</span>
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>parameters()  <span style="color:#75715e">#保存的是Weights和Bais参数的值</span>
+</span></span></code></pre></div><p>模型微调</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>parameters():
+</span></span><span style="display:flex;"><span>    p<span style="color:#f92672">.</span>requires_grad <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span></code></pre></div><p>显存占用</p>
+<ol>
+<li>模型参数：初始化产生</li>
+<li>中间结果：前向传播产生（网络中如果存在一些较长的连接，比如第10层的网络需要使用来自网络第一层的输出结果，这部分的特征图就会一直占用显存）</li>
+<li>模型参数的梯度：反向传播产生</li>
+<li>优化器状态：例如Adam会保存每个参数的二阶梯度</li>
+</ol>
+<p>常见模块的的参数量和计算量</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Module</th>
+          <th style="text-align: center">参数量</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Conv2d</td>
+          <td style="text-align: center">$C_{out} \times H_{kernel} \times W_{kernel} \times C_{in}$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Linear</td>
+          <td style="text-align: center">$C_{out} \times C_{in}$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">MultiHeadAttention</td>
+          <td style="text-align: center">$N_{head} \times (C_{in} \times C_{query} + C_{in} \times C_{key} +C_{in} \times C_{value})$</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">Dataset &amp; Dataloader 
+    <div id="dataset--dataloader" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dataset--dataloader" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>
+<p>transform: 一般在Dataset中定义，在返回一个Index的sample时进行处理</p>
+</li>
+<li>
+<p>batch_sampler: 从Dataset中获取一个batch的sample, 其中index的获取取决于采样算法</p>
+</li>
+<li>
+<p>collect_function: 将样本变成Batch</p>
+<ul>
+<li>输入：列表，长度为Batch_size，列表的每个元素是字典，代表一个样本</li>
+<li>输出：字典，每个键值对是一个类型和对应的Tensor，并且已经有了Batch_size这个维度</li>
+</ul>
+</li>
+<li>
+<p>[PyTorch DataLoader工作原理可视化](</p>
+</li>
+</ul>
+
+<h3 class="relative group">PyG: torch_gemotry 
+    <div id="pyg-torch_gemotry" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pyg-torch_gemotry" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>官方文档</p>
+<ul>
+<li><a href="https://pytorch-geometric.readthedocs.io/en/latest/get_started/introduction.html" target="_blank">Introduction by Example</a></li>
+<li><a href="https://pytorch-geometric.readthedocs.io/en/latest/tutorial/heterogeneous.html" target="_blank">Heterogeneous Graph Learning</a></li>
+</ul>
+<p>Installation</p>
+<ol>
+<li>根据cuda版本和pytorch版本，选择合适的PyG版本</li>
+<li>用whl安装各个PyG依赖包，然后把sparse-conv卸掉</li>
+</ol>
+<p>Debug</p>
+<ol>
+<li>报错信息并不一定反映真实情况
+<ol>
+<li>在CPU上调试以获取尽可能有效的报错信息</li>
+<li>可能是版本问题或者是dtype不一致这种基础错误</li>
+</ol>
+</li>
+<li>PyG对异构图的支持不如同构图完善
+<ol>
+<li>优先使用同构图</li>
+<li>异构图需要每张图都包含所有类型的节点和边，如果没有就用torch.empty()填充</li>
+<li>异构图的边类型命名不能含有数字</li>
+</ol>
+</li>
+</ol>
+<p>子图采样</p>
+<p><code>torch_geometric.utils</code>提供了若干用于从大图中进行子图采样的API</p>
+<table>
+  <thead>
+      <tr>
+          <th>API</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>subgraph</td>
+          <td>只包含给点节点的子图；自动滤除没有边连接的节点；返回用全局索引表达的边和边属性</td>
+      </tr>
+      <tr>
+          <td>k_hop_subgraph</td>
+          <td>会给k-hop节点分配新的局部索引；edge_index是由新的局部索引来表达；edge_mask是按原始边索引的相对位置来排布的，用于筛选这些边对应的特征；</td>
+      </tr>
+  </tbody>
+</table>
+<p>GNN设计</p>
+<p>在pyg的设计理念中，边是有向的，消息传递是沿着source节点到target节点，如果是无向边，需要自己设置两条边</p>
+
+<h2 class="relative group">Experiemnt 
+    <div id="experiemnt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#experiemnt" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">TorchMetrics 
+    <div id="torchmetrics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#torchmetrics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://lightning.ai/docs/torchmetrics/stable/pages/quickstart.html" target="_blank">quick start</a></p>
+<p>预定义指标</p>
+<p>函数式</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> torch
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torchmetrics
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>preds <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">5</span>)<span style="color:#f92672">.</span>softmax(dim<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>target <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">5</span>, (<span style="color:#ae81ff">10</span>,))
+</span></span><span style="display:flex;"><span>acc <span style="color:#f92672">=</span> torchmetrics<span style="color:#f92672">.</span>functional<span style="color:#f92672">.</span>accuracy(preds, target, task<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;multiclass&#34;</span>, num_classes<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+</span></span></code></pre></div><p>对象式</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> torch
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torchmetrics
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>metric <span style="color:#f92672">=</span> torchmetrics<span style="color:#f92672">.</span>classification<span style="color:#f92672">.</span>Accuracy(task<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;multiclass&#34;</span>, num_classes<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>n_batches <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n_batches):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># simulate a classification problem</span>
+</span></span><span style="display:flex;"><span>    preds <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">5</span>)<span style="color:#f92672">.</span>softmax(dim<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    target <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">5</span>, (<span style="color:#ae81ff">10</span>,))
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># metric on current batch</span>
+</span></span><span style="display:flex;"><span>    acc <span style="color:#f92672">=</span> metric(preds, target)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Accuracy on batch </span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">{</span>acc<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># metric on all batches using custom accumulation</span>
+</span></span><span style="display:flex;"><span>acc <span style="color:#f92672">=</span> metric<span style="color:#f92672">.</span>compute()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Accuracy on all data: </span><span style="color:#e6db74">{</span>acc<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Resetting internal state such that metric ready for new data</span>
+</span></span><span style="display:flex;"><span>metric<span style="color:#f92672">.</span>reset()
+</span></span></code></pre></div><p>自定义指标</p>
+<p>在<code>__init__</code>中定义不同batch计算结果的聚合方式，在<code>update</code>中定义每个batch的前向计算，在<code>compute</code>中定义所有batch计算完成后的后处理。</p>
+<p>方式一：在每个batch进行指标计算，后处理时聚合</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> torchmetrics <span style="color:#f92672">import</span> Metric
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAccuracy</span>(Metric):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span><span style="color:#a6e22e">__init__</span>(<span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>add_state(<span style="color:#e6db74">&#34;correct&#34;</span>, default<span style="color:#f92672">=</span>torch<span style="color:#f92672">.</span>tensor(<span style="color:#ae81ff">0</span>), dist_reduce_fx<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sum&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>add_state(<span style="color:#e6db74">&#34;total&#34;</span>, default<span style="color:#f92672">=</span>torch<span style="color:#f92672">.</span>tensor(<span style="color:#ae81ff">0</span>), dist_reduce_fx<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sum&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>(self, preds: Tensor, target: Tensor) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        preds, target <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_input_format(preds, target)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> preds<span style="color:#f92672">.</span>shape <span style="color:#f92672">!=</span> target<span style="color:#f92672">.</span>shape:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#34;preds and target must have the same shape&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>correct <span style="color:#f92672">+=</span> torch<span style="color:#f92672">.</span>sum(preds <span style="color:#f92672">==</span> target)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>total <span style="color:#f92672">+=</span> target<span style="color:#f92672">.</span>numel()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute</span>(self) <span style="color:#f92672">-&gt;</span> Tensor:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>correct<span style="color:#f92672">.</span>float() <span style="color:#f92672">/</span> self<span style="color:#f92672">.</span>total
+</span></span></code></pre></div><p>方式二：在每个batch保存结果，最终一起计算</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> torchmetrics <span style="color:#f92672">import</span> Metric
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> torchmetrics.utilities <span style="color:#f92672">import</span> dim_zero_cat
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MySpearmanCorrCoef</span>(Metric):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span><span style="color:#a6e22e">__init__</span>(<span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>add_state(<span style="color:#e6db74">&#34;preds&#34;</span>, default<span style="color:#f92672">=</span>[], dist_reduce_fx<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cat&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>add_state(<span style="color:#e6db74">&#34;target&#34;</span>, default<span style="color:#f92672">=</span>[], dist_reduce_fx<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;cat&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>(self, preds: Tensor, target: Tensor) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>preds<span style="color:#f92672">.</span>append(preds)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>target<span style="color:#f92672">.</span>append(target)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># parse inputs</span>
+</span></span><span style="display:flex;"><span>        preds <span style="color:#f92672">=</span> dim_zero_cat(self<span style="color:#f92672">.</span>preds)
+</span></span><span style="display:flex;"><span>        target <span style="color:#f92672">=</span> dim_zero_cat(self<span style="color:#f92672">.</span>target)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># some intermediate computation...</span>
+</span></span><span style="display:flex;"><span>        r_preds, r_target <span style="color:#f92672">=</span> _rank_data(preds), _rank_dat(target)
+</span></span><span style="display:flex;"><span>        preds_diff <span style="color:#f92672">=</span> r_preds <span style="color:#f92672">-</span> r_preds<span style="color:#f92672">.</span>mean(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        target_diff <span style="color:#f92672">=</span> r_target <span style="color:#f92672">-</span> r_target<span style="color:#f92672">.</span>mean(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        cov <span style="color:#f92672">=</span> (preds_diff <span style="color:#f92672">*</span> target_diff)<span style="color:#f92672">.</span>mean(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        preds_std <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>sqrt((preds_diff <span style="color:#f92672">*</span> preds_diff)<span style="color:#f92672">.</span>mean(<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>        target_std <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>sqrt((target_diff <span style="color:#f92672">*</span> target_diff)<span style="color:#f92672">.</span>mean(<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># finalize the computations</span>
+</span></span><span style="display:flex;"><span>        corrcoef <span style="color:#f92672">=</span> cov <span style="color:#f92672">/</span> (preds_std <span style="color:#f92672">*</span> target_std <span style="color:#f92672">+</span> eps)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> torch<span style="color:#f92672">.</span>clamp(corrcoef, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">1.0</span>)
+</span></span></code></pre></div>
+<h3 class="relative group">Tensorboard/wandb/Swanlab 
+    <div id="tensorboardwandbswanlab" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tensorboardwandbswanlab" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><strong>Tensorboard</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> torch.utils.tensorboard <span style="color:#f92672">import</span> SummaryWriter
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>writer <span style="color:#f92672">=</span> SummaryWriter(log_dir<span style="color:#f92672">=</span>log_dir) <span style="color:#75715e"># 创建tensorboard的指标记录器</span>
+</span></span><span style="display:flex;"><span>writer<span style="color:#f92672">.</span>add_scalar(loss_name, loss_val, n_iter) <span style="color:#75715e"># 在相应的地方保存需要可视化的指标</span>
+</span></span></code></pre></div><p>端口映射与浏览器访问</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> ssh -L 16006:127.0.0.1:6006 -p server_port username@server_ip <span style="color:#75715e"># on the local PC</span>
+</span></span><span style="display:flex;"><span> tensorboard --logdir log --port<span style="color:#f92672">=</span><span style="color:#ae81ff">6006</span> <span style="color:#75715e"># on the remote server</span>
+</span></span></code></pre></div><p><a href="https://docs.wandb.ai/guides/" target="_blank">Wandb</a></p>
+<p><a href="https://docs.swanlab.cn" target="_blank"><strong>Swanlab</strong></a></p>
+<p>强烈推荐</p>
+
+<h2 class="relative group">AI Infra for LLM 
+    <div id="ai-infra-for-llm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ai-infra-for-llm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">LLM Download 
+    <div id="llm-download" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llm-download" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Huggingface</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> huggingface_hub <span style="color:#f92672">import</span> hf_hub_download
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> huggingface_hub <span style="color:#f92672">import</span> snapshot_download
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;HF_ENDPOINT&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://hf-mirror.com&#34;</span>
+</span></span><span style="display:flex;"><span>repo_id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mistralai/Ministral-8B-Instruct-2410&#34;</span>
+</span></span><span style="display:flex;"><span>snapshot_download(
+</span></span><span style="display:flex;"><span>    repo_id<span style="color:#f92672">=</span>repo_id,
+</span></span><span style="display:flex;"><span>    local_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;models/&#34;</span> <span style="color:#f92672">+</span> repo_id<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;/&#34;</span>)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>    token<span style="color:#f92672">=</span>token,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><ul>
+<li>国内访问需要指定镜像源</li>
+<li>部分LLM需要申请，在下载时需要传入huggingface token</li>
+</ul>
+<p><a href="https://modelscope.cn/docs/models/download" target="_blank">ModelScope</a></p>
+<p>国内模型推荐使用该网站，速度较快</p>
+
+<h3 class="relative group">Transformers 
+    <div id="transformers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#transformers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><em><strong>AutoModel</strong></em></p>
+<p>如果不需要调整模型结构，那么只需要使用AutoClass三件套<code>AutoConfig</code>、<code>AutoTokenizer</code>和<code>AutoModel</code></p>
+<p>AutoModel不会对模型架构进行限制，只是根据路径名称去查找相应的模型架构和权重</p>
+<pre tabindex="0"><code>model = AutoModelForSequenceClassification.from_pretrained(&#34;google-bert/bert-base-cased&#34;, num_labels=5)
+</code></pre><p>如果要实现更加定制化的操作，PLM也可以作为Backbone组件，实现<strong>自定义结构的下游任务模型</strong></p>
+<p><em><strong>Custom Model</strong></em></p>
+<p><a href="https://huggingface.co/docs/transformers/en/custom_models" target="_blank">创建自己的模型</a></p>
+<ul>
+<li>继承PLM对应的<code>PreTrainedModel</code>，并传入同一个<code>Config</code></li>
+<li>可以使用<code>init_weights</code>，会根据config的参数来对特定的层做初始化</li>
+<li>可以使用<code>from_pretrained</code>和<code>save_pretrain</code>方法</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomModel</span>(PreTrainedModel):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, config):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span><span style="color:#a6e22e">__init__</span>(config)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>prtrained_model <span style="color:#f92672">=</span> ResNet(config)
+</span></span><span style="display:flex;"><span>				self<span style="color:#f92672">.</span>classifier <span style="color:#f92672">=</span> Linear(config<span style="color:#f92672">.</span>hidden_size, config<span style="color:#f92672">.</span>num_labels)
+</span></span><span style="display:flex;"><span>				self<span style="color:#f92672">.</span>init_weights()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, tensor, labels<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        hidden_states <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>prtrained_model(tensor)
+</span></span><span style="display:flex;"><span>        logits <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>classifier(hidden_states)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> labels <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>            loss <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>cross_entropy(logits, labels)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;loss&#34;</span>: loss, <span style="color:#e6db74">&#34;logits&#34;</span>: logits}
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;logits&#34;</span>: logits}
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>config <span style="color:#f92672">=</span> AutoConfig<span style="color:#f92672">.</span>from_pretrained(model_name_or_path, num_labels<span style="color:#f92672">=</span>num_labels)
+</span></span><span style="display:flex;"><span>tokenizer <span style="color:#f92672">=</span> AutoTokenizer<span style="color:#f92672">.</span>from_pretrained(model_name_or_path)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> CustomModel<span style="color:#f92672">.</span>from_pretrained(<span style="color:#e6db74">&#39;pretrained_model&#39;</span>, config)
+</span></span></code></pre></div>
+<h3 class="relative group">Datasets 
+    <div id="datasets" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#datasets" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://huggingface.co/docs/datasets/v3.5.0/en/loading#python-list-of-dictionaries" target="_blank">将自己的Dataset封装成datasets库格式</a></p>
+
+<h3 class="relative group">Accelerate 
+    <div id="accelerate" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#accelerate" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>导入并实例化<code>Accelerator</code>对象</li>
+<li>去除所有的<code>model.to(device)</code>和<code>batch.to(device)</code></li>
+<li>用<code>accelerator.prepare</code>将<code>model, dataloader, optimizer</code>并行化</li>
+<li>用<code>accelerator.backward(loss)</code>替代<code>loss.backward()</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">+</span> <span style="color:#f92672">from</span> accelerate <span style="color:#f92672">import</span> Accelerator
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+</span> accelerator <span style="color:#f92672">=</span> Accelerator()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-</span> device <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>device(<span style="color:#e6db74">&#34;cuda&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-</span> model<span style="color:#f92672">.</span>to(device)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+</span> train_dataloader, eval_dataloader, model, optimizer <span style="color:#f92672">=</span> accelerator<span style="color:#f92672">.</span>prepare(
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+</span>     train_dataloader, eval_dataloader, model, optimizer)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> epoch <span style="color:#f92672">in</span> range(num_epochs):
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> batch <span style="color:#f92672">in</span> train_dataloader:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-</span>         batch <span style="color:#f92672">=</span> {k: v<span style="color:#f92672">.</span>to(device) <span style="color:#66d9ef">for</span> k, v <span style="color:#f92672">in</span> batch<span style="color:#f92672">.</span>items()}
+</span></span><span style="display:flex;"><span>          outputs <span style="color:#f92672">=</span> model(<span style="color:#f92672">**</span>batch)
+</span></span><span style="display:flex;"><span>          loss <span style="color:#f92672">=</span> outputs<span style="color:#f92672">.</span>loss
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-</span>         loss<span style="color:#f92672">.</span>backward()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+</span>         accelerator<span style="color:#f92672">.</span>backward(loss)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          optimizer<span style="color:#f92672">.</span>step()
+</span></span><span style="display:flex;"><span>          lr_scheduler<span style="color:#f92672">.</span>step()
+</span></span><span style="display:flex;"><span>          optimizer<span style="color:#f92672">.</span>zero_grad()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 保存模型</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> args<span style="color:#f92672">.</span>output_dir <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">and</span> args<span style="color:#f92672">.</span>num_train_epochs <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>	accelerator<span style="color:#f92672">.</span>wait_for_everyone()
+</span></span><span style="display:flex;"><span>  unwrapped_model <span style="color:#f92672">=</span> accelerator<span style="color:#f92672">.</span>unwrap_model(model)
+</span></span><span style="display:flex;"><span>  unwrapped_model<span style="color:#f92672">.</span>save_pretrained(args<span style="color:#f92672">.</span>output_dir, save_function<span style="color:#f92672">=</span>accelerator<span style="color:#f92672">.</span>save)
+</span></span></code></pre></div><p>基于上述代码修改，可以在命令行使用多卡或者单卡进行模型的训练</p>
+<ul>
+<li>Accelerate和tensor.to(device)不是互斥的，某些情况下仍然需要手动修改device</li>
+</ul>
+<p>在命令行指定显卡</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>accelerate launch --multi_gpu --gpu_ids<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0,1&#34;</span> --num_processes<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> --num_machines<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> main.py <span style="color:#75715e"># 单机多卡</span>
+</span></span><span style="display:flex;"><span>CUDA_VISIBLE_DEVICES<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> python main.py <span style="color:#75715e"># 单机单卡</span>
+</span></span></code></pre></div>
+<h3 class="relative group">VLLM 
+    <div id="vllm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vllm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>主要针对Decoder-only的LLM的KV Cache做了加速，对Encoder-only的PLM作用不大</p>
+<p>VLLM支持加速的模型主要分为三种：</p>
+<ol>
+<li>VLLM原生支持，见 <a href="https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/models" target="_blank">vllm/model_executor/models</a></li>
+<li>Transformers中的模型部分支持（主要是Decoder-only）</li>
+<li>Pytorch模型：需要人工编写相关代码，见<a href="https://docs.vllm.ai/en/latest/contributing/model/basic.html" target="_blank">在VLLM中实现基本模型</a></li>
+</ol>
+<p>多卡推理</p>
+<p><a href="https://docs.vllm.ai/en/latest/getting_started/examples/data_parallel.html" target="_blank">Data Parallel</a></p>
+
+<h3 class="relative group">LLaMa Factory 
+    <div id="llama-factory" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llama-factory" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+<h3 class="relative group">VERL 
+    <div id="verl" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#verl" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+<h2 class="relative group">File System 
+    <div id="file-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#file-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><a href="https://cloud.tencent.com/developer/article/2148641" target="_blank">相关链接</a></p>
+
+<h3 class="relative group">正则匹配与路径操作 
+    <div id="正则匹配与路径操作" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e6%ad%a3%e5%88%99%e5%8c%b9%e9%85%8d%e4%b8%8e%e8%b7%af%e5%be%84%e6%93%8d%e4%bd%9c" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><a href="https://liaoxuefeng.com/books/python/reg-exp/index.html" target="_blank">正则</a></p>
+<p>re</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, my email is example@email.com&#34;</span>
+</span></span><span style="display:flex;"><span>pattern <span style="color:#f92672">=</span> <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用 re.findall 匹配所有符合模式的子字符串，以列表返回</span>
+</span></span><span style="display:flex;"><span>matches <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>findall(pattern, text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用 re.sub 将指定模式的子串替换为新子串</span>
+</span></span><span style="display:flex;"><span>redacted_text <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>sub(pattern, <span style="color:#e6db74">&#34;REDACTED&#34;</span>, text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用 re.split 按指定模式的子串分割文本</span>
+</span></span><span style="display:flex;"><span>parts <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>split(pattern, text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用 re.search 搜索文本, 返回第一个匹配项的首尾位置</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">match</span> <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>search(pattern, text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用 re.match 验证字符串是否符合模式</span>
+</span></span><span style="display:flex;"><span>bool(re<span style="color:#f92672">.</span><span style="color:#66d9ef">match</span>(pattern, number))
+</span></span></code></pre></div><p>正则匹配，格式是字符+限定符</p>
+<p>限定符</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>?</td>
+          <td>0或1个</td>
+      </tr>
+      <tr>
+          <td>*</td>
+          <td>任意个</td>
+      </tr>
+      <tr>
+          <td>+</td>
+          <td>1个以上</td>
+      </tr>
+      <tr>
+          <td>{m,n}</td>
+          <td>m-n个</td>
+      </tr>
+  </tbody>
+</table>
+<p>字符、元字符</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>[a-zA-Z0-9][abc]</td>
+          <td>小写或大写或数字a或b或c ; 否定:[^a-z]</td>
+      </tr>
+      <tr>
+          <td>a|b|c</td>
+          <td>a或b或c</td>
+      </tr>
+      <tr>
+          <td>\w</td>
+          <td>单词（英文/数字/下划线）</td>
+      </tr>
+      <tr>
+          <td>\d</td>
+          <td>数字</td>
+      </tr>
+      <tr>
+          <td>\s</td>
+          <td>空格（包括换行等）</td>
+      </tr>
+      <tr>
+          <td>\b</td>
+          <td>边界 e.g.\bword\b</td>
+      </tr>
+      <tr>
+          <td>.</td>
+          <td>任意字符</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li><a href="https://regex101.com/" target="_blank">正则表达式在线测试工具</a></li>
+<li>正则表达式里有转义符&quot;&quot;时，应该在字符串前加“r”</li>
+</ul>
+<p>glob</p>
+<p>包括*、**、? 、[ ]这四个通配符。</p>
+<p>*  匹配0个或多个字符<br>
+** 匹配所有文件、目录、子目录和子目录里的文件<br>
+? 匹配一个字符<br>
+[] 匹配指定范围内的字符，如[0-9]匹配数字，[a-z]匹配小写字母</p>
+<p>pathlib</p>
+<p>操作文件路径</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>p<span style="color:#f92672">.</span>name  <span style="color:#75715e">#获取文件名  </span>
+</span></span><span style="display:flex;"><span>p<span style="color:#f92672">.</span>suffix  <span style="color:#75715e">#获取文件后缀</span>
+</span></span></code></pre></div>
+<h3 class="relative group"> 
+    <div id="" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+<h3 class="relative group">工作目录与包管理 
+    <div id="工作目录与包管理" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e4%b8%8e%e5%8c%85%e7%ae%a1%e7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>查看和更改工作目录，以及工作目录的文件情况</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>os<span style="color:#f92672">.</span>getcwd(path)  <span style="color:#75715e">#查看工作目录</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>chdir(path)  <span style="color:#75715e">#改变工作目录</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>listdir(path)  <span style="color:#75715e">#浏览工作目录</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>walk(path) <span style="color:#75715e"># 遍历目录</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>mkdir(path)  <span style="color:#75715e">#创建文件夹</span>
+</span></span><span style="display:flex;"><span>os<span style="color:#f92672">.</span>remove(path)  <span style="color:#75715e">#删除文件</span>
+</span></span></code></pre></div>
+<h3 class="relative group">文件的增删改查 
+    <div id="文件的增删改查" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%e6%96%87%e4%bb%b6%e7%9a%84%e5%a2%9e%e5%88%a0%e6%94%b9%e6%9f%a5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>文件/文件夹的复制、删除、重命名</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>shutil<span style="color:#f92672">.</span>copy(src, dst)  <span style="color:#75715e">#复制文件</span>
+</span></span><span style="display:flex;"><span>shutil<span style="color:#f92672">.</span>copytree(src, dst)  <span style="color:#75715e">#复制文件夹</span>
+</span></span><span style="display:flex;"><span>shutil<span style="color:#f92672">.</span>move(src, dst)  <span style="color:#75715e">#重命名文件/文件夹</span>
+</span></span><span style="display:flex;"><span>shutil<span style="color:#f92672">.</span>rmtree(src, dst)  <span style="color:#75715e">#删除文件夹</span>
+</span></span></code></pre></div><ul>
+<li>os.remove()方法只能删除某个文件; os.mdir()只能删除某个空文件夹
+压缩</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>shutil<span style="color:#f92672">.</span>make_archive(base_name, format<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;zip&#39;</span>)
+</span></span></code></pre></div><p>ipdb</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ipdb<span style="color:#f92672">.</span>set_trace()
+</span></span></code></pre></div><p>代码会在执行到断点处时暂停，可通过vscode内置terminal查看各个变量的状态</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_software\/python.md"
+        var oid_likes = "likes_software\/python.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/software/cheatsheet/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >CheatSheet</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Xu Zhang
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://xuzhang0112.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,1615 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/</link>
+    <description>Recent content on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Xu Zhang</copyright>
+    <lastBuildDate>Fri, 25 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Python</title>
+      <link>https://xuzhang0112.github.io/software/python/</link>
+      <pubDate>Fri, 25 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/software/python/</guid>
+      <description>&lt;p&gt;推荐链接&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://liaoxuefeng.com/books/python/reg-exp/index.html&#34; target=&#34;_blank&#34;&gt;廖雪峰的官方网站&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Grammar 
+    &lt;div id=&#34;grammar&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#grammar&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;Basic Data Class 
+    &lt;div id=&#34;basic-data-class&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#basic-data-class&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;Tips&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;List&lt;/td&gt;
+          &lt;td&gt;有序，但查找效率非常低&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Dict&lt;/td&gt;
+          &lt;td&gt;有序，但并非插入顺序&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Set&lt;/td&gt;
+          &lt;td&gt;无序，顺序是随机的&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;Function 
+    &lt;div id=&#34;function&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#function&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;函数签名 
+    &lt;div id=&#34;函数签名&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%87%bd%e6%95%b0%e7%ad%be%e5%90%8d&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Plain&#34; data-lang=&#34;Plain&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;def f(x: int, b: float):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    pass
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 class=&#34;relative group&#34;&gt;参数组合 
+    &lt;div id=&#34;参数组合&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%8f%82%e6%95%b0%e7%bb%84%e5%90%88&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;定义函数时，可使用&lt;em&gt;&lt;strong&gt;必选参数、默认参数、可变参数、关键字参数和命名关键字参数&lt;/strong&gt;&lt;/em&gt;。&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Medical NLP</title>
+      <link>https://xuzhang0112.github.io/research/med_nlp/</link>
+      <pubDate>Thu, 10 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/research/med_nlp/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;ICD coding 
+    &lt;div id=&#34;icd-coding&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#icd-coding&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;ICD-9: &lt;a href=&#34;https://archive.cdc.gov/#/details?url=https://www.cdc.gov/nchs/icd/icd9cm.htm&#34; target=&#34;_blank&#34;&gt;ICD-9官方网站&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/jamesmullenbach/caml-mimic&#34; target=&#34;_blank&#34;&gt;MIMIC-III official splits&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://paperswithcode.com/sota/medical-code-prediction-on-mimic-iii&#34; target=&#34;_blank&#34;&gt;MIMIC-III Leaderboard&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/thomasnguyen92/MIMIC-IV-ICD-data-processing&#34; target=&#34;_blank&#34;&gt;MIMIC-IV official splits&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;UMLS: &lt;a href=&#34;https://www.nlm.nih.gov/research/umls/quickstart.html&#34; target=&#34;_blank&#34;&gt;Quick Start&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Metathesaurus&lt;/strong&gt;: Terms and codes from many vocabularies, including CPT®, ICD-10-CM, LOINC®, MeSH®, RxNorm, and SNOMED CT®&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Semantic Network&lt;/strong&gt;: semantic types &amp;amp; their relationships (semantic relations)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SPECIALIST Lexicon and Lexical Tools&lt;/strong&gt;: NLP tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ICD-10: &lt;a href=&#34;https://icd.who.int/icdapi&#34; target=&#34;_blank&#34;&gt;ICD10官方API&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Metrics: &lt;a href=&#34;https://developer.aliyun.com/article/1258690&#34; target=&#34;_blank&#34;&gt;单标签多分类：precision = recall =  micro f1 = accuracy&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Blogs &amp;amp; Papers:&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CheatSheet</title>
+      <link>https://xuzhang0112.github.io/software/cheatsheet/</link>
+      <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/software/cheatsheet/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;Shell 
+    &lt;div id=&#34;shell&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#shell&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202410241649045.png&#34; alt=&#34;image-20241024164920306&#34; style=&#34;zoom: 25%;&#34; /&gt;
+&lt;p&gt;Shell是用户和操作系统之间的媒介，它提供了丰富的接口，以帮助用户使用操作系统。&lt;/p&gt;
+&lt;p&gt;Shell命令的基本格式是“命令+参数”，参数可以缺省，这些参数随后会被执行该命令的解释器所解析。&lt;/p&gt;
+&lt;p&gt;命令本质上是可执行文件，可以通过路径来调用，但大部分时候是以别名的形式调用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pwd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sh *.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python main.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;当连续执行多条命令时，如果用&amp;quot;&amp;amp;&amp;amp;&amp;ldquo;连接，则多条命令依次执行，报错则终止；如果用“||”连接则当任意一条命令执行成功，后续命令都不执行&lt;/p&gt;
+&lt;p&gt;在命令结尾加&amp;rdquo;&amp;amp;&amp;quot;，可以使命令挂载到后台执行，从而可以在同一个Shell中并行执行多条命令&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;配置默认启动脚本 
+    &lt;div id=&#34;配置默认启动脚本&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e9%85%8d%e7%bd%ae%e9%bb%98%e8%ae%a4%e5%90%af%e5%8a%a8%e8%84%9a%e6%9c%ac&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;用户使用终端登录Linux服务器时，通常只会默认执行&lt;code&gt;~/.bash_profile.sh&lt;/code&gt;，而conda的自启动一般写在&lt;code&gt;~/.bashrc&lt;/code&gt;中，所以一般会在&lt;code&gt;~/.bash_profile.sh&lt;/code&gt;同时运行&lt;code&gt;~/.bashrc&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -f ~/.bashrc &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    source ~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;每当重新打开一个新的终端时，则会执行&lt;code&gt;~/.bashrc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;conda自启动&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# &amp;gt;&amp;gt;&amp;gt; conda init &amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# !! Contents within this block are managed by &amp;#39;conda init&amp;#39; !!&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;__conda_setup&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;CONDA_REPORT_ERRORS&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;false &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/data/shaozhisun/anaconda3/bin/conda&amp;#39;&lt;/span&gt; shell.bash hook 2&amp;gt; /dev/null&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; $? -eq &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ae81ff&#34;&gt;\e&lt;/span&gt;val &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$__conda_setup&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -f &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        . &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/data/shaozhisun/anaconda3/etc/profile.d/conda.sh&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        CONDA_CHANGEPS1&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;false conda activate base
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/data/shaozhisun/anaconda3/bin:&lt;/span&gt;$PATH&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;unset __conda_setup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 class=&#34;relative group&#34;&gt;Oh My ZSH 
+    &lt;div id=&#34;oh-my-zsh&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#oh-my-zsh&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://kirigaya.cn/blog/article?seq=66&#34; target=&#34;_blank&#34;&gt;配置代码高亮和自动补全插件&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Biomed</title>
+      <link>https://xuzhang0112.github.io/course/biomed/</link>
+      <pubDate>Fri, 28 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/course/biomed/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;结构生物化学 
+    &lt;div id=&#34;结构生物化学&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%bb%93%e6%9e%84%e7%94%9f%e7%89%a9%e5%8c%96%e5%ad%a6&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;生物大分子 
+    &lt;div id=&#34;生物大分子&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%94%9f%e7%89%a9%e5%a4%a7%e5%88%86%e5%ad%90&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;生命体的元素组成和化学组成 
+    &lt;div id=&#34;生命体的元素组成和化学组成&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%94%9f%e5%91%bd%e4%bd%93%e7%9a%84%e5%85%83%e7%b4%a0%e7%bb%84%e6%88%90%e5%92%8c%e5%8c%96%e5%ad%a6%e7%bb%84%e6%88%90&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;生命体的元素组成 ：C、H、O和N四种元素，是组成生命体最基本的元素，约占了生物体总质量的99%以上&lt;/p&gt;
+&lt;p&gt;生物体的化学组成：水、无机物及有机小分子、生物大分子&lt;/p&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;生物大分子的组成 
+    &lt;div id=&#34;生物大分子的组成&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%94%9f%e7%89%a9%e5%a4%a7%e5%88%86%e5%ad%90%e7%9a%84%e7%bb%84%e6%88%90&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;生物分子/构件分子&lt;/th&gt;
+          &lt;th&gt;生物大分子&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;氨基酸&lt;/td&gt;
+          &lt;td&gt;蛋白质&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;核苷酸&lt;/td&gt;
+          &lt;td&gt;核酸&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;单糖&lt;/td&gt;
+          &lt;td&gt;多糖&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;脂肪酸&lt;/td&gt;
+          &lt;td&gt;脂类&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;生物大分子的构成 
+    &lt;div id=&#34;生物大分子的构成&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%94%9f%e7%89%a9%e5%a4%a7%e5%88%86%e5%ad%90%e7%9a%84%e6%9e%84%e6%88%90&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;具有固定结构的&lt;strong&gt;单体亚基&lt;/strong&gt;通过具备有限柔性的&lt;strong&gt;共价键&lt;/strong&gt;连成一体，在&lt;strong&gt;非共价相互作用&lt;/strong&gt;的帮助下形成特定的&lt;strong&gt;三维结构&lt;/strong&gt;，其结构决定了每个大分子的具体功能&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Medical Image Computing</title>
+      <link>https://xuzhang0112.github.io/research/med_img/</link>
+      <pubDate>Fri, 28 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/research/med_img/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;CT Reconstruction 
+    &lt;div id=&#34;ct-reconstruction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ct-reconstruction&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;Analytical CT reconstruction 
+    &lt;div id=&#34;analytical-ct-reconstruction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#analytical-ct-reconstruction&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Radon Transform&lt;/strong&gt;&lt;/p&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/image-20240506002239402.png&#34; alt=&#34;image-20240506002239402&#34; style=&#34;zoom:50%;&#34; /&gt;
+&lt;p&gt;数学形式化描述&lt;/p&gt;
+&lt;p&gt;$$
+p(s,\theta)=\int^\infty_{-\infty}\int^\infty_{-\infty}f(x,y)\delta(xcos\theta+ysin\theta-s)dxdy
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$s,\theta$确定时，相当于仅在直线$xcos\theta+ysin\theta-s=$上作积分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;代码实现&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; skimage.transform &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; warp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;theta &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;arange(&lt;span style=&#34;color:#ae81ff&#34;&gt;180&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# pad&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;padded_image &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pad(image, pad_width, mode&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;constant&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      constant_values&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;center &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; padded_image&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;shape[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;//&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 旋转+投影&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;radon_image &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;zeros((padded_image&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;shape[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;], len(theta)),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                       dtype&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;image&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;dtype)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; i, angle &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; enumerate(np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;deg2rad(theta)):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    cos_a, sin_a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;cos(angle), np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;sin(angle)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    R &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;array([[cos_a, sin_a, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;center &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (cos_a &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; sin_a &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  [&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;sin_a, cos_a, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;center &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; (cos_a &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; sin_a &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  [&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    rotated &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; warp(padded_image, R, clip&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;False&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    radon_image[:, i] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; rotated&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;sum(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Sinogram&lt;/strong&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Matrix</title>
+      <link>https://xuzhang0112.github.io/course/matrix/</link>
+      <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/course/matrix/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;矩阵的基本概念 
+    &lt;div id=&#34;矩阵的基本概念&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%9f%a9%e9%98%b5%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;矩阵的基本运算 
+    &lt;div id=&#34;矩阵的基本运算&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%9f%a9%e9%98%b5%e7%9a%84%e5%9f%ba%e6%9c%ac%e8%bf%90%e7%ae%97&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;若向量$a,b$，则它的内积、外积定义如下：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;inner product&lt;/td&gt;
+          &lt;td&gt;$\sum a_ib_i$&lt;/td&gt;
+          &lt;td&gt;$a\odot b$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Outer product&lt;/td&gt;
+          &lt;td&gt;$ab^T$&lt;/td&gt;
+          &lt;td&gt;$a\otimes b$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;Hardmard积、Kronnecker积和矩阵乘法 
+    &lt;div id=&#34;hardmard积kronnecker积和矩阵乘法&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#hardmard%e7%a7%afkronnecker%e7%a7%af%e5%92%8c%e7%9f%a9%e9%98%b5%e4%b9%98%e6%b3%95&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;p&gt;若矩阵$A\in R^{m\times n},B\in R^{m\times n}$，则它的哈达玛积、克罗内亚积如下：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Hardmard Product&lt;/td&gt;
+          &lt;td&gt;逐元素相乘&lt;/td&gt;
+          &lt;td&gt;$A\circ B \in R^{m\times n}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Kronnecker Product&lt;/td&gt;
+          &lt;td&gt;矩阵A每个元素乘以矩阵B&lt;/td&gt;
+          &lt;td&gt;$A\otimes B \in R^{m^2\times n^2}$&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Matrix Product&lt;/td&gt;
+          &lt;td&gt;矩阵乘法&lt;/td&gt;
+          &lt;td&gt;$A\cdot B$ or $AB$&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;矩阵乘法一般情况下不满足交换律，但也有例外：&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Pattern Recogniton</title>
+      <link>https://xuzhang0112.github.io/course/pr/</link>
+      <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/course/pr/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;相似性度量 
+    &lt;div id=&#34;相似性度量&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%9b%b8%e4%bc%bc%e6%80%a7%e5%ba%a6%e9%87%8f&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;最小距离分类器 
+    &lt;div id=&#34;最小距离分类器&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e6%9c%80%e5%b0%8f%e8%b7%9d%e7%a6%bb%e5%88%86%e7%b1%bb%e5%99%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;将样本归入距离最近的类别&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;平均样本法&lt;/td&gt;
+          &lt;td&gt;样本到每个类别的各样本平均值的距离&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;平均距离法&lt;/td&gt;
+          &lt;td&gt;样本到每个类别的各个样本的距离的平均值&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;最近邻法&lt;/td&gt;
+          &lt;td&gt;样本最近的样本&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;距离，即相似性测度，常用的测度有：欧式距离、马氏距离（$(X-M)^T\Sigma(X-M)$，衡量了样本到分布的距离）、向量夹角余弦&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;线性分类器 
+    &lt;div id=&#34;线性分类器&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%ba%bf%e6%80%a7%e5%88%86%e7%b1%bb%e5%99%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;n维线性分类器可以表达为超平面$w^Tx+b=0$
+如果&lt;strong&gt;将样本X的第n+1维设为1&lt;/strong&gt;，则超平面可以简化为$w^Tx=0$
+若样本集线性可分，则存在分类器使得所有样本满足$\begin{cases}w^Tx&amp;gt;0\quad if\ x\in w_1\newline
+w^Tx&amp;lt;0\quad if\ x\in w_2\end{cases}$&lt;/p&gt;
+&lt;p&gt;线性分类器的解必然构成解区域，解是不确定的&lt;/p&gt;
+&lt;p&gt;多分类问题按照&lt;strong&gt;是否线性可分、是否存在不确定区域的解&lt;/strong&gt;可以分成三种情况&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;情况&lt;/th&gt;
+          &lt;th&gt;分类器&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;总体线性可分&lt;/td&gt;
+          &lt;td&gt;训练n个超平面，分隔每个类和其他所有类&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;成对线性可分&lt;/td&gt;
+          &lt;td&gt;用$C_n^2$个独立的超平面，将两个类别分开&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;成对线性可分，且存在没有不确定区域的解&lt;/td&gt;
+          &lt;td&gt;每个类别训练一个判别函数，采用最大值判决&lt;br /&gt;$G_{ij}(X)=g_i(X)-g_j(X)$&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;感知器 
+    &lt;div id=&#34;感知器&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e6%84%9f%e7%9f%a5%e5%99%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;线性分类器+阶跃函数&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://xuzhang0112.github.io/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/cv/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;About Me 
+    &lt;div id=&#34;about-me&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#about-me&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;I am a fisrt year PhD student at Biomedical Engineering School of the University of Science and Technology of China (&lt;a href=&#34;https://en.ustc.edu.cn&#34; target=&#34;_blank&#34;&gt;USTC&lt;/a&gt;) supervised by Prof. &lt;a href=&#34;https://scholar.google.com/citations?user=8eNm2GMAAAAJ&amp;amp;hl=en&#34; target=&#34;_blank&#34;&gt;S. Kevin Zhou&lt;/a&gt;. I received my bachelor’s degree from Soochow University (&lt;a href=&#34;https://eng.suda.edu.cn&#34; target=&#34;_blank&#34;&gt;SCU&lt;/a&gt;) in 2023. My bachelor’s tutor is Prof. &lt;a href=&#34;https://scholar.google.com/citations?user=egSgzRQAAAAJ&amp;amp;hl=zh-CN&amp;amp;oi=ao&#34; target=&#34;_blank&#34;&gt;Dehui Xiang&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m currently focusing on AI for Medicine, especially Clinical NLP (including ICD Coding, Diagnosis &amp;amp; Treatment). My research goal is to inject medical knowledge into large language models, or design appropriate workflow for them, equipping LLMs with capabilities of dealing with complex clinical tasks.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://xuzhang0112.github.io/research/ai4research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/research/ai4research/</guid>
+      <description>&lt;p&gt;AI Research&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://surveyx.cn/list&#34; target=&#34;_blank&#34;&gt;SurveyX&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>📚Publications</title>
+      <link>https://xuzhang0112.github.io/publication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/publication/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;2025 
+    &lt;div id=&#34;2025&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#2025&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;A General Knowledge Injection Framework for ICD Coding&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;Xu Zhang, Kun Zhang, Wenxinma, &amp;hellip;, S. Kevin Zhou&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;ACL 2025 Findings&lt;/em&gt;
+📝 &lt;a href=&#34;https://arxiv.org/abs/2505.18708&#34; target=&#34;_blank&#34;&gt;Paper&lt;/a&gt; | 🔗 &lt;a href=&#34;https://github.com/xuzhang0112/GKI-ICD&#34; target=&#34;_blank&#34;&gt;Code&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;AA-CLIP: Enhancing zero-shot anomaly detection via anomaly-aware clip&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;Wenxin Ma, Xuzhang, &amp;hellip;&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;CVPR 2025&lt;/em&gt;
+📝 &lt;a href=&#34;https://arxiv.org/abs/2503.06661&#34; target=&#34;_blank&#34;&gt;Paper&lt;/a&gt; | 🔗 &lt;a href=&#34;https://github.com/Mwxinnn/AA-CLIP&#34; target=&#34;_blank&#34;&gt;Code&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;2022 
+    &lt;div id=&#34;2022&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#2022&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cross modality fusion for modality-specific lung tumor segmentation in PET-CT images&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;Xu Zhang, &amp;hellip;, Dehui Xiang&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;PMB 2022&lt;/em&gt;
+📝 &lt;a href=&#34;https://iopscience.iop.org/article/10.1088/1361-6560/ac994e/meta&#34; target=&#34;_blank&#34;&gt;Paper&lt;/a&gt; | 🔗 &lt;a href=&#34;https://github.com/xuzhang0112/PET-CT-Lung-Tumor-Segmentation&#34; target=&#34;_blank&#34;&gt;Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;For a full list of my work, please visit my &lt;a href=&#34;https://scholar.google.com/citations?user=6-NiSKYAAAAJ&amp;amp;hl=zh-CN&#34; target=&#34;_blank&#34;&gt;Google Scholar&lt;/a&gt; profile.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Deep Learning</title>
+      <link>https://xuzhang0112.github.io/research/basic_knowledge/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/research/basic_knowledge/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;Arcitecture 
+    &lt;div id=&#34;arcitecture&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#arcitecture&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;所有类型的神经网络都可以看成是线性变换+交互。线性变换是不变的，即对每一个像素/token/节点的特征向量进行相同的Linear+Activation；交互则取决于具体的任务：CNN的交互是相邻的像素点加权平均，RNN的交互是下一个token依赖上一个token，Transformer的交互是token与token之间的注意力加权平均，GNN的交互是一阶邻域内节点的加权平均。大部分模型结构层面的优化也是根据任务场景来设计新的交互方式。&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;CNN 
+    &lt;div id=&#34;cnn&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#cnn&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Series&lt;/th&gt;
+          &lt;th&gt;Model&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;Time Consumption&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;UNet&lt;/td&gt;
+          &lt;td&gt;UNet&lt;/td&gt;
+          &lt;td&gt;2014&lt;/td&gt;
+          &lt;td&gt;跳跃连接，精细分割&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;RCNN&lt;/td&gt;
+          &lt;td&gt;RCNN&lt;/td&gt;
+          &lt;td&gt;2013&lt;/td&gt;
+          &lt;td&gt;用CNN做Dectection，再用CNN做Classification&lt;/td&gt;
+          &lt;td&gt;40-50s&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Fast-RCNN&lt;/td&gt;
+          &lt;td&gt;2015&lt;/td&gt;
+          &lt;td&gt;使用同一个CNN计算bounding box和Label&lt;/td&gt;
+          &lt;td&gt;2s&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Faster-RCNN&lt;/td&gt;
+          &lt;td&gt;2015&lt;/td&gt;
+          &lt;td&gt;去除了Selective Search&lt;/td&gt;
+          &lt;td&gt;0.2s&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Mask-RCNN&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;支持Instance Segmentation&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;YOLO&lt;/td&gt;
+          &lt;td&gt;Yolo v1&lt;/td&gt;
+          &lt;td&gt;2015&lt;/td&gt;
+          &lt;td&gt;用回归问题统一了Bounding Box的坐标预测和类别预测&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Yolo v2&lt;/td&gt;
+          &lt;td&gt;2016&lt;/td&gt;
+          &lt;td&gt;支持不同输入尺寸&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Yolo v3&lt;/td&gt;
+          &lt;td&gt;2018&lt;/td&gt;
+          &lt;td&gt;支持多标签；引入多尺度；&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Yolo v4, v5, v6&lt;/td&gt;
+          &lt;td&gt;2020&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;2021&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Yolo v6, v7&lt;/td&gt;
+          &lt;td&gt;2022&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Yolo v8&lt;/td&gt;
+          &lt;td&gt;2023&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;RNN 
+    &lt;div id=&#34;rnn&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#rnn&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;感觉已经G了，不想写了，随便写点吧&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>KG for LLM</title>
+      <link>https://xuzhang0112.github.io/research/kg4llm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/research/kg4llm/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;Introduction &amp;amp; Background 
+    &lt;div id=&#34;introduction--background&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#introduction--background&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;LLM和KG各有利弊：LLM富含通用知识、擅长语言处理、具有泛化性；KG具有结构化的精确知识，可解释性强，知识专业性强，可演化；&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;LLM 
+    &lt;div id=&#34;llm&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#llm&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;image-20240704172235679&#34; src=&#34;https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407041722595.png&#34; /&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Encoder-only、Decoder-only、Encoder-Decoder的LLM发展路线图&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;image-20240704172732196&#34; src=&#34;https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407041727026.png&#34; /&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Encoder和Decoder之间的异同，以及Self-Attention的内部结构&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;KG 
+    &lt;div id=&#34;kg&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#kg&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;image-20240704173050791&#34; src=&#34;https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407041730828.png&#34; /&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;各种类型的KG，包括百科全书、常识、领域知识和多模态的知识图谱&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;LLM与KG的结合 
+    &lt;div id=&#34;llm与kg的结合&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#llm%e4%b8%8ekg%e7%9a%84%e7%bb%93%e5%90%88&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;
+
+
+
+
+
+&lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; alt=&#34;image-20240704173249398&#34; src=&#34;https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/202407041732894.png&#34; /&gt;
+
+  
+&lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Latex</title>
+      <link>https://xuzhang0112.github.io/software/latex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/software/latex/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;图表 
+    &lt;div id=&#34;图表&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%9b%be%e8%a1%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;figure*,table*&lt;/code&gt;表示双栏&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;公式 
+    &lt;div id=&#34;公式&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%85%ac%e5%bc%8f&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;ALphabet 
+    &lt;div id=&#34;alphabet&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#alphabet&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;大写&lt;/th&gt;
+          &lt;th&gt;小写&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Α&lt;/td&gt;
+          &lt;td&gt;α&lt;/td&gt;
+          &lt;td&gt;Alpha&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Β&lt;/td&gt;
+          &lt;td&gt;β&lt;/td&gt;
+          &lt;td&gt;Beta&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Γ&lt;/td&gt;
+          &lt;td&gt;γ&lt;/td&gt;
+          &lt;td&gt;Gamma&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Δ&lt;/td&gt;
+          &lt;td&gt;δ&lt;/td&gt;
+          &lt;td&gt;Delte&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ε&lt;/td&gt;
+          &lt;td&gt;ε&lt;/td&gt;
+          &lt;td&gt;Epsilon&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ζ&lt;/td&gt;
+          &lt;td&gt;ζ&lt;/td&gt;
+          &lt;td&gt;zeta&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ε&lt;/td&gt;
+          &lt;td&gt;η&lt;/td&gt;
+          &lt;td&gt;Eta&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Θ&lt;/td&gt;
+          &lt;td&gt;θ&lt;/td&gt;
+          &lt;td&gt;Theta&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ι&lt;/td&gt;
+          &lt;td&gt;ι&lt;/td&gt;
+          &lt;td&gt;Iota&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Κ&lt;/td&gt;
+          &lt;td&gt;κ&lt;/td&gt;
+          &lt;td&gt;Kappa&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;∧&lt;/td&gt;
+          &lt;td&gt;λ&lt;/td&gt;
+          &lt;td&gt;Lambda&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Μ&lt;/td&gt;
+          &lt;td&gt;μ&lt;/td&gt;
+          &lt;td&gt;Mu&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ν&lt;/td&gt;
+          &lt;td&gt;ν&lt;/td&gt;
+          &lt;td&gt;Nu&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ξ&lt;/td&gt;
+          &lt;td&gt;ξ&lt;/td&gt;
+          &lt;td&gt;Xi&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ο&lt;/td&gt;
+          &lt;td&gt;ο&lt;/td&gt;
+          &lt;td&gt;Omicron&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;∏&lt;/td&gt;
+          &lt;td&gt;π&lt;/td&gt;
+          &lt;td&gt;Pi&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ρ&lt;/td&gt;
+          &lt;td&gt;ρ&lt;/td&gt;
+          &lt;td&gt;Rho&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;∑&lt;/td&gt;
+          &lt;td&gt;σ&lt;/td&gt;
+          &lt;td&gt;Sigma&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Τ&lt;/td&gt;
+          &lt;td&gt;τ&lt;/td&gt;
+          &lt;td&gt;Tau&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Υ&lt;/td&gt;
+          &lt;td&gt;υ&lt;/td&gt;
+          &lt;td&gt;Upsilon&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Φ&lt;/td&gt;
+          &lt;td&gt;φ&lt;/td&gt;
+          &lt;td&gt;Phi&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Χ&lt;/td&gt;
+          &lt;td&gt;χ&lt;/td&gt;
+          &lt;td&gt;Chi&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ψ&lt;/td&gt;
+          &lt;td&gt;ψ&lt;/td&gt;
+          &lt;td&gt;Psi&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Ω&lt;/td&gt;
+          &lt;td&gt;ω&lt;/td&gt;
+          &lt;td&gt;Omega&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Linear Algebra</title>
+      <link>https://xuzhang0112.github.io/course/algebra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/course/algebra/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;作业1 
+    &lt;div id=&#34;作业1&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e4%bd%9c%e4%b8%9a1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;线性空间 
+    &lt;div id=&#34;线性空间&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e7%ba%bf%e6%80%a7%e7%a9%ba%e9%97%b4&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;数域：对加减乘除封闭&lt;/p&gt;
+&lt;p&gt;常微分方程的通解：特征方程，指数函数&lt;/p&gt;
+&lt;p&gt;线性空间：对加法&amp;amp;数乘封闭+8条&lt;/p&gt;
+&lt;p&gt;基：线性无关+表出整个空间&lt;/p&gt;
+&lt;p&gt;柯西不等式：根据内积半正定得到不等式，然后再根据结论构造；&lt;/p&gt;
+&lt;p&gt;施密特正交化：范数由区间上的内积定义，而不是本身的模长；奇函数/偶函数在对称区间上积分的性质；减去在标准正交基上的分量+单位化；&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;作业2 
+    &lt;div id=&#34;作业2&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e4%bd%9c%e4%b8%9a2&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;格拉姆矩阵：向量的内积；对角线上是范数的平方；注意非标准正交基的内积不为1；&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;傅里叶变换 
+    &lt;div id=&#34;傅里叶变换&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%82%85%e9%87%8c%e5%8f%b6%e5%8f%98%e6%8d%a2&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;傅立叶变换：向量和不同正交基在酉空间上的内积结果；变换后的内积与原始内积的比值等于基向量的内积；&lt;/p&gt;
+&lt;p&gt;帕萨瓦尔定理：时空域和频域的概率密度函数的范数相等；&lt;/p&gt;
+&lt;p&gt;时域/频域概率密度函数的期望和方差：一阶矩和二阶矩，三角函数相关的微积分（三角恒等式，三角换元，点火公式考虑平方时的特殊情况pi/4）&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Medical Multimodal</title>
+      <link>https://xuzhang0112.github.io/research/med_mm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/research/med_mm/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;Dataset 
+    &lt;div id=&#34;dataset&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#dataset&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;MIMIC-CXR 
+    &lt;div id=&#34;mimic-cxr&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#mimic-cxr&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;377,110 images, 227,835 reports&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;NIH-CXR 
+    &lt;div id=&#34;nih-cxr&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#nih-cxr&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;112,120 X-ray images from 30,805 unique patients, with labels of 14 diseases&lt;/p&gt;
+&lt;p&gt;The labels are expected to be &amp;gt;90% accurate and suitable for weakly-supervised learning&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Probability</title>
+      <link>https://xuzhang0112.github.io/course/prob/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/course/prob/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;作业要点 
+    &lt;div id=&#34;作业要点&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e4%bd%9c%e4%b8%9a%e8%a6%81%e7%82%b9&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;作业1&lt;/p&gt;
+&lt;p&gt;几何分布：概率为p的事件首次发生时的次数，期望=1/p&lt;/p&gt;
+&lt;p&gt;协方差的计算公式推导：定义+期望的性质&lt;/p&gt;
+&lt;p&gt;期望=条件期望的概率加权和&lt;/p&gt;
+&lt;p&gt;泊松分布：小概率事件在一段时间内发生的次数，服从泊松分布的随机变量的和服从泊松分布，且$$\lambda=\lambda_1+\lambda_2$$&lt;/p&gt;
+&lt;p&gt;X+Y的概率分布：卷积公式，本质上是全概率公式（条件概率）&lt;/p&gt;
+&lt;p&gt;贝叶斯公式：后验概率=先验概率+似然概率（后验颠倒）&lt;/p&gt;
+&lt;p&gt;作业2&lt;/p&gt;
+&lt;p&gt;马尔可夫链：利用含有条件概率的全概率公式&lt;/p&gt;
+&lt;p&gt;XY的概率分布：独立则可拆分，并灵活运用方差=二阶矩-一阶矩^2&lt;/p&gt;
+&lt;p&gt;多元概率分布之间的转换：利用雅可比行列式（顺序的记忆方法：不同分布都满足概率和为1）&lt;/p&gt;
+&lt;p&gt;样本方差的期望：利用期望和方差的性质进行一通推导（期望是线性的，方差不是线性的，虽然可加）&lt;/p&gt;
+&lt;p&gt;布朗运动：参考弹珠下落在分隔板上左/右移，借此思考其性质，然后根据定义一通推导就行了&lt;/p&gt;
+&lt;p&gt;Matropolis hasting算法：可以采样出任意分布（建议看龙哥博客，因为我现在也忘了）&lt;/p&gt;
+&lt;p&gt;作业3&lt;/p&gt;
+&lt;p&gt;基于样本的均值和方差估计正态分布的均值和方差&lt;/p&gt;
+&lt;p&gt;基于样本最大值估计均匀分布的上界&lt;/p&gt;
+&lt;p&gt;估计量的均方误差=偏差的平方+估计量的方差&lt;/p&gt;
+&lt;p&gt;区间估计：样本均值服从正态分布，样本方差服从自由度n-1的卡方分布（卡方分布，即多个正态分布的随机变量的平方和的分布）考试考了一道均值和方差都未知时的估计均值，有点坑&lt;/p&gt;
+&lt;p&gt;基于区间估计进行假设检验&lt;/p&gt;
+&lt;p&gt;作业4&lt;/p&gt;
+&lt;p&gt;最大后验估计：基于贝叶斯公式可以获得参数的后验概率，然后将样本代入，即可得到该组样本下待估参数的分布函数，然后取极值点即可&lt;/p&gt;
+&lt;p&gt;随机变量的换元：代入计算即可，没什么特别的&lt;/p&gt;
+&lt;p&gt;线性回归：b1是相关系数，b0相应减去，基本上就是一通推导得到的，注意利用求和符号的性质&lt;/p&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;Key 
+    &lt;div id=&#34;key&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#key&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;1.一道简单的证明，忘了&lt;/p&gt;
+&lt;p&gt;2.3个变量的次序统计量的联合概率分布，转化成最大值最小值，注意组合数公式&lt;/p&gt;
+&lt;p&gt;3.马尔可夫链（赌徒），需要利用条件期望证明&lt;/p&gt;
+&lt;p&gt;4.利用期望和方差的性质计算一堆量&lt;/p&gt;
+&lt;p&gt;5.均值和方差都未知的区间估计和假设检验，这道题巨坑&lt;/p&gt;
+&lt;p&gt;6.很简单的一道证明题，好像就是代入定义，忘了&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Tofel</title>
+      <link>https://xuzhang0112.github.io/course/tofel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/course/tofel/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;Reading 
+    &lt;div id=&#34;reading&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#reading&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;段落间的逻辑关系&lt;/p&gt;
+&lt;p&gt;Object/Phenomenon &amp;amp; Origin (Why) &amp;amp; Feature (Why) &amp;amp; Relationship &amp;amp; Effects &amp;amp; Discussion (Opinions &amp;amp; Limit)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;段落内的逻辑关系&lt;/p&gt;
+&lt;p&gt;详略得当地扫一遍（一段话最好全看）+有意识的分层（每层用关键词概括，确保看懂）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;首尾句&lt;/li&gt;
+&lt;li&gt;观点句：跳过例子，找观点（人名/地名/数字等都不重要，简写即可）&lt;/li&gt;
+&lt;li&gt;逻辑关系
+&lt;ul&gt;
+&lt;li&gt;转折：but/ yet/ however/ nevertheless/ nonetheless/ rather/ on the other hand&lt;/li&gt;
+&lt;li&gt;递进：furthermore/ moreover/ above all&lt;/li&gt;
+&lt;li&gt;强调：chiefly/ mainly/ in a large part/ basically/ fundamentally/ &lt;strong&gt;more specifically&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;并列：also/ &lt;strong&gt;Along with &amp;hellip; is &amp;hellip;&lt;/strong&gt;（重要的过渡句，暗示分层）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;单句话抓主干：主系表，主谓宾，去修饰&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;系动词：be/ seem/ look/ get/ feel/ become/ appear/ symbolize/ represent/ refer to&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>https://xuzhang0112.github.io/software/visualization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/software/visualization/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;基于PyQt5的应用开发 
+    &lt;div id=&#34;基于pyqt5的应用开发&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%9f%ba%e4%ba%8epyqt5%e7%9a%84%e5%ba%94%e7%94%a8%e5%bc%80%e5%8f%91&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;最简单的应用程序=应用进程+窗口组件 
+    &lt;div id=&#34;最简单的应用程序应用进程窗口组件&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e6%9c%80%e7%ae%80%e5%8d%95%e7%9a%84%e5%ba%94%e7%94%a8%e7%a8%8b%e5%ba%8f%e5%ba%94%e7%94%a8%e8%bf%9b%e7%a8%8b%e7%aa%97%e5%8f%a3%e7%bb%84%e4%bb%b6&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PyQt5.QtWidgets &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; QtWidgets
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; sys
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MainWindow&lt;/span&gt;(QtWidgets&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;QMainWindow, QtWidgets&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;QApplication):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;(self, app):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;app &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; app
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        QtWidgets&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;QMainWindow&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;(self)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setWindowTitle(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Demo&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;show()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# 创建应用程序进程&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    app &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; QtWidgets&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;QApplication(sys&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;argv)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# 创建主窗口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    window &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MainWindow(app)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# 主程序开始运行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    app&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;exec_()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;img src=&#34;https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/0.png&#34; alt=&#34;0&#34; style=&#34;zoom: 50%;&#34; /&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;在主窗口中添加组件 
+    &lt;div id=&#34;在主窗口中添加组件&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%9c%a8%e4%b8%bb%e7%aa%97%e5%8f%a3%e4%b8%ad%e6%b7%bb%e5%8a%a0%e7%bb%84%e4%bb%b6&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;添加单个组件 
+    &lt;div id=&#34;添加单个组件&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e6%b7%bb%e5%8a%a0%e5%8d%95%e4%b8%aa%e7%bb%84%e4%bb%b6&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MainWindow&lt;/span&gt;(QtWidgets&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;QMainWindow, QtWidgets&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;QApplication):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;(self, app):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;app &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; app
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        QtWidgets&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;QMainWindow&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;(self)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setWindowTitle(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;MainWindow&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setCentralWidget(QtWidgets&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;QPushButton(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Button&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;show()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;img src=&#34;https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/1.png&#34; alt=&#34;1&#34; style=&#34;zoom:50%;&#34; /&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;添加多个组件 
+    &lt;div id=&#34;添加多个组件&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e6%b7%bb%e5%8a%a0%e5%a4%9a%e4%b8%aa%e7%bb%84%e4%bb%b6&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; PyQt5.QtWidgets &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    QApplication, QMainWindow,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    QPushButton, QSlider, QLabel, QCheckBox, QComboBox, QSpinBox, QDoubleSpinBox,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    QGroupBox, QGridLayout,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    QFileDialog)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; sys
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; PyQt5.QtCore &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Qt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;MainWindow&lt;/span&gt;(QMainWindow, QApplication):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;(self, app):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;app &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; app
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        QMainWindow&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;(self)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setWindowTitle(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;MainWindow&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# define a groupbox&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        box &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; QGroupBox()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        layout &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; QGridLayout()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        layout&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;addWidget(QLabel(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Text&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        layout&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;addWidget(QPushButton(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Press&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        layout&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;addWidget(QCheckBox(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Tick&amp;#34;&lt;/span&gt;), &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        layout&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;addWidget(QComboBox(), &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        layout&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;addWidget(QSpinBox(), &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        layout&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;addWidget(QDoubleSpinBox(), &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        layout&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;addWidget(QSlider(Qt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Horizontal), &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        layout&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;addLayout(QGridLayout(), &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        box&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setLayout(layout)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setCentralWidget(box)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;show()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;img src=&#34;https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/2.png&#34; alt=&#34;2&#34; style=&#34;zoom:50%;&#34; /&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;自定义你的组件 
+    &lt;div id=&#34;自定义你的组件&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e8%87%aa%e5%ae%9a%e4%b9%89%e4%bd%a0%e7%9a%84%e7%bb%84%e4%bb%b6&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;自定义按钮 
+    &lt;div id=&#34;自定义按钮&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e8%87%aa%e5%ae%9a%e4%b9%89%e6%8c%89%e9%92%ae&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;将按钮变成文件选择键 
+    &lt;div id=&#34;将按钮变成文件选择键&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%b0%86%e6%8c%89%e9%92%ae%e5%8f%98%e6%88%90%e6%96%87%e4%bb%b6%e9%80%89%e6%8b%a9%e9%94%ae&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SelectButton&lt;/span&gt;(QPushButton):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;(self, name):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        super()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;(name)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;clicked&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connect(self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;select_file)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;select_file&lt;/span&gt;(self):  &lt;span style=&#34;color:#75715e&#34;&gt;# 选择nii.gz图像文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        filename &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; QFileDialog&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;getOpenFileName(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            self, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Open file&amp;#39;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; filename
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 class=&#34;relative group&#34;&gt;将按钮变成调色板 
+    &lt;div id=&#34;将按钮变成调色板&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%b0%86%e6%8c%89%e9%92%ae%e5%8f%98%e6%88%90%e8%b0%83%e8%89%b2%e6%9d%bf&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ColorButton&lt;/span&gt;(QPushButton):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;(self, color):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        super()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;color &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; color
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setFixedSize(&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        rgb &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;color
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setStyleSheet(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;background-color: rgb(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;)&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;format(rgb[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;], rgb[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;], rgb[&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;]))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;clicked&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connect(&lt;span style=&#34;color:#66d9ef&#34;&gt;lambda&lt;/span&gt;: self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;color_vc())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;color_vc&lt;/span&gt;(self):  &lt;span style=&#34;color:#75715e&#34;&gt;# 改变颜色&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        color &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; QColorDialog&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;getColor()  &lt;span style=&#34;color:#75715e&#34;&gt;# 获取调色板,并返回选择的颜色&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; color&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;isValid():
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            rgb &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; color&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;getRgb()[:&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;color &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; rgb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#75715e&#34;&gt;# 使按钮的颜色变成选择的颜色，以此展示已经选择的颜色&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setStyleSheet(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;background-color: rgb(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;)&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;format(rgb[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;], rgb[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;], rgb[&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;]))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;img src=&#34;https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/3.png&#34; alt=&#34;3&#34; style=&#34;zoom:50%;&#34; /&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;自定义微调框 
+    &lt;div id=&#34;自定义微调框&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e8%87%aa%e5%ae%9a%e4%b9%89%e5%be%ae%e8%b0%83%e6%a1%86&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+
+&lt;h4 class=&#34;relative group&#34;&gt;设置最小值，最大值，步长，默认值 
+    &lt;div id=&#34;设置最小值最大值步长默认值&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e8%ae%be%e7%bd%ae%e6%9c%80%e5%b0%8f%e5%80%bc%e6%9c%80%e5%a4%a7%e5%80%bc%e6%ad%a5%e9%95%bf%e9%bb%98%e8%ae%a4%e5%80%bc&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;SpinBox&lt;/span&gt;(QDoubleSpinBox):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;(self, min_value, max_value, step, default_value, value_changed_func&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        super()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;__init__&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setMaximum(max_value)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setMinimum(min_value)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setSingleStep(step)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;setValue(default_value)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; value_changed_func:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            self&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;valueChanged&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connect(value_changed_func)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 class=&#34;relative group&#34;&gt;基于VTK的三维医学图像可视化 
+    &lt;div id=&#34;基于vtk的三维医学图像可视化&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%9f%ba%e4%ba%8evtk%e7%9a%84%e4%b8%89%e7%bb%b4%e5%8c%bb%e5%ad%a6%e5%9b%be%e5%83%8f%e5%8f%af%e8%a7%86%e5%8c%96&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;基于2D Slice的可视化 
+    &lt;div id=&#34;基于2d-slice的可视化&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%9f%ba%e4%ba%8e2d-slice%e7%9a%84%e5%8f%af%e8%a7%86%e5%8c%96&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; vtk
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;image &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkNIFTIImageReader()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;image&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetFileName(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;./CT_image.nii.gz&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;image&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Update()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lut &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkLookupTable()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lut&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetTableRange(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;255&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lut&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetSaturationRange(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lut&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetHueRange(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lut&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetValueRange(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;lut&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Build()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;color_mapper &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkImageMapToColors()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;color_mapper&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetInputConnection(image&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;GetOutputPort())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;color_mapper&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetLookupTable(lut)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;color_mapper&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Update()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;actor &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkImageActor()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;actor&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;GetMapper()&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetInputConnection(color_mapper&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;GetOutputPort())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;renderer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkRenderer()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;renderer&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AddActor(actor)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;render_window &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkRenderWindow()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;render_window&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AddRenderer(renderer)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;interactor &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkRenderWindowInteractor()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;interactor&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetRenderWindow(render_window)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;interactor&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Start()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;img src=&#34;https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/4.png&#34; alt=&#34;4&#34; style=&#34;zoom:50%;&#34; /&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;基于3D Surface Rendering的可视化 
+    &lt;div id=&#34;基于3d-surface-rendering的可视化&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%9f%ba%e4%ba%8e3d-surface-rendering%e7%9a%84%e5%8f%af%e8%a7%86%e5%8c%96&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; vtk
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reader &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkNIFTIImageReader()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reader&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetFileNameSliceOffset(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reader&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetDataByteOrderToBigEndian()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reader&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetFileName(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;./PET_label.nii.gz&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;extractor &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkDiscreteMarchingCubes()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;extractor&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetInputConnection(reader&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;GetOutputPort())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;extractor&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetValue(&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)  &lt;span style=&#34;color:#75715e&#34;&gt;# 设置提取的等值面&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reducer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkDecimatePro()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reducer&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetInputConnection(extractor&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;GetOutputPort())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reducer&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetTargetReduction(&lt;span style=&#34;color:#ae81ff&#34;&gt;0.5&lt;/span&gt;)  &lt;span style=&#34;color:#75715e&#34;&gt;# magic number&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reducer&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;PreserveTopologyOn()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;smoother &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkSmoothPolyDataFilter()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;smoother&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetInputConnection(reducer&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;GetOutputPort())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;smoother&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetNumberOfIterations(&lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;normals &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkPolyDataNormals()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;normals&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetInputConnection(smoother&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;GetOutputPort())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;normals&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetFeatureAngle(&lt;span style=&#34;color:#ae81ff&#34;&gt;60.0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mapper &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkPolyDataMapper()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mapper&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetInputConnection(normals&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;GetOutputPort())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mapper&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;ScalarVisibilityOff()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;prop &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkProperty()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;prop&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetColor((&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;prop&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetOpacity(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;actor &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkActor()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;actor&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetMapper(mapper)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;actor&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetProperty(prop)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;renderer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkRenderer()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;renderer&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AddActor(actor)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;render_window &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkRenderWindow()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;render_window&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AddRenderer(renderer)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;interactor &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vtk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;vtkRenderWindowInteractor()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;interactor&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SetRenderWindow(render_window)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;interactor&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Start()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;img src=&#34;https://raw.githubusercontent.com/xuzhang0112/pic-repo/main/5.png&#34; alt=&#34;5&#34; style=&#34;zoom:50%;&#34; /&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;使用vtkContourFilter提取等值面 
+    &lt;div id=&#34;使用vtkcontourfilter提取等值面&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e4%bd%bf%e7%94%a8vtkcontourfilter%e6%8f%90%e5%8f%96%e7%ad%89%e5%80%bc%e9%9d%a2&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;设置等值线&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

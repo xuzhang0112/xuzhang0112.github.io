@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Xu Zhang&#39;s Blog</title>
+    <link>https://xuzhang0112.github.io/tags/</link>
+    <description>Recent content in Tags on Xu Zhang&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2025 Xu Zhang</copyright>
+    <lastBuildDate>Fri, 14 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xuzhang0112.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Course</title>
+      <link>https://xuzhang0112.github.io/tags/course/</link>
+      <pubDate>Fri, 14 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/tags/course/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

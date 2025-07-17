@@ -172,6 +172,74 @@
     </item>
     
     <item>
+      <title></title>
+      <link>https://xuzhang0112.github.io/software/leetcode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xuzhang0112.github.io/software/leetcode/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;Leetcode Hot100 
+    &lt;div id=&#34;leetcode-hot100&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#leetcode-hot100&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;哈希表 
+    &lt;div id=&#34;哈希表&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%93%88%e5%b8%8c%e8%a1%a8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;两数之和 
+    &lt;div id=&#34;两数之和&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e4%b8%a4%e6%95%b0%e4%b9%8b%e5%92%8c&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;任务：查找出数组中和为目标的两个数的下标&lt;/p&gt;
+&lt;p&gt;做法：建立字典，存储每个数字和下标，然后遍历进行O(1)查找既可&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;字母异位词分组 
+    &lt;div id=&#34;字母异位词分组&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e5%ad%97%e6%af%8d%e5%bc%82%e4%bd%8d%e8%af%8d%e5%88%86%e7%bb%84&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;任务：将字母组成相同的单词归类&lt;/p&gt;
+&lt;p&gt;做法：遍历，按字母组成存储为键，可以用排序/统计个数来获得键&lt;/p&gt;
+
+&lt;h3 class=&#34;relative group&#34;&gt;最长连续序列 
+    &lt;div id=&#34;最长连续序列&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%e6%9c%80%e9%95%bf%e8%bf%9e%e7%bb%ad%e5%ba%8f%e5%88%97&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;任务：找到数组中最长的连续数字序列，要求o(N)&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>Latex</title>
       <link>https://xuzhang0112.github.io/software/latex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

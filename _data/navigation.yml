@@ -1,0 +1,12 @@
+main:
+  - title: "About"
+    url: "/#about-me"
+
+  - title: "LeetCode"
+    url: "/leetcode/"
+
+  - title: "Linux"
+    url: "/linux/"
+
+  - title: "Python"
+    url: "/python/"

@@ -1,0 +1,56 @@
+<script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var tocSource = document.querySelector("[data-toc-source]");
+    var tocMenu = document.querySelector("[data-toc-menu]");
+
+    if (!tocSource || !tocMenu) {
+      return;
+    }
+
+    var headings = tocSource.querySelectorAll("h2[id], h3[id]");
+    if (!headings.length) {
+      var tocSidebar = document.querySelector(".page__toc-sidebar");
+      if (tocSidebar) {
+        tocSidebar.hidden = true;
+      }
+      return;
+    }
+
+    var currentH2Item = null;
+    var currentH2List = null;
+
+    headings.forEach(function (heading) {
+      var tagName = heading.tagName.toLowerCase();
+      var listItem = document.createElement("li");
+      var link = document.createElement("a");
+
+      link.href = "#" + heading.id;
+      link.textContent = heading.textContent.trim();
+      listItem.appendChild(link);
+
+      if (tagName === "h2") {
+        tocMenu.appendChild(listItem);
+        currentH2Item = listItem;
+        currentH2List = null;
+        return;
+      }
+
+      if (!currentH2Item) {
+        tocMenu.appendChild(listItem);
+        return;
+      }
+
+      if (!currentH2List) {
+        currentH2List = document.createElement("ul");
+        currentH2Item.appendChild(currentH2List);
+      }
+
+      currentH2List.appendChild(listItem);
+    });
+  });
+</script>
+
+{% include analytics.html %}
+{% include fetch_google_scholar_stats.html %}

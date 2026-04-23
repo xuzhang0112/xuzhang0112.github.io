@@ -1,0 +1,43 @@
+---
+layout: compress
+---
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+  </head>
+
+  <body>
+
+    {% include browser-upgrade.html %}
+    {% include masthead.html %}
+
+    <div id="main" role="main">
+      {% include sidebar.html %}
+    
+      <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+        {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+        <div class="page__inner-wrap{% if page.toc %} page__inner-wrap--with-toc{% endif %}">
+          <section class="page__content" itemprop="text"{% if page.toc %} data-toc-source{% endif %}>
+            {{ content }}
+          </section>
+          {% if page.toc %}
+          <aside class="sidebar__right sticky page__toc-sidebar">
+            <nav class="toc" aria-label="Table of contents">
+              <header class="nav__title">
+                <i class="fas fa-list" aria-hidden="true"></i> 目录
+              </header>
+              <ul class="toc__menu" data-toc-menu></ul>
+            </nav>
+          </aside>
+          {% endif %}
+        </div>
+      </article>
+    </div>
+
+    {% include scripts.html %}
+
+  </body>
+</html>

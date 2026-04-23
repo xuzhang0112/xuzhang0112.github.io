@@ -1,0 +1,20 @@
+homepage.layout = "profile"
+homepage.showRecent = false
+homepage.cardView = true
+
+mainSections = ["software", "research"]
+
+
+list.groupByYear = false
+list.cardView = true
+# list.showSummary = true
+
+article.showAuthor = false
+# article.showDate = true
+article.showReadingTime = false
+article.showWordCount = false
+article.showDate = false
+article.showViews = false
+article.showBreadcrumbs = true
+article.showTaxonomies = true
+# article.showLikes = false

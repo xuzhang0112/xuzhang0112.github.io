@@ -1,0 +1,33 @@
+[[main]]
+name = "Tips"
+pageRef = ""
+weight = 10
+
+[[main]]
+name = "CheatSheet"
+parent = "Tips"
+pageRef = "software/cheatsheet"
+weight = 101
+
+[[main]]
+name = "Python"
+parent = "Tips"
+pageRef = "software/python"
+weight = 102
+
+[[main]]
+name = "Course"
+parent = "Tips"
+pageRef = "course"
+weight = 103
+
+[[main]]
+name = "LeetCode100"
+parent = "Tips"
+pageRef = "software/leetcode"
+weight = 104
+
+[[main]]
+name = "About Me"
+pageRef = "cv"
+weight = 40

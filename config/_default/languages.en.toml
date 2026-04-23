@@ -1,0 +1,14 @@
+title = "Xu Zhang's Blog"
+[params.author]
+links = [
+    { graduation-cap = "https://scholar.google.com/citations?user=6-NiSKYAAAAJ&hl=zh-CN" },
+    { github = "https://github.com/xuzhang0112" },
+    { leetcode = "https://leetcode.cn/u/xuzhang0112/"},
+    { zhihu = "https://www.zhihu.com/people/xuzhang0112" },
+    { bilibili = "https://space.bilibili.com/456489591" },
+    # { email = "xu_zhang@mail.ustc.edu.cn" },
+]
+name = "Xu Zhang"
+image = "img/zx.jpg"
+# headline = "Bitchy, lazy & stupid"
+# bio = "A little bit about me"

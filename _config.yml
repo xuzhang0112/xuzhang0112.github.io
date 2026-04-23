@@ -7,7 +7,6 @@
 
 # Site Settings
 title                    : "Xu Zhang"
-description              : "PhD student at USTC, NLP"
 repository               : "xuzhang0112/xuzhang0112.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,9 +22,9 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Xu Zhang"
   avatar           : "images/zx.jpg"
-  bio              : "PhD Student, BME School, USTC"
-  location         : "Hefei, China"
-  employer         : "USTC"
+  bio              : "PhD student at USTC, NLP"
+  location         : "Suzhou, China"
+  employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=6-NiSKYAAAAJ&hl=zh-CN"
   email            :
@@ -130,24 +129,6 @@ defaults:
     values:
       layout: default
       author_profile: true
-
-  - scope:
-      path: "_pages/leetcode.md"
-    values:
-      title: "LeetCode Hot100"
-      permalink: /leetcode/
-
-  - scope:
-      path: "_pages/python.md"
-    values:
-      title: "Python"
-      permalink: /python/
-
-  - scope:
-      path: "_pages/cheatsheet.md"
-    values:
-      title: "CheatSheet"
-      permalink: /cheatsheet/
 
 
 # Sass/SCSS
